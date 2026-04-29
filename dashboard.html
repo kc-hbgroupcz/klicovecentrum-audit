@@ -436,8 +436,12 @@
         <option value="both">🔀 Oba segmenty</option>
       </select>
     </div>
-    <div style="font-size:11px;color:#64748b;align-self:flex-end;padding-bottom:8px">
+    <div style="font-size:11px;color:#64748b;align-self:flex-end;padding-bottom:8px;max-width:340px;line-height:1.5">
       Aktivní: <span id="activeFilterDisplay" style="color:#cbd5e1;font-weight:600">Audit 7M · B2C</span>
+      <div style="color:#475569;margin-top:2px;font-size:10px">
+        Filter aktivní pro: 👥 <strong>Top zákazníci</strong> (segment) · 📅 <strong>3-letý přehled</strong> (period)<br>
+        Ostatní views jsou audit period 10/2025-04/2026 (data pro jiné období dnes nejsou v ERP per den)
+      </div>
     </div>
   </div>
 
@@ -459,8 +463,8 @@
     </div>
     <div class="kpi-card">
       <div class="kpi-label">Skutečný obrat 7M (ERP + Alza)</div>
-      <div class="kpi-value kpi-positive">1,30 M Kč</div>
-      <div class="kpi-sub">ERP 1,17 M + Alza 129 k · bez DPH · SQL ověřuje 1 398 obj. CZ B2C</div>
+      <div class="kpi-value kpi-positive"><span data-live="real-revenue-m">1,30 M</span> Kč</div>
+      <div class="kpi-sub">ERP <span data-live="erp-revenue-m">1,17 M</span> + Alza 129 k · bez DPH · SQL ověřuje <span data-live="sql-orders">1 398</span> obj. CZ B2C</div>
     </div>
   </div>
 </header>
@@ -550,8 +554,8 @@
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:12px">
       <div class="metric-box" style="background:rgba(16,185,129,0.12);border-color:#10b981">
         <div class="metric-label">ERP obrat (účetní)</div>
-        <div class="metric-value" style="color:#10b981">1 170 741 Kč</div>
-        <div style="color:#64748b;font-size:11px">bez DPH · zisk 692 431 · marže 59,1 %</div>
+        <div class="metric-value" style="color:#10b981"><span data-live="erp-revenue">1 170 741</span> Kč</div>
+        <div style="color:#64748b;font-size:11px">bez DPH · zisk <span data-live="erp-profit">692 431</span> · marže <span data-live="erp-margin">59,1 %</span></div>
       </div>
       <div class="metric-box" style="background:rgba(245,158,11,0.08);border-color:#f59e0b">
         <div class="metric-label">Alza marketplace</div>
@@ -560,13 +564,13 @@
       </div>
       <div class="metric-box" style="background:rgba(16,185,129,0.2);border-color:#10b981;border-width:2px">
         <div class="metric-label">✅ Skutečný obrat (ERP + Alza)</div>
-        <div class="metric-value" style="color:#10b981">1 300 172 Kč</div>
+        <div class="metric-value" style="color:#10b981"><span data-live="real-revenue">1 300 172</span> Kč</div>
         <div style="color:#64748b;font-size:11px">bez DPH · 7 měsíců · extrapolace ~2,23 M/rok</div>
       </div>
       <div class="metric-box" style="background:rgba(59,130,246,0.08);border-color:#3b82f6">
         <div class="metric-label">SQL cross-check</div>
-        <div class="metric-value" style="color:#93c5fd">1 398 obj.</div>
-        <div style="color:#64748b;font-size:11px">kosik web_id=1 · 1 383 208 Kč · +15 % vs ERP</div>
+        <div class="metric-value" style="color:#93c5fd"><span data-live="sql-orders">1 398</span> obj.</div>
+        <div style="color:#64748b;font-size:11px">kosik web_id=1 · <span data-live="sql-revenue-excl">1 383 208</span> Kč · +15 % vs ERP</div>
       </div>
     </div>
     <div style="margin-top:12px;color:#cbd5e1;font-size:12px;background:rgba(0,0,0,0.2);padding:10px;border-radius:6px">
@@ -639,7 +643,7 @@
           </tr>
           <tr style="background:rgba(16,185,129,0.08);border-top:2px solid #10b981">
             <td><strong style="color:#10b981">SQL B2C kosik (realita)</strong></td>
-            <td class="num"><strong style="color:#10b981">1 398</strong></td>
+            <td class="num"><strong style="color:#10b981"><span data-live="sql-orders">1 398</span></strong></td>
             <td style="font-size:12px">Všechny unikátní objednávky z web_id=1 (ground truth)</td>
             <td style="font-size:12px;color:#94a3b8">Jediný nezkreslený zdroj — přímo z databáze e-shopu</td>
           </tr>
@@ -660,14 +664,14 @@
           </tr>
           <tr>
             <td>ERP (účetní systém)</td>
-            <td class="num">1 170 741 Kč</td>
-            <td style="font-size:12px">2 567 prodejních řádků MO e-shop</td>
+            <td class="num"><span data-live="erp-revenue">1 170 741</span> Kč</td>
+            <td style="font-size:12px"><span data-live="erp-lines">2 567</span> prodejních řádků MO e-shop</td>
             <td style="font-size:12px;color:#94a3b8">Účetní pravda bez DPH, ne unikátní objednávky</td>
           </tr>
           <tr style="background:rgba(16,185,129,0.08);border-top:2px solid #10b981">
             <td><strong style="color:#10b981">ERP + Alza (skutečný obrat)</strong></td>
-            <td class="num"><strong style="color:#10b981">1 300 172 Kč</strong></td>
-            <td style="font-size:12px">ERP 1 170 741 + Alza 129 431 · všechny CZ kanály</td>
+            <td class="num"><strong style="color:#10b981"><span data-live="real-revenue">1 300 172</span> Kč</strong></td>
+            <td style="font-size:12px">ERP <span data-live="erp-revenue">1 170 741</span> + Alza <span data-live="alza-revenue">129 431</span> · všechny CZ kanály</td>
             <td style="font-size:12px;color:#94a3b8">Kompletní obchodní realita (bez B2B hbgroup.cz a SK)</td>
           </tr>
         </tbody>
@@ -1077,7 +1081,7 @@
 </section>
 
 <!-- ═══════════════ TOP 20 B2B ZÁKAZNÍKŮ ═══════════════ -->
-<section id="topb2b-view" class="view-section hidden">
+<section id="topcustomers-view" class="view-section hidden">
   <div class="chart-card">
     <h3 id="topcust-title">👥 Top zákazníci</h3>
     <p style="color:#94a3b8;font-size:13px;margin-bottom:14px" id="topcust-subtitle">
@@ -2142,7 +2146,7 @@ function showView(view) {
   document.getElementById('journeys-view').classList.toggle('hidden', view !== 'journeys');
   document.getElementById('competitors-view').classList.toggle('hidden', view !== 'competitors');
   document.getElementById('yearly-view').classList.toggle('hidden', view !== 'yearly');
-  document.getElementById('topb2b-view').classList.toggle('hidden', view !== 'topcustomers');
+  document.getElementById('topcustomers-view').classList.toggle('hidden', view !== 'topcustomers');
   document.getElementById('returns_detail-view').classList.toggle('hidden', view !== 'returns_detail');
 }
 
@@ -4042,6 +4046,45 @@ function updateCounts() {
 
 updateCounts();
 render();
+
+// ─── CENTRALIZED LIVE NUMBERS INIT ─────────────────────────────
+// Naplní všechny <span data-live="..."> z kpi_breakdown.json + b2b_isolation.json
+// Eliminuje 22 hardcoded duplicit (1 170 741, 1 300 172, 1 398, ...)
+async function populateLiveNumbers() {
+  try {
+    const [kpi, b2b, customer] = await Promise.all([
+      fetch('data/kpi_breakdown.json?v='+Date.now()).then(r=>r.json()),
+      fetch('data/b2b_isolation.json?v='+Date.now()).then(r=>r.json()),
+      fetch('data/customer_metrics.json?v='+Date.now()).then(r=>r.json()),
+    ]);
+    const erp = kpi.erp_mo_eshop.total;
+    const alza = kpi.alza_marketplace.total;
+    const sql = kpi.sql_ground_truth_b2c.total;
+    const real_revenue = erp.revenue_excl + alza.revenue_excl;
+    const fmt = n => Number(n).toLocaleString('cs-CZ');
+
+    const numbers = {
+      'erp-revenue': fmt(erp.revenue_excl),
+      'erp-revenue-m': (erp.revenue_excl/1e6).toFixed(2).replace('.', ',') + ' M',
+      'erp-profit': fmt(erp.profit),
+      'erp-margin': erp.margin_pct + ' %',
+      'erp-lines': fmt(erp.sales_lines),
+      'alza-revenue': fmt(alza.revenue_excl),
+      'alza-orders': fmt(alza.orders),
+      'real-revenue': fmt(real_revenue),
+      'real-revenue-m': (real_revenue/1e6).toFixed(2).replace('.', ',') + ' M',
+      'sql-orders': fmt(sql.orders),
+      'sql-revenue-excl': fmt(sql.revenue_excl),
+      'sql-customers': fmt(customer.totals.unique_customers),
+      'ltv-erp': fmt(customer.ltv_erp ? customer.ltv_erp.avg_kc : '—'),
+    };
+    Object.entries(numbers).forEach(([k, v]) => {
+      document.querySelectorAll(`[data-live="${k}"]`).forEach(el => el.textContent = v);
+    });
+    console.log('✓ populateLiveNumbers OK', numbers);
+  } catch(e) { console.warn('populateLiveNumbers selhalo:', e); }
+}
+populateLiveNumbers();
 </script>
 </body>
 </html>
