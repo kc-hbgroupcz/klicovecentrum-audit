@@ -28,7 +28,7 @@
         "count": 5
       }
     },
-    "Sklik+Zboží": {
+    "Sklik": {
       "RTG": {
         "spend": 4026.88,
         "clicks": 1689,
@@ -45,14 +45,6 @@
         "value": 40468.0,
         "count": 1
       },
-      "PRODUCT": {
-        "spend": 30541.71,
-        "clicks": 5427,
-        "impressions": 232075,
-        "conversions": 0.0,
-        "value": 0.0,
-        "count": 1
-      },
       "LOCAL": {
         "spend": 13445.829999999998,
         "clicks": 4068,
@@ -65,6 +57,16 @@
         "spend": 126.0,
         "clicks": 126,
         "impressions": 19568,
+        "conversions": 0.0,
+        "value": 0.0,
+        "count": 1
+      }
+    },
+    "Zboží.cz": {
+      "PRODUCT": {
+        "spend": 30541.71,
+        "clicks": 5427,
+        "impressions": 232075,
         "conversions": 0.0,
         "value": 0.0,
         "count": 1
@@ -350,33 +352,22 @@
       "note": "Z agenturního Looker reportu (audit period). Konverze obsahují micro-events — finding #1."
     },
     {
-      "channel": "Sklik + Zboží.cz (celkem)",
-      "spend_kc": 49834,
-      "orders": 70,
-      "revenue_kc": 45607,
-      "aov_kc": 652,
-      "cost_per_order_kc": 712,
-      "note": "Seznam.cz portfolio — sloučený kanál. Naše měření z campaigns.json. Detail rozpadu v dalších 2 řádcích."
-    },
-    {
-      "channel": "├─ Sklik (vyhledávání + display)",
+      "channel": "Sklik (vyhledávání + display)",
       "spend_kc": 19292,
       "orders": 70,
       "revenue_kc": 45607,
       "aov_kc": 652,
       "cost_per_order_kc": 276,
-      "is_subchannel": true,
       "note": "🟢 ROAS 2,36× zdravé · search + display + brand + RTG. 14 kampaní (z toho 1 brand · 4 lokální · 4 RTG · 5 ostatní)."
     },
     {
-      "channel": "└─ Zboží.cz",
+      "channel": "Zboží.cz",
       "spend_kc": 30542,
       "orders": 0,
       "revenue_kc": 0,
       "aov_kc": null,
       "cost_per_order_kc": null,
-      "is_subchannel": true,
-      "note": "🔴 ROAS 0 (62 % spendu Skliku!) · 1 product comparison kampaň · OCM tracking rozbitý — finding #18-#20."
+      "note": "🔴 ROAS 0 · 1 product comparison kampaň · OCM tracking rozbitý — finding #18-#20."
     },
     {
       "channel": "Heuréka",

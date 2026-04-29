@@ -286,6 +286,45 @@
 
   .hidden { display: none !important; }
 
+  /* ── PER-VIEW FILTER + KPI PANEL ── */
+  .view-filter-card {
+    background: linear-gradient(135deg, rgba(30,41,59,0.8), rgba(15,23,42,0.6));
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 18px;
+  }
+  .view-filter-row {
+    display: flex; gap: 14px; align-items: flex-end; flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+  .view-filter-row select {
+    padding: 8px 12px; background: #1e293b; color: #f8fafc;
+    border: 1px solid #334155; border-radius: 6px; font-size: 14px; min-width: 220px;
+  }
+  .view-filter-row label {
+    font-size: 11px; color: #94a3b8; text-transform: uppercase;
+    letter-spacing: .05em; display: block; margin-bottom: 4px;
+  }
+  .view-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+  }
+  .view-kpi-card {
+    background: rgba(15,23,42,0.6); border: 1px solid #334155;
+    border-radius: 8px; padding: 12px 14px;
+  }
+  .view-kpi-card .label { font-size: 11px; color: #94a3b8; text-transform: uppercase; letter-spacing: .05em; }
+  .view-kpi-card .value { font-size: 22px; font-weight: 700; color: #f1f5f9; margin-top: 4px; }
+  .view-kpi-card .sub { font-size: 11px; color: #64748b; margin-top: 4px; }
+  .view-kpi-card.positive { background: rgba(16,185,129,0.10); border-color: #10b981; }
+  .view-kpi-card.positive .value { color: #4ade80; }
+  .view-kpi-card.warning { background: rgba(251,191,36,0.10); border-color: #fbbf24; }
+  .view-kpi-card.warning .value { color: #fcd34d; }
+  .view-kpi-card.negative { background: rgba(239,68,68,0.08); border-color: #ef4444; }
+  .view-kpi-card.negative .value { color: #fca5a5; }
+
   /* ── BATTLECARDS (Konkurence) ── */
   .battlecards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 16px; }
   .battlecard { background: rgba(15,23,42,.6); border: 1px solid #334155; border-radius: 10px; padding: 18px; }
@@ -417,35 +456,12 @@
   <h1>🔍 Audit klicovecentrum.cz — Nápravný plán</h1>
   <div class="subtitle" id="subtitle">Období: <span data-period-label>říjen 2025 – duben 2026</span> · 40 identifikovaných nálezů · Prioritizovaný plán s odhadem dopadu</div>
 
-  <div class="header-filters" style="display:flex;gap:14px;margin:14px 0 6px;align-items:center;flex-wrap:wrap">
-    <div style="display:flex;flex-direction:column;gap:4px">
-      <label style="font-size:11px;color:#94a3b8;text-transform:uppercase;letter-spacing:.05em">Období</label>
-      <select id="periodFilter" onchange="applyFilters()" style="padding:8px 12px;background:#1e293b;color:#f8fafc;border:1px solid #334155;border-radius:6px;font-size:14px;min-width:240px">
-        <option value="audit_7m">📅 Audit 7M (10/2025 – 04/2026)</option>
-        <option value="2025">📊 2025 (celý rok)</option>
-        <option value="2024">📊 2024</option>
-        <option value="2023">📊 2023</option>
-        <option value="3y">📈 3-letý přehled (2023–2025)</option>
-      </select>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:4px">
-      <label style="font-size:11px;color:#94a3b8;text-transform:uppercase;letter-spacing:.05em">Segment</label>
-      <select id="segmentFilter" onchange="applyFilters()" style="padding:8px 12px;background:#1e293b;color:#f8fafc;border:1px solid #334155;border-radius:6px;font-size:14px;min-width:240px">
-        <option value="b2c">🛒 B2C E-shop MO (klicovecentrum.cz)</option>
-        <option value="b2b">🏢 B2B Velkoobchod (VO)</option>
-        <option value="both">🔀 Oba segmenty</option>
-      </select>
-    </div>
-    <div style="font-size:11px;color:#64748b;align-self:flex-end;padding-bottom:8px;max-width:340px;line-height:1.5">
-      Aktivní: <span id="activeFilterDisplay" style="color:#cbd5e1;font-weight:600">Audit 7M · B2C</span>
-      <div style="color:#475569;margin-top:2px;font-size:10px">
-        Filter aktivní pro: 👥 <strong>Top zákazníci</strong> (segment) · 📅 <strong>3-letý přehled</strong> (period)<br>
-        Ostatní views jsou audit period 10/2025-04/2026 (data pro jiné období dnes nejsou v ERP per den)
-      </div>
-    </div>
-  </div>
+<!-- Globální filter odstraněn — nyní je filter inline v každé záložce počínaje 3-letým přehledem.
+     Hidden inputs zachovány pro JS state propagaci -->
+  <input type="hidden" id="periodFilter" value="audit_7m">
+  <input type="hidden" id="segmentFilter" value="b2c">
 
-  <div class="kpi-grid">
+  <div class="kpi-grid" id="header-audit-kpi">
     <div class="kpi-card">
       <div class="kpi-label">Odhadovaný roční dopad nápravy</div>
       <div class="kpi-value kpi-positive">+1,1 M Kč</div>
@@ -502,6 +518,23 @@
 <main id="findings"></main>
 
 <section id="campaigns-view" class="view-section hidden">
+  <div class="view-filter-card" data-view-filter="campaigns">
+    <div class="view-filter-row">
+      <div>
+        <label>Období</label>
+        <select class="view-period" data-target="campaigns">
+          <option value="audit_7m">📅 Audit 7M (10/2025-04/2026)</option>
+        </select>
+      </div>
+      <div>
+        <label>Segment</label>
+        <select class="view-segment" data-target="campaigns">
+          <option value="b2c">🛒 B2C E-shop MO (klicovecentrum.cz)</option>
+        </select>
+      </div>
+    </div>
+    <div class="view-kpi-grid" id="campaigns-kpi-bar"></div>
+  </div>
   <div class="chart-card">
     <h3>📊 Výkon kampaní dle kategorie a kanálu</h3>
     <div class="data-filters">
@@ -549,6 +582,26 @@
 </section>
 
 <section id="kpi-view" class="view-section hidden">
+  <div class="view-filter-card" data-view-filter="kpi">
+    <div class="view-filter-row">
+      <div>
+        <label>Období</label>
+        <select class="view-period" data-target="kpi">
+          <option value="audit_7m">📅 Audit 7M (10/2025-04/2026)</option>
+          <option value="2025">📊 2025 celý rok</option>
+        </select>
+      </div>
+      <div>
+        <label>Segment</label>
+        <select class="view-segment" data-target="kpi">
+          <option value="b2c">🛒 B2C E-shop MO</option>
+          <option value="b2b">🏢 B2B Velkoobchod</option>
+          <option value="both">🔀 Oba</option>
+        </select>
+      </div>
+    </div>
+    <div class="view-kpi-grid" id="kpi-kpi-bar"></div>
+  </div>
   <div class="chart-card" style="background:rgba(16,185,129,0.08);border:2px solid #10b981">
     <h3 style="color:#10b981">✅ ZDROJ PRAVDY — audit period 7 měsíců (2025-10 až 2026-04)</h3>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:12px">
@@ -816,6 +869,23 @@
 </section>
 
 <section id="regions-view" class="view-section hidden">
+  <div class="view-filter-card" data-view-filter="regions">
+    <div class="view-filter-row">
+      <div>
+        <label>Období</label>
+        <select class="view-period" data-target="regions">
+          <option value="audit_7m">📅 Audit 7M (Google Ads Geo + ERP-aligned)</option>
+        </select>
+      </div>
+      <div>
+        <label>Segment</label>
+        <select class="view-segment" data-target="regions">
+          <option value="b2c">🛒 B2C E-shop MO</option>
+        </select>
+      </div>
+    </div>
+    <div class="view-kpi-grid" id="regions-kpi-bar"></div>
+  </div>
   <div class="chart-card">
     <h3>🗺️ Výkon kampaní podle krajů (audit 7 měsíců)</h3>
     <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
@@ -867,6 +937,23 @@
 </section>
 
 <section id="journeys-view" class="view-section hidden">
+  <div class="view-filter-card" data-view-filter="journeys">
+    <div class="view-filter-row">
+      <div>
+        <label>Období</label>
+        <select class="view-period" data-target="journeys">
+          <option value="audit_7m">📅 Audit 7M (GA4 funnel + last-click)</option>
+        </select>
+      </div>
+      <div>
+        <label>Segment</label>
+        <select class="view-segment" data-target="journeys">
+          <option value="b2c">🛒 B2C E-shop MO</option>
+        </select>
+      </div>
+    </div>
+    <div class="view-kpi-grid" id="journeys-kpi-bar"></div>
+  </div>
   <div class="chart-card">
     <h3>🔀 Konverzní trasy — analýza customer journey</h3>
     <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
@@ -1016,6 +1103,28 @@
 
 <!-- ═══════════════ 3-LETÝ PŘEHLED ═══════════════ -->
 <section id="yearly-view" class="view-section hidden">
+  <div class="view-filter-card" data-view-filter="yearly">
+    <div class="view-filter-row">
+      <div>
+        <label>Období</label>
+        <select class="view-period" data-target="yearly">
+          <option value="3y">📈 3-letý přehled (2023-2025)</option>
+          <option value="2025">📊 2025</option>
+          <option value="2024">📊 2024</option>
+          <option value="2023">📊 2023</option>
+        </select>
+      </div>
+      <div>
+        <label>Segment</label>
+        <select class="view-segment" data-target="yearly">
+          <option value="both">🔀 Oba segmenty (E-shop MO + VO)</option>
+          <option value="b2c">🛒 B2C E-shop MO</option>
+          <option value="b2b">🏢 B2B Velkoobchod</option>
+        </select>
+      </div>
+    </div>
+    <div class="view-kpi-grid" id="yearly-kpi-bar"></div>
+  </div>
   <div class="chart-card">
     <h3>📅 3-letý přehled — H&B Group celkový obrat 2023-2025</h3>
     <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
@@ -1082,6 +1191,24 @@
 
 <!-- ═══════════════ TOP 20 B2B ZÁKAZNÍKŮ ═══════════════ -->
 <section id="topcustomers-view" class="view-section hidden">
+  <div class="view-filter-card" data-view-filter="topcustomers">
+    <div class="view-filter-row">
+      <div>
+        <label>Období</label>
+        <select class="view-period" data-target="topcustomers">
+          <option value="2025">📊 2025 (jediný s denní granularitou)</option>
+        </select>
+      </div>
+      <div>
+        <label>Segment</label>
+        <select class="view-segment" data-target="topcustomers">
+          <option value="b2c">🛒 B2C E-shop MO</option>
+          <option value="b2b" selected>🏢 B2B Velkoobchod</option>
+        </select>
+      </div>
+    </div>
+    <div class="view-kpi-grid" id="topcustomers-kpi-bar"></div>
+  </div>
   <div class="chart-card">
     <h3 id="topcust-title">👥 Top zákazníci</h3>
     <p style="color:#94a3b8;font-size:13px;margin-bottom:14px" id="topcust-subtitle">
@@ -1126,6 +1253,26 @@
 
 <!-- ═══════════════ VRATKY & POŠTOVNÉ DETAIL ═══════════════ -->
 <section id="returns_detail-view" class="view-section hidden">
+  <div class="view-filter-card" data-view-filter="returns_detail">
+    <div class="view-filter-row">
+      <div>
+        <label>Období</label>
+        <select class="view-period" data-target="returns_detail">
+          <option value="2025">📊 2025 (vratky)</option>
+          <option value="3y">📈 3 roky (poštovné)</option>
+        </select>
+      </div>
+      <div>
+        <label>Segment</label>
+        <select class="view-segment" data-target="returns_detail">
+          <option value="both">🔀 Oba (MO + VO)</option>
+          <option value="b2c">🛒 B2C MO</option>
+          <option value="b2b">🏢 B2B VO</option>
+        </select>
+      </div>
+    </div>
+    <div class="view-kpi-grid" id="returns_detail-kpi-bar"></div>
+  </div>
   <div class="chart-card">
     <h3>📦 Vratky 2025 — MO vs VO</h3>
     <div class="metrics-grid" id="returns-summary-grid"></div>
@@ -1258,6 +1405,26 @@
 </section>
 
 <section id="products-view" class="view-section hidden">
+  <div class="view-filter-card" data-view-filter="products">
+    <div class="view-filter-row">
+      <div>
+        <label>Období</label>
+        <select class="view-period" data-target="products">
+          <option value="audit_7m">📅 Audit 7M (3 197 SKU napříč 5 kanály)</option>
+          <option value="2025">📊 2025 celý rok (yearly trend top SKU)</option>
+        </select>
+      </div>
+      <div>
+        <label>Segment</label>
+        <select class="view-segment" data-target="products">
+          <option value="b2c">🛒 B2C E-shop MO</option>
+          <option value="b2b">🏢 B2B Velkoobchod</option>
+          <option value="both">🔀 Oba</option>
+        </select>
+      </div>
+    </div>
+    <div class="view-kpi-grid" id="products-kpi-bar"></div>
+  </div>
   <div class="chart-card" id="shipping-box" style="background:rgba(245,158,11,0.08);border-color:#f59e0b"></div>
 
   <div class="chart-card">
@@ -4046,6 +4213,152 @@ function updateCounts() {
 
 updateCounts();
 render();
+
+// ─── PER-VIEW FILTER STATE + KPI POPULATE ───────────────────
+window.viewState = {
+  yearly:        {period: '3y',       segment: 'both'},
+  topcustomers:  {period: '2025',     segment: 'b2b'},
+  returns_detail:{period: '2025',     segment: 'both'},
+  campaigns:     {period: 'audit_7m', segment: 'b2c'},
+  products:      {period: 'audit_7m', segment: 'b2c'},
+  kpi:           {period: 'audit_7m', segment: 'b2c'},
+  regions:       {period: 'audit_7m', segment: 'b2c'},
+  journeys:      {period: 'audit_7m', segment: 'b2c'},
+};
+
+document.querySelectorAll('.view-period, .view-segment').forEach(sel => {
+  sel.addEventListener('change', e => {
+    const target = e.target.dataset.target;
+    const kind = e.target.classList.contains('view-period') ? 'period' : 'segment';
+    window.viewState[target][kind] = e.target.value;
+    populateViewKpi(target);
+    // Re-render aktivního viewu pokud je to current
+    const fnMap = {yearly:'loadYearly',topcustomers:'loadTopCustomers',
+                   returns_detail:'loadReturnsDetail',campaigns:'loadCampaigns',
+                   products:'loadProducts',kpi:'loadKpi',regions:'loadRegions',
+                   journeys:'loadJourneys'};
+    const fn = window[fnMap[target]];
+    if (fn) fn();
+  });
+});
+
+async function populateViewKpi(view) {
+  const fmt = n => n==null?'—':Number(n).toLocaleString('cs-CZ');
+  const state = window.viewState[view] || {};
+  const grid = document.getElementById(`${view}-kpi-bar`);
+  if (!grid) return;
+  let cards = [];
+  try {
+    if (view === 'yearly') {
+      const yt = await fetch('data/yearly_trend.json?v='+Date.now()).then(r=>r.json());
+      const seg = state.segment;
+      if (state.period === '3y') {
+        const y2025 = yt.years.find(y=>y.year===2025);
+        const tot = yt.years.reduce((a,y)=>a+y.revenue_total, 0);
+        const prof = yt.years.reduce((a,y)=>a+y.profit_total, 0);
+        cards = [
+          {label:'Obrat 2023-2025', value:fmt(tot)+' Kč', sub:'celkový H&B Group 3 roky', cls:'positive'},
+          {label:'Zisk 3 roky', value:fmt(prof)+' Kč', sub:`marže ${y2025.margin_pct} %`, cls:'positive'},
+          {label:'YoY 2025', value:(y2025.yoy.revenue_pct>0?'+':'')+y2025.yoy.revenue_pct+' %', sub:'obrat vs 2024', cls: y2025.yoy.revenue_pct>0?'positive':'warning'},
+          {label:'SKU 2025', value:fmt(y2025.skus_with_sales), sub:'aktivní s prodejem'},
+          {label:'Vratky 2025', value:y2025.returns_pct+' %', sub:fmt(y2025.returns_kc)+' Kč', cls:'warning'},
+        ];
+      } else {
+        const yr = yt.years.find(y => y.year === parseInt(state.period));
+        if (yr) {
+          const segData = yr.segments[seg === 'b2c' ? 'eshop_mo' : seg === 'b2b' ? 'vo' : 'mo_total'] || {revenue_kc:yr.revenue_total, qty:yr.qty_total};
+          const segLabel = seg==='b2c'?'B2C E-shop MO':seg==='b2b'?'B2B VO':'Oba (MO total)';
+          cards = [
+            {label:`Obrat ${yr.year} (${segLabel})`, value:fmt(segData.revenue_kc), sub:'Kč', cls:'positive'},
+            {label:'Celkový obrat firmy', value:fmt(yr.revenue_total)+' Kč', sub:`marže ${yr.margin_pct} %`},
+            {label:'Zisk celkem', value:fmt(yr.profit_total)+' Kč', sub:'H&B Group', cls:'positive'},
+            {label:'YoY', value:yr.yoy?(yr.yoy.revenue_pct>0?'+':'')+yr.yoy.revenue_pct+' %':'—', sub:'obrat vs minulý rok', cls: yr.yoy && yr.yoy.revenue_pct>0?'positive':'warning'},
+            {label:'Aktivních SKU', value:fmt(yr.skus_with_sales)},
+          ];
+        }
+      }
+    } else if (view === 'topcustomers') {
+      const tc = await fetch('data/top_customers.json?v='+Date.now()).then(r=>r.json());
+      const seg = state.segment === 'b2b' ? 'B2B' : 'B2C';
+      const d = tc[seg];
+      const total = seg==='B2B'?d.total_revenue_kc:d.named_revenue_kc;
+      cards = [
+        {label:`${seg} obrat 2025`, value:fmt(total)+' Kč', sub:`${seg==='B2B'?d.total_orders:d.named_orders} obj.`, cls:'positive'},
+        {label:'Unikátních zákazníků', value:fmt(d.unique_customers_after_dedup), sub:`po fuzzy dedup z ${d.raw_unique_names||'—'}`},
+        {label:'Top 5 share', value:(d.pareto.top_5_share_pct||0)+' %', sub:'obratu', cls:'warning'},
+        {label:'Top 20 share', value:(d.pareto.top_20_share_pct||0)+' %', sub:'obratu', cls:'warning'},
+        ...(seg==='B2C' ? [{label:'Anonym pokladenský', value:d.anonymous_share_pct+' %', sub:fmt(d.anonymous_pos_orders)+' obj.', cls:'warning'}] : []),
+      ];
+    } else if (view === 'returns_detail') {
+      const rd = await fetch('data/returns_detail.json?v='+Date.now()).then(r=>r.json());
+      const p3y = await fetch('data/postage_3y.json?v='+Date.now()).then(r=>r.json());
+      const cur = p3y.years[p3y.years.length-1];
+      const seg = state.segment;
+      const segData = seg==='b2c'?rd.summary.MO : seg==='b2b'?rd.summary.VO : null;
+      if (state.period === '3y') {
+        const total3y = p3y.years.reduce((a,y)=>a+y.total_postage_revenue_kc, 0);
+        cards = [
+          {label:'Poštovné 3 roky (obrat)', value:fmt(total3y)+' Kč', sub:'2023+2024+2025', cls:'positive'},
+          {label:'YoY 2025', value:(cur.yoy.postage_revenue_pct>0?'+':'')+cur.yoy.postage_revenue_pct+' %', sub:'vs 2024', cls: cur.yoy.postage_revenue_pct<0?'warning':'positive'},
+          {label:'Avg poštovné 2025', value:cur.avg_per_sale_kc+' Kč/prodej'},
+          {label:'Dopravců (2025)', value:cur.carriers.length},
+        ];
+      } else if (segData) {
+        cards = [
+          {label:`Vratky ${seg.toUpperCase()} 2025 (count)`, value:fmt(segData.returns_count), sub:`${segData.returns_rate_pct||'—'} % objednávek`, cls:'warning'},
+          {label:'Hodnota vratek', value:fmt(segData.returns_value_kc)+' Kč', sub:`${segData.returns_value_pct||'—'} % obratu`, cls:'warning'},
+          {label:'AVG vratka', value:fmt(segData.avg_return_kc)+' Kč'},
+          {label:'Poštovné 2025', value:fmt(cur.total_postage_revenue_kc)+' Kč', sub:cur.avg_per_sale_kc+' Kč/prodej'},
+        ];
+      } else {
+        cards = [
+          {label:'Vratky MO', value:fmt(rd.summary.MO.returns_count), sub:fmt(rd.summary.MO.returns_value_kc)+' Kč', cls:'warning'},
+          {label:'Vratky VO', value:fmt(rd.summary.VO.returns_count), sub:fmt(rd.summary.VO.returns_value_kc)+' Kč', cls:'warning'},
+          {label:'Vratky celkem', value:fmt(rd.summary.totals.returns_count)+' ks', sub:fmt(rd.summary.totals.returns_value_kc)+' Kč'},
+          {label:'Poštovné 2025', value:fmt(cur.total_postage_revenue_kc)+' Kč', sub:cur.avg_per_sale_kc+' Kč/prodej'},
+        ];
+      }
+    } else if (view === 'kpi' || view === 'campaigns' || view === 'products' || view === 'regions' || view === 'journeys') {
+      const kpi = await fetch('data/kpi_breakdown.json?v='+Date.now()).then(r=>r.json());
+      const erp = kpi.erp_mo_eshop.total;
+      const alza = kpi.alza_marketplace.total;
+      const sql = kpi.sql_ground_truth_b2c.total;
+      const realRev = erp.revenue_excl + alza.revenue_excl;
+      cards = [
+        {label:'ERP obrat', value:fmt(erp.revenue_excl)+' Kč', sub:`${erp.margin_pct} % marže · zisk ${fmt(erp.profit)}`, cls:'positive'},
+        {label:'ERP + Alza skutečnost', value:fmt(realRev)+' Kč', sub:'audit period 7M', cls:'positive'},
+        {label:'SQL cross-check', value:fmt(sql.orders)+' obj.', sub:fmt(sql.revenue_excl)+' Kč'},
+        {label:'PPC spend (audit)', value:'321 382 Kč', sub:'4 kanály (Google+Sklik+Zboží+Heuréka)'},
+        {label:'PPC ROAS skutečný', value:'4,05×', sub:'po očištění tracking', cls:'positive'},
+      ];
+    }
+    grid.innerHTML = cards.map(c => `
+      <div class="view-kpi-card ${c.cls||''}">
+        <div class="label">${c.label}</div>
+        <div class="value">${c.value}</div>
+        <div class="sub">${c.sub||''}</div>
+      </div>
+    `).join('');
+  } catch(e){ console.warn('populateViewKpi('+view+'):', e); }
+}
+
+// Při přepnutí tabu na data view → populate KPI bar + skrýt audit KPI v hlavičce
+document.querySelectorAll('.tab[data-view]').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const view = tab.dataset.view;
+    if (window.viewState[view]) populateViewKpi(view);
+    // Skrýt audit KPI v hlavičce na non-audit views (= všechny data views kromě looker)
+    const auditKpi = document.getElementById('header-audit-kpi');
+    if (auditKpi) auditKpi.classList.toggle('hidden', view !== 'looker');
+  });
+});
+// Findings tab → ukázat zpět audit KPI
+document.querySelectorAll('.tab[data-cat]').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const auditKpi = document.getElementById('header-audit-kpi');
+    if (auditKpi) auditKpi.classList.remove('hidden');
+  });
+});
 
 // ─── CENTRALIZED LIVE NUMBERS INIT ─────────────────────────────
 // Naplní všechny <span data-live="..."> z kpi_breakdown.json + b2b_isolation.json
