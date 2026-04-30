@@ -1226,11 +1226,12 @@
           <tr>
             <th>Rok</th>
             <th style="text-align:right">ERP firma celkem</th>
+            <th style="text-align:right;background:rgba(16,185,129,.1)">ERP MO e-shop (audit)</th>
             <th style="text-align:right">SQL B2C obj</th>
             <th style="text-align:right">SQL B2C obrat</th>
             <th style="text-align:right">SQL B2B obrat</th>
             <th style="text-align:right">GA4 sessions</th>
-            <th style="text-align:right">GA4 transactions</th>
+            <th style="text-align:right">GA4 trans</th>
             <th style="text-align:right">GA4 revenue</th>
             <th style="text-align:right">SC clicks</th>
             <th style="text-align:right">Meta Ads spend</th>
@@ -3630,14 +3631,19 @@ function renderYearlyHistory() {
   const metaPerYear = {2023: null, 2024: null, 2025: 26767, 2026: 24824};
   document.querySelector('#table-yearly-history tbody').innerHTML = yh.years.map(y => {
     const erp = y.erp_company_total || {};
+    const erpAudit = y.erp_mo_eshop_audit;
     const sql = y.sql_b2c_eshop || {};
     const sql_b2b = y.sql_b2b_hbgroup || {};
     const ga = y.ga4 || {};
     const sc = y.search_console || {};
     const meta = metaPerYear[y.year];
+    const erpAuditCell = erpAudit
+      ? `<strong style="color:#10b981">${fmt(erpAudit.revenue_kc)} Kč</strong><br><span style="color:#64748b;font-size:11px">${erpAudit.months_count} měs · zisk ${fmt(erpAudit.profit_kc)} (${erpAudit.margin_pct} %)</span>`
+      : '<span style="color:#94a3b8">—</span>';
     return `<tr>
       <td><strong>${y.year}</strong></td>
       <td class="num">${erp.revenue_kc?fmt(erp.revenue_kc)+' Kč':'—'}</td>
+      <td class="num" style="background:rgba(16,185,129,.05)">${erpAuditCell}</td>
       <td class="num">${fmt(sql.orders)}</td>
       <td class="num">${sql.revenue_kc?fmt(sql.revenue_kc)+' Kč':'—'}</td>
       <td class="num">${sql_b2b.revenue_kc?fmt(sql_b2b.revenue_kc)+' Kč':'—'}</td>

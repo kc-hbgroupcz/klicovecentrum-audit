@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-30T11:27:01",
+  "generated": "2026-04-30T12:06:41",
   "scope": "3-letá historie 2023-2026 z všech dostupných API zdrojů",
   "live_api_sources": [
     "SQL kosik (4 weby)",
@@ -24,6 +24,7 @@
         "margin_pct": 45.9,
         "vratky_pct": 2.36
       },
+      "erp_mo_eshop_audit": null,
       "erp_segments": {
         "eshop_mo": {
           "revenue_kc": 5616525,
@@ -76,6 +77,7 @@
         "margin_pct": 45.4,
         "vratky_pct": 2.61
       },
+      "erp_mo_eshop_audit": null,
       "erp_segments": {
         "eshop_mo": {
           "revenue_kc": 5395965,
@@ -139,6 +141,19 @@
         "margin_pct": 46.2,
         "vratky_pct": 2.51
       },
+      "erp_mo_eshop_audit": {
+        "revenue_kc": 577889,
+        "profit_kc": 335924,
+        "margin_pct": 58.1,
+        "lines": 620,
+        "months_count": 3,
+        "months_covered": [
+          "2025-10",
+          "2025-11",
+          "2025-12"
+        ],
+        "note": "Jen 3 měsíců (audit period MO e-shop CSV) — partial year, nelze srovnávat s celým rokem"
+      },
       "erp_segments": {
         "eshop_mo": {
           "revenue_kc": 5754481,
@@ -195,8 +210,22 @@
     },
     {
       "year": 2026,
-      "data_quality": "partial",
+      "data_quality": "partial_audit_period",
       "erp_company_total": null,
+      "erp_mo_eshop_audit": {
+        "revenue_kc": 592852,
+        "profit_kc": 356508,
+        "margin_pct": 60.1,
+        "lines": 688,
+        "months_count": 4,
+        "months_covered": [
+          "2026-01",
+          "2026-02",
+          "2026-03",
+          "2026-04"
+        ],
+        "note": "Jen 4 měsíců (audit period MO e-shop CSV) — partial year, nelze srovnávat s celým rokem"
+      },
       "erp_segments": null,
       "sql_b2c_eshop": {
         "orders": 998,
