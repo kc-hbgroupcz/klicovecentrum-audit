@@ -1,0 +1,121 @@
+{
+  "generated": "2026-04-30T10:20:34",
+  "scope": "Yearly cross-channel mapping: ERP prodeje × PPC kampaně (Google + Sklik + Zboží + Heuréka)",
+  "method": "ERP yearly_trend.json × audit period PPC × extrapolace pro 2025 (Q4 × 4)",
+  "years": [
+    {
+      "year": 2023,
+      "erp": {
+        "total_revenue_kc": 553468895,
+        "profit_kc": 254006801,
+        "margin_pct": 45.9,
+        "eshop_mo_kc": 5616525,
+        "mo_total_kc": 74300122,
+        "vo_kc": 432558395
+      },
+      "ppc": {
+        "google_ads_spend_kc": null,
+        "google_ads_revenue_kc": null,
+        "sklik_spend_kc": null,
+        "sklik_revenue_kc": null,
+        "zbozi_spend_kc": null,
+        "zbozi_revenue_kc": null,
+        "heureka_spend_kc": null,
+        "heureka_revenue_kc": null,
+        "total_spend_kc": null,
+        "total_revenue_kc": null,
+        "data_quality": "missing_historical_export",
+        "note": "Vyžádat historický Google Ads + Sklik export 2023-2024"
+      },
+      "ratios": {
+        "ppc_pno_vs_eshop_mo_pct": null,
+        "ppc_roas_vs_eshop_mo": null,
+        "ppc_share_of_eshop_mo_pct": null,
+        "interpretation": "PPC data nejsou k dispozici pro tento rok"
+      },
+      "yoy": null
+    },
+    {
+      "year": 2024,
+      "erp": {
+        "total_revenue_kc": 543124701,
+        "profit_kc": 246836065,
+        "margin_pct": 45.4,
+        "eshop_mo_kc": 5395965,
+        "mo_total_kc": 71535043,
+        "vo_kc": 429724370
+      },
+      "ppc": {
+        "google_ads_spend_kc": null,
+        "google_ads_revenue_kc": null,
+        "sklik_spend_kc": null,
+        "sklik_revenue_kc": null,
+        "zbozi_spend_kc": null,
+        "zbozi_revenue_kc": null,
+        "heureka_spend_kc": null,
+        "heureka_revenue_kc": null,
+        "total_spend_kc": null,
+        "total_revenue_kc": null,
+        "data_quality": "missing_historical_export",
+        "note": "Vyžádat historický Google Ads + Sklik export 2023-2024"
+      },
+      "ratios": {
+        "ppc_pno_vs_eshop_mo_pct": null,
+        "ppc_roas_vs_eshop_mo": null,
+        "ppc_share_of_eshop_mo_pct": null,
+        "interpretation": "PPC data nejsou k dispozici pro tento rok"
+      },
+      "yoy": null
+    },
+    {
+      "year": 2025,
+      "erp": {
+        "total_revenue_kc": 534785774,
+        "profit_kc": 246961458,
+        "margin_pct": 46.2,
+        "eshop_mo_kc": 5754481,
+        "mo_total_kc": 75522522,
+        "vo_kc": 419716081
+      },
+      "ppc": {
+        "google_ads_spend_kc": 396000,
+        "google_ads_revenue_kc": 2024571,
+        "sklik_spend_kc": 33072,
+        "sklik_revenue_kc": 78183,
+        "zbozi_spend_kc": 52358,
+        "zbozi_revenue_kc": 0,
+        "heureka_spend_kc": 12063,
+        "heureka_revenue_kc": 17366,
+        "total_spend_kc": 493493,
+        "total_revenue_kc": 2120120,
+        "data_quality": "extrapolated_from_audit_q4_2025",
+        "note": "Q4 2025 PPC × 4 = celý rok extrapolace (3 měsíce reálných dat × 4)"
+      },
+      "ratios": {
+        "ppc_pno_vs_eshop_mo_pct": 8.6,
+        "ppc_roas_vs_eshop_mo": 11.66,
+        "ppc_share_of_eshop_mo_pct": 8.6,
+        "interpretation": "PPC investice 8.6 % obratu E-shop MO"
+      },
+      "yoy": null
+    }
+  ],
+  "data_quality": {
+    "erp_2023_2024_2025": "✓ kompletní (per-SKU yearly agregát)",
+    "ppc_2025": "🟡 extrapolováno z 3 měsíců audit period (10-12/2025) × 4",
+    "ppc_2023_2024": "🚫 chybí — vyžádat historický export Google Ads + Sklik + Heuréka"
+  },
+  "recommendations": [
+    "Vyžádat historické PPC exporty 2023-2024 (Google Ads → Reports → Custom 2023-01-01 → 2024-12-31)",
+    "Sklik historicky: požádat agenturu o 'Kampaně po dnech' export 2023-01 → 2024-12",
+    "Heuréka: OCM API report za historii (2 roky)",
+    "Po doplnění: spustit znovu build_yearly_cross_channel.py → 3 roky kompletních cross-channel dat"
+  ],
+  "key_findings_so_far": [
+    "2025 ERP eshop MO = 5,754,481 Kč",
+    "2025 PPC celkem (extrapolace) = 493,493 Kč",
+    "2025 PPC PNO vs eshop MO = 8.6 %",
+    "Zboží.cz konverze = 0 (OCM tracking rozbitý → finding #18-#20)",
+    "Eshop MO 2025 = jen ~1 % celkového H&B Group obratu — PPC zasahuje pouze tento malý segment"
+  ]
+}

@@ -475,6 +475,7 @@
     <div class="kpi-card">
       <div class="kpi-label">Kritických nálezů (P0)</div>
       <div class="kpi-value kpi-negative">22</div>
+      <div class="kpi-sub">+ #41 P1 RTG (Pmax black-box)</div>
       <div class="kpi-sub">vyžaduje okamžitou akci</div>
     </div>
     <div class="kpi-card">
@@ -554,6 +555,42 @@
       </select>
     </div>
     <div class="chart-wrap"><canvas id="chart-campaigns"></canvas></div>
+  </div>
+
+  <div class="chart-card" id="pmax-rtg-section">
+    <h3>📡 Pmax / RTG analytika (manual export 30. 4. 2026)</h3>
+    <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
+      Z Google Ads Script `google_ads_rtg_debug.gs` jsme zjistili, že účet má 65 kampaní (7 aktivních, 58 paused). Klíčové insighty níže.
+    </p>
+    <div class="metrics-grid" id="pmax-rtg-summary"></div>
+    <div id="pmax-rtg-detail" style="margin-top:18px"></div>
+  </div>
+
+  <div class="chart-card" id="cross-channel-section">
+    <h3>📈 Yearly Cross-Channel (prodeje × kampaně po letech)</h3>
+    <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
+      Mapování ERP prodejů × PPC kampaní po letech. PPC 2023-2024 chybí (vyžádat historický export). 2025 = extrapolace z Q4 audit period × 4.
+    </p>
+    <div style="overflow-x:auto">
+      <table class="data-table" id="table-cross-channel">
+        <thead>
+          <tr>
+            <th>Rok</th>
+            <th style="text-align:right">ERP firma celkem</th>
+            <th style="text-align:right">ERP eshop MO</th>
+            <th style="text-align:right">Google Ads spend</th>
+            <th style="text-align:right">Sklik spend</th>
+            <th style="text-align:right">Zboží.cz spend</th>
+            <th style="text-align:right">Heuréka spend</th>
+            <th style="text-align:right">PPC celkem</th>
+            <th style="text-align:right">PPC PNO</th>
+            <th style="text-align:right">PPC ROAS</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div id="cross-channel-note" style="margin-top:14px"></div>
   </div>
 
   <div class="chart-card">
@@ -2197,6 +2234,24 @@ const findings = [
     ],
     expected: 'Měřitelný brand kanál (store visit lift +X %, brand search +Y %) + nový sales kanál s ROAS 3×+',
     timeline: [50, 40, 10]
+  },
+  {
+    id: 41, cat: 'gads', prio: 'P0',
+    title: '🚨 RTG: 50+ audience listů + Customer Match existuje, ale 0 aktivních RTG kampaní · 3 PAUSED asset groups s ROAS 3-8×',
+    metric: 'Pmax 83 % budgetu (194 k Kč) · 11 Display RTG kampaní PAUSED · 3 vypnuté Pmax asset groups s ROAS 3-8× · Customer Match list 700 zákazníků nenapojen · 7M spend 234 070 Kč',
+    impact: 'Promarněný setup — historicky kvalitní RTG infrastruktura nečinná',
+    impactNote: 'okamžitá náprava bez nového spendu',
+    problem: 'Google Ads Script (manual run) odkryl masivní podinvestování RTG: (1) Klient MÁ Customer Match list "seznam zákazníků 10/25" (700 search / 300 display) — NENÍ napojen na aktivní kampaň. (2) MÁ 50+ RTG audience listů (Cart 7/14/30, Trezory 7/15/30, Product 3/7/14/30) — většina má size 0 (pravidla nedávají match). (3) MÁ 11 Display RTG kampaní (REM-All, 5 DRMKT, 5 DRMKT Cart, atd.) — VŠECHNY paused od 2018-2020. (4) V Pmax kampani P4M_GA_CZ_ACQ_PMX_All MÁ 3 PAUSED asset groups s ROAS 3-8× (pla_dveřní okenní kování 8.47, PLA ONLY 3.71, pla_dveřní a okenní příslušenství 3.05) — kontroverzně vypnuté. (5) 3 LOCAL Pmax kampaně (Chomutov, Brno, Plzeň-Lochotín, 89 k Kč spend) měří online ROAS 0.008 — jsou to STORE VISIT kampaně, měření špatné.',
+    actions: [
+      '🔥 PRIORITA 1 (zítra): Aktivovat 3 PAUSED asset groups v Pmax s ROAS 3-8× — bez nového spendu, +30-50 % konverzí',
+      '🔥 PRIORITA 2 (do 7 dnů): Napojit Customer Match list "seznam zákazníků 10/25" na hlavní Pmax kampaň jako audience signal',
+      'PRIORITA 3 (do 14 dnů): Reaktivovat 1-2 Display RTG kampaně cílené Cart abandoners (oživit "5 DRMKT Cart" s budget 5-10 k Kč/měs)',
+      'PRIORITA 4 (do 30 dnů): Pro 3 Local Pmax (Chomutov, Brno, Plzeň-Lochotín) napojit GBP store visits + phone calls do Ads conversion → reálné měření',
+      'CLEANUP: Smazat / opravit 50+ user listů s size 0 v Audience Manageru (Cart 7/14/30 GA4 listy)',
+      'V dashboardu nový tab "📡 Pmax/RTG analytika" s detailem všech 65 kampaní + asset groups (data v google_ads_rtg.json)'
+    ],
+    expected: 'Po aktivaci PAUSED asset groups: +30-50 % conv v Pmax (~150-200 conv extra) okamžitě. Customer Match v Pmax: +5-10 % efektivita Smart Bidding po 30 dnech. Reaktivace Cart RTG: +200 cart recovery conv/rok @ ROAS 5-8×.',
+    timeline: [70, 25, 5]
   }
 ];
 
@@ -2365,7 +2420,119 @@ document.querySelectorAll('.tab').forEach(tab => {
 let campaignsData = null;
 let campaignsChart = null;
 
+async function loadPmaxRtg() {
+  if (window.pmaxRtgData) return renderPmaxRtg();
+  try { window.pmaxRtgData = await fetch('data/google_ads_rtg.json?v='+Date.now()).then(r=>r.json()); }
+  catch(e){ console.error('pmax_rtg', e); return; }
+  renderPmaxRtg();
+}
+function renderPmaxRtg() {
+  const fmt = n => n==null?'—':Number(n).toLocaleString('cs-CZ');
+  const d = window.pmaxRtgData;
+  if (!d) return;
+  const s = d.summary;
+  document.getElementById('pmax-rtg-summary').innerHTML = `
+    <div class="metric-box"><div class="metric-label">Celkem kampaní</div><div class="metric-value">${s.total_campaigns}</div><div style="color:#64748b;font-size:11px">${s.active_campaigns} aktivních · ${s.paused_campaigns} paused</div></div>
+    <div class="metric-box"><div class="metric-label">PPC spend audit 7M</div><div class="metric-value">${fmt(s.total_spend_kc)} Kč</div></div>
+    <div class="metric-box" style="background:rgba(168,85,247,.08);border-color:#a78bfa"><div class="metric-label">PMAX share</div><div class="metric-value" style="color:#a78bfa">${s.pmax_share_pct}%</div><div style="color:#64748b;font-size:11px">${fmt(s.total_pmax_spend_kc)} Kč v Pmax</div></div>
+    <div class="metric-box" style="background:rgba(239,68,68,.08);border-color:#ef4444"><div class="metric-label">🚨 PAUSED asset groups s ROAS 3-8×</div><div class="metric-value" style="color:#fca5a5">${d.asset_groups_paused_with_high_roas.length}</div><div style="color:#64748b;font-size:11px">Quick win: aktivovat = +30-50% conv</div></div>
+    <div class="metric-box" style="background:rgba(251,191,36,.08);border-color:#fbbf24"><div class="metric-label">Customer Match</div><div class="metric-value" style="color:#fcd34d">700</div><div style="color:#64748b;font-size:11px">"seznam zákazníků 10/25" CRM list — nenapojen</div></div>
+  `;
+
+  document.getElementById('pmax-rtg-detail').innerHTML = `
+    <h4 style="color:#cbd5e1;font-size:13px;text-transform:uppercase;letter-spacing:.05em;margin:14px 0 10px">🚨 PAUSED Pmax asset groups s vysokým ROAS — okamžitý quick win</h4>
+    <div style="overflow-x:auto">
+      <table class="data-table">
+        <thead><tr><th>Asset group</th><th>Kampaň</th><th style="text-align:right">Spend</th><th style="text-align:right">Value</th><th style="text-align:right">ROAS</th><th>Issue</th></tr></thead>
+        <tbody>
+          ${d.asset_groups_paused_with_high_roas.map(a => `
+            <tr style="background:rgba(239,68,68,.05)">
+              <td><strong>${a.asset_group}</strong></td>
+              <td style="font-size:12px">${a.campaign}</td>
+              <td class="num">${fmt(a.spend_kc)} Kč</td>
+              <td class="num">${fmt(a.value_kc)} Kč</td>
+              <td class="num"><strong style="color:#4ade80">${a.roas}×</strong></td>
+              <td style="font-size:12px;color:#fca5a5">${a.issue}</td>
+            </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>
+
+    <h4 style="color:#cbd5e1;font-size:13px;text-transform:uppercase;letter-spacing:.05em;margin:18px 0 10px">7 aktivních kampaní (audit period)</h4>
+    <div style="overflow-x:auto">
+      <table class="data-table">
+        <thead><tr><th>Kampaň</th><th>Typ</th><th style="text-align:right">Spend</th><th style="text-align:right">Conv</th><th style="text-align:right">Value</th><th style="text-align:right">ROAS</th><th>Verdict</th></tr></thead>
+        <tbody>
+          ${d.active_campaigns.map(c => `
+            <tr>
+              <td style="font-size:12px">${c.name}</td>
+              <td><span style="font-size:11px;background:#1e293b;padding:2px 6px;border-radius:4px;color:#94a3b8">${c.type}</span></td>
+              <td class="num">${fmt(c.spend_kc)} Kč</td>
+              <td class="num">${c.conv}</td>
+              <td class="num">${fmt(c.value_kc)} Kč</td>
+              <td class="num">${c.roas}×</td>
+              <td style="font-size:12px">${c.verdict}</td>
+            </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>
+
+    <div style="background:rgba(251,191,36,.08);border-left:3px solid #fbbf24;padding:14px;border-radius:6px;margin-top:14px">
+      <strong style="color:#fcd34d">📡 RTG infrastruktura — 50+ user listů, ale 0 aktivních RTG kampaní</strong>
+      <ul style="color:#cbd5e1;font-size:13px;margin:8px 0 0;padding-left:20px">
+        <li><strong>120 user listů</strong> existuje (REMARKETING + SIMILAR + RULE_BASED)</li>
+        <li><strong>1× Customer Match</strong>: "seznam zákazníků 10/25" — 700 search / 300 display reach (NENAPOJEN)</li>
+        <li><strong>11× Display RTG kampaní</strong> paused (REM-All, 5 DRMKT, 5 DRMKT Cart, ...) — všechny od 2018-2020</li>
+        <li><strong>3× Local Pmax</strong> (Chomutov, Brno, Plzeň-Lochotín) měří online ROAS 0.008 — jsou to store-visit kampaně</li>
+        <li><strong>Pmax audience signals</strong>: 102 napojení napříč všemi Pmax kampaněmi (input OK, output black-box)</li>
+      </ul>
+    </div>
+
+    <div style="background:rgba(34,197,94,.08);border-left:3px solid #22c55e;padding:14px;border-radius:6px;margin-top:10px">
+      <strong style="color:#4ade80">🎯 5 quick win akcí (z google_ads_rtg.json)</strong>
+      <ol style="color:#cbd5e1;font-size:13px;margin:8px 0 0;padding-left:20px">
+        ${d.actions.map(a => `<li><span style="background:${a.priority==='P0'?'#dc2626':a.priority==='P1'?'#f59e0b':'#94a3b8'};color:white;padding:1px 6px;border-radius:3px;font-size:10px">${a.priority}</span> <strong>${a.action}</strong> — <em style="color:#94a3b8">${a.expected}</em></li>`).join('')}
+      </ol>
+    </div>
+  `;
+}
+
+async function loadCrossChannel() {
+  if (window.crossChannelData) return renderCrossChannel();
+  try { window.crossChannelData = await fetch('data/yearly_cross_channel.json?v='+Date.now()).then(r=>r.json()); }
+  catch(e){ console.error('cross_channel', e); return; }
+  renderCrossChannel();
+}
+function renderCrossChannel() {
+  const fmt = n => n==null?'—':Number(n).toLocaleString('cs-CZ');
+  const d = window.crossChannelData;
+  if (!d) return;
+  document.querySelector('#table-cross-channel tbody').innerHTML = d.years.map(y => {
+    const ppc = y.ppc; const erp = y.erp; const r = y.ratios;
+    return `<tr>
+      <td><strong>${y.year}</strong></td>
+      <td class="num">${fmt(erp.total_revenue_kc)} Kč</td>
+      <td class="num">${fmt(erp.eshop_mo_kc)} Kč</td>
+      <td class="num">${ppc.google_ads_spend_kc==null?'<span style="color:#64748b">vyžádat export</span>':fmt(ppc.google_ads_spend_kc)+' Kč'}</td>
+      <td class="num">${ppc.sklik_spend_kc==null?'—':fmt(ppc.sklik_spend_kc)+' Kč'}</td>
+      <td class="num">${ppc.zbozi_spend_kc==null?'—':fmt(ppc.zbozi_spend_kc)+' Kč'}</td>
+      <td class="num">${ppc.heureka_spend_kc==null?'—':fmt(ppc.heureka_spend_kc)+' Kč'}</td>
+      <td class="num"><strong>${ppc.total_spend_kc==null?'—':fmt(ppc.total_spend_kc)+' Kč'}</strong></td>
+      <td class="num">${r.ppc_pno_vs_eshop_mo_pct==null?'—':r.ppc_pno_vs_eshop_mo_pct+' %'}</td>
+      <td class="num">${r.ppc_roas_vs_eshop_mo==null?'—':r.ppc_roas_vs_eshop_mo+'×'}</td>
+    </tr>`;
+  }).join('');
+  document.getElementById('cross-channel-note').innerHTML = `
+    <div style="background:rgba(251,191,36,.08);border-left:3px solid #fbbf24;padding:12px;border-radius:6px;font-size:12px;color:#cbd5e1">
+      <strong style="color:#fcd34d">⚠️ Data quality:</strong> ${d.data_quality.ppc_2023_2024} · ${d.data_quality.ppc_2025}<br>
+      <strong>Pro plný 3-letý cross-channel:</strong> ${d.recommendations[0]}
+    </div>
+  `;
+}
+
 async function loadCampaigns() {
+  loadPmaxRtg();
+  loadCrossChannel();
   if (!campaignsData) {
     try {
       const res = await fetch('data/campaigns.json?v=' + Date.now());

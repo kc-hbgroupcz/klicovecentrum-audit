@@ -1,0 +1,97 @@
+{
+  "generated": "2026-04-30T10:07:34",
+  "source": "Google Ads Script (google_ads_rtg_debug.gs) — manual run, výstup vložený uživatelem",
+  "period": {"from": "2025-10-01", "to": "2026-04-21"},
+  "account": {
+    "id": "350-878-7813",
+    "name": "Klíčové centrum VG | TP",
+    "currency": "CZK",
+    "timezone": "Europe/Prague"
+  },
+  "summary": {
+    "total_campaigns": 65,
+    "active_campaigns": 7,
+    "paused_campaigns": 58,
+    "total_spend_kc": 234070,
+    "total_pmax_spend_kc": 194418,
+    "pmax_share_pct": 83.1,
+    "total_search_spend_kc": 36533,
+    "total_shopping_spend_kc": 3119
+  },
+  "active_campaigns": [
+    {"name": "P4M_GA_CZ_ACQ_PMX_All", "type": "PERFORMANCE_MAX", "spend_kc": 105148, "conv": 398.03, "value_kc": 327561, "roas": 3.12, "verdict": "🟢 Healthy"},
+    {"name": "P4M_GA_CZ_CZ_ACQ_PMX_LocalChomutov", "type": "PERFORMANCE_MAX", "spend_kc": 37399, "conv": 264.85, "value_kc": 216, "roas": 0.01, "verdict": "🔴 Online ROAS 0.01 — store visit conv?"},
+    {"name": "P4M_GA_CZ_CZ_BR_SR_All", "type": "SEARCH (BRAND)", "spend_kc": 29223, "conv": 63.22, "value_kc": 170365, "roas": 5.83, "verdict": "🟢 Brand search OK"},
+    {"name": "PMAX_Pobočka Brno", "type": "PERFORMANCE_MAX", "spend_kc": 28239, "conv": 223, "value_kc": 154, "roas": 0.01, "verdict": "🔴 Online ROAS 0.01 — store visit conv?"},
+    {"name": "P4M_GA_CZ_CZ_ACQ_PMX_Local_Plzeň - Lochotín", "type": "PERFORMANCE_MAX", "spend_kc": 23632, "conv": 343, "value_kc": 320, "roas": 0.01, "verdict": "🔴 Online ROAS 0.01 — store visit conv?"},
+    {"name": "SEA_Gravírování", "type": "SEARCH", "spend_kc": 7310, "conv": 77, "value_kc": 7, "roas": 0, "verdict": "🔴 ROAS 0 — gravírování nekonvertuje online"},
+    {"name": "P4M_GA_CZ_ACQ_PLA", "type": "SHOPPING", "spend_kc": 3119, "conv": 1134.76, "value_kc": 11126, "roas": 3.57, "verdict": "🟢 Shopping OK"}
+  ],
+  "pmax_local_problem": {
+    "kampani": 3,
+    "total_spend_kc": 89270,
+    "total_value_kc": 690,
+    "online_roas": 0.008,
+    "interpretation": "3 lokální Pmax (Chomutov, Brno, Plzeň-Lochotín) mají ONLINE ROAS 0.008 = 690 Kč obratu na 89 k Kč spend. To znamená: jsou to store-visit kampaně (cíl: návštěva pobočky), ne e-shop kampaně. Jejich ÚČINNOST je MĚŘITELNÁ jen přes Google Business Profile store visits / phone calls, NE přes online conversion value."
+  },
+  "asset_groups_paused_with_high_roas": [
+    {"asset_group": "pla_dveřní okenní kování", "campaign": "P4M_GA_CZ_ACQ_PMX_All", "status": "PAUSED", "spend_kc": 1059, "value_kc": 8974, "roas": 8.47, "issue": "🚨 ROAS 8.47× ale PAUSED — zbytečně vypnuté"},
+    {"asset_group": "PLA ONLY", "campaign": "P4M_GA_CZ_ACQ_PMX_All", "status": "PAUSED", "spend_kc": 26605, "value_kc": 98798, "roas": 3.71, "issue": "🚨 ROAS 3.71× ale PAUSED"},
+    {"asset_group": "pla_dveřní a okenní příslušenství", "campaign": "P4M_GA_CZ_ACQ_PMX_All", "status": "PAUSED", "spend_kc": 6589, "value_kc": 20122, "roas": 3.05, "issue": "🚨 ROAS 3.05× ale PAUSED"}
+  ],
+  "user_lists_summary": {
+    "total_lists": 120,
+    "remarketing_lists": 70,
+    "similar_audiences": 35,
+    "rule_based_segments": 12,
+    "customer_match_crm": 1,
+    "logical_combined": 1,
+    "key_lists": [
+      {"name": "seznam zákazníků 10/25", "type": "CRM_BASED", "size_search": 700, "size_display": 300, "interpretation": "🎯 Customer Match list EXISTUJE! 700 zákazníků pro Search, 300 pro Display — ale není napojen na žádnou aktivní kampaň"},
+      {"name": "AdWords optimized list", "type": "LOGICAL", "size_search": 190000, "size_display": 200000, "interpretation": "Velký kombinovaný list — 200k uživatelů"},
+      {"name": "All Users of GA4 - Klicovecentrum.cz", "type": "REMARKETING", "size_search": 120000, "size_display": 35000, "interpretation": "Hlavní RTG audience — 120k uživatelů"},
+      {"name": "Všichni návštěvníci", "type": "RULE_BASED", "size_search": 5100, "size_display": 170000, "interpretation": "170k Display reach pro RTG"},
+      {"name": "Purchasers of GA4 - Klicovecentrum.cz - Hlavní", "type": "REMARKETING", "size_search": 470, "size_display": 130, "interpretation": "RTG list nakupujících — pouze 470 = malý reach"}
+    ],
+    "empty_or_zero_size_lists": "85+ listů má size 0 (Cart 7/14/30, Trezory 7/15/30, Produkt 3/7/14/30 atd.) — neaktualizují se / pravidla nesplňují podmínky"
+  },
+  "rtg_campaigns_status": {
+    "total_display_remarketing_campaigns": 11,
+    "with_spend_in_audit_period": 0,
+    "list_of_paused_rtg": [
+      "REM-All", "REM-All-Vanoce", "5 DRMKT (D)", "5 DRMKT (M)", "5 DRMKT Cart",
+      "5 VG DRMKT Trezory 2020/01/23 (D)", "5 VG DRMKT Trezory 2020/01/23 (M)",
+      "X 2016 pozastaveno Remarketing Plzeň/Praha/Ostrava/Cheb/Sokolov",
+      "Remarketing Plzeň/Ostrava/Sokolov/Praha/ČB 2018"
+    ],
+    "interpretation": "🚨 11 historických Display RTG kampaní existuje, VŠECHNY jsou paused/0 spend. Klient někdy v 2018-2020 měl plnohodnotný RTG, dnes 0. Audience listy stále existují (cart abandoners, product viewers, trezory 7/15/30) ale nejsou napojené na žádnou aktivní kampaň."
+  },
+  "pmax_audience_signals": {
+    "total_signals": 102,
+    "signals_per_campaign": {
+      "P4M_GA_CZ_ACQ_PMX_All": 47,
+      "P4M_GA_CZ_CZ_ACQ_PMX_LocalChomutov": 16,
+      "P4M_GA_CZ_CZ_ACQ_PMX_Local_Plzeň - Lochotín": 16,
+      "PMAX_Pobočka Brno": 6,
+      "pmax_nová pobočka ČB Hrdějovice (2 kampaně)": 14,
+      "P4M_GA_CZ_ACQ_PMX_All_Zombies": 4
+    },
+    "interpretation": "✅ Pmax kampaně mají bohaté audience signály (102 napojení). Klient správně vkládá audience hints. Bohužel API neumožní Read jejich obsahu, jen jejich existenci."
+  },
+  "key_findings": [
+    "1. PMAX 83 % budgetu (194 k Kč) — RTG je v něm skryté",
+    "2. 3 LOCAL PMAX kampaně mají online ROAS 0.008 — měřeno špatně, jsou store-visit kampaně",
+    "3. Customer Match list 'seznam zákazníků 10/25' EXISTUJE (700 search/300 display) — NENÍ napojen na aktivní kampaň",
+    "4. 11 Display RTG kampaní paused (REM-All, 5 DRMKT, atd.) — historicky byl RTG, dnes 0",
+    "5. 50+ RTG audience listů (Cart 7/14/30, Trezory 7/15/30, ...) má size 0 — pravidla nedávají match",
+    "6. 3 PAUSED asset groups mají ROAS 3-8× — proč jsou vypnuté?",
+    "7. Pmax audience signals (102 napojení) jsou nakonfigurované — Pmax learning má vstupní hints"
+  ],
+  "actions": [
+    {"priority": "P0", "action": "Aktivovat 3 PAUSED asset groups s ROAS 3-8× (PLA ONLY 3.71, pla_dveřní okenní kování 8.47, pla_dveřní a okenní příslušenství 3.05)", "expected": "+30-50 % konverzí v Pmax bez nového spendu"},
+    {"priority": "P0", "action": "Napojit Customer Match 'seznam zákazníků 10/25' na P4M_GA_CZ_ACQ_PMX_All jako audience signal", "expected": "Pmax získá data o existujících zákaznících → lepší Smart Bidding"},
+    {"priority": "P1", "action": "Pro 3 Local Pmax (Chomutov, Brno, Plzeň-Lochotín) měřit store visits + phone calls v GBP, ne online ROAS", "expected": "Reálné měření efektu = 800 store visits/audit period?"},
+    {"priority": "P1", "action": "Reaktivovat 1-2 Display RTG kampaně cílené Cart abandoners (oživit '5 DRMKT Cart' s budget 5-10k Kč/měs)", "expected": "Cart abandonment recovery 15-25 % = ~200 conv/rok"},
+    {"priority": "P2", "action": "Cleanup 50+ user listů s size 0 — buď opravit pravidla nebo smazat", "expected": "Čistší Audience Manager, méně zmatků"}
+  ]
+}
