@@ -1215,6 +1215,33 @@
     <div class="chart-wrap" style="height:340px"><canvas id="chart-podsklady"></canvas></div>
   </div>
 
+  <div class="chart-card" id="yearly-history-card">
+    <h3>📊 3-letá historie ze všech API zdrojů (2023-2026)</h3>
+    <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
+      Live API pull: ERP yearly_trend + SQL kosik (4 weby) + GA4 + Search Console + Meta Ads. Vyplňuje 4 roky z 5 zdrojů. PPC historie 2023-2024 chybí (vyžádat manuální export).
+    </p>
+    <div style="overflow-x:auto">
+      <table class="data-table" id="table-yearly-history">
+        <thead>
+          <tr>
+            <th>Rok</th>
+            <th style="text-align:right">ERP firma celkem</th>
+            <th style="text-align:right">SQL B2C obj</th>
+            <th style="text-align:right">SQL B2C obrat</th>
+            <th style="text-align:right">SQL B2B obrat</th>
+            <th style="text-align:right">GA4 sessions</th>
+            <th style="text-align:right">GA4 transactions</th>
+            <th style="text-align:right">GA4 revenue</th>
+            <th style="text-align:right">SC clicks</th>
+            <th style="text-align:right">Meta Ads spend</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div id="yearly-history-checklist" style="margin-top:18px"></div>
+  </div>
+
   <div class="chart-card" id="forecast-card">
     <h3>📈 Sezónnost + 12M Forecast (2026 prediction)</h3>
     <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
@@ -3581,16 +3608,74 @@ let yearlyData = null;
 async function loadYearly() {
   if (!yearlyData) {
     try {
-      const [yt, ym, fc] = await Promise.all([
+      const [yt, ym, fc, yh] = await Promise.all([
         fetch('data/yearly_trend.json?v='+Date.now()).then(r=>r.json()),
         fetch('data/yearly_master.json?v='+Date.now()).then(r=>r.json()),
         fetch('data/seasonality_forecast.json?v='+Date.now()).then(r=>r.json()),
+        fetch('data/yearly_history.json?v='+Date.now()).then(r=>r.json()),
       ]);
-      yearlyData = {trend: yt, master: ym, forecast: fc};
+      yearlyData = {trend: yt, master: ym, forecast: fc, history: yh};
     } catch(e){ console.error('yearly', e); return; }
   }
   renderYearly();
   renderForecast();
+  renderYearlyHistory();
+}
+
+function renderYearlyHistory() {
+  const fmt = n => n==null||n===0?'—':Number(n).toLocaleString('cs-CZ');
+  const yh = yearlyData.history;
+  if (!yh) return;
+  // Meta Ads per rok (z embedded — máme jen 2025+)
+  const metaPerYear = {2023: null, 2024: null, 2025: 26767, 2026: 24824};
+  document.querySelector('#table-yearly-history tbody').innerHTML = yh.years.map(y => {
+    const erp = y.erp_company_total || {};
+    const sql = y.sql_b2c_eshop || {};
+    const sql_b2b = y.sql_b2b_hbgroup || {};
+    const ga = y.ga4 || {};
+    const sc = y.search_console || {};
+    const meta = metaPerYear[y.year];
+    return `<tr>
+      <td><strong>${y.year}</strong></td>
+      <td class="num">${erp.revenue_kc?fmt(erp.revenue_kc)+' Kč':'—'}</td>
+      <td class="num">${fmt(sql.orders)}</td>
+      <td class="num">${sql.revenue_kc?fmt(sql.revenue_kc)+' Kč':'—'}</td>
+      <td class="num">${sql_b2b.revenue_kc?fmt(sql_b2b.revenue_kc)+' Kč':'—'}</td>
+      <td class="num">${fmt(ga.sessions)}</td>
+      <td class="num">${fmt(ga.transactions)}</td>
+      <td class="num">${ga.revenue_kc?fmt(ga.revenue_kc)+' Kč':'—'}</td>
+      <td class="num">${fmt(sc.clicks)}</td>
+      <td class="num">${meta?fmt(meta)+' Kč':'<span style="color:#94a3b8">vyžádat</span>'}</td>
+    </tr>`;
+  }).join('');
+
+  // Manual export checklist
+  const checklist = yh.manual_export_checklist;
+  document.getElementById('yearly-history-checklist').innerHTML = `
+    <div style="background:rgba(251,191,36,.08);border-left:3px solid #fbbf24;padding:14px;border-radius:6px;margin-top:14px">
+      <strong style="color:#fcd34d">📋 Manual export checklist — pro plný 3-letý audit (2023-2024 PPC):</strong>
+      <ul style="color:#cbd5e1;font-size:13px;margin:10px 0 0;padding-left:20px">
+        ${checklist.needed_for_full_3y_audit.map(s => `
+          <li style="margin-bottom:8px">
+            <strong>${s.source}</strong> (${s.missing_period})<br>
+            <span style="color:#94a3b8;font-size:12px">→ ${s.how_to_export}</span><br>
+            ${s.alternative ? `<span style="color:#94a3b8;font-size:12px;font-style:italic">Alt: ${s.alternative}</span>` : ''}
+          </li>
+        `).join('')}
+      </ul>
+      <p style="margin-top:10px;color:#94a3b8;font-size:12px">${checklist.summary} · ${checklist.estimated_effort_for_client}</p>
+    </div>
+    <div style="background:rgba(34,197,94,.08);border-left:3px solid #22c55e;padding:14px;border-radius:6px;margin-top:10px">
+      <strong style="color:#4ade80">✅ Co je už pokryté live API:</strong>
+      <ul style="color:#cbd5e1;font-size:13px;margin:8px 0 0;padding-left:20px">
+        <li><strong>SQL kosik</strong> 4 weby × 4 roky (2023-2026) — B2C + B2B + 2× SK</li>
+        <li><strong>GA4</strong> 4 roky kompletních dat (2023-2026)</li>
+        <li><strong>Search Console</strong> 2024-12 → 2026-04 (kdy SA dostal access)</li>
+        <li><strong>Meta Ads</strong> 2025-2026 (klient nepoužíval 2023-2024)</li>
+        <li><strong>ERP yearly per-SKU</strong> 2023-2025 (klient dodal CSV)</li>
+      </ul>
+    </div>
+  `;
 }
 
 function renderForecast() {

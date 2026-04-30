@@ -1,0 +1,283 @@
+{
+  "generated": "2026-04-30T11:27:01",
+  "scope": "3-letá historie 2023-2026 z všech dostupných API zdrojů",
+  "live_api_sources": [
+    "SQL kosik (4 weby)",
+    "GA4 Data API",
+    "Search Console API",
+    "ERP yearly_trend (CSV input)"
+  ],
+  "missing_for_full_3y": [
+    "Google Ads PPC",
+    "Sklik PPC",
+    "Heuréka OCM",
+    "Meta Ads",
+    "Alza orders"
+  ],
+  "years": [
+    {
+      "year": 2023,
+      "data_quality": "complete",
+      "erp_company_total": {
+        "revenue_kc": 553468895,
+        "profit_kc": 254006801,
+        "margin_pct": 45.9,
+        "vratky_pct": 2.36
+      },
+      "erp_segments": {
+        "eshop_mo": {
+          "revenue_kc": 5616525,
+          "qty": 43420,
+          "available": true
+        },
+        "mo_total": {
+          "revenue_kc": 74300122,
+          "qty": 746723,
+          "available": true
+        },
+        "vo": {
+          "revenue_kc": 432558395,
+          "qty": 11374272,
+          "available": true
+        }
+      },
+      "sql_b2c_eshop": {
+        "orders": 4969,
+        "unique_customers": 3003,
+        "revenue_kc": 3484823,
+        "aov_kc": 1500
+      },
+      "sql_b2b_hbgroup": {
+        "orders": 15948,
+        "unique_customers": 135,
+        "revenue_kc": 8093581,
+        "aov_kc": 10847
+      },
+      "sql_sk_total": {
+        "orders": 4095,
+        "revenue_kc": 85323
+      },
+      "ga4": {
+        "sessions": 359132,
+        "users": 231522,
+        "transactions": 2047,
+        "revenue_kc": 3613063
+      },
+      "search_console": null,
+      "ppc_data_status": "missing_request_export",
+      "yoy": null
+    },
+    {
+      "year": 2024,
+      "data_quality": "complete",
+      "erp_company_total": {
+        "revenue_kc": 543124701,
+        "profit_kc": 246836065,
+        "margin_pct": 45.4,
+        "vratky_pct": 2.61
+      },
+      "erp_segments": {
+        "eshop_mo": {
+          "revenue_kc": 5395965,
+          "qty": 42075,
+          "available": true
+        },
+        "mo_total": {
+          "revenue_kc": 71535043,
+          "qty": 707283,
+          "available": true
+        },
+        "vo": {
+          "revenue_kc": 429724370,
+          "qty": 10597523,
+          "available": true
+        }
+      },
+      "sql_b2c_eshop": {
+        "orders": 4030,
+        "unique_customers": 2437,
+        "revenue_kc": 3526314,
+        "aov_kc": 1649
+      },
+      "sql_b2b_hbgroup": {
+        "orders": 20292,
+        "unique_customers": 124,
+        "revenue_kc": 10240728,
+        "aov_kc": 9280
+      },
+      "sql_sk_total": {
+        "orders": 9007,
+        "revenue_kc": 195811
+      },
+      "ga4": {
+        "sessions": 295431,
+        "users": 216907,
+        "transactions": 1854,
+        "revenue_kc": 2495000
+      },
+      "search_console": {
+        "clicks": 4530,
+        "impressions": 129082,
+        "days_with_data": 16,
+        "avg_ctr_pct": 3.51,
+        "avg_position": 8.5
+      },
+      "ppc_data_status": "missing_request_export",
+      "yoy": {
+        "erp_revenue_pct": -1.9,
+        "sql_b2c_revenue_pct": 1.2,
+        "ga4_sessions_pct": -17.7,
+        "ga4_revenue_pct": -30.9
+      }
+    },
+    {
+      "year": 2025,
+      "data_quality": "complete",
+      "erp_company_total": {
+        "revenue_kc": 534785774,
+        "profit_kc": 246961458,
+        "margin_pct": 46.2,
+        "vratky_pct": 2.51
+      },
+      "erp_segments": {
+        "eshop_mo": {
+          "revenue_kc": 5754481,
+          "qty": 39128,
+          "available": true
+        },
+        "mo_total": {
+          "revenue_kc": 75522522,
+          "qty": 744700,
+          "available": true
+        },
+        "vo": {
+          "revenue_kc": 419716081,
+          "qty": 10291658,
+          "available": true
+        }
+      },
+      "sql_b2c_eshop": {
+        "orders": 4531,
+        "unique_customers": 2739,
+        "revenue_kc": 4109985,
+        "aov_kc": 1574
+      },
+      "sql_b2b_hbgroup": {
+        "orders": 20162,
+        "unique_customers": 127,
+        "revenue_kc": 9934536,
+        "aov_kc": 8059
+      },
+      "sql_sk_total": {
+        "orders": 11463,
+        "revenue_kc": 251138
+      },
+      "ga4": {
+        "sessions": 420340,
+        "users": 344102,
+        "transactions": 1736,
+        "revenue_kc": 2497513
+      },
+      "search_console": {
+        "clicks": 127148,
+        "impressions": 5387506,
+        "days_with_data": 365,
+        "avg_ctr_pct": 2.36,
+        "avg_position": 10.3
+      },
+      "ppc_data_status": "available_audit_only",
+      "yoy": {
+        "erp_revenue_pct": -1.5,
+        "sql_b2c_revenue_pct": 16.6,
+        "ga4_sessions_pct": 42.3,
+        "ga4_revenue_pct": 0.1
+      }
+    },
+    {
+      "year": 2026,
+      "data_quality": "partial",
+      "erp_company_total": null,
+      "erp_segments": null,
+      "sql_b2c_eshop": {
+        "orders": 998,
+        "unique_customers": 618,
+        "revenue_kc": 858991,
+        "aov_kc": 1499
+      },
+      "sql_b2b_hbgroup": {
+        "orders": 5992,
+        "unique_customers": 86,
+        "revenue_kc": 2737237,
+        "aov_kc": 7842
+      },
+      "sql_sk_total": {
+        "orders": 3242,
+        "revenue_kc": 74457
+      },
+      "ga4": {
+        "sessions": 1914511,
+        "users": 1865120,
+        "transactions": 412,
+        "revenue_kc": 580949
+      },
+      "search_console": {
+        "clicks": 35108,
+        "impressions": 1855981,
+        "days_with_data": 118,
+        "avg_ctr_pct": 1.89,
+        "avg_position": 7.8
+      },
+      "ppc_data_status": "available_audit_only",
+      "yoy": null
+    }
+  ],
+  "manual_export_checklist": {
+    "needed_for_full_3y_audit": [
+      {
+        "source": "Google Ads",
+        "missing_period": "2023-01-01 → 2025-09-30",
+        "how_to_export": "Ads UI → Reports → Custom report → Date range 2023-01-01 → 2025-09-30 → Download XLSX (campaign × date level)",
+        "alternative": "Spustit upravený google_ads_export.gs s historickým range — vytvoří Sheet, my pak stáhneme",
+        "size_estimate_mb": 2
+      },
+      {
+        "source": "Sklik (Seznam)",
+        "missing_period": "2023-01-01 → 2025-09-30",
+        "how_to_export": "Sklik UI → Reporty → Vlastní report → Kampaně po dnech → Date range → Export CSV",
+        "alternative": "Pokud Sklik Fenix umožní create scheduled report → automatický refresh každý měsíc",
+        "size_estimate_mb": 5
+      },
+      {
+        "source": "Heuréka.cz",
+        "missing_period": "2023-01-01 → 2025-09-30",
+        "how_to_export": "Heuréka admin → Reports → OCM Custom → CSV export",
+        "alternative": "OCM API call — historicky až 2 roky zpět",
+        "size_estimate_mb": 1
+      },
+      {
+        "source": "Meta Ads (Facebook+Instagram)",
+        "missing_period": "2023-01-01 → 2025-09-30 (zatím máme jen audit period)",
+        "how_to_export": "Meta Ads Manager → Ads Reporting → Custom export 2023-01-01 → 2025-09-30 → Excel",
+        "alternative": "Marketing API — máme token, mohu stáhnout ihned (pokud bude historie v účtu)",
+        "size_estimate_mb": 1,
+        "alternative_action": "Spustit build_meta_ads.py s historic_range=True (úprava skriptu)"
+      },
+      {
+        "source": "Alza Marketplace",
+        "missing_period": "2023-01-01 → 2025-09-30",
+        "how_to_export": "Alza Seller Portal → Reports → Orders Export → CSV per měsíc",
+        "alternative": "Alza Partner API",
+        "size_estimate_mb": 3
+      }
+    ],
+    "summary": "5 zdrojů × ~2 roky historie chybí. Po doplnění bude audit kompletně 3-letý 2023-2025 + audit period 2025Q4-2026Q2.",
+    "estimated_effort_for_client": "30-60 min ruční export ze všech 5 platform → poslat do OneDrive → automatický pull"
+  },
+  "key_findings": [
+    "SQL kosik B2C: 2023 4,969 obj · 2024 4,030 · 2025 4,531",
+    "GA4 transactions: 2023 2,047 · 2024 1,854 · 2025 1,736 · 2026 412",
+    "Search Console clicks 2025: 127,148 · 2024 jen 16 dnů (SA access od prosince)",
+    "ERP firma celkem 2023-2024-2025 obrat klesá -1,9% YoY → -1,5% (yearly_trend)",
+    "Pro plný 3-letý audit chybí: 5 PPC zdrojů × 2 roky historie (manual export 30-60 min)"
+  ]
+}
