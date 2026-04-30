@@ -1224,17 +1224,27 @@
       <table class="data-table" id="table-yearly-history">
         <thead>
           <tr>
-            <th>Rok</th>
-            <th style="text-align:right">ERP firma celkem</th>
-            <th style="text-align:right;background:rgba(16,185,129,.1)">ERP MO e-shop (audit)</th>
-            <th style="text-align:right">SQL B2C obj</th>
-            <th style="text-align:right">SQL B2C obrat</th>
-            <th style="text-align:right">SQL B2B obrat</th>
-            <th style="text-align:right">GA4 sessions</th>
-            <th style="text-align:right">GA4 trans</th>
-            <th style="text-align:right">GA4 revenue</th>
-            <th style="text-align:right">SC clicks</th>
-            <th style="text-align:right">Meta Ads spend</th>
+            <th rowspan="2">Rok</th>
+            <th colspan="2" style="text-align:center;background:rgba(16,185,129,.08)">ERP</th>
+            <th colspan="3" style="text-align:center;background:rgba(59,130,246,.06)">SQL kosik</th>
+            <th colspan="3" style="text-align:center;background:rgba(168,85,247,.06)">GA4 + SC</th>
+            <th colspan="6" style="text-align:center;background:rgba(245,158,11,.06)">PPC spend (audit period extrapolace pro 2025-2026)</th>
+          </tr>
+          <tr>
+            <th style="text-align:right;background:rgba(16,185,129,.08)">Firma celkem</th>
+            <th style="text-align:right;background:rgba(16,185,129,.08)">MO e-shop (audit)</th>
+            <th style="text-align:right;background:rgba(59,130,246,.06)">B2C obj</th>
+            <th style="text-align:right;background:rgba(59,130,246,.06)">B2C obrat</th>
+            <th style="text-align:right;background:rgba(59,130,246,.06)">B2B obrat</th>
+            <th style="text-align:right;background:rgba(168,85,247,.06)">GA4 sessions</th>
+            <th style="text-align:right;background:rgba(168,85,247,.06)">GA4 trans</th>
+            <th style="text-align:right;background:rgba(168,85,247,.06)">SC clicks</th>
+            <th style="text-align:right;background:rgba(245,158,11,.06)">Google Ads</th>
+            <th style="text-align:right;background:rgba(245,158,11,.06)">Sklik</th>
+            <th style="text-align:right;background:rgba(245,158,11,.06)">Zboží.cz</th>
+            <th style="text-align:right;background:rgba(245,158,11,.06)">Heuréka</th>
+            <th style="text-align:right;background:rgba(245,158,11,.06)">Meta</th>
+            <th style="text-align:right;background:rgba(245,158,11,.1)">PPC celkem</th>
           </tr>
         </thead>
         <tbody></tbody>
@@ -3636,22 +3646,29 @@ function renderYearlyHistory() {
     const sql_b2b = y.sql_b2b_hbgroup || {};
     const ga = y.ga4 || {};
     const sc = y.search_console || {};
-    const meta = metaPerYear[y.year];
+    const ppc = y.ppc_spend || {};
     const erpAuditCell = erpAudit
-      ? `<strong style="color:#10b981">${fmt(erpAudit.revenue_kc)} Kč</strong><br><span style="color:#64748b;font-size:11px">${erpAudit.months_count} měs · zisk ${fmt(erpAudit.profit_kc)} (${erpAudit.margin_pct} %)</span>`
+      ? `<strong style="color:#10b981">${fmt(erpAudit.revenue_kc)} Kč</strong><br><span style="color:#64748b;font-size:11px">${erpAudit.months_count} měs · ${erpAudit.margin_pct} %</span>`
       : '<span style="color:#94a3b8">—</span>';
+    const ppcCell = (v) => v == null
+      ? '<span style="color:#94a3b8;font-size:11px">vyžádat</span>'
+      : fmt(v) + ' Kč';
     return `<tr>
       <td><strong>${y.year}</strong></td>
-      <td class="num">${erp.revenue_kc?fmt(erp.revenue_kc)+' Kč':'—'}</td>
-      <td class="num" style="background:rgba(16,185,129,.05)">${erpAuditCell}</td>
-      <td class="num">${fmt(sql.orders)}</td>
-      <td class="num">${sql.revenue_kc?fmt(sql.revenue_kc)+' Kč':'—'}</td>
-      <td class="num">${sql_b2b.revenue_kc?fmt(sql_b2b.revenue_kc)+' Kč':'—'}</td>
-      <td class="num">${fmt(ga.sessions)}</td>
-      <td class="num">${fmt(ga.transactions)}</td>
-      <td class="num">${ga.revenue_kc?fmt(ga.revenue_kc)+' Kč':'—'}</td>
-      <td class="num">${fmt(sc.clicks)}</td>
-      <td class="num">${meta?fmt(meta)+' Kč':'<span style="color:#94a3b8">vyžádat</span>'}</td>
+      <td class="num" style="background:rgba(16,185,129,.04)">${erp.revenue_kc?fmt(erp.revenue_kc)+' Kč':'—'}</td>
+      <td class="num" style="background:rgba(16,185,129,.04)">${erpAuditCell}</td>
+      <td class="num" style="background:rgba(59,130,246,.03)">${fmt(sql.orders)}</td>
+      <td class="num" style="background:rgba(59,130,246,.03)">${sql.revenue_kc?fmt(sql.revenue_kc)+' Kč':'—'}</td>
+      <td class="num" style="background:rgba(59,130,246,.03)">${sql_b2b.revenue_kc?fmt(sql_b2b.revenue_kc)+' Kč':'—'}</td>
+      <td class="num" style="background:rgba(168,85,247,.03)">${fmt(ga.sessions)}</td>
+      <td class="num" style="background:rgba(168,85,247,.03)">${fmt(ga.transactions)}</td>
+      <td class="num" style="background:rgba(168,85,247,.03)">${fmt(sc.clicks)}</td>
+      <td class="num" style="background:rgba(245,158,11,.03)">${ppcCell(ppc.google_ads_kc)}</td>
+      <td class="num" style="background:rgba(245,158,11,.03)">${ppcCell(ppc.sklik_kc)}</td>
+      <td class="num" style="background:rgba(245,158,11,.03)">${ppcCell(ppc.zbozi_kc)}</td>
+      <td class="num" style="background:rgba(245,158,11,.03)">${ppcCell(ppc.heureka_kc)}</td>
+      <td class="num" style="background:rgba(245,158,11,.03)">${ppcCell(ppc.meta_kc)}</td>
+      <td class="num" style="background:rgba(245,158,11,.08)"><strong>${ppc.total_ppc_kc?fmt(ppc.total_ppc_kc)+' Kč':'—'}</strong></td>
     </tr>`;
   }).join('');
 

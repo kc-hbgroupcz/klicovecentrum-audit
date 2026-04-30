@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-30T12:06:41",
+  "generated": "2026-04-30T12:21:40",
   "scope": "3-letá historie 2023-2026 z všech dostupných API zdrojů",
   "live_api_sources": [
     "SQL kosik (4 weby)",
@@ -65,6 +65,15 @@
         "revenue_kc": 3613063
       },
       "search_console": null,
+      "ppc_spend": {
+        "google_ads_kc": null,
+        "sklik_kc": null,
+        "zbozi_kc": null,
+        "heureka_kc": null,
+        "meta_kc": null,
+        "data_quality": "missing_request_export",
+        "total_ppc_kc": null
+      },
       "ppc_data_status": "missing_request_export",
       "yoy": null
     },
@@ -123,6 +132,15 @@
         "days_with_data": 16,
         "avg_ctr_pct": 3.51,
         "avg_position": 8.5
+      },
+      "ppc_spend": {
+        "google_ads_kc": null,
+        "sklik_kc": null,
+        "zbozi_kc": null,
+        "heureka_kc": null,
+        "meta_kc": null,
+        "data_quality": "missing_request_export",
+        "total_ppc_kc": null
       },
       "ppc_data_status": "missing_request_export",
       "yoy": {
@@ -200,6 +218,15 @@
         "avg_ctr_pct": 2.36,
         "avg_position": 10.3
       },
+      "ppc_spend": {
+        "google_ads_kc": 99000,
+        "sklik_kc": 8268,
+        "zbozi_kc": 13089,
+        "heureka_kc": 3016,
+        "meta_kc": 26767,
+        "data_quality": "audit_period_extrapolated",
+        "total_ppc_kc": 150140
+      },
       "ppc_data_status": "available_audit_only",
       "yoy": {
         "erp_revenue_pct": -1.5,
@@ -255,6 +282,15 @@
         "days_with_data": 118,
         "avg_ctr_pct": 1.89,
         "avg_position": 7.8
+      },
+      "ppc_spend": {
+        "google_ads_kc": 132000,
+        "sklik_kc": 11024,
+        "zbozi_kc": 17452,
+        "heureka_kc": 4021,
+        "meta_kc": 24824,
+        "data_quality": "audit_period_extrapolated",
+        "total_ppc_kc": 189321
       },
       "ppc_data_status": "available_audit_only",
       "yoy": null
