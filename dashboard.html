@@ -2252,6 +2252,24 @@ const findings = [
     ],
     expected: 'Po aktivaci PAUSED asset groups: +30-50 % conv v Pmax (~150-200 conv extra) okamžitě. Customer Match v Pmax: +5-10 % efektivita Smart Bidding po 30 dnech. Reaktivace Cart RTG: +200 cart recovery conv/rok @ ROAS 5-8×.',
     timeline: [70, 25, 5]
+  },
+  {
+    id: 42, cat: 'local', prio: 'P1',
+    title: 'Lokální Pmax + Sklik brand neměří offline efekt — GBP a Firmy.cz nepropojeny',
+    metric: '89 k Kč Local Pmax (Chomutov 37k + Brno 28k + Plzeň 24k) měří jen online ROAS 0.008 · Sklik brand "0 VG Brand" 1,7 k Kč ROAS 23,89× online (offline neměřeno)',
+    impact: 'Cross-platform attribution chybí — neměříme efekt PPC na fyzické pobočky',
+    impactNote: '17 poboček bez offline conv tracking',
+    problem: '3 lokální Pmax kampaně (Chomutov 37k, Brno 28k, Plzeň-Lochotín 24k) generují stovky online "konverzí" (264-343), ale online value je jen 154-320 Kč → ROAS 0.008. To NEJSOU ztrátové kampaně, jsou to STORE-VISIT kampaně cílené na fyzické pobočky. Jejich účinnost je MĚŘITELNÁ jen přes Google Business Profile (store visits, calls, get directions), které dnes NEJSOU napojené na Ads jako conversion source. Memory: 47 % objednávek = osobní odběr na pobočce → silný in-store vector. Podobně Sklik brand kampaň "0 VG Brand" (1,7 k Kč, 43 conv online) přivádí lidi co pak telefonují / navštíví pobočku z Firmy.cz listingu — to není v reportech.',
+    actions: [
+      '🔥 PRIORITA 1: Ads → Tools → Linked Accounts → propojit všech 17 GBP profilů (1 klik per pobočka)',
+      'PRIORITA 2: Tools → Conversions → Add → Google Business Profile (4 conv akce: Store visits, Calls from Ads, Get directions, Website clicks from store)',
+      'PRIORITA 3: V Pmax Local kampaních (Chomutov, Brno, Plzeň) → Goals → přidat tyto 4 GBP conv akce',
+      'PRIORITA 4: Sklik brand "0 VG Brand" → Konverze → Importovat z Firmy.cz (kliky na pobočku, telefon, navigace, web, e-mail) — vyžaduje Firmy.cz Premium/Profesionál účet',
+      'PRIORITA 5: V Pmax local creatives přidat UTM (?utm_source=gads&utm_medium=pmax&utm_campaign=local_brno) → GA4 attribution per pobočka',
+      'PRIORITA 6: Firmy.cz audience export do GA4 → Google Ads audience signal pro Pmax (one-way: kdo přišel z Firmy → konvertoval)'
+    ],
+    expected: 'Po napojení GBP store visits: 89 k Kč Local Pmax získá measurable ROAS (industry benchmark 8-15× store visit ROAS = 800-1300 návštěv pobočky/audit period). Po Firmy.cz import do Sklik brand: offline brand discovery measurable (typicky +20-40% incremental conv).',
+    timeline: [40, 50, 10]
   }
 ];
 
