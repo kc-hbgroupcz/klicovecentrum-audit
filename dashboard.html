@@ -2275,11 +2275,11 @@ const findings = [
   },
   {
     id: 41, cat: 'gads', prio: 'P0',
-    title: '🚨 RTG: 50+ audience listů + Customer Match existuje, ale 0 aktivních RTG kampaní · 3 PAUSED asset groups s ROAS 3-8×',
-    metric: 'Pmax 83 % budgetu (194 k Kč) · 11 Display RTG kampaní PAUSED · 3 vypnuté Pmax asset groups s ROAS 3-8× · Customer Match list 700 zákazníků nenapojen · 7M spend 234 070 Kč',
+    title: '🚨 ROAS pád 4,78→1,96× za 3 roky · RTG 0 spend napříč všemi 4 roky · Top Pmax asset groups PAUSED s ROAS 9-11×',
+    metric: '4 roky historie: spend 254k(2023)→280k(2024)→400k(2025)→143k(Q1+Apr 2026) · ROAS 4,78→4,15→3,99→1,96 · konverze propad 5 998→1 531 (−74 % v 2024) · CPC 3,12→6,20 (×2)',
     impact: 'Promarněný setup — historicky kvalitní RTG infrastruktura nečinná',
     impactNote: 'okamžitá náprava bez nového spendu',
-    problem: 'Google Ads Script (manual run) odkryl masivní podinvestování RTG: (1) Klient MÁ Customer Match list "seznam zákazníků 10/25" (700 search / 300 display) — NENÍ napojen na aktivní kampaň. (2) MÁ 50+ RTG audience listů (Cart 7/14/30, Trezory 7/15/30, Product 3/7/14/30) — většina má size 0 (pravidla nedávají match). (3) MÁ 11 Display RTG kampaní (REM-All, 5 DRMKT, 5 DRMKT Cart, atd.) — VŠECHNY paused od 2018-2020. (4) V Pmax kampani P4M_GA_CZ_ACQ_PMX_All MÁ 3 PAUSED asset groups s ROAS 3-8× (pla_dveřní okenní kování 8.47, PLA ONLY 3.71, pla_dveřní a okenní příslušenství 3.05) — kontroverzně vypnuté. (5) 3 LOCAL Pmax kampaně (Chomutov, Brno, Plzeň-Lochotín, 89 k Kč spend) měří online ROAS 0.008 — jsou to STORE VISIT kampaně, měření špatné.',
+    problem: '4-letá Google Ads historie odkryla katastrofální trend: (1) ROAS pád 4,78× (2023) → 4,15 (2024) → 3,99 (2025) → 1,96 (2026 Q1+Apr) — −59 % za 3 roky. (2) Konverze propad −74 % v 2024 (5 998 → 1 531) — pravděpodobně tracking change v té době. (3) CPC zdvojnásoben 3,12 → 6,20 Kč. (4) RTG = 0 spend napříč VŠEMI 4 roky (Display kampaně REM-All, 5 DRMKT existují kontinuálně ale neběží). (5) Customer Match "seznam zákazníků 10/25" (700/300 reach) nenapojen. (6) 7 z 120 user listů má reálnou velikost — zbytek má size 0 (pravidla nesplňují, hlavně Cart 7/14/30 GA4 listy). (7) TOP Pmax asset groups PAUSED s vysokým ROAS: PLA ONLY 9,41× (2026), pla_dveřní okenní kování 11,13× (2026) — top performery vypnuté. (8) "PLA Zombie" Shopping kampaň 2024 ROAS 0,62× spendovala 32 k Kč. (9) 3 LOCAL Pmax (Chomutov 37k, Brno 28k, Plzeň 24k) měří online ROAS 0,01 — store-visit kampaně bez GBP integrace.',
     actions: [
       '🔥 PRIORITA 1 (zítra): Aktivovat 3 PAUSED asset groups v Pmax s ROAS 3-8× — bez nového spendu, +30-50 % konverzí',
       '🔥 PRIORITA 2 (do 7 dnů): Napojit Customer Match list "seznam zákazníků 10/25" na hlavní Pmax kampaň jako audience signal',

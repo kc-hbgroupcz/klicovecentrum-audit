@@ -1,0 +1,94 @@
+{
+  "generated": "2026-04-30T13:21:30",
+  "source": "Google Ads Script (google_ads_history_debug.gs) — manual run, výstup vložený uživatelem",
+  "account": {
+    "id": "350-878-7813",
+    "name": "Klíčové centrum VG | TP",
+    "currency": "CZK",
+    "timezone": "Europe/Prague"
+  },
+
+  "yearly_totals": {
+    "2023": {"impressions": 5652738, "clicks": 81492, "spend_kc": 254604, "conversions": 5997.77, "conversion_value_kc": 1217042, "roas": 4.78, "cpc_kc": 3.12, "ctr_pct": 1.44},
+    "2024": {"impressions": 3458713, "clicks": 69067, "spend_kc": 280253, "conversions": 1531.06, "conversion_value_kc": 1161743, "roas": 4.15, "cpc_kc": 4.06, "ctr_pct": 2.0},
+    "2025": {"impressions": 3946790, "clicks": 79154, "spend_kc": 399820, "conversions": 2445.04, "conversion_value_kc": 1594577, "roas": 3.99, "cpc_kc": 5.05, "ctr_pct": 2.01},
+    "2026_partial_4months": {"impressions": 1195832, "clicks": 23088, "spend_kc": 143236, "conversions": 2115.51, "conversion_value_kc": 280552, "roas": 1.96, "cpc_kc": 6.2, "ctr_pct": 1.93}
+  },
+
+  "yearly_per_channel_type": {
+    "2023": {"PERFORMANCE_MAX": {"spend_kc": 218241, "roas": 4.8, "campaigns": 16}, "SEARCH": {"spend_kc": 36362, "roas": 4.63, "campaigns": 26}, "DISPLAY": {"spend_kc": 0, "roas": 0, "campaigns": 7}, "SHOPPING": {"spend_kc": 0, "roas": 0, "campaigns": 16}},
+    "2024": {"PERFORMANCE_MAX": {"spend_kc": 203542, "roas": 4.63, "campaigns": 16}, "SEARCH": {"spend_kc": 44008, "roas": 4.51, "campaigns": 26}, "SHOPPING": {"spend_kc": 32704, "roas": 0.62, "campaigns": 16}, "DISPLAY": {"spend_kc": 0, "roas": 0, "campaigns": 7}},
+    "2025": {"PERFORMANCE_MAX": {"spend_kc": 317718, "roas": 3.49, "campaigns": 16}, "SEARCH": {"spend_kc": 64084, "roas": 7.0, "campaigns": 26}, "SHOPPING": {"spend_kc": 18018, "roas": 2.08, "campaigns": 16}, "DISPLAY": {"spend_kc": 0, "roas": 0, "campaigns": 7}},
+    "2026_partial": {"PERFORMANCE_MAX": {"spend_kc": 125245, "roas": 1.7, "campaigns": 16}, "SEARCH": {"spend_kc": 14656, "roas": 3.85, "campaigns": 26}, "SHOPPING": {"spend_kc": 3339, "roas": 3.51, "campaigns": 16}, "DISPLAY": {"spend_kc": 0, "roas": 0, "campaigns": 7}}
+  },
+
+  "yearly_per_category": {
+    "2023": {"PRODUCT": {"spend_kc": 218241, "roas": 4.8, "campaigns": 21}, "BRAND": {"spend_kc": 36362, "roas": 4.63, "campaigns": 6}, "LOCAL": {"spend_kc": 0, "roas": 0, "campaigns": 6}, "RTG": {"spend_kc": 0, "roas": 0, "campaigns": 7}, "SEARCH": {"spend_kc": 0, "roas": 0, "campaigns": 16}},
+    "2024": {"PRODUCT": {"spend_kc": 236246, "roas": 4.08, "campaigns": 21}, "BRAND": {"spend_kc": 44008, "roas": 4.51, "campaigns": 6}, "LOCAL": {"spend_kc": 0, "roas": 0, "campaigns": 6}, "RTG": {"spend_kc": 0, "roas": 0, "campaigns": 7}},
+    "2025": {"PRODUCT": {"spend_kc": 276481, "roas": 4.14, "campaigns": 21}, "BRAND": {"spend_kc": 56774, "roas": 7.9, "campaigns": 6}, "LOCAL": {"spend_kc": 59255, "roas": 0.01, "campaigns": 6}, "RTG": {"spend_kc": 0, "roas": 0, "campaigns": 7}, "SEARCH": {"spend_kc": 7310, "roas": 0, "campaigns": 16}},
+    "2026_partial": {"PRODUCT": {"spend_kc": 61791, "roas": 3.43, "campaigns": 21}, "BRAND": {"spend_kc": 14656, "roas": 3.85, "campaigns": 6}, "LOCAL": {"spend_kc": 66789, "roas": 0.18, "campaigns": 6}, "RTG": {"spend_kc": 0, "roas": 0, "campaigns": 7}}
+  },
+
+  "key_findings": [
+    "🚨 ROAS pád 4,78× (2023) → 1,96× (2026) — −59 % YoY za 3 roky · spend roste 254k → 400k → 143k Q1+Apr",
+    "🚨 Konverze 2024: 1 531 vs 2023: 5 998 — propad −74 % v jediném roce (možná tracking change)",
+    "🚨 RTG = 0 spend napříč VŠEMI 4 roky (2023, 2024, 2025, 2026) — Display kampaně existují ale neběží",
+    "🚨 LOCAL kampaně ROAS 0,01 (2025) → 0,18 (2026) — store-visit, online ROAS irrelevantní",
+    "✅ BRAND ROAS roste 4,63 → 7,90 (2025) → 3,85 (2026) — silný brand search",
+    "✅ PRODUCT (Pmax+Shopping) drží 4× ROAS s mírným poklesem",
+    "✅ Search ROAS skok 4,5 → 7 (2025) díky brand search optimalizaci",
+    "🔴 Shopping 2024 ROAS 0,62 (PLA Zombie kampaň 32k Kč) — mrtvý spend",
+    "🟡 Pmax 'PLA ONLY' asset group: 2023 ROAS 5,21 (5 630 conv) → 2024 5,55 (421 conv) → 2025 4,69 (711 conv) PAUSED → 2026 9,41 PAUSED",
+    "🟡 Pmax 'pla_dveřní okenní kování' 2026 ROAS 11,13 PAUSED — top performer vypnutý",
+    "📊 CPC roste 3,12 → 6,20 — dvojnásobek za 3 roky (konkurence + auction inflace)",
+    "📊 CTR roste 1,44 % → 2,01 % — kvalita reklam se zlepšuje"
+  ],
+
+  "rtg_status_4_years": {
+    "2023": {"spend": 0, "campaigns": 7},
+    "2024": {"spend": 0, "campaigns": 7},
+    "2025": {"spend": 0, "campaigns": 7},
+    "2026_partial": {"spend": 0, "campaigns": 7},
+    "interpretation": "Display Remarketing kampaně (REM-All, 5 DRMKT, 5 DRMKT Cart, 5 VG DRMKT Trezory) existují kontinuálně 4 roky ale 0 aktivního spendu. Klient používal RTG někdy 2018-2020, od té doby paused. 50+ user listů (Cart 7/14/30, Trezory) má size 0 — pravidla nesplňují. Customer Match list 'seznam zákazníků 10/25' (700 search/300 display) existuje od října 2025, ale není napojen na žádnou aktivní kampaň."
+  },
+
+  "pmax_asset_groups_paused_with_high_roas": {
+    "summary": "Top performer asset groups jsou PAUSED — okamžitý quick win",
+    "2025": [
+      {"asset_group": "PLA ONLY", "campaign": "P4M_GA_CZ_ACQ_PMX_All", "spend_kc": 178329, "value_kc": 836639, "roas": 4.69, "status": "PAUSED"},
+      {"asset_group": "Klíče", "campaign": "P4M_GA_CZ_ACQ_PMX_All", "spend_kc": 12456, "value_kc": 63914, "roas": 5.13, "status": "PAUSED"},
+      {"asset_group": "zboží STAR - vlastní značka HB Group", "spend_kc": 12083, "value_kc": 75000, "roas": 6.21, "status": "PAUSED"}
+    ],
+    "2026_partial": [
+      {"asset_group": "pla_dveřní okenní kování", "spend_kc": 738, "value_kc": 8217, "roas": 11.13, "status": "PAUSED"},
+      {"asset_group": "PLA ONLY", "spend_kc": 424, "value_kc": 3990, "roas": 9.41, "status": "PAUSED"}
+    ]
+  },
+
+  "current_user_lists": {
+    "total": 120,
+    "with_real_size": 7,
+    "key_active_lists": [
+      {"name": "AdWords optimized list", "type": "LOGICAL", "size_search": 190000, "size_display": 200000},
+      {"name": "Všichni návštěvníci", "type": "RULE_BASED", "size_search": 5100, "size_display": 170000},
+      {"name": "All Users of GA4", "type": "REMARKETING", "size_search": 120000, "size_display": 35000},
+      {"name": "Obecní návštěvníci (maloobchod)", "type": "RULE_BASED", "size_search": 2600, "size_display": 160000},
+      {"name": "14 dní návštěvníci", "type": "RULE_BASED", "size_search": 2900, "size_display": 5800},
+      {"name": "Purchasers of GA4", "type": "REMARKETING", "size_search": 470, "size_display": 130},
+      {"name": "seznam zákazníků 10/25 (Customer Match)", "type": "CRM_BASED", "size_search": 700, "size_display": 300}
+    ],
+    "empty_lists_count": 113,
+    "interpretation": "120 user listů celkem, ALE jen 7 má skutečnou velikost. Cart 7/14/30 GA4 listy mají všechny 0 reach — pravidla nesplňují (možná chybí GA4 audience export). Customer Match 700 zákazníků nenapojen."
+  },
+
+  "current_pmax_audience_signals": {
+    "total": 102,
+    "interpretation": "Pmax kampaně mají bohatou síť audience signals (102 napojení), zejména PLA ONLY asset group (12×), čb hrdějovice (14×), Plzeň-Lochotín (16×), chomutov (16×). Pmax learning má vstupní hints — výborně."
+  },
+
+  "audience_targeting_performance": {
+    "total_records": 50,
+    "all_zero_spend": true,
+    "interpretation": "Všech 50 audience targeting záznamů má 0 spend (REM-All, 5 DRMKT Cart 03/07/14/30, 5 VG DRMKT Trezory, ...). Žádná RTG kampaň s audience targeting v audit period nečerpala budget."
+  }
+}
