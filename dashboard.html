@@ -1253,6 +1253,23 @@
     <div id="yearly-history-checklist" style="margin-top:18px"></div>
   </div>
 
+  <div class="chart-card" id="crawl-history-card">
+    <h3>🕷️ GSC Crawl Stats — rolling history (workaround pro chybějící GSC API)</h3>
+    <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
+      GSC API NEEXPORTUJE crawl stats — pouze UI 90-day window. Toto je merge z 3 manuálních CSV exportů.
+      Pro průběžnou rolling history > 90 dnů: klient stáhne CSV každých 80 dnů (návod v GSC_AUTO_PULL.md).
+      <strong>Bing Webmaster Tools API</strong> nabízí 6-měsíční historii — viz Bing sekce níže.
+    </p>
+    <div class="metrics-grid" id="crawl-history-summary"></div>
+    <div class="chart-wrap" style="height:340px;margin-top:18px"><canvas id="chart-crawl-history"></canvas></div>
+    <div id="crawl-history-anomalies" style="margin-top:14px"></div>
+  </div>
+
+  <div class="chart-card" id="bing-webmaster-card">
+    <h3>🔵 Bing Webmaster Tools — paralelní crawl source (TODO)</h3>
+    <div id="bing-webmaster-status"></div>
+  </div>
+
   <div class="chart-card" id="forecast-card">
     <h3>📈 Sezónnost + 12M Forecast (2026 prediction)</h3>
     <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
@@ -3619,18 +3636,91 @@ let yearlyData = null;
 async function loadYearly() {
   if (!yearlyData) {
     try {
-      const [yt, ym, fc, yh] = await Promise.all([
+      const [yt, ym, fc, yh, ch] = await Promise.all([
         fetch('data/yearly_trend.json?v='+Date.now()).then(r=>r.json()),
         fetch('data/yearly_master.json?v='+Date.now()).then(r=>r.json()),
         fetch('data/seasonality_forecast.json?v='+Date.now()).then(r=>r.json()),
         fetch('data/yearly_history.json?v='+Date.now()).then(r=>r.json()),
+        fetch('data/crawl_stats_history.json?v='+Date.now()).then(r=>r.json()),
       ]);
-      yearlyData = {trend: yt, master: ym, forecast: fc, history: yh};
+      yearlyData = {trend: yt, master: ym, forecast: fc, history: yh, crawl: ch};
     } catch(e){ console.error('yearly', e); return; }
   }
   renderYearly();
   renderForecast();
   renderYearlyHistory();
+  renderCrawlHistory();
+  renderBingStatus();
+}
+
+function renderCrawlHistory() {
+  const fmt = n => n==null?'—':Number(n).toLocaleString('cs-CZ');
+  const c = yearlyData.crawl;
+  if (!c) return;
+  const s = c.summary;
+  document.getElementById('crawl-history-summary').innerHTML = `
+    <div class="metric-box"><div class="metric-label">Period</div><div class="metric-value" style="font-size:18px">${s.date_from} → ${s.date_to}</div><div style="color:#64748b;font-size:11px">${s.days_total} dnů</div></div>
+    <div class="metric-box"><div class="metric-label">Total requests</div><div class="metric-value">${fmt(s.total_requests)}</div><div style="color:#64748b;font-size:11px">${fmt(s.total_size_mb)} MB</div></div>
+    <div class="metric-box"><div class="metric-label">Avg crawl/den</div><div class="metric-value">${fmt(s.avg_requests_per_day)}</div><div style="color:#64748b;font-size:11px">±${fmt(s.stdev_requests)}</div></div>
+    <div class="metric-box" style="background:rgba(239,68,68,.08);border-color:#ef4444"><div class="metric-label">Peak (anomálie)</div><div class="metric-value" style="color:#fca5a5">${fmt(s.peak_day.requests)}</div><div style="color:#64748b;font-size:11px">${s.peak_day.date} · z=${s.peak_day.z_score}</div></div>
+    <div class="metric-box" style="background:rgba(251,191,36,.08);border-color:#fbbf24"><div class="metric-label">Anomálií celkem</div><div class="metric-value" style="color:#fcd34d">${s.anomalies_count}</div><div style="color:#64748b;font-size:11px">z-score > 2.5</div></div>
+    <div class="metric-box"><div class="metric-label">Avg response</div><div class="metric-value">${s.avg_response_ms} ms</div><div style="color:#64748b;font-size:11px">latency</div></div>
+  `;
+
+  // Chart
+  if (window.crawlHistoryChart) window.crawlHistoryChart.destroy();
+  const ctx = document.getElementById('chart-crawl-history').getContext('2d');
+  window.crawlHistoryChart = new Chart(ctx, {
+    type:'line',
+    data:{labels: c.daily_history.map(d=>d.date),
+          datasets:[
+            {label:'Crawl requests/den', data:c.daily_history.map(d=>d.requests), borderColor:'#3b82f6', backgroundColor:'rgba(59,130,246,.1)', tension:0.2, pointRadius:0},
+            {label:'Anomálie (z>2.5)', type:'scatter', data:c.daily_history.map((d,i)=>d.anomaly?{x:d.date,y:d.requests}:null).filter(x=>x), backgroundColor:'#ef4444', borderColor:'#dc2626', pointRadius:6},
+          ]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{color:'#e2e8f0'}}},
+      scales:{x:{ticks:{color:'#94a3b8',maxRotation:45,maxTicksLimit:20}},
+              y:{ticks:{color:'#94a3b8',callback:v=>(v/1000).toFixed(0)+'k'}}}}
+  });
+
+  // Anomálie list
+  const an = c.anomalies || [];
+  document.getElementById('crawl-history-anomalies').innerHTML = an.length === 0 ? '' : `
+    <details>
+      <summary style="cursor:pointer;color:#fcd34d;font-size:13px;font-weight:600">⚠️ ${an.length} anomálních dnů (klik pro detail)</summary>
+      <div style="margin-top:10px;background:rgba(15,23,42,.6);border:1px solid #334155;border-radius:6px;padding:12px;font-size:12px">
+        ${an.map(a => `<div style="color:#cbd5e1;margin-bottom:4px">${a.date}: <strong>${fmt(a.requests)}</strong> req (z=${a.z_score}) ${a.anomaly}</div>`).join('')}
+      </div>
+    </details>
+    <p style="color:#94a3b8;font-size:12px;margin-top:10px">Anomálie 17.12.2025 - 21.1.2026 = <strong>crawl útok</strong> potvrzený findings #2 a #32. Peak ${fmt(s.peak_day.requests)} req/den proti normálu ~${fmt(s.avg_requests_per_day)} req/den.</p>
+  `;
+}
+
+function renderBingStatus() {
+  document.getElementById('bing-webmaster-status').innerHTML = `
+    <div style="background:rgba(251,191,36,.08);border-left:3px solid #fbbf24;padding:14px;border-radius:6px">
+      <strong style="color:#fcd34d">⏳ TODO — vyžaduje API key od klienta (5 min setup)</strong>
+      <p style="color:#cbd5e1;font-size:13px;margin:8px 0 0">
+        <strong>Bing Webmaster Tools</strong> nabízí to, co GSC nemá:
+      </p>
+      <ul style="color:#cbd5e1;font-size:13px;margin:8px 0 0;padding-left:20px">
+        <li><strong>6-měsíční crawl history</strong> přes API (vs GSC 90 dnů jen v UI)</li>
+        <li><strong>Crawl errors per type</strong>: 404, 5xx, blocked by robots.txt</li>
+        <li><strong>Indexed URLs count</strong> — kolik URL je v Bing indexu</li>
+        <li><strong>Backlinks top 10 000</strong> zdarma (vs SEMrush/Ahrefs placené)</li>
+        <li><strong>Query stats</strong> — paralelní k GSC pro cross-check keywords</li>
+      </ul>
+      <p style="margin-top:12px;color:#fcd34d;font-size:13px"><strong>Setup (klient, 5 min):</strong></p>
+      <ol style="color:#cbd5e1;font-size:13px;margin:6px 0 0;padding-left:20px">
+        <li>https://www.bing.com/webmasters → přidat property klicovecentrum.cz</li>
+        <li>Ověřit přes DNS TXT record nebo HTML meta tag</li>
+        <li>Settings (ozubené kolečko) → API access → <strong>Generate API key</strong> (32 znaků, instant)</li>
+        <li>Předat API key auditorovi → setup env <code style="background:#1e293b;padding:2px 6px;border-radius:3px">BING_API_KEY=...</code></li>
+        <li>Spustit <code style="background:#1e293b;padding:2px 6px;border-radius:3px">python build_bing_webmaster.py</code></li>
+      </ol>
+      <p style="margin-top:10px;color:#94a3b8;font-size:11px">Po doplnění: <strong>data/bing_webmaster.json</strong> bude obsahovat 6-měsíční crawl history + indexed URLs + backlinks. Dashboard sekce zde se sám naplní.</p>
+    </div>
+  `;
 }
 
 function renderYearlyHistory() {

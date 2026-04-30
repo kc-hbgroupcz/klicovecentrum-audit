@@ -1,0 +1,1410 @@
+{
+  "generated": "2026-04-30T13:44:07",
+  "source": "Sloučení 3 GSC crawl stats CSV exportů + latest breakdowns",
+  "method": "Rolling window merge (deduplikace per den, novější export přepisuje)",
+  "summary": {
+    "days_total": 128,
+    "date_from": "2025-12-16",
+    "date_to": "2026-04-22",
+    "total_requests": 1763790,
+    "total_size_mb": 44859.0,
+    "avg_requests_per_day": 13780,
+    "stdev_requests": 23127,
+    "avg_response_ms": 966,
+    "peak_day": {
+      "date": "2026-01-20",
+      "requests": 96944,
+      "bytes": 1323384918,
+      "response_ms": 478,
+      "size_mb": 1262.08,
+      "z_score": 3.6,
+      "anomaly": "⚠️ podezřelý"
+    },
+    "trough_day": {
+      "date": "2026-03-23",
+      "requests": 2160,
+      "bytes": 19942825,
+      "response_ms": 429,
+      "size_mb": 19.02,
+      "z_score": -0.5,
+      "anomaly": null
+    },
+    "anomalies_count": 11
+  },
+  "daily_history": [
+    {
+      "date": "2025-12-16",
+      "requests": 9072,
+      "bytes": 177423938,
+      "response_ms": 1037,
+      "size_mb": 169.2,
+      "z_score": -0.2,
+      "anomaly": null
+    },
+    {
+      "date": "2025-12-17",
+      "requests": 46992,
+      "bytes": 696319737,
+      "response_ms": 672,
+      "size_mb": 664.06,
+      "z_score": 1.44,
+      "anomaly": null
+    },
+    {
+      "date": "2025-12-18",
+      "requests": 83657,
+      "bytes": 1164472041,
+      "response_ms": 605,
+      "size_mb": 1110.53,
+      "z_score": 3.02,
+      "anomaly": "⚠️ podezřelý"
+    },
+    {
+      "date": "2025-12-19",
+      "requests": 81621,
+      "bytes": 1826393317,
+      "response_ms": 591,
+      "size_mb": 1741.78,
+      "z_score": 2.93,
+      "anomaly": "⚠️ podezřelý"
+    },
+    {
+      "date": "2025-12-20",
+      "requests": 28066,
+      "bytes": 518071201,
+      "response_ms": 647,
+      "size_mb": 494.07,
+      "z_score": 0.62,
+      "anomaly": null
+    },
+    {
+      "date": "2025-12-21",
+      "requests": 4030,
+      "bytes": 133285404,
+      "response_ms": 782,
+      "size_mb": 127.11,
+      "z_score": -0.42,
+      "anomaly": null
+    },
+    {
+      "date": "2025-12-22",
+      "requests": 4394,
+      "bytes": 249713597,
+      "response_ms": 777,
+      "size_mb": 238.15,
+      "z_score": -0.41,
+      "anomaly": null
+    },
+    {
+      "date": "2025-12-23",
+      "requests": 5009,
+      "bytes": 98522852,
+      "response_ms": 740,
+      "size_mb": 93.96,
+      "z_score": -0.38,
+      "anomaly": null
+    },
+    {
+      "date": "2025-12-24",
+      "requests": 6021,
+      "bytes": 113558343,
+      "response_ms": 634,
+      "size_mb": 108.3,
+      "z_score": -0.34,
+      "anomaly": null
+    },
+    {
+      "date": "2025-12-25",
+      "requests": 7457,
+      "bytes": 130139456,
+      "response_ms": 677,
+      "size_mb": 124.11,
+      "z_score": -0.27,
+      "anomaly": null
+    },
+    {
+      "date": "2025-12-26",
+      "requests": 29354,
+      "bytes": 1152637746,
+      "response_ms": 648,
+      "size_mb": 1099.24,
+      "z_score": 0.67,
+      "anomaly": null
+    },
+    {
+      "date": "2025-12-27",
+      "requests": 82064,
+      "bytes": 1318721845,
+      "response_ms": 583,
+      "size_mb": 1257.63,
+      "z_score": 2.95,
+      "anomaly": "⚠️ podezřelý"
+    },
+    {
+      "date": "2025-12-28",
+      "requests": 78421,
+      "bytes": 1098930236,
+      "response_ms": 567,
+      "size_mb": 1048.02,
+      "z_score": 2.8,
+      "anomaly": "⚠️ podezřelý"
+    },
+    {
+      "date": "2025-12-29",
+      "requests": 57494,
+      "bytes": 855129211,
+      "response_ms": 582,
+      "size_mb": 815.51,
+      "z_score": 1.89,
+      "anomaly": null
+    },
+    {
+      "date": "2025-12-30",
+      "requests": 19799,
+      "bytes": 399577790,
+      "response_ms": 683,
+      "size_mb": 381.07,
+      "z_score": 0.26,
+      "anomaly": null
+    },
+    {
+      "date": "2025-12-31",
+      "requests": 11246,
+      "bytes": 228890189,
+      "response_ms": 729,
+      "size_mb": 218.29,
+      "z_score": -0.11,
+      "anomaly": null
+    },
+    {
+      "date": "2026-01-01",
+      "requests": 13843,
+      "bytes": 256852083,
+      "response_ms": 688,
+      "size_mb": 244.95,
+      "z_score": 0.0,
+      "anomaly": null
+    },
+    {
+      "date": "2026-01-02",
+      "requests": 15171,
+      "bytes": 912156437,
+      "response_ms": 687,
+      "size_mb": 869.9,
+      "z_score": 0.06,
+      "anomaly": null
+    },
+    {
+      "date": "2026-01-03",
+      "requests": 22639,
+      "bytes": 609086308,
+      "response_ms": 624,
+      "size_mb": 580.87,
+      "z_score": 0.38,
+      "anomaly": null
+    },
+    {
+      "date": "2026-01-04",
+      "requests": 18834,
+      "bytes": 355920236,
+      "response_ms": 669,
+      "size_mb": 339.43,
+      "z_score": 0.22,
+      "anomaly": null
+    },
+    {
+      "date": "2026-01-05",
+      "requests": 53461,
+      "bytes": 854123989,
+      "response_ms": 608,
+      "size_mb": 814.56,
+      "z_score": 1.72,
+      "anomaly": null
+    },
+    {
+      "date": "2026-01-06",
+      "requests": 76186,
+      "bytes": 1125951650,
+      "response_ms": 572,
+      "size_mb": 1073.79,
+      "z_score": 2.7,
+      "anomaly": "⚠️ podezřelý"
+    },
+    {
+      "date": "2026-01-07",
+      "requests": 91913,
+      "bytes": 1270177904,
+      "response_ms": 550,
+      "size_mb": 1211.34,
+      "z_score": 3.38,
+      "anomaly": "⚠️ podezřelý"
+    },
+    {
+      "date": "2026-01-08",
+      "requests": 76713,
+      "bytes": 1003855999,
+      "response_ms": 497,
+      "size_mb": 957.35,
+      "z_score": 2.72,
+      "anomaly": "⚠️ podezřelý"
+    },
+    {
+      "date": "2026-01-09",
+      "requests": 74845,
+      "bytes": 1076882410,
+      "response_ms": 484,
+      "size_mb": 1027.0,
+      "z_score": 2.64,
+      "anomaly": "⚠️ podezřelý"
+    },
+    {
+      "date": "2026-01-10",
+      "requests": 53019,
+      "bytes": 1425966534,
+      "response_ms": 573,
+      "size_mb": 1359.91,
+      "z_score": 1.7,
+      "anomaly": null
+    },
+    {
+      "date": "2026-01-11",
+      "requests": 45176,
+      "bytes": 672087504,
+      "response_ms": 574,
+      "size_mb": 640.95,
+      "z_score": 1.36,
+      "anomaly": null
+    },
+    {
+      "date": "2026-01-12",
+      "requests": 28576,
+      "bytes": 521286262,
+      "response_ms": 712,
+      "size_mb": 497.14,
+      "z_score": 0.64,
+      "anomaly": null
+    },
+    {
+      "date": "2026-01-13",
+      "requests": 20862,
+      "bytes": 442001557,
+      "response_ms": 735,
+      "size_mb": 421.53,
+      "z_score": 0.31,
+      "anomaly": null
+    },
+    {
+      "date": "2026-01-14",
+      "requests": 15042,
+      "bytes": 257834501,
+      "response_ms": 741,
+      "size_mb": 245.89,
+      "z_score": 0.05,
+      "anomaly": null
+    },
+    {
+      "date": "2026-01-15",
+      "requests": 4788,
+      "bytes": 124757318,
+      "response_ms": 1195,
+      "size_mb": 118.98,
+      "z_score": -0.39,
+      "anomaly": null
+    },
+    {
+      "date": "2026-01-16",
+      "requests": 4863,
+      "bytes": 231249175,
+      "response_ms": 718,
+      "size_mb": 220.54,
+      "z_score": -0.39,
+      "anomaly": null
+    },
+    {
+      "date": "2026-01-17",
+      "requests": 7193,
+      "bytes": 840768196,
+      "response_ms": 721,
+      "size_mb": 801.82,
+      "z_score": -0.28,
+      "anomaly": null
+    },
+    {
+      "date": "2026-01-18",
+      "requests": 6115,
+      "bytes": 152112596,
+      "response_ms": 717,
+      "size_mb": 145.07,
+      "z_score": -0.33,
+      "anomaly": null
+    },
+    {
+      "date": "2026-01-19",
+      "requests": 73177,
+      "bytes": 1033974671,
+      "response_ms": 542,
+      "size_mb": 986.08,
+      "z_score": 2.57,
+      "anomaly": "⚠️ podezřelý"
+    },
+    {
+      "date": "2026-01-20",
+      "requests": 96944,
+      "bytes": 1323384918,
+      "response_ms": 478,
+      "size_mb": 1262.08,
+      "z_score": 3.6,
+      "anomaly": "⚠️ podezřelý"
+    },
+    {
+      "date": "2026-01-21",
+      "requests": 71655,
+      "bytes": 902975774,
+      "response_ms": 486,
+      "size_mb": 861.14,
+      "z_score": 2.5,
+      "anomaly": "⚠️ podezřelý"
+    },
+    {
+      "date": "2026-01-22",
+      "requests": 16157,
+      "bytes": 343116139,
+      "response_ms": 639,
+      "size_mb": 327.22,
+      "z_score": 0.1,
+      "anomaly": null
+    },
+    {
+      "date": "2026-01-23",
+      "requests": 13266,
+      "bytes": 387729205,
+      "response_ms": 737,
+      "size_mb": 369.77,
+      "z_score": -0.02,
+      "anomaly": null
+    },
+    {
+      "date": "2026-01-24",
+      "requests": 4279,
+      "bytes": 780443011,
+      "response_ms": 747,
+      "size_mb": 744.29,
+      "z_score": -0.41,
+      "anomaly": null
+    },
+    {
+      "date": "2026-01-25",
+      "requests": 3582,
+      "bytes": 121071723,
+      "response_ms": 706,
+      "size_mb": 115.46,
+      "z_score": -0.44,
+      "anomaly": null
+    },
+    {
+      "date": "2026-01-26",
+      "requests": 3440,
+      "bytes": 136463979,
+      "response_ms": 716,
+      "size_mb": 130.14,
+      "z_score": -0.45,
+      "anomaly": null
+    },
+    {
+      "date": "2026-01-27",
+      "requests": 3089,
+      "bytes": 175723541,
+      "response_ms": 732,
+      "size_mb": 167.58,
+      "z_score": -0.46,
+      "anomaly": null
+    },
+    {
+      "date": "2026-01-28",
+      "requests": 3083,
+      "bytes": 69770290,
+      "response_ms": 746,
+      "size_mb": 66.54,
+      "z_score": -0.46,
+      "anomaly": null
+    },
+    {
+      "date": "2026-01-29",
+      "requests": 3171,
+      "bytes": 103652040,
+      "response_ms": 712,
+      "size_mb": 98.85,
+      "z_score": -0.46,
+      "anomaly": null
+    },
+    {
+      "date": "2026-01-30",
+      "requests": 3244,
+      "bytes": 185411410,
+      "response_ms": 699,
+      "size_mb": 176.82,
+      "z_score": -0.46,
+      "anomaly": null
+    },
+    {
+      "date": "2026-01-31",
+      "requests": 3925,
+      "bytes": 799271445,
+      "response_ms": 744,
+      "size_mb": 762.24,
+      "z_score": -0.43,
+      "anomaly": null
+    },
+    {
+      "date": "2026-02-01",
+      "requests": 2954,
+      "bytes": 104643956,
+      "response_ms": 811,
+      "size_mb": 99.8,
+      "z_score": -0.47,
+      "anomaly": null
+    },
+    {
+      "date": "2026-02-02",
+      "requests": 3419,
+      "bytes": 153338786,
+      "response_ms": 714,
+      "size_mb": 146.24,
+      "z_score": -0.45,
+      "anomaly": null
+    },
+    {
+      "date": "2026-02-03",
+      "requests": 2982,
+      "bytes": 168063972,
+      "response_ms": 745,
+      "size_mb": 160.28,
+      "z_score": -0.47,
+      "anomaly": null
+    },
+    {
+      "date": "2026-02-04",
+      "requests": 3162,
+      "bytes": 68275503,
+      "response_ms": 785,
+      "size_mb": 65.11,
+      "z_score": -0.46,
+      "anomaly": null
+    },
+    {
+      "date": "2026-02-05",
+      "requests": 3255,
+      "bytes": 104455268,
+      "response_ms": 693,
+      "size_mb": 99.62,
+      "z_score": -0.46,
+      "anomaly": null
+    },
+    {
+      "date": "2026-02-06",
+      "requests": 3508,
+      "bytes": 195055107,
+      "response_ms": 746,
+      "size_mb": 186.02,
+      "z_score": -0.44,
+      "anomaly": null
+    },
+    {
+      "date": "2026-02-07",
+      "requests": 3989,
+      "bytes": 810764796,
+      "response_ms": 760,
+      "size_mb": 773.21,
+      "z_score": -0.42,
+      "anomaly": null
+    },
+    {
+      "date": "2026-02-08",
+      "requests": 3413,
+      "bytes": 76066245,
+      "response_ms": 694,
+      "size_mb": 72.54,
+      "z_score": -0.45,
+      "anomaly": null
+    },
+    {
+      "date": "2026-02-09",
+      "requests": 3400,
+      "bytes": 172236411,
+      "response_ms": 709,
+      "size_mb": 164.26,
+      "z_score": -0.45,
+      "anomaly": null
+    },
+    {
+      "date": "2026-02-10",
+      "requests": 3873,
+      "bytes": 185862721,
+      "response_ms": 647,
+      "size_mb": 177.25,
+      "z_score": -0.43,
+      "anomaly": null
+    },
+    {
+      "date": "2026-02-11",
+      "requests": 4551,
+      "bytes": 97387595,
+      "response_ms": 669,
+      "size_mb": 92.88,
+      "z_score": -0.4,
+      "anomaly": null
+    },
+    {
+      "date": "2026-02-12",
+      "requests": 4111,
+      "bytes": 119588428,
+      "response_ms": 682,
+      "size_mb": 114.05,
+      "z_score": -0.42,
+      "anomaly": null
+    },
+    {
+      "date": "2026-02-13",
+      "requests": 3634,
+      "bytes": 193524751,
+      "response_ms": 685,
+      "size_mb": 184.56,
+      "z_score": -0.44,
+      "anomaly": null
+    },
+    {
+      "date": "2026-02-14",
+      "requests": 4419,
+      "bytes": 809997667,
+      "response_ms": 866,
+      "size_mb": 772.47,
+      "z_score": -0.4,
+      "anomaly": null
+    },
+    {
+      "date": "2026-02-15",
+      "requests": 3364,
+      "bytes": 80917019,
+      "response_ms": 6614,
+      "size_mb": 77.17,
+      "z_score": -0.45,
+      "anomaly": null
+    },
+    {
+      "date": "2026-02-16",
+      "requests": 3508,
+      "bytes": 168020644,
+      "response_ms": 2322,
+      "size_mb": 160.24,
+      "z_score": -0.44,
+      "anomaly": null
+    },
+    {
+      "date": "2026-02-17",
+      "requests": 5198,
+      "bytes": 246833509,
+      "response_ms": 784,
+      "size_mb": 235.4,
+      "z_score": -0.37,
+      "anomaly": null
+    },
+    {
+      "date": "2026-02-18",
+      "requests": 4630,
+      "bytes": 104473484,
+      "response_ms": 1451,
+      "size_mb": 99.63,
+      "z_score": -0.4,
+      "anomaly": null
+    },
+    {
+      "date": "2026-02-19",
+      "requests": 3391,
+      "bytes": 109711082,
+      "response_ms": 815,
+      "size_mb": 104.63,
+      "z_score": -0.45,
+      "anomaly": null
+    },
+    {
+      "date": "2026-02-20",
+      "requests": 4176,
+      "bytes": 179593242,
+      "response_ms": 1974,
+      "size_mb": 171.27,
+      "z_score": -0.42,
+      "anomaly": null
+    },
+    {
+      "date": "2026-02-21",
+      "requests": 3963,
+      "bytes": 829874889,
+      "response_ms": 1017,
+      "size_mb": 791.43,
+      "z_score": -0.42,
+      "anomaly": null
+    },
+    {
+      "date": "2026-02-22",
+      "requests": 3220,
+      "bytes": 87254151,
+      "response_ms": 834,
+      "size_mb": 83.21,
+      "z_score": -0.46,
+      "anomaly": null
+    },
+    {
+      "date": "2026-02-23",
+      "requests": 3308,
+      "bytes": 168800435,
+      "response_ms": 846,
+      "size_mb": 160.98,
+      "z_score": -0.45,
+      "anomaly": null
+    },
+    {
+      "date": "2026-02-24",
+      "requests": 3647,
+      "bytes": 173333477,
+      "response_ms": 1034,
+      "size_mb": 165.3,
+      "z_score": -0.44,
+      "anomaly": null
+    },
+    {
+      "date": "2026-02-25",
+      "requests": 4019,
+      "bytes": 94869582,
+      "response_ms": 845,
+      "size_mb": 90.47,
+      "z_score": -0.42,
+      "anomaly": null
+    },
+    {
+      "date": "2026-02-26",
+      "requests": 3597,
+      "bytes": 113614784,
+      "response_ms": 822,
+      "size_mb": 108.35,
+      "z_score": -0.44,
+      "anomaly": null
+    },
+    {
+      "date": "2026-02-27",
+      "requests": 3324,
+      "bytes": 167565565,
+      "response_ms": 1115,
+      "size_mb": 159.8,
+      "z_score": -0.45,
+      "anomaly": null
+    },
+    {
+      "date": "2026-02-28",
+      "requests": 4194,
+      "bytes": 839729023,
+      "response_ms": 728,
+      "size_mb": 800.83,
+      "z_score": -0.41,
+      "anomaly": null
+    },
+    {
+      "date": "2026-03-01",
+      "requests": 4068,
+      "bytes": 88330181,
+      "response_ms": 674,
+      "size_mb": 84.24,
+      "z_score": -0.42,
+      "anomaly": null
+    },
+    {
+      "date": "2026-03-02",
+      "requests": 4236,
+      "bytes": 189744740,
+      "response_ms": 688,
+      "size_mb": 180.95,
+      "z_score": -0.41,
+      "anomaly": null
+    },
+    {
+      "date": "2026-03-03",
+      "requests": 4322,
+      "bytes": 186913404,
+      "response_ms": 658,
+      "size_mb": 178.25,
+      "z_score": -0.41,
+      "anomaly": null
+    },
+    {
+      "date": "2026-03-04",
+      "requests": 4552,
+      "bytes": 90609974,
+      "response_ms": 619,
+      "size_mb": 86.41,
+      "z_score": -0.4,
+      "anomaly": null
+    },
+    {
+      "date": "2026-03-05",
+      "requests": 2983,
+      "bytes": 103103707,
+      "response_ms": 713,
+      "size_mb": 98.33,
+      "z_score": -0.47,
+      "anomaly": null
+    },
+    {
+      "date": "2026-03-06",
+      "requests": 3171,
+      "bytes": 163193660,
+      "response_ms": 671,
+      "size_mb": 155.63,
+      "z_score": -0.46,
+      "anomaly": null
+    },
+    {
+      "date": "2026-03-07",
+      "requests": 3608,
+      "bytes": 826738477,
+      "response_ms": 727,
+      "size_mb": 788.44,
+      "z_score": -0.44,
+      "anomaly": null
+    },
+    {
+      "date": "2026-03-08",
+      "requests": 2911,
+      "bytes": 59801095,
+      "response_ms": 739,
+      "size_mb": 57.03,
+      "z_score": -0.47,
+      "anomaly": null
+    },
+    {
+      "date": "2026-03-09",
+      "requests": 3263,
+      "bytes": 168139037,
+      "response_ms": 941,
+      "size_mb": 160.35,
+      "z_score": -0.45,
+      "anomaly": null
+    },
+    {
+      "date": "2026-03-10",
+      "requests": 2998,
+      "bytes": 172428944,
+      "response_ms": 3133,
+      "size_mb": 164.44,
+      "z_score": -0.47,
+      "anomaly": null
+    },
+    {
+      "date": "2026-03-11",
+      "requests": 3171,
+      "bytes": 67354520,
+      "response_ms": 3202,
+      "size_mb": 64.23,
+      "z_score": -0.46,
+      "anomaly": null
+    },
+    {
+      "date": "2026-03-12",
+      "requests": 3256,
+      "bytes": 120326467,
+      "response_ms": 869,
+      "size_mb": 114.75,
+      "z_score": -0.46,
+      "anomaly": null
+    },
+    {
+      "date": "2026-03-13",
+      "requests": 3146,
+      "bytes": 74828384,
+      "response_ms": 878,
+      "size_mb": 71.36,
+      "z_score": -0.46,
+      "anomaly": null
+    },
+    {
+      "date": "2026-03-14",
+      "requests": 3946,
+      "bytes": 926475344,
+      "response_ms": 1016,
+      "size_mb": 883.56,
+      "z_score": -0.43,
+      "anomaly": null
+    },
+    {
+      "date": "2026-03-15",
+      "requests": 3974,
+      "bytes": 111723996,
+      "response_ms": 929,
+      "size_mb": 106.55,
+      "z_score": -0.42,
+      "anomaly": null
+    },
+    {
+      "date": "2026-03-16",
+      "requests": 3600,
+      "bytes": 174379508,
+      "response_ms": 1152,
+      "size_mb": 166.3,
+      "z_score": -0.44,
+      "anomaly": null
+    },
+    {
+      "date": "2026-03-17",
+      "requests": 3374,
+      "bytes": 170163201,
+      "response_ms": 861,
+      "size_mb": 162.28,
+      "z_score": -0.45,
+      "anomaly": null
+    },
+    {
+      "date": "2026-03-18",
+      "requests": 3325,
+      "bytes": 66997896,
+      "response_ms": 842,
+      "size_mb": 63.89,
+      "z_score": -0.45,
+      "anomaly": null
+    },
+    {
+      "date": "2026-03-19",
+      "requests": 3280,
+      "bytes": 92037183,
+      "response_ms": 993,
+      "size_mb": 87.77,
+      "z_score": -0.45,
+      "anomaly": null
+    },
+    {
+      "date": "2026-03-20",
+      "requests": 3341,
+      "bytes": 80779501,
+      "response_ms": 829,
+      "size_mb": 77.04,
+      "z_score": -0.45,
+      "anomaly": null
+    },
+    {
+      "date": "2026-03-21",
+      "requests": 3974,
+      "bytes": 913812917,
+      "response_ms": 784,
+      "size_mb": 871.48,
+      "z_score": -0.42,
+      "anomaly": null
+    },
+    {
+      "date": "2026-03-22",
+      "requests": 3446,
+      "bytes": 2015703,
+      "response_ms": 353,
+      "size_mb": 1.92,
+      "z_score": -0.45,
+      "anomaly": null
+    },
+    {
+      "date": "2026-03-23",
+      "requests": 2160,
+      "bytes": 19942825,
+      "response_ms": 429,
+      "size_mb": 19.02,
+      "z_score": -0.5,
+      "anomaly": null
+    },
+    {
+      "date": "2026-03-24",
+      "requests": 2220,
+      "bytes": 149970178,
+      "response_ms": 675,
+      "size_mb": 143.02,
+      "z_score": -0.5,
+      "anomaly": null
+    },
+    {
+      "date": "2026-03-25",
+      "requests": 3021,
+      "bytes": 186725519,
+      "response_ms": 727,
+      "size_mb": 178.08,
+      "z_score": -0.47,
+      "anomaly": null
+    },
+    {
+      "date": "2026-03-26",
+      "requests": 4209,
+      "bytes": 151379963,
+      "response_ms": 680,
+      "size_mb": 144.37,
+      "z_score": -0.41,
+      "anomaly": null
+    },
+    {
+      "date": "2026-03-27",
+      "requests": 3663,
+      "bytes": 122989445,
+      "response_ms": 695,
+      "size_mb": 117.29,
+      "z_score": -0.44,
+      "anomaly": null
+    },
+    {
+      "date": "2026-03-28",
+      "requests": 3613,
+      "bytes": 923636132,
+      "response_ms": 772,
+      "size_mb": 880.85,
+      "z_score": -0.44,
+      "anomaly": null
+    },
+    {
+      "date": "2026-03-29",
+      "requests": 3053,
+      "bytes": 71430609,
+      "response_ms": 2136,
+      "size_mb": 68.12,
+      "z_score": -0.46,
+      "anomaly": null
+    },
+    {
+      "date": "2026-03-30",
+      "requests": 3044,
+      "bytes": 117500634,
+      "response_ms": 2578,
+      "size_mb": 112.06,
+      "z_score": -0.46,
+      "anomaly": null
+    },
+    {
+      "date": "2026-03-31",
+      "requests": 2976,
+      "bytes": 128159896,
+      "response_ms": 4302,
+      "size_mb": 122.22,
+      "z_score": -0.47,
+      "anomaly": null
+    },
+    {
+      "date": "2026-04-01",
+      "requests": 2992,
+      "bytes": 163550316,
+      "response_ms": 7696,
+      "size_mb": 155.97,
+      "z_score": -0.47,
+      "anomaly": null
+    },
+    {
+      "date": "2026-04-02",
+      "requests": 3050,
+      "bytes": 102688403,
+      "response_ms": 1152,
+      "size_mb": 97.93,
+      "z_score": -0.46,
+      "anomaly": null
+    },
+    {
+      "date": "2026-04-03",
+      "requests": 2330,
+      "bytes": 90059398,
+      "response_ms": 704,
+      "size_mb": 85.89,
+      "z_score": -0.5,
+      "anomaly": null
+    },
+    {
+      "date": "2026-04-04",
+      "requests": 3609,
+      "bytes": 923907868,
+      "response_ms": 710,
+      "size_mb": 881.11,
+      "z_score": -0.44,
+      "anomaly": null
+    },
+    {
+      "date": "2026-04-05",
+      "requests": 2848,
+      "bytes": 73498244,
+      "response_ms": 676,
+      "size_mb": 70.09,
+      "z_score": -0.47,
+      "anomaly": null
+    },
+    {
+      "date": "2026-04-06",
+      "requests": 2753,
+      "bytes": 103548425,
+      "response_ms": 657,
+      "size_mb": 98.75,
+      "z_score": -0.48,
+      "anomaly": null
+    },
+    {
+      "date": "2026-04-07",
+      "requests": 3447,
+      "bytes": 141111590,
+      "response_ms": 792,
+      "size_mb": 134.57,
+      "z_score": -0.45,
+      "anomaly": null
+    },
+    {
+      "date": "2026-04-08",
+      "requests": 3359,
+      "bytes": 174101333,
+      "response_ms": 803,
+      "size_mb": 166.04,
+      "z_score": -0.45,
+      "anomaly": null
+    },
+    {
+      "date": "2026-04-09",
+      "requests": 4257,
+      "bytes": 150212308,
+      "response_ms": 632,
+      "size_mb": 143.25,
+      "z_score": -0.41,
+      "anomaly": null
+    },
+    {
+      "date": "2026-04-10",
+      "requests": 2819,
+      "bytes": 72896260,
+      "response_ms": 862,
+      "size_mb": 69.52,
+      "z_score": -0.47,
+      "anomaly": null
+    },
+    {
+      "date": "2026-04-11",
+      "requests": 3403,
+      "bytes": 909397804,
+      "response_ms": 805,
+      "size_mb": 867.27,
+      "z_score": -0.45,
+      "anomaly": null
+    },
+    {
+      "date": "2026-04-12",
+      "requests": 2805,
+      "bytes": 69167998,
+      "response_ms": 1287,
+      "size_mb": 65.96,
+      "z_score": -0.47,
+      "anomaly": null
+    },
+    {
+      "date": "2026-04-13",
+      "requests": 3412,
+      "bytes": 118074136,
+      "response_ms": 841,
+      "size_mb": 112.6,
+      "z_score": -0.45,
+      "anomaly": null
+    },
+    {
+      "date": "2026-04-14",
+      "requests": 3665,
+      "bytes": 171916927,
+      "response_ms": 896,
+      "size_mb": 163.95,
+      "z_score": -0.44,
+      "anomaly": null
+    },
+    {
+      "date": "2026-04-15",
+      "requests": 3098,
+      "bytes": 168955868,
+      "response_ms": 888,
+      "size_mb": 161.13,
+      "z_score": -0.46,
+      "anomaly": null
+    },
+    {
+      "date": "2026-04-16",
+      "requests": 3192,
+      "bytes": 101266994,
+      "response_ms": 869,
+      "size_mb": 96.58,
+      "z_score": -0.46,
+      "anomaly": null
+    },
+    {
+      "date": "2026-04-17",
+      "requests": 3117,
+      "bytes": 81593478,
+      "response_ms": 838,
+      "size_mb": 77.81,
+      "z_score": -0.46,
+      "anomaly": null
+    },
+    {
+      "date": "2026-04-18",
+      "requests": 3290,
+      "bytes": 905905301,
+      "response_ms": 862,
+      "size_mb": 863.94,
+      "z_score": -0.45,
+      "anomaly": null
+    },
+    {
+      "date": "2026-04-19",
+      "requests": 3050,
+      "bytes": 73624621,
+      "response_ms": 774,
+      "size_mb": 70.21,
+      "z_score": -0.46,
+      "anomaly": null
+    },
+    {
+      "date": "2026-04-20",
+      "requests": 3418,
+      "bytes": 122524779,
+      "response_ms": 824,
+      "size_mb": 116.85,
+      "z_score": -0.45,
+      "anomaly": null
+    },
+    {
+      "date": "2026-04-21",
+      "requests": 3274,
+      "bytes": 140586070,
+      "response_ms": 861,
+      "size_mb": 134.07,
+      "z_score": -0.45,
+      "anomaly": null
+    },
+    {
+      "date": "2026-04-22",
+      "requests": 3541,
+      "bytes": 176169825,
+      "response_ms": 842,
+      "size_mb": 168.01,
+      "z_score": -0.44,
+      "anomaly": null
+    }
+  ],
+  "anomalies": [
+    {
+      "date": "2025-12-18",
+      "requests": 83657,
+      "bytes": 1164472041,
+      "response_ms": 605,
+      "size_mb": 1110.53,
+      "z_score": 3.02,
+      "anomaly": "⚠️ podezřelý"
+    },
+    {
+      "date": "2025-12-19",
+      "requests": 81621,
+      "bytes": 1826393317,
+      "response_ms": 591,
+      "size_mb": 1741.78,
+      "z_score": 2.93,
+      "anomaly": "⚠️ podezřelý"
+    },
+    {
+      "date": "2025-12-27",
+      "requests": 82064,
+      "bytes": 1318721845,
+      "response_ms": 583,
+      "size_mb": 1257.63,
+      "z_score": 2.95,
+      "anomaly": "⚠️ podezřelý"
+    },
+    {
+      "date": "2025-12-28",
+      "requests": 78421,
+      "bytes": 1098930236,
+      "response_ms": 567,
+      "size_mb": 1048.02,
+      "z_score": 2.8,
+      "anomaly": "⚠️ podezřelý"
+    },
+    {
+      "date": "2026-01-06",
+      "requests": 76186,
+      "bytes": 1125951650,
+      "response_ms": 572,
+      "size_mb": 1073.79,
+      "z_score": 2.7,
+      "anomaly": "⚠️ podezřelý"
+    },
+    {
+      "date": "2026-01-07",
+      "requests": 91913,
+      "bytes": 1270177904,
+      "response_ms": 550,
+      "size_mb": 1211.34,
+      "z_score": 3.38,
+      "anomaly": "⚠️ podezřelý"
+    },
+    {
+      "date": "2026-01-08",
+      "requests": 76713,
+      "bytes": 1003855999,
+      "response_ms": 497,
+      "size_mb": 957.35,
+      "z_score": 2.72,
+      "anomaly": "⚠️ podezřelý"
+    },
+    {
+      "date": "2026-01-09",
+      "requests": 74845,
+      "bytes": 1076882410,
+      "response_ms": 484,
+      "size_mb": 1027.0,
+      "z_score": 2.64,
+      "anomaly": "⚠️ podezřelý"
+    },
+    {
+      "date": "2026-01-19",
+      "requests": 73177,
+      "bytes": 1033974671,
+      "response_ms": 542,
+      "size_mb": 986.08,
+      "z_score": 2.57,
+      "anomaly": "⚠️ podezřelý"
+    },
+    {
+      "date": "2026-01-20",
+      "requests": 96944,
+      "bytes": 1323384918,
+      "response_ms": 478,
+      "size_mb": 1262.08,
+      "z_score": 3.6,
+      "anomaly": "⚠️ podezřelý"
+    },
+    {
+      "date": "2026-01-21",
+      "requests": 71655,
+      "bytes": 902975774,
+      "response_ms": 486,
+      "size_mb": 861.14,
+      "z_score": 2.5,
+      "anomaly": "⚠️ podezřelý"
+    }
+  ],
+  "latest_breakdowns": {
+    "responses": [
+      {
+        "label": "OK (200)",
+        "share_pct": 88.92
+      },
+      {
+        "label": "Nenalezeno (404)",
+        "share_pct": 3.7
+      },
+      {
+        "label": "Neupraveno (304)",
+        "share_pct": 2.62
+      },
+      {
+        "label": "Trvale přesunuto (301)",
+        "share_pct": 2.18
+      },
+      {
+        "label": "Dočasně přesunuto (302)",
+        "share_pct": 2.0
+      },
+      {
+        "label": "Chyba serveru (5XX)",
+        "share_pct": 0.29
+      },
+      {
+        "label": "Není k dispozici soubor robots.txt",
+        "share_pct": 0.14
+      },
+      {
+        "label": "Stránka nebyla dostupná",
+        "share_pct": 0.1
+      },
+      {
+        "label": "Jiná chyba klienta (4XX)",
+        "share_pct": 0.06
+      }
+    ],
+    "file_types": [
+      {
+        "label": "HTML",
+        "share_pct": 82.32
+      },
+      {
+        "label": "Jiný typ souboru",
+        "share_pct": 6.81
+      },
+      {
+        "label": "Obrázek",
+        "share_pct": 3.7
+      },
+      {
+        "label": "PDF",
+        "share_pct": 1.32
+      },
+      {
+        "label": "JavaScript",
+        "share_pct": 0.93
+      },
+      {
+        "label": "CSS",
+        "share_pct": 0.64
+      },
+      {
+        "label": "Není známo (neúspěšné požadavky)",
+        "share_pct": 4.28
+      }
+    ],
+    "bot_types": [
+      {
+        "label": "Chytrý telefon",
+        "share_pct": 57.42
+      },
+      {
+        "label": "Počítač",
+        "share_pct": 31.63
+      },
+      {
+        "label": "Obrázek",
+        "share_pct": 6.21
+      },
+      {
+        "label": "Načtení zdroje stránky",
+        "share_pct": 1.78
+      },
+      {
+        "label": "AdsBot",
+        "share_pct": 1.63
+      },
+      {
+        "label": "Jiný user-agent",
+        "share_pct": 1.32
+      },
+      {
+        "label": "Video",
+        "share_pct": 0.0
+      }
+    ],
+    "hosts": [
+      {
+        "label": "www.klicovecentrum.cz",
+        "share_pct": 30865500.0
+      }
+    ],
+    "purposes": [
+      {
+        "label": "Aktualizace",
+        "share_pct": 95.34
+      },
+      {
+        "label": "Nalezení",
+        "share_pct": 4.66
+      }
+    ]
+  },
+  "next_steps": {
+    "automatic_pull": "Naplánovat Windows Task Scheduler na týdenní spuštění → fetch_gsc_crawl.py exportuje CSV → tento skript merge",
+    "blocker_API": "GSC Search Console API NEEXPORTUJE crawl stats — pouze UI manuální download",
+    "alternative": "Server access logs (Apache/nginx) + Bing Webmaster Tools (paralelní crawl source)"
+  }
+}
