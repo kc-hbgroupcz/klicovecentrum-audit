@@ -1266,8 +1266,17 @@
   </div>
 
   <div class="chart-card" id="bing-webmaster-card">
-    <h3>🔵 Bing Webmaster Tools — paralelní crawl source (TODO)</h3>
-    <div id="bing-webmaster-status"></div>
+    <h3>🔵 Bing Webmaster Tools — paralelní crawl source (174 dnů crawl + 484 dnů traffic)</h3>
+    <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
+      Bing API doplňuje GSC: <strong>delší historie</strong>, <strong>per-HTTP-code breakdown</strong> (Code2xx/4xx/5xx/301/302), <strong>per-URL crawl issues</strong> (2 242 URLs), <strong>BlockedByRobotsTxt</strong> denní countery. Cross-check pro náš crawl-attack nález #2/#32.
+    </p>
+    <div class="metrics-grid" id="bing-webmaster-summary"></div>
+    <div id="bing-critical-findings" style="margin-top:18px"></div>
+    <h4 style="margin-top:24px;color:#94a3b8;font-size:13px;text-transform:uppercase;letter-spacing:.05em">📈 Crawl + HTTP responses (174 dnů)</h4>
+    <div class="chart-wrap" style="height:340px;margin-top:12px"><canvas id="chart-bing-crawl"></canvas></div>
+    <h4 style="margin-top:24px;color:#94a3b8;font-size:13px;text-transform:uppercase;letter-spacing:.05em">📊 Bing search performance (484 dnů clicks + impressions)</h4>
+    <div class="chart-wrap" style="height:340px;margin-top:12px"><canvas id="chart-bing-traffic"></canvas></div>
+    <div id="bing-issues-breakdown" style="margin-top:24px"></div>
   </div>
 
   <div class="chart-card" id="forecast-card">
@@ -3636,14 +3645,15 @@ let yearlyData = null;
 async function loadYearly() {
   if (!yearlyData) {
     try {
-      const [yt, ym, fc, yh, ch] = await Promise.all([
+      const [yt, ym, fc, yh, ch, bw] = await Promise.all([
         fetch('data/yearly_trend.json?v='+Date.now()).then(r=>r.json()),
         fetch('data/yearly_master.json?v='+Date.now()).then(r=>r.json()),
         fetch('data/seasonality_forecast.json?v='+Date.now()).then(r=>r.json()),
         fetch('data/yearly_history.json?v='+Date.now()).then(r=>r.json()),
         fetch('data/crawl_stats_history.json?v='+Date.now()).then(r=>r.json()),
+        fetch('data/bing_webmaster.json?v='+Date.now()).then(r=>r.json()).catch(()=>null),
       ]);
-      yearlyData = {trend: yt, master: ym, forecast: fc, history: yh, crawl: ch};
+      yearlyData = {trend: yt, master: ym, forecast: fc, history: yh, crawl: ch, bing: bw};
     } catch(e){ console.error('yearly', e); return; }
   }
   renderYearly();
@@ -3697,29 +3707,160 @@ function renderCrawlHistory() {
 }
 
 function renderBingStatus() {
-  document.getElementById('bing-webmaster-status').innerHTML = `
-    <div style="background:rgba(251,191,36,.08);border-left:3px solid #fbbf24;padding:14px;border-radius:6px">
-      <strong style="color:#fcd34d">⏳ TODO — vyžaduje API key od klienta (5 min setup)</strong>
-      <p style="color:#cbd5e1;font-size:13px;margin:8px 0 0">
-        <strong>Bing Webmaster Tools</strong> nabízí to, co GSC nemá:
-      </p>
-      <ul style="color:#cbd5e1;font-size:13px;margin:8px 0 0;padding-left:20px">
-        <li><strong>6-měsíční crawl history</strong> přes API (vs GSC 90 dnů jen v UI)</li>
-        <li><strong>Crawl errors per type</strong>: 404, 5xx, blocked by robots.txt</li>
-        <li><strong>Indexed URLs count</strong> — kolik URL je v Bing indexu</li>
-        <li><strong>Backlinks top 10 000</strong> zdarma (vs SEMrush/Ahrefs placené)</li>
-        <li><strong>Query stats</strong> — paralelní k GSC pro cross-check keywords</li>
-      </ul>
-      <p style="margin-top:12px;color:#fcd34d;font-size:13px"><strong>Setup (klient, 5 min):</strong></p>
-      <ol style="color:#cbd5e1;font-size:13px;margin:6px 0 0;padding-left:20px">
-        <li>https://www.bing.com/webmasters → přidat property klicovecentrum.cz</li>
-        <li>Ověřit přes DNS TXT record nebo HTML meta tag</li>
-        <li>Settings (ozubené kolečko) → API access → <strong>Generate API key</strong> (32 znaků, instant)</li>
-        <li>Předat API key auditorovi → setup env <code style="background:#1e293b;padding:2px 6px;border-radius:3px">BING_API_KEY=...</code></li>
-        <li>Spustit <code style="background:#1e293b;padding:2px 6px;border-radius:3px">python build_bing_webmaster.py</code></li>
-      </ol>
-      <p style="margin-top:10px;color:#94a3b8;font-size:11px">Po doplnění: <strong>data/bing_webmaster.json</strong> bude obsahovat 6-měsíční crawl history + indexed URLs + backlinks. Dashboard sekce zde se sám naplní.</p>
+  const fmt = n => n==null?'—':Number(n).toLocaleString('cs-CZ');
+  const b = yearlyData.bing;
+  if (!b || !b.crawl_stats_summary) {
+    document.getElementById('bing-webmaster-summary').innerHTML = '<p style="color:#94a3b8">Bing data nedostupná. Spusť <code>python build_bing_webmaster.py</code></p>';
+    return;
+  }
+  const cs = b.crawl_stats_summary;
+  const rt = b.rank_traffic_summary;
+  const ci = b.crawl_issues_summary;
+  const ri = b.root_url_info || {};
+
+  // KPI grid
+  document.getElementById('bing-webmaster-summary').innerHTML = `
+    <div class="metric-box"><div class="metric-label">Crawl history period</div><div class="metric-value" style="font-size:17px">${cs.date_from} → ${cs.date_to}</div><div style="color:#64748b;font-size:11px">${cs.days_total} dnů (vs GSC 128)</div></div>
+    <div class="metric-box"><div class="metric-label">Avg crawled/den</div><div class="metric-value">${fmt(cs.avg_crawled_per_day)}</div><div style="color:#64748b;font-size:11px">stránky · Bingbot</div></div>
+    <div class="metric-box" style="background:rgba(239,68,68,.08);border-color:#ef4444"><div class="metric-label">URLs in Bing index</div><div class="metric-value" style="color:#fca5a5">${fmt(cs.current_in_index)}</div><div style="color:#64748b;font-size:11px">Δ ${cs.in_index_change>=0?'+':''}${fmt(cs.in_index_change)} za ${cs.days_total} dnů</div></div>
+    <div class="metric-box" style="background:rgba(239,68,68,.08);border-color:#ef4444"><div class="metric-label">🔥 Blocked by robots.txt</div><div class="metric-value" style="color:#fca5a5">${fmt(cs.total_blocked_by_robots)}</div><div style="color:#64748b;font-size:11px">~${fmt(Math.round(cs.total_blocked_by_robots/cs.days_total))} / den · URL exploze</div></div>
+    <div class="metric-box" style="background:rgba(251,191,36,.08);border-color:#fbbf24"><div class="metric-label">Total Code 4xx</div><div class="metric-value" style="color:#fcd34d">${fmt(cs.total_code_4xx)}</div><div style="color:#64748b;font-size:11px">~${fmt(Math.round(cs.total_code_4xx/cs.days_total))} / den</div></div>
+    <div class="metric-box" style="background:rgba(251,191,36,.08);border-color:#fbbf24"><div class="metric-label">Total Code 5xx</div><div class="metric-value" style="color:#fcd34d">${fmt(cs.total_code_5xx)}</div><div style="color:#64748b;font-size:11px">~${fmt(Math.round(cs.total_code_5xx/cs.days_total))} / den</div></div>
+    <div class="metric-box"><div class="metric-label">Bing clicks (484 dnů)</div><div class="metric-value">${fmt(rt.total_clicks)}</div><div style="color:#64748b;font-size:11px">CTR ${rt.avg_ctr_pct}%</div></div>
+    <div class="metric-box"><div class="metric-label">Bing impressions (484 dnů)</div><div class="metric-value">${fmt(rt.total_impressions)}</div><div style="color:#64748b;font-size:11px">${rt.date_from} → ${rt.date_to}</div></div>
+    <div class="metric-box"><div class="metric-label">Crawl issues (URLs)</div><div class="metric-value">${fmt(ci.total_urls_with_issues)}</div><div style="color:#64748b;font-size:11px">301:${fmt(ci.by_http_code['301']||0)} 404:${fmt(ci.by_http_code['404']||0)} 500:${fmt(ci.by_http_code['500']||0)}</div></div>
+    <div class="metric-box"><div class="metric-label">Root URL meta</div><div class="metric-value" style="font-size:17px">AC ${fmt(ri.anchor_count)}</div><div style="color:#64748b;font-size:11px">discovery ${ri.discovery_date}</div></div>
+  `;
+
+  // Critical findings card
+  document.getElementById('bing-critical-findings').innerHTML = `
+    <div style="background:rgba(239,68,68,.08);border-left:4px solid #ef4444;padding:16px;border-radius:6px">
+      <h4 style="color:#fca5a5;margin:0 0 12px;font-size:15px">🚨 Kritické nálezy z Bing crawl issues</h4>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px">
+        <div style="background:rgba(15,23,42,.6);border:1px solid #334155;border-radius:6px;padding:14px">
+          <strong style="color:#fca5a5;font-size:13px">#1 PAYMENT/THANK-YOU PAGE = 500</strong>
+          <p style="color:#cbd5e1;font-size:12px;margin:6px 0 0">
+            <code style="background:#1e293b;padding:1px 4px;border-radius:3px">/page/default/dekujeme-za-vasi-objednavku</code> a <code style="background:#1e293b;padding:1px 4px;border-radius:3px">/platebni-stranka/</code> vrací <strong>HTTP 500</strong>.
+            Pravděpodobně přímá příčina <strong>nálezu #16</strong> (GA4 zachycuje 46 % konverzí) — pokud thank-you 500uje, GA4 conversion event nikdy neodejde.
+          </p>
+        </div>
+        <div style="background:rgba(15,23,42,.6);border:1px solid #334155;border-radius:6px;padding:14px">
+          <strong style="color:#fca5a5;font-size:13px">#2 old.klicovecentrum.cz zombie subdomain</strong>
+          <p style="color:#cbd5e1;font-size:12px;margin:6px 0 0">
+            16+ URLs na <code style="background:#1e293b;padding:1px 4px;border-radius:3px">old.klicovecentrum.cz</code> vrací <strong>500</strong>. Bing aktivně crawluje. Buď opravit nebo úplně odebrat z DNS / přes 301 redirect.
+          </p>
+        </div>
+        <div style="background:rgba(15,23,42,.6);border:1px solid #334155;border-radius:6px;padding:14px">
+          <strong style="color:#fca5a5;font-size:13px">#3 SECURITY: PHPMailer 5.2.1 exposed</strong>
+          <p style="color:#cbd5e1;font-size:12px;margin:6px 0 0">
+            18 URLs v <code style="background:#1e293b;padding:1px 4px;border-radius:3px">/phpmailer_5.2.1/</code> directory. Verze < 5.2.18 má <strong>CVE-2016-10033 (RCE)</strong>. Okamžitě smazat z webroot.
+          </p>
+        </div>
+        <div style="background:rgba(15,23,42,.6);border:1px solid #334155;border-radius:6px;padding:14px">
+          <strong style="color:#fca5a5;font-size:13px">#4 URL exploze + 3 vrstvy legacy debt</strong>
+          <p style="color:#cbd5e1;font-size:12px;margin:6px 0 0">
+            <strong>${fmt(cs.current_in_index)} URLs v Bing indexu</strong> pro ~2 000 produktů. <strong>${fmt(Math.round(cs.total_blocked_by_robots/cs.days_total))} blocks/den</strong> přes robots.txt.<br>
+            • Joomla legacy: <code style="background:#1e293b;padding:1px 4px;border-radius:3px">/index.php/cs/</code>+<code style="background:#1e293b;padding:1px 4px;border-radius:3px">/index.php/sk/</code> (175 URLs)<br>
+            • Duplicate produkty: <code style="background:#1e293b;padding:1px 4px;border-radius:3px">/produkt/</code> + <code style="background:#1e293b;padding:1px 4px;border-radius:3px">/product/default/</code> (1 280 URLs)<br>
+            • Encoding bug: <code style="background:#1e293b;padding:1px 4px;border-radius:3px">?&amp;amp;amp;itemid=</code> (281 URLs)<br>
+            • HTTP (ne HTTPS): 711 URLs (32 %)
+          </p>
+        </div>
+        <div style="background:rgba(15,23,42,.6);border:1px solid #334155;border-radius:6px;padding:14px">
+          <strong style="color:#fca5a5;font-size:13px">#5 Bot/crawl anomálie korelují s nálezy #2/#32</strong>
+          <p style="color:#cbd5e1;font-size:12px;margin:6px 0 0">
+            • Robots.txt block peak <strong>2026-02-27 = 564 426 blocks</strong> v jeden den (3,8× průměr)<br>
+            • 5xx peak <strong>2026-03-25 = 791 errors</strong> (10× průměr)<br>
+            • Crawl peak <strong>2026-01-14 = 56 726 pages</strong> (2× průměr)<br>
+            Časově odpovídá GA4 bot útoku Q1 2026.
+          </p>
+        </div>
+        <div style="background:rgba(15,23,42,.6);border:1px solid #334155;border-radius:6px;padding:14px">
+          <strong style="color:#fcd34d;font-size:13px">📊 Bing CTR > GSC CTR</strong>
+          <p style="color:#cbd5e1;font-size:12px;margin:6px 0 0">
+            Bing CTR <strong>${rt.avg_ctr_pct}%</strong> vs GSC CTR ~1,88 %. Jen <strong>${fmt(rt.total_clicks)} clicks za 484 dnů</strong> = ~17 clicks/měs (Bing market share v ČR ~5 %). Top query: „klicove centrum" (3 clicks/12 impr).
+          </p>
+        </div>
+      </div>
     </div>
+  `;
+
+  // Crawl + HTTP responses chart
+  const ch = b.crawl_stats_history;
+  if (window.bingCrawlChart) window.bingCrawlChart.destroy();
+  const ctxC = document.getElementById('chart-bing-crawl').getContext('2d');
+  window.bingCrawlChart = new Chart(ctxC, {
+    type: 'line',
+    data: {
+      labels: ch.map(d => d.date),
+      datasets: [
+        {label:'Crawled pages/den', data:ch.map(d=>d.crawled_pages), borderColor:'#3b82f6', backgroundColor:'rgba(59,130,246,.08)', tension:0.2, pointRadius:0, yAxisID:'y'},
+        {label:'Code 5xx', data:ch.map(d=>d.code_5xx), borderColor:'#ef4444', backgroundColor:'rgba(239,68,68,.08)', tension:0.2, pointRadius:0, yAxisID:'y2'},
+        {label:'Code 4xx', data:ch.map(d=>d.code_4xx), borderColor:'#fbbf24', backgroundColor:'rgba(251,191,36,.08)', tension:0.2, pointRadius:0, yAxisID:'y2'},
+        {label:'Blocked by robots.txt', data:ch.map(d=>d.blocked_by_robots), borderColor:'#f97316', backgroundColor:'rgba(249,115,22,.08)', tension:0.2, pointRadius:0, yAxisID:'y3', borderDash:[4,4]},
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {legend:{labels:{color:'#e2e8f0'}}, tooltip:{mode:'index', intersect:false}},
+      scales: {
+        x: {ticks:{color:'#94a3b8',maxRotation:45,maxTicksLimit:20}},
+        y: {position:'left', ticks:{color:'#3b82f6',callback:v=>(v/1000).toFixed(0)+'k'}, title:{display:true,text:'Crawled pages',color:'#3b82f6'}},
+        y2: {position:'right', ticks:{color:'#ef4444'}, title:{display:true,text:'4xx / 5xx',color:'#ef4444'}, grid:{drawOnChartArea:false}},
+        y3: {position:'right', display:false, ticks:{color:'#f97316'}}
+      }
+    }
+  });
+
+  // Rank/traffic chart
+  const rth = b.rank_traffic_history;
+  if (window.bingTrafficChart) window.bingTrafficChart.destroy();
+  const ctxT = document.getElementById('chart-bing-traffic').getContext('2d');
+  window.bingTrafficChart = new Chart(ctxT, {
+    type: 'line',
+    data: {
+      labels: rth.map(d => d.date),
+      datasets: [
+        {label:'Impressions', data:rth.map(d=>d.impressions), borderColor:'#a78bfa', backgroundColor:'rgba(167,139,250,.1)', tension:0.2, pointRadius:0, yAxisID:'y'},
+        {label:'Clicks', data:rth.map(d=>d.clicks), borderColor:'#10b981', backgroundColor:'rgba(16,185,129,.15)', tension:0.2, pointRadius:0, yAxisID:'y2'},
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {legend:{labels:{color:'#e2e8f0'}}, tooltip:{mode:'index', intersect:false}},
+      scales: {
+        x: {ticks:{color:'#94a3b8',maxRotation:45,maxTicksLimit:20}},
+        y: {position:'left', ticks:{color:'#a78bfa'}, title:{display:true,text:'Impressions',color:'#a78bfa'}},
+        y2: {position:'right', ticks:{color:'#10b981'}, title:{display:true,text:'Clicks',color:'#10b981'}, grid:{drawOnChartArea:false}}
+      }
+    }
+  });
+
+  // Crawl issues breakdown table (top 30)
+  const issues = b.crawl_issues || [];
+  const top500 = issues.filter(i=>i.http_code===500).slice(0,15);
+  const top404 = issues.filter(i=>i.http_code===404).slice(0,15);
+  document.getElementById('bing-issues-breakdown').innerHTML = `
+    <h4 style="margin:0 0 10px;color:#94a3b8;font-size:13px;text-transform:uppercase;letter-spacing:.05em">📋 Crawl issues — sample top 15 per code</h4>
+    <details open>
+      <summary style="cursor:pointer;color:#fca5a5;font-size:13px;font-weight:600;padding:6px 0">🚨 HTTP 500 — server errors (${ci.by_http_code['500']||0} celkem)</summary>
+      <div style="background:rgba(15,23,42,.6);border:1px solid #334155;border-radius:6px;padding:12px;font-size:11px;margin-top:6px">
+        ${top500.map(i=>`<div style="color:#cbd5e1;margin-bottom:3px;font-family:monospace">500 · ${i.url}</div>`).join('')}
+      </div>
+    </details>
+    <details style="margin-top:10px">
+      <summary style="cursor:pointer;color:#fcd34d;font-size:13px;font-weight:600;padding:6px 0">⚠️ HTTP 404 — sample 15 z ${ci.by_http_code['404']||0}</summary>
+      <div style="background:rgba(15,23,42,.6);border:1px solid #334155;border-radius:6px;padding:12px;font-size:11px;margin-top:6px">
+        ${top404.map(i=>`<div style="color:#cbd5e1;margin-bottom:3px;font-family:monospace">404 · ${i.url}</div>`).join('')}
+      </div>
+    </details>
+    <details style="margin-top:10px">
+      <summary style="cursor:pointer;color:#94a3b8;font-size:13px;font-weight:600;padding:6px 0">↪️ HTTP 301 — redirects (${ci.by_http_code['301']||0} URLs — link equity loss)</summary>
+      <div style="background:rgba(15,23,42,.6);border:1px solid #334155;border-radius:6px;padding:12px;font-size:11px;margin-top:6px">
+        ${issues.filter(i=>i.http_code===301).slice(0,15).map(i=>`<div style="color:#cbd5e1;margin-bottom:3px;font-family:monospace">301 · ${i.url}</div>`).join('')}
+        <p style="color:#94a3b8;font-size:11px;margin-top:8px">… a dalších ${(ci.by_http_code['301']||0)-15} URLs. Většinou HTTP→HTTPS staré linky bez fix v interní navigaci.</p>
+      </div>
+    </details>
   `;
 }
 
