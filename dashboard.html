@@ -1279,6 +1279,19 @@
     <div id="bing-issues-breakdown" style="margin-top:24px"></div>
   </div>
 
+  <div class="chart-card" id="payment-outage-card">
+    <h3>🚨 NÁLEZ #48 — Payment outage: 24 období / 45 dnů (21,2 % audit period) / ~261 k Kč ztráta</h3>
+    <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
+      <strong>Cross-validace s Bing crawl errors potvrzeno</strong>: 23. 11. → 12. 12. 2025 = 20 dní, kdy GA4 sessions normální + add_to_cart + checkout normální, ALE <strong>transactions ≈ 0</strong>. Payment/thank-you stránky vrací 500 (nálezy #42, #43). Lidé prošli celý funnel, ale nezaplatili. Plus korelace s XML feed outage 20. 9. 2025 (jiný typ — front-end down).
+    </p>
+    <div class="metrics-grid" id="payment-outage-summary"></div>
+    <div id="payment-outage-types" style="margin-top:18px"></div>
+    <h4 style="margin-top:24px;color:#94a3b8;font-size:13px;text-transform:uppercase;letter-spacing:.05em">📈 Daily checkout vs transactions (212 dnů audit period)</h4>
+    <div class="chart-wrap" style="height:380px;margin-top:12px"><canvas id="chart-payment-outage"></canvas></div>
+    <h4 style="margin-top:24px;color:#94a3b8;font-size:13px;text-transform:uppercase;letter-spacing:.05em">📋 Detail outage period</h4>
+    <div id="payment-outage-periods"></div>
+  </div>
+
   <div class="chart-card" id="forecast-card">
     <h3>📈 Sezónnost + 12M Forecast (2026 prediction)</h3>
     <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
@@ -3645,15 +3658,16 @@ let yearlyData = null;
 async function loadYearly() {
   if (!yearlyData) {
     try {
-      const [yt, ym, fc, yh, ch, bw] = await Promise.all([
+      const [yt, ym, fc, yh, ch, bw, po] = await Promise.all([
         fetch('data/yearly_trend.json?v='+Date.now()).then(r=>r.json()),
         fetch('data/yearly_master.json?v='+Date.now()).then(r=>r.json()),
         fetch('data/seasonality_forecast.json?v='+Date.now()).then(r=>r.json()),
         fetch('data/yearly_history.json?v='+Date.now()).then(r=>r.json()),
         fetch('data/crawl_stats_history.json?v='+Date.now()).then(r=>r.json()),
         fetch('data/bing_webmaster.json?v='+Date.now()).then(r=>r.json()).catch(()=>null),
+        fetch('data/payment_outage_full_audit.json?v='+Date.now()).then(r=>r.json()).catch(()=>null),
       ]);
-      yearlyData = {trend: yt, master: ym, forecast: fc, history: yh, crawl: ch, bing: bw};
+      yearlyData = {trend: yt, master: ym, forecast: fc, history: yh, crawl: ch, bing: bw, payment_outage: po};
     } catch(e){ console.error('yearly', e); return; }
   }
   renderYearly();
@@ -3661,6 +3675,112 @@ async function loadYearly() {
   renderYearlyHistory();
   renderCrawlHistory();
   renderBingStatus();
+  renderPaymentOutage();
+}
+
+function renderPaymentOutage() {
+  const fmt = n => n==null?'—':Number(n).toLocaleString('cs-CZ');
+  const p = yearlyData.payment_outage;
+  if (!p) {
+    document.getElementById('payment-outage-summary').innerHTML = '<p style="color:#94a3b8">Payment outage data nedostupná. Spusť <code>python payment_outage_full_audit.py</code></p>';
+    return;
+  }
+  const ap = p.audit_period;
+  const lostTrans = Math.round(45 * 4.6 - p.audit_broken_days.reduce((s,b)=>s+b.transactions,0));
+  const lostRevenue = lostTrans * 1472;
+
+  document.getElementById('payment-outage-summary').innerHTML = `
+    <div class="metric-box" style="background:rgba(239,68,68,.08);border-color:#ef4444"><div class="metric-label">Broken dní</div><div class="metric-value" style="color:#fca5a5">${ap.days_broken} / ${ap.days_total}</div><div style="color:#64748b;font-size:11px">${ap.broken_pct}% audit period</div></div>
+    <div class="metric-box" style="background:rgba(239,68,68,.08);border-color:#ef4444"><div class="metric-label">Outage period</div><div class="metric-value" style="color:#fca5a5">${ap.broken_periods.length}</div><div style="color:#64748b;font-size:11px">cluster (gap ≤ 3 dnů)</div></div>
+    <div class="metric-box" style="background:rgba(239,68,68,.08);border-color:#ef4444"><div class="metric-label">Ztracené trans</div><div class="metric-value" style="color:#fca5a5">~${fmt(lostTrans)}</div><div style="color:#64748b;font-size:11px">vs baseline 4,6 trans/den</div></div>
+    <div class="metric-box" style="background:rgba(239,68,68,.08);border-color:#ef4444"><div class="metric-label">Ztracené revenue</div><div class="metric-value" style="color:#fca5a5">~${fmt(lostRevenue)} Kč</div><div style="color:#64748b;font-size:11px">~1 472 Kč/trans baseline</div></div>
+    <div class="metric-box"><div class="metric-label">Baseline conv %</div><div class="metric-value">12,5 %</div><div style="color:#64748b;font-size:11px">checkout → trans (zdravé dny)</div></div>
+    <div class="metric-box"><div class="metric-label">Broken conv %</div><div class="metric-value" style="color:#fca5a5">0-5 %</div><div style="color:#64748b;font-size:11px">payment selhal</div></div>
+  `;
+
+  document.getElementById('payment-outage-types').innerHTML = `
+    <div style="background:rgba(239,68,68,.08);border-left:4px solid #ef4444;padding:16px;border-radius:6px">
+      <h4 style="color:#fca5a5;margin:0 0 12px;font-size:15px">3 typy outage identifikovány</h4>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px">
+        <div style="background:rgba(15,23,42,.6);border:1px solid #334155;border-radius:6px;padding:14px">
+          <strong style="color:#fcd34d;font-size:13px">A) Hosting / feed outage</strong>
+          <p style="color:#cbd5e1;font-size:12px;margin:6px 0 0">
+            Sessions ↓ napříč všemi kanály (organic, direct, paid). <strong>Příklad: 20.-21. 9. 2025</strong> — sessions 1404 → 817 (−42 %), klient potvrdil XML feed nedostupnost. Server/CDN down.
+          </p>
+        </div>
+        <div style="background:rgba(15,23,42,.6);border:1px solid #334155;border-radius:6px;padding:14px">
+          <strong style="color:#fca5a5;font-size:13px">B) Payment-only outage</strong>
+          <p style="color:#cbd5e1;font-size:12px;margin:6px 0 0">
+            Sessions ✅ OK, add_to_cart ✅ OK, checkout ✅ OK, ale <strong>transactions ≈ 0</strong>. <strong>Příklad: 23. 11. → 12. 12. 2025</strong> = 20 dnů — payment/thank-you 500 (#42). Klient potvrdil "od 26. 11. nefungoval web" — ve skutečnosti front-end OK, jen platba.
+          </p>
+        </div>
+        <div style="background:rgba(15,23,42,.6);border:1px solid #334155;border-radius:6px;padding:14px">
+          <strong style="color:#fcd34d;font-size:13px">C) Bot inflated + payment broken</strong>
+          <p style="color:#cbd5e1;font-size:12px;margin:6px 0 0">
+            Sessions explode (10k-175k), <strong>transactions propad</strong>. <strong>Příklad: 11. 3. (175 686 sess), 28. 3., 2.-6. 4. 2026</strong>. Bot útok zaměřený na rate-limit + payment už byl rozbitý → souběžně 2 problémy.
+          </p>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Chart: daily checkout vs transactions
+  if (window.paymentOutageChart) window.paymentOutageChart.destroy();
+  const daily = p.audit_daily;
+  const ctxP = document.getElementById('chart-payment-outage').getContext('2d');
+  const brokenSet = new Set(p.audit_broken_days.map(b=>b.date));
+  window.paymentOutageChart = new Chart(ctxP, {
+    type:'line',
+    data:{labels: daily.map(d=>d.date),
+          datasets:[
+            {label:'Checkouts/den', data:daily.map(d=>d.checkout), borderColor:'#a78bfa', backgroundColor:'rgba(167,139,250,.1)', tension:0.2, pointRadius:0, yAxisID:'y'},
+            {label:'Transactions/den', data:daily.map(d=>d.transactions), borderColor:'#10b981', backgroundColor:'rgba(16,185,129,.15)', tension:0.2, pointRadius:0, yAxisID:'y'},
+            {label:'🚨 Broken den', type:'scatter', data:daily.map(d=>brokenSet.has(d.date)?{x:d.date,y:d.checkout}:null).filter(x=>x), backgroundColor:'#ef4444', borderColor:'#dc2626', pointRadius:5, yAxisID:'y'},
+          ]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{color:'#e2e8f0'}}, tooltip:{mode:'index',intersect:false}},
+      scales:{x:{ticks:{color:'#94a3b8',maxRotation:45,maxTicksLimit:30}},
+              y:{ticks:{color:'#a78bfa'}, title:{display:true,text:'Checkouts / Transactions',color:'#a78bfa'}}}}
+  });
+
+  // Periods table
+  const periods = ap.broken_periods.map(per => {
+    const days = p.audit_broken_days.filter(b => b.date >= per.start && b.date <= per.end);
+    const totChk = days.reduce((s,d)=>s+d.checkout,0);
+    const totTrans = days.reduce((s,d)=>s+d.transactions,0);
+    const totSess = days.reduce((s,d)=>s+d.sessions,0);
+    const conv = totChk>0?(100*totTrans/totChk).toFixed(1):'—';
+    return {...per, total_checkout: totChk, total_transactions: totTrans, total_sessions: totSess, conv_pct: conv};
+  });
+  document.getElementById('payment-outage-periods').innerHTML = `
+    <div style="overflow-x:auto">
+      <table class="data-table" style="font-size:12px">
+        <thead>
+          <tr>
+            <th>#</th><th>Začátek</th><th>Konec</th><th style="text-align:right">Kal. dnů</th><th style="text-align:right">Broken</th><th style="text-align:right">Checkouts</th><th style="text-align:right">Trans</th><th style="text-align:right">Conv %</th><th style="text-align:right">Sessions</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${periods.map((per, i) => `
+            <tr>
+              <td>${i+1}</td>
+              <td>${per.start}</td>
+              <td>${per.end}</td>
+              <td style="text-align:right">${per.calendar_days}</td>
+              <td style="text-align:right">${per.broken_days}</td>
+              <td style="text-align:right">${fmt(per.total_checkout)}</td>
+              <td style="text-align:right;color:${per.total_transactions<=2?'#fca5a5':'#cbd5e1'}">${per.total_transactions}</td>
+              <td style="text-align:right;color:${parseFloat(per.conv_pct)<5?'#fca5a5':'#cbd5e1'}">${per.conv_pct}</td>
+              <td style="text-align:right">${fmt(per.total_sessions)}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    </div>
+    <p style="color:#94a3b8;font-size:11px;margin-top:10px">
+      Detection: 0 trans + sess > 500 + checkout > 5 (ZERO_TRANS_CART_HIGH) | nebo trans ≤ 1 + checkout > 15 (LOW_TRANS_HIGH_CHECKOUT) | nebo revenue < 200 + sess > 1000 (REVENUE_COLLAPSE).
+    </p>
+  `;
 }
 
 function renderCrawlHistory() {

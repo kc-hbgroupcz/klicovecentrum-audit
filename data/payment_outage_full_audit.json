@@ -1,0 +1,3400 @@
+{
+  "generated": "2026-05-06T13:57:09",
+  "audit_period": {
+    "start": "2025-10-01",
+    "end": "2026-04-30",
+    "days_total": 212,
+    "days_broken": 45,
+    "broken_pct": 21.2,
+    "broken_periods": [
+      {
+        "start": "2025-10-07",
+        "end": "2025-10-07",
+        "broken_days": 1,
+        "calendar_days": 1
+      },
+      {
+        "start": "2025-10-17",
+        "end": "2025-10-17",
+        "broken_days": 1,
+        "calendar_days": 1
+      },
+      {
+        "start": "2025-10-22",
+        "end": "2025-10-23",
+        "broken_days": 2,
+        "calendar_days": 2
+      },
+      {
+        "start": "2025-10-28",
+        "end": "2025-10-28",
+        "broken_days": 1,
+        "calendar_days": 1
+      },
+      {
+        "start": "2025-11-14",
+        "end": "2025-11-14",
+        "broken_days": 1,
+        "calendar_days": 1
+      },
+      {
+        "start": "2025-11-21",
+        "end": "2025-11-25",
+        "broken_days": 5,
+        "calendar_days": 5
+      },
+      {
+        "start": "2025-11-29",
+        "end": "2025-12-02",
+        "broken_days": 3,
+        "calendar_days": 4
+      },
+      {
+        "start": "2025-12-20",
+        "end": "2025-12-20",
+        "broken_days": 1,
+        "calendar_days": 1
+      },
+      {
+        "start": "2025-12-25",
+        "end": "2025-12-25",
+        "broken_days": 1,
+        "calendar_days": 1
+      },
+      {
+        "start": "2025-12-29",
+        "end": "2026-01-03",
+        "broken_days": 3,
+        "calendar_days": 6
+      },
+      {
+        "start": "2026-01-07",
+        "end": "2026-01-09",
+        "broken_days": 2,
+        "calendar_days": 3
+      },
+      {
+        "start": "2026-01-25",
+        "end": "2026-01-25",
+        "broken_days": 1,
+        "calendar_days": 1
+      },
+      {
+        "start": "2026-01-29",
+        "end": "2026-02-02",
+        "broken_days": 5,
+        "calendar_days": 5
+      },
+      {
+        "start": "2026-02-06",
+        "end": "2026-02-06",
+        "broken_days": 1,
+        "calendar_days": 1
+      },
+      {
+        "start": "2026-02-11",
+        "end": "2026-02-16",
+        "broken_days": 3,
+        "calendar_days": 6
+      },
+      {
+        "start": "2026-02-21",
+        "end": "2026-02-21",
+        "broken_days": 1,
+        "calendar_days": 1
+      },
+      {
+        "start": "2026-02-28",
+        "end": "2026-02-28",
+        "broken_days": 1,
+        "calendar_days": 1
+      },
+      {
+        "start": "2026-03-05",
+        "end": "2026-03-05",
+        "broken_days": 1,
+        "calendar_days": 1
+      },
+      {
+        "start": "2026-03-11",
+        "end": "2026-03-11",
+        "broken_days": 1,
+        "calendar_days": 1
+      },
+      {
+        "start": "2026-03-26",
+        "end": "2026-03-28",
+        "broken_days": 2,
+        "calendar_days": 3
+      },
+      {
+        "start": "2026-04-02",
+        "end": "2026-04-06",
+        "broken_days": 3,
+        "calendar_days": 5
+      },
+      {
+        "start": "2026-04-11",
+        "end": "2026-04-14",
+        "broken_days": 2,
+        "calendar_days": 4
+      },
+      {
+        "start": "2026-04-18",
+        "end": "2026-04-18",
+        "broken_days": 1,
+        "calendar_days": 1
+      },
+      {
+        "start": "2026-04-25",
+        "end": "2026-04-26",
+        "broken_days": 2,
+        "calendar_days": 2
+      }
+    ]
+  },
+  "audit_daily": [
+    {
+      "date": "2025-10-01",
+      "sessions": 1174,
+      "transactions": 2,
+      "revenue": 12149,
+      "purchases": 2,
+      "add_to_cart": 13,
+      "checkout": 22,
+      "bounce_pct": 11.7,
+      "checkout_conv_pct": 9.1
+    },
+    {
+      "date": "2025-10-02",
+      "sessions": 1115,
+      "transactions": 4,
+      "revenue": 46021,
+      "purchases": 4,
+      "add_to_cart": 19,
+      "checkout": 17,
+      "bounce_pct": 12.2,
+      "checkout_conv_pct": 23.5
+    },
+    {
+      "date": "2025-10-03",
+      "sessions": 913,
+      "transactions": 6,
+      "revenue": 13859,
+      "purchases": 6,
+      "add_to_cart": 20,
+      "checkout": 25,
+      "bounce_pct": 13.6,
+      "checkout_conv_pct": 24.0
+    },
+    {
+      "date": "2025-10-04",
+      "sessions": 636,
+      "transactions": 1,
+      "revenue": 8400,
+      "purchases": 1,
+      "add_to_cart": 9,
+      "checkout": 11,
+      "bounce_pct": 12.3,
+      "checkout_conv_pct": 9.1
+    },
+    {
+      "date": "2025-10-05",
+      "sessions": 595,
+      "transactions": 1,
+      "revenue": 6690,
+      "purchases": 1,
+      "add_to_cart": 9,
+      "checkout": 7,
+      "bounce_pct": 11.6,
+      "checkout_conv_pct": 14.3
+    },
+    {
+      "date": "2025-10-06",
+      "sessions": 1164,
+      "transactions": 2,
+      "revenue": 8990,
+      "purchases": 2,
+      "add_to_cart": 11,
+      "checkout": 18,
+      "bounce_pct": 10.3,
+      "checkout_conv_pct": 11.1
+    },
+    {
+      "date": "2025-10-07",
+      "sessions": 1328,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 9,
+      "checkout": 6,
+      "bounce_pct": 11.6,
+      "checkout_conv_pct": 0.0
+    },
+    {
+      "date": "2025-10-08",
+      "sessions": 1214,
+      "transactions": 4,
+      "revenue": 8496,
+      "purchases": 4,
+      "add_to_cart": 26,
+      "checkout": 22,
+      "bounce_pct": 11.0,
+      "checkout_conv_pct": 18.2
+    },
+    {
+      "date": "2025-10-09",
+      "sessions": 1329,
+      "transactions": 8,
+      "revenue": 43110,
+      "purchases": 8,
+      "add_to_cart": 27,
+      "checkout": 47,
+      "bounce_pct": 11.1,
+      "checkout_conv_pct": 17.0
+    },
+    {
+      "date": "2025-10-10",
+      "sessions": 1200,
+      "transactions": 1,
+      "revenue": 2100,
+      "purchases": 1,
+      "add_to_cart": 8,
+      "checkout": 11,
+      "bounce_pct": 10.2,
+      "checkout_conv_pct": 9.1
+    },
+    {
+      "date": "2025-10-11",
+      "sessions": 757,
+      "transactions": 3,
+      "revenue": 1244,
+      "purchases": 3,
+      "add_to_cart": 10,
+      "checkout": 16,
+      "bounce_pct": 12.5,
+      "checkout_conv_pct": 18.8
+    },
+    {
+      "date": "2025-10-12",
+      "sessions": 811,
+      "transactions": 5,
+      "revenue": 4201,
+      "purchases": 5,
+      "add_to_cart": 32,
+      "checkout": 43,
+      "bounce_pct": 13.7,
+      "checkout_conv_pct": 11.6
+    },
+    {
+      "date": "2025-10-13",
+      "sessions": 1441,
+      "transactions": 3,
+      "revenue": 3086,
+      "purchases": 3,
+      "add_to_cart": 17,
+      "checkout": 15,
+      "bounce_pct": 13.2,
+      "checkout_conv_pct": 20.0
+    },
+    {
+      "date": "2025-10-14",
+      "sessions": 1447,
+      "transactions": 9,
+      "revenue": 7818,
+      "purchases": 9,
+      "add_to_cart": 28,
+      "checkout": 26,
+      "bounce_pct": 14.7,
+      "checkout_conv_pct": 34.6
+    },
+    {
+      "date": "2025-10-15",
+      "sessions": 1380,
+      "transactions": 5,
+      "revenue": 7776,
+      "purchases": 5,
+      "add_to_cart": 19,
+      "checkout": 22,
+      "bounce_pct": 13.6,
+      "checkout_conv_pct": 22.7
+    },
+    {
+      "date": "2025-10-16",
+      "sessions": 1358,
+      "transactions": 2,
+      "revenue": 7044,
+      "purchases": 2,
+      "add_to_cart": 16,
+      "checkout": 15,
+      "bounce_pct": 11.8,
+      "checkout_conv_pct": 13.3
+    },
+    {
+      "date": "2025-10-17",
+      "sessions": 1248,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 3,
+      "checkout": 3,
+      "bounce_pct": 12.7,
+      "checkout_conv_pct": 0.0
+    },
+    {
+      "date": "2025-10-18",
+      "sessions": 779,
+      "transactions": 3,
+      "revenue": 1207,
+      "purchases": 3,
+      "add_to_cart": 21,
+      "checkout": 32,
+      "bounce_pct": 13.2,
+      "checkout_conv_pct": 9.4
+    },
+    {
+      "date": "2025-10-19",
+      "sessions": 789,
+      "transactions": 4,
+      "revenue": 3012,
+      "purchases": 4,
+      "add_to_cart": 13,
+      "checkout": 20,
+      "bounce_pct": 13.1,
+      "checkout_conv_pct": 20.0
+    },
+    {
+      "date": "2025-10-20",
+      "sessions": 1412,
+      "transactions": 4,
+      "revenue": 6064,
+      "purchases": 4,
+      "add_to_cart": 25,
+      "checkout": 41,
+      "bounce_pct": 13.0,
+      "checkout_conv_pct": 9.8
+    },
+    {
+      "date": "2025-10-21",
+      "sessions": 1422,
+      "transactions": 4,
+      "revenue": 6678,
+      "purchases": 4,
+      "add_to_cart": 29,
+      "checkout": 31,
+      "bounce_pct": 11.6,
+      "checkout_conv_pct": 12.9
+    },
+    {
+      "date": "2025-10-22",
+      "sessions": 1369,
+      "transactions": 1,
+      "revenue": 2106,
+      "purchases": 1,
+      "add_to_cart": 24,
+      "checkout": 38,
+      "bounce_pct": 11.4,
+      "checkout_conv_pct": 2.6
+    },
+    {
+      "date": "2025-10-23",
+      "sessions": 1345,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 17,
+      "checkout": 21,
+      "bounce_pct": 11.5,
+      "checkout_conv_pct": 0.0
+    },
+    {
+      "date": "2025-10-24",
+      "sessions": 1201,
+      "transactions": 2,
+      "revenue": 2942,
+      "purchases": 2,
+      "add_to_cart": 20,
+      "checkout": 20,
+      "bounce_pct": 13.2,
+      "checkout_conv_pct": 10.0
+    },
+    {
+      "date": "2025-10-25",
+      "sessions": 741,
+      "transactions": 1,
+      "revenue": 702,
+      "purchases": 1,
+      "add_to_cart": 11,
+      "checkout": 8,
+      "bounce_pct": 13.4,
+      "checkout_conv_pct": 12.5
+    },
+    {
+      "date": "2025-10-26",
+      "sessions": 820,
+      "transactions": 8,
+      "revenue": 11316,
+      "purchases": 8,
+      "add_to_cart": 22,
+      "checkout": 29,
+      "bounce_pct": 10.0,
+      "checkout_conv_pct": 27.6
+    },
+    {
+      "date": "2025-10-27",
+      "sessions": 1282,
+      "transactions": 5,
+      "revenue": 4605,
+      "purchases": 5,
+      "add_to_cart": 24,
+      "checkout": 36,
+      "bounce_pct": 12.4,
+      "checkout_conv_pct": 13.9
+    },
+    {
+      "date": "2025-10-28",
+      "sessions": 858,
+      "transactions": 1,
+      "revenue": 150,
+      "purchases": 1,
+      "add_to_cart": 10,
+      "checkout": 18,
+      "bounce_pct": 10.4,
+      "checkout_conv_pct": 5.6
+    },
+    {
+      "date": "2025-10-29",
+      "sessions": 1272,
+      "transactions": 8,
+      "revenue": 6891,
+      "purchases": 8,
+      "add_to_cart": 31,
+      "checkout": 27,
+      "bounce_pct": 14.7,
+      "checkout_conv_pct": 29.6
+    },
+    {
+      "date": "2025-10-30",
+      "sessions": 1369,
+      "transactions": 10,
+      "revenue": 4760,
+      "purchases": 10,
+      "add_to_cart": 30,
+      "checkout": 38,
+      "bounce_pct": 12.4,
+      "checkout_conv_pct": 26.3
+    },
+    {
+      "date": "2025-10-31",
+      "sessions": 1366,
+      "transactions": 4,
+      "revenue": 27888,
+      "purchases": 4,
+      "add_to_cart": 31,
+      "checkout": 37,
+      "bounce_pct": 10.1,
+      "checkout_conv_pct": 10.8
+    },
+    {
+      "date": "2025-11-01",
+      "sessions": 903,
+      "transactions": 5,
+      "revenue": 2094,
+      "purchases": 5,
+      "add_to_cart": 34,
+      "checkout": 38,
+      "bounce_pct": 12.1,
+      "checkout_conv_pct": 13.2
+    },
+    {
+      "date": "2025-11-02",
+      "sessions": 98,
+      "transactions": 4,
+      "revenue": 5333,
+      "purchases": 4,
+      "add_to_cart": 7,
+      "checkout": 15,
+      "bounce_pct": 19.4,
+      "checkout_conv_pct": 26.7
+    },
+    {
+      "date": "2025-11-03",
+      "sessions": 1317,
+      "transactions": 3,
+      "revenue": 2954,
+      "purchases": 3,
+      "add_to_cart": 32,
+      "checkout": 40,
+      "bounce_pct": 10.4,
+      "checkout_conv_pct": 7.5
+    },
+    {
+      "date": "2025-11-04",
+      "sessions": 1360,
+      "transactions": 2,
+      "revenue": 5497,
+      "purchases": 2,
+      "add_to_cart": 23,
+      "checkout": 25,
+      "bounce_pct": 13.0,
+      "checkout_conv_pct": 8.0
+    },
+    {
+      "date": "2025-11-05",
+      "sessions": 1377,
+      "transactions": 5,
+      "revenue": 4152,
+      "purchases": 5,
+      "add_to_cart": 29,
+      "checkout": 35,
+      "bounce_pct": 11.3,
+      "checkout_conv_pct": 14.3
+    },
+    {
+      "date": "2025-11-06",
+      "sessions": 1346,
+      "transactions": 5,
+      "revenue": 2471,
+      "purchases": 5,
+      "add_to_cart": 40,
+      "checkout": 52,
+      "bounce_pct": 11.7,
+      "checkout_conv_pct": 9.6
+    },
+    {
+      "date": "2025-11-07",
+      "sessions": 1265,
+      "transactions": 5,
+      "revenue": 7045,
+      "purchases": 5,
+      "add_to_cart": 19,
+      "checkout": 27,
+      "bounce_pct": 11.2,
+      "checkout_conv_pct": 18.5
+    },
+    {
+      "date": "2025-11-08",
+      "sessions": 742,
+      "transactions": 5,
+      "revenue": 4452,
+      "purchases": 5,
+      "add_to_cart": 13,
+      "checkout": 17,
+      "bounce_pct": 12.5,
+      "checkout_conv_pct": 29.4
+    },
+    {
+      "date": "2025-11-09",
+      "sessions": 912,
+      "transactions": 6,
+      "revenue": 2746,
+      "purchases": 6,
+      "add_to_cart": 39,
+      "checkout": 43,
+      "bounce_pct": 13.6,
+      "checkout_conv_pct": 14.0
+    },
+    {
+      "date": "2025-11-10",
+      "sessions": 1384,
+      "transactions": 3,
+      "revenue": 6271,
+      "purchases": 3,
+      "add_to_cart": 18,
+      "checkout": 20,
+      "bounce_pct": 10.0,
+      "checkout_conv_pct": 15.0
+    },
+    {
+      "date": "2025-11-11",
+      "sessions": 1434,
+      "transactions": 6,
+      "revenue": 6718,
+      "purchases": 6,
+      "add_to_cart": 47,
+      "checkout": 28,
+      "bounce_pct": 11.3,
+      "checkout_conv_pct": 21.4
+    },
+    {
+      "date": "2025-11-12",
+      "sessions": 1528,
+      "transactions": 3,
+      "revenue": 3393,
+      "purchases": 3,
+      "add_to_cart": 16,
+      "checkout": 27,
+      "bounce_pct": 10.5,
+      "checkout_conv_pct": 11.1
+    },
+    {
+      "date": "2025-11-13",
+      "sessions": 1476,
+      "transactions": 2,
+      "revenue": 2579,
+      "purchases": 2,
+      "add_to_cart": 29,
+      "checkout": 30,
+      "bounce_pct": 9.6,
+      "checkout_conv_pct": 6.7
+    },
+    {
+      "date": "2025-11-14",
+      "sessions": 1485,
+      "transactions": 1,
+      "revenue": 941,
+      "purchases": 1,
+      "add_to_cart": 18,
+      "checkout": 35,
+      "bounce_pct": 10.2,
+      "checkout_conv_pct": 2.9
+    },
+    {
+      "date": "2025-11-15",
+      "sessions": 1029,
+      "transactions": 1,
+      "revenue": 784,
+      "purchases": 1,
+      "add_to_cart": 8,
+      "checkout": 7,
+      "bounce_pct": 9.5,
+      "checkout_conv_pct": 14.3
+    },
+    {
+      "date": "2025-11-16",
+      "sessions": 975,
+      "transactions": 3,
+      "revenue": 4870,
+      "purchases": 3,
+      "add_to_cart": 14,
+      "checkout": 22,
+      "bounce_pct": 7.8,
+      "checkout_conv_pct": 13.6
+    },
+    {
+      "date": "2025-11-17",
+      "sessions": 1149,
+      "transactions": 1,
+      "revenue": 472,
+      "purchases": 1,
+      "add_to_cart": 10,
+      "checkout": 11,
+      "bounce_pct": 9.7,
+      "checkout_conv_pct": 9.1
+    },
+    {
+      "date": "2025-11-18",
+      "sessions": 1642,
+      "transactions": 6,
+      "revenue": 21250,
+      "purchases": 6,
+      "add_to_cart": 19,
+      "checkout": 30,
+      "bounce_pct": 10.2,
+      "checkout_conv_pct": 20.0
+    },
+    {
+      "date": "2025-11-19",
+      "sessions": 1641,
+      "transactions": 3,
+      "revenue": 1600,
+      "purchases": 3,
+      "add_to_cart": 18,
+      "checkout": 15,
+      "bounce_pct": 10.2,
+      "checkout_conv_pct": 20.0
+    },
+    {
+      "date": "2025-11-20",
+      "sessions": 1645,
+      "transactions": 4,
+      "revenue": 6953,
+      "purchases": 4,
+      "add_to_cart": 26,
+      "checkout": 36,
+      "bounce_pct": 9.5,
+      "checkout_conv_pct": 11.1
+    },
+    {
+      "date": "2025-11-21",
+      "sessions": 1271,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 17,
+      "checkout": 7,
+      "bounce_pct": 10.1,
+      "checkout_conv_pct": 0.0
+    },
+    {
+      "date": "2025-11-22",
+      "sessions": 1163,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 11,
+      "checkout": 18,
+      "bounce_pct": 11.4,
+      "checkout_conv_pct": 0.0
+    },
+    {
+      "date": "2025-11-23",
+      "sessions": 1056,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 11,
+      "checkout": 7,
+      "bounce_pct": 9.3,
+      "checkout_conv_pct": 0.0
+    },
+    {
+      "date": "2025-11-24",
+      "sessions": 1499,
+      "transactions": 1,
+      "revenue": 250,
+      "purchases": 1,
+      "add_to_cart": 21,
+      "checkout": 29,
+      "bounce_pct": 10.6,
+      "checkout_conv_pct": 3.4
+    },
+    {
+      "date": "2025-11-25",
+      "sessions": 1574,
+      "transactions": 1,
+      "revenue": 77,
+      "purchases": 1,
+      "add_to_cart": 12,
+      "checkout": 13,
+      "bounce_pct": 9.3,
+      "checkout_conv_pct": 7.7
+    },
+    {
+      "date": "2025-11-26",
+      "sessions": 1543,
+      "transactions": 3,
+      "revenue": 3303,
+      "purchases": 3,
+      "add_to_cart": 25,
+      "checkout": 26,
+      "bounce_pct": 8.0,
+      "checkout_conv_pct": 11.5
+    },
+    {
+      "date": "2025-11-27",
+      "sessions": 1565,
+      "transactions": 3,
+      "revenue": 8196,
+      "purchases": 3,
+      "add_to_cart": 20,
+      "checkout": 27,
+      "bounce_pct": 9.3,
+      "checkout_conv_pct": 11.1
+    },
+    {
+      "date": "2025-11-28",
+      "sessions": 1318,
+      "transactions": 2,
+      "revenue": 2380,
+      "purchases": 2,
+      "add_to_cart": 24,
+      "checkout": 23,
+      "bounce_pct": 9.0,
+      "checkout_conv_pct": 8.7
+    },
+    {
+      "date": "2025-11-29",
+      "sessions": 1002,
+      "transactions": 1,
+      "revenue": 85,
+      "purchases": 1,
+      "add_to_cart": 15,
+      "checkout": 17,
+      "bounce_pct": 8.7,
+      "checkout_conv_pct": 5.9
+    },
+    {
+      "date": "2025-11-30",
+      "sessions": 992,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 13,
+      "checkout": 19,
+      "bounce_pct": 7.5,
+      "checkout_conv_pct": 0.0
+    },
+    {
+      "date": "2025-12-01",
+      "sessions": 1568,
+      "transactions": 4,
+      "revenue": 11480,
+      "purchases": 4,
+      "add_to_cart": 26,
+      "checkout": 23,
+      "bounce_pct": 8.6,
+      "checkout_conv_pct": 17.4
+    },
+    {
+      "date": "2025-12-02",
+      "sessions": 1499,
+      "transactions": 1,
+      "revenue": 150,
+      "purchases": 1,
+      "add_to_cart": 28,
+      "checkout": 44,
+      "bounce_pct": 9.9,
+      "checkout_conv_pct": 2.3
+    },
+    {
+      "date": "2025-12-03",
+      "sessions": 1248,
+      "transactions": 2,
+      "revenue": 7285,
+      "purchases": 2,
+      "add_to_cart": 22,
+      "checkout": 18,
+      "bounce_pct": 11.5,
+      "checkout_conv_pct": 11.1
+    },
+    {
+      "date": "2025-12-04",
+      "sessions": 1204,
+      "transactions": 3,
+      "revenue": 8613,
+      "purchases": 3,
+      "add_to_cart": 13,
+      "checkout": 21,
+      "bounce_pct": 12.0,
+      "checkout_conv_pct": 14.3
+    },
+    {
+      "date": "2025-12-05",
+      "sessions": 1202,
+      "transactions": 3,
+      "revenue": 4172,
+      "purchases": 3,
+      "add_to_cart": 17,
+      "checkout": 19,
+      "bounce_pct": 12.6,
+      "checkout_conv_pct": 15.8
+    },
+    {
+      "date": "2025-12-06",
+      "sessions": 835,
+      "transactions": 1,
+      "revenue": 134,
+      "purchases": 1,
+      "add_to_cart": 19,
+      "checkout": 15,
+      "bounce_pct": 15.7,
+      "checkout_conv_pct": 6.7
+    },
+    {
+      "date": "2025-12-07",
+      "sessions": 804,
+      "transactions": 3,
+      "revenue": 17457,
+      "purchases": 3,
+      "add_to_cart": 27,
+      "checkout": 30,
+      "bounce_pct": 12.7,
+      "checkout_conv_pct": 10.0
+    },
+    {
+      "date": "2025-12-08",
+      "sessions": 1525,
+      "transactions": 7,
+      "revenue": 3474,
+      "purchases": 7,
+      "add_to_cart": 48,
+      "checkout": 74,
+      "bounce_pct": 11.3,
+      "checkout_conv_pct": 9.5
+    },
+    {
+      "date": "2025-12-09",
+      "sessions": 1434,
+      "transactions": 6,
+      "revenue": 9892,
+      "purchases": 6,
+      "add_to_cart": 39,
+      "checkout": 77,
+      "bounce_pct": 10.9,
+      "checkout_conv_pct": 7.8
+    },
+    {
+      "date": "2025-12-10",
+      "sessions": 1417,
+      "transactions": 6,
+      "revenue": 3740,
+      "purchases": 6,
+      "add_to_cart": 40,
+      "checkout": 56,
+      "bounce_pct": 11.1,
+      "checkout_conv_pct": 10.7
+    },
+    {
+      "date": "2025-12-11",
+      "sessions": 1925,
+      "transactions": 2,
+      "revenue": 5940,
+      "purchases": 2,
+      "add_to_cart": 28,
+      "checkout": 41,
+      "bounce_pct": 18.5,
+      "checkout_conv_pct": 4.9
+    },
+    {
+      "date": "2025-12-12",
+      "sessions": 1509,
+      "transactions": 3,
+      "revenue": 575,
+      "purchases": 3,
+      "add_to_cart": 44,
+      "checkout": 80,
+      "bounce_pct": 18.0,
+      "checkout_conv_pct": 3.8
+    },
+    {
+      "date": "2025-12-13",
+      "sessions": 836,
+      "transactions": 2,
+      "revenue": 2148,
+      "purchases": 2,
+      "add_to_cart": 41,
+      "checkout": 54,
+      "bounce_pct": 12.7,
+      "checkout_conv_pct": 3.7
+    },
+    {
+      "date": "2025-12-14",
+      "sessions": 898,
+      "transactions": 3,
+      "revenue": 1424,
+      "purchases": 3,
+      "add_to_cart": 39,
+      "checkout": 47,
+      "bounce_pct": 10.0,
+      "checkout_conv_pct": 6.4
+    },
+    {
+      "date": "2025-12-15",
+      "sessions": 1297,
+      "transactions": 8,
+      "revenue": 1028,
+      "purchases": 8,
+      "add_to_cart": 51,
+      "checkout": 80,
+      "bounce_pct": 12.3,
+      "checkout_conv_pct": 10.0
+    },
+    {
+      "date": "2025-12-16",
+      "sessions": 1316,
+      "transactions": 2,
+      "revenue": 2537,
+      "purchases": 2,
+      "add_to_cart": 36,
+      "checkout": 48,
+      "bounce_pct": 12.0,
+      "checkout_conv_pct": 4.2
+    },
+    {
+      "date": "2025-12-17",
+      "sessions": 1255,
+      "transactions": 3,
+      "revenue": 1155,
+      "purchases": 3,
+      "add_to_cart": 21,
+      "checkout": 25,
+      "bounce_pct": 13.4,
+      "checkout_conv_pct": 12.0
+    },
+    {
+      "date": "2025-12-18",
+      "sessions": 1324,
+      "transactions": 6,
+      "revenue": 9151,
+      "purchases": 6,
+      "add_to_cart": 32,
+      "checkout": 44,
+      "bounce_pct": 16.5,
+      "checkout_conv_pct": 13.6
+    },
+    {
+      "date": "2025-12-19",
+      "sessions": 1448,
+      "transactions": 3,
+      "revenue": 1197,
+      "purchases": 3,
+      "add_to_cart": 37,
+      "checkout": 47,
+      "bounce_pct": 12.9,
+      "checkout_conv_pct": 6.4
+    },
+    {
+      "date": "2025-12-20",
+      "sessions": 1197,
+      "transactions": 2,
+      "revenue": 155,
+      "purchases": 2,
+      "add_to_cart": 23,
+      "checkout": 44,
+      "bounce_pct": 11.6,
+      "checkout_conv_pct": 4.5
+    },
+    {
+      "date": "2025-12-21",
+      "sessions": 1174,
+      "transactions": 2,
+      "revenue": 402,
+      "purchases": 2,
+      "add_to_cart": 21,
+      "checkout": 17,
+      "bounce_pct": 13.4,
+      "checkout_conv_pct": 11.8
+    },
+    {
+      "date": "2025-12-22",
+      "sessions": 1415,
+      "transactions": 2,
+      "revenue": 1259,
+      "purchases": 2,
+      "add_to_cart": 31,
+      "checkout": 21,
+      "bounce_pct": 8.1,
+      "checkout_conv_pct": 9.5
+    },
+    {
+      "date": "2025-12-23",
+      "sessions": 1268,
+      "transactions": 2,
+      "revenue": 1257,
+      "purchases": 2,
+      "add_to_cart": 19,
+      "checkout": 18,
+      "bounce_pct": 7.2,
+      "checkout_conv_pct": 11.1
+    },
+    {
+      "date": "2025-12-24",
+      "sessions": 936,
+      "transactions": 3,
+      "revenue": 1559,
+      "purchases": 3,
+      "add_to_cart": 15,
+      "checkout": 24,
+      "bounce_pct": 7.5,
+      "checkout_conv_pct": 12.5
+    },
+    {
+      "date": "2025-12-25",
+      "sessions": 999,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 20,
+      "checkout": 44,
+      "bounce_pct": 5.7,
+      "checkout_conv_pct": 0.0
+    },
+    {
+      "date": "2025-12-26",
+      "sessions": 1062,
+      "transactions": 2,
+      "revenue": 857,
+      "purchases": 2,
+      "add_to_cart": 38,
+      "checkout": 56,
+      "bounce_pct": 9.0,
+      "checkout_conv_pct": 3.6
+    },
+    {
+      "date": "2025-12-27",
+      "sessions": 1091,
+      "transactions": 2,
+      "revenue": 2011,
+      "purchases": 2,
+      "add_to_cart": 37,
+      "checkout": 41,
+      "bounce_pct": 7.0,
+      "checkout_conv_pct": 4.9
+    },
+    {
+      "date": "2025-12-28",
+      "sessions": 1143,
+      "transactions": 3,
+      "revenue": 1480,
+      "purchases": 3,
+      "add_to_cart": 27,
+      "checkout": 29,
+      "bounce_pct": 7.2,
+      "checkout_conv_pct": 10.3
+    },
+    {
+      "date": "2025-12-29",
+      "sessions": 1427,
+      "transactions": 1,
+      "revenue": 512,
+      "purchases": 1,
+      "add_to_cart": 28,
+      "checkout": 48,
+      "bounce_pct": 9.2,
+      "checkout_conv_pct": 2.1
+    },
+    {
+      "date": "2025-12-30",
+      "sessions": 1344,
+      "transactions": 4,
+      "revenue": 1448,
+      "purchases": 4,
+      "add_to_cart": 46,
+      "checkout": 39,
+      "bounce_pct": 8.0,
+      "checkout_conv_pct": 10.3
+    },
+    {
+      "date": "2025-12-31",
+      "sessions": 989,
+      "transactions": 4,
+      "revenue": 626,
+      "purchases": 4,
+      "add_to_cart": 13,
+      "checkout": 24,
+      "bounce_pct": 8.8,
+      "checkout_conv_pct": 16.7
+    },
+    {
+      "date": "2026-01-01",
+      "sessions": 1011,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 20,
+      "checkout": 18,
+      "bounce_pct": 5.4,
+      "checkout_conv_pct": 0.0
+    },
+    {
+      "date": "2026-01-02",
+      "sessions": 1311,
+      "transactions": 2,
+      "revenue": 1225,
+      "purchases": 2,
+      "add_to_cart": 25,
+      "checkout": 37,
+      "bounce_pct": 7.6,
+      "checkout_conv_pct": 5.4
+    },
+    {
+      "date": "2026-01-03",
+      "sessions": 1127,
+      "transactions": 2,
+      "revenue": 171,
+      "purchases": 2,
+      "add_to_cart": 31,
+      "checkout": 51,
+      "bounce_pct": 6.9,
+      "checkout_conv_pct": 3.9
+    },
+    {
+      "date": "2026-01-04",
+      "sessions": 1129,
+      "transactions": 4,
+      "revenue": 1471,
+      "purchases": 4,
+      "add_to_cart": 43,
+      "checkout": 67,
+      "bounce_pct": 6.7,
+      "checkout_conv_pct": 6.0
+    },
+    {
+      "date": "2026-01-05",
+      "sessions": 1658,
+      "transactions": 4,
+      "revenue": 2588,
+      "purchases": 4,
+      "add_to_cart": 38,
+      "checkout": 66,
+      "bounce_pct": 8.6,
+      "checkout_conv_pct": 6.1
+    },
+    {
+      "date": "2026-01-06",
+      "sessions": 1658,
+      "transactions": 8,
+      "revenue": 9267,
+      "purchases": 8,
+      "add_to_cart": 102,
+      "checkout": 77,
+      "bounce_pct": 9.0,
+      "checkout_conv_pct": 10.4
+    },
+    {
+      "date": "2026-01-07",
+      "sessions": 1566,
+      "transactions": 1,
+      "revenue": 1234,
+      "purchases": 1,
+      "add_to_cart": 21,
+      "checkout": 39,
+      "bounce_pct": 8.7,
+      "checkout_conv_pct": 2.6
+    },
+    {
+      "date": "2026-01-08",
+      "sessions": 1591,
+      "transactions": 6,
+      "revenue": 4377,
+      "purchases": 6,
+      "add_to_cart": 36,
+      "checkout": 49,
+      "bounce_pct": 6.8,
+      "checkout_conv_pct": 12.2
+    },
+    {
+      "date": "2026-01-09",
+      "sessions": 1444,
+      "transactions": 1,
+      "revenue": 2661,
+      "purchases": 1,
+      "add_to_cart": 22,
+      "checkout": 18,
+      "bounce_pct": 10.2,
+      "checkout_conv_pct": 5.6
+    },
+    {
+      "date": "2026-01-10",
+      "sessions": 1071,
+      "transactions": 3,
+      "revenue": 2437,
+      "purchases": 3,
+      "add_to_cart": 27,
+      "checkout": 40,
+      "bounce_pct": 6.3,
+      "checkout_conv_pct": 7.5
+    },
+    {
+      "date": "2026-01-11",
+      "sessions": 1098,
+      "transactions": 5,
+      "revenue": 1337,
+      "purchases": 5,
+      "add_to_cart": 42,
+      "checkout": 77,
+      "bounce_pct": 5.9,
+      "checkout_conv_pct": 6.5
+    },
+    {
+      "date": "2026-01-12",
+      "sessions": 1697,
+      "transactions": 7,
+      "revenue": 13724,
+      "purchases": 7,
+      "add_to_cart": 41,
+      "checkout": 70,
+      "bounce_pct": 8.6,
+      "checkout_conv_pct": 10.0
+    },
+    {
+      "date": "2026-01-13",
+      "sessions": 1687,
+      "transactions": 2,
+      "revenue": 1087,
+      "purchases": 2,
+      "add_to_cart": 14,
+      "checkout": 25,
+      "bounce_pct": 8.8,
+      "checkout_conv_pct": 8.0
+    },
+    {
+      "date": "2026-01-14",
+      "sessions": 1645,
+      "transactions": 2,
+      "revenue": 10108,
+      "purchases": 2,
+      "add_to_cart": 36,
+      "checkout": 39,
+      "bounce_pct": 8.7,
+      "checkout_conv_pct": 5.1
+    },
+    {
+      "date": "2026-01-15",
+      "sessions": 1529,
+      "transactions": 3,
+      "revenue": 5003,
+      "purchases": 3,
+      "add_to_cart": 34,
+      "checkout": 68,
+      "bounce_pct": 8.0,
+      "checkout_conv_pct": 4.4
+    },
+    {
+      "date": "2026-01-16",
+      "sessions": 1624,
+      "transactions": 2,
+      "revenue": 4191,
+      "purchases": 2,
+      "add_to_cart": 28,
+      "checkout": 38,
+      "bounce_pct": 9.1,
+      "checkout_conv_pct": 5.3
+    },
+    {
+      "date": "2026-01-17",
+      "sessions": 1246,
+      "transactions": 3,
+      "revenue": 11076,
+      "purchases": 3,
+      "add_to_cart": 20,
+      "checkout": 27,
+      "bounce_pct": 8.0,
+      "checkout_conv_pct": 11.1
+    },
+    {
+      "date": "2026-01-18",
+      "sessions": 1504,
+      "transactions": 2,
+      "revenue": 630,
+      "purchases": 2,
+      "add_to_cart": 16,
+      "checkout": 15,
+      "bounce_pct": 6.5,
+      "checkout_conv_pct": 13.3
+    },
+    {
+      "date": "2026-01-19",
+      "sessions": 2322,
+      "transactions": 3,
+      "revenue": 342,
+      "purchases": 3,
+      "add_to_cart": 46,
+      "checkout": 66,
+      "bounce_pct": 8.1,
+      "checkout_conv_pct": 4.5
+    },
+    {
+      "date": "2026-01-20",
+      "sessions": 2284,
+      "transactions": 7,
+      "revenue": 1275,
+      "purchases": 7,
+      "add_to_cart": 31,
+      "checkout": 42,
+      "bounce_pct": 7.4,
+      "checkout_conv_pct": 16.7
+    },
+    {
+      "date": "2026-01-21",
+      "sessions": 2307,
+      "transactions": 6,
+      "revenue": 11667,
+      "purchases": 6,
+      "add_to_cart": 51,
+      "checkout": 58,
+      "bounce_pct": 7.0,
+      "checkout_conv_pct": 10.3
+    },
+    {
+      "date": "2026-01-22",
+      "sessions": 2277,
+      "transactions": 5,
+      "revenue": 5522,
+      "purchases": 5,
+      "add_to_cart": 35,
+      "checkout": 54,
+      "bounce_pct": 7.3,
+      "checkout_conv_pct": 9.3
+    },
+    {
+      "date": "2026-01-23",
+      "sessions": 2499,
+      "transactions": 4,
+      "revenue": 3649,
+      "purchases": 4,
+      "add_to_cart": 21,
+      "checkout": 33,
+      "bounce_pct": 22.7,
+      "checkout_conv_pct": 12.1
+    },
+    {
+      "date": "2026-01-24",
+      "sessions": 1544,
+      "transactions": 3,
+      "revenue": 1235,
+      "purchases": 3,
+      "add_to_cart": 26,
+      "checkout": 40,
+      "bounce_pct": 16.1,
+      "checkout_conv_pct": 7.5
+    },
+    {
+      "date": "2026-01-25",
+      "sessions": 1538,
+      "transactions": 1,
+      "revenue": 205,
+      "purchases": 1,
+      "add_to_cart": 42,
+      "checkout": 45,
+      "bounce_pct": 8.5,
+      "checkout_conv_pct": 2.2
+    },
+    {
+      "date": "2026-01-26",
+      "sessions": 2203,
+      "transactions": 6,
+      "revenue": 12561,
+      "purchases": 6,
+      "add_to_cart": 29,
+      "checkout": 65,
+      "bounce_pct": 7.4,
+      "checkout_conv_pct": 9.2
+    },
+    {
+      "date": "2026-01-27",
+      "sessions": 2368,
+      "transactions": 4,
+      "revenue": 6035,
+      "purchases": 4,
+      "add_to_cart": 36,
+      "checkout": 46,
+      "bounce_pct": 19.6,
+      "checkout_conv_pct": 8.7
+    },
+    {
+      "date": "2026-01-28",
+      "sessions": 2423,
+      "transactions": 6,
+      "revenue": 1520,
+      "purchases": 6,
+      "add_to_cart": 43,
+      "checkout": 64,
+      "bounce_pct": 21.5,
+      "checkout_conv_pct": 9.4
+    },
+    {
+      "date": "2026-01-29",
+      "sessions": 2698,
+      "transactions": 1,
+      "revenue": 551,
+      "purchases": 1,
+      "add_to_cart": 11,
+      "checkout": 20,
+      "bounce_pct": 34.5,
+      "checkout_conv_pct": 5.0
+    },
+    {
+      "date": "2026-01-30",
+      "sessions": 1881,
+      "transactions": 1,
+      "revenue": 593,
+      "purchases": 1,
+      "add_to_cart": 15,
+      "checkout": 21,
+      "bounce_pct": 17.7,
+      "checkout_conv_pct": 4.8
+    },
+    {
+      "date": "2026-01-31",
+      "sessions": 1188,
+      "transactions": 1,
+      "revenue": 1094,
+      "purchases": 1,
+      "add_to_cart": 17,
+      "checkout": 18,
+      "bounce_pct": 9.8,
+      "checkout_conv_pct": 5.6
+    },
+    {
+      "date": "2026-02-01",
+      "sessions": 1247,
+      "transactions": 1,
+      "revenue": 66,
+      "purchases": 1,
+      "add_to_cart": 25,
+      "checkout": 31,
+      "bounce_pct": 9.5,
+      "checkout_conv_pct": 3.2
+    },
+    {
+      "date": "2026-02-02",
+      "sessions": 1999,
+      "transactions": 1,
+      "revenue": 7326,
+      "purchases": 1,
+      "add_to_cart": 33,
+      "checkout": 48,
+      "bounce_pct": 9.9,
+      "checkout_conv_pct": 2.1
+    },
+    {
+      "date": "2026-02-03",
+      "sessions": 2072,
+      "transactions": 3,
+      "revenue": 3672,
+      "purchases": 3,
+      "add_to_cart": 19,
+      "checkout": 25,
+      "bounce_pct": 8.4,
+      "checkout_conv_pct": 12.0
+    },
+    {
+      "date": "2026-02-04",
+      "sessions": 2151,
+      "transactions": 12,
+      "revenue": 24414,
+      "purchases": 12,
+      "add_to_cart": 36,
+      "checkout": 43,
+      "bounce_pct": 7.5,
+      "checkout_conv_pct": 27.9
+    },
+    {
+      "date": "2026-02-05",
+      "sessions": 2500,
+      "transactions": 2,
+      "revenue": 6114,
+      "purchases": 2,
+      "add_to_cart": 28,
+      "checkout": 33,
+      "bounce_pct": 24.3,
+      "checkout_conv_pct": 6.1
+    },
+    {
+      "date": "2026-02-06",
+      "sessions": 2221,
+      "transactions": 1,
+      "revenue": 1263,
+      "purchases": 1,
+      "add_to_cart": 19,
+      "checkout": 56,
+      "bounce_pct": 16.6,
+      "checkout_conv_pct": 1.8
+    },
+    {
+      "date": "2026-02-07",
+      "sessions": 1627,
+      "transactions": 6,
+      "revenue": 2697,
+      "purchases": 6,
+      "add_to_cart": 21,
+      "checkout": 28,
+      "bounce_pct": 19.7,
+      "checkout_conv_pct": 21.4
+    },
+    {
+      "date": "2026-02-08",
+      "sessions": 1771,
+      "transactions": 2,
+      "revenue": 4624,
+      "purchases": 2,
+      "add_to_cart": 85,
+      "checkout": 48,
+      "bounce_pct": 21.2,
+      "checkout_conv_pct": 4.2
+    },
+    {
+      "date": "2026-02-09",
+      "sessions": 2597,
+      "transactions": 5,
+      "revenue": 8482,
+      "purchases": 5,
+      "add_to_cart": 100,
+      "checkout": 55,
+      "bounce_pct": 21.4,
+      "checkout_conv_pct": 9.1
+    },
+    {
+      "date": "2026-02-10",
+      "sessions": 2516,
+      "transactions": 5,
+      "revenue": 10979,
+      "purchases": 5,
+      "add_to_cart": 30,
+      "checkout": 31,
+      "bounce_pct": 21.7,
+      "checkout_conv_pct": 16.1
+    },
+    {
+      "date": "2026-02-11",
+      "sessions": 2242,
+      "transactions": 1,
+      "revenue": 420,
+      "purchases": 1,
+      "add_to_cart": 28,
+      "checkout": 42,
+      "bounce_pct": 12.2,
+      "checkout_conv_pct": 2.4
+    },
+    {
+      "date": "2026-02-12",
+      "sessions": 1904,
+      "transactions": 2,
+      "revenue": 264,
+      "purchases": 2,
+      "add_to_cart": 18,
+      "checkout": 20,
+      "bounce_pct": 9.7,
+      "checkout_conv_pct": 10.0
+    },
+    {
+      "date": "2026-02-13",
+      "sessions": 1549,
+      "transactions": 1,
+      "revenue": 6556,
+      "purchases": 1,
+      "add_to_cart": 25,
+      "checkout": 31,
+      "bounce_pct": 10.8,
+      "checkout_conv_pct": 3.2
+    },
+    {
+      "date": "2026-02-14",
+      "sessions": 889,
+      "transactions": 3,
+      "revenue": 1334,
+      "purchases": 3,
+      "add_to_cart": 12,
+      "checkout": 17,
+      "bounce_pct": 11.2,
+      "checkout_conv_pct": 17.6
+    },
+    {
+      "date": "2026-02-15",
+      "sessions": 839,
+      "transactions": 2,
+      "revenue": 792,
+      "purchases": 2,
+      "add_to_cart": 30,
+      "checkout": 32,
+      "bounce_pct": 10.5,
+      "checkout_conv_pct": 6.2
+    },
+    {
+      "date": "2026-02-16",
+      "sessions": 1765,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 27,
+      "checkout": 32,
+      "bounce_pct": 14.9,
+      "checkout_conv_pct": 0.0
+    },
+    {
+      "date": "2026-02-17",
+      "sessions": 1780,
+      "transactions": 7,
+      "revenue": 4946,
+      "purchases": 7,
+      "add_to_cart": 28,
+      "checkout": 36,
+      "bounce_pct": 14.8,
+      "checkout_conv_pct": 19.4
+    },
+    {
+      "date": "2026-02-18",
+      "sessions": 1622,
+      "transactions": 2,
+      "revenue": 3623,
+      "purchases": 2,
+      "add_to_cart": 14,
+      "checkout": 21,
+      "bounce_pct": 12.3,
+      "checkout_conv_pct": 9.5
+    },
+    {
+      "date": "2026-02-19",
+      "sessions": 1742,
+      "transactions": 8,
+      "revenue": 10219,
+      "purchases": 8,
+      "add_to_cart": 48,
+      "checkout": 67,
+      "bounce_pct": 12.1,
+      "checkout_conv_pct": 11.9
+    },
+    {
+      "date": "2026-02-20",
+      "sessions": 1490,
+      "transactions": 5,
+      "revenue": 6420,
+      "purchases": 5,
+      "add_to_cart": 20,
+      "checkout": 24,
+      "bounce_pct": 11.1,
+      "checkout_conv_pct": 20.8
+    },
+    {
+      "date": "2026-02-21",
+      "sessions": 919,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 18,
+      "checkout": 25,
+      "bounce_pct": 15.5,
+      "checkout_conv_pct": 0.0
+    },
+    {
+      "date": "2026-02-22",
+      "sessions": 988,
+      "transactions": 3,
+      "revenue": 3897,
+      "purchases": 3,
+      "add_to_cart": 23,
+      "checkout": 36,
+      "bounce_pct": 16.1,
+      "checkout_conv_pct": 8.3
+    },
+    {
+      "date": "2026-02-23",
+      "sessions": 1711,
+      "transactions": 6,
+      "revenue": 5950,
+      "purchases": 6,
+      "add_to_cart": 37,
+      "checkout": 39,
+      "bounce_pct": 13.1,
+      "checkout_conv_pct": 15.4
+    },
+    {
+      "date": "2026-02-24",
+      "sessions": 1829,
+      "transactions": 4,
+      "revenue": 9081,
+      "purchases": 4,
+      "add_to_cart": 39,
+      "checkout": 80,
+      "bounce_pct": 11.9,
+      "checkout_conv_pct": 5.0
+    },
+    {
+      "date": "2026-02-25",
+      "sessions": 1800,
+      "transactions": 3,
+      "revenue": 376,
+      "purchases": 3,
+      "add_to_cart": 14,
+      "checkout": 24,
+      "bounce_pct": 11.9,
+      "checkout_conv_pct": 12.5
+    },
+    {
+      "date": "2026-02-26",
+      "sessions": 1868,
+      "transactions": 5,
+      "revenue": 10538,
+      "purchases": 5,
+      "add_to_cart": 25,
+      "checkout": 40,
+      "bounce_pct": 21.4,
+      "checkout_conv_pct": 12.5
+    },
+    {
+      "date": "2026-02-27",
+      "sessions": 1576,
+      "transactions": 3,
+      "revenue": 14777,
+      "purchases": 3,
+      "add_to_cart": 23,
+      "checkout": 23,
+      "bounce_pct": 13.1,
+      "checkout_conv_pct": 13.0
+    },
+    {
+      "date": "2026-02-28",
+      "sessions": 962,
+      "transactions": 1,
+      "revenue": 1206,
+      "purchases": 1,
+      "add_to_cart": 11,
+      "checkout": 18,
+      "bounce_pct": 17.2,
+      "checkout_conv_pct": 5.6
+    },
+    {
+      "date": "2026-03-01",
+      "sessions": 975,
+      "transactions": 3,
+      "revenue": 10703,
+      "purchases": 3,
+      "add_to_cart": 34,
+      "checkout": 55,
+      "bounce_pct": 14.4,
+      "checkout_conv_pct": 5.5
+    },
+    {
+      "date": "2026-03-02",
+      "sessions": 1782,
+      "transactions": 4,
+      "revenue": 11118,
+      "purchases": 4,
+      "add_to_cart": 38,
+      "checkout": 41,
+      "bounce_pct": 14.0,
+      "checkout_conv_pct": 9.8
+    },
+    {
+      "date": "2026-03-03",
+      "sessions": 1682,
+      "transactions": 13,
+      "revenue": 42742,
+      "purchases": 13,
+      "add_to_cart": 31,
+      "checkout": 49,
+      "bounce_pct": 13.6,
+      "checkout_conv_pct": 26.5
+    },
+    {
+      "date": "2026-03-04",
+      "sessions": 1570,
+      "transactions": 5,
+      "revenue": 5747,
+      "purchases": 5,
+      "add_to_cart": 25,
+      "checkout": 46,
+      "bounce_pct": 13.5,
+      "checkout_conv_pct": 10.9
+    },
+    {
+      "date": "2026-03-05",
+      "sessions": 1572,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 12,
+      "checkout": 9,
+      "bounce_pct": 11.6,
+      "checkout_conv_pct": 0.0
+    },
+    {
+      "date": "2026-03-06",
+      "sessions": 4897,
+      "transactions": 3,
+      "revenue": 1168,
+      "purchases": 3,
+      "add_to_cart": 32,
+      "checkout": 10,
+      "bounce_pct": 25.4,
+      "checkout_conv_pct": 30.0
+    },
+    {
+      "date": "2026-03-07",
+      "sessions": 25998,
+      "transactions": 2,
+      "revenue": 889,
+      "purchases": 2,
+      "add_to_cart": 11,
+      "checkout": 12,
+      "bounce_pct": 77.4,
+      "checkout_conv_pct": 16.7
+    },
+    {
+      "date": "2026-03-08",
+      "sessions": 42803,
+      "transactions": 3,
+      "revenue": 2658,
+      "purchases": 3,
+      "add_to_cart": 17,
+      "checkout": 26,
+      "bounce_pct": 92.5,
+      "checkout_conv_pct": 11.5
+    },
+    {
+      "date": "2026-03-09",
+      "sessions": 106294,
+      "transactions": 2,
+      "revenue": 5140,
+      "purchases": 2,
+      "add_to_cart": 66,
+      "checkout": 31,
+      "bounce_pct": 95.4,
+      "checkout_conv_pct": 6.5
+    },
+    {
+      "date": "2026-03-10",
+      "sessions": 158555,
+      "transactions": 3,
+      "revenue": 4706,
+      "purchases": 3,
+      "add_to_cart": 18,
+      "checkout": 27,
+      "bounce_pct": 96.9,
+      "checkout_conv_pct": 11.1
+    },
+    {
+      "date": "2026-03-11",
+      "sessions": 175686,
+      "transactions": 1,
+      "revenue": 150,
+      "purchases": 1,
+      "add_to_cart": 32,
+      "checkout": 46,
+      "bounce_pct": 96.9,
+      "checkout_conv_pct": 2.2
+    },
+    {
+      "date": "2026-03-12",
+      "sessions": 83762,
+      "transactions": 9,
+      "revenue": 17435,
+      "purchases": 9,
+      "add_to_cart": 57,
+      "checkout": 112,
+      "bounce_pct": 95.8,
+      "checkout_conv_pct": 8.0
+    },
+    {
+      "date": "2026-03-13",
+      "sessions": 25675,
+      "transactions": 3,
+      "revenue": 12253,
+      "purchases": 3,
+      "add_to_cart": 14,
+      "checkout": 13,
+      "bounce_pct": 93.0,
+      "checkout_conv_pct": 23.1
+    },
+    {
+      "date": "2026-03-14",
+      "sessions": 75299,
+      "transactions": 2,
+      "revenue": 2371,
+      "purchases": 2,
+      "add_to_cart": 14,
+      "checkout": 19,
+      "bounce_pct": 94.6,
+      "checkout_conv_pct": 10.5
+    },
+    {
+      "date": "2026-03-15",
+      "sessions": 196778,
+      "transactions": 2,
+      "revenue": 270,
+      "purchases": 2,
+      "add_to_cart": 8,
+      "checkout": 10,
+      "bounce_pct": 93.2,
+      "checkout_conv_pct": 20.0
+    },
+    {
+      "date": "2026-03-16",
+      "sessions": 253711,
+      "transactions": 6,
+      "revenue": 3531,
+      "purchases": 6,
+      "add_to_cart": 36,
+      "checkout": 43,
+      "bounce_pct": 92.5,
+      "checkout_conv_pct": 14.0
+    },
+    {
+      "date": "2026-03-17",
+      "sessions": 132315,
+      "transactions": 8,
+      "revenue": 6431,
+      "purchases": 8,
+      "add_to_cart": 35,
+      "checkout": 53,
+      "bounce_pct": 92.5,
+      "checkout_conv_pct": 15.1
+    },
+    {
+      "date": "2026-03-18",
+      "sessions": 26582,
+      "transactions": 7,
+      "revenue": 10310,
+      "purchases": 7,
+      "add_to_cart": 39,
+      "checkout": 80,
+      "bounce_pct": 91.6,
+      "checkout_conv_pct": 8.8
+    },
+    {
+      "date": "2026-03-19",
+      "sessions": 4747,
+      "transactions": 6,
+      "revenue": 5226,
+      "purchases": 6,
+      "add_to_cart": 33,
+      "checkout": 53,
+      "bounce_pct": 77.2,
+      "checkout_conv_pct": 11.3
+    },
+    {
+      "date": "2026-03-20",
+      "sessions": 7146,
+      "transactions": 3,
+      "revenue": 4312,
+      "purchases": 3,
+      "add_to_cart": 17,
+      "checkout": 23,
+      "bounce_pct": 86.7,
+      "checkout_conv_pct": 13.0
+    },
+    {
+      "date": "2026-03-21",
+      "sessions": 8698,
+      "transactions": 2,
+      "revenue": 11919,
+      "purchases": 2,
+      "add_to_cart": 18,
+      "checkout": 23,
+      "bounce_pct": 90.0,
+      "checkout_conv_pct": 8.7
+    },
+    {
+      "date": "2026-03-22",
+      "sessions": 938,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 0,
+      "checkout": 0,
+      "bounce_pct": 93.9,
+      "checkout_conv_pct": 0.0
+    },
+    {
+      "date": "2026-03-23",
+      "sessions": 221,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 0,
+      "checkout": 0,
+      "bounce_pct": 63.8,
+      "checkout_conv_pct": 0.0
+    },
+    {
+      "date": "2026-03-24",
+      "sessions": 1800,
+      "transactions": 8,
+      "revenue": 9536,
+      "purchases": 8,
+      "add_to_cart": 19,
+      "checkout": 25,
+      "bounce_pct": 64.9,
+      "checkout_conv_pct": 32.0
+    },
+    {
+      "date": "2026-03-25",
+      "sessions": 1432,
+      "transactions": 2,
+      "revenue": 1656,
+      "purchases": 2,
+      "add_to_cart": 27,
+      "checkout": 45,
+      "bounce_pct": 44.6,
+      "checkout_conv_pct": 4.4
+    },
+    {
+      "date": "2026-03-26",
+      "sessions": 4601,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 34,
+      "checkout": 25,
+      "bounce_pct": 79.3,
+      "checkout_conv_pct": 0.0
+    },
+    {
+      "date": "2026-03-27",
+      "sessions": 26707,
+      "transactions": 1,
+      "revenue": 204,
+      "purchases": 1,
+      "add_to_cart": 12,
+      "checkout": 12,
+      "bounce_pct": 91.3,
+      "checkout_conv_pct": 8.3
+    },
+    {
+      "date": "2026-03-28",
+      "sessions": 58154,
+      "transactions": 1,
+      "revenue": 2090,
+      "purchases": 1,
+      "add_to_cart": 35,
+      "checkout": 34,
+      "bounce_pct": 92.8,
+      "checkout_conv_pct": 2.9
+    },
+    {
+      "date": "2026-03-29",
+      "sessions": 102871,
+      "transactions": 4,
+      "revenue": 3996,
+      "purchases": 4,
+      "add_to_cart": 23,
+      "checkout": 39,
+      "bounce_pct": 92.6,
+      "checkout_conv_pct": 10.3
+    },
+    {
+      "date": "2026-03-30",
+      "sessions": 41549,
+      "transactions": 4,
+      "revenue": 18079,
+      "purchases": 4,
+      "add_to_cart": 31,
+      "checkout": 57,
+      "bounce_pct": 91.3,
+      "checkout_conv_pct": 7.0
+    },
+    {
+      "date": "2026-03-31",
+      "sessions": 36266,
+      "transactions": 6,
+      "revenue": 5565,
+      "purchases": 6,
+      "add_to_cart": 28,
+      "checkout": 52,
+      "bounce_pct": 92.9,
+      "checkout_conv_pct": 11.5
+    },
+    {
+      "date": "2026-04-01",
+      "sessions": 30054,
+      "transactions": 2,
+      "revenue": 1249,
+      "purchases": 2,
+      "add_to_cart": 16,
+      "checkout": 21,
+      "bounce_pct": 93.7,
+      "checkout_conv_pct": 9.5
+    },
+    {
+      "date": "2026-04-02",
+      "sessions": 30996,
+      "transactions": 1,
+      "revenue": 3680,
+      "purchases": 1,
+      "add_to_cart": 20,
+      "checkout": 26,
+      "bounce_pct": 88.5,
+      "checkout_conv_pct": 3.8
+    },
+    {
+      "date": "2026-04-03",
+      "sessions": 34201,
+      "transactions": 1,
+      "revenue": 138,
+      "purchases": 1,
+      "add_to_cart": 6,
+      "checkout": 5,
+      "bounce_pct": 89.1,
+      "checkout_conv_pct": 20.0
+    },
+    {
+      "date": "2026-04-04",
+      "sessions": 28093,
+      "transactions": 2,
+      "revenue": 570,
+      "purchases": 2,
+      "add_to_cart": 14,
+      "checkout": 23,
+      "bounce_pct": 92.7,
+      "checkout_conv_pct": 8.7
+    },
+    {
+      "date": "2026-04-05",
+      "sessions": 16605,
+      "transactions": 2,
+      "revenue": 2321,
+      "purchases": 2,
+      "add_to_cart": 22,
+      "checkout": 13,
+      "bounce_pct": 91.8,
+      "checkout_conv_pct": 15.4
+    },
+    {
+      "date": "2026-04-06",
+      "sessions": 10036,
+      "transactions": 1,
+      "revenue": 198,
+      "purchases": 1,
+      "add_to_cart": 19,
+      "checkout": 42,
+      "bounce_pct": 88.0,
+      "checkout_conv_pct": 2.4
+    },
+    {
+      "date": "2026-04-07",
+      "sessions": 4204,
+      "transactions": 2,
+      "revenue": 470,
+      "purchases": 2,
+      "add_to_cart": 16,
+      "checkout": 41,
+      "bounce_pct": 68.5,
+      "checkout_conv_pct": 4.9
+    },
+    {
+      "date": "2026-04-08",
+      "sessions": 2147,
+      "transactions": 5,
+      "revenue": 6382,
+      "purchases": 5,
+      "add_to_cart": 30,
+      "checkout": 41,
+      "bounce_pct": 38.7,
+      "checkout_conv_pct": 12.2
+    },
+    {
+      "date": "2026-04-09",
+      "sessions": 1849,
+      "transactions": 2,
+      "revenue": 515,
+      "purchases": 2,
+      "add_to_cart": 23,
+      "checkout": 46,
+      "bounce_pct": 33.3,
+      "checkout_conv_pct": 4.3
+    },
+    {
+      "date": "2026-04-10",
+      "sessions": 1556,
+      "transactions": 5,
+      "revenue": 12880,
+      "purchases": 5,
+      "add_to_cart": 23,
+      "checkout": 25,
+      "bounce_pct": 35.8,
+      "checkout_conv_pct": 20.0
+    },
+    {
+      "date": "2026-04-11",
+      "sessions": 967,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 9,
+      "checkout": 11,
+      "bounce_pct": 26.8,
+      "checkout_conv_pct": 0.0
+    },
+    {
+      "date": "2026-04-12",
+      "sessions": 897,
+      "transactions": 6,
+      "revenue": 2646,
+      "purchases": 6,
+      "add_to_cart": 15,
+      "checkout": 20,
+      "bounce_pct": 15.5,
+      "checkout_conv_pct": 30.0
+    },
+    {
+      "date": "2026-04-13",
+      "sessions": 1441,
+      "transactions": 3,
+      "revenue": 2362,
+      "purchases": 3,
+      "add_to_cart": 33,
+      "checkout": 68,
+      "bounce_pct": 17.8,
+      "checkout_conv_pct": 4.4
+    },
+    {
+      "date": "2026-04-14",
+      "sessions": 1370,
+      "transactions": 1,
+      "revenue": 373,
+      "purchases": 1,
+      "add_to_cart": 43,
+      "checkout": 90,
+      "bounce_pct": 18.7,
+      "checkout_conv_pct": 1.1
+    },
+    {
+      "date": "2026-04-15",
+      "sessions": 1661,
+      "transactions": 6,
+      "revenue": 12236,
+      "purchases": 6,
+      "add_to_cart": 37,
+      "checkout": 49,
+      "bounce_pct": 28.7,
+      "checkout_conv_pct": 12.2
+    },
+    {
+      "date": "2026-04-16",
+      "sessions": 1757,
+      "transactions": 6,
+      "revenue": 2635,
+      "purchases": 6,
+      "add_to_cart": 35,
+      "checkout": 44,
+      "bounce_pct": 34.8,
+      "checkout_conv_pct": 13.6
+    },
+    {
+      "date": "2026-04-17",
+      "sessions": 1666,
+      "transactions": 2,
+      "revenue": 1456,
+      "purchases": 2,
+      "add_to_cart": 17,
+      "checkout": 19,
+      "bounce_pct": 42.9,
+      "checkout_conv_pct": 10.5
+    },
+    {
+      "date": "2026-04-18",
+      "sessions": 1732,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 2,
+      "checkout": 5,
+      "bounce_pct": 56.8,
+      "checkout_conv_pct": 0.0
+    },
+    {
+      "date": "2026-04-19",
+      "sessions": 1571,
+      "transactions": 4,
+      "revenue": 506,
+      "purchases": 4,
+      "add_to_cart": 26,
+      "checkout": 28,
+      "bounce_pct": 47.0,
+      "checkout_conv_pct": 14.3
+    },
+    {
+      "date": "2026-04-20",
+      "sessions": 1706,
+      "transactions": 10,
+      "revenue": 28950,
+      "purchases": 10,
+      "add_to_cart": 39,
+      "checkout": 51,
+      "bounce_pct": 30.4,
+      "checkout_conv_pct": 19.6
+    },
+    {
+      "date": "2026-04-21",
+      "sessions": 2240,
+      "transactions": 6,
+      "revenue": 1252,
+      "purchases": 6,
+      "add_to_cart": 51,
+      "checkout": 71,
+      "bounce_pct": 36.3,
+      "checkout_conv_pct": 8.5
+    },
+    {
+      "date": "2026-04-22",
+      "sessions": 2315,
+      "transactions": 5,
+      "revenue": 6270,
+      "purchases": 5,
+      "add_to_cart": 28,
+      "checkout": 37,
+      "bounce_pct": 45.2,
+      "checkout_conv_pct": 13.5
+    },
+    {
+      "date": "2026-04-23",
+      "sessions": 1655,
+      "transactions": 4,
+      "revenue": 1843,
+      "purchases": 4,
+      "add_to_cart": 27,
+      "checkout": 49,
+      "bounce_pct": 33.1,
+      "checkout_conv_pct": 8.2
+    },
+    {
+      "date": "2026-04-24",
+      "sessions": 1613,
+      "transactions": 10,
+      "revenue": 10376,
+      "purchases": 10,
+      "add_to_cart": 43,
+      "checkout": 69,
+      "bounce_pct": 33.2,
+      "checkout_conv_pct": 14.5
+    },
+    {
+      "date": "2026-04-25",
+      "sessions": 1199,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 26,
+      "checkout": 37,
+      "bounce_pct": 36.9,
+      "checkout_conv_pct": 0.0
+    },
+    {
+      "date": "2026-04-26",
+      "sessions": 1826,
+      "transactions": 1,
+      "revenue": 91,
+      "purchases": 1,
+      "add_to_cart": 32,
+      "checkout": 52,
+      "bounce_pct": 43.3,
+      "checkout_conv_pct": 1.9
+    },
+    {
+      "date": "2026-04-27",
+      "sessions": 1605,
+      "transactions": 4,
+      "revenue": 2832,
+      "purchases": 4,
+      "add_to_cart": 47,
+      "checkout": 74,
+      "bounce_pct": 20.6,
+      "checkout_conv_pct": 5.4
+    },
+    {
+      "date": "2026-04-28",
+      "sessions": 1364,
+      "transactions": 6,
+      "revenue": 1119,
+      "purchases": 6,
+      "add_to_cart": 53,
+      "checkout": 103,
+      "bounce_pct": 15.5,
+      "checkout_conv_pct": 5.8
+    },
+    {
+      "date": "2026-04-29",
+      "sessions": 1409,
+      "transactions": 5,
+      "revenue": 9694,
+      "purchases": 5,
+      "add_to_cart": 48,
+      "checkout": 49,
+      "bounce_pct": 17.7,
+      "checkout_conv_pct": 10.2
+    },
+    {
+      "date": "2026-04-30",
+      "sessions": 1242,
+      "transactions": 2,
+      "revenue": 872,
+      "purchases": 2,
+      "add_to_cart": 35,
+      "checkout": 47,
+      "bounce_pct": 13.7,
+      "checkout_conv_pct": 4.3
+    }
+  ],
+  "audit_broken_days": [
+    {
+      "date": "2025-10-07",
+      "sessions": 1328,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 9,
+      "checkout": 6,
+      "bounce_pct": 11.6,
+      "checkout_conv_pct": 0.0,
+      "flags": [
+        "ZERO_TRANS_CART_HIGH",
+        "REVENUE_COLLAPSE"
+      ]
+    },
+    {
+      "date": "2025-10-17",
+      "sessions": 1248,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 3,
+      "checkout": 3,
+      "bounce_pct": 12.7,
+      "checkout_conv_pct": 0.0,
+      "flags": [
+        "REVENUE_COLLAPSE"
+      ]
+    },
+    {
+      "date": "2025-10-22",
+      "sessions": 1369,
+      "transactions": 1,
+      "revenue": 2106,
+      "purchases": 1,
+      "add_to_cart": 24,
+      "checkout": 38,
+      "bounce_pct": 11.4,
+      "checkout_conv_pct": 2.6,
+      "flags": [
+        "LOW_TRANS_HIGH_CHECKOUT"
+      ]
+    },
+    {
+      "date": "2025-10-23",
+      "sessions": 1345,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 17,
+      "checkout": 21,
+      "bounce_pct": 11.5,
+      "checkout_conv_pct": 0.0,
+      "flags": [
+        "ZERO_TRANS_CART_HIGH",
+        "LOW_TRANS_HIGH_CHECKOUT",
+        "REVENUE_COLLAPSE"
+      ]
+    },
+    {
+      "date": "2025-10-28",
+      "sessions": 858,
+      "transactions": 1,
+      "revenue": 150,
+      "purchases": 1,
+      "add_to_cart": 10,
+      "checkout": 18,
+      "bounce_pct": 10.4,
+      "checkout_conv_pct": 5.6,
+      "flags": [
+        "LOW_TRANS_HIGH_CHECKOUT"
+      ]
+    },
+    {
+      "date": "2025-11-14",
+      "sessions": 1485,
+      "transactions": 1,
+      "revenue": 941,
+      "purchases": 1,
+      "add_to_cart": 18,
+      "checkout": 35,
+      "bounce_pct": 10.2,
+      "checkout_conv_pct": 2.9,
+      "flags": [
+        "LOW_TRANS_HIGH_CHECKOUT"
+      ]
+    },
+    {
+      "date": "2025-11-21",
+      "sessions": 1271,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 17,
+      "checkout": 7,
+      "bounce_pct": 10.1,
+      "checkout_conv_pct": 0.0,
+      "flags": [
+        "ZERO_TRANS_CART_HIGH",
+        "REVENUE_COLLAPSE"
+      ]
+    },
+    {
+      "date": "2025-11-22",
+      "sessions": 1163,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 11,
+      "checkout": 18,
+      "bounce_pct": 11.4,
+      "checkout_conv_pct": 0.0,
+      "flags": [
+        "ZERO_TRANS_CART_HIGH",
+        "LOW_TRANS_HIGH_CHECKOUT",
+        "REVENUE_COLLAPSE"
+      ]
+    },
+    {
+      "date": "2025-11-23",
+      "sessions": 1056,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 11,
+      "checkout": 7,
+      "bounce_pct": 9.3,
+      "checkout_conv_pct": 0.0,
+      "flags": [
+        "ZERO_TRANS_CART_HIGH",
+        "REVENUE_COLLAPSE"
+      ]
+    },
+    {
+      "date": "2025-11-24",
+      "sessions": 1499,
+      "transactions": 1,
+      "revenue": 250,
+      "purchases": 1,
+      "add_to_cart": 21,
+      "checkout": 29,
+      "bounce_pct": 10.6,
+      "checkout_conv_pct": 3.4,
+      "flags": [
+        "LOW_TRANS_HIGH_CHECKOUT"
+      ]
+    },
+    {
+      "date": "2025-11-25",
+      "sessions": 1574,
+      "transactions": 1,
+      "revenue": 77,
+      "purchases": 1,
+      "add_to_cart": 12,
+      "checkout": 13,
+      "bounce_pct": 9.3,
+      "checkout_conv_pct": 7.7,
+      "flags": [
+        "REVENUE_COLLAPSE"
+      ]
+    },
+    {
+      "date": "2025-11-29",
+      "sessions": 1002,
+      "transactions": 1,
+      "revenue": 85,
+      "purchases": 1,
+      "add_to_cart": 15,
+      "checkout": 17,
+      "bounce_pct": 8.7,
+      "checkout_conv_pct": 5.9,
+      "flags": [
+        "LOW_TRANS_HIGH_CHECKOUT",
+        "REVENUE_COLLAPSE"
+      ]
+    },
+    {
+      "date": "2025-11-30",
+      "sessions": 992,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 13,
+      "checkout": 19,
+      "bounce_pct": 7.5,
+      "checkout_conv_pct": 0.0,
+      "flags": [
+        "ZERO_TRANS_CART_HIGH",
+        "LOW_TRANS_HIGH_CHECKOUT"
+      ]
+    },
+    {
+      "date": "2025-12-02",
+      "sessions": 1499,
+      "transactions": 1,
+      "revenue": 150,
+      "purchases": 1,
+      "add_to_cart": 28,
+      "checkout": 44,
+      "bounce_pct": 9.9,
+      "checkout_conv_pct": 2.3,
+      "flags": [
+        "LOW_TRANS_HIGH_CHECKOUT",
+        "REVENUE_COLLAPSE"
+      ]
+    },
+    {
+      "date": "2025-12-20",
+      "sessions": 1197,
+      "transactions": 2,
+      "revenue": 155,
+      "purchases": 2,
+      "add_to_cart": 23,
+      "checkout": 44,
+      "bounce_pct": 11.6,
+      "checkout_conv_pct": 4.5,
+      "flags": [
+        "REVENUE_COLLAPSE"
+      ]
+    },
+    {
+      "date": "2025-12-25",
+      "sessions": 999,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 20,
+      "checkout": 44,
+      "bounce_pct": 5.7,
+      "checkout_conv_pct": 0.0,
+      "flags": [
+        "ZERO_TRANS_CART_HIGH",
+        "LOW_TRANS_HIGH_CHECKOUT"
+      ]
+    },
+    {
+      "date": "2025-12-29",
+      "sessions": 1427,
+      "transactions": 1,
+      "revenue": 512,
+      "purchases": 1,
+      "add_to_cart": 28,
+      "checkout": 48,
+      "bounce_pct": 9.2,
+      "checkout_conv_pct": 2.1,
+      "flags": [
+        "LOW_TRANS_HIGH_CHECKOUT"
+      ]
+    },
+    {
+      "date": "2026-01-01",
+      "sessions": 1011,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 20,
+      "checkout": 18,
+      "bounce_pct": 5.4,
+      "checkout_conv_pct": 0.0,
+      "flags": [
+        "ZERO_TRANS_CART_HIGH",
+        "LOW_TRANS_HIGH_CHECKOUT",
+        "REVENUE_COLLAPSE"
+      ]
+    },
+    {
+      "date": "2026-01-03",
+      "sessions": 1127,
+      "transactions": 2,
+      "revenue": 171,
+      "purchases": 2,
+      "add_to_cart": 31,
+      "checkout": 51,
+      "bounce_pct": 6.9,
+      "checkout_conv_pct": 3.9,
+      "flags": [
+        "REVENUE_COLLAPSE"
+      ]
+    },
+    {
+      "date": "2026-01-07",
+      "sessions": 1566,
+      "transactions": 1,
+      "revenue": 1234,
+      "purchases": 1,
+      "add_to_cart": 21,
+      "checkout": 39,
+      "bounce_pct": 8.7,
+      "checkout_conv_pct": 2.6,
+      "flags": [
+        "LOW_TRANS_HIGH_CHECKOUT"
+      ]
+    },
+    {
+      "date": "2026-01-09",
+      "sessions": 1444,
+      "transactions": 1,
+      "revenue": 2661,
+      "purchases": 1,
+      "add_to_cart": 22,
+      "checkout": 18,
+      "bounce_pct": 10.2,
+      "checkout_conv_pct": 5.6,
+      "flags": [
+        "LOW_TRANS_HIGH_CHECKOUT"
+      ]
+    },
+    {
+      "date": "2026-01-25",
+      "sessions": 1538,
+      "transactions": 1,
+      "revenue": 205,
+      "purchases": 1,
+      "add_to_cart": 42,
+      "checkout": 45,
+      "bounce_pct": 8.5,
+      "checkout_conv_pct": 2.2,
+      "flags": [
+        "LOW_TRANS_HIGH_CHECKOUT"
+      ]
+    },
+    {
+      "date": "2026-01-29",
+      "sessions": 2698,
+      "transactions": 1,
+      "revenue": 551,
+      "purchases": 1,
+      "add_to_cart": 11,
+      "checkout": 20,
+      "bounce_pct": 34.5,
+      "checkout_conv_pct": 5.0,
+      "flags": [
+        "LOW_TRANS_HIGH_CHECKOUT"
+      ]
+    },
+    {
+      "date": "2026-01-30",
+      "sessions": 1881,
+      "transactions": 1,
+      "revenue": 593,
+      "purchases": 1,
+      "add_to_cart": 15,
+      "checkout": 21,
+      "bounce_pct": 17.7,
+      "checkout_conv_pct": 4.8,
+      "flags": [
+        "LOW_TRANS_HIGH_CHECKOUT"
+      ]
+    },
+    {
+      "date": "2026-01-31",
+      "sessions": 1188,
+      "transactions": 1,
+      "revenue": 1094,
+      "purchases": 1,
+      "add_to_cart": 17,
+      "checkout": 18,
+      "bounce_pct": 9.8,
+      "checkout_conv_pct": 5.6,
+      "flags": [
+        "LOW_TRANS_HIGH_CHECKOUT"
+      ]
+    },
+    {
+      "date": "2026-02-01",
+      "sessions": 1247,
+      "transactions": 1,
+      "revenue": 66,
+      "purchases": 1,
+      "add_to_cart": 25,
+      "checkout": 31,
+      "bounce_pct": 9.5,
+      "checkout_conv_pct": 3.2,
+      "flags": [
+        "LOW_TRANS_HIGH_CHECKOUT",
+        "REVENUE_COLLAPSE"
+      ]
+    },
+    {
+      "date": "2026-02-02",
+      "sessions": 1999,
+      "transactions": 1,
+      "revenue": 7326,
+      "purchases": 1,
+      "add_to_cart": 33,
+      "checkout": 48,
+      "bounce_pct": 9.9,
+      "checkout_conv_pct": 2.1,
+      "flags": [
+        "LOW_TRANS_HIGH_CHECKOUT"
+      ]
+    },
+    {
+      "date": "2026-02-06",
+      "sessions": 2221,
+      "transactions": 1,
+      "revenue": 1263,
+      "purchases": 1,
+      "add_to_cart": 19,
+      "checkout": 56,
+      "bounce_pct": 16.6,
+      "checkout_conv_pct": 1.8,
+      "flags": [
+        "LOW_TRANS_HIGH_CHECKOUT"
+      ]
+    },
+    {
+      "date": "2026-02-11",
+      "sessions": 2242,
+      "transactions": 1,
+      "revenue": 420,
+      "purchases": 1,
+      "add_to_cart": 28,
+      "checkout": 42,
+      "bounce_pct": 12.2,
+      "checkout_conv_pct": 2.4,
+      "flags": [
+        "LOW_TRANS_HIGH_CHECKOUT"
+      ]
+    },
+    {
+      "date": "2026-02-13",
+      "sessions": 1549,
+      "transactions": 1,
+      "revenue": 6556,
+      "purchases": 1,
+      "add_to_cart": 25,
+      "checkout": 31,
+      "bounce_pct": 10.8,
+      "checkout_conv_pct": 3.2,
+      "flags": [
+        "LOW_TRANS_HIGH_CHECKOUT"
+      ]
+    },
+    {
+      "date": "2026-02-16",
+      "sessions": 1765,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 27,
+      "checkout": 32,
+      "bounce_pct": 14.9,
+      "checkout_conv_pct": 0.0,
+      "flags": [
+        "ZERO_TRANS_CART_HIGH",
+        "LOW_TRANS_HIGH_CHECKOUT",
+        "REVENUE_COLLAPSE"
+      ]
+    },
+    {
+      "date": "2026-02-21",
+      "sessions": 919,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 18,
+      "checkout": 25,
+      "bounce_pct": 15.5,
+      "checkout_conv_pct": 0.0,
+      "flags": [
+        "ZERO_TRANS_CART_HIGH",
+        "LOW_TRANS_HIGH_CHECKOUT"
+      ]
+    },
+    {
+      "date": "2026-02-28",
+      "sessions": 962,
+      "transactions": 1,
+      "revenue": 1206,
+      "purchases": 1,
+      "add_to_cart": 11,
+      "checkout": 18,
+      "bounce_pct": 17.2,
+      "checkout_conv_pct": 5.6,
+      "flags": [
+        "LOW_TRANS_HIGH_CHECKOUT"
+      ]
+    },
+    {
+      "date": "2026-03-05",
+      "sessions": 1572,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 12,
+      "checkout": 9,
+      "bounce_pct": 11.6,
+      "checkout_conv_pct": 0.0,
+      "flags": [
+        "ZERO_TRANS_CART_HIGH",
+        "REVENUE_COLLAPSE"
+      ]
+    },
+    {
+      "date": "2026-03-11",
+      "sessions": 175686,
+      "transactions": 1,
+      "revenue": 150,
+      "purchases": 1,
+      "add_to_cart": 32,
+      "checkout": 46,
+      "bounce_pct": 96.9,
+      "checkout_conv_pct": 2.2,
+      "flags": [
+        "LOW_TRANS_HIGH_CHECKOUT",
+        "REVENUE_COLLAPSE"
+      ]
+    },
+    {
+      "date": "2026-03-26",
+      "sessions": 4601,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 34,
+      "checkout": 25,
+      "bounce_pct": 79.3,
+      "checkout_conv_pct": 0.0,
+      "flags": [
+        "ZERO_TRANS_CART_HIGH",
+        "LOW_TRANS_HIGH_CHECKOUT",
+        "REVENUE_COLLAPSE"
+      ]
+    },
+    {
+      "date": "2026-03-28",
+      "sessions": 58154,
+      "transactions": 1,
+      "revenue": 2090,
+      "purchases": 1,
+      "add_to_cart": 35,
+      "checkout": 34,
+      "bounce_pct": 92.8,
+      "checkout_conv_pct": 2.9,
+      "flags": [
+        "LOW_TRANS_HIGH_CHECKOUT"
+      ]
+    },
+    {
+      "date": "2026-04-02",
+      "sessions": 30996,
+      "transactions": 1,
+      "revenue": 3680,
+      "purchases": 1,
+      "add_to_cart": 20,
+      "checkout": 26,
+      "bounce_pct": 88.5,
+      "checkout_conv_pct": 3.8,
+      "flags": [
+        "LOW_TRANS_HIGH_CHECKOUT"
+      ]
+    },
+    {
+      "date": "2026-04-03",
+      "sessions": 34201,
+      "transactions": 1,
+      "revenue": 138,
+      "purchases": 1,
+      "add_to_cart": 6,
+      "checkout": 5,
+      "bounce_pct": 89.1,
+      "checkout_conv_pct": 20.0,
+      "flags": [
+        "REVENUE_COLLAPSE"
+      ]
+    },
+    {
+      "date": "2026-04-06",
+      "sessions": 10036,
+      "transactions": 1,
+      "revenue": 198,
+      "purchases": 1,
+      "add_to_cart": 19,
+      "checkout": 42,
+      "bounce_pct": 88.0,
+      "checkout_conv_pct": 2.4,
+      "flags": [
+        "LOW_TRANS_HIGH_CHECKOUT",
+        "REVENUE_COLLAPSE"
+      ]
+    },
+    {
+      "date": "2026-04-11",
+      "sessions": 967,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 9,
+      "checkout": 11,
+      "bounce_pct": 26.8,
+      "checkout_conv_pct": 0.0,
+      "flags": [
+        "ZERO_TRANS_CART_HIGH"
+      ]
+    },
+    {
+      "date": "2026-04-14",
+      "sessions": 1370,
+      "transactions": 1,
+      "revenue": 373,
+      "purchases": 1,
+      "add_to_cart": 43,
+      "checkout": 90,
+      "bounce_pct": 18.7,
+      "checkout_conv_pct": 1.1,
+      "flags": [
+        "LOW_TRANS_HIGH_CHECKOUT"
+      ]
+    },
+    {
+      "date": "2026-04-18",
+      "sessions": 1732,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 2,
+      "checkout": 5,
+      "bounce_pct": 56.8,
+      "checkout_conv_pct": 0.0,
+      "flags": [
+        "REVENUE_COLLAPSE"
+      ]
+    },
+    {
+      "date": "2026-04-25",
+      "sessions": 1199,
+      "transactions": 0,
+      "revenue": 0,
+      "purchases": 0,
+      "add_to_cart": 26,
+      "checkout": 37,
+      "bounce_pct": 36.9,
+      "checkout_conv_pct": 0.0,
+      "flags": [
+        "ZERO_TRANS_CART_HIGH",
+        "LOW_TRANS_HIGH_CHECKOUT",
+        "REVENUE_COLLAPSE"
+      ]
+    },
+    {
+      "date": "2026-04-26",
+      "sessions": 1826,
+      "transactions": 1,
+      "revenue": 91,
+      "purchases": 1,
+      "add_to_cart": 32,
+      "checkout": 52,
+      "bounce_pct": 43.3,
+      "checkout_conv_pct": 1.9,
+      "flags": [
+        "LOW_TRANS_HIGH_CHECKOUT",
+        "REVENUE_COLLAPSE"
+      ]
+    }
+  ],
+  "sept_zoom": {
+    "start": "2025-09-10",
+    "end": "2025-09-30",
+    "daily": [
+      {
+        "date": "2025-09-10",
+        "sessions": 1447,
+        "transactions": 7,
+        "revenue": 3035,
+        "purchases": 7,
+        "add_to_cart": 33,
+        "checkout": 58,
+        "bounce_pct": 11.5,
+        "checkout_conv_pct": 12.1
+      },
+      {
+        "date": "2025-09-11",
+        "sessions": 1233,
+        "transactions": 4,
+        "revenue": 3516,
+        "purchases": 4,
+        "add_to_cart": 24,
+        "checkout": 26,
+        "bounce_pct": 11.2,
+        "checkout_conv_pct": 15.4
+      },
+      {
+        "date": "2025-09-12",
+        "sessions": 1305,
+        "transactions": 7,
+        "revenue": 7734,
+        "purchases": 7,
+        "add_to_cart": 24,
+        "checkout": 35,
+        "bounce_pct": 12.0,
+        "checkout_conv_pct": 20.0
+      },
+      {
+        "date": "2025-09-13",
+        "sessions": 780,
+        "transactions": 6,
+        "revenue": 9687,
+        "purchases": 6,
+        "add_to_cart": 15,
+        "checkout": 36,
+        "bounce_pct": 13.5,
+        "checkout_conv_pct": 16.7
+      },
+      {
+        "date": "2025-09-14",
+        "sessions": 934,
+        "transactions": 6,
+        "revenue": 3760,
+        "purchases": 6,
+        "add_to_cart": 33,
+        "checkout": 47,
+        "bounce_pct": 14.2,
+        "checkout_conv_pct": 12.8
+      },
+      {
+        "date": "2025-09-15",
+        "sessions": 1457,
+        "transactions": 9,
+        "revenue": 8640,
+        "purchases": 9,
+        "add_to_cart": 23,
+        "checkout": 19,
+        "bounce_pct": 10.6,
+        "checkout_conv_pct": 47.4
+      },
+      {
+        "date": "2025-09-16",
+        "sessions": 1431,
+        "transactions": 8,
+        "revenue": 15550,
+        "purchases": 8,
+        "add_to_cart": 43,
+        "checkout": 59,
+        "bounce_pct": 11.8,
+        "checkout_conv_pct": 13.6
+      },
+      {
+        "date": "2025-09-17",
+        "sessions": 1412,
+        "transactions": 9,
+        "revenue": 16927,
+        "purchases": 9,
+        "add_to_cart": 28,
+        "checkout": 45,
+        "bounce_pct": 10.7,
+        "checkout_conv_pct": 20.0
+      },
+      {
+        "date": "2025-09-18",
+        "sessions": 1508,
+        "transactions": 3,
+        "revenue": 16676,
+        "purchases": 3,
+        "add_to_cart": 11,
+        "checkout": 17,
+        "bounce_pct": 11.4,
+        "checkout_conv_pct": 17.6
+      },
+      {
+        "date": "2025-09-19",
+        "sessions": 1404,
+        "transactions": 5,
+        "revenue": 3331,
+        "purchases": 5,
+        "add_to_cart": 26,
+        "checkout": 31,
+        "bounce_pct": 13.0,
+        "checkout_conv_pct": 16.1
+      },
+      {
+        "date": "2025-09-20",
+        "sessions": 817,
+        "transactions": 6,
+        "revenue": 2226,
+        "purchases": 6,
+        "add_to_cart": 12,
+        "checkout": 20,
+        "bounce_pct": 14.4,
+        "checkout_conv_pct": 30.0
+      },
+      {
+        "date": "2025-09-21",
+        "sessions": 894,
+        "transactions": 3,
+        "revenue": 2701,
+        "purchases": 3,
+        "add_to_cart": 30,
+        "checkout": 53,
+        "bounce_pct": 11.9,
+        "checkout_conv_pct": 5.7
+      },
+      {
+        "date": "2025-09-22",
+        "sessions": 1678,
+        "transactions": 6,
+        "revenue": 8714,
+        "purchases": 6,
+        "add_to_cart": 66,
+        "checkout": 74,
+        "bounce_pct": 12.8,
+        "checkout_conv_pct": 8.1
+      },
+      {
+        "date": "2025-09-23",
+        "sessions": 1648,
+        "transactions": 9,
+        "revenue": 10628,
+        "purchases": 9,
+        "add_to_cart": 22,
+        "checkout": 34,
+        "bounce_pct": 9.9,
+        "checkout_conv_pct": 26.5
+      },
+      {
+        "date": "2025-09-24",
+        "sessions": 1573,
+        "transactions": 5,
+        "revenue": 5231,
+        "purchases": 5,
+        "add_to_cart": 24,
+        "checkout": 49,
+        "bounce_pct": 10.7,
+        "checkout_conv_pct": 10.2
+      },
+      {
+        "date": "2025-09-25",
+        "sessions": 1434,
+        "transactions": 6,
+        "revenue": 3689,
+        "purchases": 6,
+        "add_to_cart": 20,
+        "checkout": 28,
+        "bounce_pct": 11.0,
+        "checkout_conv_pct": 21.4
+      },
+      {
+        "date": "2025-09-26",
+        "sessions": 1244,
+        "transactions": 1,
+        "revenue": 3242,
+        "purchases": 1,
+        "add_to_cart": 15,
+        "checkout": 43,
+        "bounce_pct": 12.9,
+        "checkout_conv_pct": 2.3
+      },
+      {
+        "date": "2025-09-27",
+        "sessions": 792,
+        "transactions": 2,
+        "revenue": 1094,
+        "purchases": 2,
+        "add_to_cart": 10,
+        "checkout": 10,
+        "bounce_pct": 13.0,
+        "checkout_conv_pct": 20.0
+      },
+      {
+        "date": "2025-09-28",
+        "sessions": 765,
+        "transactions": 2,
+        "revenue": 401,
+        "purchases": 2,
+        "add_to_cart": 14,
+        "checkout": 12,
+        "bounce_pct": 13.1,
+        "checkout_conv_pct": 16.7
+      },
+      {
+        "date": "2025-09-29",
+        "sessions": 1360,
+        "transactions": 2,
+        "revenue": 1702,
+        "purchases": 2,
+        "add_to_cart": 24,
+        "checkout": 17,
+        "bounce_pct": 13.0,
+        "checkout_conv_pct": 11.8
+      },
+      {
+        "date": "2025-09-30",
+        "sessions": 1247,
+        "transactions": 2,
+        "revenue": 1408,
+        "purchases": 2,
+        "add_to_cart": 14,
+        "checkout": 26,
+        "bounce_pct": 12.2,
+        "checkout_conv_pct": 7.7
+      }
+    ],
+    "broken": [
+      {
+        "date": "2025-09-26",
+        "sessions": 1244,
+        "transactions": 1,
+        "revenue": 3242,
+        "purchases": 1,
+        "add_to_cart": 15,
+        "checkout": 43,
+        "bounce_pct": 12.9,
+        "checkout_conv_pct": 2.3,
+        "flags": [
+          "LOW_TRANS_HIGH_CHECKOUT"
+        ]
+      }
+    ]
+  }
+}
