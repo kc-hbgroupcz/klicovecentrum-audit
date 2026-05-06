@@ -135,6 +135,63 @@
   .P0 { background: #dc2626; color: white; }
   .P1 { background: #ea580c; color: white; }
   .P2 { background: #ca8a04; color: white; }
+  /* Owner badges — kdo je odpovědný za nápravu */
+  .owner-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-left: 6px;
+    cursor: help;
+    border: 1px solid transparent;
+  }
+  .owner-agency  { background: rgba(59,130,246,.15);  color: #93c5fd; border-color: #3b82f6; }
+  .owner-dev     { background: rgba(168,85,247,.15);  color: #d8b4fe; border-color: #a855f7; }
+  .owner-devops  { background: rgba(236,72,153,.15);  color: #f9a8d4; border-color: #ec4899; }
+  .owner-client  { background: rgba(16,185,129,.15);  color: #6ee7b7; border-color: #10b981; }
+  .owner-mixed   { background: rgba(251,146,60,.15);  color: #fdba74; border-color: #fb923c; }
+  /* Owner pill v selektoru filtru */
+  .owner-filter-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1.5px solid #475569;
+    background: #1e293b;
+    color: #cbd5e1;
+    transition: all 0.15s;
+  }
+  .owner-filter-pill:hover { border-color: #64748b; }
+  .owner-filter-pill.active { background: #334155; border-color: #818cf8; color: #fff; }
+  /* Action item s prefix tagem [DEV]/[AGENCY]/atd. */
+  .action-tag {
+    display: inline-block;
+    padding: 1px 7px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    margin-right: 4px;
+    vertical-align: 1px;
+  }
+  /* Selektor disabled badge — pro indikaci že selektor neovlivňuje data */
+  .selector-info-badge {
+    display: inline-block;
+    background: rgba(251,191,36,.12);
+    color: #fcd34d;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 11px;
+    margin-left: 10px;
+    border: 1px solid rgba(251,191,36,.3);
+  }
   .finding-body { flex: 1; }
   .finding-title {
     font-size: 16px;
@@ -514,6 +571,16 @@
   <button class="filter-btn" data-prio="P0">P0 — Kritické</button>
   <button class="filter-btn" data-prio="P1">P1 — Závažné</button>
   <button class="filter-btn" data-prio="P2">P2 — Střední</button>
+</div>
+
+<div class="filters" style="margin-top:6px">
+  <span class="filter-label">Kdo to opraví:</span>
+  <button class="owner-filter-pill active" data-owner="all">Vše (42)</button>
+  <button class="owner-filter-pill owner-agency" data-owner="agency" title="Marketingová agentura — admin v Google Ads / Sklik / GA4 / GTM">🎯 Agentura</button>
+  <button class="owner-filter-pill owner-dev" data-owner="dev" title="Programátor eshopu — kód změny, schema.org, redirect rules, payment fix, feed export">🛠️ Vývojář eshopu</button>
+  <button class="owner-filter-pill owner-devops" data-owner="devops" title="Správce serveru — DNS, robots.txt, Cloudflare, file delete, server config">⚙️ DevOps</button>
+  <button class="owner-filter-pill owner-client" data-owner="client" title="Klient sám — manuální admin (Firmy.cz, GBP, Alza), strategická rozhodnutí">👤 Klient</button>
+  <button class="owner-filter-pill owner-mixed" data-owner="mixed" title="Vyžaduje koordinaci — typicky agentura + vývojář/devops">🔀 Mixed</button>
 </div>
 
 <main id="findings"></main>
@@ -1630,6 +1697,31 @@
 
 <script>
 // ─── DATA ───────────────────────────────────────────────────────
+// Mapa odpovědností — kdo je primárně zodpovědný za nápravu
+// agency = 🎯 marketingová agentura (Google Ads/Sklik admin, GA4, GTM, kampaně)
+// dev = 🛠️ vývojář eshopu (kód změny, schema.org, redirect rules, payment fix, feed export)
+// devops = ⚙️ správce serveru / DevOps (DNS, robots.txt, Cloudflare, file delete, server config)
+// client = 👤 klient sám (manuální admin úkony, Firmy.cz, GBP, strategická rozhodnutí)
+// mixed = 🔀 vyžaduje koordinaci (typicky agency + dev/devops)
+const ownerMap = {
+  1:'agency', 2:'agency', 3:'agency', 4:'mixed', 5:'client',
+  6:'agency', 7:'agency', 8:'agency', 9:'agency', 10:'agency',
+  11:'agency', 12:'mixed', 13:'agency', 14:'agency', 15:'mixed',
+  16:'mixed', 17:'mixed', 18:'mixed', 19:'dev', 20:'dev',
+  21:'client', 22:'client', 23:'mixed', 24:'client', 25:'agency',
+  26:'dev', 27:'client', 28:'mixed', 29:'client', 30:'client',
+  31:'mixed', 32:'devops', 33:'devops', 34:'dev', 35:'devops',
+  36:'mixed', 37:'mixed', 38:'agency', 39:'client', 40:'mixed',
+  41:'agency', 42:'agency',
+};
+const ownerBadges = {
+  agency:  {emoji:'🎯', label:'Agentura', cls:'owner-agency', desc:'Marketingová agentura — admin v Google Ads / Sklik / GA4 / GTM / kampaně'},
+  dev:     {emoji:'🛠️', label:'Vývojář',  cls:'owner-dev',    desc:'Programátor eshopu — kód změny, schema.org, redirect rules, payment fix, feed export'},
+  devops:  {emoji:'⚙️', label:'DevOps',   cls:'owner-devops', desc:'Správce serveru — DNS, robots.txt, Cloudflare, file delete, server config'},
+  client:  {emoji:'👤', label:'Klient',   cls:'owner-client', desc:'Klient sám — manuální admin (Firmy.cz, GBP, Alza), strategická rozhodnutí'},
+  mixed:   {emoji:'🔀', label:'Mixed',    cls:'owner-mixed',  desc:'Vyžaduje koordinaci agentury + vývojáře/devops'},
+};
+
 const findings = [
   // === ANALYTICS ===
   {
@@ -2356,18 +2448,23 @@ const findings = [
 // ─── RENDER ─────────────────────────────────────────────────────
 let activeCategory = 'all';
 let activePriority = 'all';
+let activeOwner = 'all';
 const doneSet = new Set(JSON.parse(localStorage.getItem('audit_done') || '[]'));
 
 function render() {
   const container = document.getElementById('findings');
-  const filtered = findings.filter(f =>
-    (activeCategory === 'all' || f.cat === activeCategory) &&
-    (activePriority === 'all' || f.prio === activePriority)
-  );
+  const filtered = findings.filter(f => {
+    const owner = ownerMap[f.id] || 'mixed';
+    return (activeCategory === 'all' || f.cat === activeCategory) &&
+           (activePriority === 'all' || f.prio === activePriority) &&
+           (activeOwner === 'all' || owner === activeOwner);
+  });
 
   container.innerHTML = filtered.map(f => {
     const isDone = doneSet.has(f.id);
     const impactClass = f.impactPositive ? '' : 'impact-negative';
+    const owner = ownerMap[f.id] || 'mixed';
+    const ob = ownerBadges[owner];
     const tlBar = f.timeline.map((pct, i) => {
       if (pct === 0) return '';
       const cls = ['tl-1w', 'tl-1m', 'tl-3m'][i];
@@ -2378,6 +2475,7 @@ function render() {
       <div class="finding ${isDone ? 'done' : ''}" data-id="${f.id}">
         <div class="finding-header" onclick="toggleDetail(${f.id})">
           <span class="priority ${f.prio}">${f.prio}</span>
+          <span class="owner-badge ${ob.cls}" title="${ob.desc}">${ob.emoji} ${ob.label}</span>
           <div class="finding-body">
             <div class="finding-title">${f.title}</div>
             <div class="finding-id">Nález #${f.id} · ${f.cat.toUpperCase()}</div>
@@ -4160,7 +4258,15 @@ function renderYearly() {
   const fmt = n => n==null?'—':Number(n).toLocaleString('cs-CZ');
   const yt = yearlyData.trend;
   const years = yt.years;
-  const cur = years[years.length-1];
+  // FIX: respektuj selektor période — pokud je vybraný konkrétní rok, zobraz ho v Pareto / Top kategoriích / Podsklady
+  const selectedPeriod = window.viewState?.yearly?.period || '3y';
+  const cur = (selectedPeriod !== '3y' && years.find(y => y.year === parseInt(selectedPeriod)))
+    ? years.find(y => y.year === parseInt(selectedPeriod))
+    : years[years.length-1];
+  // Highlight aktivního roku v UI
+  const headerH = document.querySelector('#chart-pareto')?.closest('.chart-card')?.querySelector('h3');
+  if (headerH && !headerH.dataset.original) headerH.dataset.original = headerH.textContent;
+  const yearLabelInTitles = selectedPeriod === '3y' ? cur.year : selectedPeriod;
 
   // KPI grid
   document.getElementById('yearly-summary-grid').innerHTML = `
@@ -4247,6 +4353,7 @@ function renderYearly() {
       Top 10 SKU = <strong>${top10_share.toFixed(1)}%</strong> obratu ·
       Top 20 = <strong>${top20_share.toFixed(1)}%</strong> ·
       Top 50 = <strong>${top50_share.toFixed(1)}%</strong> z ${fmt(cur.skus_with_sales)} SKU celkem.
+      ${selectedPeriod !== '3y' ? '<br><span style="color:#94a3b8;font-size:11px">↑ Filtrováno selektorem na rok '+selectedPeriod+'. Trend, YoY delta a Segments grafy zobrazují všechny roky pro porovnání.</span>' : ''}
     </div>
   `;
 
@@ -4305,7 +4412,8 @@ async function loadTopCustomers() {
 
 function renderTopCustomers() {
   const fmt = n => n==null?'—':Number(n).toLocaleString('cs-CZ');
-  const seg = (window.dashState?.segment === 'b2b') ? 'B2B' : 'B2C';
+  // FIX: Read from view-specific state, not global dashState (selektor v hlavičce sekce)
+  const seg = (window.viewState?.topcustomers?.segment === 'b2b') ? 'B2B' : 'B2C';
   const D = topCustomersData;
   if (!D) return;
   const d = D[seg];
@@ -4879,12 +4987,34 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   });
 });
 
-// počty pro taby
+// owner filter
+document.querySelectorAll('.owner-filter-pill').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.owner-filter-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeOwner = btn.dataset.owner;
+    render();
+  });
+});
+
+// počty pro taby + owner pills
 function updateCounts() {
   document.getElementById('count-all').textContent = findings.length;
   ['analytics', 'gads', 'sklik', 'feed', 'local', 'alza', 'seo', 'data'].forEach(cat => {
     const count = findings.filter(f => f.cat === cat).length;
     document.getElementById('count-' + cat).textContent = count;
+  });
+  // Update owner pill counts
+  const ownerCounts = {agency:0, dev:0, devops:0, client:0, mixed:0};
+  findings.forEach(f => { ownerCounts[ownerMap[f.id]||'mixed']++; });
+  document.querySelectorAll('.owner-filter-pill').forEach(btn => {
+    const o = btn.dataset.owner;
+    if (o === 'all') {
+      btn.textContent = `Vše (${findings.length})`;
+    } else {
+      const ob = ownerBadges[o];
+      btn.innerHTML = `${ob.emoji} ${ob.label} (${ownerCounts[o]||0})`;
+    }
   });
 }
 
@@ -4918,6 +5048,38 @@ document.querySelectorAll('.view-period, .view-segment').forEach(sel => {
     if (fn) fn();
   });
 });
+
+// ─── SELEKTOR DIAGNOSTIKA — auto-detect single-option / read-only selektorů ─
+// Procházej všechny .view-period a .view-segment selektory.
+// Pokud má jen 1 <option> → přidat vizuální info badge "Pouze audit period" / "Pouze B2C".
+// Tím odstraníme matoucí dojem že přepínáš mezi obdobími/segmenty.
+function annotateReadOnlySelectors() {
+  document.querySelectorAll('.view-period, .view-segment').forEach(sel => {
+    if (sel.options.length === 1) {
+      sel.disabled = true;
+      sel.style.opacity = '0.6';
+      sel.style.cursor = 'not-allowed';
+      sel.title = 'Tento view má pouze jednu hodnotu — selektor jen ukazuje aktuální data';
+    }
+  });
+  // Hromadné info pro views kde žádný selektor neovlivňuje data pod KPI bar
+  const READONLY_DATA_VIEWS = ['campaigns', 'products', 'kpi', 'regions', 'journeys'];
+  READONLY_DATA_VIEWS.forEach(v => {
+    const card = document.querySelector(`[data-view-filter="${v}"]`);
+    if (!card || card.querySelector('.selector-info-badge')) return;
+    const note = document.createElement('div');
+    note.className = 'selector-info-badge';
+    note.style.cssText = 'margin-top:8px;display:block';
+    note.innerHTML = 'ℹ️ <strong>Pevné období + segment</strong>: tento view ukazuje audit 7M / B2C E-shop MO. Pro 3-letý přehled použij tab <em>📅 3-letý přehled</em>, pro segmenty <em>👥 Top zákazníci</em> nebo <em>📦 Vratky 3Y</em>.';
+    card.appendChild(note);
+  });
+}
+// Spustit po DOM ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', annotateReadOnlySelectors);
+} else {
+  annotateReadOnlySelectors();
+}
 
 async function populateViewKpi(view) {
   const fmt = n => n==null?'—':Number(n).toLocaleString('cs-CZ');
