@@ -1290,6 +1290,9 @@
     <div class="chart-wrap" style="height:380px;margin-top:12px"><canvas id="chart-payment-outage"></canvas></div>
     <h4 style="margin-top:24px;color:#94a3b8;font-size:13px;text-transform:uppercase;letter-spacing:.05em">📋 Detail outage period</h4>
     <div id="payment-outage-periods"></div>
+    <h4 style="margin-top:24px;color:#94a3b8;font-size:13px;text-transform:uppercase;letter-spacing:.05em">🔗 NÁLEZ #49 — Bing crawl errors korelace s broken payment dny (174 dnů)</h4>
+    <p style="color:#94a3b8;font-size:12px;margin:6px 0 12px">Cross-validace: 39 broken payment dnů v Bing overlap windowu vykazuje různou Bing signature podle období. Listopad-prosinec = pure 5xx outage (45/den fixní). Leden-únor = URL exploration attack (blocked_by_robots 15 → 555 714/den, 37 000×). Březen-duben = combined (5xx 45 → 232/den + blocked stále vysoký).</p>
+    <div class="chart-wrap" style="height:380px;margin-top:12px"><canvas id="chart-payment-bing-correlation"></canvas></div>
   </div>
 
   <div class="chart-card" id="forecast-card">
@@ -3658,7 +3661,7 @@ let yearlyData = null;
 async function loadYearly() {
   if (!yearlyData) {
     try {
-      const [yt, ym, fc, yh, ch, bw, po] = await Promise.all([
+      const [yt, ym, fc, yh, ch, bw, po, pbc] = await Promise.all([
         fetch('data/yearly_trend.json?v='+Date.now()).then(r=>r.json()),
         fetch('data/yearly_master.json?v='+Date.now()).then(r=>r.json()),
         fetch('data/seasonality_forecast.json?v='+Date.now()).then(r=>r.json()),
@@ -3666,8 +3669,9 @@ async function loadYearly() {
         fetch('data/crawl_stats_history.json?v='+Date.now()).then(r=>r.json()),
         fetch('data/bing_webmaster.json?v='+Date.now()).then(r=>r.json()).catch(()=>null),
         fetch('data/payment_outage_full_audit.json?v='+Date.now()).then(r=>r.json()).catch(()=>null),
+        fetch('data/payment_bing_correlation.json?v='+Date.now()).then(r=>r.json()).catch(()=>null),
       ]);
-      yearlyData = {trend: yt, master: ym, forecast: fc, history: yh, crawl: ch, bing: bw, payment_outage: po};
+      yearlyData = {trend: yt, master: ym, forecast: fc, history: yh, crawl: ch, bing: bw, payment_outage: po, payment_bing_corr: pbc};
     } catch(e){ console.error('yearly', e); return; }
   }
   renderYearly();
@@ -3781,6 +3785,35 @@ function renderPaymentOutage() {
       Detection: 0 trans + sess > 500 + checkout > 5 (ZERO_TRANS_CART_HIGH) | nebo trans ≤ 1 + checkout > 15 (LOW_TRANS_HIGH_CHECKOUT) | nebo revenue < 200 + sess > 1000 (REVENUE_COLLAPSE).
     </p>
   `;
+
+  // Bing × payment correlation chart (#49)
+  const pbc = yearlyData.payment_bing_corr;
+  if (pbc && pbc.daily) {
+    if (window.paymentBingCorrChart) window.paymentBingCorrChart.destroy();
+    const ctxC = document.getElementById('chart-payment-bing-correlation').getContext('2d');
+    window.paymentBingCorrChart = new Chart(ctxC, {
+      type: 'line',
+      data: {
+        labels: pbc.daily.map(d=>d.date),
+        datasets: [
+          {label:'Code 5xx', data:pbc.daily.map(d=>d.code_5xx), borderColor:'#ef4444', backgroundColor:'rgba(239,68,68,.08)', tension:0.2, pointRadius:0, yAxisID:'y'},
+          {label:'Code 4xx', data:pbc.daily.map(d=>d.code_4xx), borderColor:'#fbbf24', backgroundColor:'rgba(251,191,36,.08)', tension:0.2, pointRadius:0, yAxisID:'y'},
+          {label:'Crawl errors', data:pbc.daily.map(d=>d.crawl_errors), borderColor:'#f97316', backgroundColor:'rgba(249,115,22,.08)', tension:0.2, pointRadius:0, yAxisID:'y'},
+          {label:'Blocked by robots.txt', data:pbc.daily.map(d=>d.blocked_by_robots), borderColor:'#a78bfa', backgroundColor:'rgba(167,139,250,.08)', tension:0.2, pointRadius:0, yAxisID:'y2', borderDash:[4,4]},
+          {label:'🚨 Broken payment den', type:'scatter', data:pbc.daily.map(d=>d.is_broken?{x:d.date,y:Math.max(d.code_5xx, 50)}:null).filter(x=>x), backgroundColor:'#ef4444', borderColor:'#dc2626', pointRadius:5, yAxisID:'y'},
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: {legend:{labels:{color:'#e2e8f0'}}, tooltip:{mode:'index', intersect:false}},
+        scales: {
+          x: {ticks:{color:'#94a3b8',maxRotation:45,maxTicksLimit:25}},
+          y: {position:'left', ticks:{color:'#ef4444'}, title:{display:true,text:'5xx / 4xx / crawl errors',color:'#ef4444'}, type:'logarithmic'},
+          y2: {position:'right', ticks:{color:'#a78bfa'}, title:{display:true,text:'Blocked by robots.txt',color:'#a78bfa'}, grid:{drawOnChartArea:false}},
+        }
+      }
+    });
+  }
 }
 
 function renderCrawlHistory() {

@@ -1,0 +1,1570 @@
+{
+  "daily": [
+    {
+      "date": "2025-11-04",
+      "is_broken": false,
+      "crawled": 46556,
+      "code_5xx": 45,
+      "code_4xx": 16,
+      "crawl_errors": 1930,
+      "blocked_by_robots": 12
+    },
+    {
+      "date": "2025-11-05",
+      "is_broken": false,
+      "crawled": 45451,
+      "code_5xx": 45,
+      "code_4xx": 21,
+      "crawl_errors": 1841,
+      "blocked_by_robots": 12
+    },
+    {
+      "date": "2025-11-06",
+      "is_broken": false,
+      "crawled": 35490,
+      "code_5xx": 44,
+      "code_4xx": 15,
+      "crawl_errors": 2683,
+      "blocked_by_robots": 12
+    },
+    {
+      "date": "2025-11-07",
+      "is_broken": false,
+      "crawled": 33792,
+      "code_5xx": 45,
+      "code_4xx": 18,
+      "crawl_errors": 2490,
+      "blocked_by_robots": 12
+    },
+    {
+      "date": "2025-11-08",
+      "is_broken": false,
+      "crawled": 28870,
+      "code_5xx": 45,
+      "code_4xx": 10,
+      "crawl_errors": 2317,
+      "blocked_by_robots": 14
+    },
+    {
+      "date": "2025-11-09",
+      "is_broken": false,
+      "crawled": 22689,
+      "code_5xx": 44,
+      "code_4xx": 11,
+      "crawl_errors": 1818,
+      "blocked_by_robots": 14
+    },
+    {
+      "date": "2025-11-10",
+      "is_broken": false,
+      "crawled": 32418,
+      "code_5xx": 44,
+      "code_4xx": 12,
+      "crawl_errors": 1810,
+      "blocked_by_robots": 14
+    },
+    {
+      "date": "2025-11-11",
+      "is_broken": false,
+      "crawled": 36169,
+      "code_5xx": 44,
+      "code_4xx": 11,
+      "crawl_errors": 1657,
+      "blocked_by_robots": 14
+    },
+    {
+      "date": "2025-11-13",
+      "is_broken": false,
+      "crawled": 34975,
+      "code_5xx": 44,
+      "code_4xx": 11,
+      "crawl_errors": 1050,
+      "blocked_by_robots": 14
+    },
+    {
+      "date": "2025-11-14",
+      "is_broken": true,
+      "crawled": 36512,
+      "code_5xx": 44,
+      "code_4xx": 9,
+      "crawl_errors": 979,
+      "blocked_by_robots": 14
+    },
+    {
+      "date": "2025-11-15",
+      "is_broken": false,
+      "crawled": 43348,
+      "code_5xx": 44,
+      "code_4xx": 16,
+      "crawl_errors": 1395,
+      "blocked_by_robots": 14
+    },
+    {
+      "date": "2025-11-16",
+      "is_broken": false,
+      "crawled": 35430,
+      "code_5xx": 44,
+      "code_4xx": 8,
+      "crawl_errors": 1271,
+      "blocked_by_robots": 14
+    },
+    {
+      "date": "2025-11-17",
+      "is_broken": false,
+      "crawled": 34870,
+      "code_5xx": 44,
+      "code_4xx": 13,
+      "crawl_errors": 1536,
+      "blocked_by_robots": 14
+    },
+    {
+      "date": "2025-11-18",
+      "is_broken": false,
+      "crawled": 35778,
+      "code_5xx": 44,
+      "code_4xx": 9,
+      "crawl_errors": 1667,
+      "blocked_by_robots": 14
+    },
+    {
+      "date": "2025-11-19",
+      "is_broken": false,
+      "crawled": 32682,
+      "code_5xx": 44,
+      "code_4xx": 17,
+      "crawl_errors": 1372,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-11-20",
+      "is_broken": false,
+      "crawled": 33229,
+      "code_5xx": 44,
+      "code_4xx": 14,
+      "crawl_errors": 1934,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-11-21",
+      "is_broken": true,
+      "crawled": 12991,
+      "code_5xx": 44,
+      "code_4xx": 7,
+      "crawl_errors": 4477,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-11-22",
+      "is_broken": true,
+      "crawled": 2,
+      "code_5xx": 45,
+      "code_4xx": 0,
+      "crawl_errors": 5123,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-11-23",
+      "is_broken": true,
+      "crawled": 0,
+      "code_5xx": 45,
+      "code_4xx": 0,
+      "crawl_errors": 5460,
+      "blocked_by_robots": 14
+    },
+    {
+      "date": "2025-11-24",
+      "is_broken": true,
+      "crawled": 1221,
+      "code_5xx": 45,
+      "code_4xx": 1,
+      "crawl_errors": 5132,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-11-25",
+      "is_broken": true,
+      "crawled": 1,
+      "code_5xx": 45,
+      "code_4xx": 0,
+      "crawl_errors": 5113,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-11-26",
+      "is_broken": false,
+      "crawled": 0,
+      "code_5xx": 45,
+      "code_4xx": 0,
+      "crawl_errors": 5182,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-11-27",
+      "is_broken": false,
+      "crawled": 0,
+      "code_5xx": 45,
+      "code_4xx": 0,
+      "crawl_errors": 5334,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-11-28",
+      "is_broken": false,
+      "crawled": 0,
+      "code_5xx": 45,
+      "code_4xx": 0,
+      "crawl_errors": 5225,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-11-29",
+      "is_broken": true,
+      "crawled": 1,
+      "code_5xx": 45,
+      "code_4xx": 0,
+      "crawl_errors": 5287,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-11-30",
+      "is_broken": true,
+      "crawled": 1,
+      "code_5xx": 45,
+      "code_4xx": 0,
+      "crawl_errors": 5044,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-12-01",
+      "is_broken": false,
+      "crawled": 0,
+      "code_5xx": 45,
+      "code_4xx": 0,
+      "crawl_errors": 5357,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-12-02",
+      "is_broken": true,
+      "crawled": 621,
+      "code_5xx": 45,
+      "code_4xx": 0,
+      "crawl_errors": 5304,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-12-03",
+      "is_broken": false,
+      "crawled": 2833,
+      "code_5xx": 45,
+      "code_4xx": 1,
+      "crawl_errors": 5174,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-12-04",
+      "is_broken": false,
+      "crawled": 1184,
+      "code_5xx": 45,
+      "code_4xx": 0,
+      "crawl_errors": 4870,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-12-05",
+      "is_broken": false,
+      "crawled": 2,
+      "code_5xx": 45,
+      "code_4xx": 0,
+      "crawl_errors": 5450,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-12-06",
+      "is_broken": false,
+      "crawled": 2,
+      "code_5xx": 45,
+      "code_4xx": 0,
+      "crawl_errors": 5709,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-12-07",
+      "is_broken": false,
+      "crawled": 985,
+      "code_5xx": 45,
+      "code_4xx": 0,
+      "crawl_errors": 5885,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-12-08",
+      "is_broken": false,
+      "crawled": 2,
+      "code_5xx": 45,
+      "code_4xx": 0,
+      "crawl_errors": 5606,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-12-09",
+      "is_broken": false,
+      "crawled": 476,
+      "code_5xx": 45,
+      "code_4xx": 0,
+      "crawl_errors": 5283,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-12-10",
+      "is_broken": false,
+      "crawled": 2,
+      "code_5xx": 45,
+      "code_4xx": 0,
+      "crawl_errors": 5505,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-12-11",
+      "is_broken": false,
+      "crawled": 2,
+      "code_5xx": 45,
+      "code_4xx": 0,
+      "crawl_errors": 5869,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-12-12",
+      "is_broken": false,
+      "crawled": 2,
+      "code_5xx": 45,
+      "code_4xx": 0,
+      "crawl_errors": 5953,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-12-13",
+      "is_broken": false,
+      "crawled": 35323,
+      "code_5xx": 45,
+      "code_4xx": 1,
+      "crawl_errors": 2349,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-12-14",
+      "is_broken": false,
+      "crawled": 46951,
+      "code_5xx": 45,
+      "code_4xx": 5,
+      "crawl_errors": 1039,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-12-15",
+      "is_broken": false,
+      "crawled": 48513,
+      "code_5xx": 45,
+      "code_4xx": 4,
+      "crawl_errors": 918,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-12-16",
+      "is_broken": false,
+      "crawled": 47606,
+      "code_5xx": 45,
+      "code_4xx": 7,
+      "crawl_errors": 870,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-12-17",
+      "is_broken": false,
+      "crawled": 49452,
+      "code_5xx": 46,
+      "code_4xx": 5,
+      "crawl_errors": 872,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-12-18",
+      "is_broken": false,
+      "crawled": 46575,
+      "code_5xx": 45,
+      "code_4xx": 7,
+      "crawl_errors": 830,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-12-19",
+      "is_broken": false,
+      "crawled": 47061,
+      "code_5xx": 45,
+      "code_4xx": 3,
+      "crawl_errors": 741,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-12-20",
+      "is_broken": true,
+      "crawled": 48032,
+      "code_5xx": 45,
+      "code_4xx": 6,
+      "crawl_errors": 852,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-12-21",
+      "is_broken": false,
+      "crawled": 55477,
+      "code_5xx": 45,
+      "code_4xx": 6,
+      "crawl_errors": 74,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-12-22",
+      "is_broken": false,
+      "crawled": 56154,
+      "code_5xx": 45,
+      "code_4xx": 8,
+      "crawl_errors": 9,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-12-23",
+      "is_broken": false,
+      "crawled": 55903,
+      "code_5xx": 45,
+      "code_4xx": 10,
+      "crawl_errors": 10,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-12-24",
+      "is_broken": false,
+      "crawled": 55052,
+      "code_5xx": 45,
+      "code_4xx": 8,
+      "crawl_errors": 12,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-12-25",
+      "is_broken": true,
+      "crawled": 55806,
+      "code_5xx": 45,
+      "code_4xx": 7,
+      "crawl_errors": 12,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-12-26",
+      "is_broken": false,
+      "crawled": 56119,
+      "code_5xx": 45,
+      "code_4xx": 6,
+      "crawl_errors": 9,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-12-27",
+      "is_broken": false,
+      "crawled": 55283,
+      "code_5xx": 45,
+      "code_4xx": 8,
+      "crawl_errors": 11,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2025-12-28",
+      "is_broken": false,
+      "crawled": 55316,
+      "code_5xx": 45,
+      "code_4xx": 3,
+      "crawl_errors": 6,
+      "blocked_by_robots": 15
+    },
+    {
+      "date": "2026-01-01",
+      "is_broken": true,
+      "crawled": 53323,
+      "code_5xx": 45,
+      "code_4xx": 11,
+      "crawl_errors": 13,
+      "blocked_by_robots": 16
+    },
+    {
+      "date": "2026-01-02",
+      "is_broken": false,
+      "crawled": 54272,
+      "code_5xx": 45,
+      "code_4xx": 5,
+      "crawl_errors": 5,
+      "blocked_by_robots": 16
+    },
+    {
+      "date": "2026-01-03",
+      "is_broken": true,
+      "crawled": 55890,
+      "code_5xx": 45,
+      "code_4xx": 6,
+      "crawl_errors": 6,
+      "blocked_by_robots": 16
+    },
+    {
+      "date": "2026-01-04",
+      "is_broken": false,
+      "crawled": 56153,
+      "code_5xx": 45,
+      "code_4xx": 7,
+      "crawl_errors": 10,
+      "blocked_by_robots": 16
+    },
+    {
+      "date": "2026-01-05",
+      "is_broken": false,
+      "crawled": 55769,
+      "code_5xx": 45,
+      "code_4xx": 9,
+      "crawl_errors": 9,
+      "blocked_by_robots": 16
+    },
+    {
+      "date": "2026-01-06",
+      "is_broken": false,
+      "crawled": 56322,
+      "code_5xx": 45,
+      "code_4xx": 3,
+      "crawl_errors": 3,
+      "blocked_by_robots": 16
+    },
+    {
+      "date": "2026-01-07",
+      "is_broken": true,
+      "crawled": 56522,
+      "code_5xx": 45,
+      "code_4xx": 5,
+      "crawl_errors": 5,
+      "blocked_by_robots": 16
+    },
+    {
+      "date": "2026-01-08",
+      "is_broken": false,
+      "crawled": 55762,
+      "code_5xx": 45,
+      "code_4xx": 7,
+      "crawl_errors": 9,
+      "blocked_by_robots": 16
+    },
+    {
+      "date": "2026-01-09",
+      "is_broken": true,
+      "crawled": 55635,
+      "code_5xx": 45,
+      "code_4xx": 9,
+      "crawl_errors": 9,
+      "blocked_by_robots": 16
+    },
+    {
+      "date": "2026-01-10",
+      "is_broken": false,
+      "crawled": 55782,
+      "code_5xx": 45,
+      "code_4xx": 6,
+      "crawl_errors": 11,
+      "blocked_by_robots": 16
+    },
+    {
+      "date": "2026-01-11",
+      "is_broken": false,
+      "crawled": 55565,
+      "code_5xx": 45,
+      "code_4xx": 9,
+      "crawl_errors": 9,
+      "blocked_by_robots": 16
+    },
+    {
+      "date": "2026-01-12",
+      "is_broken": false,
+      "crawled": 55755,
+      "code_5xx": 45,
+      "code_4xx": 5,
+      "crawl_errors": 6,
+      "blocked_by_robots": 17
+    },
+    {
+      "date": "2026-01-13",
+      "is_broken": false,
+      "crawled": 56138,
+      "code_5xx": 45,
+      "code_4xx": 8,
+      "crawl_errors": 10,
+      "blocked_by_robots": 17
+    },
+    {
+      "date": "2026-01-14",
+      "is_broken": false,
+      "crawled": 56726,
+      "code_5xx": 45,
+      "code_4xx": 6,
+      "crawl_errors": 6,
+      "blocked_by_robots": 17
+    },
+    {
+      "date": "2026-01-15",
+      "is_broken": false,
+      "crawled": 56313,
+      "code_5xx": 45,
+      "code_4xx": 5,
+      "crawl_errors": 8,
+      "blocked_by_robots": 17
+    },
+    {
+      "date": "2026-01-16",
+      "is_broken": false,
+      "crawled": 55735,
+      "code_5xx": 45,
+      "code_4xx": 12,
+      "crawl_errors": 16,
+      "blocked_by_robots": 17
+    },
+    {
+      "date": "2026-01-17",
+      "is_broken": false,
+      "crawled": 54704,
+      "code_5xx": 45,
+      "code_4xx": 5,
+      "crawl_errors": 13,
+      "blocked_by_robots": 18
+    },
+    {
+      "date": "2026-01-18",
+      "is_broken": false,
+      "crawled": 56490,
+      "code_5xx": 45,
+      "code_4xx": 7,
+      "crawl_errors": 11,
+      "blocked_by_robots": 18
+    },
+    {
+      "date": "2026-01-19",
+      "is_broken": false,
+      "crawled": 56507,
+      "code_5xx": 45,
+      "code_4xx": 6,
+      "crawl_errors": 13,
+      "blocked_by_robots": 18
+    },
+    {
+      "date": "2026-01-20",
+      "is_broken": false,
+      "crawled": 56397,
+      "code_5xx": 45,
+      "code_4xx": 8,
+      "crawl_errors": 13,
+      "blocked_by_robots": 18
+    },
+    {
+      "date": "2026-01-23",
+      "is_broken": false,
+      "crawled": 56546,
+      "code_5xx": 45,
+      "code_4xx": 7,
+      "crawl_errors": 11,
+      "blocked_by_robots": 18
+    },
+    {
+      "date": "2026-01-25",
+      "is_broken": true,
+      "crawled": 56141,
+      "code_5xx": 45,
+      "code_4xx": 6,
+      "crawl_errors": 5,
+      "blocked_by_robots": 7557
+    },
+    {
+      "date": "2026-01-26",
+      "is_broken": false,
+      "crawled": 56096,
+      "code_5xx": 0,
+      "code_4xx": 4,
+      "crawl_errors": 13,
+      "blocked_by_robots": 342650
+    },
+    {
+      "date": "2026-01-27",
+      "is_broken": false,
+      "crawled": 55855,
+      "code_5xx": 45,
+      "code_4xx": 6,
+      "crawl_errors": 7,
+      "blocked_by_robots": 65776
+    },
+    {
+      "date": "2026-01-28",
+      "is_broken": false,
+      "crawled": 56307,
+      "code_5xx": 0,
+      "code_4xx": 8,
+      "crawl_errors": 9,
+      "blocked_by_robots": 342650
+    },
+    {
+      "date": "2026-01-29",
+      "is_broken": true,
+      "crawled": 14197,
+      "code_5xx": 45,
+      "code_4xx": 6,
+      "crawl_errors": 7,
+      "blocked_by_robots": 133923
+    },
+    {
+      "date": "2026-01-30",
+      "is_broken": true,
+      "crawled": 50408,
+      "code_5xx": 45,
+      "code_4xx": 15,
+      "crawl_errors": 18,
+      "blocked_by_robots": 133923
+    },
+    {
+      "date": "2026-01-31",
+      "is_broken": true,
+      "crawled": 49182,
+      "code_5xx": 45,
+      "code_4xx": 10,
+      "crawl_errors": 14,
+      "blocked_by_robots": 194624
+    },
+    {
+      "date": "2026-02-01",
+      "is_broken": true,
+      "crawled": 51772,
+      "code_5xx": 45,
+      "code_4xx": 12,
+      "crawl_errors": 15,
+      "blocked_by_robots": 194624
+    },
+    {
+      "date": "2026-02-02",
+      "is_broken": true,
+      "crawled": 51534,
+      "code_5xx": 45,
+      "code_4xx": 10,
+      "crawl_errors": 11,
+      "blocked_by_robots": 164796
+    },
+    {
+      "date": "2026-02-03",
+      "is_broken": false,
+      "crawled": 51153,
+      "code_5xx": 45,
+      "code_4xx": 10,
+      "crawl_errors": 11,
+      "blocked_by_robots": 220826
+    },
+    {
+      "date": "2026-02-04",
+      "is_broken": false,
+      "crawled": 47950,
+      "code_5xx": 45,
+      "code_4xx": 14,
+      "crawl_errors": 19,
+      "blocked_by_robots": 249972
+    },
+    {
+      "date": "2026-02-05",
+      "is_broken": false,
+      "crawled": 48012,
+      "code_5xx": 45,
+      "code_4xx": 7,
+      "crawl_errors": 7,
+      "blocked_by_robots": 312285
+    },
+    {
+      "date": "2026-02-06",
+      "is_broken": true,
+      "crawled": 51895,
+      "code_5xx": 45,
+      "code_4xx": 7,
+      "crawl_errors": 10,
+      "blocked_by_robots": 338259
+    },
+    {
+      "date": "2026-02-07",
+      "is_broken": false,
+      "crawled": 52981,
+      "code_5xx": 45,
+      "code_4xx": 13,
+      "crawl_errors": 13,
+      "blocked_by_robots": 338259
+    },
+    {
+      "date": "2026-02-08",
+      "is_broken": false,
+      "crawled": 50256,
+      "code_5xx": 0,
+      "code_4xx": 9,
+      "crawl_errors": 10,
+      "blocked_by_robots": 342650
+    },
+    {
+      "date": "2026-02-09",
+      "is_broken": false,
+      "crawled": 46496,
+      "code_5xx": 0,
+      "code_4xx": 11,
+      "crawl_errors": 130,
+      "blocked_by_robots": 399526
+    },
+    {
+      "date": "2026-02-10",
+      "is_broken": false,
+      "crawled": 39044,
+      "code_5xx": 0,
+      "code_4xx": 6,
+      "crawl_errors": 1346,
+      "blocked_by_robots": 404547
+    },
+    {
+      "date": "2026-02-11",
+      "is_broken": true,
+      "crawled": 41430,
+      "code_5xx": 0,
+      "code_4xx": 6,
+      "crawl_errors": 8,
+      "blocked_by_robots": 421231
+    },
+    {
+      "date": "2026-02-12",
+      "is_broken": false,
+      "crawled": 42695,
+      "code_5xx": 0,
+      "code_4xx": 8,
+      "crawl_errors": 8,
+      "blocked_by_robots": 441801
+    },
+    {
+      "date": "2026-02-13",
+      "is_broken": true,
+      "crawled": 42051,
+      "code_5xx": 0,
+      "code_4xx": 12,
+      "crawl_errors": 10,
+      "blocked_by_robots": 441801
+    },
+    {
+      "date": "2026-02-14",
+      "is_broken": false,
+      "crawled": 8295,
+      "code_5xx": 0,
+      "code_4xx": 3,
+      "crawl_errors": 1,
+      "blocked_by_robots": 441801
+    },
+    {
+      "date": "2026-02-15",
+      "is_broken": false,
+      "crawled": 41501,
+      "code_5xx": 0,
+      "code_4xx": 12,
+      "crawl_errors": 26,
+      "blocked_by_robots": 441801
+    },
+    {
+      "date": "2026-02-16",
+      "is_broken": true,
+      "crawled": 42883,
+      "code_5xx": 0,
+      "code_4xx": 9,
+      "crawl_errors": 24,
+      "blocked_by_robots": 480105
+    },
+    {
+      "date": "2026-02-17",
+      "is_broken": false,
+      "crawled": 41011,
+      "code_5xx": 0,
+      "code_4xx": 10,
+      "crawl_errors": 750,
+      "blocked_by_robots": 499491
+    },
+    {
+      "date": "2026-02-18",
+      "is_broken": false,
+      "crawled": 40191,
+      "code_5xx": 0,
+      "code_4xx": 10,
+      "crawl_errors": 189,
+      "blocked_by_robots": 499491
+    },
+    {
+      "date": "2026-02-19",
+      "is_broken": false,
+      "crawled": 39355,
+      "code_5xx": 0,
+      "code_4xx": 12,
+      "crawl_errors": 13,
+      "blocked_by_robots": 518005
+    },
+    {
+      "date": "2026-02-20",
+      "is_broken": false,
+      "crawled": 35551,
+      "code_5xx": 0,
+      "code_4xx": 15,
+      "crawl_errors": 105,
+      "blocked_by_robots": 518005
+    },
+    {
+      "date": "2026-02-21",
+      "is_broken": true,
+      "crawled": 22664,
+      "code_5xx": 0,
+      "code_4xx": 13,
+      "crawl_errors": 12,
+      "blocked_by_robots": 525014
+    },
+    {
+      "date": "2026-02-22",
+      "is_broken": false,
+      "crawled": 23902,
+      "code_5xx": 0,
+      "code_4xx": 7,
+      "crawl_errors": 109,
+      "blocked_by_robots": 533144
+    },
+    {
+      "date": "2026-02-23",
+      "is_broken": false,
+      "crawled": 24016,
+      "code_5xx": 0,
+      "code_4xx": 14,
+      "crawl_errors": 27,
+      "blocked_by_robots": 540219
+    },
+    {
+      "date": "2026-02-24",
+      "is_broken": false,
+      "crawled": 24396,
+      "code_5xx": 0,
+      "code_4xx": 17,
+      "crawl_errors": 19,
+      "blocked_by_robots": 549886
+    },
+    {
+      "date": "2026-02-25",
+      "is_broken": false,
+      "crawled": 24895,
+      "code_5xx": 0,
+      "code_4xx": 11,
+      "crawl_errors": 11,
+      "blocked_by_robots": 557195
+    },
+    {
+      "date": "2026-02-26",
+      "is_broken": false,
+      "crawled": 25171,
+      "code_5xx": 0,
+      "code_4xx": 11,
+      "crawl_errors": 68,
+      "blocked_by_robots": 561583
+    },
+    {
+      "date": "2026-02-27",
+      "is_broken": false,
+      "crawled": 29045,
+      "code_5xx": 0,
+      "code_4xx": 15,
+      "crawl_errors": 16,
+      "blocked_by_robots": 564426
+    },
+    {
+      "date": "2026-02-28",
+      "is_broken": true,
+      "crawled": 26516,
+      "code_5xx": 0,
+      "code_4xx": 12,
+      "crawl_errors": 12,
+      "blocked_by_robots": 555714
+    },
+    {
+      "date": "2026-03-01",
+      "is_broken": false,
+      "crawled": 22203,
+      "code_5xx": 0,
+      "code_4xx": 7,
+      "crawl_errors": 12,
+      "blocked_by_robots": 541085
+    },
+    {
+      "date": "2026-03-02",
+      "is_broken": false,
+      "crawled": 25726,
+      "code_5xx": 0,
+      "code_4xx": 13,
+      "crawl_errors": 13,
+      "blocked_by_robots": 522049
+    },
+    {
+      "date": "2026-03-03",
+      "is_broken": false,
+      "crawled": 28593,
+      "code_5xx": 0,
+      "code_4xx": 11,
+      "crawl_errors": 11,
+      "blocked_by_robots": 501852
+    },
+    {
+      "date": "2026-03-04",
+      "is_broken": false,
+      "crawled": 27756,
+      "code_5xx": 0,
+      "code_4xx": 13,
+      "crawl_errors": 15,
+      "blocked_by_robots": 479338
+    },
+    {
+      "date": "2026-03-05",
+      "is_broken": true,
+      "crawled": 23260,
+      "code_5xx": 0,
+      "code_4xx": 9,
+      "crawl_errors": 8,
+      "blocked_by_robots": 457371
+    },
+    {
+      "date": "2026-03-06",
+      "is_broken": false,
+      "crawled": 17596,
+      "code_5xx": 0,
+      "code_4xx": 8,
+      "crawl_errors": 11,
+      "blocked_by_robots": 435651
+    },
+    {
+      "date": "2026-03-07",
+      "is_broken": false,
+      "crawled": 1624,
+      "code_5xx": 0,
+      "code_4xx": 2,
+      "crawl_errors": 2,
+      "blocked_by_robots": 409855
+    },
+    {
+      "date": "2026-03-08",
+      "is_broken": false,
+      "crawled": 4288,
+      "code_5xx": 0,
+      "code_4xx": 6,
+      "crawl_errors": 6,
+      "blocked_by_robots": 385343
+    },
+    {
+      "date": "2026-03-09",
+      "is_broken": false,
+      "crawled": 6718,
+      "code_5xx": 0,
+      "code_4xx": 11,
+      "crawl_errors": 12,
+      "blocked_by_robots": 353918
+    },
+    {
+      "date": "2026-03-10",
+      "is_broken": false,
+      "crawled": 6371,
+      "code_5xx": 0,
+      "code_4xx": 2,
+      "crawl_errors": 12,
+      "blocked_by_robots": 328077
+    },
+    {
+      "date": "2026-03-11",
+      "is_broken": true,
+      "crawled": 5701,
+      "code_5xx": 0,
+      "code_4xx": 4,
+      "crawl_errors": 17,
+      "blocked_by_robots": 309048
+    },
+    {
+      "date": "2026-03-12",
+      "is_broken": false,
+      "crawled": 5425,
+      "code_5xx": 0,
+      "code_4xx": 2,
+      "crawl_errors": 45,
+      "blocked_by_robots": 309048
+    },
+    {
+      "date": "2026-03-13",
+      "is_broken": false,
+      "crawled": 5280,
+      "code_5xx": 0,
+      "code_4xx": 3,
+      "crawl_errors": 76,
+      "blocked_by_robots": 286459
+    },
+    {
+      "date": "2026-03-14",
+      "is_broken": false,
+      "crawled": 4743,
+      "code_5xx": 0,
+      "code_4xx": 6,
+      "crawl_errors": 7,
+      "blocked_by_robots": 276884
+    },
+    {
+      "date": "2026-03-15",
+      "is_broken": false,
+      "crawled": 5298,
+      "code_5xx": 1,
+      "code_4xx": 5,
+      "crawl_errors": 6,
+      "blocked_by_robots": 264929
+    },
+    {
+      "date": "2026-03-16",
+      "is_broken": false,
+      "crawled": 4882,
+      "code_5xx": 0,
+      "code_4xx": 0,
+      "crawl_errors": 10,
+      "blocked_by_robots": 253002
+    },
+    {
+      "date": "2026-03-17",
+      "is_broken": false,
+      "crawled": 4609,
+      "code_5xx": 0,
+      "code_4xx": 1,
+      "crawl_errors": 10,
+      "blocked_by_robots": 243336
+    },
+    {
+      "date": "2026-03-18",
+      "is_broken": false,
+      "crawled": 5116,
+      "code_5xx": 0,
+      "code_4xx": 4,
+      "crawl_errors": 15,
+      "blocked_by_robots": 238933
+    },
+    {
+      "date": "2026-03-19",
+      "is_broken": false,
+      "crawled": 3951,
+      "code_5xx": 0,
+      "code_4xx": 3,
+      "crawl_errors": 3,
+      "blocked_by_robots": 225573
+    },
+    {
+      "date": "2026-03-20",
+      "is_broken": false,
+      "crawled": 3493,
+      "code_5xx": 0,
+      "code_4xx": 1,
+      "crawl_errors": 2,
+      "blocked_by_robots": 225573
+    },
+    {
+      "date": "2026-03-21",
+      "is_broken": false,
+      "crawled": 4950,
+      "code_5xx": 0,
+      "code_4xx": 6,
+      "crawl_errors": 7,
+      "blocked_by_robots": 198898
+    },
+    {
+      "date": "2026-03-22",
+      "is_broken": false,
+      "crawled": 4690,
+      "code_5xx": 0,
+      "code_4xx": 4,
+      "crawl_errors": 5,
+      "blocked_by_robots": 186882
+    },
+    {
+      "date": "2026-03-23",
+      "is_broken": false,
+      "crawled": 4629,
+      "code_5xx": 394,
+      "code_4xx": 357,
+      "crawl_errors": 765,
+      "blocked_by_robots": 186882
+    },
+    {
+      "date": "2026-03-24",
+      "is_broken": false,
+      "crawled": 4197,
+      "code_5xx": 6,
+      "code_4xx": 4026,
+      "crawl_errors": 4188,
+      "blocked_by_robots": 173350
+    },
+    {
+      "date": "2026-03-25",
+      "is_broken": false,
+      "crawled": 3436,
+      "code_5xx": 791,
+      "code_4xx": 1867,
+      "crawl_errors": 2760,
+      "blocked_by_robots": 161299
+    },
+    {
+      "date": "2026-03-26",
+      "is_broken": true,
+      "crawled": 3611,
+      "code_5xx": 95,
+      "code_4xx": 21,
+      "crawl_errors": 48,
+      "blocked_by_robots": 135954
+    },
+    {
+      "date": "2026-03-27",
+      "is_broken": false,
+      "crawled": 4629,
+      "code_5xx": 73,
+      "code_4xx": 20,
+      "crawl_errors": 9,
+      "blocked_by_robots": 135954
+    },
+    {
+      "date": "2026-03-28",
+      "is_broken": true,
+      "crawled": 11845,
+      "code_5xx": 170,
+      "code_4xx": 12,
+      "crawl_errors": 9,
+      "blocked_by_robots": 123323
+    },
+    {
+      "date": "2026-03-29",
+      "is_broken": false,
+      "crawled": 19967,
+      "code_5xx": 211,
+      "code_4xx": 14,
+      "crawl_errors": 12,
+      "blocked_by_robots": 121527
+    },
+    {
+      "date": "2026-03-30",
+      "is_broken": false,
+      "crawled": 26010,
+      "code_5xx": 227,
+      "code_4xx": 23,
+      "crawl_errors": 23,
+      "blocked_by_robots": 120766
+    },
+    {
+      "date": "2026-03-31",
+      "is_broken": false,
+      "crawled": 24340,
+      "code_5xx": 228,
+      "code_4xx": 20,
+      "crawl_errors": 52,
+      "blocked_by_robots": 119928
+    },
+    {
+      "date": "2026-04-01",
+      "is_broken": false,
+      "crawled": 22694,
+      "code_5xx": 226,
+      "code_4xx": 15,
+      "crawl_errors": 137,
+      "blocked_by_robots": 119261
+    },
+    {
+      "date": "2026-04-02",
+      "is_broken": true,
+      "crawled": 19028,
+      "code_5xx": 225,
+      "code_4xx": 13,
+      "crawl_errors": 174,
+      "blocked_by_robots": 118122
+    },
+    {
+      "date": "2026-04-03",
+      "is_broken": true,
+      "crawled": 11529,
+      "code_5xx": 225,
+      "code_4xx": 8,
+      "crawl_errors": 376,
+      "blocked_by_robots": 111866
+    },
+    {
+      "date": "2026-04-04",
+      "is_broken": false,
+      "crawled": 27870,
+      "code_5xx": 224,
+      "code_4xx": 22,
+      "crawl_errors": 58,
+      "blocked_by_robots": 107562
+    },
+    {
+      "date": "2026-04-05",
+      "is_broken": false,
+      "crawled": 23221,
+      "code_5xx": 224,
+      "code_4xx": 26,
+      "crawl_errors": 26,
+      "blocked_by_robots": 105018
+    },
+    {
+      "date": "2026-04-06",
+      "is_broken": true,
+      "crawled": 30601,
+      "code_5xx": 222,
+      "code_4xx": 21,
+      "crawl_errors": 23,
+      "blocked_by_robots": 102706
+    },
+    {
+      "date": "2026-04-07",
+      "is_broken": false,
+      "crawled": 31744,
+      "code_5xx": 222,
+      "code_4xx": 18,
+      "crawl_errors": 22,
+      "blocked_by_robots": 101801
+    },
+    {
+      "date": "2026-04-08",
+      "is_broken": false,
+      "crawled": 33484,
+      "code_5xx": 222,
+      "code_4xx": 19,
+      "crawl_errors": 20,
+      "blocked_by_robots": 101402
+    },
+    {
+      "date": "2026-04-09",
+      "is_broken": false,
+      "crawled": 14502,
+      "code_5xx": 222,
+      "code_4xx": 12,
+      "crawl_errors": 11,
+      "blocked_by_robots": 100999
+    },
+    {
+      "date": "2026-04-10",
+      "is_broken": false,
+      "crawled": 11985,
+      "code_5xx": 222,
+      "code_4xx": 16,
+      "crawl_errors": 17,
+      "blocked_by_robots": 99993
+    },
+    {
+      "date": "2026-04-11",
+      "is_broken": true,
+      "crawled": 24347,
+      "code_5xx": 223,
+      "code_4xx": 19,
+      "crawl_errors": 29,
+      "blocked_by_robots": 99993
+    },
+    {
+      "date": "2026-04-12",
+      "is_broken": false,
+      "crawled": 20467,
+      "code_5xx": 224,
+      "code_4xx": 15,
+      "crawl_errors": 25,
+      "blocked_by_robots": 99797
+    },
+    {
+      "date": "2026-04-13",
+      "is_broken": false,
+      "crawled": 18414,
+      "code_5xx": 223,
+      "code_4xx": 11,
+      "crawl_errors": 9,
+      "blocked_by_robots": 99941
+    },
+    {
+      "date": "2026-04-14",
+      "is_broken": true,
+      "crawled": 17544,
+      "code_5xx": 315,
+      "code_4xx": 14,
+      "crawl_errors": 115,
+      "blocked_by_robots": 107805
+    },
+    {
+      "date": "2026-04-15",
+      "is_broken": false,
+      "crawled": 16646,
+      "code_5xx": 225,
+      "code_4xx": 7840,
+      "crawl_errors": 7861,
+      "blocked_by_robots": 119044
+    },
+    {
+      "date": "2026-04-16",
+      "is_broken": false,
+      "crawled": 19279,
+      "code_5xx": 231,
+      "code_4xx": 5115,
+      "crawl_errors": 5085,
+      "blocked_by_robots": 122872
+    },
+    {
+      "date": "2026-04-17",
+      "is_broken": false,
+      "crawled": 16632,
+      "code_5xx": 231,
+      "code_4xx": 36,
+      "crawl_errors": 13,
+      "blocked_by_robots": 124124
+    },
+    {
+      "date": "2026-04-18",
+      "is_broken": true,
+      "crawled": 12241,
+      "code_5xx": 231,
+      "code_4xx": 42,
+      "crawl_errors": 32,
+      "blocked_by_robots": 125380
+    },
+    {
+      "date": "2026-04-19",
+      "is_broken": false,
+      "crawled": 3440,
+      "code_5xx": 231,
+      "code_4xx": 33,
+      "crawl_errors": 4,
+      "blocked_by_robots": 125380
+    },
+    {
+      "date": "2026-04-20",
+      "is_broken": false,
+      "crawled": 12826,
+      "code_5xx": 231,
+      "code_4xx": 33,
+      "crawl_errors": 9,
+      "blocked_by_robots": 127213
+    },
+    {
+      "date": "2026-04-21",
+      "is_broken": false,
+      "crawled": 14201,
+      "code_5xx": 231,
+      "code_4xx": 36,
+      "crawl_errors": 18,
+      "blocked_by_robots": 131671
+    },
+    {
+      "date": "2026-04-22",
+      "is_broken": false,
+      "crawled": 11220,
+      "code_5xx": 236,
+      "code_4xx": 31,
+      "crawl_errors": 30,
+      "blocked_by_robots": 133849
+    },
+    {
+      "date": "2026-04-23",
+      "is_broken": false,
+      "crawled": 13488,
+      "code_5xx": 236,
+      "code_4xx": 29,
+      "crawl_errors": 24,
+      "blocked_by_robots": 133849
+    },
+    {
+      "date": "2026-04-24",
+      "is_broken": false,
+      "crawled": 10247,
+      "code_5xx": 234,
+      "code_4xx": 29,
+      "crawl_errors": 37,
+      "blocked_by_robots": 137777
+    },
+    {
+      "date": "2026-04-25",
+      "is_broken": true,
+      "crawled": 8159,
+      "code_5xx": 231,
+      "code_4xx": 27,
+      "crawl_errors": 19,
+      "blocked_by_robots": 142599
+    },
+    {
+      "date": "2026-04-26",
+      "is_broken": true,
+      "crawled": 8979,
+      "code_5xx": 232,
+      "code_4xx": 29,
+      "crawl_errors": 19,
+      "blocked_by_robots": 143250
+    },
+    {
+      "date": "2026-04-27",
+      "is_broken": false,
+      "crawled": 10704,
+      "code_5xx": 232,
+      "code_4xx": 33,
+      "crawl_errors": 17,
+      "blocked_by_robots": 143832
+    },
+    {
+      "date": "2026-04-28",
+      "is_broken": false,
+      "crawled": 9627,
+      "code_5xx": 234,
+      "code_4xx": 32,
+      "crawl_errors": 23,
+      "blocked_by_robots": 144331
+    },
+    {
+      "date": "2026-04-29",
+      "is_broken": false,
+      "crawled": 8615,
+      "code_5xx": 233,
+      "code_4xx": 26,
+      "crawl_errors": 15,
+      "blocked_by_robots": 145189
+    },
+    {
+      "date": "2026-04-30",
+      "is_broken": false,
+      "crawled": 10680,
+      "code_5xx": 230,
+      "code_4xx": 32,
+      "crawl_errors": 24,
+      "blocked_by_robots": 146079
+    },
+    {
+      "date": "2026-05-01",
+      "is_broken": false,
+      "crawled": 15593,
+      "code_5xx": 219,
+      "code_4xx": 37,
+      "crawl_errors": 27,
+      "blocked_by_robots": 147621
+    },
+    {
+      "date": "2026-05-02",
+      "is_broken": false,
+      "crawled": 17918,
+      "code_5xx": 220,
+      "code_4xx": 30,
+      "crawl_errors": 84,
+      "blocked_by_robots": 147621
+    },
+    {
+      "date": "2026-05-03",
+      "is_broken": false,
+      "crawled": 17840,
+      "code_5xx": 200,
+      "code_4xx": 49,
+      "crawl_errors": 43,
+      "blocked_by_robots": 155646
+    }
+  ]
+}
