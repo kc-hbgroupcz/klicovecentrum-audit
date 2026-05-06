@@ -104,7 +104,3 @@ python refresh_all.py            # vše vč. aggregátorů (~3 min)
 - **v1.5** (4/2026): + ERP alignment, Top customers, Konkurence
 - **v2.0** (4/2026): + 3-letý ERP přehled, Sezónnost forecast, Sklik+Zboží live
 - **v2.1** (4/2026): Přesun na github.com/kc-hbgroupcz (firemní)
-
----
-
-🤖 Generated with [Claude Code](https://claude.com/claude-code)
