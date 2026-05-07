@@ -1,0 +1,678 @@
+{
+  "generated": "2026-05-07T16:08:55",
+  "source": "Helios reklamace × products.json cross-reference",
+  "top_50_problematic_products": [
+    {
+      "name": "OC El.otvírač 51B10 MB 6-14Vac/dc",
+      "reklamaci": 13,
+      "pct_of_all_reklamaci": 9.42,
+      "vyrizeno": 4,
+      "nevyrizeno": 9,
+      "feed": {
+        "sku": "159002",
+        "category": "Vlastní elektr.otvírač",
+        "price": null,
+        "in_feed": true
+      },
+      "top_zakaznici_s_reklamaci": [
+        "[Maloobchodní prodej]",
+        "Centrum klíčů, s.r.o.",
+        "Lukáš Ciboch",
+        "Věra Salabová",
+        "Petr Jůzek"
+      ]
+    },
+    {
+      "name": "OC El.otvírač 50E10 12Vdc nízkoodběr.",
+      "reklamaci": 6,
+      "pct_of_all_reklamaci": 4.35,
+      "vyrizeno": 0,
+      "nevyrizeno": 6,
+      "feed": {
+        "sku": "159005",
+        "category": "Vlastní elektr.otvírač",
+        "price": null,
+        "in_feed": true
+      },
+      "top_zakaznici_s_reklamaci": [
+        "Eurosat CS, spol. s r.o.     137800291",
+        "Eurosat CS, spol. s r.o.     (137800180)",
+        "Moravia Keys s.r.o.",
+        "Ostatní odběratel Vodňany",
+        "Eurosat CS, spol. s r.o."
+      ]
+    },
+    {
+      "name": "Zámek HOBES 24026 P/L 90/50/22 PZ  BZn",
+      "reklamaci": 5,
+      "pct_of_all_reklamaci": 3.62,
+      "vyrizeno": 5,
+      "nevyrizeno": 0,
+      "feed": {
+        "sku": "001035",
+        "category": "Střelkový jednobod.zadl.zámek",
+        "price": null,
+        "in_feed": true
+      },
+      "top_zakaznici_s_reklamaci": [
+        "M.A.T. Group, s.r.o.   81/2025/365",
+        "M.A.T. Group, s.r.o.     81/2026/57",
+        "Centrum klíčů, s.r.o.",
+        "LOCKSYSTEMS s.r.o. Korunní     2/26",
+        "M.A.T. Group, s.r.o.     81/2026/77"
+      ]
+    },
+    {
+      "name": "OC El.otvírač 50B10 6-14Vac/dc",
+      "reklamaci": 5,
+      "pct_of_all_reklamaci": 3.62,
+      "vyrizeno": 1,
+      "nevyrizeno": 4,
+      "feed": {
+        "sku": "159001",
+        "category": "Vlastní elektr.otvírač",
+        "price": null,
+        "in_feed": true
+      },
+      "top_zakaznici_s_reklamaci": [
+        "[Maloobchodní prodej]",
+        "Centrum klíčů, s.r.o.",
+        "Zámkařství Zemek s.r.o.",
+        "Martin Ožana",
+        "Věra Salabová"
+      ]
+    },
+    {
+      "name": "Zámek Star Europortal S45 90/30/22 P/L kov",
+      "reklamaci": 4,
+      "pct_of_all_reklamaci": 2.9,
+      "vyrizeno": 1,
+      "nevyrizeno": 3,
+      "feed": {
+        "sku": "144104",
+        "category": "Střelkový jednobod.zadl.zámek",
+        "price": null,
+        "in_feed": true
+      },
+      "top_zakaznici_s_reklamaci": [
+        "maloobchod",
+        "BONO sort s.r.o.",
+        "Železářství Soukup",
+        "Vojík Aš"
+      ]
+    },
+    {
+      "name": "Zámek HOBES 01-15 P/L 90/40/20 BB BZn",
+      "reklamaci": 4,
+      "pct_of_all_reklamaci": 2.9,
+      "vyrizeno": 1,
+      "nevyrizeno": 3,
+      "feed": {
+        "sku": "001005",
+        "category": "Střelkový jednobod.zadl.zámek",
+        "price": null,
+        "in_feed": true
+      },
+      "top_zakaznici_s_reklamaci": [
+        "M.A.T. Group, s.r.o.     81/2026/47",
+        "M.A.T. Group, s.r.o.     81/2026/102",
+        "M.A.T. Group, s.r.o.  81/2025/413",
+        "M.A.T. Group, s.r.o.  81/2025/391"
+      ]
+    },
+    {
+      "name": "Zámek HOBES 02-04 P/L 90/40/20 PZ BZn",
+      "reklamaci": 3,
+      "pct_of_all_reklamaci": 2.17,
+      "vyrizeno": 2,
+      "nevyrizeno": 1,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "M.A.T. Group, s.r.o.  81/2025/411",
+        "M.A.T. Group, s.r.o. 81/2025/367",
+        "Provozovna Plzeň"
+      ]
+    },
+    {
+      "name": "El.otvírač 51B10 MB 6-14Vac/dc (BEFO 511MB)",
+      "reklamaci": 3,
+      "pct_of_all_reklamaci": 2.17,
+      "vyrizeno": 3,
+      "nevyrizeno": 0,
+      "feed": {
+        "sku": "159002",
+        "category": "Vlastní elektr.otvírač",
+        "price": null,
+        "in_feed": true
+      },
+      "top_zakaznici_s_reklamaci": [
+        "Petr Pelíšek",
+        "Kasper Metal spol. s r.o.",
+        "Pavel Václavek"
+      ]
+    },
+    {
+      "name": "Zámek HOBES 536A P/L 90/50/22 BB BZn",
+      "reklamaci": 3,
+      "pct_of_all_reklamaci": 2.17,
+      "vyrizeno": 2,
+      "nevyrizeno": 1,
+      "feed": {
+        "sku": "001073",
+        "category": "Střelkový jednobod.zadl.zámek",
+        "price": null,
+        "in_feed": true
+      },
+      "top_zakaznici_s_reklamaci": [
+        "M.A.T. Group, s.r.o.    81/2025/428",
+        "M.A.T. Group, s.r.o.  81/2025/371",
+        "M.A.T. Group, s.r.o.     81/2026/48"
+      ]
+    },
+    {
+      "name": "Zámek Star Europortal S40 90/25/22 P/L kov",
+      "reklamaci": 3,
+      "pct_of_all_reklamaci": 2.17,
+      "vyrizeno": 1,
+      "nevyrizeno": 2,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "maloobchod",
+        "[Maloobchodní prodej]",
+        "Zámečnictví u Rotta"
+      ]
+    },
+    {
+      "name": "Zámek HOBES 548A P/L 90/50/22 DOZ BZn",
+      "reklamaci": 3,
+      "pct_of_all_reklamaci": 2.17,
+      "vyrizeno": 2,
+      "nevyrizeno": 1,
+      "feed": {
+        "sku": "001074",
+        "category": "Střelkový jednobod.zadl.zámek",
+        "price": null,
+        "in_feed": true
+      },
+      "top_zakaznici_s_reklamaci": [
+        "M.A.T. Group, s.r.o.     81/2025/436",
+        "M.A.T. Group, s.r.o.     81/2026/86",
+        "Provozovna Plzeň"
+      ]
+    },
+    {
+      "name": "Zámek Star 92/35/22/270 el.mech.samozam.",
+      "reklamaci": 2,
+      "pct_of_all_reklamaci": 1.45,
+      "vyrizeno": 0,
+      "nevyrizeno": 2,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "Stavba bez starostí s.r.o.",
+        "Martin Klivar"
+      ]
+    },
+    {
+      "name": "Zámek HOBES 02-06 BZn P/L 90/60/FAB (5131)",
+      "reklamaci": 2,
+      "pct_of_all_reklamaci": 1.45,
+      "vyrizeno": 0,
+      "nevyrizeno": 2,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "M.A.T. Group, s.r.o.  81/2025/397",
+        "Provozovna Plzeň"
+      ]
+    },
+    {
+      "name": "OC El.otvírač 54E10 reverz.12Vdc  nízkoodběr.",
+      "reklamaci": 2,
+      "pct_of_all_reklamaci": 1.45,
+      "vyrizeno": 0,
+      "nevyrizeno": 2,
+      "feed": {
+        "sku": "159003",
+        "category": "Vlastní elektr.otvírač",
+        "price": null,
+        "in_feed": true
+      },
+      "top_zakaznici_s_reklamaci": [
+        "Točík Pelhřimov s.r.o.",
+        "Ostatní odběratel Vodňany"
+      ]
+    },
+    {
+      "name": "Zámek HOBES  K 119 P/L 90/50/22x1970 čepy BZn lištový",
+      "reklamaci": 2,
+      "pct_of_all_reklamaci": 1.45,
+      "vyrizeno": 0,
+      "nevyrizeno": 2,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "Klíčový servis s.r.o.",
+        "H&B Group Ostrava"
+      ]
+    },
+    {
+      "name": "OC El.otvírač 51E10 MB 12Vdc nízkoodběr.",
+      "reklamaci": 2,
+      "pct_of_all_reklamaci": 1.45,
+      "vyrizeno": 0,
+      "nevyrizeno": 2,
+      "feed": {
+        "sku": "159004",
+        "category": "Vlastní elektr.otvírač",
+        "price": null,
+        "in_feed": true
+      },
+      "top_zakaznici_s_reklamaci": [
+        "Moravia Keys s.r.o.",
+        "Eurosat CS, spol. s r.o."
+      ]
+    },
+    {
+      "name": "BRANO Zavírač dveří R 12/12 zlatý",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 1,
+      "nevyrizeno": 0,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "LOCKSYSTEMS s.r.o. Korunní"
+      ]
+    },
+    {
+      "name": "Dveřní zavírač DC110 - bílý - Bílý",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 1,
+      "nevyrizeno": 0,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "ROXIT s.r.o."
+      ]
+    },
+    {
+      "name": "Zámek 02-05 BZn válečkový  40/60/90",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 0,
+      "nevyrizeno": 1,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "Provozovna Plzeň"
+      ]
+    },
+    {
+      "name": "Zámek K 221 P 72/55/77/FAB BZn 30ks hr.balení",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 1,
+      "nevyrizeno": 0,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "Martin Ožana"
+      ]
+    },
+    {
+      "name": "GEZE Zavírač TS 4000 hnědý",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 0,
+      "nevyrizeno": 1,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "Točík Pelhřimov s.r.o."
+      ]
+    },
+    {
+      "name": "Zámek HOBES K 102 P/L 90/50/22 PZ BZn",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 1,
+      "nevyrizeno": 0,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "M.A.T. Group, s.r.o.   81/2025/370"
+      ]
+    },
+    {
+      "name": "Zámek K 431 Bzn    35/90/FAB/22",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 1,
+      "nevyrizeno": 0,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "M.A.T. Group, s.r.o.  81/2025/372"
+      ]
+    },
+    {
+      "name": "Star smart vložka E57,5/47,5 PIN+FS",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 1,
+      "nevyrizeno": 0,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "Točík Pelhřimov s.r.o."
+      ]
+    },
+    {
+      "name": "Zámek K 136  Bzn P/L  72/85/FAB",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 1,
+      "nevyrizeno": 0,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "M.A.T. Group, s.r.o.  81/2025/375"
+      ]
+    },
+    {
+      "name": "Smart stěnová jednotka K3F DESFire",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 1,
+      "nevyrizeno": 0,
+      "feed": {
+        "sku": "370314",
+        "category": "Přístupové systémy",
+        "price": null,
+        "in_feed": true
+      },
+      "top_zakaznici_s_reklamaci": [
+        "Petr Molek"
+      ]
+    },
+    {
+      "name": "Vložka Star 50S 30/30 Ni/R1 stavební",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 1,
+      "nevyrizeno": 0,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "[Maloobchodní prodej] Adam Testovací"
+      ]
+    },
+    {
+      "name": "El.otvírač 50B10 6-14Vac/dc (BEFO 511)",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 0,
+      "nevyrizeno": 1,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "Klíčový servis s.r.o."
+      ]
+    },
+    {
+      "name": "Zámek K 410 P/L BZn  25/85/22",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 0,
+      "nevyrizeno": 1,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "Klíčový servis s.r.o."
+      ]
+    },
+    {
+      "name": "El.otvírač 51E10 MB 12Vdc (BEFO 11211MB) nízkoodběrový",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 1,
+      "nevyrizeno": 0,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "DŘEVOKUP,  s.r.o."
+      ]
+    },
+    {
+      "name": "El.otvírač 50E10 12Vdc (BEFO 11211) nízkoodběrový",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 1,
+      "nevyrizeno": 0,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "Moravia Keys s.r.o."
+      ]
+    },
+    {
+      "name": "BW vis.zámek Alutitan 770/50 SU",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 0,
+      "nevyrizeno": 1,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "[Maloobchodní prodej]Pluhař Ondřej"
+      ]
+    },
+    {
+      "name": "OC El.otvírač 50E21 12Vdc bezfalc. nízkoodběrový",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 1,
+      "nevyrizeno": 0,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "Břenda - velkoobchod,spol. s r.o."
+      ]
+    },
+    {
+      "name": "Zámek HOBES K 103 P/L 72/40/20 BB BZn",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 0,
+      "nevyrizeno": 1,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "Provozovna Plzeň"
+      ]
+    },
+    {
+      "name": "Zámek Star S1570 stř. bez vložky",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 0,
+      "nevyrizeno": 1,
+      "feed": {
+        "sku": "306031",
+        "category": "Nezařazeno",
+        "price": null,
+        "in_feed": true
+      },
+      "top_zakaznici_s_reklamaci": [
+        "Provozovna Plzeň"
+      ]
+    },
+    {
+      "name": "Chytrý zámek Star (NUKI)",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 0,
+      "nevyrizeno": 1,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "Klíčový servis s.r.o."
+      ]
+    },
+    {
+      "name": "Star smart vložka E47,5/47,5 PIN+FS",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 0,
+      "nevyrizeno": 1,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "Josef pokorný"
+      ]
+    },
+    {
+      "name": "SPŠ-KA/obj/73/2025",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 0,
+      "nevyrizeno": 1,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "Střední průmyslová škola, Karviná, příspěvková organizace"
+      ]
+    },
+    {
+      "name": "BW Trezor Karat MT 660 E FP (MT 26 NE FS)",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 0,
+      "nevyrizeno": 1,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "HP Profi Service s.r.o."
+      ]
+    },
+    {
+      "name": "Skutečný dodaný výrobek Dorcas 41- 2nf 412",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 1,
+      "nevyrizeno": 0,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "[Maloobchodní prodej]"
+      ]
+    },
+    {
+      "name": "BERA samoz. el.mech.P35/92 SZPE92 typ E",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 1,
+      "nevyrizeno": 0,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "Martin Klivar"
+      ]
+    },
+    {
+      "name": "Zámek Star 92/45/22/270 elektrom.samoz bez ak.sig",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 0,
+      "nevyrizeno": 1,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "ALCATRAZ Plzeň s.r.o."
+      ]
+    },
+    {
+      "name": "BW ENTRYactive 7700",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 1,
+      "nevyrizeno": 0,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "Alza.cz a.s."
+      ]
+    },
+    {
+      "name": "zámek 24026",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 0,
+      "nevyrizeno": 1,
+      "feed": {
+        "sku": "Zadlabací zámek 24026",
+        "category": "Nezařazeno",
+        "price": null,
+        "in_feed": true
+      },
+      "top_zakaznici_s_reklamaci": [
+        "M.A.T. Group, s.r.o."
+      ]
+    },
+    {
+      "name": "Zámek HOBES 01-08 P 40/20 mezipokoj. BZn blokace střelky",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 0,
+      "nevyrizeno": 1,
+      "feed": {
+        "sku": "001003",
+        "category": "Střelkový jednobod.zadl.zámek",
+        "price": null,
+        "in_feed": true
+      },
+      "top_zakaznici_s_reklamaci": [
+        "M.A.T. Group, s.r.o.     81/2025/422"
+      ]
+    },
+    {
+      "name": "Zámek HOBES K 221 L 72/55/20 PZ BZn 30ks hr.balení",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 0,
+      "nevyrizeno": 1,
+      "feed": {
+        "sku": "001743",
+        "category": "Střelkový jednobod.zadl.zámek",
+        "price": null,
+        "in_feed": true
+      },
+      "top_zakaznici_s_reklamaci": [
+        "M.A.T. Group, s.r.o.     81/2025/445"
+      ]
+    },
+    {
+      "name": "Zámek HOBES K 102 90/50/22 PZ P/L BZn",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 0,
+      "nevyrizeno": 1,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "M.A.T. Group, s.r.o.     81/2025/435"
+      ]
+    },
+    {
+      "name": "53B10 El.otvírač 6-14V",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 1,
+      "nevyrizeno": 0,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "Provozovna Ostrava"
+      ]
+    },
+    {
+      "name": "klíč FAB 2060",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 0,
+      "nevyrizeno": 1,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "Ústav pro českou literaturu AV ČR, v. v. i."
+      ]
+    },
+    {
+      "name": "GU/BKS motor sada el. pohonu k zámku 18153-01",
+      "reklamaci": 1,
+      "pct_of_all_reklamaci": 0.72,
+      "vyrizeno": 0,
+      "nevyrizeno": 1,
+      "feed": null,
+      "top_zakaznici_s_reklamaci": [
+        "Pavel Bernard"
+      ]
+    }
+  ],
+  "category_signals": {
+    "OC_elektricke_otviace_total": 37,
+    "HOBES_zamky_total": 35,
+    "Star_zamky_total": 21
+  }
+}

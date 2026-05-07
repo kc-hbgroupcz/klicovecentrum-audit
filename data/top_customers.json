@@ -1674,7 +1674,9 @@
         "revenue_bd_kc": 415697,
         "profit_kc": 178459,
         "aov_kc": 12597,
-        "margin_pct": 42.9
+        "margin_pct": 42.9,
+        "reklamaci_8m": 5,
+        "reklamaci_pct_of_orders": 15.2
       },
       {
         "name": "ALTARA DC s.r.o.",
@@ -1682,7 +1684,8 @@
         "revenue_bd_kc": 295706,
         "profit_kc": 118661,
         "aov_kc": 5476,
-        "margin_pct": 40.1
+        "margin_pct": 40.1,
+        "reklamaci_8m": 0
       },
       {
         "name": "Jiří Slovák",
@@ -1690,7 +1693,8 @@
         "revenue_bd_kc": 196477,
         "profit_kc": 91372,
         "aov_kc": 7017,
-        "margin_pct": 46.5
+        "margin_pct": 46.5,
+        "reklamaci_8m": 0
       },
       {
         "name": "TREZORSERVIS s.r.o.",
@@ -1698,7 +1702,8 @@
         "revenue_bd_kc": 195662,
         "profit_kc": 84491,
         "aov_kc": 5590,
-        "margin_pct": 43.2
+        "margin_pct": 43.2,
+        "reklamaci_8m": 0
       },
       {
         "name": "Vít Walter",
@@ -1706,7 +1711,8 @@
         "revenue_bd_kc": 191130,
         "profit_kc": 72263,
         "aov_kc": 4155,
-        "margin_pct": 37.8
+        "margin_pct": 37.8,
+        "reklamaci_8m": 0
       },
       {
         "name": "Václav Kroužek - zámečnické centrum Votice",
@@ -1714,7 +1720,8 @@
         "revenue_bd_kc": 185590,
         "profit_kc": 89773,
         "aov_kc": 5155,
-        "margin_pct": 48.4
+        "margin_pct": 48.4,
+        "reklamaci_8m": 0
       },
       {
         "name": "ŠABATA s.r.o.",
@@ -1722,7 +1729,8 @@
         "revenue_bd_kc": 180944,
         "profit_kc": 49715,
         "aov_kc": 6959,
-        "margin_pct": 27.5
+        "margin_pct": 27.5,
+        "reklamaci_8m": 0
       },
       {
         "name": "Jiří Hamouz",
@@ -1730,7 +1738,8 @@
         "revenue_bd_kc": 169911,
         "profit_kc": 63289,
         "aov_kc": 4248,
-        "margin_pct": 37.2
+        "margin_pct": 37.2,
+        "reklamaci_8m": 0
       },
       {
         "name": "ZÁMEČNICTVÍ PEČENÝ s.r.o.",
@@ -1738,7 +1747,8 @@
         "revenue_bd_kc": 156437,
         "profit_kc": 67070,
         "aov_kc": 3638,
-        "margin_pct": 42.9
+        "margin_pct": 42.9,
+        "reklamaci_8m": 0
       },
       {
         "name": "Matějka zámkařství s.r.o.",
@@ -1746,7 +1756,8 @@
         "revenue_bd_kc": 141332,
         "profit_kc": 58866,
         "aov_kc": 6145,
-        "margin_pct": 41.7
+        "margin_pct": 41.7,
+        "reklamaci_8m": 0
       },
       {
         "name": "Tomáš Kraupner",
@@ -1754,7 +1765,8 @@
         "revenue_bd_kc": 123818,
         "profit_kc": 70428,
         "aov_kc": 4762,
-        "margin_pct": 56.9
+        "margin_pct": 56.9,
+        "reklamaci_8m": 0
       },
       {
         "name": "Klíčové a trezorové centrum Hausner-Plný s.r.o.",
@@ -1762,7 +1774,8 @@
         "revenue_bd_kc": 112593,
         "profit_kc": 38738,
         "aov_kc": 5118,
-        "margin_pct": 34.4
+        "margin_pct": 34.4,
+        "reklamaci_8m": 0
       },
       {
         "name": "Tomáš Zelinka",
@@ -1770,7 +1783,8 @@
         "revenue_bd_kc": 109776,
         "profit_kc": 68392,
         "aov_kc": 5489,
-        "margin_pct": 62.3
+        "margin_pct": 62.3,
+        "reklamaci_8m": 0
       },
       {
         "name": "Petr Kučera",
@@ -1778,7 +1792,8 @@
         "revenue_bd_kc": 101262,
         "profit_kc": 35211,
         "aov_kc": 6329,
-        "margin_pct": 34.8
+        "margin_pct": 34.8,
+        "reklamaci_8m": 0
       },
       {
         "name": "Vladimíra Mojcherová",
@@ -1786,7 +1801,8 @@
         "revenue_bd_kc": 80662,
         "profit_kc": 44927,
         "aov_kc": 3102,
-        "margin_pct": 55.7
+        "margin_pct": 55.7,
+        "reklamaci_8m": 0
       },
       {
         "name": "Petr Rapčan",
@@ -1794,7 +1810,8 @@
         "revenue_bd_kc": 79085,
         "profit_kc": 41332,
         "aov_kc": 6083,
-        "margin_pct": 52.3
+        "margin_pct": 52.3,
+        "reklamaci_8m": 0
       },
       {
         "name": "DD Technik s.r.o.",
@@ -1802,7 +1819,8 @@
         "revenue_bd_kc": 78137,
         "profit_kc": 24219,
         "aov_kc": 7103,
-        "margin_pct": 31.0
+        "margin_pct": 31.0,
+        "reklamaci_8m": 0
       },
       {
         "name": "Petr Brabenec, zámkařství",
@@ -1810,7 +1828,8 @@
         "revenue_bd_kc": 78127,
         "profit_kc": 34748,
         "aov_kc": 2232,
-        "margin_pct": 44.5
+        "margin_pct": 44.5,
+        "reklamaci_8m": 0
       },
       {
         "name": "František Šimšálek",
@@ -1818,7 +1837,8 @@
         "revenue_bd_kc": 69156,
         "profit_kc": 32571,
         "aov_kc": 6916,
-        "margin_pct": 47.1
+        "margin_pct": 47.1,
+        "reklamaci_8m": 0
       },
       {
         "name": "Klíčařství s.r.o.",
@@ -1826,7 +1846,8 @@
         "revenue_bd_kc": 64698,
         "profit_kc": 42673,
         "aov_kc": 4044,
-        "margin_pct": 66.0
+        "margin_pct": 66.0,
+        "reklamaci_8m": 0
       }
     ],
     "pareto": {
@@ -1857,7 +1878,9 @@
         "revenue_bd_kc": 77299,
         "profit_kc": 43589,
         "aov_kc": 537,
-        "margin_pct": 56.4
+        "margin_pct": 56.4,
+        "reklamaci_8m": 6,
+        "reklamaci_pct_of_orders": 4.2
       },
       {
         "name": "Autoservis Braný s.r.o.",
@@ -1865,7 +1888,8 @@
         "revenue_bd_kc": 32099,
         "profit_kc": 20932,
         "aov_kc": 32099,
-        "margin_pct": 65.2
+        "margin_pct": 65.2,
+        "reklamaci_8m": 0
       },
       {
         "name": "Kovovýroba Žídek",
@@ -1873,7 +1897,8 @@
         "revenue_bd_kc": 29707,
         "profit_kc": 15106,
         "aov_kc": 29707,
-        "margin_pct": 50.9
+        "margin_pct": 50.9,
+        "reklamaci_8m": 0
       },
       {
         "name": "Renapa s.r.o.",
@@ -1881,7 +1906,8 @@
         "revenue_bd_kc": 27356,
         "profit_kc": 16173,
         "aov_kc": 4559,
-        "margin_pct": 59.1
+        "margin_pct": 59.1,
+        "reklamaci_8m": 0
       },
       {
         "name": "SEA Enterprises a.s.",
@@ -1889,7 +1915,8 @@
         "revenue_bd_kc": 23323,
         "profit_kc": 12018,
         "aov_kc": 23323,
-        "margin_pct": 51.5
+        "margin_pct": 51.5,
+        "reklamaci_8m": 0
       },
       {
         "name": "AXGAME s.r.o.",
@@ -1897,7 +1924,8 @@
         "revenue_bd_kc": 22840,
         "profit_kc": 13100,
         "aov_kc": 7613,
-        "margin_pct": 57.4
+        "margin_pct": 57.4,
+        "reklamaci_8m": 0
       },
       {
         "name": "DKN-Hill s.r.o.",
@@ -1905,7 +1933,8 @@
         "revenue_bd_kc": 18578,
         "profit_kc": 2533,
         "aov_kc": 1689,
-        "margin_pct": 13.6
+        "margin_pct": 13.6,
+        "reklamaci_8m": 0
       },
       {
         "name": "SKYLIGHTEC s.r.o.",
@@ -1913,7 +1942,8 @@
         "revenue_bd_kc": 18260,
         "profit_kc": 11166,
         "aov_kc": 18260,
-        "margin_pct": 61.2
+        "margin_pct": 61.2,
+        "reklamaci_8m": 0
       },
       {
         "name": "CBRE Global Workplace Solutions s.r.o.",
@@ -1921,7 +1951,8 @@
         "revenue_bd_kc": 15864,
         "profit_kc": 9669,
         "aov_kc": 7932,
-        "margin_pct": 60.9
+        "margin_pct": 60.9,
+        "reklamaci_8m": 0
       },
       {
         "name": "Společenství vlastníků Jeseniova 519/19, 518/23, Praha 3",
@@ -1929,7 +1960,8 @@
         "revenue_bd_kc": 12805,
         "profit_kc": 8197,
         "aov_kc": 12805,
-        "margin_pct": 64.0
+        "margin_pct": 64.0,
+        "reklamaci_8m": 0
       },
       {
         "name": "Wood Time s.r.o.",
@@ -1937,7 +1969,8 @@
         "revenue_bd_kc": 12066,
         "profit_kc": 5514,
         "aov_kc": 6033,
-        "margin_pct": 45.7
+        "margin_pct": 45.7,
+        "reklamaci_8m": 0
       },
       {
         "name": "Lukáš Stropnický",
@@ -1945,7 +1978,8 @@
         "revenue_bd_kc": 10755,
         "profit_kc": 6294,
         "aov_kc": 5377,
-        "margin_pct": 58.5
+        "margin_pct": 58.5,
+        "reklamaci_8m": 0
       },
       {
         "name": "Garde.cz s.r.o.",
@@ -1953,7 +1987,8 @@
         "revenue_bd_kc": 10468,
         "profit_kc": 8069,
         "aov_kc": 5234,
-        "margin_pct": 77.1
+        "margin_pct": 77.1,
+        "reklamaci_8m": 0
       },
       {
         "name": "TEGAMO Services, s.r.o.",
@@ -1961,7 +1996,8 @@
         "revenue_bd_kc": 9796,
         "profit_kc": 5445,
         "aov_kc": 9796,
-        "margin_pct": 55.6
+        "margin_pct": 55.6,
+        "reklamaci_8m": 0
       },
       {
         "name": "Jan Chudoba",
@@ -1969,7 +2005,8 @@
         "revenue_bd_kc": 9608,
         "profit_kc": 6661,
         "aov_kc": 9608,
-        "margin_pct": 69.3
+        "margin_pct": 69.3,
+        "reklamaci_8m": 0
       },
       {
         "name": "Montáž a servis PVC výplní",
@@ -1977,7 +2014,8 @@
         "revenue_bd_kc": 9503,
         "profit_kc": 6507,
         "aov_kc": 3168,
-        "margin_pct": 68.5
+        "margin_pct": 68.5,
+        "reklamaci_8m": 0
       },
       {
         "name": "Milan Záhorský",
@@ -1985,7 +2023,8 @@
         "revenue_bd_kc": 9146,
         "profit_kc": 5269,
         "aov_kc": 1829,
-        "margin_pct": 57.6
+        "margin_pct": 57.6,
+        "reklamaci_8m": 0
       },
       {
         "name": "REAL STAV ŠMÍD s.r.o.",
@@ -1993,7 +2032,8 @@
         "revenue_bd_kc": 9132,
         "profit_kc": 5433,
         "aov_kc": 9132,
-        "margin_pct": 59.5
+        "margin_pct": 59.5,
+        "reklamaci_8m": 0
       },
       {
         "name": "J-max, s.r.o.",
@@ -2001,7 +2041,8 @@
         "revenue_bd_kc": 9106,
         "profit_kc": 4845,
         "aov_kc": 9106,
-        "margin_pct": 53.2
+        "margin_pct": 53.2,
+        "reklamaci_8m": 0
       },
       {
         "name": "Petr Bechyně",
@@ -2009,7 +2050,8 @@
         "revenue_bd_kc": 8746,
         "profit_kc": 6053,
         "aov_kc": 8746,
-        "margin_pct": 69.2
+        "margin_pct": 69.2,
+        "reklamaci_8m": 0
       }
     ],
     "pareto": {

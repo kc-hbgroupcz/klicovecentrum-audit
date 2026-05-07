@@ -1394,6 +1394,23 @@
     <div id="erp-vo-top-table"></div>
   </div>
 
+  <div class="chart-card" id="reklamace-card">
+    <h3>⚖️ NÁLEZY #73-#75 — Reklamace 8M (138 reklamací, poměr 6,54 %)</h3>
+    <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
+      Helios IQ reklamace CSV (10/2025-05/2026, 138 reklamací) odhalil 3 kritické problémy: <strong>poměr 2-6× nad benchmark 1-3 %</strong>, <strong>62 % nevyřízených</strong> + <strong>27 % vyřízených překračuje 30denní zákonnou lhůtu</strong>, jeden produkt (OC El.otvírač 51B10) generuje 9,4 % všech reklamací.
+    </p>
+    <div class="metrics-grid" id="reklamace-summary"></div>
+    <h4 style="margin-top:24px;color:#94a3b8;font-size:13px;text-transform:uppercase;letter-spacing:.05em">📊 Reklamace per měsíc + důvody</h4>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:14px">
+      <div class="chart-wrap" style="height:260px"><canvas id="chart-reklamace-monthly"></canvas></div>
+      <div class="chart-wrap" style="height:260px"><canvas id="chart-reklamace-reasons"></canvas></div>
+    </div>
+    <h4 style="margin-top:24px;color:#94a3b8;font-size:13px;text-transform:uppercase;letter-spacing:.05em">🚨 Top 15 problematických produktů (Product QA)</h4>
+    <div id="reklamace-products-table"></div>
+    <h4 style="margin-top:24px;color:#94a3b8;font-size:13px;text-transform:uppercase;letter-spacing:.05em">👥 Top zákazníci s reklamacemi</h4>
+    <div id="reklamace-customers-table"></div>
+  </div>
+
   <div class="chart-card" id="forecast-card">
     <h3>📈 Sezónnost + 12M Forecast (2026 prediction)</h3>
     <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
@@ -1751,6 +1768,8 @@ const ownerMap = {
   62:'mixed', 63:'dev', 64:'dev',                                  // Sprint 2 P1
   65:'dev', 66:'mixed', 67:'mixed', 68:'client', 69:'mixed', 70:'client',
   71:'client', 72:'client',                                        // Sprint 3 + Měření P2
+  // Reklamace 8M (IDs 73-75)
+  73:'client', 74:'client', 75:'client',
 };
 const ownerBadges = {
   agency:  {emoji:'🎯', label:'Agentura', cls:'owner-agency', desc:'Marketingová agentura — admin v Google Ads / Sklik / GA4 / GTM / kampaně'},
@@ -2873,6 +2892,62 @@ const findings = [
     ],
     expected: '6 hypotéz validated/refuted = data-driven další sprint',
     timeline: [0, 0, 100]
+  },
+
+  // ═══════════════════════════════════════════════════════════════
+  // === REKLAMACE 8M (7. 5. 2026) — IDs 73-75
+  // ═══════════════════════════════════════════════════════════════
+  {
+    id: 73, cat: 'data', prio: 'P0',
+    title: '🚨 Reklamační poměr 6,54 % — 2-6× nad e-commerce benchmark',
+    metric: '<strong>138 reklamací</strong> z 2 110 výdejek (8M) = <strong>6,54 %</strong> · benchmark 1-3 % · 91 unique produktů · 97 unique zákazníků',
+    impact: 'Brand damage + return náklady',
+    impactNote: 'každá 15. objednávka končí reklamací',
+    problem: 'Reklamační poměr klicovecentrum.cz / H&B Group je 2,2× nad horní hranicí benchmarku (1-3 % je standard pro e-commerce). Top produkt OC El.otvírač 51B10 generuje sám 13 reklamací (9,4 % všech). Celá kategorie OC elektrických otvíračů = 24 reklamací (17 %) → defektní šarže nebo dodavatel (BEFO?). Riziko brand damage skrz negativní recenze (Heuréka, Zboží.cz), zvýšené return/refund náklady, ztráta opakovaných zákazníků.',
+    actions: [
+      'Stáhnout OC El.otvírač 51B10 z eshopu na review (13 reklamací)',
+      'Audit dodavatele BEFO (kategorie OC = 17 % reklamací)',
+      'Per-SKU reklamační dashboard — flag SKU s > 3 reklamacemi/8M',
+      'QA při příjmu zboží (random sample testing)',
+      'Po-prodejní follow-up — proaktivní oslovení 30 dní po nákupu pro complex produkty'
+    ],
+    expected: 'Snížit reklamační poměr na 3 % = úspora ~70 reklamací/8M = nižší return náklady + lepší recenze',
+    timeline: [40, 50, 10]
+  },
+  {
+    id: 74, cat: 'data', prio: 'P0',
+    title: '⚖️ 62 % reklamací NEVYŘÍZENÝCH + 27 % vyřízených překračuje 30denní zákonnou lhůtu (REGULATORNÍ RIZIKO)',
+    metric: '<strong>86/138 (62 %)</strong> reklamací bez data vyřízení · z 52 vyřízených <strong>14 (27 %) přes 30 dnů</strong> · max 84 dnů (54 dnů nad lhůtu)',
+    impact: 'ObčZ § 2172 porušen',
+    impactNote: 'spotřebitel může odstoupit od smlouvy',
+    problem: 'Občanský zákoník § 2172 stanovuje **30denní lhůtu** pro vyřízení reklamace u spotřebitele (B2C). 14 vyřízených reklamací tuto lhůtu překračuje — spotřebitel teoreticky může odstoupit od smlouvy + zveřejnit veřejné stížnosti (ČOI, Heuréka recenze). Současně 86 reklamací je STÁLE OTEVŘENÝCH bez data vyřízení — tikající bomba (každý další den znamená potenciálně další porušení lhůty pokud jde o B2C zákazníka).',
+    actions: [
+      'Okamžitě audit 86 nevyřízených reklamací — kategorie B2C vs B2B',
+      'B2C reklamace přes 30 dnů: prioritní vyřízení tento týden',
+      'SLA na 30 dní pro B2C, 14 dní pro B2B (interní KPI)',
+      'Auto-alert system: notification 7 dní před koncem 30denní lhůty',
+      'Dedicated reklamační manažer (full-time pokud > 100 reklamací/měs)'
+    ],
+    expected: 'SLA compliance 100 % B2C 30 dní · brand protection · žádné další ČOI/recenze stížnosti',
+    timeline: [80, 20, 0]
+  },
+  {
+    id: 75, cat: 'data', prio: 'P1',
+    title: 'OC El.otvírač 51B10 = 13 reklamací (9,4 %) · BEFO kategorie 24 reklamací (17 %) — defektní šarže nebo dodavatel',
+    metric: 'Top reklamovaný produkt: <strong>OC El.otvírač 51B10 MB 6-14Vac/dc</strong> 13× · OC 50E10 6× · OC 50B10 5× · 3× HOBES zámek',
+    impact: 'Systémový problém kategorie',
+    impactNote: 'pravděpodobně 1 dodavatel (BEFO)',
+    problem: 'Jeden konkrétní produkt = 9,4 % všech reklamací. Tři varianty OC elektrických otvíračů (51B10, 50E10, 50B10) = 24 reklamací (17 %). To není rozptyl — to je **systémový kvalitativní problém s dodavatelem nebo šarží**. Možnosti: a) defektní šarže — vyměnit s dodavatelem, b) špatný dodavatel — najít alternativu (např. CSI, FAB), c) instalační problém — produkty potřebují odborné nasazení a klient instaluje sám = chyba popisu/technické dokumentace na eshopu.',
+    actions: [
+      'Stáhnout OC El.otvírač 51B10 z eshopu, kontakt s dodavatelem BEFO',
+      'Žádost o test report / certifikát kvality šarže',
+      'Pokud dodavatel nepokrývá: hledat alternativu (CSI, FAB el.otvírače)',
+      'Eshop: rozšířit popis produktu o instalační požadavky (varování pro neodborníky)',
+      'Najít best-seller alternativní el.otvírač s nižším reklamačním poměrem',
+      '6-měsíční review historie OC produktů — možná je trend horší než průměr'
+    ],
+    expected: 'Reklamační poměr OC kategorie z 17 % všech → < 5 %; ušetření 20+ reklamací/8M (= 30+/rok)',
+    timeline: [50, 40, 10]
   }
 ];
 
@@ -4190,7 +4265,7 @@ let yearlyData = null;
 async function loadYearly() {
   if (!yearlyData) {
     try {
-      const [yt, ym, fc, yh, ch, bw, po, pbc, erpV, erpC] = await Promise.all([
+      const [yt, ym, fc, yh, ch, bw, po, pbc, erpV, erpC, rek, qa] = await Promise.all([
         fetch('data/yearly_trend.json?v='+Date.now()).then(r=>r.json()),
         fetch('data/yearly_master.json?v='+Date.now()).then(r=>r.json()),
         fetch('data/seasonality_forecast.json?v='+Date.now()).then(r=>r.json()),
@@ -4201,8 +4276,10 @@ async function loadYearly() {
         fetch('data/payment_bing_correlation.json?v='+Date.now()).then(r=>r.json()).catch(()=>null),
         fetch('data/erp_vydejky_8m.json?v='+Date.now()).then(r=>r.json()).catch(()=>null),
         fetch('data/erp_mo_vs_bing_correlation.json?v='+Date.now()).then(r=>r.json()).catch(()=>null),
+        fetch('data/reklamace_8m.json?v='+Date.now()).then(r=>r.json()).catch(()=>null),
+        fetch('data/product_qa.json?v='+Date.now()).then(r=>r.json()).catch(()=>null),
       ]);
-      yearlyData = {trend: yt, master: ym, forecast: fc, history: yh, crawl: ch, bing: bw, payment_outage: po, payment_bing_corr: pbc, erp_vydejky: erpV, erp_corr: erpC};
+      yearlyData = {trend: yt, master: ym, forecast: fc, history: yh, crawl: ch, bing: bw, payment_outage: po, payment_bing_corr: pbc, erp_vydejky: erpV, erp_corr: erpC, reklamace: rek, product_qa: qa};
     } catch(e){ console.error('yearly', e); return; }
   }
   renderYearly();
@@ -4212,6 +4289,105 @@ async function loadYearly() {
   renderBingStatus();
   renderPaymentOutage();
   renderErpVydejky();
+  renderReklamace();
+}
+
+function renderReklamace() {
+  const fmt = n => n==null?'—':Number(n).toLocaleString('cs-CZ');
+  const r = yearlyData.reklamace;
+  const qa = yearlyData.product_qa;
+  if (!r) {
+    document.getElementById('reklamace-summary').innerHTML = '<p style="color:#94a3b8">Reklamace data nedostupná.</p>';
+    return;
+  }
+  const s = r.summary;
+  document.getElementById('reklamace-summary').innerHTML = `
+    <div class="metric-box" style="background:rgba(239,68,68,.08);border-color:#ef4444"><div class="metric-label">🚨 Reklamačí poměr</div><div class="metric-value" style="color:#fca5a5">${s.ratio_pct_vs_vydejky} %</div><div style="color:#64748b;font-size:11px">benchmark ${s.benchmark_ecommerce} → 2-6× nad</div></div>
+    <div class="metric-box"><div class="metric-label">Reklamací celkem (8M)</div><div class="metric-value">${fmt(s.total)}</div><div style="color:#64748b;font-size:11px">${s.unique_products} unique produktů</div></div>
+    <div class="metric-box" style="background:rgba(251,191,36,.08);border-color:#fbbf24"><div class="metric-label">⚖️ Nevyřízených</div><div class="metric-value" style="color:#fcd34d">${fmt(s.nevyrizenych)} (${100-s.vyrizenych_pct} %)</div><div style="color:#64748b;font-size:11px">tikající bomba</div></div>
+    <div class="metric-box" style="background:rgba(239,68,68,.08);border-color:#ef4444"><div class="metric-label">🚨 Přes 30 dnů (ObčZ § 2172)</div><div class="metric-value" style="color:#fca5a5">${s.prekroceno_30_dnu} / ${s.vyrizenych} (${s.prekroceno_30_pct} %)</div><div style="color:#64748b;font-size:11px">B2C porušení lhůty</div></div>
+    <div class="metric-box"><div class="metric-label">Avg doba vyřízení</div><div class="metric-value">${s.doba_avg_dnu} dní</div><div style="color:#64748b;font-size:11px">median ${s.doba_median_dnu} · max ${s.doba_max_dnu} dní</div></div>
+    <div class="metric-box"><div class="metric-label">Unique zákazníci</div><div class="metric-value">${fmt(s.unique_customers)}</div><div style="color:#64748b;font-size:11px">se reklamací 8M</div></div>
+  `;
+
+  // Monthly chart
+  if (window.reklMonthlyChart) window.reklMonthlyChart.destroy();
+  const ctxM = document.getElementById('chart-reklamace-monthly').getContext('2d');
+  window.reklMonthlyChart = new Chart(ctxM, {
+    type: 'bar',
+    data:{labels:r.by_month.map(x=>x.month),
+          datasets:[{label:'Reklamací/měsíc', data:r.by_month.map(x=>x.count), backgroundColor:'#ef4444'}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{color:'#e2e8f0'}}, title:{display:true,text:'Reklamace per měsíc',color:'#e2e8f0'}},
+      scales:{x:{ticks:{color:'#cbd5e1'}, grid:{color:'#334155'}},
+              y:{ticks:{color:'#cbd5e1'}, grid:{color:'#334155'}}}}
+  });
+
+  // Reasons doughnut
+  if (window.reklReasonsChart) window.reklReasonsChart.destroy();
+  const ctxR = document.getElementById('chart-reklamace-reasons').getContext('2d');
+  const colors = ['#ef4444','#f97316','#fbbf24','#a3e635','#10b981','#06b6d4','#3b82f6','#a78bfa','#94a3b8'];
+  const reasonsActive = r.reasons.filter(x=>x.count>0);
+  window.reklReasonsChart = new Chart(ctxR, {
+    type:'doughnut',
+    data:{labels:reasonsActive.map(x=>x.category),
+          datasets:[{data:reasonsActive.map(x=>x.count), backgroundColor:colors}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{position:'right', labels:{color:'#e2e8f0', font:{size:11}, boxWidth:14}},
+               title:{display:true,text:'Důvody reklamací (kategorizace)',color:'#e2e8f0'}}}
+  });
+
+  // Products table — top 15 most reclaimed
+  const top15 = r.top_30_products.slice(0,15);
+  document.getElementById('reklamace-products-table').innerHTML = `
+    <div style="overflow-x:auto">
+      <table class="data-table" style="font-size:12px">
+        <thead>
+          <tr><th>#</th><th>Produkt</th><th style="text-align:right">Reklamací</th><th style="text-align:right">% všech</th><th style="text-align:right">Vyřízeno</th><th style="text-align:right">Nevyřízeno</th><th style="text-align:right">Avg doba</th></tr>
+        </thead>
+        <tbody>
+          ${top15.map((p,i)=>{
+            const pct = p.pct_of_all;
+            const cls = p.count >= 10 ? 'background:rgba(239,68,68,.1)' : (p.count >= 5 ? 'background:rgba(251,191,36,.06)' : '');
+            return `<tr style="${cls}">
+              <td>${i+1}</td>
+              <td><strong>${p.name}</strong></td>
+              <td style="text-align:right;color:${p.count>=10?'#fca5a5':'#cbd5e1'};font-weight:${p.count>=10?'700':'normal'}">${p.count}</td>
+              <td style="text-align:right">${pct} %</td>
+              <td style="text-align:right;color:#6ee7b7">${p.vyrizeno}</td>
+              <td style="text-align:right;color:${p.nevyrizeno>0?'#fcd34d':'#cbd5e1'}">${p.nevyrizeno}</td>
+              <td style="text-align:right">${p.avg_doba_dnu||'—'} ${p.avg_doba_dnu>30?'⚠️':''}</td>
+            </tr>`;
+          }).join('')}
+        </tbody>
+      </table>
+    </div>
+    ${qa && qa.category_signals ? `<p style="color:#fcd34d;font-size:12px;margin-top:10px"><strong>🚨 Kategorie OC el.otvírače</strong> = ${qa.category_signals.OC_elektricke_otviace_total} reklamací (~17 % všech) — defektní šarže nebo dodavatel BEFO. Doporučení: stáhnout 51B10 z eshopu, audit dodavatele.</p>` : ''}
+  `;
+
+  // Customers table — top 15
+  const topC15 = r.top_30_customers.slice(0,15);
+  document.getElementById('reklamace-customers-table').innerHTML = `
+    <div style="overflow-x:auto">
+      <table class="data-table" style="font-size:12px">
+        <thead>
+          <tr><th>#</th><th>Zákazník</th><th style="text-align:right">Reklamací</th><th>Top reklamované produkty</th></tr>
+        </thead>
+        <tbody>
+          ${topC15.map((c,i)=>{
+            const internal = c.name.toLowerCase().includes('provozovna') || c.name.toLowerCase().includes('h&b group') || c.name === '[Maloobchodní prodej]' || c.name === 'maloobchod';
+            return `<tr ${internal?'style="background:rgba(148,163,184,.05)"':''}>
+              <td>${i+1}${internal?' 🏢':''}</td>
+              <td><strong>${c.name}</strong>${internal?' <span style="color:#64748b;font-size:10px">(interní pobočka / anon retail)</span>':''}</td>
+              <td style="text-align:right;color:${c.count>=5?'#fca5a5':'#cbd5e1'}">${c.count}</td>
+              <td style="font-size:11px;color:#94a3b8">${(c.top_products||[]).slice(0,2).join(' · ')}</td>
+            </tr>`;
+          }).join('')}
+        </tbody>
+      </table>
+    </div>
+    <p style="color:#94a3b8;font-size:11px;margin-top:8px">🏢 = interní pobočka / anonymous retail (většina reklamací je interní). Top externí B2B s reklamací: <strong>Točík Pelhřimov 5×</strong> (top 1 VO partner!), Klíčový servis 6×, Centrum klíčů 4×.</p>
+  `;
 }
 
 function renderErpVydejky() {
