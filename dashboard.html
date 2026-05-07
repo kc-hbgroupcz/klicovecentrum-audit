@@ -1231,7 +1231,7 @@
       <div>
         <label>Segment</label>
         <select class="view-segment" data-target="yearly">
-          <option value="both">🔀 Oba segmenty (E-shop MO + VO)</option>
+          <option value="both">🔀 MO total (E-shop + pobočky, bez VO)</option>
           <option value="b2c">🛒 B2C E-shop MO</option>
           <option value="b2b">🏢 B2B Velkoobchod</option>
         </select>
@@ -1241,9 +1241,16 @@
   </div>
   <div class="chart-card">
     <h3>📅 3-letý přehled — H&B Group celkový obrat 2023-2025</h3>
-    <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
-      Celkový obrat firmy napříč všemi kanály a segmenty (E-shop MO + Pobočky MO + Velkoobchod). Audit klicovecentrum.cz se zaměřuje na E-shop MO segment, který je ~1 % celkového obratu firmy.
-    </p>
+    <div style="background:rgba(251,191,36,.08);border-left:4px solid #fbbf24;padding:12px 14px;border-radius:6px;margin-bottom:14px">
+      <strong style="color:#fcd34d;font-size:13px">⚠️ Pozor na scope čísel:</strong>
+      <p style="color:#cbd5e1;font-size:12px;margin:6px 0 0;line-height:1.5">
+        Tento view ukazuje <strong>celý H&B Group</strong> (~534 M Kč/rok), ne jen klicovecentrum.cz. Pro audit-relevantní hodnoty:<br>
+        • <strong>B2C E-shop MO</strong> (segment selektor) ≈ 5,75 M Kč/2025 — zahrnuje všechny 4 weby skupiny (CZ B2C + B2B + 2× SK)<br>
+        • <strong>klicovecentrum.cz B2C audit period 7M</strong> = 1,67 M Kč (vidí v tabu „🎯 KPI rozpad")<br>
+        • <strong>MO total</strong> = E-shop + 17 fyzických poboček (bez VO velkoobchodu)<br>
+        • <strong>B2B Velkoobchod</strong> ≈ 419 M Kč/2025 — celá H&B Group VO, ne jen hbgroup.cz eshop
+      </p>
+    </div>
     <div class="metrics-grid" id="yearly-summary-grid"></div>
   </div>
 
@@ -5544,7 +5551,7 @@ async function populateViewKpi(view) {
         const yr = yt.years.find(y => y.year === parseInt(state.period));
         if (yr) {
           const segData = yr.segments[seg === 'b2c' ? 'eshop_mo' : seg === 'b2b' ? 'vo' : 'mo_total'] || {revenue_kc:yr.revenue_total, qty:yr.qty_total};
-          const segLabel = seg==='b2c'?'B2C E-shop MO':seg==='b2b'?'B2B VO':'Oba (MO total)';
+          const segLabel = seg==='b2c'?'B2C E-shop MO':seg==='b2b'?'B2B Velkoobchod':'MO total (E-shop + pobočky)';
           cards = [
             {label:`Obrat ${yr.year} (${segLabel})`, value:fmt(segData.revenue_kc), sub:'Kč', cls:'positive'},
             {label:'Celkový obrat firmy', value:fmt(yr.revenue_total)+' Kč', sub:`marže ${yr.margin_pct} %`},
@@ -5600,11 +5607,11 @@ async function populateViewKpi(view) {
       const erp = kpi.erp_mo_eshop.total;
       const alza = kpi.alza_marketplace.total;
       const sql = kpi.sql_ground_truth_b2c.total;
-      const realRev = erp.revenue_excl + alza.revenue_excl;
+      const realRev = Math.round(erp.revenue_excl + alza.revenue_excl);
       cards = [
-        {label:'ERP obrat', value:fmt(erp.revenue_excl)+' Kč', sub:`${erp.margin_pct} % marže · zisk ${fmt(erp.profit)}`, cls:'positive'},
+        {label:'ERP obrat', value:fmt(Math.round(erp.revenue_excl))+' Kč', sub:`${erp.margin_pct} % marže · zisk ${fmt(Math.round(erp.profit))}`, cls:'positive'},
         {label:'ERP + Alza skutečnost', value:fmt(realRev)+' Kč', sub:'audit period 7M', cls:'positive'},
-        {label:'SQL cross-check', value:fmt(sql.orders)+' obj.', sub:fmt(sql.revenue_excl)+' Kč'},
+        {label:'SQL cross-check', value:fmt(sql.orders)+' obj.', sub:fmt(Math.round(sql.revenue_excl))+' Kč'},
         {label:'PPC spend (audit)', value:'321 382 Kč', sub:'4 kanály (Google+Sklik+Zboží+Heuréka)'},
         {label:'PPC ROAS skutečný', value:'4,05×', sub:'po očištění tracking', cls:'positive'},
       ];

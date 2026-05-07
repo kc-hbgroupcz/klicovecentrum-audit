@@ -23,15 +23,15 @@
       "ltv_erp_cac_ratio": 1.24,
       "payback_months_erp": 1.2,
       "verdict_erp": "🟡 Hraniční: LTV:CAC < 3:1",
-      "ltv_sql_kc": 1351,
-      "ltv_sql_cac_ratio": 1.77,
-      "payback_months_sql": 1.8,
+      "ltv_sql_kc": 945,
+      "ltv_sql_cac_ratio": 1.24,
+      "payback_months_sql": null,
       "verdict_sql": "🟡 Hraniční: LTV:CAC < 3:1",
+      "payback_months": 1.2,
+      "source": "ERP-aligned (primární) · SQL pro cross-check viz _sql pole",
       "ltv_kc": 945,
       "ltv_cac_ratio": 1.24,
-      "payback_months": 1.2,
-      "verdict": "🟡 Hraniční: LTV:CAC < 3:1",
-      "source": "ERP-aligned (primární) · SQL pro cross-check viz _sql pole"
+      "verdict": "🟡 Hraniční: LTV:CAC < 3:1"
     },
     {
       "channel": "Sklik (seznam)",
@@ -44,15 +44,15 @@
       "ltv_erp_cac_ratio": 1.16,
       "payback_months_erp": 1.2,
       "verdict_erp": "🟡 Hraniční: LTV:CAC < 3:1",
-      "ltv_sql_kc": 1351,
-      "ltv_sql_cac_ratio": 1.66,
-      "payback_months_sql": 1.7,
+      "ltv_sql_kc": 945,
+      "ltv_sql_cac_ratio": 1.16,
+      "payback_months_sql": null,
       "verdict_sql": "🟡 Hraniční: LTV:CAC < 3:1",
+      "payback_months": 1.2,
+      "source": "ERP-aligned (primární) · SQL pro cross-check viz _sql pole",
       "ltv_kc": 945,
       "ltv_cac_ratio": 1.16,
-      "payback_months": 1.2,
-      "verdict": "🟡 Hraniční: LTV:CAC < 3:1",
-      "source": "ERP-aligned (primární) · SQL pro cross-check viz _sql pole"
+      "verdict": "🟡 Hraniční: LTV:CAC < 3:1"
     },
     {
       "channel": "Heuréka.cz",
@@ -65,15 +65,15 @@
       "ltv_erp_cac_ratio": 1.2,
       "payback_months_erp": 1.2,
       "verdict_erp": "🟡 Hraniční: LTV:CAC < 3:1",
-      "ltv_sql_kc": 1351,
-      "ltv_sql_cac_ratio": 1.71,
-      "payback_months_sql": 1.7,
+      "ltv_sql_kc": 945,
+      "ltv_sql_cac_ratio": 1.2,
+      "payback_months_sql": null,
       "verdict_sql": "🟡 Hraniční: LTV:CAC < 3:1",
+      "payback_months": 1.2,
+      "source": "ERP-aligned (primární) · SQL pro cross-check viz _sql pole",
       "ltv_kc": 945,
       "ltv_cac_ratio": 1.2,
-      "payback_months": 1.2,
-      "verdict": "🟡 Hraniční: LTV:CAC < 3:1",
-      "source": "ERP-aligned (primární) · SQL pro cross-check viz _sql pole"
+      "verdict": "🟡 Hraniční: LTV:CAC < 3:1"
     }
   ],
   "blended": {
@@ -83,8 +83,8 @@
     "ppc_share_of_total_customers_pct": 31.9,
     "blended_ltv_erp_kc": 945,
     "blended_ltv_erp_cac_ratio": 1.22,
-    "blended_ltv_sql_kc": null,
-    "blended_ltv_sql_cac_ratio": 1.75,
+    "blended_ltv_sql_kc": 945,
+    "blended_ltv_sql_cac_ratio": 1.22,
     "blended_ltv_kc": 945,
     "blended_ltv_cac_ratio": 1.22
   },

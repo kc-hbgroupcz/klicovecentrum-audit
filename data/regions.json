@@ -22,6 +22,65 @@
   },
   "regions": [
     {
+      "name": "Hl. m. Praha",
+      "has_branch": true,
+      "branch_cities": [
+        "Praha"
+      ],
+      "impressions": 65692,
+      "clicks": 2015,
+      "cost": 8513.0,
+      "conversions": 85.4,
+      "cpa": 99.68,
+      "pct_budget": 3.66,
+      "conv_per_1000": 10.03,
+      "campaigns_count": 3,
+      "sql": {
+        "orders": 349,
+        "revenue_kc": 397595,
+        "aov_kc": 1139
+      },
+      "cost_per_order_kc": 24,
+      "top_categories": [
+        {
+          "category": "Ostatní",
+          "revenue_kc": 134229,
+          "qty": 1037,
+          "revenue_erp_kc": 93893
+        },
+        {
+          "category": "Zámky",
+          "revenue_kc": 74139,
+          "qty": 71,
+          "revenue_erp_kc": 51860
+        },
+        {
+          "category": "Cylindrické vložky",
+          "revenue_kc": 72605,
+          "qty": 126,
+          "revenue_erp_kc": 50787
+        },
+        {
+          "category": "Klíče",
+          "revenue_kc": 52406,
+          "qty": 417,
+          "revenue_erp_kc": 36658
+        },
+        {
+          "category": "Trezory",
+          "revenue_kc": 26302,
+          "qty": 9,
+          "revenue_erp_kc": 18398
+        }
+      ],
+      "erp": {
+        "revenue_kc": 278118,
+        "aov_kc": 797,
+        "profit_kc": 164368,
+        "margin_pct": 59.1
+      }
+    },
+    {
       "name": "Středočeský",
       "has_branch": false,
       "branch_cities": [],
@@ -32,22 +91,51 @@
       "cpa": 90.5,
       "pct_budget": 22.19,
       "conv_per_1000": 11.05,
-      "campaigns_count": 4
-    },
-    {
-      "name": "Ústecký",
-      "has_branch": true,
-      "branch_cities": [
-        "Chomutov"
+      "campaigns_count": 4,
+      "sql": {
+        "orders": 226,
+        "revenue_kc": 342819,
+        "aov_kc": 1517
+      },
+      "cost_per_order_kc": 228,
+      "top_categories": [
+        {
+          "category": "Ostatní",
+          "revenue_kc": 143725,
+          "qty": 2180,
+          "revenue_erp_kc": 100536
+        },
+        {
+          "category": "Zámky",
+          "revenue_kc": 109514,
+          "qty": 218,
+          "revenue_erp_kc": 76605
+        },
+        {
+          "category": "Cylindrické vložky",
+          "revenue_kc": 49101,
+          "qty": 190,
+          "revenue_erp_kc": 34346
+        },
+        {
+          "category": "Kování",
+          "revenue_kc": 20809,
+          "qty": 60,
+          "revenue_erp_kc": 14556
+        },
+        {
+          "category": "Klíče",
+          "revenue_kc": 11027,
+          "qty": 471,
+          "revenue_erp_kc": 7713
+        }
       ],
-      "impressions": 279170,
-      "clicks": 2418,
-      "cost": 42914.31,
-      "conversions": 307.85,
-      "cpa": 139.4,
-      "pct_budget": 18.45,
-      "conv_per_1000": 7.17,
-      "campaigns_count": 4
+      "erp": {
+        "revenue_kc": 239802,
+        "aov_kc": 1061,
+        "profit_kc": 141723,
+        "margin_pct": 59.1
+      }
     },
     {
       "name": "Jihomoravský",
@@ -62,37 +150,51 @@
       "cpa": 107.52,
       "pct_budget": 17.57,
       "conv_per_1000": 9.3,
-      "campaigns_count": 4
-    },
-    {
-      "name": "Plzeňský",
-      "has_branch": true,
-      "branch_cities": [
-        "Plzeň (Gerská, Žatecká, Lochotín)"
+      "campaigns_count": 4,
+      "sql": {
+        "orders": 161,
+        "revenue_kc": 180625,
+        "aov_kc": 1122
+      },
+      "cost_per_order_kc": 254,
+      "top_categories": [
+        {
+          "category": "Ostatní",
+          "revenue_kc": 71502,
+          "qty": 678,
+          "revenue_erp_kc": 50016
+        },
+        {
+          "category": "Zámky",
+          "revenue_kc": 49973,
+          "qty": 133,
+          "revenue_erp_kc": 34956
+        },
+        {
+          "category": "Cylindrické vložky",
+          "revenue_kc": 26559,
+          "qty": 114,
+          "revenue_erp_kc": 18578
+        },
+        {
+          "category": "Kování",
+          "revenue_kc": 13826,
+          "qty": 20,
+          "revenue_erp_kc": 9671
+        },
+        {
+          "category": "Klíče",
+          "revenue_kc": 13131,
+          "qty": 257,
+          "revenue_erp_kc": 9185
+        }
       ],
-      "impressions": 149086,
-      "clicks": 5205,
-      "cost": 36133.75,
-      "conversions": 451.56,
-      "cpa": 80.02,
-      "pct_budget": 15.53,
-      "conv_per_1000": 12.5,
-      "campaigns_count": 4
-    },
-    {
-      "name": "Jihočeský",
-      "has_branch": true,
-      "branch_cities": [
-        "Hrdějovice / Č. Budějovice"
-      ],
-      "impressions": 151050,
-      "clicks": 3383,
-      "cost": 16127.6,
-      "conversions": 169.62,
-      "cpa": 95.08,
-      "pct_budget": 6.93,
-      "conv_per_1000": 10.52,
-      "campaigns_count": 3
+      "erp": {
+        "revenue_kc": 126347,
+        "aov_kc": 785,
+        "profit_kc": 74671,
+        "margin_pct": 59.1
+      }
     },
     {
       "name": "Moravskoslezský",
@@ -107,48 +209,285 @@
       "cpa": 82.33,
       "pct_budget": 4.05,
       "conv_per_1000": 12.15,
-      "campaigns_count": 3
+      "campaigns_count": 3,
+      "sql": {
+        "orders": 82,
+        "revenue_kc": 124599,
+        "aov_kc": 1520
+      },
+      "cost_per_order_kc": 115,
+      "top_categories": [
+        {
+          "category": "Zámky",
+          "revenue_kc": 50094,
+          "qty": 43,
+          "revenue_erp_kc": 35041
+        },
+        {
+          "category": "Ostatní",
+          "revenue_kc": 46906,
+          "qty": 217,
+          "revenue_erp_kc": 32811
+        },
+        {
+          "category": "Kování",
+          "revenue_kc": 10677,
+          "qty": 40,
+          "revenue_erp_kc": 7469
+        },
+        {
+          "category": "Klíče",
+          "revenue_kc": 6297,
+          "qty": 36,
+          "revenue_erp_kc": 4405
+        },
+        {
+          "category": "Cylindrické vložky",
+          "revenue_kc": 4999,
+          "qty": 9,
+          "revenue_erp_kc": 3497
+        }
+      ],
+      "erp": {
+        "revenue_kc": 87157,
+        "aov_kc": 1063,
+        "profit_kc": 51510,
+        "margin_pct": 59.1
+      }
     },
     {
-      "name": "Hl. m. Praha",
+      "name": "Jihočeský",
       "has_branch": true,
       "branch_cities": [
-        "Praha"
+        "Hrdějovice / Č. Budějovice"
       ],
-      "impressions": 65692,
-      "clicks": 2015,
-      "cost": 8513.0,
-      "conversions": 85.4,
-      "cpa": 99.68,
-      "pct_budget": 3.66,
-      "conv_per_1000": 10.03,
-      "campaigns_count": 3
+      "impressions": 151050,
+      "clicks": 3383,
+      "cost": 16127.6,
+      "conversions": 169.62,
+      "cpa": 95.08,
+      "pct_budget": 6.93,
+      "conv_per_1000": 10.52,
+      "campaigns_count": 3,
+      "sql": {
+        "orders": 75,
+        "revenue_kc": 108121,
+        "aov_kc": 1442
+      },
+      "cost_per_order_kc": 215,
+      "top_categories": [
+        {
+          "category": "Ostatní",
+          "revenue_kc": 56197,
+          "qty": 594,
+          "revenue_erp_kc": 39310
+        },
+        {
+          "category": "Zámky",
+          "revenue_kc": 19557,
+          "qty": 51,
+          "revenue_erp_kc": 13680
+        },
+        {
+          "category": "Kování",
+          "revenue_kc": 15964,
+          "qty": 31,
+          "revenue_erp_kc": 11167
+        },
+        {
+          "category": "Cylindrické vložky",
+          "revenue_kc": 10792,
+          "qty": 37,
+          "revenue_erp_kc": 7549
+        },
+        {
+          "category": "Klíče",
+          "revenue_kc": 2648,
+          "qty": 19,
+          "revenue_erp_kc": 1852
+        }
+      ],
+      "erp": {
+        "revenue_kc": 75631,
+        "aov_kc": 1008,
+        "profit_kc": 44698,
+        "margin_pct": 59.1
+      }
     },
     {
-      "name": "Zlínský",
-      "has_branch": false,
-      "branch_cities": [],
-      "impressions": 98853,
-      "clicks": 1841,
-      "cost": 7778.65,
-      "conversions": 107.71,
-      "cpa": 72.22,
-      "pct_budget": 3.34,
-      "conv_per_1000": 13.85,
-      "campaigns_count": 6
+      "name": "Ústecký",
+      "has_branch": true,
+      "branch_cities": [
+        "Chomutov"
+      ],
+      "impressions": 279170,
+      "clicks": 2418,
+      "cost": 42914.31,
+      "conversions": 307.85,
+      "cpa": 139.4,
+      "pct_budget": 18.45,
+      "conv_per_1000": 7.17,
+      "campaigns_count": 4,
+      "sql": {
+        "orders": 89,
+        "revenue_kc": 70313,
+        "aov_kc": 790
+      },
+      "cost_per_order_kc": 482,
+      "top_categories": [
+        {
+          "category": "Ostatní",
+          "revenue_kc": 26451,
+          "qty": 376,
+          "revenue_erp_kc": 18502
+        },
+        {
+          "category": "Zámky",
+          "revenue_kc": 21162,
+          "qty": 31,
+          "revenue_erp_kc": 14803
+        },
+        {
+          "category": "Trezory",
+          "revenue_kc": 9780,
+          "qty": 4,
+          "revenue_erp_kc": 6841
+        },
+        {
+          "category": "Kování",
+          "revenue_kc": 4542,
+          "qty": 17,
+          "revenue_erp_kc": 3177
+        },
+        {
+          "category": "Schránky",
+          "revenue_kc": 3352,
+          "qty": 26,
+          "revenue_erp_kc": 2345
+        }
+      ],
+      "erp": {
+        "revenue_kc": 49184,
+        "aov_kc": 553,
+        "profit_kc": 29068,
+        "margin_pct": 59.1
+      }
     },
     {
-      "name": "Královéhradecký",
+      "name": "Plzeňský",
+      "has_branch": true,
+      "branch_cities": [
+        "Plzeň (Gerská, Žatecká, Lochotín)"
+      ],
+      "impressions": 149086,
+      "clicks": 5205,
+      "cost": 36133.75,
+      "conversions": 451.56,
+      "cpa": 80.02,
+      "pct_budget": 15.53,
+      "conv_per_1000": 12.5,
+      "campaigns_count": 4,
+      "sql": {
+        "orders": 73,
+        "revenue_kc": 69227,
+        "aov_kc": 948
+      },
+      "cost_per_order_kc": 495,
+      "top_categories": [
+        {
+          "category": "Ostatní",
+          "revenue_kc": 24847,
+          "qty": 129,
+          "revenue_erp_kc": 17380
+        },
+        {
+          "category": "Cylindrické vložky",
+          "revenue_kc": 22695,
+          "qty": 17,
+          "revenue_erp_kc": 15875
+        },
+        {
+          "category": "Zámky",
+          "revenue_kc": 11818,
+          "qty": 34,
+          "revenue_erp_kc": 8267
+        },
+        {
+          "category": "Kování",
+          "revenue_kc": 5040,
+          "qty": 7,
+          "revenue_erp_kc": 3525
+        },
+        {
+          "category": "Trezory",
+          "revenue_kc": 3560,
+          "qty": 2,
+          "revenue_erp_kc": 2490
+        }
+      ],
+      "erp": {
+        "revenue_kc": 48424,
+        "aov_kc": 663,
+        "profit_kc": 28619,
+        "margin_pct": 59.1
+      }
+    },
+    {
+      "name": "Pardubický",
       "has_branch": false,
       "branch_cities": [],
-      "impressions": 64988,
-      "clicks": 1707,
-      "cost": 7207.12,
-      "conversions": 84.37,
-      "cpa": 85.42,
-      "pct_budget": 3.1,
-      "conv_per_1000": 11.71,
-      "campaigns_count": 6
+      "impressions": 43400,
+      "clicks": 823,
+      "cost": 3670.58,
+      "conversions": 28.0,
+      "cpa": 131.09,
+      "pct_budget": 1.58,
+      "conv_per_1000": 7.63,
+      "campaigns_count": 3,
+      "sql": {
+        "orders": 66,
+        "revenue_kc": 62575,
+        "aov_kc": 948
+      },
+      "cost_per_order_kc": 56,
+      "top_categories": [
+        {
+          "category": "Ostatní",
+          "revenue_kc": 30492,
+          "qty": 195,
+          "revenue_erp_kc": 21329
+        },
+        {
+          "category": "Zámky",
+          "revenue_kc": 18536,
+          "qty": 26,
+          "revenue_erp_kc": 12966
+        },
+        {
+          "category": "Cylindrické vložky",
+          "revenue_kc": 5893,
+          "qty": 7,
+          "revenue_erp_kc": 4122
+        },
+        {
+          "category": "Trezory",
+          "revenue_kc": 3985,
+          "qty": 1,
+          "revenue_erp_kc": 2788
+        },
+        {
+          "category": "Klíče",
+          "revenue_kc": 2292,
+          "qty": 72,
+          "revenue_erp_kc": 1603
+        }
+      ],
+      "erp": {
+        "revenue_kc": 43771,
+        "aov_kc": 663,
+        "profit_kc": 25869,
+        "margin_pct": 59.1
+      }
     },
     {
       "name": "Karlovarský",
@@ -163,20 +502,51 @@
       "cpa": 81.6,
       "pct_budget": 1.91,
       "conv_per_1000": 12.25,
-      "campaigns_count": 3
-    },
-    {
-      "name": "Pardubický",
-      "has_branch": false,
-      "branch_cities": [],
-      "impressions": 43400,
-      "clicks": 823,
-      "cost": 3670.58,
-      "conversions": 28.0,
-      "cpa": 131.09,
-      "pct_budget": 1.58,
-      "conv_per_1000": 7.63,
-      "campaigns_count": 3
+      "campaigns_count": 3,
+      "sql": {
+        "orders": 49,
+        "revenue_kc": 51583,
+        "aov_kc": 1053
+      },
+      "cost_per_order_kc": 91,
+      "top_categories": [
+        {
+          "category": "Ostatní",
+          "revenue_kc": 30543,
+          "qty": 90,
+          "revenue_erp_kc": 21365
+        },
+        {
+          "category": "Zámky",
+          "revenue_kc": 10067,
+          "qty": 8,
+          "revenue_erp_kc": 7042
+        },
+        {
+          "category": "Klíče",
+          "revenue_kc": 6300,
+          "qty": 21,
+          "revenue_erp_kc": 4407
+        },
+        {
+          "category": "Trezory",
+          "revenue_kc": 2495,
+          "qty": 1,
+          "revenue_erp_kc": 1745
+        },
+        {
+          "category": "Cylindrické vložky",
+          "revenue_kc": 1358,
+          "qty": 2,
+          "revenue_erp_kc": 950
+        }
+      ],
+      "erp": {
+        "revenue_kc": 36082,
+        "aov_kc": 736,
+        "profit_kc": 21324,
+        "margin_pct": 59.1
+      }
     },
     {
       "name": "Kraj Vysočina",
@@ -189,7 +559,51 @@
       "cpa": 48.32,
       "pct_budget": 1.55,
       "conv_per_1000": 20.7,
-      "campaigns_count": 3
+      "campaigns_count": 3,
+      "sql": {
+        "orders": 58,
+        "revenue_kc": 51222,
+        "aov_kc": 883
+      },
+      "cost_per_order_kc": 62,
+      "top_categories": [
+        {
+          "category": "Zámky",
+          "revenue_kc": 19797,
+          "qty": 23,
+          "revenue_erp_kc": 13848
+        },
+        {
+          "category": "Ostatní",
+          "revenue_kc": 16071,
+          "qty": 168,
+          "revenue_erp_kc": 11242
+        },
+        {
+          "category": "Klíče",
+          "revenue_kc": 5799,
+          "qty": 135,
+          "revenue_erp_kc": 4056
+        },
+        {
+          "category": "Cylindrické vložky",
+          "revenue_kc": 4866,
+          "qty": 11,
+          "revenue_erp_kc": 3404
+        },
+        {
+          "category": "Kování",
+          "revenue_kc": 3399,
+          "qty": 17,
+          "revenue_erp_kc": 2378
+        }
+      ],
+      "erp": {
+        "revenue_kc": 35830,
+        "aov_kc": 618,
+        "profit_kc": 21176,
+        "margin_pct": 59.1
+      }
     },
     {
       "name": "Liberecký",
@@ -202,7 +616,183 @@
       "cpa": 155.52,
       "pct_budget": 0.13,
       "conv_per_1000": 6.43,
-      "campaigns_count": 1
+      "campaigns_count": 1,
+      "sql": {
+        "orders": 35,
+        "revenue_kc": 47596,
+        "aov_kc": 1360
+      },
+      "cost_per_order_kc": 9,
+      "top_categories": [
+        {
+          "category": "Ostatní",
+          "revenue_kc": 32963,
+          "qty": 175,
+          "revenue_erp_kc": 23058
+        },
+        {
+          "category": "Kování",
+          "revenue_kc": 5454,
+          "qty": 4,
+          "revenue_erp_kc": 3815
+        },
+        {
+          "category": "Zámky",
+          "revenue_kc": 5358,
+          "qty": 5,
+          "revenue_erp_kc": 3748
+        },
+        {
+          "category": "Klíče",
+          "revenue_kc": 3148,
+          "qty": 83,
+          "revenue_erp_kc": 2202
+        },
+        {
+          "category": "Cylindrické vložky",
+          "revenue_kc": 593,
+          "qty": 1,
+          "revenue_erp_kc": 415
+        }
+      ],
+      "erp": {
+        "revenue_kc": 33293,
+        "aov_kc": 951,
+        "profit_kc": 19676,
+        "margin_pct": 59.1
+      }
+    },
+    {
+      "name": "Královéhradecký",
+      "has_branch": false,
+      "branch_cities": [],
+      "impressions": 64988,
+      "clicks": 1707,
+      "cost": 7207.12,
+      "conversions": 84.37,
+      "cpa": 85.42,
+      "pct_budget": 3.1,
+      "conv_per_1000": 11.71,
+      "campaigns_count": 6,
+      "sql": {
+        "orders": 35,
+        "revenue_kc": 46193,
+        "aov_kc": 1320
+      },
+      "cost_per_order_kc": 206,
+      "top_categories": [
+        {
+          "category": "Kování",
+          "revenue_kc": 23082,
+          "qty": 78,
+          "revenue_erp_kc": 16146
+        },
+        {
+          "category": "Ostatní",
+          "revenue_kc": 16398,
+          "qty": 77,
+          "revenue_erp_kc": 11470
+        },
+        {
+          "category": "Zámky",
+          "revenue_kc": 5827,
+          "qty": 6,
+          "revenue_erp_kc": 4076
+        },
+        {
+          "category": "Klíče",
+          "revenue_kc": 886,
+          "qty": 8,
+          "revenue_erp_kc": 620
+        }
+      ],
+      "erp": {
+        "revenue_kc": 32312,
+        "aov_kc": 923,
+        "profit_kc": 19096,
+        "margin_pct": 59.1
+      }
+    },
+    {
+      "name": "Zlínský",
+      "has_branch": false,
+      "branch_cities": [],
+      "impressions": 98853,
+      "clicks": 1841,
+      "cost": 7778.65,
+      "conversions": 107.71,
+      "cpa": 72.22,
+      "pct_budget": 3.34,
+      "conv_per_1000": 13.85,
+      "campaigns_count": 6,
+      "sql": {
+        "orders": 26,
+        "revenue_kc": 18217,
+        "aov_kc": 701
+      },
+      "cost_per_order_kc": 299,
+      "top_categories": [
+        {
+          "category": "Ostatní",
+          "revenue_kc": 8871,
+          "qty": 26,
+          "revenue_erp_kc": 6205
+        },
+        {
+          "category": "Zámky",
+          "revenue_kc": 4501,
+          "qty": 14,
+          "revenue_erp_kc": 3148
+        },
+        {
+          "category": "Trezory",
+          "revenue_kc": 2800,
+          "qty": 1,
+          "revenue_erp_kc": 1959
+        },
+        {
+          "category": "Kování",
+          "revenue_kc": 1416,
+          "qty": 3,
+          "revenue_erp_kc": 990
+        },
+        {
+          "category": "Klíče",
+          "revenue_kc": 629,
+          "qty": 67,
+          "revenue_erp_kc": 440
+        }
+      ],
+      "erp": {
+        "revenue_kc": 12743,
+        "aov_kc": 490,
+        "profit_kc": 7531,
+        "margin_pct": 59.1
+      }
     }
-  ]
+  ],
+  "sql_enrichment": {
+    "generated": "2026-05-07T15:44:27",
+    "source": "MySQL kosik (web_id=1) JOIN polozka",
+    "psc_map_method": "first 2 digits of PSČ → CZ kraj",
+    "matched_orders": 1391,
+    "total_orders": 1395,
+    "psc_match_pct": 99.7,
+    "unknown_psc_orders": 4,
+    "unknown_psc_revenue_kc": 21776,
+    "data_quality": {
+      "sql_address_field_present": true,
+      "psc_fill_rate_pct": 100.0,
+      "category_match_method": "products.json SKU + name regex fallback"
+    }
+  },
+  "erp_alignment": {
+    "method": "ratio (ERP revenue excl DPH / SQL polozka raw inc DPH)",
+    "ratio": 0.6995,
+    "erp_total_revenue_kc": 1170741,
+    "erp_total_profit_kc": 692432,
+    "erp_margin_pct": 59.1,
+    "note": "Hodnoty per kraj jsou proporcionálně přepočítané. ERP nemá per-PSČ granularitu — share zůstává stejný jako SQL.",
+    "applied_at": "2026-05-07T15:44:43"
+  }
 }
