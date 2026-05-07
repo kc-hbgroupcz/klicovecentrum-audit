@@ -11,9 +11,9 @@
 
 Audit odhalil **systémové selhání** v práci agentury na čtyřech úrovních:
 
-1. **Měření je nefunkční.** Konverze jsou 578× nafouklé — agentura reportuje 370 000 konverzí, skutečných nákupů je 641. Veškeré optimalizace PPC kampaní probíhají na základě falešných dat. Cross-reference s ERP prokázala, že v březnu 2026 GA4 nafoukl revenue o 54 % oproti skutečnosti (bot traffic spouštěl falešné `purchase` eventy).
+1. **Měření je nefunkční.** Konverze jsou **265× nafouklé** — agentura reportuje 370 870 konverzí, skutečných nákupů je **1 398** (SQL DB ground truth; GA4 zachytil pouze 641, tj. **46 % reality** — gap 54 % způsobený mj. payment outage #48). Veškeré optimalizace PPC kampaní probíhají na základě falešných dat. Cross-reference s ERP prokázala, že v březnu 2026 GA4 nafoukl revenue o 54 % oproti skutečnosti (bot traffic spouštěl falešné `purchase` eventy).
 
-2. **Rozpočet teče mimo cíl.** 61 % Google Ads rozpočtu (141 000 Kč) míří do krajů bez jediné pobočky klicovecentrum.cz. **Sklik účet celkově ztrátový (ROAS 0,92×, PNO 109 %)** — obsahová síť spálila 12 099 Kč čisté ztráty, Zboží.cz 25 886 Kč na produkty bez konverze. Paradoxně vyhledávací síť Sklik je mírně profitabilní (ROAS 1,24×) ale **92,5 % zobrazení ztraceno kvůli nedostatečnému rozpočtu** — peníze leží na stole. Heuréka ROAS 1,44× — ztrátová v 5 ze 7 měsíců.
+2. **Rozpočet teče mimo cíl.** 32 % Google Ads rozpočtu (~74 200 Kč ze 232 632 Kč) míří do krajů bez jediné pobočky klicovecentrum.cz. **Sklik účet celkově ztrátový (ROAS 0,92×, PNO 109 %)** — obsahová síť spálila 12 099 Kč čisté ztráty, Zboží.cz 25 886 Kč na produkty bez konverze. Paradoxně vyhledávací síť Sklik je mírně profitabilní (ROAS 1,24×) ale **92,5 % zobrazení ztraceno kvůli nedostatečnému rozpočtu** — peníze leží na stole. Heuréka ROAS 1,44× — ztrátová v 5 ze 7 měsíců.
 
 3. **Produktový feed je odpojený od reality.** 80 % produktů ve feedu (1 746 z 2 175) za 7 měsíců neprodalo ani kus. Zároveň **45 % obratu e-shopu (527 118 Kč) generují produkty, které v placených kanálech vůbec nejsou** — PPC k těmto zákazníkům nemá přístup.
 
@@ -33,11 +33,30 @@ Per-kampaň rozpad (viz sekce 12) odhalil **tři masivní ztracené příležito
 
 Agentura hodnotí kampaně jako jeden celek přes ROAS. **Bez rozdělení na 3 kategorie (PRODUCT / BRAND / LOCAL) a opravy trackingu nelze optimalizovat** — ale data z Google Ads ukazují jasně, že LOCAL a BRAND jsou nejziskovější kanály a jsou podfinancované.
 
+### Vlastnictví nápravy — kdo má co opravit (rollup 40 nálezů)
+
+Každý nález má označen primárního vlastníka nápravy (badge v hlavičce). Souhrn:
+
+| Vlastník | Počet nálezů | Co dělá | Priorita akcí |
+|----------|--------------|---------|---------------|
+| 🎯 **Agentura** (marketing) | **13** | Admin v Google Ads / Sklik / GA4 / GTM, optimalizace kampaní, nastavení bot filtru, UTM audit | Většina P0 nálezů (#1, #2, #5-#10c) — bez agentury se hnout nelze |
+| 🛠️ **Vývojář eshopu** | **7** | Code change: payment 500 fix (#42, #48), URL canonical/301 (#45), feed varianty (#11, #15), Alza→ERP API (#26), schema/title/meta (#4) | P0: #42 (~261 k Kč/rok ztráta), #45 (URL exploze), #44 (PHPMailer CVE) |
+| ⚙️ **DevOps / správce serveru** | **2** | Server config: zombie subdomain odebrat (#43), PHPMailer smaz + audit (#44) | P0: oba — security + crawl budget |
+| 👤 **Klient sám** | **8** | Manuální admin: Firmy.cz duplikát (#18), GBP profily (#12, #19), Alza katalog (#27-30), GTM access (#5) | Většinou P1 — drobné akce, rychlá realizace |
+| 🔀 **Mixed** (koordinace) | **5** | Vyžadují agenturu + vývojáře/devops: OCM tracking (#10c, #13, #17), feed strukturálně odpojen (#14, #23) | P0: zejména #14 (45 % obratu mimo PPC) |
+| ℹ️ **Informativní** | **5** | Pozitivní důkazy / observační nálezy bez okamžité akce: #20 Firmy.cz neulízaná botem, #29 Alza ceny OK, #46-49 Bing vlny + Q4 chronologie | Žádná akce — důkazní materiál pro #2, #14, atd. |
+
+**Pro klienta — interpretace tabulky:** Před začátkem realizace vyber **nálezy podle vlastníka, ne podle priority** — tím poznáš, co máš v rukou ty (8 klientských úkonů, převážně P1) vs. co musíš delegovat na agenturu / vývojáře. **Nejvíc bottlenecků je u vývojáře** (7 nálezů, z toho 3 KRITICKÉ s přímým finančním dopadem 261 k Kč/rok).
+
+V interaktivním dashboardu (https://kc-hbgroupcz.github.io/klicovecentrum-audit/dashboard.html) lze filtrovat nálezy podle vlastníka (`Kdo to opraví:` filtr v horní liště).
+
 ---
 
 ## 1. MĚŘENÍ A ANALYTIKA (GA4)
 
-### 🔴 #1 — Konverze nafouklé 578× (KRITICKÉ)
+### 🔴 #1 — Konverze nafouklé 265× (KRITICKÉ)
+
+**Vlastník:** 🎯 Agentura
 
 Agentura označila jako primární konverze micro-eventy, které nepředstavují žádný obchodní výsledek:
 
@@ -51,8 +70,9 @@ Agentura označila jako primární konverze micro-eventy, které nepředstavují
 | begin_checkout | 6 698 | Zahájení objednávky (ne transakce) |
 | add_to_cart | 5 095 | Přidání do košíku |
 | file_download | 2 780 | Stažení souboru |
-| **purchase (skutečný nákup)** | **641** | ✅ Jediná relevantní konverze |
-| **CELKEM hlášeno** | **370 870** | — |
+| **purchase (GA4 zachycených)** | **641** | GA4 capture rate jen 46 % reality |
+| **purchase (SQL ground truth)** | **1 398** | ✅ Skutečné nákupy z DB B2C eshopu |
+| **CELKEM agenturou hlášeno** | **370 870** | 265× nafouklé vs SQL (578× vs GA4) |
 
 **Dopad na PPC kampaně:**
 - Google Ads vidí 71 128 konverzí z 32 439 kliků → „konverzní poměr" 219 % (fyzicky nemožné)
@@ -75,6 +95,8 @@ Průměrná hodnota objednávky: **1 535 Kč**
 ---
 
 ### 🔴 #2 — Bot útok v březnu 2026 nebyl detekován ani řešen (KRITICKÉ)
+
+**Vlastník:** 🎯 Agentura
 
 V období 7.–21. března 2026 přišlo ~1,5 milionu falešných sessions. Agentura na útok nereagovala — data nebyla filtrována.
 
@@ -103,6 +125,8 @@ V období 7.–21. března 2026 přišlo ~1,5 milionu falešných sessions. Agen
 
 ### 🔴 #3 — Direct traffic 90 % z celku (KRITICKÉ)
 
+**Vlastník:** 🎯 Agentura
+
 GA4 ukazuje 1 796 846 sessions jako „Direct" — 90 % veškerého provozu. Norma pro srovnatelný web je 20–35 %.
 
 **Příčiny:**
@@ -118,6 +142,8 @@ GA4 ukazuje 1 796 846 sessions jako „Direct" — 90 % veškerého provozu. Nor
 ## 2. VYHLEDÁVÁNÍ (Google Search Console)
 
 ### 🟡 #4 — Nízké CTR na klíčových stránkách
+
+**Vlastník:** 🛠️ Vývojář
 
 **Celkový výkon (říjen 2025 – duben 2026):**
 - 2 866 943 impresí → 53 790 kliků → **CTR 1,88 %**
@@ -143,29 +169,43 @@ Stránka `/navod-jak-urcit-orientaci-dveri/` je na **4. místě** ve výsledcíc
 
 ### 🔴 #5 — Kampaně optimalizují na falešné konverze (KRITICKÉ)
 
+**Vlastník:** 🎯 Agentura
+
 Smart Bidding v Google Ads pracuje s importovanými konverzemi z GA4 — tedy s nafouklými čísly z nálezu #1. Systém se naučil cílit na uživatele, kteří „zobrazili produkt" nebo „strávili 3 minuty na webu".
 
 **Implikace:** Reálná efektivita kampaní je neznámá. Jakákoli data o ROAS nebo CPA z Google Ads jsou pro toto období nepoužitelná.
 
-### 🔴 #6 — 61 % rozpočtu v krajích bez poboček (KRITICKÉ)
+### 🔴 #6 — 32 % rozpočtu v krajích bez poboček (KRITICKÉ)
 
-Klíčový nález z analýzy nastavení kampaní: **141 008 Kč** (61 % celkového Google Ads rozpočtu) bylo utraceno v regionech, kde klicovecentrum.cz nemá žádnou kamennou prodejnu.
+**Vlastník:** 🎯 Agentura
 
-**Geografické rozložení výdajů:**
+> **Pozn. k revizi 6. 5. 2026:** Původní hodnota uváděla 61 % / 141 008 Kč na základě chybného mapování ID krajů (skript `geo_verify.py` opravil mapping; data z `data/regions.json`, period 2025-10-01 → 2026-04-21). Revidovaná čísla níže.
 
-| Kraj / Region | Útrata (Kč) | Podíl | Pobočka KC? | CTR |
-|---------------|------------|-------|-------------|-----|
-| Jihomoravský kraj | 49 856 | 13,2 % | ✅ Brno | 2,1 % |
-| Olomoucký kraj | 42 914 | 11,4 % | ❌ **Žádná** | 0,9 % |
-| Středočeský kraj | 40 882 | 10,8 % | ❌ **Žádná** | 1,1 % |
-| Kraj Vysočina | 36 134 | 9,6 % | ❌ **Žádná** | — |
-| Praha | 28 407 | 7,5 % | ✅ Praha | 2,8 % |
-| Moravskoslezský kraj | 26 543 | 7,0 % | ✅ Ostrava | — |
-| Ostatní | ~107 000 | ~28 % | mix | — |
+Klíčový nález z analýzy nastavení kampaní: **74 208 Kč** (31,9 % celkového Google Ads rozpočtu **232 632 Kč**) bylo utraceno v regionech, kde klicovecentrum.cz nemá žádnou kamennou prodejnu.
 
-Kampaně nejsou omezeny na spádové oblasti poboček. Ogranizace s 17 kamennými prodejnami platí za kliknutí z regionů, kam zákazník nemůže přijet.
+**Geografické rozložení výdajů (revidováno):**
+
+| Kraj / Region | Útrata (Kč) | Podíl | Pobočka KC? |
+|---------------|------------|-------|-------------|
+| Středočeský | 51 627 | 22,2 % | ❌ **Žádná** |
+| Ústecký | 42 914 | 18,4 % | ✅ Chomutov |
+| Jihomoravský | 40 882 | 17,6 % | ✅ Brno |
+| Plzeňský | 36 134 | 15,5 % | ✅ Plzeň (Gerská, Žatecká, Lochotín) |
+| Ostatní | ~61 075 | ~26,3 % | mix |
+
+**Spádové vs. mimo spádové (revize z `regions.json`):**
+
+| Kategorie | Útrata (Kč) | Podíl rozpočtu | Konverze | CPA |
+|-----------|------------|----------------|----------|-----|
+| **S pobočkou** | 158 424 | **68,1 %** | 1 563 | 101 Kč |
+| **Bez pobočky** | 74 208 | **31,9 %** | 867 | 86 Kč |
+| Celkem | 232 632 | 100 % | 2 431 | 96 Kč |
+
+Kampaně nejsou omezeny na spádové oblasti poboček. Společnost s 22 kamennými prodejnami platí za kliknutí z regionů, kam zákazník nemůže přijet (~74 200 Kč za 7 měsíců). Paradoxně mimo-spádové regiony mají **lepší CPA** (86 Kč vs 101 Kč) — naznačuje, že online-only kupující generují více konverzí na klik než lokální zákazníci, kteří preferují fyzickou návštěvu prodejny.
 
 ### 🟡 #7 — Connected TV: 2 662 Kč za 0 kliků
+
+**Vlastník:** 🎯 Agentura
 
 Performance Max automaticky rozšířil kampaně na Connected TV (SmartTV, Chromecast, atd.). Výsledek za sledované období:
 - Útrata: **2 662 Kč**
@@ -176,6 +216,8 @@ Zařízení nebylo vyloučeno, ačkoli pro e-shop s fyzickými produkty nemá Sm
 
 ### 🟡 #8 — Negative keywords: 3 059 termínů, téměř žádné aktivní
 
+**Vlastník:** 🎯 Agentura
+
 Z analýzy negativních klíčových slov:
 - Celkem 3 059 negative KW v účtu
 - Drtivá většina je přiřazena k **pozastaveným nebo odstraněným kampaním**
@@ -185,6 +227,8 @@ Z analýzy negativních klíčových slov:
 
 ### 🟡 #9 — Produktové Search kampaně chybí od roku 2018
 
+**Vlastník:** 🎯 Agentura
+
 Analýza historických kampaní ukazuje, že specializované search kampaně na produktové kategorie (cylindrické vložky, trezory, zámky) nejsou aktivní. Veškerý placený search provoz jde přes obecné kampaně nebo PMax.
 
 ---
@@ -192,6 +236,8 @@ Analýza historických kampaní ukazuje, že specializované search kampaně na 
 ## 4. SKLIK
 
 ### 🔴 #10 — Sklik celkově ztrátový, ROAS 0,92× (KRITICKÉ)
+
+**Vlastník:** 🎯 Agentura
 
 **Přes Sklik Fénix API stažen úplný přehled účtu za 6 měsíců (účet hbgroup.ppc@seznam.cz):**
 
@@ -205,6 +251,8 @@ Analýza historických kampaní ukazuje, že specializované search kampaně na 
 
 ### 🔴 #10a — 92,5 % zobrazení ztraceno kvůli rozpočtu
 
+**Vlastník:** 🎯 Agentura
+
 **Impression share: 7,4 %**  
 **Ztráta IS kvůli rozpočtu: 92,5 %**
 
@@ -213,6 +261,8 @@ Vyhledávací síť má kvalitu reklamy 9/10 (výborné), ale agentura nenastavi
 Při aktuálním ROAS 1,24× ve vyhledávací síti by navýšení rozpočtu znamenalo přímý zisk. Agentura nechává peníze na stole.
 
 ### 🔴 #10b — Obsahová síť je černá díra
+
+**Vlastník:** 🎯 Agentura
 
 | Metrika | Hodnota |
 |---------|---------|
@@ -225,6 +275,8 @@ Při aktuálním ROAS 1,24× ve vyhledávací síti by navýšení rozpočtu zna
 Obsahová síť spálila přes 12 tisíc Kč za 6 měsíců se zanedbatelnou návratností. Obsahová síť na B2B+B2C zámky/bezpečnost prakticky nefunguje — zákazníci s nákupním záměrem jsou na search. Doporučení: pozastavit obsahovou síť a rozpočet přesunout do vyhledávací.
 
 ### 🔴 #10c — Zboží.cz (Sklik Nákupy): 82 % rozpočtu bez konverze
+
+**Vlastník:** 🔀 Mixed (agentura + vývojář OCM)
 
 Přes Sklik Fénix API detail per produkt (2 071 položek):
 - Náklady: 31 616 Kč
@@ -248,6 +300,8 @@ Top 5 „ztrátových" produktů:
 ## 5. MERCHANT CENTER
 
 ### 🟡 #11 — 1 338 produktů s chybnou dostupností
+
+**Vlastník:** 🛠️ Vývojář (feed varianty)
 
 **Přehled katalogu (Merchant Center ID: 130672692):**
 
@@ -278,6 +332,8 @@ Top 5 „ztrátových" produktů:
 
 ### 🟡 #12 — Kritické pobočky s nízkým call rate
 
+**Vlastník:** 👤 Klient (GBP profily)
+
 Analýza 16 poboček (říjen 2025 – duben 2026) z exportu business.google.com:
 
 **Výkon dle zobrazení a hovorů:**
@@ -302,6 +358,8 @@ Analýza 16 poboček (říjen 2025 – duben 2026) z exportu business.google.com
 ## 7. SROVNÁVAČE ZBOŽÍ (Heuréka + Zboží.cz)
 
 ### 🔴 #13 — Heuréka prakticky nefunguje (KRITICKÉ)
+
+**Vlastník:** 🔀 Mixed (agentura + vývojář OCM)
 
 Analýza detailního OCM reportu z Heuréky za období 1. 10. 2025 – 20. 4. 2026:
 
@@ -338,6 +396,8 @@ Analýza detailního OCM reportu z Heuréky za období 1. 10. 2025 – 20. 4. 20
 ---
 
 ### 🔴 #17 — Zboží.cz: 31 655 Kč, 0 konverzí za 7 měsíců (KRITICKÉ)
+
+**Vlastník:** 🔀 Mixed (vývojář OCM + agentura)
 
 | Metrika | Hodnota |
 |---------|---------|
@@ -396,6 +456,8 @@ Opět kuchyňské a drobné spotřební zboží v eshopu zámky/bezpečnost.
 
 ### 🔴 #14 — Feed je strukturálně odpojený od reality e-shopu (KRITICKÉ)
 
+**Vlastník:** 🔀 Mixed (vývojář feed + agentura kurátorství)
+
 Analýza 4 feedů: zdrojový `klicovecentrum.cz/nakupy.xml` a 3 výstupní přes Mergado (Google Shopping, Heuréka, Zboží.cz). Všechny obsahují **2 175 produktů**.
 
 **Cross-reference s ERP prodejními daty (říjen 2025 – duben 2026):**
@@ -412,6 +474,8 @@ Analýza 4 feedů: zdrojový `klicovecentrum.cz/nakupy.xml` a 3 výstupní přes
 
 ### 🟡 #15 — Feed neobsahuje varianty produktů
 
+**Vlastník:** 🛠️ Vývojář (feed varianty)
+
 Feed exportuje pouze rodičovské produkty; availability je agregovaná za všechny varianty („alespoň 1 skladem → in stock"). Google Shopping očekává availability na úrovni SKU variant.
 
 **Důsledek:** 1 338 produktů v Merchant Center disapproved kvůli availability mismatch (nález #11). Problém se opraví až když se do feedu přidají varianty s `item_group_id` a per-variant availability.
@@ -427,6 +491,8 @@ Feed exportuje pouze rodičovské produkty; availability je agregovaná za všec
 ## 9. CROSS-REFERENCE GA4 vs ERP
 
 ### 🔴 #16 — Březen 2026: ERP potvrdil, že bot útok nafoukl revenue v GA4
+
+**Vlastník:** 🎯 Agentura
 
 Porovnání měsíčního obratu z GA4 (`purchase` event) a z ERP (interní účetnictví):
 
@@ -462,6 +528,8 @@ Průměrná marže e-shopu z ERP: **59,1 %** (velmi zdravá). Tato čísla ukazu
 
 ### 🔴 #18 — Duplicitní profil Plzeň Žatecká (KRITICKÉ)
 
+**Vlastník:** 👤 Klient (Firmy.cz)
+
 Ve Firmy.cz existují **dva aktivní profily** pro pobočku Plzeň, Žatecká:
 
 | ID profilu | Zobrazení | Prokliky | CTR |
@@ -475,6 +543,8 @@ Ve Firmy.cz existují **dva aktivní profily** pro pobočku Plzeň, Žatecká:
 - **Doporučení:** jeden smazat / sloučit, zachovat 598704 (vyšší engagement)
 
 ### 🟡 #19 — Tři pobočky s kriticky nízkým call rate
+
+**Vlastník:** 👤 Klient (GBP + Firmy.cz)
 
 Analýza 14 poboček za 7 měsíců:
 
@@ -491,6 +561,8 @@ Chomutov je 3. nejviditelnější pobočka, ale druhá nejnižší engagement. S
 
 ### ✅ #20 — Firmy.cz nebyly zasaženy bot útokem (POZITIVNÍ DŮKAZ PRO #2)
 
+**Vlastník:** ℹ️ Informativní
+
 | Měsíc | Zobrazení | Trend |
 |-------|-----------|-------|
 | Říjen 2025 | 11 322 | — |
@@ -505,6 +577,8 @@ Chomutov je 3. nejviditelnější pobočka, ale druhá nejnižší engagement. S
 
 ### 🟡 #21 — Celkový výstup Firmy.cz je silný, ale nesleduje se
 
+**Vlastník:** 👤 Klient (Firmy.cz UTM)
+
 - **1 845 prokliků na web** z Firmy.cz za 7 měsíců (26 % všech akcí)
 - **710 naplánovaných tras** (reálný záměr návštěvy)
 - **256 volání** (ale rozložené na 14 poboček = ~37 volání/měsíc)
@@ -516,6 +590,8 @@ Tento provoz z Firmy.cz (~263 webových návštěv/měsíc) pravděpodobně při
 ## 11. SKLIK — NÁVAZNOST NA AGENTURNÍ REPORTY
 
 ### 🔴 #22 — Agenturní měsíční reporty nezachycují vyhledávací síť (KRITICKÉ)
+
+**Vlastník:** 🎯 Agentura
 
 Přes Sklik Fénix API (účet hbgroup.ppc@seznam.cz) jsou dostupné agenturní měsíční reporty za únor a březen 2026. Existují 4 typy reportů, ale vrací data jen jeden:
 
@@ -536,6 +612,8 @@ Přes Sklik Fénix API (účet hbgroup.ppc@seznam.cz) jsou dostupné agenturní 
 
 ### 🟡 #23 — 78 % produktů ve feedu Zboží.cz je „možno vylepšit"
 
+**Vlastník:** 🔀 Mixed (vývojář feed + agentura)
+
 Z Sklik Fénix API (diagnostika feedu pro Zboží.cz nákupy):
 
 | Stav produktu | Počet | % |
@@ -550,6 +628,8 @@ Z Sklik Fénix API (diagnostika feedu pro Zboží.cz nákupy):
 **Pouze 21 % produktů je ve stavu OK.** Zbylých 78 % má kvalitativní problémy — to přímo koresponduje s naším nálezem #14 (80 % feedu = mrtvé produkty). 355 produktů nemá přiřazenou kategorii → nezobrazují se v relevantních výpisech na Zboží.cz.
 
 ### 🟡 #24 — Eshop nemá na Zboží.cz žádné recenze
+
+**Vlastník:** 👤 Klient (Zboží.cz recenze)
 
 ```
 "name": "Klicovecentrum.cz",
@@ -568,6 +648,8 @@ Pole `rating` je **null** — eshop nikdy nedostal recenzi na Zboží.cz za celo
 
 ### 🔴 #26 — Alza sold 112 350 Kč mimo ERP (KRITICKÉ pro obchodní přehled)
 
+**Vlastník:** 🛠️ Vývojář (Alza API → ERP)
+
 Analýza 7 měsíců objednávek z Alza Marketplace (říjen 2025 – duben 2026):
 
 | Metrika | Hodnota |
@@ -585,6 +667,8 @@ Analýza 7 měsíců objednávek z Alza Marketplace (říjen 2025 – duben 2026
 
 ### 🔴 #27 — 50 % Alza katalogu „Prodej skončil"
 
+**Vlastník:** 👤 Klient (Alza katalog)
+
 | Stav prodeje | Počet | % |
 |--------------|-------|---|
 | V prodeji | 33 | 17,5 % |
@@ -597,6 +681,8 @@ Analýza 7 měsíců objednávek z Alza Marketplace (říjen 2025 – duben 2026
 **95 produktů v kategorii BURG-WÄCHTER trezory, STAR visací zámky a mySafe** má status „Prodej skončil" ale produkty jsou v katalogu aktivní. Klasický problém chybějícího kurátorstva — když Alza produkt automaticky stáhne (nedostupný, vyprodáno, změna ceny u konkurence), agentura ani interní tým ho nereaktivuje.
 
 ### 🟡 #28 — Struktura prodejů na Alze je diametrálně jiná než e-shop
+
+**Vlastník:** 👤 Klient (Alza strategie)
 
 Top 5 Alza bestsellerů (7 měsíců):
 
@@ -612,9 +698,13 @@ Top 5 Alza bestsellerů (7 měsíců):
 
 ### ✅ #29 — Ceny na Alze jsou správně nastavené
 
+**Vlastník:** ℹ️ Informativní
+
 Jen 1 produkt (M.A.T. Group schránka Radim M) má flag „Dražší než ostatní" z 189. Cenový monitoring na Alze je dobře vyřešený.
 
 ### 🟡 #30 — Agentura nepracuje s Alza kanálem
+
+**Vlastník:** 👤 Klient (Alza správa)
 
 Alza má vlastní reklamní platformu (Alza Ads — kampaně v Alza výpisech a newsletterech), interní feed pro produkty „Prodává Alza" atd. Z auditu nevyplývá, že by agentura:
 - Kontrolovala, zda 95 produktů „Prodej skončil" jde reaktivovat
@@ -739,12 +829,12 @@ Většina nálezů v tomto auditu hodnotí PPC kampaně přes **ROAS** (návratn
 
 | # | Nález | Závažnost | Oblast | Finanční dopad |
 |---|-------|-----------|--------|----------------|
-| 1 | Konverze nafouklé 578× | 🔴 Kritické | GA4 / Google Ads / Sklik | Veškerý PPC rozpočet |
+| 1 | Konverze nafouklé 265× | 🔴 Kritické | GA4 / Google Ads / Sklik | Veškerý PPC rozpočet |
 | 2 | Bot útok 1,5M sessions, neřešen | 🔴 Kritické | GA4 | Data celého března |
 | 3 | Direct 90 % — atribuce nepoužitelná | 🔴 Kritické | GA4 | Nelze měřit žádný kanál |
 | 4 | CTR 0,4–0,6 % na top stránkách | 🟡 Závažné | Search Console | ~6 100 kliků/měs. ztráta |
 | 5 | Smart Bidding na falešných datech | 🔴 Kritické | Google Ads | Celý Google Ads rozpočet |
-| 6 | 61 % rozpočtu mimo spádové oblasti | 🔴 Kritické | Google Ads | ~141 000 Kč |
+| 6 | 32 % rozpočtu mimo spádové oblasti | 🔴 Kritické | Google Ads | ~74 200 Kč |
 | 7 | Connected TV: 2 662 Kč, 0 kliků | 🟡 Závažné | Google Ads | 2 662 Kč přímá ztráta |
 | 8 | PMax bez efektivních negative KW | 🟡 Závažné | Google Ads | Neměřitelný únik |
 | 9 | Žádné produktové search kampaně | 🟡 Závažné | Google Ads | Ztráta intent provozu |
@@ -866,7 +956,7 @@ Tento rámec je **prerekvizita pro všechny následující kroky.** Dokud se kam
 
 | Položka | Hodnota |
 |---------|---------|
-| Google Ads: útrata mimo spádové oblasti | ~141 000 Kč |
+| Google Ads: útrata mimo spádové oblasti | ~74 200 Kč (revidováno z původních ~141 000 Kč po opravě geo mappingu) |
 | Google Ads: Connected TV bez kliknutí | 2 662 Kč |
 | Heuréka: náklady na produkty bez konverze | 4 136 Kč |
 | **Sklik: celkový 6měs. ROAS** | **0,92× (ztrátové)** |
@@ -927,6 +1017,8 @@ Doplňková analýza po prvním zveřejnění zprávy: napojen Bing Webmaster To
 
 ### 🔴 #42 — Payment / thank-you stránka vrací HTTP 500 (KRITICKÉ)
 
+**Vlastník:** 🛠️ Vývojář (payment 500 fix)
+
 Bing Webmaster Tools `GetCrawlIssues` endpoint vrátil **2 242 URLs s problémy**, mezi nimi:
 
 - `https://klicovecentrum.cz/page/default/dekujeme-za-vasi-objednavku` → **HTTP 500**
@@ -940,6 +1032,8 @@ Bing crawl history ukazuje **konstantních 45 HTTP 5xx errorů každý den** od 
 
 ### 🔴 #43 — old.klicovecentrum.cz zombie subdomain (KRITICKÉ)
 
+**Vlastník:** ⚙️ DevOps (DNS / redirect)
+
 16+ URLs na subdoméně `old.klicovecentrum.cz` vrací HTTP 500. Subdoména existuje, Bingbot ji aktivně crawluje, ale aplikace je rozbitá. Sample 500 URLs:
 
 - `/index.php/cs/component/contact/58-ostrava.html`
@@ -950,11 +1044,15 @@ Bing crawl history ukazuje **konstantních 45 HTTP 5xx errorů každý den** od 
 
 ### 🔴 #44 — SECURITY: PHPMailer 5.2.1 directory exposed (KRITICKÉ — bezpečnostní)
 
+**Vlastník:** ⚙️ DevOps (file delete + audit)
+
 18 URLs v `/phpmailer_5.2.1/` na produkčním webu. PHPMailer < 5.2.18 má **CVE-2016-10033 (Remote Code Execution)**. Bing tyto URLs aktivně indexuje.
 
 **Akce klienta:** Okamžitě smazat z webroot, prověřit jestli adresář nebyl zneužit (logy POST requestů na exploit endpointy). Penetrační audit.
 
 ### 🔴 #45 — URL exploze + 3 vrstvy legacy debt (KRITICKÉ)
+
+**Vlastník:** 🛠️ Vývojář (canonical / 301 redirect cleanup)
 
 Bing index obsahuje **2 318 650 URLs** pro eshop s ~2 000 produkty. Robots.txt blokuje **~150 000 requests/den** (26 064 378 za 174 dnů). Tři vrstvy legacy:
 
@@ -970,6 +1068,8 @@ Bing index obsahuje **2 318 650 URLs** pro eshop s ~2 000 produkty. Robots.txt b
 
 ### 🟡 #46 — Druhá vlna útoku duben 2026 + mini-vlna prosinec 2025
 
+**Vlastník:** ℹ️ Informativní
+
 Z-score analýza Bing crawl errors (174 dnů) ukázala další 2 vlny mimo březen 2026:
 
 | Vlna | Datum | Signature | Z-score |
@@ -981,6 +1081,8 @@ Z-score analýza Bing crawl errors (174 dnů) ukázala další 2 vlny mimo břez
 Aktualizovat finding #2 — útok není izolovaný incident března 2026, ale kontinuální problém se 3 hlavními vlnami od prosince 2025 do dubna 2026.
 
 ### 🟡 #47 — Q4 2025 chronologie — pomalý nárůst Direct share
+
+**Vlastník:** ℹ️ Informativní
 
 GA4 měsíční Direct share ukázal **postupný nárůst před hlavním útokem**:
 
@@ -994,6 +1096,8 @@ GA4 měsíční Direct share ukázal **postupný nárůst před hlavním útokem
 Útok **fáze přípravy** od listopadu 2025, **plný impact** v březnu 2026. Bot kampaně začaly subtilně.
 
 ### 🔴 #48 — Payment outage 24 období, 45 dnů audit period, ~261 k Kč ztráta (KRITICKÉ)
+
+**Vlastník:** 🛠️ Vývojář (souvisí s #42)
 
 Plný audit period 1. 10. 2025 → 30. 4. 2026 (212 dnů) — GA4 funnel `add_to_cart` → `checkout` → `transactions`:
 
@@ -1032,6 +1136,8 @@ Klient potvrdil "od 26. 11. nefungoval web" — ve skutečnosti byl front-end OK
 **Akce klienta (priorita #1):** Opravit #42 (payment 500). Přímý dopad ~37 000 Kč/měsíc zachráněného revenue + zlepšení GA4 trackingu.
 
 ### 🟡 #49 — Bing crawl errors korelují s payment outage podle období
+
+**Vlastník:** ℹ️ Informativní
 
 Cross-validation 39 broken payment dnů v Bing overlap windowu (4. 11. 2025 → 30. 4. 2026):
 
