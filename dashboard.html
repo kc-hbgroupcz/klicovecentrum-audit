@@ -1379,6 +1379,21 @@
     <div class="chart-wrap" style="height:380px;margin-top:12px"><canvas id="chart-payment-bing-correlation"></canvas></div>
   </div>
 
+  <div class="chart-card" id="erp-vydejky-card">
+    <h3>📦 NÁLEZ #50 — ERP Výdejky 8M (MO + VO) → nezávislá validace timeline propadů</h3>
+    <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
+      Helios IQ Výdejky CSV (10/2025-05/2026, 8 měsíců, 2 110 výdejek) je <strong>3. nezávislý zdroj pravdy</strong> vedle GA4 + Bing. Per-order data potvrzují timeline payment outage (#42, #48) i bot útoku (#2): listopad 2025 propad −50 %, březen 2026 nejnižší obj.
+    </p>
+    <div class="metrics-grid" id="erp-vydejky-summary"></div>
+    <h4 style="margin-top:24px;color:#94a3b8;font-size:13px;text-transform:uppercase;letter-spacing:.05em">📈 MO + VO měsíční obrat (8M)</h4>
+    <div class="chart-wrap" style="height:340px;margin-top:12px"><canvas id="chart-erp-monthly"></canvas></div>
+    <h4 style="margin-top:24px;color:#94a3b8;font-size:13px;text-transform:uppercase;letter-spacing:.05em">📊 MO daily orders × Bing crawl errors korelace</h4>
+    <p style="color:#94a3b8;font-size:11px;margin:6px 0 10px">5 dnů s 2× errors AND <50 % MO orders přesně padá do payment outage clusters #2 (25.-28.11.) + bot útoku #46 (24.-25.3.).</p>
+    <div class="chart-wrap" style="height:340px;margin-top:12px"><canvas id="chart-erp-mo-vs-bing"></canvas></div>
+    <h4 style="margin-top:24px;color:#94a3b8;font-size:13px;text-transform:uppercase;letter-spacing:.05em">🏆 TOP 10 VO B2B partnerů (8M)</h4>
+    <div id="erp-vo-top-table"></div>
+  </div>
+
   <div class="chart-card" id="forecast-card">
     <h3>📈 Sezónnost + 12M Forecast (2026 prediction)</h3>
     <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
@@ -1729,7 +1744,7 @@ const ownerMap = {
   26:'dev', 27:'client', 28:'mixed', 29:'client', 30:'client',
   31:'mixed', 32:'devops', 33:'devops', 34:'dev', 35:'devops',
   36:'mixed', 37:'mixed', 38:'agency', 39:'client', 40:'mixed',
-  41:'agency', 42:'agency',
+  41:'agency', 42:'agency', 50:'client',  // #50 = monthly Helios manual export, klient odpovědnost
   // SEO Audit 6.5.2026 (IDs 51-72)
   51:'client', 52:'mixed', 53:'dev', 54:'dev', 55:'dev',          // Sprint 1 P0
   56:'dev', 57:'dev', 58:'dev', 59:'dev', 60:'devops', 61:'devops',
@@ -2465,6 +2480,26 @@ const findings = [
     ],
     expected: 'Po napojení GBP store visits: 89 k Kč Local Pmax získá measurable ROAS (industry benchmark 8-15× store visit ROAS = 800-1300 návštěv pobočky/audit period). Po Firmy.cz import do Sklik brand: offline brand discovery measurable (typicky +20-40% incremental conv).',
     timeline: [40, 50, 10]
+  },
+
+  // === ERP PER-ORDER VALIDATION (7. 5. 2026 — VýdejkyMO + VýdejkyVO 8M) ===
+  {
+    id: 50, cat: 'analytics', prio: 'P0',
+    title: '🎯 ERP per-order data potvrzují timeline propadů: −50 % v listopadu 2025 + −41 % obj v březnu 2026',
+    metric: 'MO výdejky 8M (1 143): říjen <strong>285 832</strong> → listopad <strong>143 464 Kč (−50 %)</strong> → březen 2026 <strong>88 obj / 130 138 Kč (NEJNIŽŠÍ)</strong>. VO výdejky 8M (967, 4,35 M Kč, marže 44 %).',
+    impact: 'Nezávislé potvrzení nálezů #2, #42, #48',
+    impactNote: 'ERP je 3. zdroj pravdy (vedle GA4 + Bing)',
+    impactPositive: true,
+    problem: 'Helios IQ Výdejky CSV (10/2025-05/2026, 8M) nezávisle potvrzují timeline payment outage (#42, #48) a bot útoku (#2). MO retail (e-shop + 17 poboček): říjen 2025 = 285 832 Kč baseline, listopad propad −50 %, prosinec-únor stabilizace 156-180k, březen 2026 NEJNIŽŠÍ (jen 88 obj, 130 138 Kč) — přesně zpadá s payment outage clusters (21.-25.11., 29.11.-2.12.) a bot útok 23.-25. 3. (#46). VO B2B segment (96 unique partnerů): top 1 Točík Pelhřimov 415 697 Kč / 33 obj — 4,35 M Kč obratu / 1,92 M Kč zisk / marže 44 %. VO/MO ratio 3,5× v obratu, 2,6× v zisku. CROSS-VALIDATION: 5 dnů s 2× Bing crawl errors AND <50 % MO orders přesně padá do payment outage cluster #2 (25.-28.11.) a #46 (24.-25.3.).',
+    actions: [
+      'Pravidelný měsíční pull VýdejkyMO + VýdejkyVO z Helios IQ (manual export 1×/měsíc)',
+      'Cross-check ERP daily orders vs GA4 transactions vs Bing crawl errors → detect future outages',
+      'Top 96 VO partnerů → CRM segmentace (Točík, ALTARA, Slovák, TREZORSERVIS, Walter)',
+      'B2B audit follow-up: VO 4,35 M / 8M = 3,5× větší než MO → samostatný marketing audit hbgroup.cz',
+      'MO retail trend: říjen baseline 285k → listopad-březen stabilizace 130-180k → potřeba opravit payment + bot ochranu pro recovery na říjnovou úroveň'
+    ],
+    expected: 'Po opravě #42 (payment) recovery MO retail z ~150k/měs → 250-285k/měs (oktober baseline) = +100-135k Kč/měs ≈ 1,2-1,6 M Kč/rok. Plus B2B audit může odkrýt potenciál 4,35 M VO segmentu (dosud mimo audit scope).',
+    timeline: [30, 40, 30]
   },
 
   // ═══════════════════════════════════════════════════════════════
@@ -4155,7 +4190,7 @@ let yearlyData = null;
 async function loadYearly() {
   if (!yearlyData) {
     try {
-      const [yt, ym, fc, yh, ch, bw, po, pbc] = await Promise.all([
+      const [yt, ym, fc, yh, ch, bw, po, pbc, erpV, erpC] = await Promise.all([
         fetch('data/yearly_trend.json?v='+Date.now()).then(r=>r.json()),
         fetch('data/yearly_master.json?v='+Date.now()).then(r=>r.json()),
         fetch('data/seasonality_forecast.json?v='+Date.now()).then(r=>r.json()),
@@ -4164,8 +4199,10 @@ async function loadYearly() {
         fetch('data/bing_webmaster.json?v='+Date.now()).then(r=>r.json()).catch(()=>null),
         fetch('data/payment_outage_full_audit.json?v='+Date.now()).then(r=>r.json()).catch(()=>null),
         fetch('data/payment_bing_correlation.json?v='+Date.now()).then(r=>r.json()).catch(()=>null),
+        fetch('data/erp_vydejky_8m.json?v='+Date.now()).then(r=>r.json()).catch(()=>null),
+        fetch('data/erp_mo_vs_bing_correlation.json?v='+Date.now()).then(r=>r.json()).catch(()=>null),
       ]);
-      yearlyData = {trend: yt, master: ym, forecast: fc, history: yh, crawl: ch, bing: bw, payment_outage: po, payment_bing_corr: pbc};
+      yearlyData = {trend: yt, master: ym, forecast: fc, history: yh, crawl: ch, bing: bw, payment_outage: po, payment_bing_corr: pbc, erp_vydejky: erpV, erp_corr: erpC};
     } catch(e){ console.error('yearly', e); return; }
   }
   renderYearly();
@@ -4174,6 +4211,95 @@ async function loadYearly() {
   renderCrawlHistory();
   renderBingStatus();
   renderPaymentOutage();
+  renderErpVydejky();
+}
+
+function renderErpVydejky() {
+  const fmt = n => n==null?'—':Number(n).toLocaleString('cs-CZ');
+  const e = yearlyData.erp_vydejky;
+  const c = yearlyData.erp_corr;
+  if (!e) {
+    document.getElementById('erp-vydejky-summary').innerHTML = '<p style="color:#94a3b8">ERP Výdejky data nedostupná.</p>';
+    return;
+  }
+  const mo = e.MO.summary, vo = e.VO.summary;
+  document.getElementById('erp-vydejky-summary').innerHTML = `
+    <div class="metric-box"><div class="metric-label">MO výdejek (8M)</div><div class="metric-value">${fmt(mo.vydejek_count)}</div><div style="color:#64748b;font-size:11px">e-shop + 17 poboček</div></div>
+    <div class="metric-box" style="background:rgba(16,185,129,.08);border-color:#10b981"><div class="metric-label">MO obrat (bez DPH)</div><div class="metric-value" style="color:#6ee7b7">${fmt(mo.revenue_bd_kc)} Kč</div><div style="color:#64748b;font-size:11px">marže ${mo.margin_pct} % · zisk ${fmt(mo.profit_kc)}</div></div>
+    <div class="metric-box"><div class="metric-label">MO AOV</div><div class="metric-value">${fmt(mo.aov_bd_kc)} Kč</div><div style="color:#64748b;font-size:11px">${fmt(e.MO.unique_customers)} unique zákazníků</div></div>
+    <div class="metric-box"><div class="metric-label">VO výdejek (8M)</div><div class="metric-value">${fmt(vo.vydejek_count)}</div><div style="color:#64748b;font-size:11px">B2B partneři</div></div>
+    <div class="metric-box" style="background:rgba(167,139,250,.08);border-color:#a78bfa"><div class="metric-label">VO obrat (bez DPH)</div><div class="metric-value" style="color:#c4b5fd">${fmt(vo.revenue_bd_kc)} Kč</div><div style="color:#64748b;font-size:11px">marže ${vo.margin_pct} % · zisk ${fmt(vo.profit_kc)}</div></div>
+    <div class="metric-box"><div class="metric-label">VO AOV</div><div class="metric-value">${fmt(vo.aov_bd_kc)} Kč</div><div style="color:#64748b;font-size:11px">${e.VO.unique_customers} unique B2B (${(vo.aov_bd_kc/mo.aov_bd_kc).toFixed(1)}× MO)</div></div>
+    <div class="metric-box" style="background:rgba(251,146,60,.08);border-color:#fb923c"><div class="metric-label">VO/MO ratio</div><div class="metric-value" style="color:#fed7aa">${e.comparison.vo_vs_mo_revenue_ratio}×</div><div style="color:#64748b;font-size:11px">B2B obrat dominuje</div></div>
+    <div class="metric-box"><div class="metric-label">7M cross-check</div><div class="metric-value" style="font-size:18px">${fmt(e.comparison.audit_period_7m_mo_revenue)}</div><div style="color:#64748b;font-size:11px">vs ERP CSV 1 170 741 (+5 % = vč. poboček)</div></div>
+  `;
+
+  // Monthly chart MO + VO
+  if (window.erpMonthlyChart) window.erpMonthlyChart.destroy();
+  const moMonths = e.MO.by_month;
+  const voMonths = e.VO.by_month;
+  const allMonths = [...new Set([...moMonths.map(m=>m.month), ...voMonths.map(m=>m.month)])].sort();
+  const ctxM = document.getElementById('chart-erp-monthly').getContext('2d');
+  window.erpMonthlyChart = new Chart(ctxM, {
+    type:'bar',
+    data:{labels:allMonths,
+          datasets:[
+            {label:'MO obrat (Kč)', data:allMonths.map(m=>moMonths.find(x=>x.month===m)?.revenue_bd_kc||0), backgroundColor:'#10b981', yAxisID:'y'},
+            {label:'VO obrat (Kč)', data:allMonths.map(m=>voMonths.find(x=>x.month===m)?.revenue_bd_kc||0), backgroundColor:'#a78bfa', yAxisID:'y'},
+            {label:'MO výdejek', data:allMonths.map(m=>moMonths.find(x=>x.month===m)?.count||0), type:'line', borderColor:'#fbbf24', backgroundColor:'#fbbf24', yAxisID:'y2', tension:0.2},
+          ]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{color:'#e2e8f0'}}, tooltip:{mode:'index',intersect:false}},
+      scales:{x:{ticks:{color:'#cbd5e1'}, grid:{color:'#334155'}},
+              y:{position:'left',ticks:{color:'#cbd5e1',callback:v=>(v/1000).toFixed(0)+'k'}, title:{display:true,text:'Obrat Kč',color:'#cbd5e1'}},
+              y2:{position:'right',ticks:{color:'#fbbf24'}, grid:{drawOnChartArea:false}, title:{display:true,text:'MO výdejek/měs',color:'#fbbf24'}}}}
+  });
+
+  // Daily MO orders × Bing errors correlation
+  if (c && c.merged_daily) {
+    if (window.erpMoVsBingChart) window.erpMoVsBingChart.destroy();
+    const ctxC = document.getElementById('chart-erp-mo-vs-bing').getContext('2d');
+    const badSet = new Set((c.bad_days_sample||[]).map(d=>d.date));
+    window.erpMoVsBingChart = new Chart(ctxC, {
+      type:'line',
+      data:{labels:c.merged_daily.map(d=>d.date),
+            datasets:[
+              {label:'MO orders/den', data:c.merged_daily.map(d=>d.mo_orders), borderColor:'#10b981', backgroundColor:'rgba(16,185,129,.1)', tension:0.2, pointRadius:0, yAxisID:'y'},
+              {label:'Bing crawl errors', data:c.merged_daily.map(d=>d.bing_errors), borderColor:'#ef4444', backgroundColor:'rgba(239,68,68,.08)', tension:0.2, pointRadius:0, yAxisID:'y2'},
+              {label:'🚨 Bad day (high errors + low orders)', type:'scatter', data:c.merged_daily.map(d=>badSet.has(d.date)?{x:d.date,y:d.mo_orders}:null).filter(x=>x), backgroundColor:'#dc2626', borderColor:'#991b1b', pointRadius:7, yAxisID:'y'},
+            ]},
+      options:{responsive:true,maintainAspectRatio:false,
+        plugins:{legend:{labels:{color:'#e2e8f0'}}, tooltip:{mode:'index',intersect:false}},
+        scales:{x:{ticks:{color:'#94a3b8',maxRotation:45,maxTicksLimit:25}},
+                y:{position:'left',ticks:{color:'#10b981'}, title:{display:true,text:'MO orders/den',color:'#10b981'}},
+                y2:{position:'right',ticks:{color:'#ef4444'}, grid:{drawOnChartArea:false}, title:{display:true,text:'Bing errors',color:'#ef4444'}}}}
+    });
+  }
+
+  // Top VO partners table
+  const voTop = e.VO.top_20_customers.slice(0, 10);
+  document.getElementById('erp-vo-top-table').innerHTML = `
+    <div style="overflow-x:auto">
+      <table class="data-table" style="font-size:13px">
+        <thead>
+          <tr><th>#</th><th>Zákazník</th><th style="text-align:right">Objednávek</th><th style="text-align:right">Obrat (Kč)</th><th style="text-align:right">Zisk</th><th style="text-align:right">AOV (Kč)</th><th style="text-align:right">Marže %</th><th style="text-align:right">% z VO</th></tr>
+        </thead>
+        <tbody>
+          ${voTop.map((c,i)=>`<tr>
+            <td>${i+1}</td>
+            <td><strong>${c.name}</strong></td>
+            <td style="text-align:right">${fmt(c.orders)}</td>
+            <td style="text-align:right;color:#a78bfa">${fmt(c.revenue_bd_kc)}</td>
+            <td style="text-align:right;color:#6ee7b7">${fmt(c.profit_kc)}</td>
+            <td style="text-align:right">${fmt(c.aov_kc)}</td>
+            <td style="text-align:right">${c.margin_pct}%</td>
+            <td style="text-align:right">${(100*c.revenue_bd_kc/vo.revenue_bd_kc).toFixed(1)}%</td>
+          </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>
+    <p style="color:#94a3b8;font-size:11px;margin-top:8px">Top 10 = ${(100*voTop.reduce((s,c)=>s+c.revenue_bd_kc,0)/vo.revenue_bd_kc).toFixed(1)} % z celkového VO obratu (${e.VO.unique_customers} unique B2B partnerů celkem za 8M)</p>
+  `;
 }
 
 function renderPaymentOutage() {

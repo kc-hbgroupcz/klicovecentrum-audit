@@ -1,0 +1,544 @@
+{
+  "generated": "2026-05-07T16:00:29",
+  "source": "Helios IQ — Výdejky MO + VO 10/2025-05/2026 (8M)",
+  "period": {
+    "start": "2025-10-01",
+    "end": "2026-05-07"
+  },
+  "MO": {
+    "summary": {
+      "vydejek_count": 1143,
+      "revenue_bd_kc": 1261245,
+      "revenue_uhr_kc": 1526110,
+      "profit_kc": 747189,
+      "margin_pct": 59.2,
+      "items_total": 2864,
+      "aov_bd_kc": 1103,
+      "discounts_total_kc": 20
+    },
+    "by_month": [
+      {
+        "month": "2025-10",
+        "count": 150,
+        "revenue_bd_kc": 285832,
+        "revenue_uhr_kc": 345856,
+        "profit_kc": 154858,
+        "items": 389,
+        "margin_pct": 54.2,
+        "aov_bd_kc": 1906
+      },
+      {
+        "month": "2025-11",
+        "count": 127,
+        "revenue_bd_kc": 143464,
+        "revenue_uhr_kc": 173592,
+        "profit_kc": 84291,
+        "items": 330,
+        "margin_pct": 58.8,
+        "aov_bd_kc": 1130
+      },
+      {
+        "month": "2025-12",
+        "count": 212,
+        "revenue_bd_kc": 156718,
+        "revenue_uhr_kc": 189629,
+        "profit_kc": 101228,
+        "items": 520,
+        "margin_pct": 64.6,
+        "aov_bd_kc": 739
+      },
+      {
+        "month": "2026-01",
+        "count": 218,
+        "revenue_bd_kc": 179847,
+        "revenue_uhr_kc": 217615,
+        "profit_kc": 107628,
+        "items": 558,
+        "margin_pct": 59.8,
+        "aov_bd_kc": 825
+      },
+      {
+        "month": "2026-02",
+        "count": 147,
+        "revenue_bd_kc": 175098,
+        "revenue_uhr_kc": 211869,
+        "profit_kc": 108656,
+        "items": 363,
+        "margin_pct": 62.1,
+        "aov_bd_kc": 1191
+      },
+      {
+        "month": "2026-03",
+        "count": 88,
+        "revenue_bd_kc": 130138,
+        "revenue_uhr_kc": 157469,
+        "profit_kc": 71100,
+        "items": 211,
+        "margin_pct": 54.6,
+        "aov_bd_kc": 1479
+      },
+      {
+        "month": "2026-04",
+        "count": 157,
+        "revenue_bd_kc": 155738,
+        "revenue_uhr_kc": 188444,
+        "profit_kc": 98239,
+        "items": 392,
+        "margin_pct": 63.1,
+        "aov_bd_kc": 992
+      },
+      {
+        "month": "2026-05",
+        "count": 44,
+        "revenue_bd_kc": 34410,
+        "revenue_uhr_kc": 41636,
+        "profit_kc": 21190,
+        "items": 101,
+        "margin_pct": 61.6,
+        "aov_bd_kc": 782
+      }
+    ],
+    "top_20_customers": [
+      {
+        "name": "[Maloobchodní prodej]",
+        "orders": 144,
+        "revenue_bd_kc": 77299,
+        "profit_kc": 43589,
+        "aov_kc": 537,
+        "margin_pct": 56.4
+      },
+      {
+        "name": "Autoservis Braný s.r.o.",
+        "orders": 1,
+        "revenue_bd_kc": 32099,
+        "profit_kc": 20932,
+        "aov_kc": 32099,
+        "margin_pct": 65.2
+      },
+      {
+        "name": "Kovovýroba Žídek",
+        "orders": 1,
+        "revenue_bd_kc": 29707,
+        "profit_kc": 15106,
+        "aov_kc": 29707,
+        "margin_pct": 50.9
+      },
+      {
+        "name": "Renapa s.r.o.",
+        "orders": 6,
+        "revenue_bd_kc": 27356,
+        "profit_kc": 16173,
+        "aov_kc": 4559,
+        "margin_pct": 59.1
+      },
+      {
+        "name": "SEA Enterprises a.s.",
+        "orders": 1,
+        "revenue_bd_kc": 23323,
+        "profit_kc": 12018,
+        "aov_kc": 23323,
+        "margin_pct": 51.5
+      },
+      {
+        "name": "AXGAME s.r.o.",
+        "orders": 3,
+        "revenue_bd_kc": 22840,
+        "profit_kc": 13100,
+        "aov_kc": 7613,
+        "margin_pct": 57.4
+      },
+      {
+        "name": "DKN-Hill s.r.o.",
+        "orders": 11,
+        "revenue_bd_kc": 18578,
+        "profit_kc": 2533,
+        "aov_kc": 1689,
+        "margin_pct": 13.6
+      },
+      {
+        "name": "SKYLIGHTEC s.r.o.",
+        "orders": 1,
+        "revenue_bd_kc": 18260,
+        "profit_kc": 11166,
+        "aov_kc": 18260,
+        "margin_pct": 61.2
+      },
+      {
+        "name": "CBRE Global Workplace Solutions s.r.o.",
+        "orders": 2,
+        "revenue_bd_kc": 15864,
+        "profit_kc": 9669,
+        "aov_kc": 7932,
+        "margin_pct": 60.9
+      },
+      {
+        "name": "Společenství vlastníků Jeseniova 519/19, 518/23, Praha 3",
+        "orders": 1,
+        "revenue_bd_kc": 12805,
+        "profit_kc": 8197,
+        "aov_kc": 12805,
+        "margin_pct": 64.0
+      },
+      {
+        "name": "Wood Time s.r.o.",
+        "orders": 2,
+        "revenue_bd_kc": 12066,
+        "profit_kc": 5514,
+        "aov_kc": 6033,
+        "margin_pct": 45.7
+      },
+      {
+        "name": "Lukáš Stropnický",
+        "orders": 2,
+        "revenue_bd_kc": 10755,
+        "profit_kc": 6294,
+        "aov_kc": 5377,
+        "margin_pct": 58.5
+      },
+      {
+        "name": "Garde.cz s.r.o.",
+        "orders": 2,
+        "revenue_bd_kc": 10468,
+        "profit_kc": 8069,
+        "aov_kc": 5234,
+        "margin_pct": 77.1
+      },
+      {
+        "name": "TEGAMO Services, s.r.o.",
+        "orders": 1,
+        "revenue_bd_kc": 9796,
+        "profit_kc": 5445,
+        "aov_kc": 9796,
+        "margin_pct": 55.6
+      },
+      {
+        "name": "Jan Chudoba",
+        "orders": 1,
+        "revenue_bd_kc": 9608,
+        "profit_kc": 6661,
+        "aov_kc": 9608,
+        "margin_pct": 69.3
+      },
+      {
+        "name": "Montáž a servis PVC výplní",
+        "orders": 3,
+        "revenue_bd_kc": 9503,
+        "profit_kc": 6507,
+        "aov_kc": 3168,
+        "margin_pct": 68.5
+      },
+      {
+        "name": "Milan Záhorský",
+        "orders": 5,
+        "revenue_bd_kc": 9146,
+        "profit_kc": 5269,
+        "aov_kc": 1829,
+        "margin_pct": 57.6
+      },
+      {
+        "name": "REAL STAV ŠMÍD s.r.o.",
+        "orders": 1,
+        "revenue_bd_kc": 9132,
+        "profit_kc": 5433,
+        "aov_kc": 9132,
+        "margin_pct": 59.5
+      },
+      {
+        "name": "J-max, s.r.o.",
+        "orders": 1,
+        "revenue_bd_kc": 9106,
+        "profit_kc": 4845,
+        "aov_kc": 9106,
+        "margin_pct": 53.2
+      },
+      {
+        "name": "Petr Bechyně",
+        "orders": 1,
+        "revenue_bd_kc": 8746,
+        "profit_kc": 6053,
+        "aov_kc": 8746,
+        "margin_pct": 69.2
+      }
+    ],
+    "unique_customers": 937,
+    "payment_types": {
+      "E": 485,
+      "FD": 359,
+      "FK": 174,
+      "H": 73,
+      "F": 31,
+      "FH": 21
+    }
+  },
+  "VO": {
+    "summary": {
+      "vydejek_count": 967,
+      "revenue_bd_kc": 4351779,
+      "revenue_uhr_kc": 5265653,
+      "profit_kc": 1917311,
+      "margin_pct": 44.1,
+      "items_total": 12508,
+      "aov_bd_kc": 4500,
+      "discounts_total_kc": 0
+    },
+    "by_month": [
+      {
+        "month": "2025-10",
+        "count": 165,
+        "revenue_bd_kc": 691687,
+        "revenue_uhr_kc": 836940,
+        "profit_kc": 307285,
+        "items": 1917,
+        "margin_pct": 44.4,
+        "aov_bd_kc": 4192
+      },
+      {
+        "month": "2025-11",
+        "count": 136,
+        "revenue_bd_kc": 569475,
+        "revenue_uhr_kc": 689064,
+        "profit_kc": 251878,
+        "items": 1649,
+        "margin_pct": 44.2,
+        "aov_bd_kc": 4187
+      },
+      {
+        "month": "2025-12",
+        "count": 99,
+        "revenue_bd_kc": 440767,
+        "revenue_uhr_kc": 533330,
+        "profit_kc": 195061,
+        "items": 1304,
+        "margin_pct": 44.3,
+        "aov_bd_kc": 4452
+      },
+      {
+        "month": "2026-01",
+        "count": 136,
+        "revenue_bd_kc": 716025,
+        "revenue_uhr_kc": 866389,
+        "profit_kc": 316815,
+        "items": 1889,
+        "margin_pct": 44.2,
+        "aov_bd_kc": 5265
+      },
+      {
+        "month": "2026-02",
+        "count": 151,
+        "revenue_bd_kc": 715947,
+        "revenue_uhr_kc": 866292,
+        "profit_kc": 310592,
+        "items": 2058,
+        "margin_pct": 43.4,
+        "aov_bd_kc": 4741
+      },
+      {
+        "month": "2026-03",
+        "count": 121,
+        "revenue_bd_kc": 500944,
+        "revenue_uhr_kc": 606143,
+        "profit_kc": 227644,
+        "items": 1563,
+        "margin_pct": 45.4,
+        "aov_bd_kc": 4140
+      },
+      {
+        "month": "2026-04",
+        "count": 134,
+        "revenue_bd_kc": 603109,
+        "revenue_uhr_kc": 729765,
+        "profit_kc": 258837,
+        "items": 1808,
+        "margin_pct": 42.9,
+        "aov_bd_kc": 4501
+      },
+      {
+        "month": "2026-05",
+        "count": 25,
+        "revenue_bd_kc": 113825,
+        "revenue_uhr_kc": 137730,
+        "profit_kc": 49201,
+        "items": 320,
+        "margin_pct": 43.2,
+        "aov_bd_kc": 4553
+      }
+    ],
+    "top_20_customers": [
+      {
+        "name": "Točík Pelhřimov s.r.o.",
+        "orders": 33,
+        "revenue_bd_kc": 415697,
+        "profit_kc": 178459,
+        "aov_kc": 12597,
+        "margin_pct": 42.9
+      },
+      {
+        "name": "ALTARA DC s.r.o.",
+        "orders": 54,
+        "revenue_bd_kc": 295706,
+        "profit_kc": 118661,
+        "aov_kc": 5476,
+        "margin_pct": 40.1
+      },
+      {
+        "name": "Jiří Slovák",
+        "orders": 28,
+        "revenue_bd_kc": 196477,
+        "profit_kc": 91372,
+        "aov_kc": 7017,
+        "margin_pct": 46.5
+      },
+      {
+        "name": "TREZORSERVIS s.r.o.",
+        "orders": 35,
+        "revenue_bd_kc": 195662,
+        "profit_kc": 84491,
+        "aov_kc": 5590,
+        "margin_pct": 43.2
+      },
+      {
+        "name": "Vít Walter",
+        "orders": 46,
+        "revenue_bd_kc": 191130,
+        "profit_kc": 72263,
+        "aov_kc": 4155,
+        "margin_pct": 37.8
+      },
+      {
+        "name": "Václav Kroužek - zámečnické centrum Votice",
+        "orders": 36,
+        "revenue_bd_kc": 185590,
+        "profit_kc": 89773,
+        "aov_kc": 5155,
+        "margin_pct": 48.4
+      },
+      {
+        "name": "ŠABATA s.r.o.",
+        "orders": 26,
+        "revenue_bd_kc": 180944,
+        "profit_kc": 49715,
+        "aov_kc": 6959,
+        "margin_pct": 27.5
+      },
+      {
+        "name": "Jiří Hamouz",
+        "orders": 40,
+        "revenue_bd_kc": 169911,
+        "profit_kc": 63289,
+        "aov_kc": 4248,
+        "margin_pct": 37.2
+      },
+      {
+        "name": "ZÁMEČNICTVÍ PEČENÝ s.r.o.",
+        "orders": 43,
+        "revenue_bd_kc": 156437,
+        "profit_kc": 67070,
+        "aov_kc": 3638,
+        "margin_pct": 42.9
+      },
+      {
+        "name": "Matějka zámkařství s.r.o.",
+        "orders": 23,
+        "revenue_bd_kc": 141332,
+        "profit_kc": 58866,
+        "aov_kc": 6145,
+        "margin_pct": 41.7
+      },
+      {
+        "name": "Tomáš Kraupner",
+        "orders": 26,
+        "revenue_bd_kc": 123818,
+        "profit_kc": 70428,
+        "aov_kc": 4762,
+        "margin_pct": 56.9
+      },
+      {
+        "name": "Klíčové a trezorové centrum Hausner-Plný s.r.o.",
+        "orders": 22,
+        "revenue_bd_kc": 112593,
+        "profit_kc": 38738,
+        "aov_kc": 5118,
+        "margin_pct": 34.4
+      },
+      {
+        "name": "Tomáš Zelinka",
+        "orders": 20,
+        "revenue_bd_kc": 109776,
+        "profit_kc": 68392,
+        "aov_kc": 5489,
+        "margin_pct": 62.3
+      },
+      {
+        "name": "Petr Kučera",
+        "orders": 16,
+        "revenue_bd_kc": 101262,
+        "profit_kc": 35211,
+        "aov_kc": 6329,
+        "margin_pct": 34.8
+      },
+      {
+        "name": "Vladimíra Mojcherová",
+        "orders": 26,
+        "revenue_bd_kc": 80662,
+        "profit_kc": 44927,
+        "aov_kc": 3102,
+        "margin_pct": 55.7
+      },
+      {
+        "name": "Petr Rapčan",
+        "orders": 13,
+        "revenue_bd_kc": 79085,
+        "profit_kc": 41332,
+        "aov_kc": 6083,
+        "margin_pct": 52.3
+      },
+      {
+        "name": "DD Technik s.r.o.",
+        "orders": 11,
+        "revenue_bd_kc": 78137,
+        "profit_kc": 24219,
+        "aov_kc": 7103,
+        "margin_pct": 31.0
+      },
+      {
+        "name": "Petr Brabenec, zámkařství",
+        "orders": 35,
+        "revenue_bd_kc": 78127,
+        "profit_kc": 34748,
+        "aov_kc": 2232,
+        "margin_pct": 44.5
+      },
+      {
+        "name": "František Šimšálek",
+        "orders": 10,
+        "revenue_bd_kc": 69156,
+        "profit_kc": 32571,
+        "aov_kc": 6916,
+        "margin_pct": 47.1
+      },
+      {
+        "name": "Klíčařství s.r.o.",
+        "orders": 16,
+        "revenue_bd_kc": 64698,
+        "profit_kc": 42673,
+        "aov_kc": 4044,
+        "margin_pct": 66.0
+      }
+    ],
+    "unique_customers": 96,
+    "payment_types": {
+      "F": 800,
+      "FH": 115,
+      "FD": 30,
+      "OP": 11,
+      "FK": 10,
+      "H": 1
+    }
+  },
+  "comparison": {
+    "vo_vs_mo_revenue_ratio": 3.45,
+    "vo_vs_mo_profit_ratio": 2.57,
+    "audit_period_7m_mo_revenue": 1226835,
+    "audit_period_7m_vo_revenue": 4237954
+  }
+}
