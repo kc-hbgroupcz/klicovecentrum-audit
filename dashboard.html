@@ -541,6 +541,15 @@
       <div class="kpi-sub">ERP <span data-live="erp-revenue-m">1,17 M</span> + Alza 129 k · bez DPH · SQL ověřuje <span data-live="sql-orders">1 398</span> obj. CZ B2C</div>
     </div>
   </div>
+
+  <!-- 👥 Rollup vlastnictví — kdo má co opravit -->
+  <div id="header-owner-rollup" style="margin-top:16px;background:rgba(15,23,42,.5);border:1px solid #334155;border-radius:10px;padding:14px 16px">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap">
+      <span style="font-size:13px;color:#fcd34d;font-weight:600;letter-spacing:0.3px">👥 ROZDĚLENÍ ODPOVĚDNOSTI:</span>
+      <span style="font-size:12px;color:#94a3b8">klikni na roli → filtr nálezů</span>
+    </div>
+    <div id="owner-rollup-cards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px"></div>
+  </div>
 </header>
 
 <div class="tabs" id="tabs">
@@ -4997,6 +5006,52 @@ document.querySelectorAll('.owner-filter-pill').forEach(btn => {
   });
 });
 
+// Header rollup widget — vlastnictví nápravy (klikatelné karty pod KPI)
+function renderOwnerRollup() {
+  const container = document.getElementById('owner-rollup-cards');
+  if (!container) return;
+  // Spočítej P0 / P1 / P2 počty per owner
+  const stats = {agency:{P0:0,P1:0,P2:0,total:0}, dev:{P0:0,P1:0,P2:0,total:0},
+                 devops:{P0:0,P1:0,P2:0,total:0}, client:{P0:0,P1:0,P2:0,total:0},
+                 mixed:{P0:0,P1:0,P2:0,total:0}};
+  findings.forEach(f => {
+    const o = ownerMap[f.id] || 'mixed';
+    if (!stats[o]) return;
+    stats[o].total++;
+    stats[o][f.prio] = (stats[o][f.prio]||0) + 1;
+  });
+  // Render compact cards — kombinace badge + count + P0 priorita zdůrazněná
+  const order = ['agency', 'dev', 'devops', 'client', 'mixed'];
+  container.innerHTML = order.map(o => {
+    const s = stats[o]; const ob = ownerBadges[o];
+    const p0Highlight = s.P0 > 0 ? `<span style="background:#dc2626;color:white;padding:1px 6px;border-radius:3px;font-size:10px;font-weight:700">P0: ${s.P0}</span>` : '';
+    const p1Highlight = s.P1 > 0 ? `<span style="background:#ea580c;color:white;padding:1px 6px;border-radius:3px;font-size:10px;font-weight:700">P1: ${s.P1}</span>` : '';
+    return `<div class="owner-rollup-card ${ob.cls}" data-owner="${o}" title="${ob.desc}\n\nKlik = filtr findings na tuto roli" style="cursor:pointer;padding:10px 12px;border-radius:8px;border:1.5px solid;transition:all 0.15s">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
+        <span style="font-weight:600;font-size:13px">${ob.emoji} ${ob.label}</span>
+        <span style="font-size:20px;font-weight:700">${s.total}</span>
+      </div>
+      <div style="font-size:10px;color:#94a3b8;display:flex;gap:5px;flex-wrap:wrap">${p0Highlight}${p1Highlight}</div>
+    </div>`;
+  }).join('');
+  // Klik handler: scroll na filter section + aktivuj odpovídající pill
+  container.querySelectorAll('.owner-rollup-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const owner = card.dataset.owner;
+      // 1. Switch to "Vše" findings tab pokud jsme na data view
+      const allTab = document.querySelector('.tab[data-cat="all"]');
+      if (allTab && !allTab.classList.contains('active')) allTab.click();
+      // 2. Aktivuj owner pill
+      const pill = document.querySelector(`.owner-filter-pill[data-owner="${owner}"]`);
+      if (pill) pill.click();
+      // 3. Scroll na findings sekci
+      setTimeout(() => {
+        document.getElementById('findings').scrollIntoView({behavior:'smooth', block:'start'});
+      }, 100);
+    });
+  });
+}
+
 // počty pro taby + owner pills
 function updateCounts() {
   document.getElementById('count-all').textContent = findings.length;
@@ -5019,6 +5074,7 @@ function updateCounts() {
 }
 
 updateCounts();
+renderOwnerRollup();
 render();
 
 // ─── PER-VIEW FILTER STATE + KPI POPULATE ───────────────────
