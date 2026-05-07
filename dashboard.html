@@ -561,6 +561,7 @@
   <div class="tab" data-cat="local">📍 Lokální & pobočky <span class="tab-badge" id="count-local">5</span></div>
   <div class="tab" data-cat="alza">🛒 Alza marketplace <span class="tab-badge" id="count-alza">5</span></div>
   <div class="tab" data-cat="seo">🔍 SEO &amp; Technické <span class="tab-badge" id="count-seo">5</span></div>
+  <div class="tab" data-cat="seo_audit">🌐 SEO Audit (FLOW) <span class="tab-badge" id="count-seo_audit">22</span></div>
   <div class="tab" data-cat="data">🛡️ Data quality <span class="tab-badge" id="count-data">4</span></div>
   <div class="tab" data-view="competitors">🥊 Konkurence</div>
   <div class="tab" data-view="yearly">📅 3-letý přehled</div>
@@ -1722,6 +1723,12 @@ const ownerMap = {
   31:'mixed', 32:'devops', 33:'devops', 34:'dev', 35:'devops',
   36:'mixed', 37:'mixed', 38:'agency', 39:'client', 40:'mixed',
   41:'agency', 42:'agency',
+  // SEO Audit 6.5.2026 (IDs 51-72)
+  51:'client', 52:'mixed', 53:'dev', 54:'dev', 55:'dev',          // Sprint 1 P0
+  56:'dev', 57:'dev', 58:'dev', 59:'dev', 60:'devops', 61:'devops',
+  62:'mixed', 63:'dev', 64:'dev',                                  // Sprint 2 P1
+  65:'dev', 66:'mixed', 67:'mixed', 68:'client', 69:'mixed', 70:'client',
+  71:'client', 72:'client',                                        // Sprint 3 + Měření P2
 };
 const ownerBadges = {
   agency:  {emoji:'🎯', label:'Agentura', cls:'owner-agency', desc:'Marketingová agentura — admin v Google Ads / Sklik / GA4 / GTM / kampaně'},
@@ -2451,6 +2458,379 @@ const findings = [
     ],
     expected: 'Po napojení GBP store visits: 89 k Kč Local Pmax získá measurable ROAS (industry benchmark 8-15× store visit ROAS = 800-1300 návštěv pobočky/audit period). Po Firmy.cz import do Sklik brand: offline brand discovery measurable (typicky +20-40% incremental conv).',
     timeline: [40, 50, 10]
+  },
+
+  // ═══════════════════════════════════════════════════════════════
+  // === SEO AUDIT (6. 5. 2026 — Health Score 46/100, FLOW Framework)
+  // 22 nálezů ze samostatného SEO auditu, ID 51-72
+  // ═══════════════════════════════════════════════════════════════
+
+  // ── Sprint 1 — Foundation cleanup (do 1 týdne, P0) ──
+  {
+    id: 51, cat: 'seo_audit', prio: 'P0',
+    title: 'SEO-1 — Faktická chyba: 25 vs 35 let',
+    metric: 'Homepage tagline „více než 25 let" · /vice-o-nas/ „více než 30 let" · firma od 1991 = <strong>35 let</strong>',
+    impact: 'Inkonzistence brand entity',
+    impactNote: 'Google E-E-A-T penalizuje inkonzistence',
+    problem: 'Tři různá tvrzení o věku firmy napříč webem. Google E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) dává váhu konzistenci entity dat. „35 let zkušeností" je silnější trust signál než „25 let" a fakticky správný.',
+    actions: [
+      'Sjednotit napříč webem na „od roku 1991, 35 let zkušeností"',
+      'Homepage tagline + /vice-o-nas/ + meta descriptions',
+      'Před každou novou publikací textů kontrolovat datum'
+    ],
+    expected: 'Konzistentní brand entity = lepší trust signal pro Google',
+    timeline: [100, 0, 0]
+  },
+  {
+    id: 52, cat: 'seo_audit', prio: 'P0',
+    title: 'SEO-2 — IČO + DIČ chybí ve footeru',
+    metric: 'Povinné dle <strong>ZOK § 6</strong> · porušení ZP riskuje sankci',
+    impact: 'Právní compliance + trust',
+    impactNote: 'standard pro každý e-shop',
+    problem: 'Zákon o obchodních korporacích § 6 vyžaduje uvádět IČO a DIČ na webu obchodní společnosti. Footer aktuálně nemá ani jedno. Plus má SEO dopad jako trust signal.',
+    actions: [
+      'Identifikovat IČO přes obchodní rejstřík (justice.cz)',
+      'Doplnit IČO + DIČ do footeru webu (template change)',
+      'Stejně tak na /vice-o-nas/ stránce',
+      'Verifikovat shodu s firemními dokumenty'
+    ],
+    expected: 'Compliance + trust signal v footeru',
+    timeline: [100, 0, 0]
+  },
+  {
+    id: 53, cat: 'seo_audit', prio: 'P0',
+    title: 'SEO-3 — Sitemap regenerator (84 redirectů + 3 dead URLs + duplicitní sitemap2.xml)',
+    metric: 'Sitemap obsahuje <strong>84 URLs s velkými písmeny v SKU</strong> (server 301-redirectuje) + <strong>3 dead URLs</strong> + duplicitní /sitemap2.xml',
+    impact: '6 119 GSC warnings',
+    impactNote: 'cíl: < 1 200 warnings',
+    problem: 'Sitemap.xml uvádí URL s uppercase SKU (`/produkt/FAB-zamek/`), server je 301-redirectuje na lowercase canonical (`/produkt/fab-zamek/`). 3 dead URLs (`/mo-akce-dovolena-s-tsa-zamky/`, `/mo-akce-toscana/`, `/mo-akce-visaci-zamky-nejen-na-skolni-skrinky/`). /sitemap2.xml je md5-identical s /sitemap.xml. Detail v `kc_audit/sitemap_scan_results.json`. SOUVISÍ S NÁLEZEM #45 (URL exploze) — SEO-3 je prerekvizita pro #45 cleanup.',
+    actions: [
+      'Přepsat sitemap generator (canonical lowercase + filtr 4xx)',
+      'Smazat /sitemap2.xml',
+      'Resubmit sitemap.xml v Google Search Console',
+      'Monitorovat warnings pokles 6 119 → < 1 200 (≤ 30 dní)'
+    ],
+    expected: 'GSC warnings 6 119 → < 1 200 (-80 %)',
+    timeline: [100, 0, 0]
+  },
+  {
+    id: 54, cat: 'seo_audit', prio: 'P0',
+    title: 'SEO-4 — BreadcrumbList absolute URL fix',
+    metric: 'Všechny kategorie + PDP mají <strong>"item":"/"</strong> (relativní cesta) místo absolutní URL',
+    impact: 'Rich result breadcrumb v SERP zablokovaný',
+    impactNote: 'GSC URL Inspection WARNING',
+    problem: 'BreadcrumbList JSON-LD na všech kategorií + product detail pages uvádí `"item":"/"` jako relativní cestu. Schema.org spec vyžaduje absolutní URL. Google URL Inspection vrací WARNING „Invalid URL in field id". Důsledek: rich snippet breadcrumb v SERP se nezobrazuje.',
+    actions: [
+      '1 template fix v BreadcrumbList JSON-LD',
+      'Změnit `"item":"/"` → `"item":"https://www.klicovecentrum.cz/{path}"`',
+      'Verify v GSC URL Inspection po deployi',
+      'Drift compare před/po pro 5 baseline URL'
+    ],
+    expected: 'Rich result breadcrumb aktivní v Google SERP',
+    timeline: [100, 0, 0]
+  },
+  {
+    id: 55, cat: 'seo_audit', prio: 'P0',
+    title: 'SEO-5 — Meta description přepis pro top 20 stránek',
+    metric: 'Homepage „25 let" chyba · /chomutov/ začíná uprostřed věty · /cylindricke-vlozky/ má leading space + „Levné" (commodity tone)',
+    impact: '+5 000 organic clicks/90 dní',
+    impactNote: 'cíl CTR 0,90 % → 1,5 %',
+    impactPositive: true,
+    problem: 'Top stránky podle GSC impressions: /trezory/ (23 549 imp, 0,41 % CTR), /cylindricke-vlozky/ (55 301 imp), /zadlabaci-zamky/ (32 862 imp), /vlozka-do-dveri/ (7 259 imp pos 3,9 ale CTR jen 0,54 %). Meta descriptions existují, ale slabé.',
+    actions: [
+      'Přepsat top 20 stránek podle GSC impressions',
+      'Použít: USP (RC třídy, 35 let, instalace), trust signal, CTA',
+      'Test v SERP simulátoru (Yoast / Ahrefs SERP preview)',
+      'Měřit CTR delta v GSC Search Analytics 30/60/90 dní'
+    ],
+    expected: 'Celkový CTR 0,90 % → 1,5 % = +5 000 clicks/90 dní',
+    timeline: [80, 20, 0]
+  },
+
+  // ── Sprint 2 — Schema + Local (do 1 měsíce, P1) ──
+  {
+    id: 56, cat: 'seo_audit', prio: 'P1',
+    title: 'SEO-6 — Organization + WebSite + SearchAction JSON-LD na homepage',
+    metric: 'Homepage má <strong>0 schema bloků</strong> dnes (potvrzeno přes drift baseline 11)',
+    impact: 'Brand entity + sitelinks search box',
+    impactNote: 'foundational pro Google Knowledge Graph',
+    problem: 'Homepage nemá žádný JSON-LD schema. Bez Organization schema Google neví, kdo Klíčové centrum je. Bez WebSite + SearchAction schema se v SERP nezobrazí sitelinks search box.',
+    actions: [
+      'Organization schema: name, address, telephone, logo, sameAs s Firmy.cz/GBP',
+      'WebSite schema s SearchAction (sitelinks search box)',
+      'Validate v Schema.org Validator + Google Rich Results Test',
+      'Post-deploy: drift compare ID 11 → check schema_blocks_count 0 → 2'
+    ],
+    expected: 'Brand entity recognition + sitelinks search box v SERP',
+    timeline: [10, 80, 10]
+  },
+  {
+    id: 57, cat: 'seo_audit', prio: 'P1',
+    title: 'SEO-7 — LocalBusiness JSON-LD šablona pro 22 branch stránek',
+    metric: '<strong>0 / 22 poboček</strong> má LocalBusiness schema dnes',
+    impact: '+40 % branch organic clicks',
+    impactNote: 'Locksmith subtype + Maps Pack',
+    impactPositive: true,
+    problem: 'Pro 22 fyzických prodejen (20 CZ + 2 SK) chybí LocalBusiness schema. Bez něj Google neví, že stránka /chomutov/ patří k pobočce v Chomutově. Local Pack v SERP / Maps Pack se nezobrazuje.',
+    actions: [
+      '1 template change v branch page CMS',
+      'Locksmith subtype + openingHoursSpecification + geo (lat/lng) + sameAs (GBP profil)',
+      'Per-branch data: NAP, opening hours, GBP URL',
+      '22 stránek pokrytých 1 deployem'
+    ],
+    expected: 'Branch organic clicks +40 % do 90 dnů',
+    timeline: [10, 70, 20]
+  },
+  {
+    id: 58, cat: 'seo_audit', prio: 'P1',
+    title: 'SEO-8 — Heureka API → AggregateRating na PDP',
+    metric: 'Heureka widget viditelný na webu, ale <strong>není v Product schema</strong> → SERP bez hvězdiček',
+    impact: 'SERP CTR loss',
+    impactNote: 'Heureka jako agregátor má výhodu',
+    problem: 'Heureka widget zobrazuje na webu hvězdičky a počet recenzí. Tato data jsou dostupná přes Heureka API, ale nejsou inkorporována do Product schema JSON-LD. Důsledek: v Google SERP se u našich PDP nezobrazují hvězdičky, zatímco Heureka.cz jako agregátor je má.',
+    actions: [
+      'Pull Heureka API → AggregateRating data (rating + count) per produkt',
+      'Inkorporovat do Product schema JSON-LD (aggregateRating block)',
+      'Validate v Google Rich Results Test',
+      'Monitorovat SERP rich snippets coverage'
+    ],
+    expected: 'Produkt SERP s hvězdičkami → +15-25 % CTR',
+    timeline: [10, 70, 20]
+  },
+  {
+    id: 59, cat: 'seo_audit', prio: 'P1',
+    title: 'SEO-9 — Title tag optimalizace top 10 kategorií',
+    metric: 'Generické <strong>„Cylindrické vložky | Klíčové centrum"</strong> bez USP',
+    impact: 'CTR opportunity + keyword coverage',
+    impactNote: 'top kategorií tiskne SERP',
+    problem: 'Top kategorie mají chudé title tagy bez USP, RC tříd, lokálních signálů. Příklad: „Cylindrické vložky | Klíčové centrum" → optimalizováno: „Cylindrické vložky do dveří | RC3, RC4, RC5 | Klíčové centrum".',
+    actions: [
+      'Top 10 kategorií podle GSC impressions',
+      'Přepsat: USP (35 let / instalace), RC třídy, lokální signály',
+      'A/B test přes GSC URL Inspection sledování pozic',
+      'Monitorovat CTR delta po 30/60 dnech'
+    ],
+    expected: 'CTR top 10 kategorií +30-50 %',
+    timeline: [20, 70, 10]
+  },
+  {
+    id: 60, cat: 'seo_audit', prio: 'P1',
+    title: 'SEO-10 — AI search odblokování (revize Cloudflare robots.txt)',
+    metric: 'GEO citability <strong>22/100</strong> · web prakticky neviditelný v ChatGPT/Claude/Perplexity/AI Overviews',
+    impact: 'Ztráta AI search visibility',
+    impactNote: 'rostoucí kanál (10-15 % search 2026)',
+    problem: 'Cloudflare-managed robots.txt aktuálně blokuje GPTBot, OAI-SearchBot, ClaudeBot, Google-Extended, CCBot. Tím web prakticky neexistuje v AI search odpovědích. Bing Copilot zůstává funkční (BingBot není blokován).',
+    actions: [
+      'Cloudflare → robots.txt → odblokovat GPTBot, OAI-SearchBot, ClaudeBot, Google-Extended',
+      'Content-Signal nastavit: search=yes, ai-input=yes, ai-train=no (zachovat content protection od training)',
+      'CCBot pro training nech blokovaný (Common Crawl)',
+      'Po 30/60 dnech měřit AI mentions: ChatGPT, Claude, Perplexity, AI Overviews'
+    ],
+    expected: 'AI mentions 0 → 5+/měsíc po 60 dnech',
+    timeline: [50, 50, 0]
+  },
+  {
+    id: 61, cat: 'seo_audit', prio: 'P1',
+    title: 'SEO-11 — /llms.txt vytvořit',
+    metric: 'AI citability 22/100 (po SEO-10) — chybí mapa pro LLM',
+    impact: 'AI brand recognition',
+    impactNote: 'best practice 2026',
+    problem: 'Po odblokování AI bots (SEO-10) potřebujeme `/llms.txt` jako mapu klíčových stránek + brand description. Standardní mechanismus jak LLM dát rychlou orientaci v webu.',
+    actions: [
+      'Vytvořit /llms.txt s brand description + 20 nejdůležitějších URL',
+      'Sekce: O brandu, top kategorie, branch lokality, kontakt',
+      'Po nasazení monitorovat AI mentions weekly',
+      'Iterovat content podle co LLM cituje'
+    ],
+    expected: 'AI citability 22 → 50+/100',
+    timeline: [50, 50, 0]
+  },
+  {
+    id: 62, cat: 'seo_audit', prio: 'P1',
+    title: 'SEO-12 — Internal linking pro /trezory/',
+    metric: 'Query „trezor" 23 549 imp pos 9,7 CTR 0,41 % · jen <strong>2 referring URLs</strong> (sitemap only)',
+    impact: 'Největší nevyužitá příležitost',
+    impactNote: '+30 % /trezory/ impressions',
+    impactPositive: true,
+    problem: 'Stránka /trezory/ má v GSC nejvyšší impression potenciál (23 549 imp), ale pozice 9,7 a CTR 0,41 % = totální propad. URL Inspection: jen 2 referring URLs, oba ze sitemap (žádné kontextové internal linky). Internal linking je top SEO faktor pro pozici.',
+    actions: [
+      'Přidat link na /trezory/ z /bezpecnostni-vlozky/ (related sec)',
+      'Přidat z /zamky/ (souvisí: zámky + trezory)',
+      'Hero sekce homepage: „Trezory pro byt i firmu →"',
+      'Reaktivovaný blog: 2-3 články o trezorech s vnitřním linkem na /trezory/',
+      'Footer: přidat /trezory/ do hlavních kategorií'
+    ],
+    expected: 'Pos 9,7 → < 6, /trezory/ impressions +30 %',
+    timeline: [10, 70, 20]
+  },
+  {
+    id: 63, cat: 'seo_audit', prio: 'P1',
+    title: 'SEO-13 — Performance quick wins (Revolution Slider + LCP)',
+    metric: 'Lab perf <strong>35-49/100</strong> · field metrics passuje (Cloudflare cache zachraňuje)',
+    impact: 'Quick wins ~1,5h vývojáře',
+    impactNote: 'CWV margin pro budoucnost',
+    problem: 'Lab Performance score 35-49/100 (mobile, cold cache + 4G throttle), LCP 5,6-26,9 s. Field metrics passují díky Cloudflare cache, ale lab score je polštář pro Google ranking. 5 quick fixů vyřeší většinu.',
+    actions: [
+      '`defer` atribut na Revolution Slider skripty (themepunch.tools + revolution.min.js)',
+      '`fetchpriority="high"` na LCP banner image',
+      '`loading="lazy"` na off-screen produkty',
+      '`preconnect` na fonts.gstatic.com',
+      'Smazat duplicitní Swiper CSS link'
+    ],
+    expected: 'Lab perf 35-49 → 60-75/100',
+    timeline: [30, 60, 10]
+  },
+  {
+    id: 64, cat: 'seo_audit', prio: 'P1',
+    title: 'SEO-14 — /zadlabaci-zamky/ lab CLS 0,252',
+    metric: 'Jediná stránka s CLS problémem v lab (<strong>3× nad threshold</strong> 0,1)',
+    impact: 'CLS unsafe at scale',
+    impactNote: 'field CLS OK, ale opravit',
+    problem: '/zadlabaci-zamky/ má v lab CLS 0,252 — 2,5× threshold 0,1. Pravděpodobně lazy-loaded produktový grid bez `width`/`height` atributů. Field CLS je OK, ale lab metric je predictor pro budoucí změny.',
+    actions: [
+      'Audit produktového gridu na /zadlabaci-zamky/',
+      'Přidat `width` + `height` atributy na všechny img tagy',
+      'Skeleton placeholder s fixed aspect-ratio před načtením',
+      'Verify v Lighthouse Lab CWV po deployi'
+    ],
+    expected: 'Lab CLS 0,252 → < 0,1',
+    timeline: [50, 50, 0]
+  },
+
+  // ── Sprint 3 — Content + Hybrid (do 3 měsíců, P2) ──
+  {
+    id: 65, cat: 'seo_audit', prio: 'P2',
+    title: 'SEO-15 — Trezory konsolidace klicovecentrum.cz vs hbgroup.cz',
+    metric: 'Query „trezor" rankuje <strong>hbgroup.cz/domaci-trezory/</strong> ne /trezory/',
+    impact: 'Fragmentovaná autorita',
+    impactNote: 'B2C primární doména',
+    problem: 'Pro klíčový query „trezor" rankuje hbgroup.cz subsection, ne /trezory/ na klicovecentrum.cz. Autorita je rozdělena mezi dvě domény. Strategicky: klicovecentrum.cz = B2C primární, hbgroup.cz = B2B/velkoobchod.',
+    actions: [
+      'Strategické rozhodnutí: B2C trezory na klicovecentrum.cz, B2B na hbgroup.cz',
+      '301 redirect hbgroup.cz/domaci-trezory/* → klicovecentrum.cz/trezory/*',
+      'Canonical strategie: každá doména má vlastní canonical',
+      'Monitorovat ranking transfer 30/60/90 dní'
+    ],
+    expected: '/trezory/ ranking 9,7 → < 4 do 90 dnů',
+    timeline: [10, 30, 60]
+  },
+  {
+    id: 66, cat: 'seo_audit', prio: 'P2',
+    title: 'SEO-16 — Hybridní průvodce + kategorie',
+    metric: 'SERP odměňuje hybridní formát (Alza, kování-kliky.cz dominují)',
+    impact: 'Top SERP positions',
+    impactNote: 'kategorie s informational layer',
+    problem: 'Konkurenti (Alza, kování-kliky.cz) mají na top kategorií hybridní formát: průvodce + filtrovaný produktový listing. Naše /cylindricke-vlozky/ a /dverni-kovani/ jsou jen produktový listing.',
+    actions: [
+      '/cylindricke-vlozky/jak-vybrat/ jako standalone stránka NEBO',
+      'Integrace průvodce do /cylindricke-vlozky/ jako kolapsibilní sekce + produktový listing',
+      'Stejný pattern pro /dverni-kovani/',
+      'Article schema na průvodce sekce'
+    ],
+    expected: 'Top kategorií ranking +1-3 pozice',
+    timeline: [0, 30, 70]
+  },
+  {
+    id: 67, cat: 'seo_audit', prio: 'P2',
+    title: 'SEO-17 — Srovnávací stránky pro trezory',
+    metric: 'Informational segment dnes obsazený externími recenznými weby (arecenze.cz, testino.cz)',
+    impact: 'Reclaim informational queries',
+    impactNote: 'recenzní weby = ztracené impressions',
+    problem: 'Pro queries jako „nejlepší trezor do bytu", „jak vybrat trezor do panelaku" rankují externí recenzní weby. Klicovecentrum.cz jako experta tam nevidět.',
+    actions: [
+      '/trezory/nejlepsi-trezory-do-bytu/ — Top 5, aktualizovat 1×/rok pro freshness',
+      '/trezory/jak-vybrat-trezor-do-panelaku/ — informational + odkaz na produkty',
+      'Article schema + freshness signal',
+      'Internal link z /trezory/ do těchto stránek'
+    ],
+    expected: 'Reclaim 50+ informational queries',
+    timeline: [0, 20, 80]
+  },
+  {
+    id: 68, cat: 'seo_audit', prio: 'P2',
+    title: 'SEO-18 — Reaktivovat blog (dead 19 měsíců)',
+    metric: 'Poslední post <strong>10. 10. 2023</strong> · 19 měsíců bez aktivity',
+    impact: 'Content freshness + topical authority',
+    impactNote: 'foundational pro E-E-A-T',
+    problem: 'Blog na klicovecentrum.cz je mrtvý 19 měsíců. Google indexuje absence aktivity jako neaktivní brand. Klíčový kanál pro topical authority + internal linking.',
+    actions: [
+      '2 posty/měsíc s autorem + datem + Article schema',
+      'Témata: výměna vložky svépomocí, RC třídy 1-6, transpondér vs čipový klíč, generální klíč pro bytový dům, jak číst certifikát trezoru',
+      'Author markup s expert credentials',
+      'Internal linking na produktové kategorie z článků'
+    ],
+    expected: 'Topical authority +20 %, organic non-brand queries +10/post',
+    timeline: [0, 30, 70]
+  },
+  {
+    id: 69, cat: 'seo_audit', prio: 'P2',
+    title: 'SEO-19 — B2B landing page (/sprava-budov/ nebo /b2b-zabezpeceni/)',
+    metric: 'B2B byznys 4,86 M Kč / 7M paralelně, ale <strong>žádná dedikovaná landing</strong>',
+    impact: 'B2B lead generation',
+    impactNote: 'cross-sell B2C → B2B portal',
+    impactPositive: true,
+    problem: 'B2B segment je 3× větší než B2C (4,86 M vs 1,67 M ve 7M), ale klicovecentrum.cz nemá dedikovanou B2B landing. Velké projekty (O2 Universum, Kunsthalle, OSSZ) jsou skrytá reference.',
+    actions: [
+      '/sprava-budov/ nebo /b2b-zabezpeceni/ landing page',
+      'SGHK systémy popis + video demo',
+      'Poptávkový formulář (HubSpot / vlastní backend)',
+      'Reference: O2 Universum, Kunsthalle, OSSZ s detailem rozsahu projektu'
+    ],
+    expected: '+10 B2B leadů/měs po 90 dnech',
+    timeline: [0, 30, 70]
+  },
+  {
+    id: 70, cat: 'seo_audit', prio: 'P2',
+    title: 'SEO-20 — 22× GBP optimalizace (NAP + photos + posts)',
+    metric: '22 poboček × průměrně <strong>incomplete profile</strong>',
+    impact: 'Local Pack + Maps visibility',
+    impactNote: 'cross-link s SEO-7 schema',
+    problem: 'Google Business Profiles 22 prodejen mají různou kvalitu — někde chybí kategorie „Locksmith", openingHours, fotky, posty. Maps Pack ranking je závislý na completeness.',
+    actions: [
+      'NAP konzistence (Name, Address, Phone) napříč všemi 22 profily',
+      'OpeningHours specifikované including holidays',
+      'Kategorie: primární „Locksmith", sekundární „Key duplicating service", „Safe & vault dealer"',
+      '10+ fotek per pobočka (storefront, interior, products)',
+      'Response na všechny recenze (positive + negative)',
+      'Weekly post pattern (novinky, akce)'
+    ],
+    expected: 'Maps Pack ranking + Local Pack visibility +30 %',
+    timeline: [10, 30, 60]
+  },
+
+  // ── Měření a workflow ──
+  {
+    id: 71, cat: 'seo_audit', prio: 'P2',
+    title: 'SEO-21 — Drift compare po každém deployi',
+    metric: '5 baseline URL (homepage, /cylindricke-vlozky/, /trezory/, /zadlabaci-zamky/, /chomutov/)',
+    impact: 'Změny deteknout rychle',
+    impactNote: 'preventive — ne curative',
+    problem: 'Každý deploy webu může nezáměrně rozbít title, meta, schema, breadcrumbs, sitemap. Bez drift compare se to objeví až týdny později když začnou padat impressions v GSC.',
+    actions: [
+      '`/seo drift compare <url>` na 5 baseline URL po každém deployi',
+      'CI/CD integrace: post-deploy hook spustí drift compare',
+      'HTML reporty v `kc_audit/drift/<deploy-id>/`',
+      'Findings flagne old/new diff, fail deploy pokud critical change'
+    ],
+    expected: 'Detect change v hodinách místo týdnech',
+    timeline: [50, 50, 0]
+  },
+  {
+    id: 72, cat: 'seo_audit', prio: 'P2',
+    title: 'SEO-22 — Q3 2026 follow-up: měřit 6 hypotéz z FLOW',
+    metric: 'H1 CTR 0,90→1,5 % · H2 LocalBusiness +40 % · H3 sitemap warnings -80 % · H4 AI mentions 0→5+ · H5 trezory pos < 6 · H6 /trezory/ imp +30 %',
+    impact: 'Validate audit ROI',
+    impactNote: 'evidence-based iterace',
+    problem: 'FLOW Framework strategie definovala 6 měřitelných hypotéz pro Q3 2026 (3 měsíce po nasazení Sprint 1+2). Bez validation neumíme říct, co fungovalo.',
+    actions: [
+      'Q3 2026: pull GSC + GA4 data 90 dní po deployi',
+      'Compare s baseline (5. 5. 2026)',
+      'Test každé hypotézy H1-H6 (signed change vs noise)',
+      'Update FLOW strategy dle výsledků',
+      'Detail: `analytics-audit/seo-flow-strategy.md`'
+    ],
+    expected: '6 hypotéz validated/refuted = data-driven další sprint',
+    timeline: [0, 0, 100]
   }
 ];
 
@@ -5055,9 +5435,11 @@ function renderOwnerRollup() {
 // počty pro taby + owner pills
 function updateCounts() {
   document.getElementById('count-all').textContent = findings.length;
-  ['analytics', 'gads', 'sklik', 'feed', 'local', 'alza', 'seo', 'data'].forEach(cat => {
+  ['analytics', 'gads', 'sklik', 'feed', 'local', 'alza', 'seo', 'seo_audit', 'data'].forEach(cat => {
+    const el = document.getElementById('count-' + cat);
+    if (!el) return;
     const count = findings.filter(f => f.cat === cat).length;
-    document.getElementById('count-' + cat).textContent = count;
+    el.textContent = count;
   });
   // Update owner pill counts
   const ownerCounts = {agency:0, dev:0, devops:0, client:0, mixed:0};
