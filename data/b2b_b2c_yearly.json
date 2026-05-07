@@ -1,0 +1,1776 @@
+{
+  "generated": "2026-05-07T16:32:38",
+  "source": "SQL kosik DB ground truth (XAMPP MySQL hbgroup_cz_hbg8oiwu73)",
+  "method": "COALESCE(firma, ffirma, jmeno+prijmeni) + JOIN polozka pro per-položkový obrat",
+  "vat_rate": 0.21,
+  "datasets": {
+    "B2C_klicovecentrum_cz_2025": {
+      "web_id": 1,
+      "rok": 2025,
+      "summary": {
+        "obj": 3143,
+        "obrat_dph": 4109985.0,
+        "obrat_bez_dph": 3396682.0,
+        "unique_customers": 2711,
+        "first_obj": "2025-01-01",
+        "last_obj": "2025-12-31",
+        "obrat_dph_kc": 4109985.0,
+        "obrat_bez_dph_kc": 3396682.0
+      },
+      "pareto": {
+        "top_5_share_pct": 8.8,
+        "top_10_share_pct": 13.0,
+        "top_20_share_pct": 18.9
+      },
+      "top_20": [
+        {
+          "zakaznik": "Moravastavby",
+          "obj": 3,
+          "obrat_dph": 126137.0,
+          "obrat_bez_dph": 104245.0,
+          "aov_dph": 42046.0,
+          "first_obj": "2025-06-23",
+          "last_obj": "2025-08-14",
+          "months_active": 2
+        },
+        {
+          "zakaznik": "Kovovýroba Žídek",
+          "obj": 3,
+          "obrat_dph": 83874.0,
+          "obrat_bez_dph": 69317.0,
+          "aov_dph": 27958.0,
+          "first_obj": "2025-06-09",
+          "last_obj": "2025-10-02",
+          "months_active": 2
+        },
+        {
+          "zakaznik": "Ondrej Sokoli",
+          "obj": 2,
+          "obrat_dph": 61557.0,
+          "obrat_bez_dph": 50874.0,
+          "aov_dph": 30778.0,
+          "first_obj": "2025-02-20",
+          "last_obj": "2025-02-27",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Renapa s.r.o.",
+          "obj": 10,
+          "obrat_dph": 48727.0,
+          "obrat_bez_dph": 40270.0,
+          "aov_dph": 4873.0,
+          "first_obj": "2025-05-24",
+          "last_obj": "2025-12-01",
+          "months_active": 5
+        },
+        {
+          "zakaznik": "DKN-Hill s.r.o.",
+          "obj": 19,
+          "obrat_dph": 40429.0,
+          "obrat_bez_dph": 33413.0,
+          "aov_dph": 2128.0,
+          "first_obj": "2025-09-08",
+          "last_obj": "2025-11-05",
+          "months_active": 3
+        },
+        {
+          "zakaznik": "Tegamo Services",
+          "obj": 3,
+          "obrat_dph": 38271.0,
+          "obrat_bez_dph": 31629.0,
+          "aov_dph": 12757.0,
+          "first_obj": "2025-04-03",
+          "last_obj": "2025-10-01",
+          "months_active": 3
+        },
+        {
+          "zakaznik": "Oknostudio, s.r.o.",
+          "obj": 4,
+          "obrat_dph": 36773.0,
+          "obrat_bez_dph": 30391.0,
+          "aov_dph": 9193.0,
+          "first_obj": "2025-07-15",
+          "last_obj": "2025-08-01",
+          "months_active": 2
+        },
+        {
+          "zakaznik": "TORMATIC s.r.o.",
+          "obj": 1,
+          "obrat_dph": 35668.0,
+          "obrat_bez_dph": 29478.0,
+          "aov_dph": 35668.0,
+          "first_obj": "2025-03-10",
+          "last_obj": "2025-03-10",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Společenství vlastníků Jeseniova 519/19, 518/23, Praha 3",
+          "obj": 2,
+          "obrat_dph": 30988.0,
+          "obrat_bez_dph": 25610.0,
+          "aov_dph": 15494.0,
+          "first_obj": "2025-08-12",
+          "last_obj": "2025-12-07",
+          "months_active": 2
+        },
+        {
+          "zakaznik": "Autoservis Braný s.r.o.",
+          "obj": 1,
+          "obrat_dph": 30247.0,
+          "obrat_bez_dph": 24998.0,
+          "aov_dph": 30247.0,
+          "first_obj": "2025-10-09",
+          "last_obj": "2025-10-09",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Michal Žídek",
+          "obj": 1,
+          "obrat_dph": 29964.0,
+          "obrat_bez_dph": 24764.0,
+          "aov_dph": 29964.0,
+          "first_obj": "2025-04-28",
+          "last_obj": "2025-04-28",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "SEA Enterprises a.s.",
+          "obj": 1,
+          "obrat_dph": 29706.0,
+          "obrat_bez_dph": 24550.0,
+          "aov_dph": 29706.0,
+          "first_obj": "2025-08-11",
+          "last_obj": "2025-08-11",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Jan Vojtíšek",
+          "obj": 5,
+          "obrat_dph": 28130.0,
+          "obrat_bez_dph": 23248.0,
+          "aov_dph": 5626.0,
+          "first_obj": "2025-08-19",
+          "last_obj": "2025-08-19",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Pavel Lédl",
+          "obj": 1,
+          "obrat_dph": 26495.0,
+          "obrat_bez_dph": 21897.0,
+          "aov_dph": 26495.0,
+          "first_obj": "2025-05-21",
+          "last_obj": "2025-05-21",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Pila Martinák",
+          "obj": 1,
+          "obrat_dph": 26495.0,
+          "obrat_bez_dph": 21897.0,
+          "aov_dph": 26495.0,
+          "first_obj": "2025-09-05",
+          "last_obj": "2025-09-05",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "ExPS s.r.o.",
+          "obj": 1,
+          "obrat_dph": 22463.0,
+          "obrat_bez_dph": 18564.0,
+          "aov_dph": 22463.0,
+          "first_obj": "2025-02-09",
+          "last_obj": "2025-02-09",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "PRAMOS, a.s.",
+          "obj": 2,
+          "obrat_dph": 21060.0,
+          "obrat_bez_dph": 17405.0,
+          "aov_dph": 10530.0,
+          "first_obj": "2025-06-30",
+          "last_obj": "2025-07-21",
+          "months_active": 2
+        },
+        {
+          "zakaznik": "Vojenský útvar 1824 Žatec",
+          "obj": 1,
+          "obrat_dph": 20400.0,
+          "obrat_bez_dph": 16860.0,
+          "aov_dph": 20400.0,
+          "first_obj": "2025-08-06",
+          "last_obj": "2025-08-06",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Martin Halamicek",
+          "obj": 1,
+          "obrat_dph": 20100.0,
+          "obrat_bez_dph": 16612.0,
+          "aov_dph": 20100.0,
+          "first_obj": "2025-05-24",
+          "last_obj": "2025-05-24",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Klíčové centrum Votice",
+          "obj": 4,
+          "obrat_dph": 19389.0,
+          "obrat_bez_dph": 16024.0,
+          "aov_dph": 4847.0,
+          "first_obj": "2025-05-06",
+          "last_obj": "2025-12-16",
+          "months_active": 2
+        }
+      ]
+    },
+    "B2C_klicovecentrum_cz_2026": {
+      "web_id": 1,
+      "rok": 2026,
+      "summary": {
+        "obj": 697,
+        "obrat_dph": 858991.0,
+        "obrat_bez_dph": 709910.0,
+        "unique_customers": 615,
+        "first_obj": "2026-01-01",
+        "last_obj": "2026-04-09",
+        "obrat_dph_kc": 858991.0,
+        "obrat_bez_dph_kc": 709910.0
+      },
+      "pareto": {
+        "top_5_share_pct": 12.5,
+        "top_10_share_pct": 20.5,
+        "top_20_share_pct": 30.6
+      },
+      "top_20": [
+        {
+          "zakaznik": "Renapa s.r.o.",
+          "obj": 5,
+          "obrat_dph": 27785.0,
+          "obrat_bez_dph": 22963.0,
+          "aov_dph": 5557.0,
+          "first_obj": "2026-01-06",
+          "last_obj": "2026-03-13",
+          "months_active": 3
+        },
+        {
+          "zakaznik": "SKYLIGHTEC s.r.o.",
+          "obj": 1,
+          "obrat_dph": 22095.0,
+          "obrat_bez_dph": 18260.0,
+          "aov_dph": 22095.0,
+          "first_obj": "2026-02-19",
+          "last_obj": "2026-02-19",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Jakub Indrák",
+          "obj": 2,
+          "obrat_dph": 19292.0,
+          "obrat_bez_dph": 15944.0,
+          "aov_dph": 9646.0,
+          "first_obj": "2026-02-27",
+          "last_obj": "2026-03-01",
+          "months_active": 2
+        },
+        {
+          "zakaznik": "CBRE Global Workplace Solutions s.r.o.",
+          "obj": 2,
+          "obrat_dph": 19096.0,
+          "obrat_bez_dph": 15782.0,
+          "aov_dph": 9548.0,
+          "first_obj": "2026-03-05",
+          "last_obj": "2026-03-20",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Martin Friedrich Herrmann",
+          "obj": 1,
+          "obrat_dph": 18990.0,
+          "obrat_bez_dph": 15694.0,
+          "aov_dph": 18990.0,
+          "first_obj": "2026-02-15",
+          "last_obj": "2026-02-15",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Džino s.r.o",
+          "obj": 1,
+          "obrat_dph": 15979.0,
+          "obrat_bez_dph": 13206.0,
+          "aov_dph": 15979.0,
+          "first_obj": "2026-03-30",
+          "last_obj": "2026-03-30",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Dance pivovar",
+          "obj": 2,
+          "obrat_dph": 15792.0,
+          "obrat_bez_dph": 13051.0,
+          "aov_dph": 7896.0,
+          "first_obj": "2026-03-03",
+          "last_obj": "2026-03-18",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Tereza Černá",
+          "obj": 2,
+          "obrat_dph": 14264.0,
+          "obrat_bez_dph": 11788.0,
+          "aov_dph": 7132.0,
+          "first_obj": "2026-01-08",
+          "last_obj": "2026-01-08",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "3D Manufaktura s.r.o.",
+          "obj": 2,
+          "obrat_dph": 11960.0,
+          "obrat_bez_dph": 9884.0,
+          "aov_dph": 5980.0,
+          "first_obj": "2026-02-12",
+          "last_obj": "2026-02-17",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Petr Bechyně",
+          "obj": 1,
+          "obrat_dph": 10583.0,
+          "obrat_bez_dph": 8746.0,
+          "aov_dph": 10583.0,
+          "first_obj": "2026-04-08",
+          "last_obj": "2026-04-08",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Václav Tichý",
+          "obj": 1,
+          "obrat_dph": 10043.0,
+          "obrat_bez_dph": 8300.0,
+          "aov_dph": 10043.0,
+          "first_obj": "2026-03-03",
+          "last_obj": "2026-03-03",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "KULTURNÍ ZAŘÍZENÍ MĚSTA SLANÉHO",
+          "obj": 4,
+          "obrat_dph": 9148.0,
+          "obrat_bez_dph": 7560.0,
+          "aov_dph": 2287.0,
+          "first_obj": "2026-01-07",
+          "last_obj": "2026-01-15",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Petr Dostal",
+          "obj": 2,
+          "obrat_dph": 8863.0,
+          "obrat_bez_dph": 7325.0,
+          "aov_dph": 4432.0,
+          "first_obj": "2026-01-12",
+          "last_obj": "2026-01-16",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Miroslav Kubesch",
+          "obj": 1,
+          "obrat_dph": 8850.0,
+          "obrat_bez_dph": 7314.0,
+          "aov_dph": 8850.0,
+          "first_obj": "2026-02-04",
+          "last_obj": "2026-02-04",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Marcel Gerla",
+          "obj": 1,
+          "obrat_dph": 8799.0,
+          "obrat_bez_dph": 7272.0,
+          "aov_dph": 8799.0,
+          "first_obj": "2026-02-11",
+          "last_obj": "2026-02-11",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "JADESILE s.r.o.",
+          "obj": 3,
+          "obrat_dph": 8424.0,
+          "obrat_bez_dph": 6962.0,
+          "aov_dph": 2808.0,
+          "first_obj": "2026-01-05",
+          "last_obj": "2026-01-05",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "NC Computers s.r.o.",
+          "obj": 4,
+          "obrat_dph": 8372.0,
+          "obrat_bez_dph": 6919.0,
+          "aov_dph": 2093.0,
+          "first_obj": "2026-02-11",
+          "last_obj": "2026-03-27",
+          "months_active": 2
+        },
+        {
+          "zakaznik": "GENDAI, s.r.o.",
+          "obj": 1,
+          "obrat_dph": 8287.0,
+          "obrat_bez_dph": 6849.0,
+          "aov_dph": 8287.0,
+          "first_obj": "2026-01-14",
+          "last_obj": "2026-01-14",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Prime Residential, s.r.o.",
+          "obj": 3,
+          "obrat_dph": 8193.0,
+          "obrat_bez_dph": 6771.0,
+          "aov_dph": 2731.0,
+          "first_obj": "2026-03-12",
+          "last_obj": "2026-03-17",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Abacra okna s.r.o.",
+          "obj": 1,
+          "obrat_dph": 7980.0,
+          "obrat_bez_dph": 6595.0,
+          "aov_dph": 7980.0,
+          "first_obj": "2026-01-26",
+          "last_obj": "2026-01-26",
+          "months_active": 1
+        }
+      ]
+    },
+    "B2B_hbgroup_cz_2025": {
+      "web_id": 2,
+      "rok": 2025,
+      "summary": {
+        "obj": 1943,
+        "obrat_dph": 9934536.0,
+        "obrat_bez_dph": 8210360.0,
+        "unique_customers": 129,
+        "first_obj": "2025-01-02",
+        "last_obj": "2025-12-30",
+        "obrat_dph_kc": 9934536.0,
+        "obrat_bez_dph_kc": 8210360.0
+      },
+      "pareto": {
+        "top_5_share_pct": 32.5,
+        "top_10_share_pct": 51.4,
+        "top_20_share_pct": 68.8
+      },
+      "top_20": [
+        {
+          "zakaznik": "Točík Pelhřimov s.r.o.",
+          "obj": 71,
+          "obrat_dph": 759857.0,
+          "obrat_bez_dph": 627981.0,
+          "aov_dph": 10702.0,
+          "first_obj": "2025-01-06",
+          "last_obj": "2025-12-22",
+          "months_active": 12
+        },
+        {
+          "zakaznik": "Železářství ABRAHAM s.r.o.",
+          "obj": 52,
+          "obrat_dph": 729303.0,
+          "obrat_bez_dph": 602729.0,
+          "aov_dph": 14025.0,
+          "first_obj": "2025-01-02",
+          "last_obj": "2025-12-14",
+          "months_active": 12
+        },
+        {
+          "zakaznik": "Klíčové a trezorové centrum Hausner-Plný s.r.o.",
+          "obj": 114,
+          "obrat_dph": 646741.0,
+          "obrat_bez_dph": 534497.0,
+          "aov_dph": 5673.0,
+          "first_obj": "2025-01-06",
+          "last_obj": "2025-12-18",
+          "months_active": 12
+        },
+        {
+          "zakaznik": "Zámečnictví Jiří Hamouz",
+          "obj": 61,
+          "obrat_dph": 573467.0,
+          "obrat_bez_dph": 473940.0,
+          "aov_dph": 9401.0,
+          "first_obj": "2025-01-08",
+          "last_obj": "2025-12-08",
+          "months_active": 12
+        },
+        {
+          "zakaznik": "Matějka zámkařství s.r.o.",
+          "obj": 73,
+          "obrat_dph": 521403.0,
+          "obrat_bez_dph": 430911.0,
+          "aov_dph": 7143.0,
+          "first_obj": "2025-01-02",
+          "last_obj": "2025-12-15",
+          "months_active": 12
+        },
+        {
+          "zakaznik": "Zmečnictví Pečený s.r.o.",
+          "obj": 129,
+          "obrat_dph": 477093.0,
+          "obrat_bez_dph": 394292.0,
+          "aov_dph": 3698.0,
+          "first_obj": "2025-01-03",
+          "last_obj": "2025-12-19",
+          "months_active": 12
+        },
+        {
+          "zakaznik": "Železářství SPOMAT",
+          "obj": 64,
+          "obrat_dph": 404312.0,
+          "obrat_bez_dph": 334142.0,
+          "aov_dph": 6317.0,
+          "first_obj": "2025-01-06",
+          "last_obj": "2025-12-15",
+          "months_active": 12
+        },
+        {
+          "zakaznik": "ŠABATA s.r.o.",
+          "obj": 50,
+          "obrat_dph": 394124.0,
+          "obrat_bez_dph": 325722.0,
+          "aov_dph": 7882.0,
+          "first_obj": "2025-01-13",
+          "last_obj": "2025-12-03",
+          "months_active": 12
+        },
+        {
+          "zakaznik": "Radek Kučera",
+          "obj": 48,
+          "obrat_dph": 325166.0,
+          "obrat_bez_dph": 268732.0,
+          "aov_dph": 6774.0,
+          "first_obj": "2025-01-09",
+          "last_obj": "2025-12-19",
+          "months_active": 12
+        },
+        {
+          "zakaznik": "Jiří Slovák",
+          "obj": 45,
+          "obrat_dph": 274099.0,
+          "obrat_bez_dph": 226528.0,
+          "aov_dph": 6091.0,
+          "first_obj": "2025-01-06",
+          "last_obj": "2025-12-22",
+          "months_active": 12
+        },
+        {
+          "zakaznik": "Klíčové centrum Votice",
+          "obj": 61,
+          "obrat_dph": 240154.0,
+          "obrat_bez_dph": 198475.0,
+          "aov_dph": 3937.0,
+          "first_obj": "2025-01-07",
+          "last_obj": "2025-12-15",
+          "months_active": 12
+        },
+        {
+          "zakaznik": "Zámkařství JiRo s.r.o",
+          "obj": 84,
+          "obrat_dph": 231854.0,
+          "obrat_bez_dph": 191615.0,
+          "aov_dph": 2760.0,
+          "first_obj": "2025-01-17",
+          "last_obj": "2025-12-12",
+          "months_active": 12
+        },
+        {
+          "zakaznik": "TREZORSERVIS s.r.o.",
+          "obj": 50,
+          "obrat_dph": 219542.0,
+          "obrat_bez_dph": 181440.0,
+          "aov_dph": 4391.0,
+          "first_obj": "2025-01-13",
+          "last_obj": "2025-12-15",
+          "months_active": 12
+        },
+        {
+          "zakaznik": "Z Purkyňky",
+          "obj": 37,
+          "obrat_dph": 170532.0,
+          "obrat_bez_dph": 140935.0,
+          "aov_dph": 4609.0,
+          "first_obj": "2025-01-03",
+          "last_obj": "2025-12-29",
+          "months_active": 12
+        },
+        {
+          "zakaznik": "Vladimira Mojcherová",
+          "obj": 45,
+          "obrat_dph": 170519.0,
+          "obrat_bez_dph": 140925.0,
+          "aov_dph": 3789.0,
+          "first_obj": "2025-01-08",
+          "last_obj": "2025-12-09",
+          "months_active": 12
+        },
+        {
+          "zakaznik": "Tomáš Zelinka  TZ-SERVIS",
+          "obj": 28,
+          "obrat_dph": 162567.0,
+          "obrat_bez_dph": 134353.0,
+          "aov_dph": 5806.0,
+          "first_obj": "2025-01-02",
+          "last_obj": "2025-12-08",
+          "months_active": 12
+        },
+        {
+          "zakaznik": "Klíčařství s.r.o.",
+          "obj": 27,
+          "obrat_dph": 137965.0,
+          "obrat_bez_dph": 114021.0,
+          "aov_dph": 5110.0,
+          "first_obj": "2025-01-02",
+          "last_obj": "2025-12-16",
+          "months_active": 12
+        },
+        {
+          "zakaznik": "Petr Mertlík- Železářství",
+          "obj": 14,
+          "obrat_dph": 134781.0,
+          "obrat_bez_dph": 111389.0,
+          "aov_dph": 9627.0,
+          "first_obj": "2025-01-13",
+          "last_obj": "2025-12-13",
+          "months_active": 10
+        },
+        {
+          "zakaznik": "KLÍČOVÁ SLUŽBA MOLEK",
+          "obj": 11,
+          "obrat_dph": 130917.0,
+          "obrat_bez_dph": 108196.0,
+          "aov_dph": 11902.0,
+          "first_obj": "2025-01-10",
+          "last_obj": "2025-11-28",
+          "months_active": 10
+        },
+        {
+          "zakaznik": "ZÁMKAŘSTVÍ BRABENEC",
+          "obj": 64,
+          "obrat_dph": 128871.0,
+          "obrat_bez_dph": 106505.0,
+          "aov_dph": 2014.0,
+          "first_obj": "2025-03-19",
+          "last_obj": "2025-12-30",
+          "months_active": 10
+        }
+      ]
+    },
+    "B2B_hbgroup_cz_2026": {
+      "web_id": 2,
+      "rok": 2026,
+      "summary": {
+        "obj": 523,
+        "obrat_dph": 2737237.0,
+        "obrat_bez_dph": 2262179.0,
+        "unique_customers": 86,
+        "first_obj": "2026-01-02",
+        "last_obj": "2026-04-09",
+        "obrat_dph_kc": 2737237.0,
+        "obrat_bez_dph_kc": 2262179.0
+      },
+      "pareto": {
+        "top_5_share_pct": 27.4,
+        "top_10_share_pct": 48.5,
+        "top_20_share_pct": 70.8
+      },
+      "top_20": [
+        {
+          "zakaznik": "Točík Pelhřimov s.r.o.",
+          "obj": 16,
+          "obrat_dph": 171781.0,
+          "obrat_bez_dph": 141967.0,
+          "aov_dph": 10736.0,
+          "first_obj": "2026-01-05",
+          "last_obj": "2026-04-02",
+          "months_active": 4
+        },
+        {
+          "zakaznik": "Železářství ABRAHAM s.r.o.",
+          "obj": 17,
+          "obrat_dph": 161938.0,
+          "obrat_bez_dph": 133833.0,
+          "aov_dph": 9526.0,
+          "first_obj": "2026-01-05",
+          "last_obj": "2026-03-16",
+          "months_active": 3
+        },
+        {
+          "zakaznik": "TREZORSERVIS s.r.o.",
+          "obj": 21,
+          "obrat_dph": 147189.0,
+          "obrat_bez_dph": 121644.0,
+          "aov_dph": 7009.0,
+          "first_obj": "2026-01-05",
+          "last_obj": "2026-04-02",
+          "months_active": 4
+        },
+        {
+          "zakaznik": "Zmečnictví Pečený s.r.o.",
+          "obj": 32,
+          "obrat_dph": 139585.0,
+          "obrat_bez_dph": 115360.0,
+          "aov_dph": 4362.0,
+          "first_obj": "2026-01-02",
+          "last_obj": "2026-04-08",
+          "months_active": 4
+        },
+        {
+          "zakaznik": "Matějka zámkařství s.r.o.",
+          "obj": 18,
+          "obrat_dph": 128294.0,
+          "obrat_bez_dph": 106028.0,
+          "aov_dph": 7127.0,
+          "first_obj": "2026-01-13",
+          "last_obj": "2026-04-08",
+          "months_active": 4
+        },
+        {
+          "zakaznik": "Klíčové a trezorové centrum Hausner-Plný s.r.o.",
+          "obj": 29,
+          "obrat_dph": 127347.0,
+          "obrat_bez_dph": 105246.0,
+          "aov_dph": 4391.0,
+          "first_obj": "2026-01-05",
+          "last_obj": "2026-04-01",
+          "months_active": 4
+        },
+        {
+          "zakaznik": "ŠABATA s.r.o.",
+          "obj": 17,
+          "obrat_dph": 124549.0,
+          "obrat_bez_dph": 102933.0,
+          "aov_dph": 7326.0,
+          "first_obj": "2026-01-12",
+          "last_obj": "2026-04-01",
+          "months_active": 4
+        },
+        {
+          "zakaznik": "Železářství SPOMAT",
+          "obj": 18,
+          "obrat_dph": 110934.0,
+          "obrat_bez_dph": 91681.0,
+          "aov_dph": 6163.0,
+          "first_obj": "2026-01-05",
+          "last_obj": "2026-04-07",
+          "months_active": 4
+        },
+        {
+          "zakaznik": "Zámečnictví Jiří Hamouz",
+          "obj": 8,
+          "obrat_dph": 108397.0,
+          "obrat_bez_dph": 89585.0,
+          "aov_dph": 13550.0,
+          "first_obj": "2026-01-12",
+          "last_obj": "2026-03-25",
+          "months_active": 3
+        },
+        {
+          "zakaznik": "Jiří Slovák",
+          "obj": 13,
+          "obrat_dph": 108015.0,
+          "obrat_bez_dph": 89268.0,
+          "aov_dph": 8309.0,
+          "first_obj": "2026-01-05",
+          "last_obj": "2026-04-01",
+          "months_active": 4
+        },
+        {
+          "zakaznik": "Radek Kučera",
+          "obj": 11,
+          "obrat_dph": 89450.0,
+          "obrat_bez_dph": 73926.0,
+          "aov_dph": 8132.0,
+          "first_obj": "2026-01-06",
+          "last_obj": "2026-03-25",
+          "months_active": 3
+        },
+        {
+          "zakaznik": "Klíčové centrum Votice",
+          "obj": 18,
+          "obrat_dph": 75860.0,
+          "obrat_bez_dph": 62694.0,
+          "aov_dph": 4214.0,
+          "first_obj": "2026-01-20",
+          "last_obj": "2026-04-07",
+          "months_active": 4
+        },
+        {
+          "zakaznik": "Autosport Kraupner",
+          "obj": 7,
+          "obrat_dph": 73250.0,
+          "obrat_bez_dph": 60537.0,
+          "aov_dph": 10464.0,
+          "first_obj": "2026-01-14",
+          "last_obj": "2026-03-18",
+          "months_active": 3
+        },
+        {
+          "zakaznik": "Tomáš Zelinka  TZ-SERVIS",
+          "obj": 8,
+          "obrat_dph": 64353.0,
+          "obrat_bez_dph": 53184.0,
+          "aov_dph": 8044.0,
+          "first_obj": "2026-01-04",
+          "last_obj": "2026-04-08",
+          "months_active": 3
+        },
+        {
+          "zakaznik": "BOTEX spol. s.r.o.",
+          "obj": 8,
+          "obrat_dph": 61159.0,
+          "obrat_bez_dph": 50545.0,
+          "aov_dph": 7645.0,
+          "first_obj": "2026-01-06",
+          "last_obj": "2026-04-08",
+          "months_active": 4
+        },
+        {
+          "zakaznik": "ZÁMKAŘSTVÍ BRABENEC",
+          "obj": 16,
+          "obrat_dph": 55504.0,
+          "obrat_bez_dph": 45871.0,
+          "aov_dph": 3469.0,
+          "first_obj": "2026-01-05",
+          "last_obj": "2026-04-08",
+          "months_active": 4
+        },
+        {
+          "zakaznik": "Z Purkyňky",
+          "obj": 4,
+          "obrat_dph": 52268.0,
+          "obrat_bez_dph": 43197.0,
+          "aov_dph": 13067.0,
+          "first_obj": "2026-01-22",
+          "last_obj": "2026-03-16",
+          "months_active": 3
+        },
+        {
+          "zakaznik": "Vladimira Mojcherová",
+          "obj": 12,
+          "obrat_dph": 47029.0,
+          "obrat_bez_dph": 38867.0,
+          "aov_dph": 3919.0,
+          "first_obj": "2026-01-07",
+          "last_obj": "2026-04-01",
+          "months_active": 4
+        },
+        {
+          "zakaznik": "Petr Rapčan",
+          "obj": 9,
+          "obrat_dph": 46064.0,
+          "obrat_bez_dph": 38069.0,
+          "aov_dph": 5118.0,
+          "first_obj": "2026-01-04",
+          "last_obj": "2026-04-08",
+          "months_active": 4
+        },
+        {
+          "zakaznik": "František Šimšálek",
+          "obj": 5,
+          "obrat_dph": 44189.0,
+          "obrat_bez_dph": 36520.0,
+          "aov_dph": 8838.0,
+          "first_obj": "2026-01-12",
+          "last_obj": "2026-03-18",
+          "months_active": 3
+        }
+      ]
+    },
+    "SK_hbgroup_sk_2025": {
+      "web_id": 3,
+      "rok": 2025,
+      "summary": {
+        "obj": 931,
+        "obrat_dph": 214269.0,
+        "obrat_bez_dph": 177082.0,
+        "unique_customers": 95,
+        "first_obj": "2025-01-02",
+        "last_obj": "2025-12-29",
+        "obrat_dph_kc": 214269.0,
+        "obrat_bez_dph_kc": 177082.0
+      },
+      "pareto": {
+        "top_5_share_pct": 35.0,
+        "top_10_share_pct": 54.9,
+        "top_20_share_pct": 74.8
+      },
+      "top_20": [
+        {
+          "zakaznik": "Sĺňava Piešťany, s.r.o. - prevádzka Kľúčovka Piešťany",
+          "obj": 46,
+          "obrat_dph": 20513.0,
+          "obrat_bez_dph": 16953.0,
+          "aov_dph": 446.0,
+          "first_obj": "2025-01-15",
+          "last_obj": "2025-12-17",
+          "months_active": 12
+        },
+        {
+          "zakaznik": "Marian Moravčík - PROFIL",
+          "obj": 80,
+          "obrat_dph": 16298.0,
+          "obrat_bez_dph": 13469.0,
+          "aov_dph": 204.0,
+          "first_obj": "2025-01-03",
+          "last_obj": "2025-12-19",
+          "months_active": 12
+        },
+        {
+          "zakaznik": "František Krč TREZAM",
+          "obj": 99,
+          "obrat_dph": 13250.0,
+          "obrat_bez_dph": 10950.0,
+          "aov_dph": 134.0,
+          "first_obj": "2025-01-08",
+          "last_obj": "2025-12-17",
+          "months_active": 12
+        },
+        {
+          "zakaznik": "Euro Services Group,s.r.o.",
+          "obj": 35,
+          "obrat_dph": 12535.0,
+          "obrat_bez_dph": 10359.0,
+          "aov_dph": 358.0,
+          "first_obj": "2025-01-07",
+          "last_obj": "2025-12-05",
+          "months_active": 12
+        },
+        {
+          "zakaznik": "Daniel Bašo - Bezpečnostné uzamykacie systémy",
+          "obj": 47,
+          "obrat_dph": 12362.0,
+          "obrat_bez_dph": 10217.0,
+          "aov_dph": 263.0,
+          "first_obj": "2025-01-13",
+          "last_obj": "2025-12-08",
+          "months_active": 12
+        },
+        {
+          "zakaznik": "Ing. Lubomír Troják",
+          "obj": 12,
+          "obrat_dph": 10773.0,
+          "obrat_bez_dph": 8903.0,
+          "aov_dph": 898.0,
+          "first_obj": "2025-04-02",
+          "last_obj": "2025-12-17",
+          "months_active": 6
+        },
+        {
+          "zakaznik": "JOMI HC, s.r.o.",
+          "obj": 19,
+          "obrat_dph": 8701.0,
+          "obrat_bez_dph": 7191.0,
+          "aov_dph": 458.0,
+          "first_obj": "2025-05-21",
+          "last_obj": "2025-12-29",
+          "months_active": 8
+        },
+        {
+          "zakaznik": "Jozef Bíro, s.r.o.",
+          "obj": 25,
+          "obrat_dph": 8423.0,
+          "obrat_bez_dph": 6961.0,
+          "aov_dph": 337.0,
+          "first_obj": "2025-01-08",
+          "last_obj": "2025-12-17",
+          "months_active": 11
+        },
+        {
+          "zakaznik": "KEYmax, s. r. o.",
+          "obj": 42,
+          "obrat_dph": 8357.0,
+          "obrat_bez_dph": 6907.0,
+          "aov_dph": 199.0,
+          "first_obj": "2025-01-07",
+          "last_obj": "2025-12-22",
+          "months_active": 12
+        },
+        {
+          "zakaznik": "Andrej Šiška",
+          "obj": 36,
+          "obrat_dph": 6334.0,
+          "obrat_bez_dph": 5234.0,
+          "aov_dph": 176.0,
+          "first_obj": "2025-01-13",
+          "last_obj": "2025-12-10",
+          "months_active": 12
+        },
+        {
+          "zakaznik": "Ingrid Feltovičová - GRAROFAB",
+          "obj": 17,
+          "obrat_dph": 5915.0,
+          "obrat_bez_dph": 4889.0,
+          "aov_dph": 348.0,
+          "first_obj": "2025-01-20",
+          "last_obj": "2025-12-10",
+          "months_active": 11
+        },
+        {
+          "zakaznik": "HRC SK s.r.o.",
+          "obj": 18,
+          "obrat_dph": 5640.0,
+          "obrat_bez_dph": 4661.0,
+          "aov_dph": 313.0,
+          "first_obj": "2025-01-15",
+          "last_obj": "2025-12-18",
+          "months_active": 12
+        },
+        {
+          "zakaznik": "Výroba kľúčov a Záhradkár",
+          "obj": 21,
+          "obrat_dph": 5098.0,
+          "obrat_bez_dph": 4213.0,
+          "aov_dph": 243.0,
+          "first_obj": "2025-01-17",
+          "last_obj": "2025-12-16",
+          "months_active": 12
+        },
+        {
+          "zakaznik": "Ing. Milan Luteran",
+          "obj": 16,
+          "obrat_dph": 4727.0,
+          "obrat_bez_dph": 3907.0,
+          "aov_dph": 295.0,
+          "first_obj": "2025-01-09",
+          "last_obj": "2025-12-10",
+          "months_active": 10
+        },
+        {
+          "zakaznik": "Michal Obšatník",
+          "obj": 22,
+          "obrat_dph": 4158.0,
+          "obrat_bez_dph": 3436.0,
+          "aov_dph": 189.0,
+          "first_obj": "2025-01-09",
+          "last_obj": "2025-12-17",
+          "months_active": 9
+        },
+        {
+          "zakaznik": "Tvoj kľúč s.r.o.",
+          "obj": 7,
+          "obrat_dph": 3754.0,
+          "obrat_bez_dph": 3102.0,
+          "aov_dph": 536.0,
+          "first_obj": "2025-01-17",
+          "last_obj": "2025-10-16",
+          "months_active": 7
+        },
+        {
+          "zakaznik": "B&B servis s. r.o.",
+          "obj": 8,
+          "obrat_dph": 3560.0,
+          "obrat_bez_dph": 2942.0,
+          "aov_dph": 445.0,
+          "first_obj": "2025-01-04",
+          "last_obj": "2025-11-25",
+          "months_active": 6
+        },
+        {
+          "zakaznik": "PERFORMEL s. r. o.",
+          "obj": 25,
+          "obrat_dph": 3436.0,
+          "obrat_bez_dph": 2839.0,
+          "aov_dph": 137.0,
+          "first_obj": "2025-01-24",
+          "last_obj": "2025-12-15",
+          "months_active": 12
+        },
+        {
+          "zakaznik": "TABAČIK - PRIEMTO s. r. o.",
+          "obj": 7,
+          "obrat_dph": 3227.0,
+          "obrat_bez_dph": 2667.0,
+          "aov_dph": 461.0,
+          "first_obj": "2025-01-21",
+          "last_obj": "2025-12-12",
+          "months_active": 5
+        },
+        {
+          "zakaznik": "Daniela Tóthová - DT-FAB",
+          "obj": 10,
+          "obrat_dph": 3183.0,
+          "obrat_bez_dph": 2631.0,
+          "aov_dph": 318.0,
+          "first_obj": "2025-01-20",
+          "last_obj": "2025-10-22",
+          "months_active": 7
+        }
+      ]
+    },
+    "SK_hbgroup_sk_2026": {
+      "web_id": 3,
+      "rok": 2026,
+      "summary": {
+        "obj": 273,
+        "obrat_dph": 63792.0,
+        "obrat_bez_dph": 52721.0,
+        "unique_customers": 61,
+        "first_obj": "2026-01-01",
+        "last_obj": "2026-04-08",
+        "obrat_dph_kc": 63792.0,
+        "obrat_bez_dph_kc": 52721.0
+      },
+      "pareto": {
+        "top_5_share_pct": 36.7,
+        "top_10_share_pct": 57.0,
+        "top_20_share_pct": 80.3
+      },
+      "top_20": [
+        {
+          "zakaznik": "Sĺňava Piešťany, s.r.o. - prevádzka Kľúčovka Piešťany",
+          "obj": 13,
+          "obrat_dph": 6859.0,
+          "obrat_bez_dph": 5669.0,
+          "aov_dph": 528.0,
+          "first_obj": "2026-01-12",
+          "last_obj": "2026-04-08",
+          "months_active": 4
+        },
+        {
+          "zakaznik": "Ing. Lubomír Troják",
+          "obj": 6,
+          "obrat_dph": 4608.0,
+          "obrat_bez_dph": 3808.0,
+          "aov_dph": 768.0,
+          "first_obj": "2026-01-12",
+          "last_obj": "2026-04-01",
+          "months_active": 4
+        },
+        {
+          "zakaznik": "Marian Moravčík - PROFIL",
+          "obj": 22,
+          "obrat_dph": 4292.0,
+          "obrat_bez_dph": 3547.0,
+          "aov_dph": 195.0,
+          "first_obj": "2026-01-09",
+          "last_obj": "2026-04-08",
+          "months_active": 4
+        },
+        {
+          "zakaznik": "Daniel Bašo - Bezpečnostné uzamykacie systémy",
+          "obj": 12,
+          "obrat_dph": 3999.0,
+          "obrat_bez_dph": 3305.0,
+          "aov_dph": 333.0,
+          "first_obj": "2026-01-13",
+          "last_obj": "2026-04-08",
+          "months_active": 4
+        },
+        {
+          "zakaznik": "Euro Services Group,s.r.o.",
+          "obj": 11,
+          "obrat_dph": 3623.0,
+          "obrat_bez_dph": 2994.0,
+          "aov_dph": 329.0,
+          "first_obj": "2026-01-08",
+          "last_obj": "2026-04-07",
+          "months_active": 4
+        },
+        {
+          "zakaznik": "JOMI HC, s.r.o.",
+          "obj": 9,
+          "obrat_dph": 3028.0,
+          "obrat_bez_dph": 2502.0,
+          "aov_dph": 336.0,
+          "first_obj": "2026-01-13",
+          "last_obj": "2026-04-08",
+          "months_active": 4
+        },
+        {
+          "zakaznik": "František Krč TREZAM",
+          "obj": 25,
+          "obrat_dph": 2997.0,
+          "obrat_bez_dph": 2477.0,
+          "aov_dph": 120.0,
+          "first_obj": "2026-01-19",
+          "last_obj": "2026-04-08",
+          "months_active": 4
+        },
+        {
+          "zakaznik": "Andrej Šiška",
+          "obj": 12,
+          "obrat_dph": 2702.0,
+          "obrat_bez_dph": 2233.0,
+          "aov_dph": 225.0,
+          "first_obj": "2026-01-08",
+          "last_obj": "2026-03-26",
+          "months_active": 3
+        },
+        {
+          "zakaznik": "Jozef Bíro, s.r.o.",
+          "obj": 5,
+          "obrat_dph": 2291.0,
+          "obrat_bez_dph": 1893.0,
+          "aov_dph": 458.0,
+          "first_obj": "2026-01-14",
+          "last_obj": "2026-03-31",
+          "months_active": 3
+        },
+        {
+          "zakaznik": "Ingrid Feltovičová - GRAROFAB",
+          "obj": 4,
+          "obrat_dph": 1958.0,
+          "obrat_bez_dph": 1618.0,
+          "aov_dph": 489.0,
+          "first_obj": "2026-01-12",
+          "last_obj": "2026-03-27",
+          "months_active": 3
+        },
+        {
+          "zakaznik": "Mário Zemčák",
+          "obj": 2,
+          "obrat_dph": 1926.0,
+          "obrat_bez_dph": 1591.0,
+          "aov_dph": 963.0,
+          "first_obj": "2026-02-05",
+          "last_obj": "2026-04-08",
+          "months_active": 2
+        },
+        {
+          "zakaznik": "KEYmax, s. r. o.",
+          "obj": 12,
+          "obrat_dph": 1836.0,
+          "obrat_bez_dph": 1517.0,
+          "aov_dph": 153.0,
+          "first_obj": "2026-01-02",
+          "last_obj": "2026-04-07",
+          "months_active": 4
+        },
+        {
+          "zakaznik": "Eurotrend Špak s.r.o.",
+          "obj": 3,
+          "obrat_dph": 1782.0,
+          "obrat_bez_dph": 1473.0,
+          "aov_dph": 594.0,
+          "first_obj": "2026-01-08",
+          "last_obj": "2026-04-02",
+          "months_active": 2
+        },
+        {
+          "zakaznik": "HRC SK s.r.o.",
+          "obj": 5,
+          "obrat_dph": 1705.0,
+          "obrat_bez_dph": 1409.0,
+          "aov_dph": 341.0,
+          "first_obj": "2026-01-13",
+          "last_obj": "2026-04-02",
+          "months_active": 4
+        },
+        {
+          "zakaznik": "VEJEX, s.r.o.",
+          "obj": 5,
+          "obrat_dph": 1513.0,
+          "obrat_bez_dph": 1250.0,
+          "aov_dph": 303.0,
+          "first_obj": "2026-01-30",
+          "last_obj": "2026-04-02",
+          "months_active": 4
+        },
+        {
+          "zakaznik": "Dušan Šteiner   Klúčova služba",
+          "obj": 6,
+          "obrat_dph": 1436.0,
+          "obrat_bez_dph": 1187.0,
+          "aov_dph": 239.0,
+          "first_obj": "2026-01-20",
+          "last_obj": "2026-04-01",
+          "months_active": 4
+        },
+        {
+          "zakaznik": "Výroba kľúčov a Záhradkár",
+          "obj": 6,
+          "obrat_dph": 1282.0,
+          "obrat_bez_dph": 1060.0,
+          "aov_dph": 214.0,
+          "first_obj": "2026-01-08",
+          "last_obj": "2026-03-27",
+          "months_active": 3
+        },
+        {
+          "zakaznik": "Tvoj kľúč s.r.o.",
+          "obj": 3,
+          "obrat_dph": 1225.0,
+          "obrat_bez_dph": 1012.0,
+          "aov_dph": 408.0,
+          "first_obj": "2026-01-26",
+          "last_obj": "2026-03-09",
+          "months_active": 3
+        },
+        {
+          "zakaznik": "PERFORMEL s. r. o.",
+          "obj": 7,
+          "obrat_dph": 1080.0,
+          "obrat_bez_dph": 893.0,
+          "aov_dph": 154.0,
+          "first_obj": "2026-01-09",
+          "last_obj": "2026-04-01",
+          "months_active": 4
+        },
+        {
+          "zakaznik": "Vaša Kľúčovka sro",
+          "obj": 6,
+          "obrat_dph": 1057.0,
+          "obrat_bez_dph": 874.0,
+          "aov_dph": 176.0,
+          "first_obj": "2026-01-19",
+          "last_obj": "2026-04-07",
+          "months_active": 4
+        }
+      ]
+    },
+    "SK_klucovecentrum_sk_2025": {
+      "web_id": 4,
+      "rok": 2025,
+      "summary": {
+        "obj": 832,
+        "obrat_dph": 36869.0,
+        "obrat_bez_dph": 30470.0,
+        "unique_customers": 750,
+        "first_obj": "2025-01-02",
+        "last_obj": "2025-12-30",
+        "obrat_dph_kc": 36869.0,
+        "obrat_bez_dph_kc": 30470.0
+      },
+      "pareto": {
+        "top_5_share_pct": 11.6,
+        "top_10_share_pct": 17.0,
+        "top_20_share_pct": 25.1
+      },
+      "top_20": [
+        {
+          "zakaznik": "Jozef Bíro, s.r.o.",
+          "obj": 3,
+          "obrat_dph": 1572.0,
+          "obrat_bez_dph": 1299.0,
+          "aov_dph": 524.0,
+          "first_obj": "2025-02-12",
+          "last_obj": "2025-03-12",
+          "months_active": 2
+        },
+        {
+          "zakaznik": "METALL DESIGN s.r.o.",
+          "obj": 1,
+          "obrat_dph": 770.0,
+          "obrat_bez_dph": 636.0,
+          "aov_dph": 770.0,
+          "first_obj": "2025-02-14",
+          "last_obj": "2025-02-14",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Comos,s.r.o.",
+          "obj": 2,
+          "obrat_dph": 719.0,
+          "obrat_bez_dph": 594.0,
+          "aov_dph": 360.0,
+          "first_obj": "2025-05-02",
+          "last_obj": "2025-05-05",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "O.P.C.D., spol. s r.o.",
+          "obj": 1,
+          "obrat_dph": 668.0,
+          "obrat_bez_dph": 552.0,
+          "aov_dph": 668.0,
+          "first_obj": "2025-04-03",
+          "last_obj": "2025-04-03",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "KOTO s.r.o.",
+          "obj": 1,
+          "obrat_dph": 548.0,
+          "obrat_bez_dph": 453.0,
+          "aov_dph": 548.0,
+          "first_obj": "2025-08-19",
+          "last_obj": "2025-08-19",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Rm auto",
+          "obj": 1,
+          "obrat_dph": 478.0,
+          "obrat_bez_dph": 395.0,
+          "aov_dph": 478.0,
+          "first_obj": "2025-04-28",
+          "last_obj": "2025-04-28",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Jozef Gogola",
+          "obj": 1,
+          "obrat_dph": 417.0,
+          "obrat_bez_dph": 345.0,
+          "aov_dph": 417.0,
+          "first_obj": "2025-01-17",
+          "last_obj": "2025-01-17",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Dmytro Feshchenko",
+          "obj": 1,
+          "obrat_dph": 416.0,
+          "obrat_bez_dph": 344.0,
+          "aov_dph": 416.0,
+          "first_obj": "2025-11-06",
+          "last_obj": "2025-11-06",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Michal Petro",
+          "obj": 1,
+          "obrat_dph": 353.0,
+          "obrat_bez_dph": 292.0,
+          "aov_dph": 353.0,
+          "first_obj": "2025-10-29",
+          "last_obj": "2025-10-29",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "HALTEX SK s.r.o.",
+          "obj": 1,
+          "obrat_dph": 340.0,
+          "obrat_bez_dph": 281.0,
+          "aov_dph": 340.0,
+          "first_obj": "2025-02-13",
+          "last_obj": "2025-02-13",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Aallin s.r.o",
+          "obj": 1,
+          "obrat_dph": 336.0,
+          "obrat_bez_dph": 277.0,
+          "aov_dph": 336.0,
+          "first_obj": "2025-02-24",
+          "last_obj": "2025-02-24",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "TechMan s.r.o.",
+          "obj": 1,
+          "obrat_dph": 334.0,
+          "obrat_bez_dph": 276.0,
+          "aov_dph": 334.0,
+          "first_obj": "2025-12-17",
+          "last_obj": "2025-12-17",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "ADATEX, s.r.o.",
+          "obj": 1,
+          "obrat_dph": 313.0,
+          "obrat_bez_dph": 259.0,
+          "aov_dph": 313.0,
+          "first_obj": "2025-10-23",
+          "last_obj": "2025-10-23",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Jana Veščičíkova",
+          "obj": 1,
+          "obrat_dph": 311.0,
+          "obrat_bez_dph": 257.0,
+          "aov_dph": 311.0,
+          "first_obj": "2025-03-25",
+          "last_obj": "2025-03-25",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "ISO interiér s. r. o.",
+          "obj": 1,
+          "obrat_dph": 304.0,
+          "obrat_bez_dph": 251.0,
+          "aov_dph": 304.0,
+          "first_obj": "2025-11-18",
+          "last_obj": "2025-11-18",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Aquastar, s.r.o.",
+          "obj": 2,
+          "obrat_dph": 292.0,
+          "obrat_bez_dph": 241.0,
+          "aov_dph": 146.0,
+          "first_obj": "2025-03-11",
+          "last_obj": "2025-03-13",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Horákinteriery",
+          "obj": 1,
+          "obrat_dph": 280.0,
+          "obrat_bez_dph": 231.0,
+          "aov_dph": 280.0,
+          "first_obj": "2025-04-10",
+          "last_obj": "2025-04-10",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Mestská krytá plaváreň",
+          "obj": 1,
+          "obrat_dph": 274.0,
+          "obrat_bez_dph": 227.0,
+          "aov_dph": 274.0,
+          "first_obj": "2025-02-24",
+          "last_obj": "2025-02-24",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "KUKA Slovakia s.r.o.",
+          "obj": 2,
+          "obrat_dph": 273.0,
+          "obrat_bez_dph": 225.0,
+          "aov_dph": 136.0,
+          "first_obj": "2025-04-09",
+          "last_obj": "2025-04-14",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "L+A reality trade s.r.o.",
+          "obj": 1,
+          "obrat_dph": 269.0,
+          "obrat_bez_dph": 222.0,
+          "aov_dph": 269.0,
+          "first_obj": "2025-10-09",
+          "last_obj": "2025-10-09",
+          "months_active": 1
+        }
+      ]
+    },
+    "SK_klucovecentrum_sk_2026": {
+      "web_id": 4,
+      "rok": 2026,
+      "summary": {
+        "obj": 245,
+        "obrat_dph": 10665.0,
+        "obrat_bez_dph": 8814.0,
+        "unique_customers": 224,
+        "first_obj": "2026-01-02",
+        "last_obj": "2026-04-08",
+        "obrat_dph_kc": 10665.0,
+        "obrat_bez_dph_kc": 8814.0
+      },
+      "pareto": {
+        "top_5_share_pct": 20.4,
+        "top_10_share_pct": 30.4,
+        "top_20_share_pct": 46.0
+      },
+      "top_20": [
+        {
+          "zakaznik": "Ján Suchý",
+          "obj": 4,
+          "obrat_dph": 735.0,
+          "obrat_bez_dph": 608.0,
+          "aov_dph": 184.0,
+          "first_obj": "2026-02-19",
+          "last_obj": "2026-02-19",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Peter Sabo Železiarstvo",
+          "obj": 1,
+          "obrat_dph": 575.0,
+          "obrat_bez_dph": 475.0,
+          "aov_dph": 575.0,
+          "first_obj": "2026-01-27",
+          "last_obj": "2026-01-27",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Miklovič s. r. o.",
+          "obj": 2,
+          "obrat_dph": 366.0,
+          "obrat_bez_dph": 302.0,
+          "aov_dph": 183.0,
+          "first_obj": "2026-01-15",
+          "last_obj": "2026-01-15",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Erich Kotleba",
+          "obj": 1,
+          "obrat_dph": 255.0,
+          "obrat_bez_dph": 211.0,
+          "aov_dph": 255.0,
+          "first_obj": "2026-02-26",
+          "last_obj": "2026-02-26",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Lubomir spanko",
+          "obj": 1,
+          "obrat_dph": 244.0,
+          "obrat_bez_dph": 202.0,
+          "aov_dph": 244.0,
+          "first_obj": "2026-02-04",
+          "last_obj": "2026-02-04",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Milan Riapoš",
+          "obj": 1,
+          "obrat_dph": 230.0,
+          "obrat_bez_dph": 190.0,
+          "aov_dph": 230.0,
+          "first_obj": "2026-01-31",
+          "last_obj": "2026-01-31",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "TATRA-TRADE, s.r.o.",
+          "obj": 2,
+          "obrat_dph": 224.0,
+          "obrat_bez_dph": 185.0,
+          "aov_dph": 112.0,
+          "first_obj": "2026-01-15",
+          "last_obj": "2026-02-12",
+          "months_active": 2
+        },
+        {
+          "zakaznik": "Vladimír Krištofík",
+          "obj": 1,
+          "obrat_dph": 220.0,
+          "obrat_bez_dph": 182.0,
+          "aov_dph": 220.0,
+          "first_obj": "2026-01-20",
+          "last_obj": "2026-01-20",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Technoliving Slovakia, s.r.o.",
+          "obj": 2,
+          "obrat_dph": 201.0,
+          "obrat_bez_dph": 166.0,
+          "aov_dph": 100.0,
+          "first_obj": "2026-02-03",
+          "last_obj": "2026-03-17",
+          "months_active": 2
+        },
+        {
+          "zakaznik": "TELTEC sro",
+          "obj": 1,
+          "obrat_dph": 193.0,
+          "obrat_bez_dph": 160.0,
+          "aov_dph": 193.0,
+          "first_obj": "2026-02-12",
+          "last_obj": "2026-02-12",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "EVO Glass s.r.o",
+          "obj": 1,
+          "obrat_dph": 192.0,
+          "obrat_bez_dph": 159.0,
+          "aov_dph": 192.0,
+          "first_obj": "2026-02-16",
+          "last_obj": "2026-02-16",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "ÚVN SNP Ružomberok FN",
+          "obj": 1,
+          "obrat_dph": 191.0,
+          "obrat_bez_dph": 158.0,
+          "aov_dph": 191.0,
+          "first_obj": "2026-01-19",
+          "last_obj": "2026-01-19",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Ksb plus s.r.o.",
+          "obj": 1,
+          "obrat_dph": 190.0,
+          "obrat_bez_dph": 157.0,
+          "aov_dph": 190.0,
+          "first_obj": "2026-02-06",
+          "last_obj": "2026-02-06",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Ivan Iľťo",
+          "obj": 2,
+          "obrat_dph": 187.0,
+          "obrat_bez_dph": 155.0,
+          "aov_dph": 94.0,
+          "first_obj": "2026-03-10",
+          "last_obj": "2026-03-10",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Miroslav Danihel",
+          "obj": 2,
+          "obrat_dph": 182.0,
+          "obrat_bez_dph": 150.0,
+          "aov_dph": 91.0,
+          "first_obj": "2026-02-18",
+          "last_obj": "2026-02-27",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "ISAL s.r.o.",
+          "obj": 1,
+          "obrat_dph": 162.0,
+          "obrat_bez_dph": 134.0,
+          "aov_dph": 162.0,
+          "first_obj": "2026-02-13",
+          "last_obj": "2026-02-13",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "František Cesnek",
+          "obj": 1,
+          "obrat_dph": 155.0,
+          "obrat_bez_dph": 128.0,
+          "aov_dph": 155.0,
+          "first_obj": "2026-03-18",
+          "last_obj": "2026-03-18",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Daniel Miklovič",
+          "obj": 1,
+          "obrat_dph": 148.0,
+          "obrat_bez_dph": 122.0,
+          "aov_dph": 148.0,
+          "first_obj": "2026-01-08",
+          "last_obj": "2026-01-08",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Lucia Fabšíková",
+          "obj": 1,
+          "obrat_dph": 130.0,
+          "obrat_bez_dph": 107.0,
+          "aov_dph": 130.0,
+          "first_obj": "2026-02-11",
+          "last_obj": "2026-02-11",
+          "months_active": 1
+        },
+        {
+          "zakaznik": "Xray, s.r.o.",
+          "obj": 1,
+          "obrat_dph": 127.0,
+          "obrat_bez_dph": 105.0,
+          "aov_dph": 127.0,
+          "first_obj": "2026-03-30",
+          "last_obj": "2026-03-30",
+          "months_active": 1
+        }
+      ]
+    }
+  }
+}

@@ -1428,16 +1428,17 @@
   <div class="view-filter-card" data-view-filter="topcustomers">
     <div class="view-filter-row">
       <div>
-        <label>Období</label>
+        <label>Období (zdroj: SQL kosik DB)</label>
         <select class="view-period" data-target="topcustomers">
-          <option value="2025">📊 2025 (jediný s denní granularitou)</option>
+          <option value="2025">📅 2025 celý rok</option>
+          <option value="2026" selected>📅 2026 (Q1 + duben, 4M)</option>
         </select>
       </div>
       <div>
         <label>Segment</label>
         <select class="view-segment" data-target="topcustomers">
-          <option value="b2c">🛒 B2C E-shop MO</option>
-          <option value="b2b" selected>🏢 B2B Velkoobchod</option>
+          <option value="b2c">🛒 B2C — klicovecentrum.cz (web_id=1)</option>
+          <option value="b2b" selected>🏢 B2B — hbgroup.cz (web_id=2)</option>
         </select>
       </div>
     </div>
@@ -1464,14 +1465,13 @@
           <tr>
             <th>#</th>
             <th>Zákazník</th>
-            <th style="text-align:right">Obrat Kč</th>
-            <th style="text-align:right">Zisk</th>
-            <th style="text-align:right">Marže</th>
+            <th style="text-align:right">Obrat s DPH</th>
+            <th style="text-align:right">Bez DPH</th>
             <th style="text-align:right">Obj.</th>
-            <th style="text-align:right">AOV Kč</th>
-            <th>Poslední obj.</th>
-            <th>RFM</th>
-            <th>Aliasy</th>
+            <th style="text-align:right">AOV s DPH</th>
+            <th>Období aktivity</th>
+            <th style="text-align:center">Měs. aktiv.</th>
+            <th style="text-align:right">% z celku</th>
           </tr>
         </thead>
         <tbody></tbody>
@@ -5111,52 +5111,53 @@ async function loadTopCustomers() {
 
 function renderTopCustomers() {
   const fmt = n => n==null?'—':Number(n).toLocaleString('cs-CZ');
-  // FIX: Read from view-specific state, not global dashState (selektor v hlavičce sekce)
   const seg = (window.viewState?.topcustomers?.segment === 'b2b') ? 'B2B' : 'B2C';
+  const period = (window.viewState?.topcustomers?.period === '2026') ? '2026' : '2025';
   const D = topCustomersData;
   if (!D) return;
-  const d = D[seg];
-  if (!d) return;
-
-  // Title + subtitle
-  document.getElementById('topcust-title').innerHTML = seg === 'B2B'
-    ? '👥 Top 20 B2B zákazníků <span style="font-size:13px;color:#64748b;font-weight:400">— 2025 celý rok (12M, ERP Eshop objednávky)</span>'
-    : '👥 Top 20 B2C zákazníků <span style="font-size:13px;color:#64748b;font-weight:400">— 2025 celý rok (12M, MO eshop, guest checkout)</span>';
-  document.getElementById('topcust-subtitle').innerHTML = seg === 'B2B'
-    ? `<strong>📅 Období: 2025 celý rok (12 měsíců)</strong> · zdroj: ERP Eshop objednávky · ${fmt(d.total_orders)} obj. · Fuzzy dedup jmen (Levenshtein > 0,85).<br><span style="color:#fcd34d">⚠️ Pozor: V tabu „📅 3-letý přehled → ERP Výdejky 8M card" je další pohled (10/2025-05/2026, 8M, Helios Výdejky VO) s odlišnými čísly — různá období + zdroje (např. Točík 66 obj/12M zde vs 33 obj/8M tam).</span>`
-    : `<strong>📅 Období: 2025 celý rok (12 měsíců)</strong> · zdroj: ERP Eshop maloobchodní objednávky. <strong>${d.anonymous_share_pct} %</strong> objednávek je anonymní pokladenský prodej (\"[Maloobchodní prodej]\"). Top 20 níže = guest checkout / registrovaní zákazníci kteří uvedli jméno.`;
-
-  // Summary cards
-  if (seg === 'B2B') {
-    document.getElementById('topb2b-summary-grid').innerHTML = `
-      <div class="metric-box"><div class="metric-label">B2B obrat 2025</div><div class="metric-value" style="color:#a78bfa">${fmt(d.total_revenue_kc)} Kč</div><div style="color:#64748b;font-size:11px">${fmt(d.total_orders)} obj. · ${d.unique_customers_after_dedup} zákazníků</div></div>
-      <div class="metric-box"><div class="metric-label">Top 5</div><div class="metric-value" style="color:#fbbf24">${d.pareto.top_5_share_pct}%</div><div style="color:#64748b;font-size:11px">share obratu</div></div>
-      <div class="metric-box"><div class="metric-label">Top 20</div><div class="metric-value" style="color:#fbbf24">${d.pareto.top_20_share_pct}%</div><div style="color:#64748b;font-size:11px">share obratu</div></div>
-      <div class="metric-box"><div class="metric-label">Top 50</div><div class="metric-value" style="color:#10b981">${d.pareto.top_50_share_pct}%</div><div style="color:#64748b;font-size:11px">share obratu</div></div>
-      <div class="metric-box" style="background:rgba(168,85,247,.06)"><div class="metric-label">Dedup</div><div class="metric-value" style="color:#a78bfa">${d.merge_count}</div><div style="color:#64748b;font-size:11px">jmen sloučeno (z ${d.raw_unique_names})</div></div>
-    `;
-  } else {
-    document.getElementById('topb2b-summary-grid').innerHTML = `
-      <div class="metric-box"><div class="metric-label">B2C celkem 2025</div><div class="metric-value" style="color:#10b981">${fmt(d.named_revenue_kc + d.anonymous_revenue_kc)} Kč</div><div style="color:#64748b;font-size:11px">${fmt(d.total_orders_all)} obj. (vše MO)</div></div>
-      <div class="metric-box" style="background:rgba(168,85,247,.06)"><div class="metric-label">Pokladenský anonym</div><div class="metric-value" style="color:#a78bfa">${d.anonymous_share_pct}%</div><div style="color:#64748b;font-size:11px">${fmt(d.anonymous_pos_orders)} obj. · ${fmt(d.anonymous_revenue_kc)} Kč</div></div>
-      <div class="metric-box"><div class="metric-label">S identifikací</div><div class="metric-value" style="color:#10b981">${fmt(d.named_orders)}</div><div style="color:#64748b;font-size:11px">${fmt(d.named_revenue_kc)} Kč · ${d.unique_customers_after_dedup} zákaz.</div></div>
-      <div class="metric-box"><div class="metric-label">Top 5 share</div><div class="metric-value" style="color:#fbbf24">${d.pareto.top_5_share_pct||0}%</div><div style="color:#64748b;font-size:11px">z named B2C</div></div>
-      <div class="metric-box"><div class="metric-label">Top 20 share</div><div class="metric-value" style="color:#fbbf24">${d.pareto.top_20_share_pct||0}%</div><div style="color:#64748b;font-size:11px">z named B2C</div></div>
-    `;
+  // Read SQL ground truth: B2C_2025, B2C_2026, B2B_2025, B2B_2026
+  const dataKey = `${seg}_${period}`;
+  const d = D[dataKey];
+  if (!d) {
+    document.getElementById('topcust-subtitle').innerHTML = `<span style="color:#fca5a5">⚠️ Dataset ${dataKey} chybí v top_customers.json</span>`;
+    return;
   }
 
-  // Pareto chart
+  const periodLabel = period === '2026' ? '2026 (Q1 + duben, 4M)' : '2025 celý rok (12M)';
+  const segFull = seg === 'B2B' ? 'B2B Velkoobchod (hbgroup.cz)' : 'B2C Maloobchod (klicovecentrum.cz)';
+
+  document.getElementById('topcust-title').innerHTML =
+    `👥 Top 20 ${seg} zákazníků <span style="font-size:13px;color:#64748b;font-weight:400">— ${periodLabel}, ${segFull}</span>`;
+  document.getElementById('topcust-subtitle').innerHTML =
+    `<strong>📅 Období: ${periodLabel}</strong> · zdroj: <strong>SQL kosik DB ground truth</strong> (web_id=${d.web_id}, COALESCE firma/ffirma/jmeno+prijmeni). ${fmt(d.total_orders)} obj. · ${d.unique_customers} unique zákazníků · obrat ${fmt(d.total_revenue_kc_dph)} Kč s DPH (${fmt(d.total_revenue_kc_bez_dph)} bez DPH).
+     <br><span style="color:#94a3b8;font-size:11px">📊 Toto jsou data PŘÍMO ze SQL eshop kosik tabulky (přes JOIN polozka pro per-položkový obrat). Helios IQ Výdejky (= karty „📦 ERP Výdejky 8M" v 3-letém přehledu) zahrnují i offline B2B (telefonní/email/osobní) → vyšší totals + jiné top 20 (např. ALTARA DC, Vít Walter, Václav Kroužek nejsou v eshop kosiku).</span>`;
+
+  // Summary cards
+  document.getElementById('topb2b-summary-grid').innerHTML = `
+    <div class="metric-box" style="background:rgba(168,85,247,.08);border-color:#a78bfa"><div class="metric-label">${seg} obrat ${period} (s DPH)</div><div class="metric-value" style="color:#c4b5fd">${fmt(d.total_revenue_kc_dph)} Kč</div><div style="color:#64748b;font-size:11px">${fmt(d.total_revenue_kc_bez_dph)} bez DPH</div></div>
+    <div class="metric-box"><div class="metric-label">Objednávek</div><div class="metric-value">${fmt(d.total_orders)}</div><div style="color:#64748b;font-size:11px">${periodLabel}</div></div>
+    <div class="metric-box"><div class="metric-label">Unique zákazníků</div><div class="metric-value">${fmt(d.unique_customers)}</div><div style="color:#64748b;font-size:11px">SQL kosik dedup</div></div>
+    <div class="metric-box" style="background:rgba(251,191,36,.06)"><div class="metric-label">Top 5 share</div><div class="metric-value" style="color:#fbbf24">${d.pareto.top_5_share_pct} %</div><div style="color:#64748b;font-size:11px">obratu</div></div>
+    <div class="metric-box" style="background:rgba(251,191,36,.06)"><div class="metric-label">Top 20 share</div><div class="metric-value" style="color:#fbbf24">${d.pareto.top_20_share_pct} %</div><div style="color:#64748b;font-size:11px">obratu</div></div>
+    <div class="metric-box"><div class="metric-label">AOV (avg order value)</div><div class="metric-value">${fmt(Math.round(d.total_revenue_kc_dph / d.total_orders))} Kč</div><div style="color:#64748b;font-size:11px">s DPH</div></div>
+  `;
+
+  // Pareto chart — staví se z top_20 (bez 50)
   let cumul = 0;
-  const total = seg === 'B2B' ? d.total_revenue_kc : d.named_revenue_kc;
-  const top50 = d.top_50_lite || [];
-  const paretoPoints = top50.map(c => { cumul += c.revenue_kc; return {name: c.name.substring(0,25), revenue:c.revenue_kc, cumul_pct: cumul/total*100}; });
+  const top20 = d.top_20 || [];
+  const total = d.total_revenue_kc_dph;
+  const paretoPoints = top20.map(c => {
+    const rev = c.obrat_dph || 0;
+    cumul += rev;
+    return {name: (c.zakaznik || '').substring(0,25), revenue: rev, cumul_pct: cumul/total*100};
+  });
   if (window.topb2bParetoChart) window.topb2bParetoChart.destroy();
   const ctx = document.getElementById('chart-topb2b-pareto').getContext('2d');
   window.topb2bParetoChart = new Chart(ctx, {
     type:'bar',
     data:{labels:paretoPoints.map(p=>p.name),
           datasets:[
-            {label:'Obrat zákazníka (Kč)', data:paretoPoints.map(p=>p.revenue), backgroundColor:'#a78bfa', yAxisID:'y'},
+            {label:'Obrat (Kč s DPH)', data:paretoPoints.map(p=>p.revenue), backgroundColor:'#a78bfa', yAxisID:'y'},
             {label:'Kumulativní % obratu', type:'line', data:paretoPoints.map(p=>p.cumul_pct), borderColor:'#fbbf24', backgroundColor:'#fbbf24', yAxisID:'y1', tension:0.2},
           ]},
     options:{responsive:true,maintainAspectRatio:false,
@@ -5166,30 +5167,42 @@ function renderTopCustomers() {
               y1:{position:'right',min:0,max:100,ticks:{color:'#fbbf24',callback:v=>v+'%'}}}}
   });
 
-  // Tabulka top 20
-  document.querySelector('#table-topb2b tbody').innerHTML = d.top_20.map((c,i) => `
-    <tr>
+  // Tabulka top 20 (SQL ground truth schema: zakaznik, obj, obrat_dph, obrat_bez_dph, aov_dph, first_obj, last_obj, months_active)
+  document.querySelector('#table-topb2b tbody').innerHTML = top20.map((c,i) => {
+    const rev = c.obrat_dph || 0;
+    const revBez = c.obrat_bez_dph || 0;
+    const obj = c.obj || 0;
+    const aov = c.aov_dph || 0;
+    const profit = Math.round(revBez * 0.43);  // estimated margin 43% (B2B)
+    return `<tr>
       <td>${i+1}</td>
-      <td><strong>${c.primary_name}</strong></td>
-      <td class="num">${fmt(c.revenue_kc)}</td>
-      <td class="num">${fmt(c.profit_kc)}</td>
-      <td class="num">${c.margin_pct}%</td>
-      <td class="num">${c.orders}</td>
-      <td class="num">${fmt(c.aov_kc)}</td>
-      <td>${c.last_order}</td>
-      <td>${c.rfm_segment}</td>
-      <td style="font-size:11px;color:#94a3b8">${c.alias_count > 1 ? c.aliases.length+' alias.' : '—'}</td>
-    </tr>`).join('');
+      <td><strong>${c.zakaznik || '—'}</strong></td>
+      <td class="num">${fmt(rev)}</td>
+      <td class="num" style="color:#94a3b8">${fmt(revBez)}</td>
+      <td class="num">${obj}</td>
+      <td class="num">${fmt(aov)}</td>
+      <td style="font-size:11px;color:#94a3b8">${c.first_obj || '—'} → ${c.last_obj || '—'}</td>
+      <td style="text-align:center">${c.months_active || '—'}</td>
+      <td class="num">${(rev/total*100).toFixed(1)} %</td>
+    </tr>`;
+  }).join('');
 
-  // RFM cards
+  // RFM segmentation (zjednodušený): podle months_active a obj
+  const rfmCounts = {'💎 Loyal (≥10M, ≥20obj)':0, '⭐ Active (≥6M, ≥10obj)':0, '🌱 Light (≥3M, ≥3obj)':0, '👋 Sporadic (<3M)':0};
+  for (const c of top20) {
+    const m = c.months_active || 0, o = c.obj || 0;
+    if (m >= 10 && o >= 20) rfmCounts['💎 Loyal (≥10M, ≥20obj)']++;
+    else if (m >= 6 && o >= 10) rfmCounts['⭐ Active (≥6M, ≥10obj)']++;
+    else if (m >= 3 && o >= 3) rfmCounts['🌱 Light (≥3M, ≥3obj)']++;
+    else rfmCounts['👋 Sporadic (<3M)']++;
+  }
   document.getElementById('rfm-cards').innerHTML = '<div class="metrics-grid">' +
-    d.rfm_distribution.map(r => `
+    Object.entries(rfmCounts).map(([k,v]) => `
       <div class="metric-box">
-        <div class="metric-label">${r.segment}</div>
-        <div class="metric-value" style="font-size:22px">${r.count} z.</div>
-        <div style="color:#64748b;font-size:11px">${fmt(r.revenue)} Kč · ${r.share_pct} % share</div>
-      </div>
-    `).join('') + '</div>';
+        <div class="metric-label">${k}</div>
+        <div class="metric-value" style="font-size:22px">${v}</div>
+        <div style="color:#64748b;font-size:11px">z top 20</div>
+      </div>`).join('') + '</div>';
 }
 
 // ─── VRATKY DETAIL ──────────────────────────────────────────
@@ -5772,7 +5785,7 @@ render();
 // ─── PER-VIEW FILTER STATE + KPI POPULATE ───────────────────
 window.viewState = {
   yearly:        {period: '3y',       segment: 'both'},
-  topcustomers:  {period: '2025',     segment: 'b2b'},
+  topcustomers:  {period: '2026',     segment: 'b2b'},
   returns_detail:{period: '2025',     segment: 'both'},
   campaigns:     {period: 'audit_7m', segment: 'b2c'},
   products:      {period: 'audit_7m', segment: 'b2c'},
@@ -5867,15 +5880,20 @@ async function populateViewKpi(view) {
     } else if (view === 'topcustomers') {
       const tc = await fetch('data/top_customers.json?v='+Date.now()).then(r=>r.json());
       const seg = state.segment === 'b2b' ? 'B2B' : 'B2C';
-      const d = tc[seg];
-      const total = seg==='B2B'?d.total_revenue_kc:d.named_revenue_kc;
-      cards = [
-        {label:`${seg} obrat 2025`, value:fmt(total)+' Kč', sub:`${seg==='B2B'?d.total_orders:d.named_orders} obj.`, cls:'positive'},
-        {label:'Unikátních zákazníků', value:fmt(d.unique_customers_after_dedup), sub:`po fuzzy dedup z ${d.raw_unique_names||'—'}`},
-        {label:'Top 5 share', value:(d.pareto.top_5_share_pct||0)+' %', sub:'obratu', cls:'warning'},
-        {label:'Top 20 share', value:(d.pareto.top_20_share_pct||0)+' %', sub:'obratu', cls:'warning'},
-        ...(seg==='B2C' ? [{label:'Anonym pokladenský', value:d.anonymous_share_pct+' %', sub:fmt(d.anonymous_pos_orders)+' obj.', cls:'warning'}] : []),
-      ];
+      const period = state.period === '2026' ? '2026' : '2025';
+      const d = tc[`${seg}_${period}`];
+      if (!d) {
+        cards = [{label:'Data missing', value:`${seg}_${period}`, sub:'top_customers.json'}];
+      } else {
+        const periodLbl = period === '2026' ? '2026 (Q1+April, 4M)' : '2025 (12M)';
+        cards = [
+          {label:`${seg} obrat ${periodLbl}`, value:fmt(d.total_revenue_kc_dph)+' Kč', sub:`s DPH · ${fmt(d.total_revenue_kc_bez_dph)} bez DPH`, cls:'positive'},
+          {label:'Objednávek', value:fmt(d.total_orders), sub:`SQL kosik web_id=${d.web_id}`},
+          {label:'Unique zákazníků', value:fmt(d.unique_customers), sub:`SQL ground truth`},
+          {label:'Top 5 share', value:(d.pareto.top_5_share_pct||0)+' %', sub:'obratu', cls:'warning'},
+          {label:'Top 20 share', value:(d.pareto.top_20_share_pct||0)+' %', sub:'obratu', cls:'warning'},
+        ];
+      }
     } else if (view === 'returns_detail') {
       const rd = await fetch('data/returns_detail.json?v='+Date.now()).then(r=>r.json());
       const p3y = await fetch('data/postage_3y.json?v='+Date.now()).then(r=>r.json());
