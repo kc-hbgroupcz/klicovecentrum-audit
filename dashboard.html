@@ -1382,7 +1382,8 @@
   <div class="chart-card" id="erp-vydejky-card">
     <h3>📦 NÁLEZ #50 — ERP Výdejky 8M (MO + VO) → nezávislá validace timeline propadů</h3>
     <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
-      Helios IQ Výdejky CSV (10/2025-05/2026, 8 měsíců, 2 110 výdejek) je <strong>3. nezávislý zdroj pravdy</strong> vedle GA4 + Bing. Per-order data potvrzují timeline payment outage (#42, #48) i bot útoku (#2): listopad 2025 propad −50 %, březen 2026 nejnižší obj.
+      <strong>📅 Období: 10/2025-05/2026 (8 měsíců, 2 110 výdejek)</strong> · zdroj: <strong>Helios IQ Výdejky</strong> (vše VO + MO výdejky vč. offline B2B). Tato data jsou <strong>3. nezávislý zdroj pravdy</strong> vedle GA4 + Bing. Per-order data potvrzují timeline payment outage (#42, #48) i bot útoku (#2): listopad 2025 propad −50 %, březen 2026 nejnižší obj.<br>
+      <span style="color:#fcd34d;font-size:12px">⚠️ Tabu „👥 Top zákazníci" zobrazuje 2025 celý rok (12M) z ERP Eshop objednávek — proto např. Točík tam má 66 obj (celý rok), zde 33 obj (8M audit period).</span>
     </p>
     <div class="metrics-grid" id="erp-vydejky-summary"></div>
     <h4 style="margin-top:24px;color:#94a3b8;font-size:13px;text-transform:uppercase;letter-spacing:.05em">📈 MO + VO měsíční obrat (8M)</h4>
@@ -5119,11 +5120,11 @@ function renderTopCustomers() {
 
   // Title + subtitle
   document.getElementById('topcust-title').innerHTML = seg === 'B2B'
-    ? '👥 Top 20 B2B zákazníků (VO eshop 2025)'
-    : '👥 Top 20 B2C zákazníků (MO eshop 2025, guest checkout)';
+    ? '👥 Top 20 B2B zákazníků <span style="font-size:13px;color:#64748b;font-weight:400">— 2025 celý rok (12M, ERP Eshop objednávky)</span>'
+    : '👥 Top 20 B2C zákazníků <span style="font-size:13px;color:#64748b;font-weight:400">— 2025 celý rok (12M, MO eshop, guest checkout)</span>';
   document.getElementById('topcust-subtitle').innerHTML = seg === 'B2B'
-    ? `B2B z e-shop velkoobchodních objednávek 2025 (${fmt(d.total_orders)} obj). Fuzzy dedup jmen (Levenshtein > 0,85).`
-    : `B2C z e-shop maloobchodních objednávek 2025. <strong>${d.anonymous_share_pct} %</strong> objednávek je anonymní pokladenský prodej (\"[Maloobchodní prodej]\"). Top 20 níže = guest checkout / registrovaní zákazníci kteří uvedli jméno.`;
+    ? `<strong>📅 Období: 2025 celý rok (12 měsíců)</strong> · zdroj: ERP Eshop objednávky · ${fmt(d.total_orders)} obj. · Fuzzy dedup jmen (Levenshtein > 0,85).<br><span style="color:#fcd34d">⚠️ Pozor: V tabu „📅 3-letý přehled → ERP Výdejky 8M card" je další pohled (10/2025-05/2026, 8M, Helios Výdejky VO) s odlišnými čísly — různá období + zdroje (např. Točík 66 obj/12M zde vs 33 obj/8M tam).</span>`
+    : `<strong>📅 Období: 2025 celý rok (12 měsíců)</strong> · zdroj: ERP Eshop maloobchodní objednávky. <strong>${d.anonymous_share_pct} %</strong> objednávek je anonymní pokladenský prodej (\"[Maloobchodní prodej]\"). Top 20 níže = guest checkout / registrovaní zákazníci kteří uvedli jméno.`;
 
   // Summary cards
   if (seg === 'B2B') {
