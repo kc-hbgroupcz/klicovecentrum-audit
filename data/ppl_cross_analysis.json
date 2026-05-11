@@ -1,0 +1,561 @@
+{
+  "generated": "2026-05-11T15:07:27",
+  "A_top_b2b_vs_ppl": {
+    "note": "Top 30 SQL B2B partnerů (11/2025-5/2026) × PPL match. Pokud PPL count = 0, partner možná nakupuje s jiným dopravcem (osobní odběr / sklad).",
+    "top_30_cross_check": [
+      {
+        "rank": 1,
+        "sql_name": "Točík Pelhřimov s.r.o.",
+        "sql_orders": 26,
+        "sql_revenue": 303545.0,
+        "ppl_packages": 0,
+        "match_status": "other_carrier",
+        "ppl_match_name": ""
+      },
+      {
+        "rank": 2,
+        "sql_name": "Železářství ABRAHAM s.r.o.",
+        "sql_orders": 24,
+        "sql_revenue": 240506.0,
+        "ppl_packages": 0,
+        "match_status": "other_carrier",
+        "ppl_match_name": ""
+      },
+      {
+        "rank": 3,
+        "sql_name": "Matějka zámkařství s.r.o.",
+        "sql_orders": 30,
+        "sql_revenue": 211888.0,
+        "ppl_packages": 3,
+        "match_status": "ppl",
+        "ppl_match_name": "Matějka zámkařství s.r.o."
+      },
+      {
+        "rank": 4,
+        "sql_name": "Zmečnictví Pečený s.r.o.",
+        "sql_orders": 53,
+        "sql_revenue": 208175.0,
+        "ppl_packages": 0,
+        "match_status": "other_carrier",
+        "ppl_match_name": ""
+      },
+      {
+        "rank": 5,
+        "sql_name": "Klíčové a trezorové centrum Hausner-Plný s.r.o.",
+        "sql_orders": 41,
+        "sql_revenue": 203863.0,
+        "ppl_packages": 1,
+        "match_status": "ppl",
+        "ppl_match_name": "Klíčové a trezorové centrum"
+      },
+      {
+        "rank": 6,
+        "sql_name": "TREZORSERVIS s.r.o.",
+        "sql_orders": 31,
+        "sql_revenue": 196631.0,
+        "ppl_packages": 0,
+        "match_status": "other_carrier",
+        "ppl_match_name": ""
+      },
+      {
+        "rank": 7,
+        "sql_name": "ŠABATA s.r.o.",
+        "sql_orders": 22,
+        "sql_revenue": 171883.0,
+        "ppl_packages": 17,
+        "match_status": "ppl",
+        "ppl_match_name": "Železářství Šabata s.r.o."
+      },
+      {
+        "rank": 8,
+        "sql_name": "Železářství SPOMAT",
+        "sql_orders": 27,
+        "sql_revenue": 160092.0,
+        "ppl_packages": 0,
+        "match_status": "other_carrier",
+        "ppl_match_name": ""
+      },
+      {
+        "rank": 9,
+        "sql_name": "Zámečnictví Jiří Hamouz",
+        "sql_orders": 17,
+        "sql_revenue": 155862.0,
+        "ppl_packages": 0,
+        "match_status": "other_carrier",
+        "ppl_match_name": ""
+      },
+      {
+        "rank": 10,
+        "sql_name": "Jiří Slovák",
+        "sql_orders": 17,
+        "sql_revenue": 143099.0,
+        "ppl_packages": 0,
+        "match_status": "other_carrier",
+        "ppl_match_name": ""
+      },
+      {
+        "rank": 11,
+        "sql_name": "Radek Kučera",
+        "sql_orders": 18,
+        "sql_revenue": 133882.0,
+        "ppl_packages": 1,
+        "match_status": "ppl",
+        "ppl_match_name": "RADEK"
+      },
+      {
+        "rank": 12,
+        "sql_name": "Klíčové centrum Votice",
+        "sql_orders": 27,
+        "sql_revenue": 116518.0,
+        "ppl_packages": 2,
+        "match_status": "ppl",
+        "ppl_match_name": "Klíčové centrum Votice"
+      },
+      {
+        "rank": 13,
+        "sql_name": "Zámkařství JiRo s.r.o",
+        "sql_orders": 25,
+        "sql_revenue": 105296.0,
+        "ppl_packages": 0,
+        "match_status": "other_carrier",
+        "ppl_match_name": ""
+      },
+      {
+        "rank": 14,
+        "sql_name": "Z Purkyňky",
+        "sql_orders": 9,
+        "sql_revenue": 89396.0,
+        "ppl_packages": 0,
+        "match_status": "other_carrier",
+        "ppl_match_name": ""
+      },
+      {
+        "rank": 15,
+        "sql_name": "ZÁMKAŘSTVÍ BRABENEC",
+        "sql_orders": 28,
+        "sql_revenue": 80634.0,
+        "ppl_packages": 0,
+        "match_status": "other_carrier",
+        "ppl_match_name": ""
+      },
+      {
+        "rank": 16,
+        "sql_name": "Tomáš Zelinka  TZ-SERVIS",
+        "sql_orders": 13,
+        "sql_revenue": 78795.0,
+        "ppl_packages": 0,
+        "match_status": "other_carrier",
+        "ppl_match_name": ""
+      },
+      {
+        "rank": 17,
+        "sql_name": "Autosport Kraupner",
+        "sql_orders": 7,
+        "sql_revenue": 73250.0,
+        "ppl_packages": 0,
+        "match_status": "other_carrier",
+        "ppl_match_name": ""
+      },
+      {
+        "rank": 18,
+        "sql_name": "Petr Rapčan",
+        "sql_orders": 12,
+        "sql_revenue": 72727.0,
+        "ppl_packages": 1,
+        "match_status": "ppl",
+        "ppl_match_name": "Petr Rapčan"
+      },
+      {
+        "rank": 19,
+        "sql_name": "Vladimira Mojcherová",
+        "sql_orders": 18,
+        "sql_revenue": 67405.0,
+        "ppl_packages": 0,
+        "match_status": "other_carrier",
+        "ppl_match_name": ""
+      },
+      {
+        "rank": 20,
+        "sql_name": "František Šimšálek",
+        "sql_orders": 8,
+        "sql_revenue": 61452.0,
+        "ppl_packages": 0,
+        "match_status": "other_carrier",
+        "ppl_match_name": ""
+      },
+      {
+        "rank": 21,
+        "sql_name": "Klíčařství s.r.o.",
+        "sql_orders": 12,
+        "sql_revenue": 61257.0,
+        "ppl_packages": 123,
+        "match_status": "ppl",
+        "ppl_match_name": "MINIT, klíčařství"
+      },
+      {
+        "rank": 22,
+        "sql_name": "BOTEX spol. s.r.o.",
+        "sql_orders": 8,
+        "sql_revenue": 61159.0,
+        "ppl_packages": 0,
+        "match_status": "other_carrier",
+        "ppl_match_name": ""
+      },
+      {
+        "rank": 23,
+        "sql_name": "Výroba klíčů Albert Znojmo",
+        "sql_orders": 7,
+        "sql_revenue": 52761.0,
+        "ppl_packages": 0,
+        "match_status": "other_carrier",
+        "ppl_match_name": ""
+      },
+      {
+        "rank": 24,
+        "sql_name": "Ladislav Šrámek",
+        "sql_orders": 21,
+        "sql_revenue": 51997.0,
+        "ppl_packages": 0,
+        "match_status": "other_carrier",
+        "ppl_match_name": ""
+      },
+      {
+        "rank": 25,
+        "sql_name": "Family Factory s.r.o.,",
+        "sql_orders": 12,
+        "sql_revenue": 41325.0,
+        "ppl_packages": 0,
+        "match_status": "other_carrier",
+        "ppl_match_name": ""
+      },
+      {
+        "rank": 26,
+        "sql_name": "Výroba klíčů - Todos",
+        "sql_orders": 11,
+        "sql_revenue": 41230.0,
+        "ppl_packages": 0,
+        "match_status": "other_carrier",
+        "ppl_match_name": ""
+      },
+      {
+        "rank": 27,
+        "sql_name": "Miva Bílovec s.r.o",
+        "sql_orders": 14,
+        "sql_revenue": 40401.0,
+        "ppl_packages": 0,
+        "match_status": "other_carrier",
+        "ppl_match_name": ""
+      },
+      {
+        "rank": 28,
+        "sql_name": "Mirka Khunová",
+        "sql_orders": 9,
+        "sql_revenue": 39200.0,
+        "ppl_packages": 0,
+        "match_status": "other_carrier",
+        "ppl_match_name": ""
+      },
+      {
+        "rank": 29,
+        "sql_name": "Martin Ožana",
+        "sql_orders": 10,
+        "sql_revenue": 38397.0,
+        "ppl_packages": 0,
+        "match_status": "other_carrier",
+        "ppl_match_name": ""
+      },
+      {
+        "rank": 30,
+        "sql_name": "Mister Minit",
+        "sql_orders": 8,
+        "sql_revenue": 31984.0,
+        "ppl_packages": 40,
+        "match_status": "ppl",
+        "ppl_match_name": "MINIT sro"
+      }
+    ],
+    "partners_without_ppl_count": 22
+  },
+  "B_daily_volume_diff": {
+    "note": "Dny kdy PPL volume se výrazně liší od SQL orders count (B2C+B2B). Mohou indikovat jiný dopravce.",
+    "total_days_analyzed": 178,
+    "days_with_significant_diff": 35,
+    "top_diff_days": [
+      {
+        "date": "2026-01-07",
+        "ppl": 46,
+        "sql": 13,
+        "diff": 33,
+        "ratio": 3.54
+      },
+      {
+        "date": "2025-12-29",
+        "ppl": 31,
+        "sql": 5,
+        "diff": 26,
+        "ratio": 6.2
+      },
+      {
+        "date": "2025-12-03",
+        "ppl": 39,
+        "sql": 17,
+        "diff": 22,
+        "ratio": 2.29
+      },
+      {
+        "date": "2026-02-03",
+        "ppl": 4,
+        "sql": 25,
+        "diff": -21,
+        "ratio": 0.16
+      },
+      {
+        "date": "2026-03-24",
+        "ppl": 0,
+        "sql": 20,
+        "diff": -20,
+        "ratio": 0.0
+      },
+      {
+        "date": "2025-12-14",
+        "ppl": 0,
+        "sql": 19,
+        "diff": -19,
+        "ratio": 0.0
+      },
+      {
+        "date": "2026-01-09",
+        "ppl": 28,
+        "sql": 9,
+        "diff": 19,
+        "ratio": 3.11
+      },
+      {
+        "date": "2025-11-05",
+        "ppl": 0,
+        "sql": 18,
+        "diff": -18,
+        "ratio": 0.0
+      },
+      {
+        "date": "2026-01-04",
+        "ppl": 0,
+        "sql": 18,
+        "diff": -18,
+        "ratio": 0.0
+      },
+      {
+        "date": "2026-03-03",
+        "ppl": 10,
+        "sql": 28,
+        "diff": -18,
+        "ratio": 0.36
+      },
+      {
+        "date": "2025-11-04",
+        "ppl": 0,
+        "sql": 17,
+        "diff": -17,
+        "ratio": 0.0
+      },
+      {
+        "date": "2026-03-25",
+        "ppl": 0,
+        "sql": 17,
+        "diff": -17,
+        "ratio": 0.0
+      },
+      {
+        "date": "2026-04-08",
+        "ppl": 34,
+        "sql": 17,
+        "diff": 17,
+        "ratio": 2.0
+      },
+      {
+        "date": "2026-01-19",
+        "ppl": 37,
+        "sql": 21,
+        "diff": 16,
+        "ratio": 1.76
+      },
+      {
+        "date": "2026-02-09",
+        "ppl": 34,
+        "sql": 18,
+        "diff": 16,
+        "ratio": 1.89
+      },
+      {
+        "date": "2025-11-21",
+        "ppl": 18,
+        "sql": 3,
+        "diff": 15,
+        "ratio": 6.0
+      },
+      {
+        "date": "2025-12-01",
+        "ppl": 35,
+        "sql": 20,
+        "diff": 15,
+        "ratio": 1.75
+      },
+      {
+        "date": "2026-02-10",
+        "ppl": 7,
+        "sql": 22,
+        "diff": -15,
+        "ratio": 0.32
+      },
+      {
+        "date": "2025-11-03",
+        "ppl": 0,
+        "sql": 13,
+        "diff": -13,
+        "ratio": 0.0
+      },
+      {
+        "date": "2025-11-19",
+        "ppl": 22,
+        "sql": 9,
+        "diff": 13,
+        "ratio": 2.44
+      },
+      {
+        "date": "2026-01-28",
+        "ppl": 31,
+        "sql": 18,
+        "diff": 13,
+        "ratio": 1.72
+      },
+      {
+        "date": "2026-02-04",
+        "ppl": 30,
+        "sql": 17,
+        "diff": 13,
+        "ratio": 1.76
+      },
+      {
+        "date": "2026-02-12",
+        "ppl": 26,
+        "sql": 13,
+        "diff": 13,
+        "ratio": 2.0
+      },
+      {
+        "date": "2026-01-11",
+        "ppl": 0,
+        "sql": 12,
+        "diff": -12,
+        "ratio": 0.0
+      },
+      {
+        "date": "2025-11-06",
+        "ppl": 0,
+        "sql": 11,
+        "diff": -11,
+        "ratio": 0.0
+      },
+      {
+        "date": "2025-12-28",
+        "ppl": 0,
+        "sql": 11,
+        "diff": -11,
+        "ratio": 0.0
+      },
+      {
+        "date": "2026-01-17",
+        "ppl": 0,
+        "sql": 11,
+        "diff": -11,
+        "ratio": 0.0
+      },
+      {
+        "date": "2026-01-26",
+        "ppl": 30,
+        "sql": 19,
+        "diff": 11,
+        "ratio": 1.58
+      },
+      {
+        "date": "2026-03-20",
+        "ppl": 23,
+        "sql": 12,
+        "diff": 11,
+        "ratio": 1.92
+      },
+      {
+        "date": "2025-11-14",
+        "ppl": 24,
+        "sql": 14,
+        "diff": 10,
+        "ratio": 1.71
+      }
+    ]
+  },
+  "C_volume_vs_ga4_attacks": {
+    "note": "PPL volume během 3 vln bot útoku — utok ovlivnil logistiku?",
+    "periods": [
+      {
+        "label": "Vlna 1 (březen)",
+        "start": "2026-03-06",
+        "end": "2026-03-18",
+        "days": 13,
+        "total_ppl": 152,
+        "avg_ppl": 11.7,
+        "total_ga4_sessions": 1306312,
+        "avg_ga4_sessions": 100486,
+        "total_sql_orders": 164,
+        "avg_sql_orders": 12.6
+      },
+      {
+        "label": "Vlna 2 (3-4)",
+        "start": "2026-03-27",
+        "end": "2026-04-06",
+        "days": 11,
+        "total_ppl": 78,
+        "avg_ppl": 7.1,
+        "total_ga4_sessions": 416098,
+        "avg_ga4_sessions": 37827,
+        "total_sql_orders": 95,
+        "avg_sql_orders": 8.6
+      },
+      {
+        "label": "Vlna 3 (květen)",
+        "start": "2026-05-01",
+        "end": "2026-05-10",
+        "days": 10,
+        "total_ppl": 87,
+        "avg_ppl": 8.7,
+        "total_ga4_sessions": 139147,
+        "avg_ga4_sessions": 13915,
+        "total_sql_orders": 0,
+        "avg_sql_orders": 0.0
+      },
+      {
+        "label": "Pre-attack baseline (únor)",
+        "start": "2026-02-01",
+        "end": "2026-02-28",
+        "days": 28,
+        "total_ppl": 368,
+        "avg_ppl": 13.1,
+        "total_ga4_sessions": 48180,
+        "avg_ga4_sessions": 1721,
+        "total_sql_orders": 357,
+        "avg_sql_orders": 12.8
+      },
+      {
+        "label": "Recovery (po 11.5.)",
+        "start": "2026-05-11",
+        "end": "2026-05-11",
+        "days": 1,
+        "total_ppl": 15,
+        "avg_ppl": 15.0,
+        "total_ga4_sessions": 823,
+        "avg_ga4_sessions": 823,
+        "total_sql_orders": 0,
+        "avg_sql_orders": 0.0
+      }
+    ]
+  }
+}

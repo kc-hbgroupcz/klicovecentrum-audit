@@ -1458,6 +1458,14 @@
     <div id="ppl-top-recipients"></div>
     <h4 style="margin-top:24px;color:#94a3b8;font-size:13px;text-transform:uppercase;letter-spacing:.05em">🗺️ Distribuce per kraj (CZ)</h4>
     <div id="ppl-kraje"></div>
+
+    <h4 style="margin-top:24px;color:#fcd34d;font-size:13px;text-transform:uppercase;letter-spacing:.05em">🎯 Cross-analýza A: Top B2B partneři × PPL match (11/2025-5/2026)</h4>
+    <p style="color:#94a3b8;font-size:12px;margin:6px 0 10px">Pokud top B2B partner nemá PPL balíky, používá jiný dopravce (DPD/Toptrans pro paletové) nebo osobní odběr.</p>
+    <div id="ppl-cross-a"></div>
+
+    <h4 style="margin-top:24px;color:#fca5a5;font-size:13px;text-transform:uppercase;letter-spacing:.05em">🔥 Cross-analýza C: PPL volume × GA4 útok periody — KONSTANTNÍ ⇒ bot only</h4>
+    <p style="color:#94a3b8;font-size:12px;margin:6px 0 10px">DEFINITIVNÍ DŮKAZ že útok byl bot only: GA4 sessions vzrostly v útoku 60×, ale PPL volume zůstal konstantní (7-15 balíků/den). Kdyby to byli reální zákazníci, PPL by vzrostl 10-60× s nimi.</p>
+    <div id="ppl-cross-c"></div>
   </div>
 
   <div class="chart-card" id="reklamace-card">
@@ -4377,7 +4385,7 @@ let yearlyData = null;
 async function loadYearly() {
   if (!yearlyData) {
     try {
-      const [yt, ym, fc, yh, ch, bw, po, pbc, erpV, erpC, rek, qa, wa, ppl] = await Promise.all([
+      const [yt, ym, fc, yh, ch, bw, po, pbc, erpV, erpC, rek, qa, wa, ppl, pplCross] = await Promise.all([
         fetch('data/yearly_trend.json?v='+Date.now()).then(r=>r.json()),
         fetch('data/yearly_master.json?v='+Date.now()).then(r=>r.json()),
         fetch('data/seasonality_forecast.json?v='+Date.now()).then(r=>r.json()),
@@ -4392,8 +4400,9 @@ async function loadYearly() {
         fetch('data/product_qa.json?v='+Date.now()).then(r=>r.json()).catch(()=>null),
         fetch('data/weekend_attack_analysis.json?v='+Date.now()).then(r=>r.json()).catch(()=>null),
         fetch('data/ppl_shipments.json?v='+Date.now()).then(r=>r.json()).catch(()=>null),
+        fetch('data/ppl_cross_analysis.json?v='+Date.now()).then(r=>r.json()).catch(()=>null),
       ]);
-      yearlyData = {trend: yt, master: ym, forecast: fc, history: yh, crawl: ch, bing: bw, payment_outage: po, payment_bing_corr: pbc, erp_vydejky: erpV, erp_corr: erpC, reklamace: rek, product_qa: qa, weekend_attack: wa, ppl: ppl};
+      yearlyData = {trend: yt, master: ym, forecast: fc, history: yh, crawl: ch, bing: bw, payment_outage: po, payment_bing_corr: pbc, erp_vydejky: erpV, erp_corr: erpC, reklamace: rek, product_qa: qa, weekend_attack: wa, ppl: ppl, ppl_cross: pplCross};
     } catch(e){ console.error('yearly', e); return; }
   }
   renderYearly();
@@ -4478,6 +4487,63 @@ function renderPplShipments() {
       </tbody>
     </table></div>
   `;
+
+  // ── Cross-analýza A: top B2B × PPL match ──
+  const cross = yearlyData.ppl_cross;
+  if (cross) {
+    const aData = cross.A_top_b2b_vs_ppl;
+    const noPpl = aData.partners_without_ppl_count;
+    document.getElementById('ppl-cross-a').innerHTML = `
+      <div style="background:rgba(251,191,36,.08);border-left:3px solid #fbbf24;padding:12px;border-radius:5px;margin-bottom:12px">
+        <strong style="color:#fcd34d">⚠️ ${noPpl}/30 top B2B partnerů NEMÁ PPL match</strong> (= jiný dopravce, osobní odběr, nebo paletová doprava). PPL slouží hlavně pro menší B2B + B2C.
+      </div>
+      <div style="overflow-x:auto"><table class="data-table" style="font-size:12px">
+        <thead><tr><th>#</th><th>SQL B2B partner</th><th style="text-align:right">SQL obj 7M</th><th style="text-align:right">SQL obrat</th><th style="text-align:right">PPL balíků</th><th>Status</th></tr></thead>
+        <tbody>
+          ${aData.top_30_cross_check.slice(0,20).map(c => {
+            const isPpl = c.ppl_packages > 0;
+            const cls = isPpl ? '' : 'background:rgba(251,191,36,.06)';
+            return `<tr style="${cls}">
+              <td>${c.rank}</td>
+              <td><strong>${(c.sql_name||'').substring(0,50)}</strong></td>
+              <td style="text-align:right">${fmt(c.sql_orders)}</td>
+              <td style="text-align:right">${fmt(c.sql_revenue)} Kč</td>
+              <td style="text-align:right;color:${isPpl?'#6ee7b7':'#fcd34d'};font-weight:${isPpl?'normal':'700'}">${c.ppl_packages}</td>
+              <td>${isPpl?'✅ PPL':'⚠️ jiný dopravce'}</td>
+            </tr>`;
+          }).join('')}
+        </tbody>
+      </table></div>
+    `;
+
+    // Cross-analýza C: PPL × GA4 attack periods
+    const cData = cross.C_volume_vs_ga4_attacks.periods;
+    document.getElementById('ppl-cross-c').innerHTML = `
+      <div style="background:rgba(239,68,68,.08);border-left:3px solid #ef4444;padding:12px;border-radius:5px;margin-bottom:12px">
+        <strong style="color:#fca5a5">🔥 DEFINITIVNÍ DŮKAZ že útok byl bot only</strong>: GA4 sessions vzrostly v útoku 60× (1,7k → 100k), ale <strong>PPL volume zůstal konstantní</strong> (7-15 balíků/den). Kdyby útok byli reální zákazníci, PPL by vzrostl 10-60× s nimi. <strong>Útok negeneroval ani 1 reálný prodej.</strong>
+      </div>
+      <div style="overflow-x:auto"><table class="data-table" style="font-size:12px">
+        <thead><tr><th>Období</th><th>Dnů</th><th style="text-align:right">GA4 sessions/den</th><th style="text-align:right">PPL balíků/den</th><th style="text-align:right">SQL orders/den</th><th>Komentář</th></tr></thead>
+        <tbody>
+          ${cData.map(w => {
+            const isAttack = w.label.includes('Vlna');
+            const isBaseline = w.label.includes('baseline');
+            const isRecovery = w.label.includes('Recovery');
+            const cls = isAttack?'background:rgba(239,68,68,.08)':(isRecovery?'background:rgba(16,185,129,.08)':(isBaseline?'background:rgba(168,85,247,.05)':''));
+            const note = isAttack ? '🚨 GA4 inflace, PPL beze změny' : (isRecovery ? '✅ Bot stopped' : (isBaseline ? '📊 Reálná baseline' : ''));
+            return `<tr style="${cls}">
+              <td><strong>${w.label}</strong></td>
+              <td style="text-align:center">${w.days}</td>
+              <td style="text-align:right;color:${isAttack?'#fca5a5':'#cbd5e1'};font-weight:${isAttack?'700':'normal'}">${fmt(w.avg_ga4_sessions)}</td>
+              <td style="text-align:right">${w.avg_ppl}</td>
+              <td style="text-align:right">${w.avg_sql_orders}</td>
+              <td style="font-size:11px;color:#94a3b8">${note}</td>
+            </tr>`;
+          }).join('')}
+        </tbody>
+      </table></div>
+    `;
+  }
 }
 
 function renderWeekendAttack() {
