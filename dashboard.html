@@ -1395,6 +1395,19 @@
     <div id="erp-vo-top-table"></div>
   </div>
 
+  <div class="chart-card" id="weekend-attack-card" style="border-color:#ef4444;background:linear-gradient(135deg,rgba(239,68,68,.05),rgba(15,23,42,.4))">
+    <h3 style="color:#fca5a5">🚨 NÁLEZ #76 — PROBÍHAJÍCÍ BOT ÚTOK · 3. vlna (1.-7. 5. 2026, peak 3.5. ne)</h3>
+    <p style="color:#cbd5e1;font-size:13px;margin-bottom:14px">
+      <strong>Cross-validace 3 zdrojů</strong> (GA4 + Bing Webmaster + víkendová z-score analýza) odhalila <strong>3 vlny bot útoku 2026</strong>. Pattern: útok startuje pátek, vrcholí v sobotu/neděli (víkend = monitoring slabší). Bot signature: <strong>bounce 90-97 %, direct 95-98 %, avg session 6-30s, 0-9 transactions/den</strong>. Bing crawled propad o 70-95 % během útoku.
+    </p>
+    <div class="metrics-grid" id="weekend-attack-summary"></div>
+    <div id="weekend-attack-waves" style="margin-top:18px"></div>
+    <h4 style="margin-top:24px;color:#94a3b8;font-size:13px;text-transform:uppercase;letter-spacing:.05em">📈 Daily timeline GA4 sessions × Bing 5xx (Feb-May 2026)</h4>
+    <div class="chart-wrap" style="height:380px;margin-top:12px"><canvas id="chart-weekend-attack"></canvas></div>
+    <h4 style="margin-top:24px;color:#94a3b8;font-size:13px;text-transform:uppercase;letter-spacing:.05em">🔥 Posledních 14 dnů (víkendy zvýrazněny)</h4>
+    <div id="weekend-attack-recent-table"></div>
+  </div>
+
   <div class="chart-card" id="reklamace-card">
     <h3>⚖️ NÁLEZY #73-#75 — Reklamace 8M (138 reklamací, poměr 6,54 %)</h3>
     <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
@@ -1771,6 +1784,8 @@ const ownerMap = {
   71:'client', 72:'client',                                        // Sprint 3 + Měření P2
   // Reklamace 8M (IDs 73-75)
   73:'client', 74:'client', 75:'client',
+  // Weekend bot útok (ID 76)
+  76:'devops',  // Cloudflare bot fight mode = devops akce
 };
 const ownerBadges = {
   agency:  {emoji:'🎯', label:'Agentura', cls:'owner-agency', desc:'Marketingová agentura — admin v Google Ads / Sklik / GA4 / GTM / kampaně'},
@@ -2949,6 +2964,28 @@ const findings = [
     ],
     expected: 'Reklamační poměr OC kategorie z 17 % všech → < 5 %; ušetření 20+ reklamací/8M (= 30+/rok)',
     timeline: [50, 40, 10]
+  },
+
+  // === WEEKEND BOT ÚTOK 2026 (7. 5. 2026) — IDs 76 ===
+  {
+    id: 76, cat: 'analytics', prio: 'P0',
+    title: '🚨 PROBÍHAJÍCÍ BOT ÚTOK — 3. vlna (1.-7. 5. 2026), víkend 3.5. peak 22 197 sess (94 % bounce, 96 % direct, 1 trans)',
+    metric: '<strong>3 vlny bot útoku 2026</strong>: 1) <strong>6.-18. 3. 2026</strong> peak 16.3. = 253 108 sess (130× normal). 2) <strong>27. 3. - 6. 4.</strong> peak 29.3. = 103 129 sess. 3) <strong>1.-7. 5. 2026 AKTIVNÍ</strong> peak 3.5. = 22 197 sess.',
+    impact: 'Smart Bidding optimalizuje na bot data',
+    impactNote: 'AKTIVNÍ útok — okamžitá akce vyžadována',
+    problem: 'GA4 + Bing Webmaster + víkendová z-score analýza odhalily 3 distinkt bot útok vlny v 2026. Pattern: útok startuje pátek, vrcholí v sobotu/neděli (víkend = nikdo nemonitoruje). Bot signature: bounce 90-97 %, direct 95-98 %, avg session 6-30 s, 0-9 transactions/den. Bing crawled propad o 70-95 % během útoku (server overload). Cross-validation s Helios Reklamace 24 rekl v březnu 2026 (peak měsíc) = bot vyvolal výpadek payment. **AKTIVNÍ TŘETÍ VLNA 1.-7. 5. 2026** — víkend 2.-3.5. = 13k+22k sess, dnes (7.5. Čt) 9 523 sess (5× normal). Pokud klient nezakroci, vlna bude pokračovat.',
+    actions: [
+      '🔥 OKAMŽITĚ: Cloudflare Bot Fight Mode + Super Bot Fight Mode → ON pro klicovecentrum.cz a hbgroup.cz',
+      '🔥 OKAMŽITĚ: Cloudflare Rate Limiting 10 req/min per IP (challenge non-Googlebot/Bingbot)',
+      '🔥 GA4 → Admin → Data Filters → Bot filtering ✅ (excluded internal traffic)',
+      '🔥 Annotate bot attack periods v GA4 (3 vlny) → očištění dat pro reporting',
+      'Identifikovat IP rozsahy útočníků (Cloudflare logs 1.-7.5.) → manual block',
+      'Zkontrolovat Smart Bidding ROAS 2026 — pravděpodobně inflated falešnými daty',
+      'Setup Slack/email alert: GA4 sessions > 5 000 / den triggeruje notifikaci',
+      'Po-útoku: re-baseline Smart Bidding (relearning fáze 2-4 týdny)'
+    ],
+    expected: 'Po Cloudflare Bot Fight Mode: 90% redukce bot trafficu; Smart Bidding získá čistá data; recovery PPC ROAS na pre-útok úroveň ROAS 4× (vs 1,96× v 2026 Q1).',
+    timeline: [100, 0, 0]
   }
 ];
 
@@ -4266,7 +4303,7 @@ let yearlyData = null;
 async function loadYearly() {
   if (!yearlyData) {
     try {
-      const [yt, ym, fc, yh, ch, bw, po, pbc, erpV, erpC, rek, qa] = await Promise.all([
+      const [yt, ym, fc, yh, ch, bw, po, pbc, erpV, erpC, rek, qa, wa] = await Promise.all([
         fetch('data/yearly_trend.json?v='+Date.now()).then(r=>r.json()),
         fetch('data/yearly_master.json?v='+Date.now()).then(r=>r.json()),
         fetch('data/seasonality_forecast.json?v='+Date.now()).then(r=>r.json()),
@@ -4279,8 +4316,9 @@ async function loadYearly() {
         fetch('data/erp_mo_vs_bing_correlation.json?v='+Date.now()).then(r=>r.json()).catch(()=>null),
         fetch('data/reklamace_8m.json?v='+Date.now()).then(r=>r.json()).catch(()=>null),
         fetch('data/product_qa.json?v='+Date.now()).then(r=>r.json()).catch(()=>null),
+        fetch('data/weekend_attack_analysis.json?v='+Date.now()).then(r=>r.json()).catch(()=>null),
       ]);
-      yearlyData = {trend: yt, master: ym, forecast: fc, history: yh, crawl: ch, bing: bw, payment_outage: po, payment_bing_corr: pbc, erp_vydejky: erpV, erp_corr: erpC, reklamace: rek, product_qa: qa};
+      yearlyData = {trend: yt, master: ym, forecast: fc, history: yh, crawl: ch, bing: bw, payment_outage: po, payment_bing_corr: pbc, erp_vydejky: erpV, erp_corr: erpC, reklamace: rek, product_qa: qa, weekend_attack: wa};
     } catch(e){ console.error('yearly', e); return; }
   }
   renderYearly();
@@ -4291,6 +4329,103 @@ async function loadYearly() {
   renderPaymentOutage();
   renderErpVydejky();
   renderReklamace();
+  renderWeekendAttack();
+}
+
+function renderWeekendAttack() {
+  const fmt = n => n==null?'—':Number(n).toLocaleString('cs-CZ');
+  const w = yearlyData.weekend_attack;
+  if (!w) {
+    document.getElementById('weekend-attack-summary').innerHTML = '<p style="color:#94a3b8">Weekend attack data nedostupná.</p>';
+    return;
+  }
+  const ws = w.weekend_summary;
+
+  // KPI summary
+  document.getElementById('weekend-attack-summary').innerHTML = `
+    <div class="metric-box" style="background:rgba(239,68,68,.1);border-color:#ef4444"><div class="metric-label">🚨 Vlny útoku 2026</div><div class="metric-value" style="color:#fca5a5">${w.attack_waves.length}</div><div style="color:#64748b;font-size:11px">3. vlna AKTIVNÍ (1.-7.5.2026)</div></div>
+    <div class="metric-box" style="background:rgba(239,68,68,.08);border-color:#ef4444"><div class="metric-label">Peak 1. vlna (16.3.)</div><div class="metric-value" style="color:#fca5a5">253 108</div><div style="color:#64748b;font-size:11px">sessions/den · 130× normal</div></div>
+    <div class="metric-box" style="background:rgba(251,146,60,.08);border-color:#fb923c"><div class="metric-label">Peak 2. vlna (29.3.)</div><div class="metric-value" style="color:#fed7aa">103 129</div><div style="color:#64748b;font-size:11px">sessions/den</div></div>
+    <div class="metric-box" style="background:rgba(239,68,68,.12);border-color:#ef4444"><div class="metric-label">🔴 Peak 3. vlna (3.5.)</div><div class="metric-value" style="color:#fca5a5">22 197</div><div style="color:#64748b;font-size:11px">sessions/den · bounce 94 % · trans 1</div></div>
+    <div class="metric-box"><div class="metric-label">Víkend dnů Feb-May</div><div class="metric-value">${ws.total_weekend_days}</div><div style="color:#64748b;font-size:11px">${ws.attack_weekend_days} během útoku (${ws.weekend_attack_share_pct} %)</div></div>
+    <div class="metric-box" style="background:rgba(251,191,36,.06)"><div class="metric-label">Bot signature</div><div class="metric-value" style="font-size:14px;color:#fcd34d">bounce 90-97 %<br>direct 95-98 %<br>avg sess 6-30s</div><div style="color:#64748b;font-size:11px">0-9 trans/den (bot nenakupuje)</div></div>
+  `;
+
+  // Wave cards
+  document.getElementById('weekend-attack-waves').innerHTML = `
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px">
+      ${w.attack_waves.map((wave,i)=>{
+        const isActive = wave.name.includes('AKTIVNÍ');
+        return `<div style="background:rgba(15,23,42,.6);border:${isActive?'2px solid #ef4444':'1px solid #334155'};border-radius:8px;padding:14px;${isActive?'box-shadow:0 0 12px rgba(239,68,68,.3)':''}">
+          <div style="font-weight:700;color:${isActive?'#fca5a5':'#cbd5e1'};font-size:14px;margin-bottom:6px">${wave.name}</div>
+          <div style="color:#94a3b8;font-size:12px;margin-bottom:8px">📅 ${wave.start} → ${wave.end} · peak ${wave.peak_date}</div>
+          <div style="font-size:18px;font-weight:600;color:${isActive?'#fca5a5':'#fcd34d'};margin-bottom:6px">${fmt(wave.peak_sessions)} sess (peak)</div>
+          <p style="color:#cbd5e1;font-size:12px;margin:0;line-height:1.5">${wave.desc}</p>
+        </div>`;
+      }).join('')}
+    </div>
+  `;
+
+  // Daily timeline chart — sessions + bing 5xx
+  if (window.weekendAttackChart) window.weekendAttackChart.destroy();
+  const daily = w.merged_daily;
+  const ctx = document.getElementById('chart-weekend-attack').getContext('2d');
+  window.weekendAttackChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: daily.map(d=>d.date),
+      datasets: [
+        {label:'GA4 sessions', data:daily.map(d=>d.ga4_sessions), borderColor:'#10b981', backgroundColor:'rgba(16,185,129,.1)', tension:0.2, pointRadius:0, yAxisID:'y'},
+        {label:'Bing 5xx errors', data:daily.map(d=>d.bing_5xx), borderColor:'#ef4444', backgroundColor:'rgba(239,68,68,.08)', tension:0.2, pointRadius:0, yAxisID:'y2'},
+        {label:'GA4 bounce %', data:daily.map(d=>d.ga4_bounce_pct), borderColor:'#fbbf24', backgroundColor:'rgba(251,191,36,.06)', tension:0.2, pointRadius:0, yAxisID:'y3', borderDash:[4,4]},
+        {label:'🚨 Víkend (peak útoku > 5k sess)', type:'scatter', data:daily.map(d=>(d.is_weekend && d.ga4_sessions > 5000)?{x:d.date,y:d.ga4_sessions}:null).filter(x=>x), backgroundColor:'#dc2626', borderColor:'#991b1b', pointRadius:7, yAxisID:'y'},
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {legend:{labels:{color:'#e2e8f0'}}, tooltip:{mode:'index', intersect:false}},
+      scales: {
+        x: {ticks:{color:'#94a3b8',maxRotation:45,maxTicksLimit:25}},
+        y: {position:'left', ticks:{color:'#10b981'}, type:'logarithmic', title:{display:true,text:'GA4 sessions (log)',color:'#10b981'}},
+        y2: {position:'right', ticks:{color:'#ef4444'}, title:{display:true,text:'Bing 5xx',color:'#ef4444'}, grid:{drawOnChartArea:false}},
+        y3: {display:false, position:'right', min:0, max:100, ticks:{color:'#fbbf24'}}
+      }
+    }
+  });
+
+  // Recent 14 days table
+  const recent = daily.slice(-14);
+  const wdLabels = ['Po','Út','St','Čt','Pá','So','Ne'];
+  document.getElementById('weekend-attack-recent-table').innerHTML = `
+    <div style="overflow-x:auto">
+      <table class="data-table" style="font-size:12px">
+        <thead>
+          <tr><th>Datum</th><th>WD</th><th style="text-align:right">GA4 sess</th><th style="text-align:right">Bounce %</th><th style="text-align:right">Direct %</th><th style="text-align:right">Avg s</th><th style="text-align:right">Trans</th><th style="text-align:right">Bing 5xx</th><th style="text-align:right">Bing 4xx</th><th style="text-align:right">Bing crawled</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          ${recent.map(r => {
+            const isAttack = r.ga4_sessions > 5000;
+            const cls = isAttack ? 'background:rgba(239,68,68,.12)' : (r.is_weekend ? 'background:rgba(168,85,247,.05)' : '');
+            const status = r.ga4_sessions > 10000 ? '🔴 ATTACK' : (r.ga4_sessions > 5000 ? '🟡 ELEVATED' : '🟢 normal');
+            return `<tr style="${cls}">
+              <td><strong>${r.date}</strong></td>
+              <td style="color:${r.is_weekend?'#a78bfa':'#94a3b8'}">${wdLabels[r.wd]}${r.is_weekend?' 🏖️':''}</td>
+              <td style="text-align:right;color:${r.ga4_sessions>10000?'#fca5a5':'#cbd5e1'};font-weight:${r.ga4_sessions>5000?'700':'normal'}">${fmt(r.ga4_sessions)}</td>
+              <td style="text-align:right;color:${r.ga4_bounce_pct>50?'#fca5a5':'#cbd5e1'}">${r.ga4_bounce_pct}</td>
+              <td style="text-align:right;color:${r.ga4_direct_pct>80?'#fca5a5':'#cbd5e1'}">${r.ga4_direct_pct}</td>
+              <td style="text-align:right">${r.ga4_avg_dur}</td>
+              <td style="text-align:right">${r.ga4_transactions}</td>
+              <td style="text-align:right;color:${r.bing_5xx>200?'#fca5a5':'#cbd5e1'}">${fmt(r.bing_5xx)}</td>
+              <td style="text-align:right;color:${r.bing_4xx>20?'#fca5a5':'#cbd5e1'}">${fmt(r.bing_4xx)}</td>
+              <td style="text-align:right">${fmt(r.bing_crawled)}</td>
+              <td>${status}</td>
+            </tr>`;
+          }).join('')}
+        </tbody>
+      </table>
+    </div>
+    <p style="color:#fcd34d;font-size:12px;margin-top:10px"><strong>🚨 AKCE NUTNÁ:</strong> Cloudflare Bot Fight Mode + Rate Limiting (10 req/min/IP). GA4 Admin → Bot filtering ON. Annotate periody bot útoku v GA4.</p>
+  `;
 }
 
 function renderReklamace() {
