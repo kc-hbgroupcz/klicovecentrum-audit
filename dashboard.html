@@ -1406,6 +1406,43 @@
     <div class="chart-wrap" style="height:380px;margin-top:12px"><canvas id="chart-weekend-attack"></canvas></div>
     <h4 style="margin-top:24px;color:#94a3b8;font-size:13px;text-transform:uppercase;letter-spacing:.05em">🔥 Posledních 14 dnů (víkendy zvýrazněny)</h4>
     <div id="weekend-attack-recent-table"></div>
+
+    <h4 style="margin-top:24px;color:#fcd34d;font-size:13px;text-transform:uppercase;letter-spacing:.05em">🛡️ Stav Cloudflare ochrany (snapshot 7.5.2026)</h4>
+    <div style="background:rgba(15,23,42,.6);border:1px solid #334155;border-radius:8px;padding:14px;margin-top:10px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-bottom:14px">
+        <div style="background:rgba(16,185,129,.08);border:1px solid #10b981;border-radius:6px;padding:10px">
+          <div style="color:#6ee7b7;font-weight:600;font-size:13px;margin-bottom:4px">✅ Aktivní (klient má)</div>
+          <ul style="margin:0;padding-left:18px;color:#cbd5e1;font-size:12px;line-height:1.7">
+            <li>Block/Challenge Bad ASNs — <strong>23 670 events/24h</strong></li>
+            <li>Geo blokování CN/RU/VN/PK/BD/IQ — 610 events</li>
+            <li>Geo challenge datacentra — 189 events</li>
+            <li>Block Uploaded Scripts (/upload + .php) — 0 events</li>
+            <li>Cache Bypass /sign|/account|/admin|/kosik|/objednavka</li>
+            <li>Always Use HTTPS Page Rule</li>
+            <li>Leaked credential check</li>
+          </ul>
+        </div>
+        <div style="background:rgba(239,68,68,.08);border:1px solid #ef4444;border-radius:6px;padding:10px">
+          <div style="color:#fca5a5;font-weight:600;font-size:13px;margin-bottom:4px">🔴 Chybí (KRITICKÉ)</div>
+          <ul style="margin:0;padding-left:18px;color:#cbd5e1;font-size:12px;line-height:1.7">
+            <li><strong>Per-IP rate limiting</strong> (1/1 slot = jen leaked creds, žádný IP throttle)</li>
+            <li><strong>Bot Fight Mode</strong> + Super BFM (Pro plan)</li>
+            <li>5. Custom rule slot (4/5 used) — block scraperů (Ahrefs/SEMrush/DotBot/PetalBot)</li>
+            <li>Monitoring alert (Slack/email) na > 1000 blocked/h</li>
+          </ul>
+        </div>
+      </div>
+      <div style="background:rgba(251,191,36,.08);border-left:3px solid #fbbf24;padding:10px 14px;border-radius:4px">
+        <strong style="color:#fcd34d;font-size:13px">📋 Akční plán:</strong>
+        <p style="color:#cbd5e1;font-size:12px;margin:6px 0 0;line-height:1.5">
+          Detail postup (UI + API curl commands) v <code style="background:#1e293b;padding:2px 6px;border-radius:3px">analytics-audit/cloudflare_runbook.md</code>:
+          <strong>P0-1</strong> Rate limit 30 req/min per IP (5 min setup) →
+          <strong>P0-2</strong> Bot Fight Mode ON (2 min) →
+          <strong>P0-3</strong> 5. custom rule scraper blocks (10 min) →
+          <strong>P0-4</strong> GA4 bot filtering + annotate 3 vlny (10 min). <strong>Total ~30 min</strong>.
+        </p>
+      </div>
+    </div>
   </div>
 
   <div class="chart-card" id="reklamace-card">
@@ -2970,21 +3007,22 @@ const findings = [
   {
     id: 76, cat: 'analytics', prio: 'P0',
     title: '🚨 PROBÍHAJÍCÍ BOT ÚTOK — 3. vlna (1.-7. 5. 2026), víkend 3.5. peak 22 197 sess (94 % bounce, 96 % direct, 1 trans)',
-    metric: '<strong>3 vlny bot útoku 2026</strong>: 1) <strong>6.-18. 3. 2026</strong> peak 16.3. = 253 108 sess (130× normal). 2) <strong>27. 3. - 6. 4.</strong> peak 29.3. = 103 129 sess. 3) <strong>1.-7. 5. 2026 AKTIVNÍ</strong> peak 3.5. = 22 197 sess.',
+    metric: '<strong>3 vlny bot útoku 2026</strong>: 1) <strong>6.-18. 3. 2026</strong> peak 16.3. = 253 108 sess (130× normal). 2) <strong>27. 3. - 6. 4.</strong> peak 29.3. = 103 129 sess. 3) <strong>1.-7. 5. 2026 AKTIVNÍ</strong> peak 3.5. = 22 197 sess. <strong>Cloudflare už 24h blokuje 24 469 events</strong> (4 custom rules), ale per-IP rate limit chybí.',
     impact: 'Smart Bidding optimalizuje na bot data',
     impactNote: 'AKTIVNÍ útok — okamžitá akce vyžadována',
-    problem: 'GA4 + Bing Webmaster + víkendová z-score analýza odhalily 3 distinkt bot útok vlny v 2026. Pattern: útok startuje pátek, vrcholí v sobotu/neděli (víkend = nikdo nemonitoruje). Bot signature: bounce 90-97 %, direct 95-98 %, avg session 6-30 s, 0-9 transactions/den. Bing crawled propad o 70-95 % během útoku (server overload). Cross-validation s Helios Reklamace 24 rekl v březnu 2026 (peak měsíc) = bot vyvolal výpadek payment. **AKTIVNÍ TŘETÍ VLNA 1.-7. 5. 2026** — víkend 2.-3.5. = 13k+22k sess, dnes (7.5. Čt) 9 523 sess (5× normal). Pokud klient nezakroci, vlna bude pokračovat.',
+    problem: 'GA4 + Bing Webmaster + víkendová z-score analýza odhalily 3 distinkt bot útok vlny v 2026. Pattern: útok startuje pátek, vrcholí v sobotu/neděli. Bot signature: bounce 90-97 %, direct 95-98 %, avg session 6-30 s, 0-9 transactions/den. **Klient má již Cloudflare custom rules**: Block/Challenge Bad ASNs (23 670 events/24h), Geo blokování CN/RU/VN/PK/BD/IQ (610 events), Geo challenge datacentra (189 events). **CHYBÍ KRITICKÉ**: per-IP rate limiting (aktuálně jen 1/1 rule = leaked credentials), Bot Fight Mode verify, žádný 5. custom rule. Per-IP rate limit doplní obranu pro útoky procházející s valid user agent + různými IPs.',
     actions: [
-      '🔥 OKAMŽITĚ: Cloudflare Bot Fight Mode + Super Bot Fight Mode → ON pro klicovecentrum.cz a hbgroup.cz',
-      '🔥 OKAMŽITĚ: Cloudflare Rate Limiting 10 req/min per IP (challenge non-Googlebot/Bingbot)',
-      '🔥 GA4 → Admin → Data Filters → Bot filtering ✅ (excluded internal traffic)',
-      '🔥 Annotate bot attack periods v GA4 (3 vlny) → očištění dat pro reporting',
-      'Identifikovat IP rozsahy útočníků (Cloudflare logs 1.-7.5.) → manual block',
-      'Zkontrolovat Smart Bidding ROAS 2026 — pravděpodobně inflated falešnými daty',
-      'Setup Slack/email alert: GA4 sessions > 5 000 / den triggeruje notifikaci',
+      '🔥 P0-1: Cloudflare → Security Rules → Rate limiting → Create rule: 30 req/min per IP source, exclude Googlebot/Bingbot, action Managed Challenge (postup v `cloudflare_runbook.md`)',
+      '🔥 P0-2: Cloudflare → Security → Bots → Bot Fight Mode ON + Super Bot Fight Mode (Pro plan)',
+      '🔥 P0-3: 5. Custom rule (Block weekend bot pattern): SEMrush/Ahrefs/DotBot/PetalBot scrapers + datacentra ASNs (AWS 16509, OVH 14618, Hetzner 16276, GCP)',
+      '🔥 P0-4: GA4 → Admin → Data Filters → Bot filtering ON + Annotate 3 vlny útoku',
+      'Monitor: API curl monitoring count blocked events každých 5 min → alert > 1000/h',
+      'Identifikovat IP rozsahy útočníků z Cloudflare Security Events 1.-7.5. → manual block top 20',
+      'Zkontrolovat Smart Bidding ROAS 2026 — pravděpodobně inflated falešnými daty (Google Ads ROAS pád 4,78×→1,96× = bot inflate)',
+      'Setup Slack/email alert: GA4 sessions > 5 000/den triggeruje notifikaci',
       'Po-útoku: re-baseline Smart Bidding (relearning fáze 2-4 týdny)'
     ],
-    expected: 'Po Cloudflare Bot Fight Mode: 90% redukce bot trafficu; Smart Bidding získá čistá data; recovery PPC ROAS na pre-útok úroveň ROAS 4× (vs 1,96× v 2026 Q1).',
+    expected: 'Po per-IP rate limiting + Bot Fight Mode: další 50-80% redukce bot trafficu (CF už blokuje 24 469/24h, doplnění o IP rate limit chytí útoky s legitimním UA). Smart Bidding získá čistá data; recovery PPC ROAS z 1,96× → 4×. **Detail postup v `analytics-audit/cloudflare_runbook.md`** (curl commands + Dashboard UI návod).',
     timeline: [100, 0, 0]
   }
 ];
