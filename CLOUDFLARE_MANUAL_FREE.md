@@ -215,21 +215,99 @@ Bot často nemá funkční browser → Cloudflare ho vyzve challenge, který bot
 
 ---
 
-## 🔥 KROK 8 — GA4 bot filtering + annotate (5 min)
+## 🔥 KROK 8 — GA4 ochrana dat (5-10 min)
 
-Nezávislé na Cloudflare, ale stejně důležité — očištění analytics dat:
+⚠️ **Důležité chápat**: GA4 **NEMÁ annotations** (na rozdíl od starého Universal Analytics). Místo toho má **automatic bot filtering** + **comparisons** + **Audiences**. Ukazuji co reálně **funguje**.
+
+### 8a) Ověřit automatic bot filtering (= ON by default)
 
 1. https://analytics.google.com → vyberte property **klicovecentrum.cz (299992437)**
-2. Admin (ozubené kolečko vlevo dole) → **Property settings** → **Data Settings** → **Data Filters**
-3. Pokud "Internal Traffic" filter neexistuje → **Create Filter** → "Developer Traffic" → exclude
-4. ⚠️ GA4 už má **automatic bot filtering** zapnuté (default — Google filtruje SPB/IAB known bots automaticky). Nelze ručně přepnout, ale můžete přidat **custom Internal Traffic filter** pro vlastní firemní/agenturní IP.
+2. Vlevo dole klik **Admin** (ozubené kolečko)
+3. V „Property settings" sekci klik **Data settings → Data Streams**
+4. Klik na váš Web stream `https://www.klicovecentrum.cz/`
+5. Sekce "Tagging settings" → klik **Configure tag settings**
+6. Klik **Internal traffic** (nebo „Show all" → Internal traffic)
 
-**Annotate 3 vlny útoku** (visual ve všech reportech):
-1. GA4 → Reports → libovolný report → klik na konkrétní datum v grafu
-2. **Add annotation**:
-   - **6.-18. 3. 2026** = "Bot útok vlna 1 (peak 16.3. = 253k sess)"
-   - **27. 3. - 6. 4. 2026** = "Bot útok vlna 2 (peak 29.3. = 103k sess)"
-   - **1.-7. 5. 2026** = "Bot útok vlna 3 AKTIVNÍ (peak 3.5. = 22k sess)"
+Co byste tam měli vidět:
+- ✅ **„Bot filtering"** = automaticky ON (Google filtruje IAB Bot/Spider list — nelze vypnout, ne všechny boty)
+
+⚠️ **GA4 automatic bot filter chytí jen ~40-60 % botů** (známí crawlery v IAB seznamu). **Aggressive scrapery v útoku 1.-7.5.2026 NEFILTRUJE** — ty se v datech objeví. Cloudflare (kroky 1-7) je hlavní obrana.
+
+### 8b) Přidat „Internal Traffic" filter pro vás/agenturu (volitelné)
+
+Pokud vaše IP nebo IP agentury vidí GA4 data z testů → exkluduje:
+
+1. Admin → **Data Settings** → **Data filters** (vlevo)
+2. Pokud `Internal Traffic` filter neexistuje:
+   - **Create Filter** → název `Internal Traffic`
+   - Filter type: `Internal Traffic`
+   - Filter operation: `Exclude`
+   - Parameter value: `internal` (ukáže se výchozí)
+3. Aby to fungovalo, musíte ještě v **Data Streams → Tagging Settings → Define internal traffic** přidat IP rules:
+   - **Create rule** → Match type: `IP address equals` → vaše veřejná IP (zjistíte na https://whatismyip.com)
+   - Stejně přidejte IP agentury
+
+### 8c) Vytvořit „Bot Sessions" Audience (= označit historická + budoucí bot data)
+
+GA4 nedává annotations, ale **Audience** funguje jako label. Vytvoříte audience „Bot Sessions" pro charakteristiky útoku → můžete ji **použít jako Comparison** v jakémkoli reportu.
+
+**Postup:**
+
+1. GA4 → vlevo dole **Admin** → v sekci „Data display" → **Audiences**
+2. **New audience** → **Create custom audience**
+3. Název: `🚨 Bot Sessions (filter z reports)`
+4. Description: `Sessions s bot signaturou: bounce 90%+ a session duration < 30s a Direct channel. Útok 6.3.-7.5.2026`
+5. **Add condition** → klik **+ Add new condition**:
+   - Event: `session_start` (nebo session-scoped metric)
+   - Add filter: `Bounce rate >= 0.9` AND `Average engagement time per session < 30`
+   - + Filter: `Session source/medium contains "(direct)"`
+6. **Membership duration**: 90 days (default)
+7. **Save**
+
+⚠️ Nejde retroaktivně exkluvovat z dat (data jsou už v BigQuery). Audience slouží jen pro **identifikaci** v Comparisons.
+
+### 8d) Comparisons v reports → vidíte „čistá vs zabugovaná" data
+
+V každém GA4 reportu (Reports → Engagement → Pages, atd.):
+
+1. Nahoře vpravo klik **„Add comparison"** (📊 ikona)
+2. **+ Add new comparison**:
+   - Dimension: `Default channel group`
+   - Match type: `does not exactly match`
+   - Value: `Direct`
+3. Apply → uvidíte 2 sloupce: „All users" vs „Bez Direct" (= bez bot sessions)
+
+To je nejbližší ekvivalent k UA annotations v GA4 — místo poznámky vidíte rovnou čistá vs hrubá data.
+
+### 8e) Audit dashboard slouží jako persistent annotation
+
+Dashboard https://kc-hbgroupcz.github.io/klicovecentrum-audit/dashboard.html → tab **📅 3-letý přehled** → sekce **„NÁLEZ #76 — PROBÍHAJÍCÍ BOT ÚTOK"** zobrazuje:
+- 3 wave cards s daty (vlna 1: 6.-18.3., vlna 2: 27.3.-6.4., vlna 3: 1.-7.5.)
+- Daily timeline chart s víkendovými flagy
+- Tabulku posledních 14 dnů (dnes vidíte sessions/bounce/direct přesné hodnoty)
+
+To je vaše **persistent annotation systém** — dashboard si pamatuje vlny útoku navždy, GA4 je zapomene.
+
+### Co dělat s historickými daty (březen-květen 2026)
+
+**Nelze** retroaktivně očistit GA4 data za 6.-18. 3. + 27. 3. - 6. 4. + 1.-7. 5. 2026. Bot sessions tam zůstanou navždy.
+
+**Co dělat:**
+1. Při reportingu klientovi nebo agentuře **vždy uveďte**: „GA4 sessions za tato období jsou kontaminovány bot trafficem (vlny 1-3, viz audit dashboard #76)"
+2. Pro ROAS / konverze používejte **ERP / SQL ground truth** (1 261 245 Kč MO, 4 351 779 Kč VO 8M) místo GA4
+3. Po-attack (od 8. 5. 2026, pokud Cloudflare zafunguje) máte čistá GA4 data — ta sledujte trend
+
+### Souhrn kroku 8
+
+| Akce | Čas | Funguje? |
+|------|-----|----------|
+| 8a | Ověřit auto bot filtering | 1 min | ✅ default ON, nic neměnit |
+| 8b | Internal Traffic filter (vaše IP) | 3 min | ✅ vyloučí váš testing |
+| 8c | „Bot Sessions" Audience | 3 min | ✅ identifikace v Comparisons |
+| 8d | Comparison „bez Direct" v reportech | 1 min | ✅ čistá vs hrubá data |
+| 8e | Audit dashboard = persistent annotation | 0 min | ✅ už máte hotové |
+
+**Annotations v GA4 NEEXISTUJÍ jako v Universal Analytics. Proto outsourcujeme do audit dashboardu.**
 
 ---
 
@@ -244,9 +322,11 @@ Nezávislé na Cloudflare, ale stejně důležité — očištění analytics da
 | 5 | Security Level → High | Security → Settings | 1 min |
 | 6 | Browser Integrity Check ON | Security → Settings | 1 min |
 | 7 | Challenge Passage 1h + Privacy Pass ON | Security → Settings | 1 min |
-| 8 | GA4 bot filtering verify + annotate 3 vlny | analytics.google.com → Admin | 5 min |
+| 8 | GA4: bot filter ověřit + Internal Traffic filter + „Bot Sessions" Audience + Comparison „bez Direct" v reports | analytics.google.com → Admin + Reports | 5-10 min |
 
-**Total: ~30 min**
+**Total: ~30-35 min**
+
+**Pozn.**: GA4 nemá funkci „annotations" (Universal Analytics měl). Proto v kroku 8 vytváříme **Audience + Comparisons** = nejbližší ekvivalent. Persistentní notes o vlnách útoku máte v audit dashboardu (sekce „NÁLEZ #76").
 
 ---
 
