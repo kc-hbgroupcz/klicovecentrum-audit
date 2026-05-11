@@ -134,26 +134,55 @@ Vaše stávající rule "Geo blokování - bot traffic" blokuje **jen** CN/RU/VN
 
 Útok zatěžuje origin server. Pokud Cloudflare cachuje co nejvíc, origin dostane méně requestů → útok má menší dopad.
 
-**Postup:**
+**⚠️ Free plan upozornění**: operátor `matches` (regex) je **Pro+ only**. Použijeme jen `contains` / `is in` (Free-compatible).
+
+**Postup — varianta A (UI bez expression — nejjednodušší):**
 
 1. Cloudflare → **Caching** → **Cache Rules**
 2. **Create rule**
 3. **Rule name**: `Aggressive cache statics`
-4. **When incoming requests match...** Edit expression:
-```
-(http.request.uri.path matches "\.(css|js|jpg|jpeg|png|gif|webp|svg|woff|woff2|ico|ttf|eot|otf|map|pdf)$") or
-(http.request.uri.path contains "/css/") or
-(http.request.uri.path contains "/js/") or
-(http.request.uri.path contains "/images/") or
-(http.request.uri.path contains "/fonts/")
-```
+4. **When incoming requests match...** v UI vyplňte (žádný "Edit expression"):
+   - **Field**: vyberte `File extension`  (z dropdownu, ne URI Path)
+   - **Operator**: `is in`
+   - **Value**: napište nebo vložte (jeden po druhém, Cloudflare je převede do listu):
+     ```
+     css, js, jpg, jpeg, png, gif, webp, svg, woff, woff2, ico, ttf, eot, otf, map, pdf
+     ```
 5. **Then...**:
    - **Cache eligibility**: Eligible for cache ✅
    - **Edge TTL**: Override origin → **1 month**
    - **Browser TTL**: Override origin → **1 week**
-6. Deploy
+6. **Deploy**
+
+**Postup — varianta B (Edit expression, pokud Field „File extension" není dostupné):**
+
+```
+(http.request.uri.path.extension in {"css" "js" "jpg" "jpeg" "png" "gif" "webp" "svg" "woff" "woff2" "ico" "ttf" "eot" "otf" "map" "pdf"})
+```
+
+(`http.request.uri.path.extension` automaticky extrahuje příponu URL — žádný regex potřeba, funguje ve Free planu.)
+
+**Postup — varianta C (fallback s `contains` pokud ani extension field nefunguje):**
+
+```
+(http.request.uri.path contains "/css/") or
+(http.request.uri.path contains "/js/") or
+(http.request.uri.path contains "/images/") or
+(http.request.uri.path contains "/fonts/") or
+(http.request.uri.path contains "/static/") or
+(http.request.uri.path contains "/uploads/")
+```
+
+Tím cachujete celé adresářové prefixy. Méně přesné než file extension match, ale 100 % Free-compatible.
 
 To zajistí, že Cloudflare cachuje statics agresivně → 95 % bot requestů na obrázky/CSS/JS nikdy nedosáhne origin server.
+
+**Verify cache je aktivní (po 5 min):**
+1. Otevřete v prohlížeči `https://www.klicovecentrum.cz/` (homepage)
+2. F12 → Network tab → reload (Ctrl+R)
+3. Klikněte na libovolný `.css` nebo `.jpg` request → Headers tab
+4. Hledejte response header `cf-cache-status: HIT` (nebo `MISS` u prvního requestu, pak `HIT`)
+5. Pokud vidíte `cf-cache-status: BYPASS` nebo `DYNAMIC` → cache rule nefunguje, zkontrolujte expression
 
 ---
 
