@@ -1,0 +1,527 @@
+{
+  "generated": "2026-05-11T14:41:40",
+  "source": "PPL Logistics export CSV (Helios IQ → PPL plugin)",
+  "period_full": "2024-10-07 → 2026-05-11",
+  "period_active": "2025-11-01 → 2026-05-11 (7M aktivní použití)",
+  "total_packages": 2357,
+  "unique_shipments_master_id": 2089,
+  "avg_packages_per_shipment": 1.13,
+  "internal_packages": 541,
+  "external_packages": 1816,
+  "internal_share_pct": 23.0,
+  "country_breakdown": {
+    "CZ": 2237,
+    "SK": 113,
+    "IT": 3,
+    "PL": 3,
+    "DE": 1
+  },
+  "dobirka_summary": {
+    "count": 354,
+    "pct_of_total": 15.0,
+    "total_kc": 654409,
+    "avg_kc": 1849
+  },
+  "monthly": [
+    {
+      "month": "2024-10",
+      "total": 2,
+      "internal": 0,
+      "external": 2,
+      "cz": 2,
+      "sk": 0,
+      "dobirka_count": 0,
+      "dobirka_kc": 0
+    },
+    {
+      "month": "2024-11",
+      "total": 5,
+      "internal": 1,
+      "external": 4,
+      "cz": 4,
+      "sk": 1,
+      "dobirka_count": 0,
+      "dobirka_kc": 0
+    },
+    {
+      "month": "2024-12",
+      "total": 3,
+      "internal": 0,
+      "external": 3,
+      "cz": 2,
+      "sk": 0,
+      "dobirka_count": 0,
+      "dobirka_kc": 0
+    },
+    {
+      "month": "2025-01",
+      "total": 4,
+      "internal": 0,
+      "external": 4,
+      "cz": 4,
+      "sk": 0,
+      "dobirka_count": 1,
+      "dobirka_kc": 352.0
+    },
+    {
+      "month": "2025-02",
+      "total": 4,
+      "internal": 1,
+      "external": 3,
+      "cz": 4,
+      "sk": 0,
+      "dobirka_count": 0,
+      "dobirka_kc": 0
+    },
+    {
+      "month": "2025-04",
+      "total": 5,
+      "internal": 1,
+      "external": 4,
+      "cz": 5,
+      "sk": 0,
+      "dobirka_count": 2,
+      "dobirka_kc": 3151.0
+    },
+    {
+      "month": "2025-05",
+      "total": 8,
+      "internal": 1,
+      "external": 7,
+      "cz": 8,
+      "sk": 0,
+      "dobirka_count": 0,
+      "dobirka_kc": 0
+    },
+    {
+      "month": "2025-06",
+      "total": 3,
+      "internal": 0,
+      "external": 3,
+      "cz": 3,
+      "sk": 0,
+      "dobirka_count": 0,
+      "dobirka_kc": 0
+    },
+    {
+      "month": "2025-07",
+      "total": 3,
+      "internal": 1,
+      "external": 2,
+      "cz": 3,
+      "sk": 0,
+      "dobirka_count": 1,
+      "dobirka_kc": 1005.0
+    },
+    {
+      "month": "2025-08",
+      "total": 1,
+      "internal": 0,
+      "external": 1,
+      "cz": 1,
+      "sk": 0,
+      "dobirka_count": 0,
+      "dobirka_kc": 0
+    },
+    {
+      "month": "2025-09",
+      "total": 6,
+      "internal": 2,
+      "external": 4,
+      "cz": 6,
+      "sk": 0,
+      "dobirka_count": 1,
+      "dobirka_kc": 1420.0
+    },
+    {
+      "month": "2025-10",
+      "total": 2,
+      "internal": 0,
+      "external": 2,
+      "cz": 2,
+      "sk": 0,
+      "dobirka_count": 1,
+      "dobirka_kc": 775.0
+    },
+    {
+      "month": "2025-11",
+      "total": 255,
+      "internal": 52,
+      "external": 203,
+      "cz": 248,
+      "sk": 7,
+      "dobirka_count": 39,
+      "dobirka_kc": 71854.0
+    },
+    {
+      "month": "2025-12",
+      "total": 399,
+      "internal": 102,
+      "external": 297,
+      "cz": 373,
+      "sk": 26,
+      "dobirka_count": 64,
+      "dobirka_kc": 69054.0
+    },
+    {
+      "month": "2026-01",
+      "total": 469,
+      "internal": 88,
+      "external": 381,
+      "cz": 454,
+      "sk": 15,
+      "dobirka_count": 75,
+      "dobirka_kc": 177294.0
+    },
+    {
+      "month": "2026-02",
+      "total": 368,
+      "internal": 100,
+      "external": 268,
+      "cz": 343,
+      "sk": 24,
+      "dobirka_count": 47,
+      "dobirka_kc": 89360.0
+    },
+    {
+      "month": "2026-03",
+      "total": 326,
+      "internal": 72,
+      "external": 254,
+      "cz": 306,
+      "sk": 17,
+      "dobirka_count": 52,
+      "dobirka_kc": 103940.0
+    },
+    {
+      "month": "2026-04",
+      "total": 392,
+      "internal": 93,
+      "external": 299,
+      "cz": 371,
+      "sk": 19,
+      "dobirka_count": 56,
+      "dobirka_kc": 93183.0
+    },
+    {
+      "month": "2026-05",
+      "total": 102,
+      "internal": 27,
+      "external": 75,
+      "cz": 98,
+      "sk": 4,
+      "dobirka_count": 15,
+      "dobirka_kc": 43021.0
+    }
+  ],
+  "top_30_recipients": [
+    {
+      "name": "HB GROUP S.R.O. Brno",
+      "count": 130,
+      "is_internal": true,
+      "sample_psc": "63900",
+      "sample_mesto": "Brno"
+    },
+    {
+      "name": "HB GROUP s.r.o. Ostrava",
+      "count": 116,
+      "is_internal": true,
+      "sample_psc": "70300",
+      "sample_mesto": "Ostrava"
+    },
+    {
+      "name": "H&B SLOVAKIA s.r.o.",
+      "count": 60,
+      "is_internal": true,
+      "sample_psc": "85104",
+      "sample_mesto": "SK-Bratislava"
+    },
+    {
+      "name": "MINIT, klíčařství",
+      "count": 58,
+      "is_internal": false,
+      "sample_psc": "66442",
+      "sample_mesto": "Brno"
+    },
+    {
+      "name": "H&B Group s.r.o.",
+      "count": 56,
+      "is_internal": true,
+      "sample_psc": "70300",
+      "sample_mesto": "Ostrava - Vítkovice"
+    },
+    {
+      "name": "MP kování",
+      "count": 38,
+      "is_internal": false,
+      "sample_psc": "25801",
+      "sample_mesto": "Vlašim"
+    },
+    {
+      "name": "H&B SLOVAKIA s.r.o. Košice",
+      "count": 35,
+      "is_internal": true,
+      "sample_psc": "04001",
+      "sample_mesto": "Košice"
+    },
+    {
+      "name": "MINIT klíčařství",
+      "count": 34,
+      "is_internal": false,
+      "sample_psc": "19600",
+      "sample_mesto": "PRAHA - Čakovice"
+    },
+    {
+      "name": "KLÍČOVÉ CENTRUM Praha-Pekařka",
+      "count": 32,
+      "is_internal": true,
+      "sample_psc": "18000",
+      "sample_mesto": "Praha"
+    },
+    {
+      "name": "Michal Bulva - klíče",
+      "count": 31,
+      "is_internal": false,
+      "sample_psc": "57201",
+      "sample_mesto": "POLIČKA"
+    },
+    {
+      "name": "Locksystems",
+      "count": 30,
+      "is_internal": false,
+      "sample_psc": "16000",
+      "sample_mesto": "Praha 6"
+    },
+    {
+      "name": "HB Group s.r.o. Sokolov",
+      "count": 28,
+      "is_internal": true,
+      "sample_psc": "35601",
+      "sample_mesto": "Sokolov"
+    },
+    {
+      "name": "LOCKSYSTEMS s.r.o.",
+      "count": 27,
+      "is_internal": false,
+      "sample_psc": "16000",
+      "sample_mesto": "Praha 6"
+    },
+    {
+      "name": "Kovoslužba Selník",
+      "count": 26,
+      "is_internal": false,
+      "sample_psc": "74601",
+      "sample_mesto": "Opava 1"
+    },
+    {
+      "name": "Josef Bubák",
+      "count": 26,
+      "is_internal": false,
+      "sample_psc": "53701",
+      "sample_mesto": "Chrudim 1"
+    },
+    {
+      "name": "MINIT s.r.o.",
+      "count": 24,
+      "is_internal": false,
+      "sample_psc": "25101",
+      "sample_mesto": "Čestlice - Průhonice"
+    },
+    {
+      "name": "František Šlégr - zámečnictví",
+      "count": 21,
+      "is_internal": false,
+      "sample_psc": "57001",
+      "sample_mesto": "Litomyšl"
+    },
+    {
+      "name": "Z+Z Richard Zeiss",
+      "count": 20,
+      "is_internal": false,
+      "sample_psc": "27201",
+      "sample_mesto": "Kladno"
+    },
+    {
+      "name": "TOR Cheb spol. s r.o.",
+      "count": 20,
+      "is_internal": false,
+      "sample_psc": "35002",
+      "sample_mesto": "Cheb"
+    },
+    {
+      "name": "Sezam Chrudim",
+      "count": 19,
+      "is_internal": false,
+      "sample_psc": "53701",
+      "sample_mesto": "Chrudim"
+    },
+    {
+      "name": "OBEX klíče s.r.o.",
+      "count": 18,
+      "is_internal": false,
+      "sample_psc": "43401",
+      "sample_mesto": "Most"
+    },
+    {
+      "name": "Železářství Šabata s.r.o.",
+      "count": 16,
+      "is_internal": false,
+      "sample_psc": "33701",
+      "sample_mesto": "Rokycany"
+    },
+    {
+      "name": "JIRO, zámečnictví",
+      "count": 16,
+      "is_internal": false,
+      "sample_psc": "60200",
+      "sample_mesto": "BRNO"
+    },
+    {
+      "name": "HOTO s.r.o.",
+      "count": 14,
+      "is_internal": false,
+      "sample_psc": "33701",
+      "sample_mesto": "Těškov"
+    },
+    {
+      "name": "Selník kovoslužba",
+      "count": 13,
+      "is_internal": false,
+      "sample_psc": "70100",
+      "sample_mesto": "Ostrava 1"
+    },
+    {
+      "name": "H&B group Cheb",
+      "count": 13,
+      "is_internal": true,
+      "sample_psc": "35002",
+      "sample_mesto": "Cheb"
+    },
+    {
+      "name": "HB Group s.r.o. Praha Jakov",
+      "count": 12,
+      "is_internal": true,
+      "sample_psc": "19000",
+      "sample_mesto": "Praha 9"
+    },
+    {
+      "name": "HB GROUP S.R.O. Vodňany",
+      "count": 11,
+      "is_internal": true,
+      "sample_psc": "38901",
+      "sample_mesto": "Vodňany"
+    },
+    {
+      "name": "SPLITTER s.r.o.",
+      "count": 11,
+      "is_internal": false,
+      "sample_psc": "29301",
+      "sample_mesto": "Mladá Boleslav"
+    },
+    {
+      "name": "Klíče HK  Klíčové centrum",
+      "count": 11,
+      "is_internal": true,
+      "sample_psc": "50002",
+      "sample_mesto": "Hradec Králové - Pražské Předm"
+    }
+  ],
+  "by_kraj_cz": [
+    {
+      "kraj": "Středočeský",
+      "total": 371,
+      "internal": 2,
+      "external": 369
+    },
+    {
+      "kraj": "Hl.m.Praha",
+      "total": 321,
+      "internal": 64,
+      "external": 257
+    },
+    {
+      "kraj": "Jihomoravský",
+      "total": 262,
+      "internal": 137,
+      "external": 125
+    },
+    {
+      "kraj": "Moravskoslezský",
+      "total": 244,
+      "internal": 135,
+      "external": 109
+    },
+    {
+      "kraj": "Plzeňský",
+      "total": 159,
+      "internal": 0,
+      "external": 159
+    },
+    {
+      "kraj": "Vysočina",
+      "total": 128,
+      "internal": 0,
+      "external": 128
+    },
+    {
+      "kraj": "Královéhradecký",
+      "total": 121,
+      "internal": 11,
+      "external": 110
+    },
+    {
+      "kraj": "Pardubický",
+      "total": 109,
+      "internal": 0,
+      "external": 109
+    },
+    {
+      "kraj": "Ústecký",
+      "total": 109,
+      "internal": 7,
+      "external": 102
+    },
+    {
+      "kraj": "Jihočeský",
+      "total": 106,
+      "internal": 33,
+      "external": 73
+    },
+    {
+      "kraj": "Karlovarský",
+      "total": 94,
+      "internal": 44,
+      "external": 50
+    },
+    {
+      "kraj": "Olomoucký",
+      "total": 69,
+      "internal": 0,
+      "external": 69
+    },
+    {
+      "kraj": "Zlínský",
+      "total": 58,
+      "internal": 0,
+      "external": 58
+    },
+    {
+      "kraj": "Liberecký",
+      "total": 57,
+      "internal": 0,
+      "external": 57
+    },
+    {
+      "kraj": "Neznámý",
+      "total": 29,
+      "internal": 0,
+      "external": 29
+    }
+  ],
+  "cross_check_erp": {
+    "ppl_packages_7m_nov25_may26": 2311,
+    "erp_vydejky_total_mo_vo_8m": 2110,
+    "match_pct": 99,
+    "note": "PPL aktivní od 11/2025. Pokrývá téměř 100 % ERP výdejek MO+VO. PPL je dominantní (možná jediný) dopravce."
+  }
+}

@@ -1446,6 +1446,20 @@
     </div>
   </div>
 
+  <div class="chart-card" id="ppl-shipments-card">
+    <h3>📦 NÁLEZ #77 — PPL je dominantní dopravce (2 089 zásilek / 7M, 99 % shoda s ERP Výdejky)</h3>
+    <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
+      PPL Logistics export CSV (Helios IQ plugin, listopad 2025 - květen 2026, 7M aktivní použití) potvrzuje že <strong>PPL je dominantní (možná jediný) dopravce</strong>: 2 089 unique zásilek = 99 % match s ERP Výdejky 2 110. Pattern: 23 % balíků jsou <strong>interní transfery</strong> mezi H&B pobočkami (Brno 130, Ostrava 116, SK 60), 77 % jsou externí B2B/B2C zákazníci.
+    </p>
+    <div class="metrics-grid" id="ppl-summary"></div>
+    <h4 style="margin-top:24px;color:#94a3b8;font-size:13px;text-transform:uppercase;letter-spacing:.05em">📈 Měsíční volume PPL zásilek</h4>
+    <div class="chart-wrap" style="height:280px;margin-top:12px"><canvas id="chart-ppl-monthly"></canvas></div>
+    <h4 style="margin-top:24px;color:#94a3b8;font-size:13px;text-transform:uppercase;letter-spacing:.05em">🏆 Top 15 příjemců (interní pobočky vs externí B2B)</h4>
+    <div id="ppl-top-recipients"></div>
+    <h4 style="margin-top:24px;color:#94a3b8;font-size:13px;text-transform:uppercase;letter-spacing:.05em">🗺️ Distribuce per kraj (CZ)</h4>
+    <div id="ppl-kraje"></div>
+  </div>
+
   <div class="chart-card" id="reklamace-card">
     <h3>⚖️ NÁLEZY #73-#75 — Reklamace 8M (138 reklamací, poměr 6,54 %)</h3>
     <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
@@ -1824,6 +1838,8 @@ const ownerMap = {
   73:'client', 74:'client', 75:'client',
   // Weekend bot útok (ID 76)
   76:'devops',  // Cloudflare bot fight mode = devops akce
+  // PPL dopravce (ID 77)
+  77:'client',  // klient řídí logistiku + dopravce
 };
 const ownerBadges = {
   agency:  {emoji:'🎯', label:'Agentura', cls:'owner-agency', desc:'Marketingová agentura — admin v Google Ads / Sklik / GA4 / GTM / kampaně'},
@@ -3026,6 +3042,24 @@ const findings = [
     ],
     expected: 'Po per-IP rate limiting + Bot Fight Mode: další 50-80% redukce bot trafficu (CF už blokuje 24 469/24h, doplnění o IP rate limit chytí útoky s legitimním UA). Smart Bidding získá čistá data; recovery PPC ROAS z 1,96× → 4×. **Detail postup v `analytics-audit/cloudflare_runbook.md`** (curl commands + Dashboard UI návod).',
     timeline: [100, 0, 0]
+  },
+  {
+    id: 77, cat: 'data', prio: 'P2',
+    title: '📦 PPL dominantní dopravce — 2 089 zásilek / 7M = 99 % shoda s ERP Výdejky',
+    metric: '<strong>2 089 unique zásilek</strong> (2 357 balíků) za 7M (11/2025-5/2026) · <strong>99 % shoda s ERP Výdejky 2 110</strong> · <strong>23 % interní transfery</strong> (H&B Brno/Ostrava/SK) · <strong>77 % externí B2B/B2C</strong> · 654 409 Kč dobírka',
+    impact: 'Single-point-of-failure logistika',
+    impactNote: 'PPL výpadek = paralyzace celé distribuce',
+    impactPositive: true,
+    problem: 'PPL Logistics CSV export (Helios IQ plugin) odhalil že PPL je dominantní (možná jediný) dopravce H&B Group. 2 089 unique zásilek / 7M se 99 % match s celkovým objemem ERP Výdejek MO+VO (2 110). Top 5 destinací = INTERNÍ pobočky (HB Brno 130, HB Ostrava 116, H&B SK 60, MINIT 58, H&B Group 56). 23 % balíků (541) jsou interní transfery mezi sklady/pobočkami, 77 % (1 816) jsou externí zákazníci. Dobírka 15 % zásilek (354) za 654 409 Kč. POZITIVNÍ: jasná logistická architektura, jednoduché tracking. NEGATIVNÍ: pokud PPL má výpadek (jak se občas stává), pošta firmu paralyzuje. Doporučení: záložní dopravce (DPD/GLS/Zásilkovna) pro min. 20 % zásilek.',
+    actions: [
+      'Pravidelný měsíční pull PPL exportu z Helios IQ (manuálně)',
+      'Cross-check s ERP Výdejkami → identifikace zásilek BEZ PPL (= jiný dopravce nebo osobní odběr)',
+      'Setup záložní dopravce DPD/GLS/Zásilkovna pro 20 % zásilek (diverzifikace risk)',
+      'Tracking PPL SLA (delivery time, lost packages, claims rate) — měsíční report',
+      'Dobírka 15 % je vysoké u B2C eshopu (benchmark 5-10 %) — analyzovat příčiny (chybí důvěra v platby předem? Smart Bidding optimalizuje na dobírkové prodeje?)'
+    ],
+    expected: 'Pochopení logistického scope (PPL = 99 %) + identifikace risk faktoru (single carrier) + případná diverzifikace 20 % objemu na záložní dopravce.',
+    timeline: [10, 60, 30]
   }
 ];
 
@@ -4343,7 +4377,7 @@ let yearlyData = null;
 async function loadYearly() {
   if (!yearlyData) {
     try {
-      const [yt, ym, fc, yh, ch, bw, po, pbc, erpV, erpC, rek, qa, wa] = await Promise.all([
+      const [yt, ym, fc, yh, ch, bw, po, pbc, erpV, erpC, rek, qa, wa, ppl] = await Promise.all([
         fetch('data/yearly_trend.json?v='+Date.now()).then(r=>r.json()),
         fetch('data/yearly_master.json?v='+Date.now()).then(r=>r.json()),
         fetch('data/seasonality_forecast.json?v='+Date.now()).then(r=>r.json()),
@@ -4357,8 +4391,9 @@ async function loadYearly() {
         fetch('data/reklamace_8m.json?v='+Date.now()).then(r=>r.json()).catch(()=>null),
         fetch('data/product_qa.json?v='+Date.now()).then(r=>r.json()).catch(()=>null),
         fetch('data/weekend_attack_analysis.json?v='+Date.now()).then(r=>r.json()).catch(()=>null),
+        fetch('data/ppl_shipments.json?v='+Date.now()).then(r=>r.json()).catch(()=>null),
       ]);
-      yearlyData = {trend: yt, master: ym, forecast: fc, history: yh, crawl: ch, bing: bw, payment_outage: po, payment_bing_corr: pbc, erp_vydejky: erpV, erp_corr: erpC, reklamace: rek, product_qa: qa, weekend_attack: wa};
+      yearlyData = {trend: yt, master: ym, forecast: fc, history: yh, crawl: ch, bing: bw, payment_outage: po, payment_bing_corr: pbc, erp_vydejky: erpV, erp_corr: erpC, reklamace: rek, product_qa: qa, weekend_attack: wa, ppl: ppl};
     } catch(e){ console.error('yearly', e); return; }
   }
   renderYearly();
@@ -4370,6 +4405,79 @@ async function loadYearly() {
   renderErpVydejky();
   renderReklamace();
   renderWeekendAttack();
+  renderPplShipments();
+}
+
+function renderPplShipments() {
+  const fmt = n => n==null?'—':Number(n).toLocaleString('cs-CZ');
+  const p = yearlyData.ppl;
+  if (!p) {
+    document.getElementById('ppl-summary').innerHTML = '<p style="color:#94a3b8">PPL data nedostupná.</p>';
+    return;
+  }
+  document.getElementById('ppl-summary').innerHTML = `
+    <div class="metric-box" style="background:rgba(168,85,247,.08);border-color:#a78bfa"><div class="metric-label">Unique zásilek</div><div class="metric-value" style="color:#c4b5fd">${fmt(p.unique_shipments_master_id)}</div><div style="color:#64748b;font-size:11px">${fmt(p.total_packages)} balíků (avg ${p.avg_packages_per_shipment}/zásilka)</div></div>
+    <div class="metric-box" style="background:rgba(16,185,129,.08);border-color:#10b981"><div class="metric-label">Cross-check ERP</div><div class="metric-value" style="color:#6ee7b7">${p.cross_check_erp.match_pct} %</div><div style="color:#64748b;font-size:11px">PPL ${fmt(p.cross_check_erp.ppl_packages_7m_nov25_may26)} vs ERP ${fmt(p.cross_check_erp.erp_vydejky_total_mo_vo_8m)}</div></div>
+    <div class="metric-box"><div class="metric-label">Interní H&B</div><div class="metric-value">${fmt(p.internal_packages)}</div><div style="color:#64748b;font-size:11px">${p.internal_share_pct} % (transfery)</div></div>
+    <div class="metric-box"><div class="metric-label">Externí B2B/B2C</div><div class="metric-value">${fmt(p.external_packages)}</div><div style="color:#64748b;font-size:11px">${100-p.internal_share_pct} %</div></div>
+    <div class="metric-box" style="background:rgba(251,191,36,.06)"><div class="metric-label">Dobírka</div><div class="metric-value" style="color:#fcd34d">${p.dobirka_summary.pct_of_total} %</div><div style="color:#64748b;font-size:11px">${fmt(p.dobirka_summary.count)} zás · ${fmt(p.dobirka_summary.total_kc)} Kč · avg ${fmt(p.dobirka_summary.avg_kc)}</div></div>
+    <div class="metric-box"><div class="metric-label">CZ / SK split</div><div class="metric-value" style="font-size:18px">${fmt(p.country_breakdown.CZ)} CZ</div><div style="color:#64748b;font-size:11px">${fmt(p.country_breakdown.SK||0)} SK · ${(p.country_breakdown.IT||0)+(p.country_breakdown.PL||0)+(p.country_breakdown.DE||0)} EU jiné</div></div>
+  `;
+
+  // Monthly chart (jen aktivní období 11/2025-)
+  const months = p.monthly.filter(m => m.month >= '2025-11');
+  if (window.pplMonthlyChart) window.pplMonthlyChart.destroy();
+  const ctx = document.getElementById('chart-ppl-monthly').getContext('2d');
+  window.pplMonthlyChart = new Chart(ctx, {
+    type: 'bar',
+    data: {labels: months.map(m=>m.month),
+           datasets: [
+             {label:'Interní pobočky', data:months.map(m=>m.internal), backgroundColor:'#a78bfa', stack:'a'},
+             {label:'Externí B2B/B2C', data:months.map(m=>m.external), backgroundColor:'#10b981', stack:'a'},
+             {label:'Dobírka (počet)', data:months.map(m=>m.dobirka_count), type:'line', borderColor:'#fbbf24', backgroundColor:'#fbbf24', yAxisID:'y2', tension:0.2},
+           ]},
+    options: {responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{color:'#e2e8f0'}}, tooltip:{mode:'index',intersect:false}},
+      scales:{x:{stacked:true, ticks:{color:'#cbd5e1'}, grid:{color:'#334155'}},
+              y:{stacked:true, ticks:{color:'#cbd5e1'}, title:{display:true,text:'Balíků/měsíc',color:'#cbd5e1'}},
+              y2:{position:'right', ticks:{color:'#fbbf24'}, grid:{drawOnChartArea:false}, title:{display:true,text:'Dobírka',color:'#fbbf24'}}}}
+  });
+
+  // Top recipients
+  const top15 = p.top_30_recipients.slice(0,15);
+  document.getElementById('ppl-top-recipients').innerHTML = `
+    <div style="overflow-x:auto"><table class="data-table" style="font-size:12px">
+      <thead><tr><th>#</th><th>Příjemce</th><th style="text-align:right">Balíků</th><th>Město</th><th>Typ</th></tr></thead>
+      <tbody>
+        ${top15.map((r,i)=>`<tr style="background:${r.is_internal?'rgba(168,85,247,.08)':''}">
+          <td>${i+1}</td>
+          <td><strong>${r.name}</strong></td>
+          <td style="text-align:right">${fmt(r.count)}</td>
+          <td>${r.sample_mesto}</td>
+          <td>${r.is_internal?'🏢 Interní H&B':'👤 Externí'}</td>
+        </tr>`).join('')}
+      </tbody>
+    </table></div>
+  `;
+
+  // Per kraj
+  document.getElementById('ppl-kraje').innerHTML = `
+    <div style="overflow-x:auto"><table class="data-table" style="font-size:12px">
+      <thead><tr><th>Kraj</th><th style="text-align:right">Celkem</th><th style="text-align:right">Interní</th><th style="text-align:right">Externí</th><th style="text-align:right">% z CZ celku</th></tr></thead>
+      <tbody>
+        ${p.by_kraj_cz.map(k => {
+          const tot = p.by_kraj_cz.reduce((s,x)=>s+x.total,0);
+          return `<tr>
+            <td><strong>${k.kraj}</strong></td>
+            <td style="text-align:right">${fmt(k.total)}</td>
+            <td style="text-align:right;color:#a78bfa">${fmt(k.internal)}</td>
+            <td style="text-align:right;color:#10b981">${fmt(k.external)}</td>
+            <td style="text-align:right">${(100*k.total/tot).toFixed(1)} %</td>
+          </tr>`;
+        }).join('')}
+      </tbody>
+    </table></div>
+  `;
 }
 
 function renderWeekendAttack() {
