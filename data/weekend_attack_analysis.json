@@ -1,6 +1,6 @@
 {
-  "generated": "2026-05-11T10:12:51",
-  "period": "2026-02-01 → 2026-05-07",
+  "generated": "2026-05-11T13:59:45",
+  "period": "2026-02-01 → 2026-05-11",
   "attack_waves": [
     {
       "name": "1. vlna (březen 2026)",
@@ -19,12 +19,20 @@
       "desc": "Druhá vlna — 11 dní, víkendy 28-29.3. (58k+103k sess), pokračování do týdne. Bing 5xx skok z 0 na 380-448/den."
     },
     {
-      "name": "3. vlna AKTIVNÍ (květen 2026)",
+      "name": "3. vlna (květen 2026)",
       "start": "2026-05-01",
-      "end": "2026-05-07",
+      "end": "2026-05-10",
       "peak_date": "2026-05-03",
       "peak_sessions": 22197,
-      "desc": "🚨 PROBÍHÁ TEĎ — víkend 2.-3.5. peak (22k sess, bounce 94%, direct 96%, jen 1 transakce). 6.5. (St) další spike 23k. Bing weekend 2.-3.5.: code_5xx 420, 4xx 79, blocked 303k. Klient by měl okamžitě aktivovat Cloudflare Bot Fight Mode + rate limiting."
+      "desc": "Třetí vlna 10 dní — víkend 2.-3.5. peak (22k sess, bounce 94%, direct 96%, jen 1 transakce). 6.5. (St) další spike 23k. Víkend 8.-10.5. pokračoval (13-16k sess)."
+    },
+    {
+      "name": "✅ RECOVERY 11.5. — Cloudflare ochrana zafungovala",
+      "start": "2026-05-11",
+      "end": "2026-05-11",
+      "peak_date": "2026-05-11",
+      "peak_sessions": 823,
+      "desc": "KLÍČOVÉ: 11.5. (Po) sessions klesly z 16k → 823 (norm), bounce z 90% → 62%, direct z 95% → 21%. Klient pravděpodobně nasadil Bot Fight Mode + 5. Custom rule v Cloudflare. Recovery zatím 1 den — sledovat trend dál."
     }
   ],
   "merged_daily": [
@@ -1417,11 +1425,11 @@
       "ga4_direct_pct": 90.1,
       "ga4_avg_dur": 29,
       "ga4_transactions": 9,
-      "bing_crawled": null,
-      "bing_5xx": null,
-      "bing_4xx": null,
-      "bing_errors": null,
-      "bing_blocked_robots": null
+      "bing_crawled": 22768,
+      "bing_5xx": 200,
+      "bing_4xx": 36,
+      "bing_errors": 30,
+      "bing_blocked_robots": 155646
     },
     {
       "date": "2026-05-05",
@@ -1432,11 +1440,11 @@
       "ga4_direct_pct": 63.5,
       "ga4_avg_dur": 135,
       "ga4_transactions": 7,
-      "bing_crawled": null,
-      "bing_5xx": null,
-      "bing_4xx": null,
-      "bing_errors": null,
-      "bing_blocked_robots": null
+      "bing_crawled": 16599,
+      "bing_5xx": 193,
+      "bing_4xx": 24,
+      "bing_errors": 16,
+      "bing_blocked_robots": 162226
     },
     {
       "date": "2026-05-06",
@@ -1447,11 +1455,11 @@
       "ga4_direct_pct": 94.3,
       "ga4_avg_dur": 16,
       "ga4_transactions": 7,
-      "bing_crawled": null,
-      "bing_5xx": null,
-      "bing_4xx": null,
-      "bing_errors": null,
-      "bing_blocked_robots": null
+      "bing_crawled": 16791,
+      "bing_5xx": 193,
+      "bing_4xx": 28,
+      "bing_errors": 19,
+      "bing_blocked_robots": 162913
     },
     {
       "date": "2026-05-07",
@@ -1462,6 +1470,66 @@
       "ga4_direct_pct": 89.4,
       "ga4_avg_dur": 30,
       "ga4_transactions": 2,
+      "bing_crawled": 14519,
+      "bing_5xx": 193,
+      "bing_4xx": 34,
+      "bing_errors": 26,
+      "bing_blocked_robots": 162913
+    },
+    {
+      "date": "2026-05-08",
+      "wd": 4,
+      "is_weekend": false,
+      "ga4_sessions": 13521,
+      "ga4_bounce_pct": 92.1,
+      "ga4_direct_pct": 96.3,
+      "ga4_avg_dur": 13,
+      "ga4_transactions": 1,
+      "bing_crawled": 15628,
+      "bing_5xx": 193,
+      "bing_4xx": 27,
+      "bing_errors": 20,
+      "bing_blocked_robots": 164856
+    },
+    {
+      "date": "2026-05-09",
+      "wd": 5,
+      "is_weekend": true,
+      "ga4_sessions": 14117,
+      "ga4_bounce_pct": 91.3,
+      "ga4_direct_pct": 96.2,
+      "ga4_avg_dur": 14,
+      "ga4_transactions": 2,
+      "bing_crawled": 18164,
+      "bing_5xx": 193,
+      "bing_4xx": 27,
+      "bing_errors": 19,
+      "bing_blocked_robots": 164856
+    },
+    {
+      "date": "2026-05-10",
+      "wd": 6,
+      "is_weekend": true,
+      "ga4_sessions": 15958,
+      "ga4_bounce_pct": 90.0,
+      "ga4_direct_pct": 95.1,
+      "ga4_avg_dur": 15,
+      "ga4_transactions": 2,
+      "bing_crawled": 13115,
+      "bing_5xx": 398,
+      "bing_4xx": 23,
+      "bing_errors": 254,
+      "bing_blocked_robots": 164856
+    },
+    {
+      "date": "2026-05-11",
+      "wd": 0,
+      "is_weekend": false,
+      "ga4_sessions": 823,
+      "ga4_bounce_pct": 61.6,
+      "ga4_direct_pct": 21.3,
+      "ga4_avg_dur": 295,
+      "ga4_transactions": 0,
       "bing_crawled": null,
       "bing_5xx": null,
       "bing_4xx": null,
@@ -1470,9 +1538,17 @@
     }
   ],
   "weekend_summary": {
-    "total_weekend_days": 27,
-    "attack_weekend_days": 11,
+    "total_weekend_days": 29,
+    "attack_weekend_days": 13,
     "normal_weekend_days": 16,
-    "weekend_attack_share_pct": 40.7
+    "weekend_attack_share_pct": 44.8
+  },
+  "recovery_status": {
+    "is_recovered": true,
+    "recovery_date": "2026-05-11",
+    "pre_recovery_avg_sessions": 14000,
+    "post_recovery_sessions": 823,
+    "reduction_pct": 94.1,
+    "note": "Cloudflare Bot Fight Mode + 5. Custom rule deployed. Sledovat trend 7 dnů."
   }
 }

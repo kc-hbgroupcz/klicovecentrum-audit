@@ -1,5 +1,5 @@
 {
-  "generated": "2026-05-07T16:32:38",
+  "generated": "2026-05-11T13:59:46",
   "source": "SQL kosik DB ground truth (XAMPP MySQL hbgroup_cz_hbg8oiwu73)",
   "method": "COALESCE(firma, ffirma, jmeno+prijmeni) + JOIN polozka pro per-položkový obrat",
   "vat_rate": 0.21,

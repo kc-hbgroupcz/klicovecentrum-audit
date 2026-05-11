@@ -1,142 +1,23 @@
 {
-  "generated": "2026-05-04T11:38:21",
+  "generated": "2026-05-11T13:58:29",
   "source": "Bing Webmaster Tools API",
   "site": "https://www.klicovecentrum.cz/",
   "crawl_stats_summary": {
     "days_total": 174,
-    "date_from": "2025-11-04",
-    "date_to": "2026-05-03",
-    "avg_crawled_per_day": 27880,
-    "total_crawled_pages": 4851065,
-    "total_code_4xx": 21040,
-    "total_code_5xx": 13666,
-    "total_blocked_by_robots": 26064378,
-    "total_crawl_errors": 179552,
+    "date_from": "2025-11-11",
+    "date_to": "2026-05-10",
+    "avg_crawled_per_day": 27146,
+    "total_crawled_pages": 4723383,
+    "total_code_4xx": 21136,
+    "total_code_5xx": 14917,
+    "total_blocked_by_robots": 27202554,
+    "total_crawl_errors": 165047,
     "total_dns_failures": 0,
-    "total_connection_timeout": 53,
-    "current_in_index": 2318650,
-    "in_index_change": 119915
+    "total_connection_timeout": 55,
+    "current_in_index": 2318780,
+    "in_index_change": 100812
   },
   "crawl_stats_history": [
-    {
-      "date": "2025-11-04",
-      "crawled_pages": 46556,
-      "in_index": 2198735,
-      "in_links": 155664,
-      "code_2xx": 2397537,
-      "code_301": 888,
-      "code_302": 837,
-      "code_4xx": 16,
-      "code_5xx": 45,
-      "all_other_codes": 79203,
-      "blocked_by_robots": 12,
-      "crawl_errors": 1930,
-      "connection_timeout": 0,
-      "dns_failures": 0,
-      "contains_malware": 0
-    },
-    {
-      "date": "2025-11-05",
-      "crawled_pages": 45451,
-      "in_index": 2201485,
-      "in_links": 155654,
-      "code_2xx": 2406070,
-      "code_301": 897,
-      "code_302": 837,
-      "code_4xx": 21,
-      "code_5xx": 45,
-      "all_other_codes": 79692,
-      "blocked_by_robots": 12,
-      "crawl_errors": 1841,
-      "connection_timeout": 0,
-      "dns_failures": 0,
-      "contains_malware": 0
-    },
-    {
-      "date": "2025-11-06",
-      "crawled_pages": 35490,
-      "in_index": 2204178,
-      "in_links": 155664,
-      "code_2xx": 2408979,
-      "code_301": 904,
-      "code_302": 837,
-      "code_4xx": 15,
-      "code_5xx": 44,
-      "all_other_codes": 77160,
-      "blocked_by_robots": 12,
-      "crawl_errors": 2683,
-      "connection_timeout": 0,
-      "dns_failures": 0,
-      "contains_malware": 0
-    },
-    {
-      "date": "2025-11-07",
-      "crawled_pages": 33792,
-      "in_index": 2204318,
-      "in_links": 155664,
-      "code_2xx": 2410840,
-      "code_301": 907,
-      "code_302": 837,
-      "code_4xx": 18,
-      "code_5xx": 45,
-      "all_other_codes": 81239,
-      "blocked_by_robots": 12,
-      "crawl_errors": 2490,
-      "connection_timeout": 0,
-      "dns_failures": 0,
-      "contains_malware": 0
-    },
-    {
-      "date": "2025-11-08",
-      "crawled_pages": 28870,
-      "in_index": 2209123,
-      "in_links": 156685,
-      "code_2xx": 2423761,
-      "code_301": 931,
-      "code_302": 837,
-      "code_4xx": 10,
-      "code_5xx": 45,
-      "all_other_codes": 84045,
-      "blocked_by_robots": 14,
-      "crawl_errors": 2317,
-      "connection_timeout": 0,
-      "dns_failures": 0,
-      "contains_malware": 0
-    },
-    {
-      "date": "2025-11-09",
-      "crawled_pages": 22689,
-      "in_index": 2215335,
-      "in_links": 156946,
-      "code_2xx": 2437543,
-      "code_301": 965,
-      "code_302": 838,
-      "code_4xx": 11,
-      "code_5xx": 44,
-      "all_other_codes": 82750,
-      "blocked_by_robots": 14,
-      "crawl_errors": 1818,
-      "connection_timeout": 0,
-      "dns_failures": 0,
-      "contains_malware": 0
-    },
-    {
-      "date": "2025-11-10",
-      "crawled_pages": 32418,
-      "in_index": 2217968,
-      "in_links": 156750,
-      "code_2xx": 2443050,
-      "code_301": 977,
-      "code_302": 838,
-      "code_4xx": 12,
-      "code_5xx": 44,
-      "all_other_codes": 83725,
-      "blocked_by_robots": 14,
-      "crawl_errors": 1810,
-      "connection_timeout": 0,
-      "dns_failures": 0,
-      "contains_malware": 0
-    },
     {
       "date": "2025-11-11",
       "crawled_pages": 36169,
@@ -2975,52 +2856,136 @@
       "connection_timeout": 0,
       "dns_failures": 0,
       "contains_malware": 0
+    },
+    {
+      "date": "2026-05-04",
+      "crawled_pages": 22768,
+      "in_index": 2318650,
+      "in_links": 44923,
+      "code_2xx": 2433439,
+      "code_301": 1077,
+      "code_302": 813,
+      "code_4xx": 36,
+      "code_5xx": 200,
+      "all_other_codes": 326282,
+      "blocked_by_robots": 155646,
+      "crawl_errors": 30,
+      "connection_timeout": 0,
+      "dns_failures": 0,
+      "contains_malware": 0
+    },
+    {
+      "date": "2026-05-05",
+      "crawled_pages": 16599,
+      "in_index": 2318712,
+      "in_links": 41764,
+      "code_2xx": 2433881,
+      "code_301": 1081,
+      "code_302": 813,
+      "code_4xx": 24,
+      "code_5xx": 193,
+      "all_other_codes": 328407,
+      "blocked_by_robots": 162226,
+      "crawl_errors": 16,
+      "connection_timeout": 0,
+      "dns_failures": 0,
+      "contains_malware": 0
+    },
+    {
+      "date": "2026-05-06",
+      "crawled_pages": 16791,
+      "in_index": 2318722,
+      "in_links": 41238,
+      "code_2xx": 2433835,
+      "code_301": 1081,
+      "code_302": 813,
+      "code_4xx": 28,
+      "code_5xx": 193,
+      "all_other_codes": 328815,
+      "blocked_by_robots": 162913,
+      "crawl_errors": 19,
+      "connection_timeout": 1,
+      "dns_failures": 0,
+      "contains_malware": 0
+    },
+    {
+      "date": "2026-05-07",
+      "crawled_pages": 14519,
+      "in_index": 2318722,
+      "in_links": 41238,
+      "code_2xx": 2433835,
+      "code_301": 1081,
+      "code_302": 813,
+      "code_4xx": 34,
+      "code_5xx": 193,
+      "all_other_codes": 328815,
+      "blocked_by_robots": 162913,
+      "crawl_errors": 26,
+      "connection_timeout": 1,
+      "dns_failures": 0,
+      "contains_malware": 0
+    },
+    {
+      "date": "2026-05-08",
+      "crawled_pages": 15628,
+      "in_index": 2318780,
+      "in_links": 39760,
+      "code_2xx": 2433364,
+      "code_301": 1085,
+      "code_302": 813,
+      "code_4xx": 27,
+      "code_5xx": 193,
+      "all_other_codes": 330429,
+      "blocked_by_robots": 164856,
+      "crawl_errors": 20,
+      "connection_timeout": 0,
+      "dns_failures": 0,
+      "contains_malware": 0
+    },
+    {
+      "date": "2026-05-09",
+      "crawled_pages": 18164,
+      "in_index": 2318780,
+      "in_links": 39760,
+      "code_2xx": 2433364,
+      "code_301": 1085,
+      "code_302": 813,
+      "code_4xx": 27,
+      "code_5xx": 193,
+      "all_other_codes": 330429,
+      "blocked_by_robots": 164856,
+      "crawl_errors": 19,
+      "connection_timeout": 0,
+      "dns_failures": 0,
+      "contains_malware": 0
+    },
+    {
+      "date": "2026-05-10",
+      "crawled_pages": 13115,
+      "in_index": 2318780,
+      "in_links": 39760,
+      "code_2xx": 2433363,
+      "code_301": 1085,
+      "code_302": 813,
+      "code_4xx": 23,
+      "code_5xx": 398,
+      "all_other_codes": 330429,
+      "blocked_by_robots": 164856,
+      "crawl_errors": 254,
+      "connection_timeout": 0,
+      "dns_failures": 0,
+      "contains_malware": 0
     }
   ],
   "rank_traffic_summary": {
     "days_total": 484,
-    "date_from": "2025-01-04",
-    "date_to": "2026-05-02",
-    "total_clicks": 8312,
-    "total_impressions": 309906,
+    "date_from": "2025-01-11",
+    "date_to": "2026-05-09",
+    "total_clicks": 8298,
+    "total_impressions": 309557,
     "avg_ctr_pct": 2.68
   },
   "rank_traffic_history": [
-    {
-      "date": "2025-01-04",
-      "clicks": 10,
-      "impressions": 307
-    },
-    {
-      "date": "2025-01-05",
-      "clicks": 4,
-      "impressions": 336
-    },
-    {
-      "date": "2025-01-06",
-      "clicks": 21,
-      "impressions": 692
-    },
-    {
-      "date": "2025-01-07",
-      "clicks": 22,
-      "impressions": 866
-    },
-    {
-      "date": "2025-01-08",
-      "clicks": 18,
-      "impressions": 991
-    },
-    {
-      "date": "2025-01-09",
-      "clicks": 23,
-      "impressions": 800
-    },
-    {
-      "date": "2025-01-10",
-      "clicks": 15,
-      "impressions": 662
-    },
     {
       "date": "2025-01-11",
       "clicks": 9,
@@ -5405,6 +5370,41 @@
       "date": "2026-05-02",
       "clicks": 7,
       "impressions": 203
+    },
+    {
+      "date": "2026-05-03",
+      "clicks": 11,
+      "impressions": 423
+    },
+    {
+      "date": "2026-05-04",
+      "clicks": 23,
+      "impressions": 910
+    },
+    {
+      "date": "2026-05-05",
+      "clicks": 21,
+      "impressions": 877
+    },
+    {
+      "date": "2026-05-06",
+      "clicks": 15,
+      "impressions": 803
+    },
+    {
+      "date": "2026-05-07",
+      "clicks": 18,
+      "impressions": 722
+    },
+    {
+      "date": "2026-05-08",
+      "clicks": 8,
+      "impressions": 338
+    },
+    {
+      "date": "2026-05-09",
+      "clicks": 3,
+      "impressions": 232
     }
   ],
   "crawl_issues_summary": {
@@ -18873,254 +18873,6 @@
   ],
   "page_stats_top_50": [
     {
-      "url": "https://www.klicovecentrum.cz/",
-      "clicks": 11,
-      "impressions": 105,
-      "avg_impression_position": 4,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "url": "https://www.klicovecentrum.cz/elektronicke-pristupove-systemy/",
-      "clicks": 6,
-      "impressions": 17,
-      "avg_impression_position": 2,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "url": "https://www.klicovecentrum.cz/zadlabaci-zamky/",
-      "clicks": 4,
-      "impressions": 70,
-      "avg_impression_position": 5,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "url": "https://www.klicovecentrum.cz/vyroba-autoklicu-na-prodejnach/",
-      "clicks": 4,
-      "impressions": 13,
-      "avg_impression_position": 8,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "url": "https://www.klicovecentrum.cz/cylindricke-vlozky/",
-      "clicks": 3,
-      "impressions": 23,
-      "avg_impression_position": 5,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "url": "https://www.klicovecentrum.cz/plzen/",
-      "clicks": 3,
-      "impressions": 11,
-      "avg_impression_position": 2,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "url": "https://www.klicovecentrum.cz/produkt/automaticky-zamek-star-na-kontejnery/",
-      "clicks": 3,
-      "impressions": 6,
-      "avg_impression_position": 8,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "url": "https://www.klicovecentrum.cz/produkt/zadlabaci-zamek-k051/",
-      "clicks": 3,
-      "impressions": 3,
-      "avg_impression_position": 1,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "url": "https://www.klicovecentrum.cz/rozlisovace-a-visacky/",
-      "clicks": 2,
-      "impressions": 17,
-      "avg_impression_position": 3,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "url": "https://www.klicovecentrum.cz/zavory-petlice-a-zastrce/",
-      "clicks": 2,
-      "impressions": 12,
-      "avg_impression_position": 8,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "url": "https://www.klicovecentrum.cz/elektricke-otvirace/",
-      "clicks": 2,
-      "impressions": 10,
-      "avg_impression_position": 4,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "url": "https://www.klicovecentrum.cz/nahradni-dily-zamku-a-prislusenstvi/",
-      "clicks": 2,
-      "impressions": 8,
-      "avg_impression_position": 3,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "url": "https://www.klicovecentrum.cz/pro-ridice/",
-      "clicks": 2,
-      "impressions": 3,
-      "avg_impression_position": 7,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "url": "https://www.klicovecentrum.cz/bezpecnostni-vlozky/",
-      "clicks": 1,
-      "impressions": 17,
-      "avg_impression_position": 5,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "url": "https://www.klicovecentrum.cz/panikova-kovani/",
-      "clicks": 1,
-      "impressions": 13,
-      "avg_impression_position": 3,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "url": "https://www.klicovecentrum.cz/trezory/",
-      "clicks": 1,
-      "impressions": 8,
-      "avg_impression_position": 7,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "url": "https://www.klicovecentrum.cz/elektricke-otvirace-oc/",
-      "clicks": 1,
-      "impressions": 6,
-      "avg_impression_position": 8,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "url": "https://www.klicovecentrum.cz/klice-autoklice-a-prislusenstvi/",
-      "clicks": 1,
-      "impressions": 4,
-      "avg_impression_position": 6,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "url": "https://www.klicovecentrum.cz/k-cemu-je-bezpecnostni-karta/",
-      "clicks": 1,
-      "impressions": 4,
-      "avg_impression_position": 2,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "url": "https://www.klicovecentrum.cz/valeckove-zamky/",
-      "clicks": 0,
-      "impressions": 4,
-      "avg_impression_position": 4,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "url": "https://www.klicovecentrum.cz/dverni-kovani/",
-      "clicks": 0,
-      "impressions": 3,
-      "avg_impression_position": 8,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "url": "https://www.klicovecentrum.cz/panikove-zamky/",
-      "clicks": 0,
-      "impressions": 3,
-      "avg_impression_position": 3,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "url": "https://www.klicovecentrum.cz/okenni-zamky/",
-      "clicks": 0,
-      "impressions": 3,
-      "avg_impression_position": 7,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "url": "https://www.klicovecentrum.cz/privesky/",
-      "clicks": 0,
-      "impressions": 2,
-      "avg_impression_position": 5,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "url": "https://www.klicovecentrum.cz/trezory-na-penize/",
-      "clicks": 0,
-      "impressions": 2,
-      "avg_impression_position": 5,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "url": "https://www.klicovecentrum.cz/brno/",
-      "clicks": 0,
-      "impressions": 1,
-      "avg_impression_position": 5,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "url": "https://www.klicovecentrum.cz/jak-vyresit-zasekavani-zamykaci-vlozky/",
-      "clicks": 0,
-      "impressions": 1,
-      "avg_impression_position": 2,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "url": "https://www.klicovecentrum.cz/nahradni-dily-vlozek-a-prislusenstvi/",
-      "clicks": 0,
-      "impressions": 1,
-      "avg_impression_position": 3,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "url": "https://www.klicovecentrum.cz/produkt/pridavny-zamek-s1590-bez-vlozky/",
-      "clicks": 0,
-      "impressions": 1,
-      "avg_impression_position": 1,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "url": "https://www.klicovecentrum.cz/produkt/reverzni-pozarni-otvirac-oc-24r8-24l8-s-jednim-monitorovanim/",
-      "clicks": 0,
-      "impressions": 1,
-      "avg_impression_position": 2,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "url": "https://www.klicovecentrum.cz/prakticke-privesky/",
-      "clicks": 0,
-      "impressions": 1,
-      "avg_impression_position": 3,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
       "url": "https://www.klicovecentrum.cz/plzen/",
       "clicks": 8,
       "impressions": 25,
@@ -19201,18 +18953,18 @@
       "date": "2025-01-24"
     },
     {
-      "url": "https://www.klicovecentrum.cz/klice-autoklice-a-prislusenstvi/",
-      "clicks": 2,
-      "impressions": 5,
-      "avg_impression_position": 4,
-      "avg_click_position": -1,
-      "date": "2025-01-24"
-    },
-    {
       "url": "https://www.klicovecentrum.cz/panikove-zamky/",
       "clicks": 2,
       "impressions": 5,
       "avg_impression_position": 3,
+      "avg_click_position": -1,
+      "date": "2025-01-24"
+    },
+    {
+      "url": "https://www.klicovecentrum.cz/klice-autoklice-a-prislusenstvi/",
+      "clicks": 2,
+      "impressions": 5,
+      "avg_impression_position": 4,
       "avg_click_position": -1,
       "date": "2025-01-24"
     },
@@ -19225,7 +18977,7 @@
       "date": "2025-01-24"
     },
     {
-      "url": "https://www.klicovecentrum.cz/images/stranky/navody/D%C3%A1lkov%C3%A9%20ovlada%C4%8De%20bran/silca_air4_navod.pdf",
+      "url": "https://www.klicovecentrum.cz/images/stranky/navody/D%c3%a1lkov%c3%a9%20ovlada%c4%8de%20bran/silca_air4_navod.pdf",
       "clicks": 2,
       "impressions": 2,
       "avg_impression_position": 2,
@@ -19271,385 +19023,257 @@
       "avg_impression_position": 7,
       "avg_click_position": -1,
       "date": "2025-01-24"
+    },
+    {
+      "url": "https://www.klicovecentrum.cz/produkt/jmenovka-na-schranky-dols/",
+      "clicks": 1,
+      "impressions": 2,
+      "avg_impression_position": 7,
+      "avg_click_position": -1,
+      "date": "2025-01-24"
+    },
+    {
+      "url": "https://www.klicovecentrum.cz/trezory/",
+      "clicks": 0,
+      "impressions": 19,
+      "avg_impression_position": 7,
+      "avg_click_position": -1,
+      "date": "2025-01-24"
+    },
+    {
+      "url": "https://www.klicovecentrum.cz/zavory-petlice-a-zastrce/",
+      "clicks": 0,
+      "impressions": 8,
+      "avg_impression_position": 5,
+      "avg_click_position": -1,
+      "date": "2025-01-24"
+    },
+    {
+      "url": "https://www.klicovecentrum.cz/praha-liben/",
+      "clicks": 0,
+      "impressions": 3,
+      "avg_impression_position": 6,
+      "avg_click_position": -1,
+      "date": "2025-01-24"
+    },
+    {
+      "url": "https://www.klicovecentrum.cz/prislusenstvi-ke-klicum/",
+      "clicks": 0,
+      "impressions": 2,
+      "avg_impression_position": 2,
+      "avg_click_position": -1,
+      "date": "2025-01-24"
+    },
+    {
+      "url": "https://www.klicovecentrum.cz/produkt/kluzna-lista-k-zaviraci-geze-ts-1500/",
+      "clicks": 0,
+      "impressions": 2,
+      "avg_impression_position": 2,
+      "avg_click_position": -1,
+      "date": "2025-01-24"
+    },
+    {
+      "url": "https://www.klicovecentrum.cz/rozlisovace-a-visacky/",
+      "clicks": 0,
+      "impressions": 1,
+      "avg_impression_position": 1,
+      "avg_click_position": -1,
+      "date": "2025-01-24"
+    },
+    {
+      "url": "https://www.klicovecentrum.cz/auta-a-motorky/",
+      "clicks": 0,
+      "impressions": 1,
+      "avg_impression_position": 5,
+      "avg_click_position": -1,
+      "date": "2025-01-24"
+    },
+    {
+      "url": "https://www.klicovecentrum.cz/praha-vrsovice/",
+      "clicks": 0,
+      "impressions": 1,
+      "avg_impression_position": 1,
+      "avg_click_position": -1,
+      "date": "2025-01-24"
+    },
+    {
+      "url": "https://www.klicovecentrum.cz/nahradni-dily-zamku-a-prislusenstvi/",
+      "clicks": 0,
+      "impressions": 1,
+      "avg_impression_position": 5,
+      "avg_click_position": -1,
+      "date": "2025-01-24"
+    },
+    {
+      "url": "https://www.klicovecentrum.cz/strelkove-zamky/",
+      "clicks": 0,
+      "impressions": 1,
+      "avg_impression_position": 1,
+      "avg_click_position": -1,
+      "date": "2025-01-24"
+    },
+    {
+      "url": "https://www.klicovecentrum.cz/vicebodove-zadlabaci-zamky/",
+      "clicks": 0,
+      "impressions": 1,
+      "avg_impression_position": 4,
+      "avg_click_position": -1,
+      "date": "2025-01-24"
+    },
+    {
+      "url": "https://www.klicovecentrum.cz/plzen/",
+      "clicks": 17,
+      "impressions": 64,
+      "avg_impression_position": 3,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "url": "https://www.klicovecentrum.cz/",
+      "clicks": 11,
+      "impressions": 115,
+      "avg_impression_position": 4,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "url": "https://www.klicovecentrum.cz/autoklice-vyroba-i-opravy/",
+      "clicks": 4,
+      "impressions": 25,
+      "avg_impression_position": 4,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "url": "https://www.klicovecentrum.cz/elektronicke-pristupove-systemy/",
+      "clicks": 3,
+      "impressions": 6,
+      "avg_impression_position": 1,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "url": "https://www.klicovecentrum.cz/krouzky-a-karabiny/",
+      "clicks": 3,
+      "impressions": 2,
+      "avg_impression_position": 2,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "url": "https://www.klicovecentrum.cz/produkt/visaci-zamek-s-pulvlozkou-star-60s/",
+      "clicks": 3,
+      "impressions": 2,
+      "avg_impression_position": 6,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "url": "https://www.klicovecentrum.cz/vyroba-autoklicu-na-prodejnach/",
+      "clicks": 2,
+      "impressions": 12,
+      "avg_impression_position": 6,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "url": "https://www.klicovecentrum.cz/cylindricke-vlozky/",
+      "clicks": 2,
+      "impressions": 8,
+      "avg_impression_position": 4,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "url": "https://www.klicovecentrum.cz/ceske-budejovice/",
+      "clicks": 2,
+      "impressions": 6,
+      "avg_impression_position": 6,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "url": "https://www.klicovecentrum.cz/bezpecnostni-vlozky/",
+      "clicks": 1,
+      "impressions": 11,
+      "avg_impression_position": 4,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "url": "https://www.klicovecentrum.cz/produkt/mazadlo-fab/",
+      "clicks": 1,
+      "impressions": 6,
+      "avg_impression_position": 6,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "url": "https://www.klicovecentrum.cz/zavirace/",
+      "clicks": 1,
+      "impressions": 3,
+      "avg_impression_position": 3,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "url": "https://www.klicovecentrum.cz/otvirace-oc/",
+      "clicks": 1,
+      "impressions": 2,
+      "avg_impression_position": 3,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "url": "https://www.klicovecentrum.cz/visaci-zamky-na-kod/",
+      "clicks": 1,
+      "impressions": 2,
+      "avg_impression_position": 1,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "url": "https://www.klicovecentrum.cz/nahradni-dily-zamku-a-prislusenstvi/",
+      "clicks": 1,
+      "impressions": 2,
+      "avg_impression_position": 6,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "url": "https://www.klicovecentrum.cz/produkt/zamek-agb-polaris-2xt/",
+      "clicks": 1,
+      "impressions": 2,
+      "avg_impression_position": 4,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "url": "https://www.klicovecentrum.cz/produkt/cervik-kliky-pro-kovani-elox/",
+      "clicks": 1,
+      "impressions": 2,
+      "avg_impression_position": 3,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "url": "https://www.klicovecentrum.cz/dverni-kovani/",
+      "clicks": 0,
+      "impressions": 20,
+      "avg_impression_position": 6,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "url": "https://www.klicovecentrum.cz/zadlabaci-zamky/",
+      "clicks": 0,
+      "impressions": 18,
+      "avg_impression_position": 6,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
     }
   ],
   "query_stats_top_100": [
-    {
-      "query": "klicove centrum",
-      "clicks": 3,
-      "impressions": 12,
-      "avg_impression_position": 2,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "zamek k051",
-      "clicks": 3,
-      "impressions": 3,
-      "avg_impression_position": 1,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "zamek popelnicový automatický",
-      "clicks": 3,
-      "impressions": 3,
-      "avg_impression_position": 8,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "klíčové centrum",
-      "clicks": 2,
-      "impressions": 12,
-      "avg_impression_position": 2,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "klíčové centrum plzeň",
-      "clicks": 2,
-      "impressions": 9,
-      "avg_impression_position": 3,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "jak popsat rozlišovač klíčů",
-      "clicks": 2,
-      "impressions": 7,
-      "avg_impression_position": 16,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "zámek do plastových dveří abloy",
-      "clicks": 2,
-      "impressions": 4,
-      "avg_impression_position": 13,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "bezpečnostní klíč na kartu",
-      "clicks": 2,
-      "impressions": 3,
-      "avg_impression_position": 4,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "zámky a závory",
-      "clicks": 2,
-      "impressions": 3,
-      "avg_impression_position": 41,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "elektromotorické otvírání",
-      "clicks": 2,
-      "impressions": 2,
-      "avg_impression_position": 10,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "oprava ovladače k autu zlín",
-      "clicks": 2,
-      "impressions": 1,
-      "avg_impression_position": 9,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "kličove centrum891783",
-      "clicks": 1,
-      "impressions": 6,
-      "avg_impression_position": 3,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "psí známka se jménem",
-      "clicks": 1,
-      "impressions": 5,
-      "avg_impression_position": 16,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "dveřní zámek",
-      "clicks": 1,
-      "impressions": 4,
-      "avg_impression_position": 6,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "vícebodový zámek roto c600 2ch",
-      "clicks": 1,
-      "impressions": 4,
-      "avg_impression_position": 4,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "výroba autoklíče",
-      "clicks": 1,
-      "impressions": 3,
-      "avg_impression_position": 6,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "výroba klicu letak",
-      "clicks": 1,
-      "impressions": 3,
-      "avg_impression_position": 4,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "cylindrické vložky třídy bezpečnosti",
-      "clicks": 1,
-      "impressions": 3,
-      "avg_impression_position": 3,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "klicove centum doudlevce",
-      "clicks": 1,
-      "impressions": 3,
-      "avg_impression_position": 4,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "kolik stojí nový klíč k autu",
-      "clicks": 1,
-      "impressions": 2,
-      "avg_impression_position": 6,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "zadlabávací zámek válečkový",
-      "clicks": 1,
-      "impressions": 2,
-      "avg_impression_position": 5,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "zadlabávací vložka do dveří schema",
-      "clicks": 1,
-      "impressions": 2,
-      "avg_impression_position": 1,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "elektrický otvírač dveří kodem",
-      "clicks": 1,
-      "impressions": 2,
-      "avg_impression_position": 2,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "super lube 52004 v cz",
-      "clicks": 1,
-      "impressions": 2,
-      "avg_impression_position": 13,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "vyroba klíčů pečky",
-      "clicks": 1,
-      "impressions": 1,
-      "avg_impression_position": 7,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "zámky kfv",
-      "clicks": 0,
-      "impressions": 8,
-      "avg_impression_position": 64,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "elektrický otvírač domu",
-      "clicks": 0,
-      "impressions": 4,
-      "avg_impression_position": 2,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "dveřních  zámky s válečkem",
-      "clicks": 0,
-      "impressions": 4,
-      "avg_impression_position": 4,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "klice americka",
-      "clicks": 0,
-      "impressions": 3,
-      "avg_impression_position": 5,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "petlice",
-      "clicks": 0,
-      "impressions": 2,
-      "avg_impression_position": 8,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "elektrický otvírač dveří",
-      "clicks": 0,
-      "impressions": 2,
-      "avg_impression_position": 4,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "elektrický otvírač dveří ovládání",
-      "clicks": 0,
-      "impressions": 2,
-      "avg_impression_position": 14,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "okna na zamku",
-      "clicks": 0,
-      "impressions": 2,
-      "avg_impression_position": 9,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "nůž přívěsek na klíče",
-      "clicks": 0,
-      "impressions": 2,
-      "avg_impression_position": 4,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "válečkový zámek pro kyvné dveře",
-      "clicks": 0,
-      "impressions": 2,
-      "avg_impression_position": 2,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "příruční trezor na peníze",
-      "clicks": 0,
-      "impressions": 1,
-      "avg_impression_position": 6,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "306053.10",
-      "clicks": 0,
-      "impressions": 1,
-      "avg_impression_position": 1,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "1024w požární reverzní",
-      "clicks": 0,
-      "impressions": 1,
-      "avg_impression_position": 2,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "vlozka do bezpecnostnych dveri prievidza",
-      "clicks": 0,
-      "impressions": 1,
-      "avg_impression_position": 24,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "areál h-park heršpická 11f 639 00 brno",
-      "clicks": 0,
-      "impressions": 1,
-      "avg_impression_position": 5,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "kování na dveře venkovní",
-      "clicks": 0,
-      "impressions": 1,
-      "avg_impression_position": 7,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "panik zámek",
-      "clicks": 0,
-      "impressions": 1,
-      "avg_impression_position": 2,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "zamok vlozka problem",
-      "clicks": 0,
-      "impressions": 1,
-      "avg_impression_position": 2,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "automaticke zavirani dveri",
-      "clicks": 0,
-      "impressions": 1,
-      "avg_impression_position": 2,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "zadlabávací vložka do dveří",
-      "clicks": 0,
-      "impressions": 1,
-      "avg_impression_position": 4,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "výroba klíčů braník",
-      "clicks": 0,
-      "impressions": 1,
-      "avg_impression_position": 4,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
-    {
-      "query": "rozlišovák na věšak",
-      "clicks": 0,
-      "impressions": 1,
-      "avg_impression_position": 1,
-      "avg_click_position": -1,
-      "date": "2025-01-17"
-    },
     {
       "query": "elektronicke klicove depozity",
       "clicks": 5,
@@ -19707,18 +19331,18 @@
       "date": "2025-01-24"
     },
     {
-      "query": "klice korunni",
-      "clicks": 2,
-      "impressions": 2,
-      "avg_impression_position": 2,
-      "avg_click_position": -1,
-      "date": "2025-01-24"
-    },
-    {
       "query": "eudard remiáš auto klíče",
       "clicks": 2,
       "impressions": 2,
       "avg_impression_position": 5,
+      "avg_click_position": -1,
+      "date": "2025-01-24"
+    },
+    {
+      "query": "klice korunni",
+      "clicks": 2,
+      "impressions": 2,
+      "avg_impression_position": 2,
       "avg_click_position": -1,
       "date": "2025-01-24"
     },
@@ -19731,7 +19355,15 @@
       "date": "2025-01-24"
     },
     {
-      "query": "otevírání dveří kartou",
+      "query": "pružiny do dozýického zámku",
+      "clicks": 2,
+      "impressions": 1,
+      "avg_impression_position": 3,
+      "avg_click_position": -1,
+      "date": "2025-01-24"
+    },
+    {
+      "query": "udelat dublicitu kliče jihlava",
       "clicks": 2,
       "impressions": 1,
       "avg_impression_position": 3,
@@ -19747,15 +19379,7 @@
       "date": "2025-01-24"
     },
     {
-      "query": "pružiny do dozýického zámku",
-      "clicks": 2,
-      "impressions": 1,
-      "avg_impression_position": 3,
-      "avg_click_position": -1,
-      "date": "2025-01-24"
-    },
-    {
-      "query": "udelat dublicitu kliče jihlava",
+      "query": "otevírání dveří kartou",
       "clicks": 2,
       "impressions": 1,
       "avg_impression_position": 3,
@@ -19795,14 +19419,6 @@
       "date": "2025-01-24"
     },
     {
-      "query": "hb beranek",
-      "clicks": 1,
-      "impressions": 3,
-      "avg_impression_position": 3,
-      "avg_click_position": -1,
-      "date": "2025-01-24"
-    },
-    {
       "query": "klíčové centrum brno",
       "clicks": 1,
       "impressions": 3,
@@ -19811,10 +19427,10 @@
       "date": "2025-01-24"
     },
     {
-      "query": "keybox serie s",
+      "query": "hb beranek",
       "clicks": 1,
       "impressions": 3,
-      "avg_impression_position": 5,
+      "avg_impression_position": 3,
       "avg_click_position": -1,
       "date": "2025-01-24"
     },
@@ -19827,10 +19443,10 @@
       "date": "2025-01-24"
     },
     {
-      "query": "odemykání vozíků qr kódem",
+      "query": "keybox serie s",
       "clicks": 1,
-      "impressions": 2,
-      "avg_impression_position": 2,
+      "impressions": 3,
+      "avg_impression_position": 5,
       "avg_click_position": -1,
       "date": "2025-01-24"
     },
@@ -19839,6 +19455,14 @@
       "clicks": 1,
       "impressions": 2,
       "avg_impression_position": 7,
+      "avg_click_position": -1,
+      "date": "2025-01-24"
+    },
+    {
+      "query": "odemykání vozíků qr kódem",
+      "clicks": 1,
+      "impressions": 2,
+      "avg_impression_position": 2,
       "avg_click_position": -1,
       "date": "2025-01-24"
     },
@@ -19883,22 +19507,6 @@
       "date": "2025-01-24"
     },
     {
-      "query": "visačka na klíče",
-      "clicks": 0,
-      "impressions": 2,
-      "avg_impression_position": 2,
-      "avg_click_position": -1,
-      "date": "2025-01-24"
-    },
-    {
-      "query": "kovani na venkovni dvere praha",
-      "clicks": 0,
-      "impressions": 2,
-      "avg_impression_position": 4,
-      "avg_click_position": -1,
-      "date": "2025-01-24"
-    },
-    {
       "query": "kolik stoji kopie klice",
       "clicks": 0,
       "impressions": 2,
@@ -19907,7 +19515,7 @@
       "date": "2025-01-24"
     },
     {
-      "query": "klicove centrum sokolov",
+      "query": "zavírač dveří dt63",
       "clicks": 0,
       "impressions": 2,
       "avg_impression_position": 2,
@@ -19923,7 +19531,23 @@
       "date": "2025-01-24"
     },
     {
-      "query": "zavírač dveří dt63",
+      "query": "klicove centrum sokolov",
+      "clicks": 0,
+      "impressions": 2,
+      "avg_impression_position": 2,
+      "avg_click_position": -1,
+      "date": "2025-01-24"
+    },
+    {
+      "query": "kovani na venkovni dvere praha",
+      "clicks": 0,
+      "impressions": 2,
+      "avg_impression_position": 4,
+      "avg_click_position": -1,
+      "date": "2025-01-24"
+    },
+    {
+      "query": "visačka na klíče",
       "clicks": 0,
       "impressions": 2,
       "avg_impression_position": 2,
@@ -19939,6 +19563,14 @@
       "date": "2025-01-24"
     },
     {
+      "query": "petlice",
+      "clicks": 0,
+      "impressions": 1,
+      "avg_impression_position": 8,
+      "avg_click_position": -1,
+      "date": "2025-01-24"
+    },
+    {
       "query": "panikové kování",
       "clicks": 0,
       "impressions": 1,
@@ -19947,10 +19579,10 @@
       "date": "2025-01-24"
     },
     {
-      "query": "pružiny do zadlabovacího zámku prodejny kladno",
+      "query": "bezpečnostní vnitřní protipožární zámek do vchodových dveří",
       "clicks": 0,
       "impressions": 1,
-      "avg_impression_position": 5,
+      "avg_impression_position": 2,
       "avg_click_position": -1,
       "date": "2025-01-24"
     },
@@ -19959,6 +19591,14 @@
       "clicks": 0,
       "impressions": 1,
       "avg_impression_position": 3,
+      "avg_click_position": -1,
+      "date": "2025-01-24"
+    },
+    {
+      "query": "střelkový zámek",
+      "clicks": 0,
+      "impressions": 1,
+      "avg_impression_position": 1,
       "avg_click_position": -1,
       "date": "2025-01-24"
     },
@@ -19979,26 +19619,10 @@
       "date": "2025-01-24"
     },
     {
-      "query": "test zámkových vložek",
-      "clicks": 0,
-      "impressions": 1,
-      "avg_impression_position": 20,
-      "avg_click_position": -1,
-      "date": "2025-01-24"
-    },
-    {
       "query": "moskevská 22 praha 10, 101 00",
       "clicks": 0,
       "impressions": 1,
       "avg_impression_position": 1,
-      "avg_click_position": -1,
-      "date": "2025-01-24"
-    },
-    {
-      "query": "bezpečnostní vnitřní protipožární zámek do vchodových dveří",
-      "clicks": 0,
-      "impressions": 1,
-      "avg_impression_position": 2,
       "avg_click_position": -1,
       "date": "2025-01-24"
     },
@@ -20011,18 +19635,10 @@
       "date": "2025-01-24"
     },
     {
-      "query": "bezpecnost rc3",
+      "query": "jaké klíče se nedají okopírovat",
       "clicks": 0,
       "impressions": 1,
-      "avg_impression_position": 3,
-      "avg_click_position": -1,
-      "date": "2025-01-24"
-    },
-    {
-      "query": "střelkový zámek",
-      "clicks": 0,
-      "impressions": 1,
-      "avg_impression_position": 1,
+      "avg_impression_position": 10,
       "avg_click_position": -1,
       "date": "2025-01-24"
     },
@@ -20035,18 +19651,26 @@
       "date": "2025-01-24"
     },
     {
-      "query": "jaké klíče se nedají okopírovat",
+      "query": "test zámkových vložek",
       "clicks": 0,
       "impressions": 1,
-      "avg_impression_position": 10,
+      "avg_impression_position": 20,
       "avg_click_position": -1,
       "date": "2025-01-24"
     },
     {
-      "query": "petlice",
+      "query": "pružiny do zadlabovacího zámku prodejny kladno",
       "clicks": 0,
       "impressions": 1,
-      "avg_impression_position": 8,
+      "avg_impression_position": 5,
+      "avg_click_position": -1,
+      "date": "2025-01-24"
+    },
+    {
+      "query": "bezpecnost rc3",
+      "clicks": 0,
+      "impressions": 1,
+      "avg_impression_position": 3,
       "avg_click_position": -1,
       "date": "2025-01-24"
     },
@@ -20073,14 +19697,390 @@
       "avg_impression_position": 4,
       "avg_click_position": -1,
       "date": "2025-01-31"
+    },
+    {
+      "query": "fuhr zámek",
+      "clicks": 3,
+      "impressions": 6,
+      "avg_impression_position": 4,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "visací zámek s půlvložkou star 60s rozměry",
+      "clicks": 3,
+      "impressions": 2,
+      "avg_impression_position": 4,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "klicove centrum",
+      "clicks": 2,
+      "impressions": 7,
+      "avg_impression_position": 3,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "výroba klíčů",
+      "clicks": 2,
+      "impressions": 2,
+      "avg_impression_position": 3,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "mazadlo do zámku",
+      "clicks": 2,
+      "impressions": 2,
+      "avg_impression_position": 4,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "dálkové ovládání garážových vrat silca air 4 návod na užití.cz",
+      "clicks": 2,
+      "impressions": 2,
+      "avg_impression_position": 3,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "kruh na klíče",
+      "clicks": 2,
+      "impressions": 2,
+      "avg_impression_position": 6,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "www.klicovecentrum.cz",
+      "clicks": 1,
+      "impressions": 22,
+      "avg_impression_position": 8,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "oprava autoklíčů",
+      "clicks": 1,
+      "impressions": 14,
+      "avg_impression_position": 5,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "vicebodovy zamek",
+      "clicks": 1,
+      "impressions": 13,
+      "avg_impression_position": 45,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "kliče ostrava vitkovice",
+      "clicks": 1,
+      "impressions": 6,
+      "avg_impression_position": 3,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "klíčové centrum plzen ceník",
+      "clicks": 1,
+      "impressions": 6,
+      "avg_impression_position": 5,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "výroba klíčů praha",
+      "clicks": 1,
+      "impressions": 4,
+      "avg_impression_position": 5,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "zámek s válečkem",
+      "clicks": 1,
+      "impressions": 4,
+      "avg_impression_position": 2,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "náhradní díly pružiny zadlabávacích zámků ceny",
+      "clicks": 1,
+      "impressions": 3,
+      "avg_impression_position": 7,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "vyroba klicu",
+      "clicks": 1,
+      "impressions": 2,
+      "avg_impression_position": 2,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "klíč na cervik",
+      "clicks": 1,
+      "impressions": 2,
+      "avg_impression_position": 3,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "otvírač dveří swing door closer",
+      "clicks": 1,
+      "impressions": 2,
+      "avg_impression_position": 3,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "visaci zamek na kod zmena",
+      "clicks": 1,
+      "impressions": 1,
+      "avg_impression_position": 1,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "vyroba autoklicu plzeň",
+      "clicks": 0,
+      "impressions": 3,
+      "avg_impression_position": 5,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "klíčové centrum české budějovice",
+      "clicks": 0,
+      "impressions": 2,
+      "avg_impression_position": 2,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "vyroba autoklicu",
+      "clicks": 0,
+      "impressions": 2,
+      "avg_impression_position": 4,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "rozlisovace klicu",
+      "clicks": 0,
+      "impressions": 2,
+      "avg_impression_position": 5,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "nuki zamek",
+      "clicks": 0,
+      "impressions": 2,
+      "avg_impression_position": 6,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "jakov cz plzen",
+      "clicks": 0,
+      "impressions": 2,
+      "avg_impression_position": 2,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "zavírání záchodových dveří",
+      "clicks": 0,
+      "impressions": 2,
+      "avg_impression_position": 4,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "bezpecnostni zamek do dveri",
+      "clicks": 0,
+      "impressions": 1,
+      "avg_impression_position": 2,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "kovani na dvere",
+      "clicks": 0,
+      "impressions": 1,
+      "avg_impression_position": 4,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "eurolocks 2786",
+      "clicks": 0,
+      "impressions": 1,
+      "avg_impression_position": 7,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "box na balíky",
+      "clicks": 0,
+      "impressions": 1,
+      "avg_impression_position": 10,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "náhradní autoklíče cena",
+      "clicks": 0,
+      "impressions": 1,
+      "avg_impression_position": 6,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "vyroba vlozky podle klice",
+      "clicks": 0,
+      "impressions": 1,
+      "avg_impression_position": 5,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "burg wachter office line 114 e",
+      "clicks": 0,
+      "impressions": 1,
+      "avg_impression_position": 7,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "pokorný klíčové centrum",
+      "clicks": 0,
+      "impressions": 1,
+      "avg_impression_position": 8,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "klíč myšák rozměry",
+      "clicks": 0,
+      "impressions": 1,
+      "avg_impression_position": 1,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "klicek od zvonku",
+      "clicks": 0,
+      "impressions": 1,
+      "avg_impression_position": 1,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "klíč myšák brno",
+      "clicks": 0,
+      "impressions": 1,
+      "avg_impression_position": 1,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "výroba náhradního klíče k autu cena",
+      "clicks": 0,
+      "impressions": 1,
+      "avg_impression_position": 9,
+      "avg_click_position": -1,
+      "date": "2025-01-31"
+    },
+    {
+      "query": "klice sobeslav",
+      "clicks": 4,
+      "impressions": 6,
+      "avg_impression_position": 4,
+      "avg_click_position": -1,
+      "date": "2025-02-07"
+    },
+    {
+      "query": "hb beranek",
+      "clicks": 3,
+      "impressions": 9,
+      "avg_impression_position": 3,
+      "avg_click_position": -1,
+      "date": "2025-02-07"
+    },
+    {
+      "query": "visačka kevron",
+      "clicks": 3,
+      "impressions": 6,
+      "avg_impression_position": 4,
+      "avg_click_position": -1,
+      "date": "2025-02-07"
+    },
+    {
+      "query": "klíčové centrum plzeň",
+      "clicks": 2,
+      "impressions": 12,
+      "avg_impression_position": 3,
+      "avg_click_position": -1,
+      "date": "2025-02-07"
+    },
+    {
+      "query": "smajlík ke klíčům karviná",
+      "clicks": 2,
+      "impressions": 7,
+      "avg_impression_position": 15,
+      "avg_click_position": -1,
+      "date": "2025-02-07"
+    },
+    {
+      "query": "výroba klíčů kounicova",
+      "clicks": 2,
+      "impressions": 4,
+      "avg_impression_position": 2,
+      "avg_click_position": -1,
+      "date": "2025-02-07"
+    },
+    {
+      "query": "hb vodňany",
+      "clicks": 2,
+      "impressions": 3,
+      "avg_impression_position": 1,
+      "avg_click_position": -1,
+      "date": "2025-02-07"
+    },
+    {
+      "query": "magnetická lišta - otevírání čipem (přístupový systém), výrobce cdvi                                                          výrobek: bo600rp - pb300rp",
+      "clicks": 2,
+      "impressions": 3,
+      "avg_impression_position": 4,
+      "avg_click_position": -1,
+      "date": "2025-02-07"
+    },
+    {
+      "query": "výroba klíčů plzeň",
+      "clicks": 2,
+      "impressions": 2,
+      "avg_impression_position": 4,
+      "avg_click_position": -1,
+      "date": "2025-02-07"
     }
   ],
   "root_url_info": {
     "url": "https://www.klicovecentrum.cz/",
-    "anchor_count": 29076,
+    "anchor_count": 25629,
     "discovery_date": "2017-05-07",
-    "last_crawled_date": "2026-05-03",
-    "document_size": 149744,
+    "last_crawled_date": "2026-05-10",
+    "document_size": 156594,
     "http_status": 0,
     "is_page": true,
     "total_child_url_count": 0

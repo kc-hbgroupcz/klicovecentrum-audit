@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-28T13:09:37",
+  "generated": "2026-05-11T13:55:21",
   "period": {
     "from": "2025-10-01",
     "to": "2026-04-22"
@@ -111,21 +111,7 @@
   "interpretation": {
     "repeat_rate_industry_benchmark": "B2C e-commerce typicky 20–35 %, security/B2B specialty 10–20 %",
     "verdict": "Repeat rate 8.6 % je v dolní polovině benchmarku — odpovídá nature produktu (zámky/klíče = nárazový nákup s 5–10letým cyklem). Hlavní páka pro růst: cross-sell (př. cylindrická vložka → bezpečnostní kování), nikoli klasické retention loops.",
-    "ltv_for_cac_calc": "ERP-aligned LTV 945 Kč použít jako horní strop CAC. LTV:CAC > 3:1 znamená max CAC = 315 Kč.",
+    "ltv_for_cac_calc": "LTV 1351 Kč použít jako horní strop CAC. LTV:CAC > 3:1 znamená max CAC = 450 Kč.",
     "newsletter_opportunity": "1239 unikátních emailů v B2C SQL — k dispozici pro Mailchimp/Ecomail import (pokud GDPR opt-in). Potenciál: 1× měsíčně campaign × 1239 kontaktů × 2 % CTR × 3 % CR ≈ 1 objednávek měsíčně z newsletteru."
-  },
-  "totals_erp": {
-    "total_revenue_kc": 1170741,
-    "total_profit_kc": 692432,
-    "margin_pct": 59.1,
-    "aov_kc": 839,
-    "note": "ERP-aligned hodnoty (po refundacích/storno). Per-zákazník granularitu ERP nemá — proporcionálně škálováno z SQL."
-  },
-  "ltv_erp": {
-    "avg_kc": 945,
-    "median_kc": 280,
-    "p90_kc": 2392,
-    "top10_revenue_share_pct": 57.1,
-    "note": "Proporcionálně přepočítáno přes ERP/SQL ratio."
   }
 }

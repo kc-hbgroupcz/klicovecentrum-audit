@@ -1,88 +1,45 @@
 {
-  "generated": "2026-04-28T16:07:05",
+  "generated": "2026-05-11T13:57:17",
   "period": {
     "from": "2025-10-01",
     "to": "2026-04-22"
   },
   "source": "Meta Marketing API (Graph API v19.0)",
-  "credentials_status": "available",
-  "status": "✓ PROPOJENO",
+  "credentials_status": "missing",
+  "status": "✗ NEPROPOJENO",
+  "blocker": "Chybí META_ACCESS_TOKEN nebo META_AD_ACCOUNT_ID v env",
+  "data": null,
   "totals": {
-    "spend_kc": 41957,
-    "impressions": 674662,
-    "clicks": 16110,
-    "purchases": 3,
-    "purchase_value_kc": 8019,
-    "roas": 0.19,
-    "cpc_kc": 2.6,
-    "ctr_pct": 2.39
+    "spend_kc": null,
+    "impressions": null,
+    "clicks": null,
+    "purchases": null,
+    "purchase_value_kc": null,
+    "roas": null,
+    "cpc_kc": null,
+    "ctr_pct": null
   },
-  "campaigns": [
-    {
-      "name": "Podpora prodejny - Brno -Návštěvnost",
-      "spend_kc": 15001,
-      "impressions": 270863,
-      "clicks": 3949,
-      "purchases": 0,
-      "purchase_value_kc": 0,
-      "ctr_pct": 1.46,
-      "cpc_kc": 3.8,
-      "roas": 0.0
-    },
-    {
-      "name": "podpora prodejny Chomutov - Návštěvnost",
-      "spend_kc": 13639,
-      "impressions": 198634,
-      "clicks": 6126,
-      "purchases": 0,
-      "purchase_value_kc": 0,
-      "ctr_pct": 3.08,
-      "cpc_kc": 2.23,
-      "roas": 0.0
-    },
-    {
-      "name": "Podpora prodejny - Lochotín-Návštěvnost",
-      "spend_kc": 9520,
-      "impressions": 138295,
-      "clicks": 4313,
-      "purchases": 3,
-      "purchase_value_kc": 8019,
-      "ctr_pct": 3.12,
-      "cpc_kc": 2.21,
-      "roas": 0.84
-    },
-    {
-      "name": "6/2/26 Prodejna Chomutov",
-      "spend_kc": 1965,
-      "impressions": 34878,
-      "clicks": 827,
-      "purchases": 0,
-      "purchase_value_kc": 0,
-      "ctr_pct": 2.37,
-      "cpc_kc": 2.38,
-      "roas": 0.0
-    },
-    {
-      "name": "Instagram post: Máte dárek, ale chybí tomu...",
-      "spend_kc": 924,
-      "impressions": 14093,
-      "clicks": 150,
-      "purchases": 0,
-      "purchase_value_kc": 0,
-      "ctr_pct": 1.06,
-      "cpc_kc": 6.16,
-      "roas": 0.0
-    },
-    {
-      "name": "Post: \"Máte dárek, ale chybí tomu „duše“? 🎁 Během pár...\"",
-      "spend_kc": 909,
-      "impressions": 17899,
-      "clicks": 745,
-      "purchases": 0,
-      "purchase_value_kc": 0,
-      "ctr_pct": 4.16,
-      "cpc_kc": 1.22,
-      "roas": 0.0
-    }
-  ]
+  "setup_steps": [
+    "1. Klient: Business Manager → Settings → System Users → Add",
+    "2. Vytvořit System User 'Audit Klíčové centrum' s rolí Read",
+    "3. Generate Token: ads_read, business_management, read_insights (bez expirace)",
+    "4. Assign Ad Account (act_xxx) k System User",
+    "5. Předat: token + ad_account_id auditorovi",
+    "6. Auditor: nastavit env META_ACCESS_TOKEN, META_AD_ACCOUNT_ID",
+    "7. Spustit: python build_meta_ads.py"
+  ],
+  "alternative_data_sources": [
+    "Meta Ads Manager export CSV (Reports → Export → 7M period)",
+    "Meta Ad Library (https://www.facebook.com/ads/library) — veřejné kampaně",
+    "Pokud klient Meta Ads vůbec nepouští: dokumentovat jako vědomé rozhodnutí v finding #40"
+  ],
+  "expected_data_when_connected": {
+    "spend_kc": "<aktuální spend>",
+    "purchases": "<počet purchase events z pixelu>",
+    "purchase_value_kc": "<obrat z purchase pixel>",
+    "roas": "<purchase_value / spend>",
+    "campaigns": "<list všech kampaní s per-kampaň metrikami>",
+    "audiences": "<lookalike, custom audiences>",
+    "creatives_top": "<top 10 ad creatives podle ROAS>"
+  }
 }

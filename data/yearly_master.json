@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-29T10:37:20",
+  "generated": "2026-05-11T13:57:24",
   "primary_source": "ERP MO/VO (kombinace yearly + monthly + audit data)",
   "scope": "Master timeseries 2023-01 → 2026-04, granularita měsíční",
   "ts_length": 40,

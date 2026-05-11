@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-28T13:08:35",
+  "generated": "2026-05-11T13:55:20",
   "period": {
     "from": "2025-10-01",
     "to": "2026-04-22"
@@ -95,13 +95,5 @@
     "for_roas": "ROAS čísla v auditu odpovídají skutečnosti pro B2C — žádná inflace z B2B",
     "for_strategy": "B2B segment (4,994,253 Kč) je 2.9× větší než B2C (1,673,682 Kč) — pokud klient chce růst, B2B je mnohem větší prostor, ale mimo PPC funnel",
     "for_dashboard": "Dashboard vědomě reportuje pouze B2C, B2B se zmiňuje jako kontext"
-  },
-  "b2c_erp": {
-    "revenue_kc": 1170741,
-    "profit_kc": 692432,
-    "margin_pct": 59.1,
-    "aov_kc": 839,
-    "note": "ERP-aligned (po refundacích/storno) — primární zdroj pravdy auditu."
-  },
-  "audit_scope_revenue_erp_kc": 1170741
+  }
 }

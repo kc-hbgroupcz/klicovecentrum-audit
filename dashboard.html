@@ -1395,10 +1395,11 @@
     <div id="erp-vo-top-table"></div>
   </div>
 
-  <div class="chart-card" id="weekend-attack-card" style="border-color:#ef4444;background:linear-gradient(135deg,rgba(239,68,68,.05),rgba(15,23,42,.4))">
-    <h3 style="color:#fca5a5">🚨 NÁLEZ #76 — PROBÍHAJÍCÍ BOT ÚTOK · 3. vlna (1.-7. 5. 2026, peak 3.5. ne)</h3>
+  <div class="chart-card" id="weekend-attack-card" style="border-color:#10b981;background:linear-gradient(135deg,rgba(16,185,129,.06),rgba(15,23,42,.4))">
+    <h3 style="color:#6ee7b7">✅ NÁLEZ #76 — BOT ÚTOK ZASTAVEN 11.5.2026 (Recovery potvrzeno)</h3>
     <p style="color:#cbd5e1;font-size:13px;margin-bottom:14px">
-      <strong>Cross-validace 3 zdrojů</strong> (GA4 + Bing Webmaster + víkendová z-score analýza) odhalila <strong>3 vlny bot útoku 2026</strong>. Pattern: útok startuje pátek, vrcholí v sobotu/neděli (víkend = monitoring slabší). Bot signature: <strong>bounce 90-97 %, direct 95-98 %, avg session 6-30s, 0-9 transactions/den</strong>. Bing crawled propad o 70-95 % během útoku.
+      <strong>3 vlny bot útoku 2026 + Recovery 11.5.</strong>: cross-validace GA4 + Bing Webmaster + víkendová z-score odhalila 3 vlny. Pattern: útok startuje pátek, vrcholí v sobotu/neděli. Bot signature: bounce 90-97 %, direct 95-98 %, avg session 6-30s, 0-9 transactions/den.<br>
+      <strong style="color:#6ee7b7">✅ 11. 5. 2026 RECOVERY</strong>: po nasazení Cloudflare Bot Fight Mode + 5. Custom rule sessions klesly z 16k → 823 (−94 %), bounce z 90 % → 62 %, direct z 95 % → 21 %. Smart Bidding začne relearning 2-4 týdny.
     </p>
     <div class="metrics-grid" id="weekend-attack-summary"></div>
     <div id="weekend-attack-waves" style="margin-top:18px"></div>
@@ -3006,10 +3007,11 @@ const findings = [
   // === WEEKEND BOT ÚTOK 2026 (7. 5. 2026) — IDs 76 ===
   {
     id: 76, cat: 'analytics', prio: 'P0',
-    title: '🚨 PROBÍHAJÍCÍ BOT ÚTOK — 3. vlna (1.-7. 5. 2026), víkend 3.5. peak 22 197 sess (94 % bounce, 96 % direct, 1 trans)',
-    metric: '<strong>3 vlny bot útoku 2026</strong>: 1) <strong>6.-18. 3. 2026</strong> peak 16.3. = 253 108 sess (130× normal). 2) <strong>27. 3. - 6. 4.</strong> peak 29.3. = 103 129 sess. 3) <strong>1.-7. 5. 2026 AKTIVNÍ</strong> peak 3.5. = 22 197 sess. <strong>Cloudflare už 24h blokuje 24 469 events</strong> (4 custom rules), ale per-IP rate limit chybí.',
-    impact: 'Smart Bidding optimalizuje na bot data',
-    impactNote: 'AKTIVNÍ útok — okamžitá akce vyžadována',
+    title: '✅ BOT ÚTOK ZASTAVEN 11.5.2026 — 3 vlny + Recovery (Cloudflare Bot Fight Mode + 5. Custom rule)',
+    metric: '<strong>3 vlny bot útoku 2026 + Recovery</strong>: 1) <strong>6.-18. 3.</strong> peak 16.3. = 253 108 sess (130× normal). 2) <strong>27. 3. - 6. 4.</strong> peak 29.3. = 103 129 sess. 3) <strong>1.-10. 5.</strong> peak 3.5. = 22 197 sess. <strong>✅ 11. 5. 2026 RECOVERY</strong>: sessions z 16k → 823 (−94 %), bounce z 90 % → 62 %, direct z 95 % → 21 % = Cloudflare ochrana funguje.',
+    impact: 'Recovery potvrzen 11.5.',
+    impactNote: 'Smart Bidding čeká 2-4 týdny relearning',
+    impactPositive: true,
     problem: 'GA4 + Bing Webmaster + víkendová z-score analýza odhalily 3 distinkt bot útok vlny v 2026. Pattern: útok startuje pátek, vrcholí v sobotu/neděli. Bot signature: bounce 90-97 %, direct 95-98 %, avg session 6-30 s, 0-9 transactions/den. **Klient má již Cloudflare custom rules**: Block/Challenge Bad ASNs (23 670 events/24h), Geo blokování CN/RU/VN/PK/BD/IQ (610 events), Geo challenge datacentra (189 events). **CHYBÍ KRITICKÉ**: per-IP rate limiting (aktuálně jen 1/1 rule = leaked credentials), Bot Fight Mode verify, žádný 5. custom rule. Per-IP rate limit doplní obranu pro útoky procházející s valid user agent + různými IPs.',
     actions: [
       '🔥 P0-1: Cloudflare → Security Rules → Rate limiting → Create rule: 30 req/min per IP source, exclude Googlebot/Bingbot, action Managed Challenge (postup v `cloudflare_runbook.md`)',

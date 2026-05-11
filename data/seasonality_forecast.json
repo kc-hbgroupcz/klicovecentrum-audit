@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-29T12:16:52",
+  "generated": "2026-05-11T13:57:23",
   "scope": "Eshop MO+VO obrat — 2025 historie (12 měsíců) + 12M forecast",
   "method": "Seasonal naive + YoY trend extrapolace (3 scénáře: optimistic/baseline/pessimistic)",
   "data_source": "monthly_2025.json (Eshop objednávky MO+VO 2025)",

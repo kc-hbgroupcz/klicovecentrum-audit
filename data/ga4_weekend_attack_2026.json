@@ -1,6 +1,6 @@
 {
-  "generated": "2026-05-11T10:11:51",
-  "period": "2026-02-01 → 2026-05-07",
+  "generated": "2026-05-11T13:59:03",
+  "period": "2026-02-01 → 2026-05-11",
   "daily": [
     {
       "date": "2026-02-01",
@@ -1153,6 +1153,54 @@
       "direct_pct": 89.4,
       "organic_pct": 3.7,
       "revenue": 1941
+    },
+    {
+      "date": "2026-05-08",
+      "wd": 4,
+      "is_weekend": false,
+      "sessions": 13521,
+      "bounce_pct": 92.1,
+      "avg_dur": 13,
+      "transactions": 1,
+      "direct_pct": 96.3,
+      "organic_pct": 1.6,
+      "revenue": 218
+    },
+    {
+      "date": "2026-05-09",
+      "wd": 5,
+      "is_weekend": true,
+      "sessions": 14117,
+      "bounce_pct": 91.3,
+      "avg_dur": 14,
+      "transactions": 2,
+      "direct_pct": 96.2,
+      "organic_pct": 1.4,
+      "revenue": 1165
+    },
+    {
+      "date": "2026-05-10",
+      "wd": 6,
+      "is_weekend": true,
+      "sessions": 15958,
+      "bounce_pct": 90.0,
+      "avg_dur": 15,
+      "transactions": 2,
+      "direct_pct": 95.1,
+      "organic_pct": 1.8,
+      "revenue": 291
+    },
+    {
+      "date": "2026-05-11",
+      "wd": 0,
+      "is_weekend": false,
+      "sessions": 823,
+      "bounce_pct": 61.6,
+      "avg_dur": 295,
+      "transactions": 0,
+      "direct_pct": 21.3,
+      "organic_pct": 24.5,
+      "revenue": 0
     }
   ]
 }
