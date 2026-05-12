@@ -1,8 +1,8 @@
 # 📋 Zadání: Marketing Dashboard klicovecentrum.cz + hbgroup.cz
 **Klient:** H&B Group s.r.o. (Ondřej Skřebský, oskrebsky@gmail.com)
-**Datum zadání:** 12. 5. 2026
-**Předpokládaný termín dodání:** 4-6 týdnů
-**Předpokládaný rozpočet:** dle nabídky agentury (orientačně 80-120 hod)
+**Datum zadání:** 12. 5. 2026 (revize: +3 sekce GBP/Firmy.cz/MC)
+**Předpokládaný termín dodání:** 5-7 týdnů
+**Předpokládaný rozpočet:** dle nabídky agentury (orientačně 95-140 hod)
 
 ---
 
@@ -90,7 +90,7 @@ Vytvořit **live operační marketing dashboard** pro klicovecentrum.cz + hbgrou
 
 ---
 
-## 3. 15 sekcí dashboardu — KPI specifikace
+## 3. 18 sekcí dashboardu — KPI specifikace
 
 ### 🎯 Section 0 — EXECUTIVE SUMMARY (top, always visible)
 
@@ -245,26 +245,40 @@ Vytvořit **live operační marketing dashboard** pro klicovecentrum.cz + hbgrou
 
 ---
 
-### 📦 Section 6 — FEEDY (Mergado)
+### 📦 Section 6 — FEEDY (Mergado + Google Merchant Center)
 
 **Hero KPIs (5):**
-1. Total active products in feeds
-2. Disapproved count (Merchant Center)
-3. Last sync timestamp per feed (Google MC / Heuréka / Zboží / Alza)
+1. Total active products in feeds (Mergado output count)
+2. **Disapproved count v Google Merchant Center** (per reason: image too small, missing GTIN, price mismatch, …)
+3. Last sync timestamp per feed (Google MC / Heuréka / Zboží / Alza / Glami)
 4. **Coverage %**: bestsellers ve feedu vs ERP TOP 50
-5. Feed quality score
+5. Feed quality score (vážený index issues)
 
-**Supporting (6):**
-- Per-feed health
-- Variant coverage % (target 100 %)
+**Supporting (8):**
+- Per-feed health (per channel — kolik produktů, kolik issues)
+- Variant coverage % (target 100 %) — současný stav 0 %, viz finding #75
 - Bestsellers chybí ve feedu count
 - **Feed-to-ERP price diff alerts** (cena ve feedu ≠ aktuální)
 - **Stock-out coverage** (out-of-stock items pořád ve feedu)
-- Custom_label_1 distribution (PMax labely)
+- Custom_label_1 distribution (PMax labely 0/1/2/3 — profitable, low-margin, etc.)
+- **Account Suspension status** (Google MC / Heuréka / Alza)
+- **Click-through rate per feed channel** (z MC Performance API)
+
+**Google Merchant Center detail (sub-tab):**
+- Account-level: Suspended / Active, dataset count, last refresh
+- **Issues breakdown**: per-attribute (image, GTIN, brand, GPC category, shipping, tax)
+- **Per-product disapproval list** (top 50 nejvýdělečnějších produktů s issue)
+- **Best Sellers report** (Google MC → market share top kategorií)
+- **Price competitiveness report** (jak jsme proti konkurenci v Shopping)
+- **Promotions feed status** (slevy / akce)
+- Shipping settings audit (správné sazby per kraj)
 
 **Alerts:**
-- Disapproved > 50 % → critical
+- Disapproved > 5 % všech produktů → warning, > 20 % → critical
+- Account suspended → P0 incident (= Shopping ads zastaveny)
 - Last sync > 24h → feed broken
+- Top 10 bestsellers s disapproval → P1 (přímý dopad na výnosy)
+- Variant coverage drop > 5 % WoW → upozornění
 
 ---
 
@@ -432,6 +446,178 @@ Vytvořit **live operační marketing dashboard** pro klicovecentrum.cz + hbgrou
 
 ---
 
+### 🏪 Section 15 — GOOGLE BUSINESS PROFILE (17 prodejen)
+
+**Zdroj: Google Business Profile API (Performance + Reviews + Posts)**
+**Auth: stejný OAuth2 jako Google Ads (existující projekt hbgroup-493608) + GBP scope**
+
+**Hero KPIs (6):**
+1. **Total impressions** (search + maps) — všechny pobočky agregovaně
+2. **Direct vs Discovery searches** ratio (brand vs „klíče Plzeň")
+3. **Actions count** (volání + navigace + návštěvy webu) per den
+4. **Avg rating** napříč všemi pobočkami (cíl ≥ 4,5★)
+5. **Reviews count last 30d** (nové) + response rate (cíl > 90 %)
+6. **Photos count + views** (uploaded vs viewed)
+
+**Supporting per-pobočka (10) — tabulka 17 řádků:**
+- Pobočka name + adresa
+- Impressions (Maps + Search) per týden
+- **Searches breakdown**: brand search vs categorical search vs near-me
+- Calls (clicked phone)
+- Direction requests (clicked navigation)
+- Website clicks (z GBP profile na web)
+- **Conversion rate** = actions / impressions
+- Avg rating + reviews count + last review date
+- **Q&A pending** (otázky bez odpovědi > 7d)
+- **Posts last 30d** (akce, novinky, COVID, …)
+
+**Photos & Content (4):**
+- Photos uploaded last 30d per pobočka
+- Photo views vs uploaded ratio (engagement)
+- **Customer photos** vs business-owned (důvěra)
+- Cover photo update date (cíl < 6 měsíců)
+
+**Reviews intelligence (5):**
+- Sentiment distribution (5★ / 4★ / 3★ / 2★ / 1★)
+- **Top keywords v reviews** (NLP — co zákazníci zmiňují: „rychlost", „personál", „cena")
+- **Negative review response time** (P50 a P90)
+- Reviewer types (locals vs visitors)
+- **Competitor benchmark** (avg rating konkurence v 5km radiusu)
+
+**Local SERP (3):**
+- **Maps Pack ranking** per pobočka pro top 5 keywords (např. „klíče Praha 4", „cylindrické vložky Brno")
+- **Share of Local Voice** vs konkurence
+- **Local Service Ads visibility** (pokud aktivováno)
+
+**Alerts:**
+- Negative review (1-2★) → 24h SLA pro response
+- Q&A pending > 7d → notif majiteli
+- Pobočka mimo Maps Pack TOP 3 pro home keyword → opportunity
+- Hours diff (GBP vs realita) → flagovat
+- Pobočka bez nových fotek > 90d → reminder
+- Avg rating drop > 0,2★ MoM → varování
+
+**Cross-section linking:**
+- → Section 9 (Pobočky): per-pobočka tržby vs GBP impressions = lokální MER
+- → Section 1 (Kampaně): LOCAL kampaň aktivní pro pobočku?
+- → Section 12 (Reklamace): negative review correlation s reklamacemi
+
+---
+
+### 🏢 Section 16 — FIRMY.CZ (Seznam local listings)
+
+**Zdroj: Firmy.cz Partner API (Seznam) NEBO scraping vlastního profilu**
+**Auth: Seznam Partner login — klient zařídí; pokud API není dostupné, agentura připraví scraper s respektem k robots.txt**
+
+**Hero KPIs (5):**
+1. **Total profile views** per den (všechny pobočky)
+2. **Profile rank** v top 5 výsledcích Seznam.cz pro „klíče" + 16 lokalit
+3. **Click-to-call rate** (volání z Firmy.cz profilu)
+4. **Avg rating** (Seznam reviews jsou separátní od Google!)
+5. **Reviews count + response rate**
+
+**Supporting per-pobočka (8) — tabulka 17 řádků:**
+- Pobočka URL na Firmy.cz
+- **Pozice v search results** pro „klíče {město}" / „cylindrická vložka {město}"
+- Profile views per týden
+- Click-to-call count
+- Click-to-website count
+- Direction requests (mapy.cz redirect)
+- **Sponsored listing status** (Premium / Plus / Free)
+- Avg rating + count
+
+**Listing quality (5):**
+- **Profile completeness %** (foto, popis, otevírací doba, akce, video, ceník)
+- **Categories tagged** (kolik kategorií = víc viditelnosti)
+- **Last update date** (Seznam preferuje čerstvé profily)
+- **Akce/slevy publish count** last 30d
+- **Q&A** count + response rate
+
+**Reviews & Sentiment (4):**
+- Reviews count split (5★ / 4★ / 3★ / 2★ / 1★)
+- **Negative review response time**
+- **Top mentioned keywords** v Seznam reviews (NLP)
+- **Cross-platform consistency** (rating Firmy.cz vs Google — divergence = bot/fake review signal)
+
+**Sponsored vs Organic (3):**
+- Pokud klient platí Premium/Plus listing → cost vs profile views
+- **Effective CPV** (Cost per profile View)
+- **Sponsored conv rate** vs organic
+
+**Alerts:**
+- Profile rank drop > 3 pozice → opportunity
+- Negative review (1-2★) → 24h SLA
+- Profile completeness < 70 % → action item
+- Sponsored listing expirace < 14d → renewal reminder
+
+**Cross-section linking:**
+- → Section 9 (Pobočky): Firmy.cz views vs GBP impressions vs walk-in (kompletní lokální funnel)
+- → Section 2 (SEO): Seznam search vs Google search performance gap
+
+---
+
+### 🛍️ Section 17 — GOOGLE MERCHANT CENTER DEEP-DIVE
+
+> **Pozn.:** Section 6 obsahuje high-level přehled feedů včetně MC. Tato sekce je **deep-dive** dedicated pro MC — pokud agentura uzná, může být součástí Section 6 jako sub-tab místo samostatné sekce.
+
+**Zdroj: Google Content API for Shopping + Merchant Center Reports API**
+**Auth: stejný OAuth2 + projekt hbgroup-493608 + Merchant Center scope**
+
+**Hero KPIs (5):**
+1. **Account status** (Active / Warning / Suspended)
+2. **Total products submitted** vs **active in Shopping**
+3. **Disapproval rate %** + change WoW
+4. **Click share** (jaký % Shopping ad clicks v ČR pro naše kategorie máme)
+5. **Price competitiveness benchmark** (jsme dražší / stejní / levnější vs trh)
+
+**Issues management (8):**
+- **Issues by severity**: critical (blocking) / warning / suggestion
+- **Top 10 issues by affected products** (např. „missing GTIN" 320 produktů, „image too small" 156)
+- **Issues by category** (cylindrické vložky, dveřní kování, trezory, …)
+- **Resolution time** (avg hours od detection → fix)
+- **Recurring issues** (stejné issue 2× měsíčně = systémový problém v Mergado/feed)
+- **Account-level warnings** (shipping, tax, return policy missing)
+- **Policy violations history** (pro detekci risk of suspension)
+- **Crowd-out report** (které produkty jsou v Shopping přebité konkurencí)
+
+**Performance per product (8):**
+- **Top 50 SKU by Shopping clicks** (přímo z Performance Report)
+- **Top 50 SKU by Shopping conversions**
+- **Worst 50 SKU by impression-share lost** (kvůli rozpočtu / rank)
+- **Disapproved bestsellers** (top 20 ERP × disapproved = high-impact fix)
+- **CTR per category** (které kategorie performují v Shopping)
+- **Avg CPC per category** (kde Shopping leverage)
+- **ROAS per SKU** (Shopping campaign attribution)
+- **Custom_label_1 (PMax) profitability cohort** — high/medium/low margin breakdown
+
+**Best Sellers & Trends (5):**
+- **Google MC Best Sellers report** (top kategorie v ČR — kde můžeme zaútočit)
+- **Trending products** (rychle rostoucí queries v naší kategorii)
+- **Product gap analysis** (top sellers v kategorii, které my nemáme)
+- **Brand performance** (jaké brandy v Shopping vyhráváme)
+- **Promotions performance** (slevy/akce attached k produktům)
+
+**Price Competitiveness (4):**
+- **Price benchmark per SKU** (naše cena vs avg trhu)
+- **Price drop opportunities** (kde malou změnou ceny získáme rank)
+- **Above-market products** (>15 % nad trhem = nikdo nekoupí)
+- **Below-market unjustified** (jsme zbytečně levní = ztráta marže)
+
+**Alerts:**
+- Account suspension → P0 (Shopping ads zastaveny okamžitě)
+- Disapproval rate > 5 % → P1
+- Bestseller (TOP 20 ERP) disapproved → P0
+- New issue type detected → notif (může být systémový bug)
+- Price > 20 % nad market → margin opportunity warning
+- Issues unresolved > 7d → escalation
+
+**Cross-section linking:**
+- → Section 1 (Kampaně): Shopping campaign performance odráží MC health
+- → Section 6 (Feedy): vstupní data před MC validation
+- → Section 7 (Produkty): per-SKU performance konsolidace
+
+---
+
 ## 4. UI/UX requirements
 
 ### Layout pattern
@@ -444,7 +630,7 @@ Vytvořit **live operační marketing dashboard** pro klicovecentrum.cz + hbgrou
 ├────────────────────────────────────────────────────────────────┤
 │ ALERTS BAR (red banner pokud kritické)                        │
 ├────────────────────────────────────────────────────────────────┤
-│ TABS: 15 sekcí (kampaně, SEO, B2C, B2B, srovnávače, ...)      │
+│ TABS: 18 sekcí (kampaně, SEO, B2C, B2B, srovnávače, ..., GBP, Firmy, MC) │
 ├────────────────────────────────────────────────────────────────┤
 │ ACTIVE SECTION (hero KPIs + supporting + charts + tabulky)    │
 └────────────────────────────────────────────────────────────────┘
@@ -486,12 +672,60 @@ Vytvořit **live operační marketing dashboard** pro klicovecentrum.cz + hbgrou
 |-------|---------------------------|----------|
 | **Per-pobočka tržby z Helios** | Helios IQ → modul „Maloobchod pokladna" → per-provozovna export | P1 (pro Section 9) |
 | **Google Ads denní export** | Klient nastaví Google Ads Scripts (denně push do GitHub) | P0 (pro Section 0, 1) |
+| **Google Business Profile API access** | Cloud Console → Performance API + Business Information API + Reviews API enable + OAuth scope `https://www.googleapis.com/auth/business.manage` na existující projekt hbgroup-493608. Klient přidá agenturní email jako manager všech 17 GBP profilů. | **P0 (pro Section 15)** |
+| **Google Merchant Center API access** | Content API for Shopping + Merchant Reports API enable na hbgroup-493608. OAuth scope `https://www.googleapis.com/auth/content`. Klient přidá agenturu jako Standard user v MC. | **P0 (pro Section 17 + rozšíření Section 6)** |
+| **Firmy.cz Partner API access** | Klient kontaktuje partner@seznam.cz a požádá o API access (může vyžadovat smlouvu). Pokud API odmítnuto, agentura připraví scraper s respektem k robots.txt. | **P1 (pro Section 16)** |
+| **Seznam.cz CHKAR / Sklik partner login** | Pro Sponsored Firmy.cz listings cost data — login do Sklik nebo separátně. | P2 (pro Section 16 Sponsored) |
 | **Alza Partner orders denní** | Alza Seller Portal → CSV export (nebo API integrace) | P1 (pro Section 5) |
 | **Heuréka OCM denní** | Klient nastaví OCM API push (existuje) | P2 |
 | **Zboží.cz OCM denní** | Klient nastaví OCM API push | P2 |
 | **Mailchimp/Ecomail API** | Pokud klient používá email kampaně | P2 (volitelné) |
 | **Meta Ads API** | Brand kampaně Plzeň/Brno/Chomutov | P1 (pro Section 1) |
 | **NPS data** | Heureka Ověřeno + post-purchase survey | P3 (nice-to-have) |
+
+### 🔑 Auth setup pro 3 nové zdroje (Google Business Profile / Google Merchant Center / Firmy.cz)
+
+**Společný OAuth projekt**: `hbgroup-493608` (existuje, používá ho Google Ads + GA4)
+
+**Krok 1 — Google Cloud Console enable APIs:**
+```
+1. Console.cloud.google.com → projekt hbgroup-493608
+2. APIs & Services → Library
+3. Enable:
+   - "My Business Account Management API"
+   - "My Business Business Information API"
+   - "My Business Performance API"
+   - "My Business Q&A API"
+   - "My Business Reviews API"
+   - "Content API for Shopping"
+   - "Merchant Reports API"
+4. OAuth consent screen → add scopes:
+   - https://www.googleapis.com/auth/business.manage
+   - https://www.googleapis.com/auth/content
+```
+
+**Krok 2 — GBP access:**
+```
+1. business.google.com → Settings → Managers
+2. Add agentura email jako "Manager" pro každou ze 17 prodejen
+   (NEBO: pokud má klient Business Group, přidat na úrovni groupu = 1 kliknutí)
+```
+
+**Krok 3 — Merchant Center access:**
+```
+1. merchants.google.com → Users
+2. Add agentura email jako "Standard" user
+   (musí být ne "Admin" — to nepovoluje audit dashboardu API access)
+```
+
+**Krok 4 — Firmy.cz:**
+```
+1. Klient pošle email na partner@seznam.cz s žádostí o API access
+2. Pokud API odmítnuto:
+   - Agentura připraví web scraper pro public profile URL
+   - Frekvence: 1× denně (respekt k Seznam serverům)
+   - Cíl: extract impressions, position, reviews, photos count
+```
 
 ---
 
@@ -526,7 +760,7 @@ Vytvořit **live operační marketing dashboard** pro klicovecentrum.cz + hbgrou
 ## 7. Acceptance criteria
 
 ✅ Marketing dashboard funkční na `audit.klicovecentrum.cz/marketing/` s Cloudflare Access auth
-✅ Všech 15 sekcí implementováno s minimálně hero KPIs (supporting může být fáze 2)
+✅ Všech 18 sekcí implementováno s minimálně hero KPIs (supporting může být fáze 2)
 ✅ Daily 6:00 refresh probíhá automatically, last_update timestamp viditelný v UI
 ✅ Email alert na `oskrebsky@gmail.com` při CSV stale > 25h FUNGUJE (test scenario)
 ✅ Mobile responsive (testováno na iPhone + Android)
@@ -550,13 +784,13 @@ Vytvořit **live operační marketing dashboard** pro klicovecentrum.cz + hbgrou
 
 ## 9. Předpokládaný rozpočet a timeline
 
-- **Estimovaná pracnost**: 80-120 hodin
+- **Estimovaná pracnost**: 95-140 hodin (původně 80-120, +15-20h za 3 nové sekce)
   - Foundation + auth: 12-16h
-  - 15 sekcí × ~5h: 75h
-  - Backend cron + alerts: 8-12h
+  - 18 sekcí × ~5h: 90h (15 puvodnich + 3 nove: GBP, Firmy.cz, Google Merchant Center deep-dive)
+  - Backend cron + alerts: 10-14h (více API integrací)
   - Production setup + testing: 10-15h
   - Documentation + training: 5-8h
-- **Timeline**: 4-6 týdnů od podpisu zadání
+- **Timeline**: 5-7 týdnů od podpisu zadání (původně 4-6, +1 týden za 3 nové data zdroje)
 - **Platba**: dle dohody (1/3 záloha, 1/3 mid-project, 1/3 po acceptance)
 
 ---
