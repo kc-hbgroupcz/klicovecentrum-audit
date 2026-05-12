@@ -156,6 +156,34 @@ Worker přidat na route `audit.klicovecentrum.cz/*` + Cloudflare Access policy s
 
 ---
 
+## 🔓 Logout (odhlášení z Cloudflare Access)
+
+Cloudflare Access má vestavěné 2 logout endpointy:
+
+### Per-application logout (doporučeno)
+```
+https://audit.klicovecentrum.cz/cdn-cgi/access/logout
+```
+- Smaže `CF_Authorization` cookie pro tuto konkrétní aplikaci
+- Po logout redirect na login screen
+- ✅ **Logout button v dashboardu** (vpravo nahoře v hlavičce, „🔓 Odhlásit") posílá uživatele právě na tento URL
+
+### Team-wide logout (odhlásí se ze VŠECH Access aplikací)
+```
+https://hbgroup.cloudflareaccess.com/cdn-cgi/access/logout
+```
+(nahraď `hbgroup` skutečným team name z Cloudflare Zero Trust)
+
+### Session timeout (auto-logout)
+- Default: **24 hodin** session duration
+- Lze změnit v Cloudflare Zero Trust → Access → Applications → tvoje aplikace → **Session Duration**: 1h / 6h / 24h / 7 days / 30 days / Never
+
+### Force logout všech uživatelů (revoke session)
+Cloudflare Zero Trust → Logs → Access → vyber session → **Revoke**.
+Nebo bulk: Settings → **Authentication** → **Revoke all sessions**.
+
+---
+
 ## TL;DR — 3 kroky:
 
 1. **DNS**: CNAME `audit.klicovecentrum.cz` → `kc-hbgroupcz.github.io` (Proxied, oranžový mrak)

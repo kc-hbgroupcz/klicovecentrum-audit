@@ -511,7 +511,33 @@
 </head>
 <body>
 
-<header>
+<header style="position:relative">
+  <a href="/cdn-cgi/access/logout"
+     id="cf-logout-btn"
+     title="Odhlásit z Cloudflare Access (smaže auth cookie)"
+     style="position:absolute;top:24px;right:24px;background:rgba(239,68,68,.1);color:#fca5a5;border:1px solid #ef4444;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:all 0.2s;cursor:pointer">
+    🔓 Odhlásit
+  </a>
+  <script>
+    // Logout button — viditelný jen pokud user přišel přes Cloudflare Access
+    // (otestujeme přítomnost CF_Authorization cookie)
+    (function() {
+      const btn = document.getElementById('cf-logout-btn');
+      if (!btn) return;
+      // Always show — user může chtít explicit logout. Cloudflare endpoint funguje vždy
+      // (i pokud nejsi přihlášen — jen redirect na login screen)
+      btn.addEventListener('click', function(e) {
+        if (!confirm('Opravdu se chceš odhlásit z Cloudflare Access?\n\nPříště se budeš muset znova přihlásit přes email PIN / Google.')) {
+          e.preventDefault();
+        }
+      });
+      // Hide on local development (file:// nebo localhost)
+      if (location.protocol === 'file:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+        btn.style.opacity = '0.4';
+        btn.title = 'Logout funguje jen na Cloudflare Access (audit.klicovecentrum.cz)';
+      }
+    })();
+  </script>
   <h1>🔍 Audit klicovecentrum.cz — Nápravný plán</h1>
   <div class="subtitle" id="subtitle">Období: <span data-period-label>říjen 2025 – duben 2026</span> · 40 identifikovaných nálezů · Prioritizovaný plán s odhadem dopadu</div>
 
