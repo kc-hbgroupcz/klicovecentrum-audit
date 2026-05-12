@@ -6,11 +6,16 @@
 
 ---
 
-## Aktuální stav
+## Aktuální stav (12.5.2026)
 
-- ✅ Dashboard má **client-side password gate** (heslo `KC-Audit-2026-HBG`, hash v dashboard.html)
-- ❌ Stále public URL `https://kc-hbgroupcz.github.io/klicovecentrum-audit/dashboard.html` — kdokoliv se zná URL si může obejit JS prompt
-- 🎯 Cloudflare Access nahradí tento gate **server-side ochrannou** s reálnou autentizací
+- ✅ Client-side password gate **odstraněn** (klient používá Cloudflare Access)
+- ✅ Logout tlačítko v dashboardu i rozcestníku → `/cdn-cgi/access/logout`
+- ✅ Rozcestník struktura připravena:
+  - `audit.klicovecentrum.cz/` — landing page (index.html)
+  - `audit.klicovecentrum.cz/dashboard.html` — Audit dashboard (live)
+  - `audit.klicovecentrum.cz/marketing/` — Marketing dashboard placeholder (Q3 2026)
+  - `audit.klicovecentrum.cz/MARKETING_DASHBOARD_BRIEF_PRO_AGENTURU.md` — brief pro agenturu
+- 🎯 Cloudflare Access chrání **celou doménu** `audit.klicovecentrum.cz/*` — 1 application policy stačí
 
 ---
 
@@ -188,11 +193,38 @@ Nebo bulk: Settings → **Authentication** → **Revoke all sessions**.
 
 1. **DNS**: CNAME `audit.klicovecentrum.cz` → `kc-hbgroupcz.github.io` (Proxied, oranžový mrak)
 2. **GitHub Pages**: Custom domain `audit.klicovecentrum.cz` v repo settings
-3. **Cloudflare Access**: Application `audit.klicovecentrum.cz` + policy s allow listem emailů
+3. **Cloudflare Access**: Application `audit.klicovecentrum.cz` (wildcard `*` v Path) + policy s allow listem emailů
 
 Trvá ~15-30 min. Po propagaci DNS funguje login screen.
 
-**Pak**: Odstranit `kc-hbgroupcz.github.io/klicovecentrum-audit/dashboard.html` z GitHub Pages? Ne — necháme ho jako fallback, ale s client-side password (`KC-Audit-2026-HBG`).
+### Application path coverage
+
+V Cloudflare Access → Application configuration → **Application domain**:
+- **Subdomain**: `audit`
+- **Domain**: `klicovecentrum.cz`
+- **Path**: ponechat **prázdné** = chrání všechno (root + /dashboard.html + /marketing/ + /data/*)
+
+Pokud byste chtěl rozdělit ochranu (např. jiná policy pro `/marketing/` než pro audit), vytvořit 2 applications:
+1. App `audit.klicovecentrum.cz` (path: `/marketing/*`) → policy pro marketing tým
+2. App `audit.klicovecentrum.cz` (path: ostatní) → policy pro audit tým
+
+### Struktura rozcestníku (od 12.5.2026)
+
+```
+audit.klicovecentrum.cz/
+├── index.html                                    ← rozcestník (3 karty)
+├── dashboard.html                                ← Audit dashboard (LIVE)
+├── marketing/
+│   └── index.html                                ← placeholder „V přípravě"
+├── MARKETING_DASHBOARD_BRIEF_PRO_AGENTURU.md     ← brief pro agenturu
+├── CLOUDFLARE_ACCESS.md                          ← tento dokument
+├── data/                                         ← JSON datasety
+└── CNAME                                         ← audit.klicovecentrum.cz
+```
+
+**Logout tlačítko** je v rozcestníku (vpravo nahoře) i v dashboard.html → posílá na `/cdn-cgi/access/logout`.
+
+**Fallback**: `kc-hbgroupcz.github.io/klicovecentrum-audit/dashboard.html` — ponecháno bez ochrany pro případ, že Cloudflare Access selže (klient by neměl tuto URL sdílet).
 
 ---
 

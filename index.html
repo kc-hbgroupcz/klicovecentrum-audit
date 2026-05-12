@@ -2,11 +2,276 @@
 <html lang="cs">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="refresh" content="0; url=dashboard.html">
-<title>Audit klicovecentrum.cz</title>
-<script>window.location.replace('dashboard.html');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>klicovecentrum.cz — Analytické dashboardy</title>
+<style>
+  :root {
+    --bg: #0b0f1a;
+    --bg-card: #131826;
+    --bg-card-hover: #1a2033;
+    --border: #232a3d;
+    --text: #e6e9f0;
+    --text-muted: #8b93a7;
+    --accent: #4ea1ff;
+    --accent-hover: #74b6ff;
+    --green: #4ade80;
+    --orange: #fb923c;
+    --red: #f87171;
+    --gray: #6b7280;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #0b0f1a 0%, #131826 100%);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .container {
+    max-width: 1100px;
+    width: 100%;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .header h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #4ea1ff 0%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .header .subtitle {
+    color: var(--text-muted);
+    font-size: 16px;
+  }
+  .header .domain {
+    display: inline-block;
+    margin-top: 8px;
+    font-family: 'SF Mono', Monaco, monospace;
+    font-size: 13px;
+    background: var(--bg-card);
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    color: var(--accent);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+  .card.available {
+    cursor: pointer;
+  }
+  .card.available:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(78, 161, 255, 0.15);
+  }
+  .card.placeholder {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  .card-icon {
+    font-size: 40px;
+    margin-bottom: 16px;
+  }
+  .card-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .card-desc {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+  }
+  .card-meta {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .badge.live {
+    background: rgba(74, 222, 128, 0.15);
+    color: var(--green);
+    border: 1px solid rgba(74, 222, 128, 0.3);
+  }
+  .badge.soon {
+    background: rgba(251, 146, 60, 0.15);
+    color: var(--orange);
+    border: 1px solid rgba(251, 146, 60, 0.3);
+  }
+  .badge.draft {
+    background: rgba(107, 114, 128, 0.15);
+    color: var(--gray);
+    border: 1px solid rgba(107, 114, 128, 0.3);
+  }
+  .card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .card.placeholder .card-cta {
+    color: var(--text-muted);
+  }
+  .card-cta .arrow {
+    transition: transform 0.2s ease;
+  }
+  .card.available:hover .card-cta .arrow {
+    transform: translateX(4px);
+  }
+  .footer {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.8;
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+  }
+  .footer a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  .logout-link {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .logout-link:hover {
+    color: var(--red);
+    border-color: var(--red);
+  }
+  @media (max-width: 600px) {
+    .header h1 { font-size: 26px; }
+    .card { padding: 24px; }
+    .logout-link {
+      position: static;
+      display: inline-block;
+      margin-top: 16px;
+    }
+  }
+</style>
 </head>
 <body>
-<p>Přesměrování na <a href="dashboard.html">dashboard.html</a>…</p>
+  <a href="/cdn-cgi/access/logout" class="logout-link" title="Odhlásit se z Cloudflare Access">🔓 Odhlásit</a>
+  <div class="container">
+
+    <div class="header">
+      <h1>📊 Analytické dashboardy</h1>
+      <div class="subtitle">H&B Group — Klíčové centrum</div>
+      <div class="domain">audit.klicovecentrum.cz</div>
+    </div>
+
+    <div class="grid">
+
+      <a href="dashboard.html" class="card available">
+        <div class="card-icon">🔍</div>
+        <div class="card-title">Audit analytiky</div>
+        <div class="card-meta">
+          <span class="badge live">● LIVE</span>
+          <span class="badge draft">Verze 5/2026</span>
+        </div>
+        <div class="card-desc">
+          Kompletní audit GA4, Google Ads, Sklik, Search Console, Bing Webmaster a SEO. 77 nálezů, 6 kritických (vč. bot útoku 03/2026 zastaveného 11.5.2026). Konsolidovaná data z ERP + SQL.
+        </div>
+        <div class="card-cta">
+          Otevřít dashboard <span class="arrow">→</span>
+        </div>
+      </a>
+
+      <a href="marketing/" class="card placeholder" onclick="event.preventDefault(); alert('Marketing dashboard zatím není dostupný.\n\nViz brief pro agenturu:\nMARKETING_DASHBOARD_BRIEF_PRO_AGENTURU.md');">
+        <div class="card-icon">📈</div>
+        <div class="card-title">Marketing dashboard</div>
+        <div class="card-meta">
+          <span class="badge soon">○ V přípravě</span>
+          <span class="badge draft">Q3 2026</span>
+        </div>
+        <div class="card-desc">
+          Live marketingový dashboard — kampaně, SEO, B2C/B2B, srovnávače, feedy, produkty, kategorie, pobočky, kraje, doprava, reklamace, vratky. Daily refresh z ERP + Google Ads + Sklik + Heuréka.
+        </div>
+        <div class="card-cta">
+          Připravujeme <span class="arrow">→</span>
+        </div>
+      </a>
+
+      <a href="MARKETING_DASHBOARD_BRIEF_PRO_AGENTURU.md" class="card available">
+        <div class="card-icon">📋</div>
+        <div class="card-title">Brief pro agenturu</div>
+        <div class="card-meta">
+          <span class="badge live">● Hotovo</span>
+          <span class="badge draft">12.5.2026</span>
+        </div>
+        <div class="card-desc">
+          Zadání pro externí agenturu na vybudování Marketing dashboardu. 15 KPI sekcí, ERP jako primary source, Cloudflare Access ochrana, daily refresh, alert systém. Termín 4-6 týdnů, rozpočet 80-120 hod.
+        </div>
+        <div class="card-cta">
+          Otevřít brief <span class="arrow">→</span>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="footer">
+      <strong>Ochrana:</strong> Cloudflare Access (per-user login)
+      &nbsp;·&nbsp;
+      <strong>Hosting:</strong> GitHub Pages + Cloudflare proxy
+      &nbsp;·&nbsp;
+      <strong>Kontakt:</strong> <a href="mailto:oskrebsky@gmail.com">oskrebsky@gmail.com</a>
+      <br>
+      <span style="opacity: 0.6;">Aktualizace listing: 12.5.2026</span>
+    </div>
+
+  </div>
 </body>
 </html>
