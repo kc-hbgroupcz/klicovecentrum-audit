@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>Marketing Dashboard — klicovecentrum.cz</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg: #0b0f1a;
+    --bg-card: #131826;
+    --bg-card-hover: #1a2033;
+    --border: #232a3d;
+    --text: #e6e9f0;
+    --text-muted: #8b93a7;
+    --accent: #4ea1ff;
+    --accent-hover: #74b6ff;
+    --green: #4ade80;
+    --orange: #fb923c;
+    --red: #f87171;
+    --yellow: #fbbf24;
+    --purple: #a78bfa;
+    --gray: #6b7280;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 0;
+  }
+  /* HEADER */
+  .header {
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .header h1 {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .breadcrumb {
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+  .breadcrumb a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .data-freshness {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    background: rgba(74, 222, 128, 0.15);
+    border: 1px solid rgba(74, 222, 128, 0.3);
+    border-radius: 8px;
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .data-freshness.warn {
+    background: rgba(251, 191, 36, 0.15);
+    border-color: rgba(251, 191, 36, 0.3);
+    color: var(--yellow);
+  }
+  .data-freshness.critical {
+    background: rgba(248, 113, 113, 0.15);
+    border-color: rgba(248, 113, 113, 0.3);
+    color: var(--red);
+  }
+  .logout-link {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .logout-link:hover {
+    color: var(--red);
+    border-color: var(--red);
+  }
+  /* DATE PICKER BAR */
+  .date-bar {
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .date-presets {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+  .date-preset {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+  }
+  .date-preset:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .date-preset.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+  }
+  .date-custom {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 8px;
+    padding-left: 12px;
+    border-left: 1px solid var(--border);
+  }
+  .date-custom input[type="date"] {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 5px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    color-scheme: dark;
+  }
+  .date-custom label { font-size: 12px; color: var(--text-muted); }
+  .compare-select {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 5px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    margin-left: auto;
+  }
+  /* ALERT BANNER */
+  .alert-banner {
+    background: rgba(248, 113, 113, 0.1);
+    border: 1px solid rgba(248, 113, 113, 0.3);
+    color: var(--red);
+    padding: 10px 24px;
+    font-size: 13px;
+    display: none;
+  }
+  .alert-banner.show { display: block; }
+  /* TABS */
+  .tabs-bar {
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+  .tab {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    padding: 12px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .tab:hover {
+    color: var(--text);
+  }
+  .tab.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+  .tab .tab-status {
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 8px;
+    font-weight: 700;
+  }
+  .tab .tab-status.live {
+    background: rgba(74, 222, 128, 0.15);
+    color: var(--green);
+  }
+  .tab .tab-status.waiting {
+    background: rgba(251, 146, 60, 0.15);
+    color: var(--orange);
+  }
+  .tab .tab-status.api {
+    background: rgba(167, 139, 250, 0.15);
+    color: var(--purple);
+  }
+  /* MAIN CONTENT */
+  .main {
+    padding: 24px;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+  .section-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .section-subtitle {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+  /* HERO KPI CARDS */
+  .hero-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .kpi-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+  }
+  .kpi-label {
+    color: var(--text-muted);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  .kpi-value {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .kpi-delta {
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .kpi-delta.positive { color: var(--green); }
+  .kpi-delta.negative { color: var(--red); }
+  .kpi-delta.neutral { color: var(--text-muted); }
+  /* SECTION GRID (for charts + tables) */
+  .section-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .section-grid.full { grid-template-columns: 1fr; }
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+  }
+  .card-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .chart-wrapper {
+    position: relative;
+    height: 280px;
+  }
+  /* TABLE */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  th, td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  th {
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  /* EMPTY STATE */
+  .empty-state {
+    background: var(--bg-card);
+    border: 1px dashed var(--border);
+    border-radius: 12px;
+    padding: 60px 24px;
+    text-align: center;
+    color: var(--text-muted);
+  }
+  .empty-state-icon { font-size: 48px; margin-bottom: 16px; }
+  .empty-state h3 { color: var(--text); margin-bottom: 8px; font-size: 18px; }
+  .empty-state p { font-size: 14px; line-height: 1.6; max-width: 500px; margin: 0 auto 16px; }
+  .empty-state a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  /* LOADING */
+  .loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+    color: var(--text-muted);
+  }
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .section-grid { grid-template-columns: 1fr; }
+    .header { padding: 12px 16px; }
+    .date-bar { padding: 10px 16px; }
+    .tabs-bar { padding: 0 16px; }
+    .main { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-left">
+      <h1>📈 Marketing Dashboard</h1>
+      <div class="breadcrumb"><a href="../">← Rozcestník</a> · klicovecentrum.cz</div>
+    </div>
+    <div class="header-left">
+      <div class="data-freshness" id="freshness">⏳ Načítám…</div>
+      <a href="/cdn-cgi/access/logout" class="logout-link">🔓 Odhlásit</a>
+    </div>
+  </header>
+
+  <!-- DATE PICKER BAR -->
+  <div class="date-bar">
+    <div class="date-presets" id="datePresets">
+      <button class="date-preset" data-preset="today">Dnes</button>
+      <button class="date-preset" data-preset="yesterday">Včera</button>
+      <button class="date-preset active" data-preset="last7">7 dní</button>
+      <button class="date-preset" data-preset="last14">14 dní</button>
+      <button class="date-preset" data-preset="last28">28 dní</button>
+      <button class="date-preset" data-preset="last30">30 dní</button>
+      <button class="date-preset" data-preset="last90">90 dní</button>
+      <button class="date-preset" data-preset="mtd">MTD</button>
+      <button class="date-preset" data-preset="lastmonth">Min. měsíc</button>
+      <button class="date-preset" data-preset="qtd">QTD</button>
+      <button class="date-preset" data-preset="ytd">YTD</button>
+      <button class="date-preset" data-preset="last12m">12M</button>
+    </div>
+    <div class="date-custom">
+      <label>od</label>
+      <input type="date" id="dateFrom">
+      <label>do</label>
+      <input type="date" id="dateTo">
+    </div>
+    <select class="compare-select" id="compareMode">
+      <option value="none">Bez srovnání</option>
+      <option value="previous" selected>vs Předchozí období</option>
+      <option value="yoy">vs Loňský rok</option>
+    </select>
+  </div>
+
+  <!-- ALERT BANNER -->
+  <div class="alert-banner" id="alertBanner"></div>
+
+  <!-- TABS -->
+  <nav class="tabs-bar" id="tabsBar">
+    <button class="tab active" data-section="0">🎯 Executive <span class="tab-status live">LIVE</span></button>
+    <button class="tab" data-section="1">📢 Kampaně <span class="tab-status live">LIVE</span></button>
+    <button class="tab" data-section="2">🔍 SEO <span class="tab-status live">LIVE</span></button>
+    <button class="tab" data-section="3">🛒 B2C <span class="tab-status live">LIVE</span></button>
+    <button class="tab" data-section="4">🏢 B2B <span class="tab-status live">LIVE</span></button>
+    <button class="tab" data-section="5">⚖️ Srovnávače <span class="tab-status waiting">ČEKÁ</span></button>
+    <button class="tab" data-section="6">📦 Feedy <span class="tab-status api">SETUP</span></button>
+    <button class="tab" data-section="7">🔧 Produkty <span class="tab-status live">LIVE</span></button>
+    <button class="tab" data-section="8">📂 Kategorie <span class="tab-status live">LIVE</span></button>
+    <button class="tab" data-section="9">📍 Pobočky <span class="tab-status waiting">ČEKÁ</span></button>
+    <button class="tab" data-section="10">🗺️ Kraje <span class="tab-status live">LIVE</span></button>
+    <button class="tab" data-section="11">🚚 Doprava <span class="tab-status live">LIVE</span></button>
+    <button class="tab" data-section="12">⚠️ Reklamace <span class="tab-status live">LIVE</span></button>
+    <button class="tab" data-section="13">🔄 Vratky <span class="tab-status live">LIVE</span></button>
+    <button class="tab" data-section="14">📊 Holistic <span class="tab-status live">LIVE</span></button>
+    <button class="tab" data-section="15">🏪 GBP <span class="tab-status api">SETUP</span></button>
+    <button class="tab" data-section="16">🏢 Firmy.cz <span class="tab-status waiting">ČEKÁ</span></button>
+    <button class="tab" data-section="17">🛍️ MC <span class="tab-status api">SETUP</span></button>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="main" id="main">
+    <div class="loading">Načítám sekci…</div>
+  </main>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+// MARKETING DASHBOARD — SCAFFOLD v0.1
+// ═══════════════════════════════════════════════════════════════
+
+const STATE = {
+  section: 0,
+  dateFrom: null,
+  dateTo: null,
+  comparePreset: 'previous',
+  preset: 'last7',
+  data: {},
+};
+
+// SECTION METADATA
+const SECTIONS = {
+  0: { title: 'Executive Summary', subtitle: 'Top-level metriky napříč všemi kanály', status: 'live' },
+  1: { title: 'Kampaně (PPC)', subtitle: 'Google Ads + Sklik + Meta', status: 'live' },
+  2: { title: 'SEO', subtitle: 'Google Search Console + Bing Webmaster', status: 'live' },
+  3: { title: 'B2C E-shop', subtitle: 'klicovecentrum.cz výkon', status: 'live' },
+  4: { title: 'B2B', subtitle: 'hbgroup.cz odběratelé', status: 'live' },
+  5: { title: 'Srovnávače', subtitle: 'Heuréka, Zboží, Alza, Glami', status: 'waiting', wait_for: 'Heuréka OCM, Zboží.cz OCM, Alza Partner exporty' },
+  6: { title: 'Feedy', subtitle: 'Mergado + Google Merchant Center', status: 'api', wait_for: 'Google Merchant Center API setup (user access)' },
+  7: { title: 'Produkty', subtitle: 'Top SKU + per-produkt výkon', status: 'live' },
+  8: { title: 'Kategorie', subtitle: 'Výkon kategorií produktů', status: 'live' },
+  9: { title: 'Pobočky', subtitle: '17 fyzických prodejen', status: 'waiting', wait_for: 'Helios IQ "Maloobchod pokladna" per-provozovna export' },
+  10: { title: 'Kraje', subtitle: 'Geografická distribuce ČR', status: 'live' },
+  11: { title: 'Doprava', subtitle: 'PPL + ostatní dopravci', status: 'live' },
+  12: { title: 'Reklamace', subtitle: 'RMA + příčiny + náklady', status: 'live' },
+  13: { title: 'Vratky', subtitle: 'Returns + refundy', status: 'live' },
+  14: { title: 'Cross-channel Holistic', subtitle: 'MER, LTV:CAC, NRR, attribution', status: 'live' },
+  15: { title: 'Google Business Profile', subtitle: '17 prodejen lokální viditelnost', status: 'api', wait_for: 'GBP manager access pro hbg-101@hbgroup-493608.iam.gserviceaccount.com' },
+  16: { title: 'Firmy.cz', subtitle: 'Seznam local listings', status: 'waiting', wait_for: 'Firmy.cz Partner API (email na partner@seznam.cz)' },
+  17: { title: 'Google Merchant Center', subtitle: 'Shopping deep-dive', status: 'api', wait_for: 'MC Standard user access pro hbg-101@hbgroup-493608.iam.gserviceaccount.com' },
+};
+
+// ═══════════════════════════════════════════════════════════════
+// DATE PICKER
+// ═══════════════════════════════════════════════════════════════
+
+function calcPresetDates(preset) {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const yesterday = new Date(today);
+  yesterday.setDate(yesterday.getDate() - 1);
+
+  let from, to = yesterday;
+  switch (preset) {
+    case 'today': from = to = today; break;
+    case 'yesterday': from = to = yesterday; break;
+    case 'last7': from = new Date(yesterday); from.setDate(from.getDate() - 6); break;
+    case 'last14': from = new Date(yesterday); from.setDate(from.getDate() - 13); break;
+    case 'last28': from = new Date(yesterday); from.setDate(from.getDate() - 27); break;
+    case 'last30': from = new Date(yesterday); from.setDate(from.getDate() - 29); break;
+    case 'last90': from = new Date(yesterday); from.setDate(from.getDate() - 89); break;
+    case 'mtd': from = new Date(today.getFullYear(), today.getMonth(), 1); break;
+    case 'lastmonth':
+      from = new Date(today.getFullYear(), today.getMonth() - 1, 1);
+      to = new Date(today.getFullYear(), today.getMonth(), 0);
+      break;
+    case 'qtd':
+      const q = Math.floor(today.getMonth() / 3);
+      from = new Date(today.getFullYear(), q * 3, 1);
+      break;
+    case 'ytd': from = new Date(today.getFullYear(), 0, 1); break;
+    case 'last12m': from = new Date(yesterday); from.setMonth(from.getMonth() - 12); break;
+    default: from = new Date(yesterday); from.setDate(from.getDate() - 6);
+  }
+  return [from, to];
+}
+
+function fmtDate(d) {
+  return d.toISOString().slice(0, 10);
+}
+
+function applyPreset(preset) {
+  STATE.preset = preset;
+  const [from, to] = calcPresetDates(preset);
+  STATE.dateFrom = fmtDate(from);
+  STATE.dateTo = fmtDate(to);
+  document.getElementById('dateFrom').value = STATE.dateFrom;
+  document.getElementById('dateTo').value = STATE.dateTo;
+  document.querySelectorAll('.date-preset').forEach(b => b.classList.toggle('active', b.dataset.preset === preset));
+  saveStateToURL();
+  renderSection(STATE.section);
+}
+
+// ═══════════════════════════════════════════════════════════════
+// URL STATE
+// ═══════════════════════════════════════════════════════════════
+
+function saveStateToURL() {
+  const params = new URLSearchParams();
+  params.set('section', STATE.section);
+  params.set('from', STATE.dateFrom);
+  params.set('to', STATE.dateTo);
+  params.set('compare', STATE.comparePreset);
+  if (STATE.preset) params.set('preset', STATE.preset);
+  history.replaceState(null, '', '?' + params.toString());
+  localStorage.setItem('mkt-state', JSON.stringify({
+    section: STATE.section, from: STATE.dateFrom, to: STATE.dateTo,
+    compare: STATE.comparePreset, preset: STATE.preset,
+  }));
+}
+
+function loadStateFromURL() {
+  const params = new URLSearchParams(location.search);
+  const stored = JSON.parse(localStorage.getItem('mkt-state') || '{}');
+  STATE.section = parseInt(params.get('section') ?? stored.section ?? 0);
+  STATE.dateFrom = params.get('from') ?? stored.from ?? null;
+  STATE.dateTo = params.get('to') ?? stored.to ?? null;
+  STATE.comparePreset = params.get('compare') ?? stored.compare ?? 'previous';
+  STATE.preset = params.get('preset') ?? stored.preset ?? 'last7';
+  if (!STATE.dateFrom || !STATE.dateTo) {
+    applyPreset(STATE.preset);
+  } else {
+    document.getElementById('dateFrom').value = STATE.dateFrom;
+    document.getElementById('dateTo').value = STATE.dateTo;
+    document.querySelectorAll('.date-preset').forEach(b => b.classList.toggle('active', b.dataset.preset === STATE.preset));
+  }
+  document.getElementById('compareMode').value = STATE.comparePreset;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// DATA FRESHNESS
+// ═══════════════════════════════════════════════════════════════
+
+async function loadMeta() {
+  try {
+    const r = await fetch('../data/marketing/_meta.json?v=' + Date.now());
+    if (!r.ok) throw new Error('no meta');
+    const meta = await r.json();
+    const ts = new Date(meta.last_refresh);
+    const ageHours = (Date.now() - ts.getTime()) / 3600000;
+    const el = document.getElementById('freshness');
+    let icon = '🟢', cls = '', label;
+    if (ageHours < 8) { icon = '🟢'; cls = ''; label = `Aktuální · ${formatAge(ageHours)} starší`; }
+    else if (ageHours < 25) { icon = '🟡'; cls = 'warn'; label = `Aktuální · ${formatAge(ageHours)} starší`; }
+    else { icon = '🔴'; cls = 'critical'; label = `ZASTARALÁ · ${formatAge(ageHours)} starší`; }
+    el.className = 'data-freshness ' + cls;
+    el.textContent = `${icon} ${label}`;
+  } catch (e) {
+    const el = document.getElementById('freshness');
+    el.className = 'data-freshness warn';
+    el.textContent = '⚠️ Dashboard ještě nebyl postaven (build pipeline pending)';
+  }
+}
+
+function formatAge(hours) {
+  if (hours < 1) return Math.round(hours * 60) + 'min';
+  if (hours < 24) return Math.round(hours) + 'h';
+  return Math.round(hours / 24) + 'd';
+}
+
+// ═══════════════════════════════════════════════════════════════
+// SECTION RENDERING
+// ═══════════════════════════════════════════════════════════════
+
+async function renderSection(idx) {
+  STATE.section = idx;
+  document.querySelectorAll('.tab').forEach(b => b.classList.toggle('active', parseInt(b.dataset.section) === idx));
+  saveStateToURL();
+
+  const meta = SECTIONS[idx];
+  const main = document.getElementById('main');
+
+  // Title
+  let html = `
+    <div class="section-title">${meta.title}</div>
+    <div class="section-subtitle">${meta.subtitle} · ${STATE.dateFrom} → ${STATE.dateTo}</div>
+  `;
+
+  // Status-based content
+  if (meta.status === 'waiting' || meta.status === 'api') {
+    html += renderWaitingState(idx, meta);
+  } else {
+    html += `<div class="loading">Načítám data pro ${meta.title}…</div>`;
+  }
+  main.innerHTML = html;
+
+  // Build live sections (placeholder for now — buildy budou doplněny v dalších krocích)
+  if (meta.status === 'live') {
+    setTimeout(() => renderLivePlaceholder(idx, meta), 50);
+  }
+}
+
+function renderWaitingState(idx, meta) {
+  const icon = meta.status === 'api' ? '🔧' : '⏳';
+  const title = meta.status === 'api' ? 'Čeká na API setup' : 'Čeká na data od klienta';
+  return `
+    <div class="empty-state">
+      <div class="empty-state-icon">${icon}</div>
+      <h3>${title}</h3>
+      <p><strong>${meta.title}</strong> — co je potřeba:</p>
+      <p style="margin-top: 8px; padding: 12px; background: var(--bg); border-radius: 8px; text-align: left; font-family: monospace; font-size: 12px;">
+        ${meta.wait_for}
+      </p>
+      <p style="margin-top: 16px;">
+        Detaily: <a href="../EXPORTY_OD_KLIENTA.md">EXPORTY_OD_KLIENTA.md</a>
+        · <a href="../DATA_INVENTORY.md">DATA_INVENTORY.md</a>
+      </p>
+    </div>
+  `;
+}
+
+function renderLivePlaceholder(idx, meta) {
+  // Placeholder for live sections — build skripty + JSON data files budou doplněny postupně
+  const main = document.getElementById('main');
+  const html = `
+    <div class="section-title">${meta.title}</div>
+    <div class="section-subtitle">${meta.subtitle} · ${STATE.dateFrom} → ${STATE.dateTo}</div>
+
+    <div class="empty-state">
+      <div class="empty-state-icon">🚧</div>
+      <h3>Sekce v buildu</h3>
+      <p>
+        Data pro tuto sekci jsou připravena (build skripty existují, datasety v <code>/data/</code>).<br>
+        Marketing-specific build agregace + UI rendering bude doplněn v iteracích.
+      </p>
+      <p style="margin-top: 16px;">
+        Existující audit data: <a href="../dashboard.html">Audit dashboard</a> (sekce <strong>${meta.title}</strong> je tam pro retrospektivu)
+      </p>
+    </div>
+  `;
+  main.innerHTML = html;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// EVENT WIRING
+// ═══════════════════════════════════════════════════════════════
+
+document.querySelectorAll('.date-preset').forEach(btn => {
+  btn.addEventListener('click', () => applyPreset(btn.dataset.preset));
+});
+
+document.querySelectorAll('.tab').forEach(btn => {
+  btn.addEventListener('click', () => renderSection(parseInt(btn.dataset.section)));
+});
+
+document.getElementById('dateFrom').addEventListener('change', e => {
+  STATE.dateFrom = e.target.value;
+  STATE.preset = 'custom';
+  document.querySelectorAll('.date-preset').forEach(b => b.classList.remove('active'));
+  saveStateToURL();
+  renderSection(STATE.section);
+});
+
+document.getElementById('dateTo').addEventListener('change', e => {
+  STATE.dateTo = e.target.value;
+  STATE.preset = 'custom';
+  document.querySelectorAll('.date-preset').forEach(b => b.classList.remove('active'));
+  saveStateToURL();
+  renderSection(STATE.section);
+});
+
+document.getElementById('compareMode').addEventListener('change', e => {
+  STATE.comparePreset = e.target.value;
+  saveStateToURL();
+  renderSection(STATE.section);
+});
+
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
+  switch (e.key.toLowerCase()) {
+    case 't': applyPreset('today'); break;
+    case 'w': applyPreset('last7'); break;
+    case 'm': applyPreset('last30'); break;
+    case 'y': applyPreset('ytd'); break;
+  }
+});
+
+// ═══════════════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════════════
+
+(async function init() {
+  loadStateFromURL();
+  await loadMeta();
+  renderSection(STATE.section);
+})();
+</script>
+</body>
+</html>
