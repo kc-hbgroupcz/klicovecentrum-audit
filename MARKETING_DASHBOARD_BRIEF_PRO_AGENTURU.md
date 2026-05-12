@@ -626,7 +626,9 @@ Vytvořit **live operační marketing dashboard** pro klicovecentrum.cz + hbgrou
 │ HEADER: 🎯 Marketing Dashboard · ⚠️ Last update 6:00          │
 │                                              🔓 Logout         │
 ├────────────────────────────────────────────────────────────────┤
-│ EXECUTIVE SUMMARY (6 hero cards)                              │
+│ 📅 DATE RANGE PICKER (globální) | ⚖️ Compare to: Previous | YoY │
+├────────────────────────────────────────────────────────────────┤
+│ EXECUTIVE SUMMARY (6 hero cards) — reaguje na date filter     │
 ├────────────────────────────────────────────────────────────────┤
 │ ALERTS BAR (red banner pokud kritické)                        │
 ├────────────────────────────────────────────────────────────────┤
@@ -636,14 +638,99 @@ Vytvořit **live operační marketing dashboard** pro klicovecentrum.cz + hbgrou
 └────────────────────────────────────────────────────────────────┘
 ```
 
+### 📅 Date range filter — POVINNÁ funkcionalita
+
+**Globální date picker** musí být **vždy viditelný v hlavičce** dashboardu a aplikovat se na **VŠECHNY sekce + KPIs + grafy + tabulky najednou**.
+
+**1. Quick presets** (1-click buttons):
+- **Dnes** (jen pro úplnost — většina dat má 1 den delay)
+- **Včera**
+- **Posledních 7 dní** (default při otevření)
+- **Posledních 14 dní**
+- **Posledních 28 dní** (matchuje GA4 default)
+- **Posledních 30 dní**
+- **Posledních 90 dní**
+- **Tento měsíc (MTD)** — Month-to-Date od 1. dne
+- **Minulý měsíc** (celý uzavřený měsíc)
+- **Tento kvartál (QTD)**
+- **Tento rok (YTD)**
+- **Posledních 12 měsíců**
+
+**2. Custom date range picker**:
+- Dva date inputs: **od** / **do**
+- Kalendář popup s českou lokalizací (PO-NE, leden-prosinec)
+- **Min datum**: 1.10.2025 (start ERP dat — Helios Výdejky)
+- **Max datum**: včerejšek (data nejsou k dispozici real-time)
+- Validace: do ≥ od, max 2 roky rozsah
+
+**3. Comparison mode** (vedle date pickeru):
+- **Žádné srovnání** (default)
+- **vs Předchozí období** — automaticky stejně dlouhé období hned před (např. 7d → předchozí 7d)
+- **vs Stejné období minulý rok** (YoY)
+- **vs Custom** — uživatel vybere srovnávací rozsah ručně
+- Comparison se projeví jako:
+  - U KPI: současná hodnota + delta % vs comparison + 🟢/🔴 indikátor
+  - U grafů: dvě překryvné křivky (current solid, comparison dashed)
+  - U tabulek: sloupec „vs předchozí" s % změnou
+
+**4. Per-section overrides** (advanced):
+Některé sekce mají vlastní logiku — agentura může (po dohodě) udělat **section-level override**:
+- **Section 5 (Srovnávače)**: může potřebovat denní granularitu i pro 90d view
+- **Section 15 (GBP)**: GBP Performance API vrací data pouze **last 6 months max** — UI musí to indikovat („Data dostupná od {date}")
+- **Section 17 (MC)**: Merchant Reports API max **3 měsíce** historie
+- **Section 13 (Cohorts)**: měsíční granularita (ne denní), zobrazuje cohorts od měsíce nákupu
+
+Pokud zvolený date range obsahuje **období bez dostupných dat**, sekce zobrazí **prázdný state s vysvětlením** (např. „GBP data dostupná od 12.11.2025 — vybraný rozsah obsahuje 60d bez dat").
+
+**5. Granularity selector** (denní / týdenní / měsíční):
+- Auto-detect podle date rangu:
+  - ≤ 31 dní → **denní** granularita (default)
+  - 32-180 dní → **týdenní** (sloupcové grafy = celý týden)
+  - > 180 dní → **měsíční**
+- Uživatel může override (přepnout manuálně)
+- Týdenní view začíná **pondělím** (ISO week)
+
+**6. URL state (shareable links)**:
+Date filter musí být **uložen v URL query parameters** aby šel poslat odkaz kolegovi:
+```
+audit.klicovecentrum.cz/marketing/?from=2026-04-01&to=2026-04-30&compare=previous&section=campaigns
+```
+Při otevření této URL se dashboard otevře s přednastaveným filterem + sekcí.
+
+**7. Sticky behavior**:
+- Datum se **persistuje napříč tabs** (přepnu Kampaně → Pobočky a datum zůstane)
+- Datum se **persistuje v localStorage** (refresh stránky zachová stav)
+- Při novém openu dashboardu (nový login session) se resetuje na **Posledních 7 dní**
+
+**8. Loading states**:
+- Při změně datumu: skeleton placeholdery v každé sekci po dobu načítání nových dat
+- Spinner v header („Načítám data pro 1.4.2026 — 30.4.2026…")
+- Pokud data fetching > 5s: progress indicator
+- Pokud API selže: error state s retry buttonem (data zůstanou cached)
+
+**9. Data freshness indicator**:
+V hlavičce vedle date pickeru:
+- 🟢 **„Data čerstvá (last refresh 6:00, před 4h)"**
+- 🟡 **„Data starší (last refresh 18h)"** — pokud cron neproběhl
+- 🔴 **„Data zastaralá > 25h"** — kritický alert
+- ⏰ **„Next refresh: zítra 6:00"**
+
+**10. Empty states**:
+- Pokud vybraný range nemá data: „Žádná data pro toto období"
+- Pokud sekce vůbec data nemá (např. Section 15 před GBP setupem): „GBP integrace probíhá — data budou k dispozici po dokončení auth setupu"
+
 ### UI principles
 - ✅ Trafik signal everywhere: 🟢 / 🟡 / 🔴
 - ✅ MoM/WoW comparison vedle každé KPI
 - ✅ Drill-down na klik (KPI → detail tabulka)
-- ✅ Timeframe selector: Today / 7d / 30d / 90d / YoY
-- ✅ Export button: CSV / PNG snapshot
-- ✅ Mobile responsive
+- ✅ **Date range picker globální + per-section overrides** (viz výše)
+- ✅ **Granularity auto-switching** (denní / týdenní / měsíční)
+- ✅ **Comparison mode** (vs předchozí / YoY / custom)
+- ✅ **URL state sharable** (date + section v query params)
+- ✅ Export button: CSV / PNG snapshot (zachovává aktuální date filter)
+- ✅ Mobile responsive (date picker funguje na mobilu — native HTML5 inputs)
 - ✅ Dark theme (jako existující audit dashboard, pro brand consistency)
+- ✅ Keyboard shortcuts: `T` = dnes, `W` = 7d, `M` = 30d, `Y` = YTD
 
 ### Branding
 - Existing CSS palette dashboardu: `#0f172a` background, `#3b82f6` primary, `#10b981` positive, `#fbbf24` warning, `#ef4444` critical
@@ -735,24 +822,30 @@ Vytvořit **live operační marketing dashboard** pro klicovecentrum.cz + hbgrou
 - [ ] Setup repo + GitHub Pages + Cloudflare Access
 - [ ] Backend cron infrastructure + alert email SMTP
 - [ ] Frontend scaffold (header + tabs + executive summary)
-- [ ] Acceptance: dashboard otevíratelný na `audit.klicovecentrum.cz/marketing/` s prázdnými sekcemi
+- [ ] **Global date range picker komponenta** (12 presets + custom range + comparison mode + URL state + localStorage persist)
+- [ ] **Granularity auto-switching logic** (denní/týdenní/měsíční podle date rangu)
+- [ ] **Data layer wrapper** který každé sekci poskytne data filtrovaná dle aktuálního date rangu (single source of truth pro datum)
+- [ ] Acceptance: dashboard otevíratelný na `audit.klicovecentrum.cz/marketing/` s prázdnými sekcemi + funkčním date pickerem (placeholder data zachovává date range při refreshi)
 
 ### Phase 2 — Top 3 sekce (Week 2)
-- [ ] Section 0 (Executive Summary) — fully funkční
-- [ ] Section 1 (Kampaně) — fully funkční
-- [ ] Section 3 (B2C) — fully funkční
-- [ ] Acceptance: 3 sekce s real ERP data, alerts fungují, refresh cron běží
+- [ ] Section 0 (Executive Summary) — fully funkční **s reakcí na date filter**
+- [ ] Section 1 (Kampaně) — fully funkční **s reakcí na date filter + comparison mode**
+- [ ] Section 3 (B2C) — fully funkční **s reakcí na date filter**
+- [ ] Acceptance: 3 sekce s real ERP data, date filter funguje napříč všemi, alerts fungují, refresh cron běží
 
-### Phase 3 — Zbývajících 12 sekcí (Week 3-4)
-- [ ] Section 2, 4-14 — postupně dle priority
-- [ ] Drill-down + filters + export
-- [ ] Mobile responsive testing
+### Phase 3 — Zbývajících 15 sekcí (Week 3-5)
+- [ ] Section 2, 4-14 — postupně dle priority, **každá reaguje na date filter**
+- [ ] Section 15 (GBP), 16 (Firmy.cz), 17 (MC) — 3 nové sekce + per-section override (data dostupnost indikace)
+- [ ] Drill-down + filters + export (export respektuje aktuální date range)
+- [ ] Mobile responsive testing (vč. date pickeru na mobilu)
 
-### Phase 4 — Production polish + handoff (Week 5-6)
+### Phase 4 — Production polish + handoff (Week 6-7)
 - [ ] Windows Task Scheduler nastavení / GitHub Actions cron
 - [ ] Email alert SMTP fully configured
 - [ ] Per-user Cloudflare Access policy
-- [ ] Documentation pro klienta jak interpretovat KPIs
+- [ ] **Performance tuning**: date filter change re-render < 1s (cached aggregations)
+- [ ] **URL state testing**: shareable links fungují
+- [ ] Documentation pro klienta jak interpretovat KPIs + jak používat date filter
 - [ ] Training session (1h call)
 
 ---
@@ -761,10 +854,17 @@ Vytvořit **live operační marketing dashboard** pro klicovecentrum.cz + hbgrou
 
 ✅ Marketing dashboard funkční na `audit.klicovecentrum.cz/marketing/` s Cloudflare Access auth
 ✅ Všech 18 sekcí implementováno s minimálně hero KPIs (supporting může být fáze 2)
+✅ **Date range picker funkční** — 12 quick presets + custom range + comparison mode + URL state
+✅ **Date filter aplikuje se na všech 18 sekcí konsistentně** (test scenario: vyber „minulý měsíc" → všechny KPIs reagují)
+✅ **Comparison mode**: každé KPI ukazuje delta % vs předchozí období (nebo YoY)
+✅ **Granularity auto-switching**: denní (≤31d) → týdenní (32-180d) → měsíční (>180d)
+✅ **URL sharable links** fungují (test: zkopírovat URL s ?from=...&to=... → otevřít v jiném browseru → stejný state)
 ✅ Daily 6:00 refresh probíhá automatically, last_update timestamp viditelný v UI
 ✅ Email alert na `oskrebsky@gmail.com` při CSV stale > 25h FUNGUJE (test scenario)
 ✅ Mobile responsive (testováno na iPhone + Android)
+✅ **Date picker funguje na mobilu** (native HTML5 inputs nebo touch-optimized library)
 ✅ Page load < 3 sekundy na 4G
+✅ **Date filter change re-render < 1 sekunda** (cached JSON, ne re-fetch)
 ✅ Loaded JSON files celkem < 5 MB (lazy load podle sekce)
 ✅ Cross-browser: Chrome, Firefox, Safari, Edge
 ✅ Dokumentace: README.md s setup + údržba postupy
