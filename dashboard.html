@@ -4,6 +4,81 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Audit klicovecentrum.cz — Interaktivní dashboard nápravných opatření</title>
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<script>
+// ═══════════════════════════════════════════════════════════════
+// PASSWORD GATE — client-side basic protection
+// ═══════════════════════════════════════════════════════════════
+// SHA-256 hash heslic: 'KC-Audit-2026-HBG'
+// Pro změnu hesla: vygenerovat nový hash přes
+//   echo -n "NOVE_HESLO" | sha256sum    (Linux/Mac)
+//   nebo Python: hashlib.sha256("NOVE_HESLO".encode()).hexdigest()
+// Pak nahradit hodnotu níže + commit + push.
+const _PWD_HASH = '87a86706be2be5477a77392f44376413f5b379f93f8266fc7529f3f229e796a2';
+
+(async function() {
+  // Skip pokud už autorizováno v této session
+  if (sessionStorage.getItem('kc_audit_auth') === _PWD_HASH) return;
+
+  // Hide body until authorized
+  document.documentElement.style.visibility = 'hidden';
+
+  async function sha256(s) {
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s));
+    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+  }
+
+  function showGate() {
+    document.documentElement.style.visibility = 'visible';
+    const overlay = document.createElement('div');
+    overlay.id = '_pwd_gate';
+    overlay.style.cssText = 'position:fixed;inset:0;z-index:99999;background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);display:flex;align-items:center;justify-content:center;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif';
+    overlay.innerHTML = `
+      <div style="background:rgba(15,23,42,.9);border:1px solid #334155;border-radius:14px;padding:36px;max-width:420px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,.5)">
+        <h1 style="font-size:22px;color:#f1f5f9;margin-bottom:8px;text-align:center">🔐 Audit klicovecentrum.cz</h1>
+        <p style="color:#94a3b8;font-size:13px;text-align:center;margin-bottom:24px">Privátní dashboard. Pro přístup zadej heslo.</p>
+        <input id="_pwd_input" type="password" placeholder="Heslo" autocomplete="off" autofocus
+          style="width:100%;padding:14px;border-radius:8px;border:1.5px solid #334155;background:#0f172a;color:#f1f5f9;font-size:15px;outline:none;margin-bottom:14px;transition:border-color 0.2s">
+        <button id="_pwd_btn" style="width:100%;padding:14px;border-radius:8px;border:none;background:#3b82f6;color:#fff;font-size:14px;font-weight:600;cursor:pointer;transition:background 0.2s">Přihlásit</button>
+        <div id="_pwd_err" style="color:#fca5a5;font-size:12px;text-align:center;margin-top:12px;min-height:18px"></div>
+        <div style="color:#64748b;font-size:11px;text-align:center;margin-top:18px;line-height:1.5">
+          Nemáš heslo? Kontaktuj <a href="mailto:oskrebsky@gmail.com" style="color:#3b82f6">oskrebsky@gmail.com</a>.<br>
+          ⚠️ Tato ochrana je client-side (stačí pro deterring). Pro plnou ochranu doporučuji Cloudflare Access (viz <code style="background:#1e293b;padding:1px 4px;border-radius:2px">CLOUDFLARE_ACCESS.md</code>).
+        </div>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+
+    const input = document.getElementById('_pwd_input');
+    const btn = document.getElementById('_pwd_btn');
+    const err = document.getElementById('_pwd_err');
+
+    async function tryAuth() {
+      err.textContent = '';
+      const val = input.value.trim();
+      if (!val) { err.textContent = 'Zadej heslo'; return; }
+      const h = await sha256(val);
+      if (h === _PWD_HASH) {
+        sessionStorage.setItem('kc_audit_auth', _PWD_HASH);
+        overlay.style.transition = 'opacity 0.3s';
+        overlay.style.opacity = '0';
+        setTimeout(() => overlay.remove(), 300);
+      } else {
+        err.textContent = '❌ Nesprávné heslo';
+        input.style.borderColor = '#ef4444';
+        input.value = '';
+        setTimeout(() => { input.style.borderColor = '#334155'; input.focus(); }, 800);
+      }
+    }
+    btn.addEventListener('click', tryAuth);
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') tryAuth(); });
+  }
+
+  // DOM ready guard
+  if (document.body) showGate();
+  else document.addEventListener('DOMContentLoaded', showGate);
+})();
+</script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
