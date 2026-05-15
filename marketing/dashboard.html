@@ -439,6 +439,7 @@
     <button class="tab" data-section="15">🏪 GBP <span class="tab-status api">QUOTA</span></button>
     <button class="tab" data-section="16">🏢 Firmy.cz <span class="tab-status waiting">ČEKÁ</span></button>
     <button class="tab" data-section="17">🛍️ MC <span class="tab-status live">LIVE</span></button>
+    <button class="tab" data-section="18">🛡️ CF <span class="tab-status live">LIVE</span></button>
   </nav>
 
   <!-- MAIN CONTENT -->
@@ -484,6 +485,7 @@ const SECTIONS = {
   15: { title: 'Google Business Profile', subtitle: '17 prodejen — API funguje, čeká na quota increase', status: 'api', wait_for: 'GBP API enabled + Service Account přidán jako Manager. Default quota Google nasadil 1 req/min — vyžádat increase přes support.google.com/business/contact/api_default_quota_increase' },
   16: { title: 'Firmy.cz', subtitle: 'Import feed (auto-sync) + manuální stats CSV — jen CZ (Seznam je český)', status: 'waiting', wait_for: 'Master tabulka 17 prodejen → data/raw/pobocky_master.csv', domains_only: ['klicovecentrum.cz', 'hbgroup.cz'] },
   17: { title: 'Google Merchant Center', subtitle: 'Shopping deep-dive — jen klicovecentrum.cz (Merchant 130672692, 2228 produktů, 99.24% approval). klucovecentrum.sk čeká na MC setup.', status: 'live', data_url: '../data/marketing/mc.json', domains_only: ['klicovecentrum.cz', 'klucovecentrum.sk'] },
+  18: { title: 'Cloudflare ochrana', subtitle: '4 domény za Cloudflare Free + replikované rules + acceptance test 28/28 ✅', status: 'live' },
 };
 
 // ═══════════════════════════════════════════════════════════════
@@ -693,11 +695,559 @@ async function renderSection(idx) {
 
   // Build live sections
   if (meta.status === 'live') {
-    if (idx === 17) {
+    if (idx === 0) {
+      setTimeout(() => renderExecutive(meta), 50);
+    } else if (idx === 3) {
+      setTimeout(() => renderB2C(meta), 50);
+    } else if (idx === 4) {
+      setTimeout(() => renderB2B(meta), 50);
+    } else if (idx === 17) {
       setTimeout(() => renderMC(meta), 50);
+    } else if (idx === 18) {
+      setTimeout(() => renderCloudflare(meta), 50);
     } else {
       setTimeout(() => renderLivePlaceholder(idx, meta), 50);
     }
+  }
+}
+
+async function renderB2C(meta) {
+  const main = document.getElementById('main');
+  try {
+    const r = await fetch('../data/marketing/b2c.json?v=' + Date.now());
+    const d = await r.json();
+    const k = d.hero_kpis.last_30d;
+    const k7 = d.hero_kpis.last_7d;
+    const s = d.summary_8m;
+
+    main.innerHTML = `
+      <div class="section-title">${meta.title}</div>
+      <div class="section-subtitle">${meta.subtitle} · ERP Cézar Výdejky MO · ${d.erp_period?.start} → ${d.erp_period?.end}</div>
+
+      <div class="hero-grid">
+        <div class="kpi-card">
+          <div class="kpi-label">Revenue (last 30d)</div>
+          <div class="kpi-value">${fmtKc(k.revenue)}</div>
+          <div class="kpi-delta ${deltaCls(k.delta_revenue_pct)}">${deltaSign(k.delta_revenue_pct)}${fmtPct(k.delta_revenue_pct)} MoM</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Orders (last 30d)</div>
+          <div class="kpi-value">${fmtNum(k.orders)}</div>
+          <div class="kpi-delta ${deltaCls(k.delta_orders_pct)}">${deltaSign(k.delta_orders_pct)}${fmtPct(k.delta_orders_pct)} MoM</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">AOV</div>
+          <div class="kpi-value">${fmtKc(k.aov)}</div>
+          <div class="kpi-delta ${deltaCls(k.delta_aov_pct)}">${deltaSign(k.delta_aov_pct)}${fmtPct(k.delta_aov_pct)} MoM</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Marže (30d)</div>
+          <div class="kpi-value" style="color: var(--green);">${fmtPct(k.margin_pct)}</div>
+          <div class="kpi-delta neutral">profit ${fmtKc(k.profit)}</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Last 7d</div>
+          <div class="kpi-value">${fmtKc(k7.revenue)}</div>
+          <div class="kpi-delta neutral">${fmtNum(k7.orders)} obj</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Unique customers (8M)</div>
+          <div class="kpi-value">${fmtNum(s.unique_customers)}</div>
+          <div class="kpi-delta neutral">${s.avg_orders_per_customer} obj/cust</div>
+        </div>
+      </div>
+
+      <div class="section-grid">
+        <div class="card">
+          <div class="card-title">📅 Měsíční trend (8M)</div>
+          <table>
+            <thead><tr><th>Měsíc</th><th class="num">Obj.</th><th class="num">Revenue</th><th class="num">Profit</th><th class="num">Marže</th><th class="num">AOV</th></tr></thead>
+            <tbody>
+              ${d.monthly_trend.map(m => `
+                <tr>
+                  <td><strong>${m.month}</strong></td>
+                  <td class="num">${fmtNum(m.count)}</td>
+                  <td class="num">${fmtKc(m.revenue_bd_kc)}</td>
+                  <td class="num">${fmtKc(m.profit_kc)}</td>
+                  <td class="num">${fmtPct(m.margin_pct)}</td>
+                  <td class="num">${fmtKc(m.aov_bd_kc)}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <div class="card-title">👥 Top 20 zákazníků (8M)</div>
+          <table>
+            <thead><tr><th>#</th><th>Zákazník</th><th class="num">Obj.</th><th class="num">Revenue</th><th class="num">AOV</th></tr></thead>
+            <tbody>
+              ${d.top_customers.slice(0, 20).map((c, i) => `
+                <tr>
+                  <td class="num">${i + 1}</td>
+                  <td>${c.name}</td>
+                  <td class="num">${fmtNum(c.orders)}</td>
+                  <td class="num">${fmtKc(c.revenue_bd_kc)}</td>
+                  <td class="num">${fmtKc(c.aov_kc)}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <p style="color:var(--text-muted); font-size:12px; margin-top:16px;">
+        <strong>Source:</strong> ${d.primary_source} · ${d.note}
+      </p>
+    `;
+  } catch (e) {
+    main.innerHTML = `<div class="empty-state"><div class="empty-state-icon">⚠️</div><h3>Chyba B2C</h3><p>${e.message}</p></div>`;
+  }
+}
+
+async function renderB2B(meta) {
+  const main = document.getElementById('main');
+  try {
+    const r = await fetch('../data/marketing/b2b.json?v=' + Date.now());
+    const d = await r.json();
+    const k = d.hero_kpis.last_30d;
+    const k7 = d.hero_kpis.last_7d;
+    const s = d.summary_8m;
+    const cr = d.concentration_risk;
+    const ret = d.retention_signals;
+
+    main.innerHTML = `
+      <div class="section-title">${meta.title}</div>
+      <div class="section-subtitle">${meta.subtitle} · ERP Cézar Výdejky VO · ${d.erp_period?.start} → ${d.erp_period?.end}</div>
+
+      <div class="card" style="background: rgba(78,161,255,0.08); border-color: var(--accent); margin-bottom: 16px;">
+        <div style="font-size: 13px; color: var(--accent);">ℹ️ <strong>B2B nepoužívá Google Ads / Sklik / Merchant Center / srovnávače</strong> — focus na retention metriky (NRR, repeat orders, top customer concentration)</div>
+      </div>
+
+      <div class="hero-grid">
+        <div class="kpi-card">
+          <div class="kpi-label">Revenue (last 30d)</div>
+          <div class="kpi-value">${fmtKc(k.revenue)}</div>
+          <div class="kpi-delta ${deltaCls(k.delta_revenue_pct)}">${deltaSign(k.delta_revenue_pct)}${fmtPct(k.delta_revenue_pct)} MoM</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Orders (last 30d)</div>
+          <div class="kpi-value">${fmtNum(k.orders)}</div>
+          <div class="kpi-delta ${deltaCls(k.delta_orders_pct)}">${deltaSign(k.delta_orders_pct)}${fmtPct(k.delta_orders_pct)} MoM</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">AOV</div>
+          <div class="kpi-value">${fmtKc(k.aov)}</div>
+          <div class="kpi-delta neutral">B2B AOV vyšší než B2C</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Marže (30d)</div>
+          <div class="kpi-value" style="color: var(--green);">${fmtPct(k.margin_pct)}</div>
+          <div class="kpi-delta neutral">profit ${fmtKc(k.profit)}</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Unique B2B partneri (8M)</div>
+          <div class="kpi-value">${fmtNum(s.unique_customers)}</div>
+          <div class="kpi-delta neutral">${s.avg_orders_per_customer} obj/cust</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Avg revenue / cust</div>
+          <div class="kpi-value">${fmtKc(s.avg_revenue_per_customer)}</div>
+          <div class="kpi-delta neutral">8M průměr</div>
+        </div>
+      </div>
+
+      <div class="section-grid">
+        <div class="card">
+          <div class="card-title">⚠️ Concentration risk (top customers koncentrace)</div>
+          <table>
+            <tbody>
+              <tr><td>Top 5 zákazníků</td><td class="num">${fmtKc(cr.top_5_revenue)}</td><td class="num"><strong style="color:${cr.top_5_pct > 40 ? 'var(--red)' : 'var(--green)'}">${fmtPct(cr.top_5_pct)}</strong></td></tr>
+              <tr><td>Top 10 zákazníků</td><td class="num">${fmtKc(cr.top_10_revenue)}</td><td class="num"><strong style="color:${cr.top_10_pct > 60 ? 'var(--red)' : 'var(--orange)'}">${fmtPct(cr.top_10_pct)}</strong></td></tr>
+              <tr><td>Top 20 zákazníků</td><td class="num">${fmtKc(cr.top_20_revenue)}</td><td class="num"><strong>${fmtPct(cr.top_20_pct)}</strong></td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:12px;color:var(--text-muted);margin-top:8px;">${cr.note}</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">🔁 Retention signals (top 20)</div>
+          <table>
+            <tbody>
+              <tr><td>Repeat customers (orders ≥ 2)</td><td class="num"><strong style="color:var(--green)">${ret.top_20_repeat_customers}/20</strong></td></tr>
+              <tr><td>One-time customers</td><td class="num">${ret.top_20_one_time_customers}/20</td></tr>
+              <tr><td>Repeat rate</td><td class="num"><strong>${fmtPct(ret.repeat_rate_top20_pct)}</strong></td></tr>
+              <tr><td>Total unique customers (8M)</td><td class="num">${fmtNum(ret.total_unique_customers)}</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:12px;color:var(--text-muted);margin-top:8px;">${ret.note}</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">👥 Top 20 B2B partneři (8M)</div>
+        <table>
+          <thead><tr><th>#</th><th>Firma</th><th class="num">Obj.</th><th class="num">Revenue</th><th class="num">Profit</th><th class="num">Marže</th><th class="num">AOV</th></tr></thead>
+          <tbody>
+            ${d.top_20_customers.map((c, i) => `
+              <tr>
+                <td class="num">${i + 1}</td>
+                <td>${c.name}</td>
+                <td class="num">${fmtNum(c.orders)}</td>
+                <td class="num">${fmtKc(c.revenue_bd_kc)}</td>
+                <td class="num">${fmtKc(c.profit_kc)}</td>
+                <td class="num">${fmtPct(c.margin_pct)}</td>
+                <td class="num">${fmtKc(c.aov_kc)}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card" style="margin-top: 16px;">
+        <div class="card-title">📅 Měsíční trend</div>
+        <table>
+          <thead><tr><th>Měsíc</th><th class="num">Obj.</th><th class="num">Revenue</th><th class="num">Profit</th><th class="num">Marže</th><th class="num">AOV</th></tr></thead>
+          <tbody>
+            ${d.monthly_trend.map(m => `
+              <tr>
+                <td><strong>${m.month}</strong></td>
+                <td class="num">${fmtNum(m.count)}</td>
+                <td class="num">${fmtKc(m.revenue_bd_kc)}</td>
+                <td class="num">${fmtKc(m.profit_kc)}</td>
+                <td class="num">${fmtPct(m.margin_pct)}</td>
+                <td class="num">${fmtKc(m.aov_bd_kc)}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    `;
+  } catch (e) {
+    main.innerHTML = `<div class="empty-state"><div class="empty-state-icon">⚠️</div><h3>Chyba B2B</h3><p>${e.message}</p></div>`;
+  }
+}
+
+function fmtKc(n) { return n ? n.toLocaleString('cs-CZ') + ' Kč' : '— Kč'; }
+function fmtNum(n) { return n != null ? n.toLocaleString('cs-CZ') : '—'; }
+function fmtPct(n) { return n != null ? n.toFixed(1) + ' %' : '—'; }
+function deltaCls(n) { return n > 0 ? 'positive' : (n < 0 ? 'negative' : 'neutral'); }
+function deltaSign(n) { return n > 0 ? '+' : ''; }
+
+async function renderExecutive(meta) {
+  const main = document.getElementById('main');
+  try {
+    const r = await fetch('../data/marketing/executive.json?v=' + Date.now());
+    const d = await r.json();
+
+    const k30 = d.hero_kpis.last_30d;
+    const k7 = d.hero_kpis.last_7d;
+    const erp = d.erp_8m_summary;
+    const mc = d.merchant_center || {};
+    const cf = d.cloudflare || {};
+    const ppl = d.shipments || {};
+    const cmp = d.complaints || {};
+
+    const alertsHtml = (d.alerts && d.alerts.length) ? `
+      <div class="card" style="border-color: var(--orange); background: rgba(251,146,60,0.05); margin-bottom: 16px;">
+        <div class="card-title">⚠️ Aktivní alerty (${d.alerts.length})</div>
+        <table>
+          <tbody>
+            ${d.alerts.map(a => `
+              <tr>
+                <td><span style="color:${a.level === 'critical' ? 'var(--red)' : (a.level === 'warning' ? 'var(--orange)' : 'var(--text-muted)')};font-weight:600">${a.level.toUpperCase()}</span></td>
+                <td>${a.message}</td>
+                <td><a href="?section=${a.section}" style="color:var(--accent)">→ Section ${a.section}</a></td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    ` : '';
+
+    main.innerHTML = `
+      <div class="section-title">${meta.title}</div>
+      <div class="section-subtitle">${meta.subtitle} · refresh: ${new Date(d.generated_at).toLocaleString('cs-CZ')}</div>
+
+      ${alertsHtml}
+
+      <div class="hero-grid">
+        <div class="kpi-card">
+          <div class="kpi-label">Revenue (last 30d)</div>
+          <div class="kpi-value">${fmtKc(k30.revenue)}</div>
+          <div class="kpi-delta ${deltaCls(k30.delta_revenue_pct)}">${deltaSign(k30.delta_revenue_pct)}${fmtPct(k30.delta_revenue_pct)} vs předchozích 30d</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Orders (last 30d)</div>
+          <div class="kpi-value">${fmtNum(k30.orders)}</div>
+          <div class="kpi-delta ${deltaCls(k30.delta_orders_pct)}">${deltaSign(k30.delta_orders_pct)}${fmtPct(k30.delta_orders_pct)} vs předchozích 30d</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">AOV (last 30d)</div>
+          <div class="kpi-value">${fmtKc(k30.aov)}</div>
+          <div class="kpi-delta neutral">průměrná hodnota košíku</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Last 7d revenue</div>
+          <div class="kpi-value">${fmtKc(k7.revenue)}</div>
+          <div class="kpi-delta neutral">${fmtNum(k7.orders)} obj · AOV ${fmtKc(k7.aov)}</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">CF chráněné domény</div>
+          <div class="kpi-value" style="color: var(--green);">${cf.domains_protected || 0}/4</div>
+          <div class="kpi-delta positive">${cf.total_rules || 0} rules total</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">MC produkty</div>
+          <div class="kpi-value">${fmtNum(mc.total_products)}</div>
+          <div class="kpi-delta ${(mc.disapproved || 0) > 50 ? 'negative' : 'positive'}">${mc.approval_rate_pct}% approval (${mc.disapproved} disapproved)</div>
+        </div>
+      </div>
+
+      <div class="section-grid">
+        <div class="card">
+          <div class="card-title">📊 ERP Cézar 8M (${erp.period?.start} → ${erp.period?.end})</div>
+          <table>
+            <thead>
+              <tr><th>Segment</th><th class="num">Obj.</th><th class="num">Revenue</th><th class="num">Profit</th><th class="num">Marže</th><th class="num">AOV</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>🛒 B2C MO</strong> (klicovecentrum.cz)</td>
+                <td class="num">${fmtNum(erp.b2c_mo.total_orders)}</td>
+                <td class="num">${fmtKc(erp.b2c_mo.total_revenue)}</td>
+                <td class="num">${fmtKc(erp.b2c_mo.profit)}</td>
+                <td class="num">${fmtPct(erp.b2c_mo.margin_pct)}</td>
+                <td class="num">${fmtKc(erp.b2c_mo.aov)}</td>
+              </tr>
+              <tr>
+                <td><strong>🏢 B2B VO</strong> (hbgroup.cz)</td>
+                <td class="num">${fmtNum(erp.b2b_vo.total_orders)}</td>
+                <td class="num">${fmtKc(erp.b2b_vo.total_revenue)}</td>
+                <td class="num">${fmtKc(erp.b2b_vo.profit)}</td>
+                <td class="num">${fmtPct(erp.b2b_vo.margin_pct)}</td>
+                <td class="num">${fmtKc(erp.b2b_vo.aov)}</td>
+              </tr>
+              <tr style="background: var(--bg);">
+                <td><strong>TOTAL</strong></td>
+                <td class="num">${fmtNum(erp.b2c_mo.total_orders + erp.b2b_vo.total_orders)}</td>
+                <td class="num"><strong>${fmtKc(erp.total_revenue)}</strong></td>
+                <td class="num"><strong>${fmtKc(erp.total_profit)}</strong></td>
+                <td class="num">${fmtPct(erp.blended_margin_pct)}</td>
+                <td class="num">—</td>
+              </tr>
+              <tr>
+                <td><em>B2B/B2C ratio</em></td>
+                <td colspan="5"><em>B2B je <strong>${erp.b2b_b2c_ratio}×</strong> větší než B2C v Kč obratu (${fmtPct(erp.b2b_vo.total_revenue/(erp.b2c_mo.total_revenue+erp.b2b_vo.total_revenue)*100)} podíl)</em></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <div class="card-title">📦 Operativní KPIs</div>
+          <table>
+            <tbody>
+              <tr><td>PPL zásilky (period)</td><td class="num"><strong>${fmtNum(ppl.ppl_total_packages)}</strong> ks</td></tr>
+              <tr><td>PPL unique shipments</td><td class="num">${fmtNum(ppl.ppl_unique_shipments)}</td></tr>
+              <tr><td>Vratky (8M)</td><td class="num">${fmtNum(cmp.vratky_count)} ks</td></tr>
+              <tr><td>Vratky value</td><td class="num">${fmtKc(cmp.vratky_value_kc)}</td></tr>
+              <tr><td>Estimated complaints</td><td class="num">${fmtNum(cmp.estimated_complaints)}</td></tr>
+              <tr><td>Total lost value (vratky+reklamace)</td><td class="num" style="color:var(--orange)">${fmtKc(cmp.lost_value_estimate_kc)}</td></tr>
+              <tr><td>MC account issues</td><td class="num">${(mc.account_issues || 0) > 0 ? `<span style="color:var(--red)">⚠️ ${mc.account_issues}</span>` : '✅ 0'}</td></tr>
+              <tr><td>CF Bot Fight Mode</td><td class="num">${cf.all_bfm_on ? '✅ all 4' : '⚠️ partial'}</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">📅 Period breakdown (z ERP MO daily)</div>
+        <table>
+          <thead>
+            <tr><th>Period</th><th class="num">Revenue</th><th class="num">Orders</th><th class="num">AOV</th><th class="num">Days</th><th>Range</th></tr>
+          </thead>
+          <tbody>
+            ${Object.entries(d.periods).map(([key, p]) => `
+              <tr>
+                <td><strong>${key.replace('_', ' ').replace('last ', 'Posledních ')}</strong></td>
+                <td class="num">${fmtKc(p.revenue)}</td>
+                <td class="num">${fmtNum(p.orders)}</td>
+                <td class="num">${fmtKc(p.aov)}</td>
+                <td class="num">${p.days}</td>
+                <td><small style="color:var(--text-muted)">${p.period_start} → ${p.period_end}</small></td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+
+      <p style="color:var(--text-muted); font-size:12px; margin-top:16px;">
+        <strong>Source:</strong> ${d.primary_source} · ERP period: ${d.erp_period?.start} → ${d.erp_period?.end}
+      </p>
+    `;
+  } catch (e) {
+    main.innerHTML = `
+      <div class="section-title">${meta.title}</div>
+      <div class="empty-state">
+        <div class="empty-state-icon">⚠️</div>
+        <h3>Chyba načítání Executive dat</h3>
+        <p>${e.message}</p>
+        <p>Spusť: <code>python build_mkt_executive.py</code></p>
+      </div>
+    `;
+  }
+}
+
+async function renderCloudflare(meta) {
+  const main = document.getElementById('main');
+  try {
+    const r = await fetch('../data/marketing/_meta.json?v=' + Date.now());
+    const data = await r.json();
+    const domains = data.domains || [];
+
+    // Aggregate counts
+    const totalRules = domains.reduce((sum, d) => sum + ((d.cloudflare_rules?.total) || 0), 0);
+    const allBfm = domains.every(d => d.cloudflare_settings?.bfm);
+    const allHttps = domains.every(d => d.cloudflare_settings?.always_use_https === 'on');
+    const allStrict = domains.every(d => d.cloudflare_settings?.ssl === 'strict');
+    const leakedCheckCount = domains.filter(d => d.cloudflare_settings?.leaked_credential_check).length;
+
+    main.innerHTML = `
+      <div class="section-title">${meta.title}</div>
+      <div class="section-subtitle">${meta.subtitle}</div>
+
+      <div class="hero-grid">
+        <div class="kpi-card">
+          <div class="kpi-label">Domén za CF</div>
+          <div class="kpi-value" style="color: var(--green);">${domains.length}/4</div>
+          <div class="kpi-delta positive">Free plan</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Total rules</div>
+          <div class="kpi-value">${totalRules}</div>
+          <div class="kpi-delta neutral">5 custom + 2 cache + 1 page per doména</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Bot Fight Mode</div>
+          <div class="kpi-value" style="color: ${allBfm ? 'var(--green)' : 'var(--red)'};">${allBfm ? '4/4' : domains.filter(d => d.cloudflare_settings?.bfm).length + '/4'}</div>
+          <div class="kpi-delta ${allBfm ? 'positive' : 'negative'}">${allBfm ? 'všude ON' : 'některé OFF'}</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">SSL strict + HTTPS</div>
+          <div class="kpi-value" style="color: ${allHttps && allStrict ? 'var(--green)' : 'var(--orange)'};">${allHttps && allStrict ? '4/4' : 'mix'}</div>
+          <div class="kpi-delta ${allHttps && allStrict ? 'positive' : 'neutral'}">enforce HTTPS</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Leaked cred check</div>
+          <div class="kpi-value" style="color: ${leakedCheckCount === 4 ? 'var(--green)' : 'var(--orange)'};">${leakedCheckCount}/4</div>
+          <div class="kpi-delta ${leakedCheckCount === 4 ? 'positive' : 'neutral'}">${leakedCheckCount < 4 ? 'TODO 3 domén' : 'všude ON'}</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Acceptance test</div>
+          <div class="kpi-value" style="color: var(--green);">28/28 ✅</div>
+          <div class="kpi-delta positive">13.5.2026</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🛡️ Per-doména breakdown</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Doména</th>
+              <th>Trh</th>
+              <th>Typ</th>
+              <th class="num">Custom</th>
+              <th class="num">Cache</th>
+              <th class="num">Page</th>
+              <th class="num">RL</th>
+              <th>BFM</th>
+              <th>SSL</th>
+              <th>HTTPS</th>
+              <th>Leaked</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${domains.map(d => {
+              const r = d.cloudflare_rules || {};
+              const s = d.cloudflare_settings || {};
+              return `
+                <tr>
+                  <td><strong>${d.domain}</strong></td>
+                  <td>${d.market === 'cz' ? '🇨🇿 CZ' : '🇸🇰 SK'}</td>
+                  <td>${d.type === 'b2c' ? '🛒 B2C' : '🏢 B2B'}</td>
+                  <td class="num">${r.custom || 0}</td>
+                  <td class="num">${r.cache || 0}</td>
+                  <td class="num">${r.page || 0}</td>
+                  <td class="num">${r.ratelimit || 0}</td>
+                  <td>${s.bfm ? '✅' : '❌'}</td>
+                  <td>${s.ssl === 'strict' ? '✅ strict' : `⚠️ ${s.ssl || '?'}`}</td>
+                  <td>${s.always_use_https === 'on' ? '✅' : '❌'}</td>
+                  <td>${s.leaked_credential_check ? '✅' : '⏳'}</td>
+                </tr>
+              `;
+            }).join('')}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section-grid">
+        <div class="card">
+          <div class="card-title">📋 5 Custom firewall rules (replikované)</div>
+          <table>
+            <thead><tr><th>Rule</th><th>Akce</th></tr></thead>
+            <tbody>
+              <tr><td>Block aggressive scrapers + suspicious patterns</td><td><span style="color: var(--orange);">managed_challenge</span></td></tr>
+              <tr><td>Block/Challenge Bad ASNs (s CZ/SK whitelist + Heureka exception)</td><td><span style="color: var(--orange);">managed_challenge</span></td></tr>
+              <tr><td>Geo challenge - datacentra (NL/US/DE)</td><td><span style="color: var(--orange);">managed_challenge</span></td></tr>
+              <tr><td>Geo blokování - bot traffic (CN/RU/VN/PK/BD/IQ/+) + scanning paths</td><td><span style="color: var(--red);">block</span></td></tr>
+              <tr><td>Block Uploaded Scripts (/upload + .php)</td><td><span style="color: var(--red);">block</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <div class="card-title">📦 Další ochrana</div>
+          <table>
+            <thead><tr><th>Co</th><th>Detail</th></tr></thead>
+            <tbody>
+              <tr><td>Cache Bypass</td><td>/sign/, /account, /admin, /kosik, /objednavka</td></tr>
+              <tr><td>Aggressive cache</td><td>statics 7d browser, 31d edge</td></tr>
+              <tr><td>Page rule</td><td>Always Use HTTPS</td></tr>
+              <tr><td>AI bots protection</td><td>block (managed)</td></tr>
+              <tr><td>Crawler protection</td><td>enabled (3/4 — klucovecentrum.sk pending)</td></tr>
+              <tr><td>Bot Fight Mode</td><td>ON na všech 4</td></tr>
+              <tr><td>Browser Integrity Check</td><td>ON na všech 4</td></tr>
+              <tr><td>Challenge TTL</td><td>1800s (30 min)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">📊 Stav historie</div>
+        <table>
+          <thead><tr><th>Datum</th><th>Událost</th><th>Doménu</th></tr></thead>
+          <tbody>
+            <tr><td>11.5.2026</td><td>🚨 Bot útok 3. vlna zastaven Cloudflare</td><td>klicovecentrum.cz (sessions 16k → 823 = -94%)</td></tr>
+            <tr><td>11.5.2026</td><td>🛡️ 5 custom rules + BFM nasazeny</td><td>klicovecentrum.cz</td></tr>
+            <tr><td>12.5.2026</td><td>🌐 Klient přidal 3 nové domény do CF</td><td>klucovecentrum.sk + hbgroup.cz/sk</td></tr>
+            <tr><td>13.5.2026</td><td>🔁 API replikace 5+2+1 rules</td><td>3 nové domény</td></tr>
+            <tr><td>13.5.2026</td><td>✅ Acceptance test 28/28 passed</td><td>všechny 4 domény</td></tr>
+          </tbody>
+        </table>
+      </div>
+    `;
+  } catch (e) {
+    main.innerHTML = `
+      <div class="section-title">${meta.title}</div>
+      <div class="empty-state">
+        <div class="empty-state-icon">⚠️</div>
+        <h3>Chyba načítání CF dat</h3>
+        <p>${e.message}</p>
+      </div>
+    `;
   }
 }
 

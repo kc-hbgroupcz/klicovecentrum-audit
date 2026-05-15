@@ -1,0 +1,1403 @@
+{
+  "generated_at": "2026-05-15T15:44:15",
+  "primary_source": "ERP Cézar Výdejky MO (B2C)",
+  "erp_period": {
+    "start": "2025-10-01",
+    "end": "2026-05-07"
+  },
+  "domains": [
+    "klicovecentrum.cz",
+    "klucovecentrum.sk"
+  ],
+  "note": "klucovecentrum.sk SK B2C zatím není v Cézar exportu split — celé MO je klicovecentrum.cz CZ",
+  "hero_kpis": {
+    "last_30d": {
+      "revenue": 170403,
+      "orders": 182,
+      "aov": 936,
+      "profit": 108127,
+      "margin_pct": 63.5,
+      "items": 451,
+      "days": 22,
+      "period_start": "2026-04-08",
+      "period_end": "2026-05-07",
+      "delta_revenue_pct": 122.3,
+      "delta_orders_pct": 163.8,
+      "delta_aov_pct": -15.8
+    },
+    "last_7d": {
+      "revenue": 34411,
+      "orders": 44,
+      "aov": 782,
+      "profit": 21189,
+      "margin_pct": 61.6,
+      "items": 101,
+      "days": 4,
+      "period_start": "2026-05-01",
+      "period_end": "2026-05-07"
+    }
+  },
+  "periods": {
+    "last_7d": {
+      "revenue": 34411,
+      "orders": 44,
+      "aov": 782,
+      "profit": 21189,
+      "margin_pct": 61.6,
+      "items": 101,
+      "days": 4,
+      "period_start": "2026-05-01",
+      "period_end": "2026-05-07"
+    },
+    "last_30d": {
+      "revenue": 170403,
+      "orders": 182,
+      "aov": 936,
+      "profit": 108127,
+      "margin_pct": 63.5,
+      "items": 451,
+      "days": 22,
+      "period_start": "2026-04-08",
+      "period_end": "2026-05-07"
+    },
+    "last_90d": {
+      "revenue": 461475,
+      "orders": 407,
+      "aov": 1134,
+      "profit": 277268,
+      "margin_pct": 60.1,
+      "items": 999,
+      "days": 58,
+      "period_start": "2026-02-07",
+      "period_end": "2026-05-07"
+    }
+  },
+  "monthly_trend": [
+    {
+      "month": "2025-10",
+      "count": 150,
+      "revenue_bd_kc": 285832,
+      "revenue_uhr_kc": 345856,
+      "profit_kc": 154858,
+      "items": 389,
+      "margin_pct": 54.2,
+      "aov_bd_kc": 1906
+    },
+    {
+      "month": "2025-11",
+      "count": 127,
+      "revenue_bd_kc": 143464,
+      "revenue_uhr_kc": 173592,
+      "profit_kc": 84291,
+      "items": 330,
+      "margin_pct": 58.8,
+      "aov_bd_kc": 1130
+    },
+    {
+      "month": "2025-12",
+      "count": 212,
+      "revenue_bd_kc": 156718,
+      "revenue_uhr_kc": 189629,
+      "profit_kc": 101228,
+      "items": 520,
+      "margin_pct": 64.6,
+      "aov_bd_kc": 739
+    },
+    {
+      "month": "2026-01",
+      "count": 218,
+      "revenue_bd_kc": 179847,
+      "revenue_uhr_kc": 217615,
+      "profit_kc": 107628,
+      "items": 558,
+      "margin_pct": 59.8,
+      "aov_bd_kc": 825
+    },
+    {
+      "month": "2026-02",
+      "count": 147,
+      "revenue_bd_kc": 175098,
+      "revenue_uhr_kc": 211869,
+      "profit_kc": 108656,
+      "items": 363,
+      "margin_pct": 62.1,
+      "aov_bd_kc": 1191
+    },
+    {
+      "month": "2026-03",
+      "count": 88,
+      "revenue_bd_kc": 130138,
+      "revenue_uhr_kc": 157469,
+      "profit_kc": 71100,
+      "items": 211,
+      "margin_pct": 54.6,
+      "aov_bd_kc": 1479
+    },
+    {
+      "month": "2026-04",
+      "count": 157,
+      "revenue_bd_kc": 155738,
+      "revenue_uhr_kc": 188444,
+      "profit_kc": 98239,
+      "items": 392,
+      "margin_pct": 63.1,
+      "aov_bd_kc": 992
+    },
+    {
+      "month": "2026-05",
+      "count": 44,
+      "revenue_bd_kc": 34410,
+      "revenue_uhr_kc": 41636,
+      "profit_kc": 21190,
+      "items": 101,
+      "margin_pct": 61.6,
+      "aov_bd_kc": 782
+    }
+  ],
+  "summary_8m": {
+    "total_orders": 1143,
+    "total_revenue": 1261245,
+    "total_profit": 747189,
+    "margin_pct": 59.2,
+    "aov": 1103,
+    "items_total": 2864,
+    "unique_customers": 937,
+    "avg_orders_per_customer": 1.22
+  },
+  "top_customers": [
+    {
+      "name": "[Maloobchodní prodej]",
+      "orders": 144,
+      "revenue_bd_kc": 77299,
+      "profit_kc": 43589,
+      "aov_kc": 537,
+      "margin_pct": 56.4
+    },
+    {
+      "name": "Autoservis Braný s.r.o.",
+      "orders": 1,
+      "revenue_bd_kc": 32099,
+      "profit_kc": 20932,
+      "aov_kc": 32099,
+      "margin_pct": 65.2
+    },
+    {
+      "name": "Kovovýroba Žídek",
+      "orders": 1,
+      "revenue_bd_kc": 29707,
+      "profit_kc": 15106,
+      "aov_kc": 29707,
+      "margin_pct": 50.9
+    },
+    {
+      "name": "Renapa s.r.o.",
+      "orders": 6,
+      "revenue_bd_kc": 27356,
+      "profit_kc": 16173,
+      "aov_kc": 4559,
+      "margin_pct": 59.1
+    },
+    {
+      "name": "SEA Enterprises a.s.",
+      "orders": 1,
+      "revenue_bd_kc": 23323,
+      "profit_kc": 12018,
+      "aov_kc": 23323,
+      "margin_pct": 51.5
+    },
+    {
+      "name": "AXGAME s.r.o.",
+      "orders": 3,
+      "revenue_bd_kc": 22840,
+      "profit_kc": 13100,
+      "aov_kc": 7613,
+      "margin_pct": 57.4
+    },
+    {
+      "name": "DKN-Hill s.r.o.",
+      "orders": 11,
+      "revenue_bd_kc": 18578,
+      "profit_kc": 2533,
+      "aov_kc": 1689,
+      "margin_pct": 13.6
+    },
+    {
+      "name": "SKYLIGHTEC s.r.o.",
+      "orders": 1,
+      "revenue_bd_kc": 18260,
+      "profit_kc": 11166,
+      "aov_kc": 18260,
+      "margin_pct": 61.2
+    },
+    {
+      "name": "CBRE Global Workplace Solutions s.r.o.",
+      "orders": 2,
+      "revenue_bd_kc": 15864,
+      "profit_kc": 9669,
+      "aov_kc": 7932,
+      "margin_pct": 60.9
+    },
+    {
+      "name": "Společenství vlastníků Jeseniova 519/19, 518/23, Praha 3",
+      "orders": 1,
+      "revenue_bd_kc": 12805,
+      "profit_kc": 8197,
+      "aov_kc": 12805,
+      "margin_pct": 64.0
+    },
+    {
+      "name": "Wood Time s.r.o.",
+      "orders": 2,
+      "revenue_bd_kc": 12066,
+      "profit_kc": 5514,
+      "aov_kc": 6033,
+      "margin_pct": 45.7
+    },
+    {
+      "name": "Lukáš Stropnický",
+      "orders": 2,
+      "revenue_bd_kc": 10755,
+      "profit_kc": 6294,
+      "aov_kc": 5377,
+      "margin_pct": 58.5
+    },
+    {
+      "name": "Garde.cz s.r.o.",
+      "orders": 2,
+      "revenue_bd_kc": 10468,
+      "profit_kc": 8069,
+      "aov_kc": 5234,
+      "margin_pct": 77.1
+    },
+    {
+      "name": "TEGAMO Services, s.r.o.",
+      "orders": 1,
+      "revenue_bd_kc": 9796,
+      "profit_kc": 5445,
+      "aov_kc": 9796,
+      "margin_pct": 55.6
+    },
+    {
+      "name": "Jan Chudoba",
+      "orders": 1,
+      "revenue_bd_kc": 9608,
+      "profit_kc": 6661,
+      "aov_kc": 9608,
+      "margin_pct": 69.3
+    },
+    {
+      "name": "Montáž a servis PVC výplní",
+      "orders": 3,
+      "revenue_bd_kc": 9503,
+      "profit_kc": 6507,
+      "aov_kc": 3168,
+      "margin_pct": 68.5
+    },
+    {
+      "name": "Milan Záhorský",
+      "orders": 5,
+      "revenue_bd_kc": 9146,
+      "profit_kc": 5269,
+      "aov_kc": 1829,
+      "margin_pct": 57.6
+    },
+    {
+      "name": "REAL STAV ŠMÍD s.r.o.",
+      "orders": 1,
+      "revenue_bd_kc": 9132,
+      "profit_kc": 5433,
+      "aov_kc": 9132,
+      "margin_pct": 59.5
+    },
+    {
+      "name": "J-max, s.r.o.",
+      "orders": 1,
+      "revenue_bd_kc": 9106,
+      "profit_kc": 4845,
+      "aov_kc": 9106,
+      "margin_pct": 53.2
+    },
+    {
+      "name": "Petr Bechyně",
+      "orders": 1,
+      "revenue_bd_kc": 8746,
+      "profit_kc": 6053,
+      "aov_kc": 8746,
+      "margin_pct": 69.2
+    }
+  ],
+  "payment_types": {
+    "E": 485,
+    "FD": 359,
+    "FK": 174,
+    "H": 73,
+    "F": 31,
+    "FH": 21
+  },
+  "daily_data": [
+    {
+      "date": "2025-10-01",
+      "count": 3,
+      "revenue_bd": 7508,
+      "profit": 3478,
+      "items": 6
+    },
+    {
+      "date": "2025-10-02",
+      "count": 5,
+      "revenue_bd": 13276,
+      "profit": 5729,
+      "items": 11
+    },
+    {
+      "date": "2025-10-03",
+      "count": 5,
+      "revenue_bd": 4905,
+      "profit": 3447,
+      "items": 15
+    },
+    {
+      "date": "2025-10-06",
+      "count": 6,
+      "revenue_bd": 12204,
+      "profit": 6955,
+      "items": 17
+    },
+    {
+      "date": "2025-10-07",
+      "count": 4,
+      "revenue_bd": 2921,
+      "profit": 1569,
+      "items": 9
+    },
+    {
+      "date": "2025-10-08",
+      "count": 4,
+      "revenue_bd": 18072,
+      "profit": 11546,
+      "items": 10
+    },
+    {
+      "date": "2025-10-09",
+      "count": 14,
+      "revenue_bd": 17165,
+      "profit": 5996,
+      "items": 40
+    },
+    {
+      "date": "2025-10-10",
+      "count": 6,
+      "revenue_bd": 29341,
+      "profit": 15995,
+      "items": 13
+    },
+    {
+      "date": "2025-10-13",
+      "count": 12,
+      "revenue_bd": 44601,
+      "profit": 24008,
+      "items": 32
+    },
+    {
+      "date": "2025-10-14",
+      "count": 6,
+      "revenue_bd": 6288,
+      "profit": 3667,
+      "items": 12
+    },
+    {
+      "date": "2025-10-15",
+      "count": 7,
+      "revenue_bd": 8496,
+      "profit": 4946,
+      "items": 14
+    },
+    {
+      "date": "2025-10-16",
+      "count": 9,
+      "revenue_bd": 13384,
+      "profit": 6317,
+      "items": 22
+    },
+    {
+      "date": "2025-10-17",
+      "count": 4,
+      "revenue_bd": 3052,
+      "profit": 2066,
+      "items": 9
+    },
+    {
+      "date": "2025-10-20",
+      "count": 5,
+      "revenue_bd": 2395,
+      "profit": 1741,
+      "items": 12
+    },
+    {
+      "date": "2025-10-21",
+      "count": 7,
+      "revenue_bd": 7731,
+      "profit": 4533,
+      "items": 14
+    },
+    {
+      "date": "2025-10-22",
+      "count": 5,
+      "revenue_bd": 3819,
+      "profit": 2395,
+      "items": 13
+    },
+    {
+      "date": "2025-10-23",
+      "count": 9,
+      "revenue_bd": 53976,
+      "profit": 31438,
+      "items": 24
+    },
+    {
+      "date": "2025-10-24",
+      "count": 2,
+      "revenue_bd": 4998,
+      "profit": 2740,
+      "items": 5
+    },
+    {
+      "date": "2025-10-27",
+      "count": 6,
+      "revenue_bd": 4881,
+      "profit": 2670,
+      "items": 20
+    },
+    {
+      "date": "2025-10-29",
+      "count": 13,
+      "revenue_bd": 13513,
+      "profit": 6709,
+      "items": 36
+    },
+    {
+      "date": "2025-10-30",
+      "count": 9,
+      "revenue_bd": 5180,
+      "profit": 2458,
+      "items": 37
+    },
+    {
+      "date": "2025-10-31",
+      "count": 9,
+      "revenue_bd": 8125,
+      "profit": 4453,
+      "items": 18
+    },
+    {
+      "date": "2025-11-03",
+      "count": 17,
+      "revenue_bd": 14991,
+      "profit": 9902,
+      "items": 40
+    },
+    {
+      "date": "2025-11-04",
+      "count": 6,
+      "revenue_bd": 6617,
+      "profit": 4121,
+      "items": 18
+    },
+    {
+      "date": "2025-11-05",
+      "count": 3,
+      "revenue_bd": 2712,
+      "profit": 1775,
+      "items": 8
+    },
+    {
+      "date": "2025-11-06",
+      "count": 7,
+      "revenue_bd": 8196,
+      "profit": 2868,
+      "items": 19
+    },
+    {
+      "date": "2025-11-07",
+      "count": 6,
+      "revenue_bd": 13907,
+      "profit": 9777,
+      "items": 16
+    },
+    {
+      "date": "2025-11-08",
+      "count": 2,
+      "revenue_bd": 3603,
+      "profit": 1964,
+      "items": 4
+    },
+    {
+      "date": "2025-11-10",
+      "count": 10,
+      "revenue_bd": 6451,
+      "profit": 3869,
+      "items": 23
+    },
+    {
+      "date": "2025-11-11",
+      "count": 7,
+      "revenue_bd": 4947,
+      "profit": 3343,
+      "items": 32
+    },
+    {
+      "date": "2025-11-12",
+      "count": 11,
+      "revenue_bd": 14135,
+      "profit": 5113,
+      "items": 27
+    },
+    {
+      "date": "2025-11-13",
+      "count": 6,
+      "revenue_bd": 2436,
+      "profit": 1818,
+      "items": 14
+    },
+    {
+      "date": "2025-11-14",
+      "count": 5,
+      "revenue_bd": 8094,
+      "profit": 4829,
+      "items": 16
+    },
+    {
+      "date": "2025-11-15",
+      "count": 1,
+      "revenue_bd": 350,
+      "profit": 262,
+      "items": 2
+    },
+    {
+      "date": "2025-11-16",
+      "count": 1,
+      "revenue_bd": 112,
+      "profit": 77,
+      "items": 2
+    },
+    {
+      "date": "2025-11-18",
+      "count": 9,
+      "revenue_bd": 11703,
+      "profit": 6964,
+      "items": 24
+    },
+    {
+      "date": "2025-11-19",
+      "count": 3,
+      "revenue_bd": 2448,
+      "profit": 1358,
+      "items": 6
+    },
+    {
+      "date": "2025-11-20",
+      "count": 6,
+      "revenue_bd": 15749,
+      "profit": 9740,
+      "items": 16
+    },
+    {
+      "date": "2025-11-21",
+      "count": 4,
+      "revenue_bd": 9070,
+      "profit": 5659,
+      "items": 13
+    },
+    {
+      "date": "2025-11-24",
+      "count": 5,
+      "revenue_bd": 3180,
+      "profit": 2060,
+      "items": 12
+    },
+    {
+      "date": "2025-11-25",
+      "count": 3,
+      "revenue_bd": 1263,
+      "profit": 698,
+      "items": 6
+    },
+    {
+      "date": "2025-11-26",
+      "count": 9,
+      "revenue_bd": 8759,
+      "profit": 5401,
+      "items": 18
+    },
+    {
+      "date": "2025-11-27",
+      "count": 4,
+      "revenue_bd": 3743,
+      "profit": 2240,
+      "items": 10
+    },
+    {
+      "date": "2025-11-28",
+      "count": 2,
+      "revenue_bd": 995,
+      "profit": 452,
+      "items": 4
+    },
+    {
+      "date": "2025-12-01",
+      "count": 15,
+      "revenue_bd": 13400,
+      "profit": 8419,
+      "items": 40
+    },
+    {
+      "date": "2025-12-02",
+      "count": 6,
+      "revenue_bd": 8445,
+      "profit": 4791,
+      "items": 18
+    },
+    {
+      "date": "2025-12-03",
+      "count": 8,
+      "revenue_bd": 3591,
+      "profit": 2237,
+      "items": 16
+    },
+    {
+      "date": "2025-12-04",
+      "count": 6,
+      "revenue_bd": 3906,
+      "profit": 2097,
+      "items": 13
+    },
+    {
+      "date": "2025-12-05",
+      "count": 2,
+      "revenue_bd": 1893,
+      "profit": 1548,
+      "items": 5
+    },
+    {
+      "date": "2025-12-08",
+      "count": 14,
+      "revenue_bd": 10924,
+      "profit": 7202,
+      "items": 37
+    },
+    {
+      "date": "2025-12-09",
+      "count": 9,
+      "revenue_bd": 3356,
+      "profit": 2211,
+      "items": 35
+    },
+    {
+      "date": "2025-12-10",
+      "count": 10,
+      "revenue_bd": 5318,
+      "profit": 3502,
+      "items": 23
+    },
+    {
+      "date": "2025-12-11",
+      "count": 13,
+      "revenue_bd": 20625,
+      "profit": 13534,
+      "items": 30
+    },
+    {
+      "date": "2025-12-12",
+      "count": 6,
+      "revenue_bd": 3017,
+      "profit": 1788,
+      "items": 17
+    },
+    {
+      "date": "2025-12-14",
+      "count": 1,
+      "revenue_bd": 1897,
+      "profit": 1208,
+      "items": 2
+    },
+    {
+      "date": "2025-12-15",
+      "count": 14,
+      "revenue_bd": 6513,
+      "profit": 4886,
+      "items": 34
+    },
+    {
+      "date": "2025-12-16",
+      "count": 25,
+      "revenue_bd": 23201,
+      "profit": 15000,
+      "items": 55
+    },
+    {
+      "date": "2025-12-17",
+      "count": 11,
+      "revenue_bd": 14766,
+      "profit": 9773,
+      "items": 24
+    },
+    {
+      "date": "2025-12-18",
+      "count": 16,
+      "revenue_bd": 5191,
+      "profit": 3503,
+      "items": 35
+    },
+    {
+      "date": "2025-12-19",
+      "count": 10,
+      "revenue_bd": 7156,
+      "profit": 3950,
+      "items": 20
+    },
+    {
+      "date": "2025-12-22",
+      "count": 10,
+      "revenue_bd": 7306,
+      "profit": 4309,
+      "items": 26
+    },
+    {
+      "date": "2025-12-23",
+      "count": 2,
+      "revenue_bd": 3998,
+      "profit": 2727,
+      "items": 6
+    },
+    {
+      "date": "2025-12-29",
+      "count": 22,
+      "revenue_bd": 8502,
+      "profit": 5859,
+      "items": 56
+    },
+    {
+      "date": "2025-12-30",
+      "count": 7,
+      "revenue_bd": 2601,
+      "profit": 1767,
+      "items": 14
+    },
+    {
+      "date": "2025-12-31",
+      "count": 5,
+      "revenue_bd": 1113,
+      "profit": 915,
+      "items": 14
+    },
+    {
+      "date": "2026-01-02",
+      "count": 1,
+      "revenue_bd": 102,
+      "profit": 77,
+      "items": 3
+    },
+    {
+      "date": "2026-01-03",
+      "count": 8,
+      "revenue_bd": 7101,
+      "profit": 4078,
+      "items": 18
+    },
+    {
+      "date": "2026-01-05",
+      "count": 19,
+      "revenue_bd": 9940,
+      "profit": 6403,
+      "items": 45
+    },
+    {
+      "date": "2026-01-06",
+      "count": 9,
+      "revenue_bd": 7882,
+      "profit": 5000,
+      "items": 20
+    },
+    {
+      "date": "2026-01-07",
+      "count": 21,
+      "revenue_bd": 12078,
+      "profit": 7592,
+      "items": 47
+    },
+    {
+      "date": "2026-01-08",
+      "count": 7,
+      "revenue_bd": 4300,
+      "profit": 2304,
+      "items": 15
+    },
+    {
+      "date": "2026-01-09",
+      "count": 9,
+      "revenue_bd": 4278,
+      "profit": 2867,
+      "items": 21
+    },
+    {
+      "date": "2026-01-10",
+      "count": 3,
+      "revenue_bd": 907,
+      "profit": 718,
+      "items": 6
+    },
+    {
+      "date": "2026-01-12",
+      "count": 17,
+      "revenue_bd": 13741,
+      "profit": 8728,
+      "items": 59
+    },
+    {
+      "date": "2026-01-13",
+      "count": 8,
+      "revenue_bd": 9009,
+      "profit": 5115,
+      "items": 20
+    },
+    {
+      "date": "2026-01-14",
+      "count": 4,
+      "revenue_bd": 11164,
+      "profit": 5713,
+      "items": 8
+    },
+    {
+      "date": "2026-01-15",
+      "count": 12,
+      "revenue_bd": 27071,
+      "profit": 15418,
+      "items": 33
+    },
+    {
+      "date": "2026-01-16",
+      "count": 12,
+      "revenue_bd": 7970,
+      "profit": 5173,
+      "items": 30
+    },
+    {
+      "date": "2026-01-17",
+      "count": 1,
+      "revenue_bd": 56,
+      "profit": 38,
+      "items": 2
+    },
+    {
+      "date": "2026-01-19",
+      "count": 16,
+      "revenue_bd": 9033,
+      "profit": 6138,
+      "items": 45
+    },
+    {
+      "date": "2026-01-20",
+      "count": 6,
+      "revenue_bd": 9269,
+      "profit": 6220,
+      "items": 18
+    },
+    {
+      "date": "2026-01-21",
+      "count": 7,
+      "revenue_bd": 2218,
+      "profit": 1584,
+      "items": 16
+    },
+    {
+      "date": "2026-01-22",
+      "count": 11,
+      "revenue_bd": 11470,
+      "profit": 6405,
+      "items": 30
+    },
+    {
+      "date": "2026-01-23",
+      "count": 7,
+      "revenue_bd": 3972,
+      "profit": 1773,
+      "items": 13
+    },
+    {
+      "date": "2026-01-26",
+      "count": 13,
+      "revenue_bd": 7380,
+      "profit": 4292,
+      "items": 41
+    },
+    {
+      "date": "2026-01-27",
+      "count": 6,
+      "revenue_bd": 5512,
+      "profit": 3046,
+      "items": 18
+    },
+    {
+      "date": "2026-01-28",
+      "count": 11,
+      "revenue_bd": 10717,
+      "profit": 5554,
+      "items": 29
+    },
+    {
+      "date": "2026-01-29",
+      "count": 5,
+      "revenue_bd": 2259,
+      "profit": 1466,
+      "items": 11
+    },
+    {
+      "date": "2026-01-30",
+      "count": 5,
+      "revenue_bd": 2419,
+      "profit": 1925,
+      "items": 10
+    },
+    {
+      "date": "2026-02-02",
+      "count": 8,
+      "revenue_bd": 3930,
+      "profit": 2630,
+      "items": 16
+    },
+    {
+      "date": "2026-02-03",
+      "count": 2,
+      "revenue_bd": 477,
+      "profit": 459,
+      "items": 5
+    },
+    {
+      "date": "2026-02-04",
+      "count": 13,
+      "revenue_bd": 17443,
+      "profit": 11308,
+      "items": 32
+    },
+    {
+      "date": "2026-02-05",
+      "count": 5,
+      "revenue_bd": 11566,
+      "profit": 7142,
+      "items": 13
+    },
+    {
+      "date": "2026-02-06",
+      "count": 1,
+      "revenue_bd": 495,
+      "profit": 377,
+      "items": 2
+    },
+    {
+      "date": "2026-02-09",
+      "count": 14,
+      "revenue_bd": 17720,
+      "profit": 10401,
+      "items": 31
+    },
+    {
+      "date": "2026-02-10",
+      "count": 1,
+      "revenue_bd": 114,
+      "profit": 73,
+      "items": 2
+    },
+    {
+      "date": "2026-02-11",
+      "count": 6,
+      "revenue_bd": 4029,
+      "profit": 2734,
+      "items": 17
+    },
+    {
+      "date": "2026-02-12",
+      "count": 8,
+      "revenue_bd": 12703,
+      "profit": 8476,
+      "items": 18
+    },
+    {
+      "date": "2026-02-13",
+      "count": 10,
+      "revenue_bd": 10935,
+      "profit": 7067,
+      "items": 24
+    },
+    {
+      "date": "2026-02-16",
+      "count": 6,
+      "revenue_bd": 11351,
+      "profit": 8231,
+      "items": 12
+    },
+    {
+      "date": "2026-02-17",
+      "count": 8,
+      "revenue_bd": 7517,
+      "profit": 4633,
+      "items": 20
+    },
+    {
+      "date": "2026-02-18",
+      "count": 4,
+      "revenue_bd": 1576,
+      "profit": 1113,
+      "items": 8
+    },
+    {
+      "date": "2026-02-19",
+      "count": 10,
+      "revenue_bd": 24494,
+      "profit": 14957,
+      "items": 24
+    },
+    {
+      "date": "2026-02-20",
+      "count": 12,
+      "revenue_bd": 10201,
+      "profit": 6127,
+      "items": 27
+    },
+    {
+      "date": "2026-02-23",
+      "count": 12,
+      "revenue_bd": 10571,
+      "profit": 6614,
+      "items": 47
+    },
+    {
+      "date": "2026-02-24",
+      "count": 9,
+      "revenue_bd": 8289,
+      "profit": 3660,
+      "items": 22
+    },
+    {
+      "date": "2026-02-25",
+      "count": 6,
+      "revenue_bd": 6623,
+      "profit": 3489,
+      "items": 17
+    },
+    {
+      "date": "2026-02-26",
+      "count": 7,
+      "revenue_bd": 6223,
+      "profit": 3921,
+      "items": 16
+    },
+    {
+      "date": "2026-02-27",
+      "count": 5,
+      "revenue_bd": 8841,
+      "profit": 5246,
+      "items": 10
+    },
+    {
+      "date": "2026-03-02",
+      "count": 8,
+      "revenue_bd": 7389,
+      "profit": 4534,
+      "items": 22
+    },
+    {
+      "date": "2026-03-03",
+      "count": 10,
+      "revenue_bd": 12548,
+      "profit": 7674,
+      "items": 23
+    },
+    {
+      "date": "2026-03-04",
+      "count": 13,
+      "revenue_bd": 22711,
+      "profit": 8940,
+      "items": 30
+    },
+    {
+      "date": "2026-03-05",
+      "count": 2,
+      "revenue_bd": 7858,
+      "profit": 4900,
+      "items": 6
+    },
+    {
+      "date": "2026-03-06",
+      "count": 5,
+      "revenue_bd": 22730,
+      "profit": 13480,
+      "items": 13
+    },
+    {
+      "date": "2026-03-09",
+      "count": 3,
+      "revenue_bd": 1912,
+      "profit": 1276,
+      "items": 7
+    },
+    {
+      "date": "2026-03-10",
+      "count": 7,
+      "revenue_bd": 7318,
+      "profit": 4513,
+      "items": 15
+    },
+    {
+      "date": "2026-03-11",
+      "count": 3,
+      "revenue_bd": 6812,
+      "profit": 1721,
+      "items": 6
+    },
+    {
+      "date": "2026-03-12",
+      "count": 1,
+      "revenue_bd": 4107,
+      "profit": 2436,
+      "items": 2
+    },
+    {
+      "date": "2026-03-13",
+      "count": 3,
+      "revenue_bd": 1523,
+      "profit": 957,
+      "items": 10
+    },
+    {
+      "date": "2026-03-16",
+      "count": 4,
+      "revenue_bd": 4050,
+      "profit": 2272,
+      "items": 9
+    },
+    {
+      "date": "2026-03-17",
+      "count": 6,
+      "revenue_bd": 9658,
+      "profit": 5730,
+      "items": 13
+    },
+    {
+      "date": "2026-03-18",
+      "count": 6,
+      "revenue_bd": 1671,
+      "profit": 1099,
+      "items": 13
+    },
+    {
+      "date": "2026-03-19",
+      "count": 6,
+      "revenue_bd": 4578,
+      "profit": 3123,
+      "items": 16
+    },
+    {
+      "date": "2026-03-20",
+      "count": 7,
+      "revenue_bd": 14642,
+      "profit": 8040,
+      "items": 18
+    },
+    {
+      "date": "2026-03-23",
+      "count": 2,
+      "revenue_bd": 421,
+      "profit": 244,
+      "items": 4
+    },
+    {
+      "date": "2026-03-24",
+      "count": 1,
+      "revenue_bd": 66,
+      "profit": 50,
+      "items": 2
+    },
+    {
+      "date": "2026-03-25",
+      "count": 1,
+      "revenue_bd": 144,
+      "profit": 109,
+      "items": 2
+    },
+    {
+      "date": "2026-04-01",
+      "count": 7,
+      "revenue_bd": 5827,
+      "profit": 3659,
+      "items": 16
+    },
+    {
+      "date": "2026-04-02",
+      "count": 6,
+      "revenue_bd": 9008,
+      "profit": 4970,
+      "items": 14
+    },
+    {
+      "date": "2026-04-07",
+      "count": 6,
+      "revenue_bd": 4912,
+      "profit": 2672,
+      "items": 12
+    },
+    {
+      "date": "2026-04-08",
+      "count": 10,
+      "revenue_bd": 18993,
+      "profit": 11815,
+      "items": 22
+    },
+    {
+      "date": "2026-04-09",
+      "count": 4,
+      "revenue_bd": 4466,
+      "profit": 2371,
+      "items": 9
+    },
+    {
+      "date": "2026-04-10",
+      "count": 4,
+      "revenue_bd": 1577,
+      "profit": 957,
+      "items": 13
+    },
+    {
+      "date": "2026-04-13",
+      "count": 9,
+      "revenue_bd": 13109,
+      "profit": 8629,
+      "items": 21
+    },
+    {
+      "date": "2026-04-14",
+      "count": 3,
+      "revenue_bd": 3296,
+      "profit": 1953,
+      "items": 7
+    },
+    {
+      "date": "2026-04-15",
+      "count": 8,
+      "revenue_bd": 10887,
+      "profit": 6984,
+      "items": 20
+    },
+    {
+      "date": "2026-04-16",
+      "count": 8,
+      "revenue_bd": 17551,
+      "profit": 11850,
+      "items": 30
+    },
+    {
+      "date": "2026-04-17",
+      "count": 10,
+      "revenue_bd": 6533,
+      "profit": 4384,
+      "items": 29
+    },
+    {
+      "date": "2026-04-20",
+      "count": 5,
+      "revenue_bd": 8766,
+      "profit": 6622,
+      "items": 10
+    },
+    {
+      "date": "2026-04-21",
+      "count": 10,
+      "revenue_bd": 4150,
+      "profit": 2463,
+      "items": 24
+    },
+    {
+      "date": "2026-04-22",
+      "count": 8,
+      "revenue_bd": 2688,
+      "profit": 1635,
+      "items": 21
+    },
+    {
+      "date": "2026-04-23",
+      "count": 9,
+      "revenue_bd": 10147,
+      "profit": 6289,
+      "items": 19
+    },
+    {
+      "date": "2026-04-24",
+      "count": 12,
+      "revenue_bd": 7253,
+      "profit": 4824,
+      "items": 28
+    },
+    {
+      "date": "2026-04-25",
+      "count": 1,
+      "revenue_bd": 107,
+      "profit": 24,
+      "items": 1
+    },
+    {
+      "date": "2026-04-27",
+      "count": 14,
+      "revenue_bd": 16269,
+      "profit": 9885,
+      "items": 31
+    },
+    {
+      "date": "2026-04-28",
+      "count": 4,
+      "revenue_bd": 1312,
+      "profit": 782,
+      "items": 8
+    },
+    {
+      "date": "2026-04-29",
+      "count": 9,
+      "revenue_bd": 4185,
+      "profit": 2227,
+      "items": 26
+    },
+    {
+      "date": "2026-04-30",
+      "count": 10,
+      "revenue_bd": 4703,
+      "profit": 3244,
+      "items": 31
+    },
+    {
+      "date": "2026-05-04",
+      "count": 17,
+      "revenue_bd": 19935,
+      "profit": 11906,
+      "items": 37
+    },
+    {
+      "date": "2026-05-05",
+      "count": 7,
+      "revenue_bd": 2956,
+      "profit": 2034,
+      "items": 21
+    },
+    {
+      "date": "2026-05-06",
+      "count": 9,
+      "revenue_bd": 6450,
+      "profit": 3771,
+      "items": 18
+    },
+    {
+      "date": "2026-05-07",
+      "count": 11,
+      "revenue_bd": 5070,
+      "profit": 3478,
+      "items": 25
+    }
+  ]
+}

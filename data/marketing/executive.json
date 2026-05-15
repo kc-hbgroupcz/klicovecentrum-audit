@@ -1,0 +1,120 @@
+{
+  "generated_at": "2026-05-15T15:42:08",
+  "primary_source": "ERP Cézar Výdejky (klient potvrdil 12.5.2026)",
+  "erp_period": {
+    "start": "2025-10-01",
+    "end": "2026-05-07"
+  },
+  "periods": {
+    "last_7d": {
+      "revenue": 34411,
+      "orders": 44,
+      "aov": 782,
+      "days": 4,
+      "period_start": "2026-05-01",
+      "period_end": "2026-05-07"
+    },
+    "last_30d": {
+      "revenue": 170403,
+      "orders": 182,
+      "aov": 936,
+      "days": 22,
+      "period_start": "2026-04-08",
+      "period_end": "2026-05-07"
+    },
+    "last_90d": {
+      "revenue": 461475,
+      "orders": 407,
+      "aov": 1134,
+      "days": 58,
+      "period_start": "2026-02-07",
+      "period_end": "2026-05-07"
+    },
+    "mtd": {
+      "revenue": 34411,
+      "orders": 44,
+      "aov": 782,
+      "days": 4,
+      "period_start": "2026-05-01",
+      "period_end": "2026-05-07"
+    }
+  },
+  "hero_kpis": {
+    "last_30d": {
+      "revenue": 170403,
+      "orders": 182,
+      "aov": 936,
+      "days": 22,
+      "delta_revenue_pct": 122.3,
+      "delta_orders_pct": 163.8
+    },
+    "last_7d": {
+      "revenue": 34411,
+      "orders": 44,
+      "aov": 782,
+      "days": 4,
+      "period_start": "2026-05-01",
+      "period_end": "2026-05-07"
+    }
+  },
+  "erp_8m_summary": {
+    "period": {
+      "start": "2025-10-01",
+      "end": "2026-05-07"
+    },
+    "b2c_mo": {
+      "total_revenue": 1261245,
+      "total_orders": 1143,
+      "aov": 1103,
+      "profit": 747189,
+      "margin_pct": 59.2,
+      "items_total": 2864
+    },
+    "b2b_vo": {
+      "total_revenue": 4351779,
+      "total_orders": 967,
+      "aov": 4500,
+      "profit": 1917311,
+      "margin_pct": 44.1,
+      "items_total": 12508
+    },
+    "b2b_b2c_ratio": 3.45,
+    "total_revenue": 5613024,
+    "total_profit": 2664500,
+    "blended_margin_pct": 47.5
+  },
+  "shipments": {
+    "ppl_total_packages": 2357,
+    "ppl_unique_shipments": 2089,
+    "ppl_period": "2025-11-01 → 2026-05-11 (7M aktivní použití)"
+  },
+  "complaints": {
+    "vratky_count": 2675,
+    "vratky_value_kc": 5925792,
+    "estimated_complaints": 272,
+    "lost_value_estimate_kc": 6368082
+  },
+  "merchant_center": {
+    "total_products": 2228,
+    "approval_rate_pct": 99.24,
+    "disapproved": 17,
+    "account_issues": 2
+  },
+  "cloudflare": {
+    "domains_protected": 4,
+    "total_rules": 29,
+    "all_bfm_on": true
+  },
+  "alerts": [
+    {
+      "level": "warning",
+      "section": 17,
+      "message": "MC: 2 account-level issues"
+    },
+    {
+      "level": "info",
+      "section": 13,
+      "message": "Vratky 8M total: 2675 (5,925,792 Kč)"
+    }
+  ]
+}
