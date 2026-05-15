@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-15T15:52:36",
+  "generated_at": "2026-05-15T16:04:33",
   "year": 2025,
   "summary": {
     "MO": {
@@ -191,5 +191,45 @@
   "interpretation": {
     "mo_vs_vo_pattern": "MO vratky: 1001 ks za 673,787 Kč (43.7 % objednávek). VO vratky: 1674 ks za 5,252,005 Kč (93.7 % objednávek).",
     "complaints_status": "Reklamace nejsou v audit datech systémově trackované (žádný flag/typ ve výdejkách). Vratky obecně = jeden bucket bez rozlišení 'vrácení do 14 dnů' vs 'reklamace'."
+  },
+  "postage_returns": {
+    "summary": {
+      "sql_orders_with_dobropis": 0,
+      "sql_orders_with_payment_return": 0,
+      "erp_total_rows": 1308,
+      "erp_rows_with_returns": 0,
+      "erp_returned_qty": 0,
+      "erp_returned_revenue_kc": 0
+    },
+    "implicit_gap": {
+      "sql_revenue_excl_kc": 1383208,
+      "erp_revenue_excl_kc": 1170741,
+      "gap_kc": 212467,
+      "gap_pct_of_sql": 15.4,
+      "interpretation": "SQL kosik ukazuje 1,383,208 Kč objednávek, ERP účetní pouze 1,170,741 Kč (15.4 % gap = 212,467 Kč). Tento rozdíl pravděpodobně obsahuje: storno objednávek před doručením, nezaplacené COD (vrácená dobírka), vrácení v reklamační lhůtě bez vystavení dobropisu, odlišný timing (datum doručení vs. datum účetnictví). NELZE rozdělit per-objednávka — chybí explicit tracking."
+    },
+    "data_quality": {
+      "sql_dobropis_field_present": true,
+      "sql_dobropis_filled_pct": 0.0,
+      "erp_returns_columns_present": true,
+      "erp_returns_filled_pct": 0.0,
+      "verdict": "🔴 Vratky NEJSOU systémově trackované. Reportovaný stav 0 znamená 'nezaznamenáno', ne 'žádné vrátky'. Skutečný objem vrátek = ERP-SQL gap (~30 %)."
+    }
+  },
+  "data_gap": {
+    "message": "Aktualní ERP export NEOBSAHUJE detail \"co konkrétně se vrací\" — jen pair (vratka_číslo → původní výdejka_číslo) bez per-produkt breakdown.",
+    "have": [
+      "Total počet vratek (2 675 ks za 8M)",
+      "Total hodnota vratek (5,9M Kč)",
+      "Per měsíc count + value",
+      "Per segment (MO vs VO)",
+      "Vratka mapping na původní výdejku"
+    ],
+    "missing": [
+      "Top vrácené produkty (jaký SKU se vrací nejvíc?)",
+      "Důvod vrácení (do 14 dní vs reklamace vs jiné)",
+      "Cross-link s reklamace — která vratka skončila reklamací?"
+    ],
+    "fix": "Klient zařídí v Cézaru export Vratek s per-produkt detail (řádky vratky stejně jako u výdejky) → odblokuje produkce/category breakdown."
   }
 }

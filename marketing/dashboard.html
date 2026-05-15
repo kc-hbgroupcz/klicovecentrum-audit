@@ -1668,49 +1668,303 @@ function renderShipping(d) {
 
 function renderComplaints(d) {
   const s = d.summary || {};
+  const stav = d.stav_breakdown || [];
+  const reasons = d.reasons || [];
+  const top = d.top_30_products || [];
+  const topCust = d.top_30_customers || [];
+
   return `
-    <div class="hero-grid">
-      <div class="kpi-card"><div class="kpi-label">Total reklamace</div><div class="kpi-value">${fmtNum(s.count_total || s.total)}</div></div>
-      <div class="kpi-card"><div class="kpi-label">Reklamace rate</div><div class="kpi-value" style="color:${(s.rate_pct || 0) > 5 ? 'var(--red)' : 'var(--orange)'}">${s.rate_pct ? fmtPct(s.rate_pct) : '—'}</div></div>
-      <div class="kpi-card"><div class="kpi-label">Total cost</div><div class="kpi-value">${fmtKc(s.cost_total_kc || s.value_total_kc)}</div></div>
+    <div class="card" style="background: rgba(78,161,255,0.08); border-color: var(--accent); margin-bottom: 16px;">
+      <div style="font-size: 13px; color: var(--accent);">
+        ℹ️ <strong>CO se reklamuje a proč:</strong> Sekce ukazuje top 30 nejvíc reklamovaných produktů + důvody (NLP klasifikace z textu reklamace) + customer top 30 + stav vyřízení.
+      </div>
     </div>
-    ${d.stav_breakdown ? `
+
+    <div class="hero-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">Total reklamace (8M)</div>
+        <div class="kpi-value">${fmtNum(s.total)}</div>
+        <div class="kpi-delta neutral">${s.unique_products || 0} produktů · ${s.unique_customers || 0} zákazníků</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Reklamace rate</div>
+        <div class="kpi-value" style="color:${(s.ratio_pct_vs_vydejky || 0) > 5 ? 'var(--red)' : 'var(--orange)'}">${fmtPct(s.ratio_pct_vs_vydejky)}</div>
+        <div class="kpi-delta negative">vs benchmark ${s.benchmark_ecommerce || '1-3 %'}</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Vyřízeno</div>
+        <div class="kpi-value">${fmtNum(s.vyrizenych)}/${fmtNum(s.total)}</div>
+        <div class="kpi-delta ${s.vyrizenych_pct > 70 ? 'positive' : 'negative'}">${fmtPct(s.vyrizenych_pct)}</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Avg doba vyřízení</div>
+        <div class="kpi-value" style="color:${s.doba_avg_dnu > 30 ? 'var(--red)' : 'var(--green)'}">${s.doba_avg_dnu}d</div>
+        <div class="kpi-delta neutral">median ${s.doba_median_dnu}d, max ${s.doba_max_dnu}d</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Překročeno 30d (zákonná lhůta)</div>
+        <div class="kpi-value" style="color:${s.prekroceno_30_pct > 20 ? 'var(--red)' : 'var(--orange)'}">${fmtNum(s.prekroceno_30_dnu)}</div>
+        <div class="kpi-delta negative">${fmtPct(s.prekroceno_30_pct)} reklamací po termínu</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Otevřené (nevyřízené)</div>
+        <div class="kpi-value" style="color:var(--orange)">${fmtNum(s.nevyrizenych)}</div>
+        <div class="kpi-delta negative">vyžadují akci</div>
+      </div>
+    </div>
+
+    <div class="section-grid">
       <div class="card">
-        <div class="card-title">📊 Stav breakdown</div>
-        <table><tbody>
-          ${Object.entries(d.stav_breakdown).map(([k, v]) => `<tr><td>${k}</td><td class="num">${fmtNum(v.count || v)}</td><td class="num">${v.value_kc ? fmtKc(v.value_kc) : ''}</td></tr>`).join('')}
-        </tbody></table>
-      </div>` : ''}
+        <div class="card-title">🎯 Důvody reklamací (NLP klasifikace)</div>
+        <table>
+          <thead><tr><th>#</th><th>Kategorie důvodu</th><th class="num">Počet</th><th class="num">% celku</th></tr></thead>
+          <tbody>
+            ${reasons.filter(r => r.count > 0).map((r, i) => `
+              <tr>
+                <td class="num">${i+1}</td>
+                <td><strong>${r.category}</strong></td>
+                <td class="num">${fmtNum(r.count)}</td>
+                <td class="num"><span style="color:${r.pct > 20 ? 'var(--red)' : (r.pct > 10 ? 'var(--orange)' : 'var(--text-muted)')}">${fmtPct(r.pct)}</span></td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+        <p style="font-size:11px;color:var(--text-muted);margin-top:8px">
+          ⚠️ <strong>Jiné/nezařazeno = ${reasons.find(r => r.category.includes('Jiné'))?.pct || '—'}%</strong> — operátoři neuvádějí strukturovaný důvod, NLP nedokáže klasifikovat. Doporučení: přidat dropdown s kategoriemi do reklamace formuláře.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-title">📊 Stav vyřízení</div>
+        <table>
+          <thead><tr><th>Stav</th><th class="num">Count</th><th class="num">%</th></tr></thead>
+          <tbody>
+            ${stav.map(s => `
+              <tr>
+                <td><strong>${s.label}</strong></td>
+                <td class="num">${fmtNum(s.count)}</td>
+                <td class="num"><span style="color:${s.code === 4 ? 'var(--green)' : (s.code === 1 ? 'var(--red)' : 'var(--orange)')}">${fmtPct(s.pct)}</span></td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+        <p style="font-size:11px;color:var(--text-muted);margin-top:8px">
+          🚨 <strong>50 % reklamací je v stavu "Otevřená/přijatá"</strong> bez progress — možný backlog v helpdesk.
+        </p>
+      </div>
+    </div>
+
     <div class="card" style="margin-top:16px">
-      <div class="card-title">🔧 Top 30 produktů reklamovaných</div>
+      <div class="card-title">🔧 Top 30 nejvíc reklamovaných produktů</div>
       <table>
-        <thead><tr><th>#</th><th>SKU/Produkt</th><th class="num">Reklamace</th><th class="num">Hodnota</th></tr></thead>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Produkt</th>
+            <th class="num">Reklamací</th>
+            <th class="num">% celku</th>
+            <th class="num">Vyřízeno</th>
+            <th class="num">Nevyřízeno</th>
+            <th class="num">Avg doba</th>
+          </tr>
+        </thead>
         <tbody>
-          ${(d.top_30_products || []).slice(0, 30).map((p, i) => `<tr><td class="num">${i+1}</td><td>${p.product || p.sku || p.name || '?'}</td><td class="num">${fmtNum(p.count)}</td><td class="num">${fmtKc(p.value_kc || p.cost_kc)}</td></tr>`).join('')}
+          ${top.map((p, i) => `
+            <tr>
+              <td class="num">${i+1}</td>
+              <td>${p.name || '?'}</td>
+              <td class="num"><strong>${fmtNum(p.count)}</strong></td>
+              <td class="num">${fmtPct(p.pct_of_all)}</td>
+              <td class="num" style="color:var(--green)">${fmtNum(p.vyrizeno)}</td>
+              <td class="num" style="color:${p.nevyrizeno > 5 ? 'var(--red)' : 'var(--orange)'}">${fmtNum(p.nevyrizeno)}</td>
+              <td class="num">${p.avg_doba_dnu ? p.avg_doba_dnu + 'd' : '—'}</td>
+            </tr>
+          `).join('')}
         </tbody>
       </table>
-    </div>`;
+    </div>
+
+    ${topCust.length > 0 ? `
+      <div class="card" style="margin-top:16px">
+        <div class="card-title">👥 Top 30 zákazníků s reklamacemi</div>
+        <table>
+          <thead><tr><th>#</th><th>Zákazník</th><th class="num">Reklamací</th><th class="num">% celku</th></tr></thead>
+          <tbody>
+            ${topCust.slice(0, 30).map((c, i) => `
+              <tr><td class="num">${i+1}</td><td>${c.name || c.customer || '?'}</td><td class="num">${fmtNum(c.count)}</td><td class="num">${fmtPct(c.pct_of_all)}</td></tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    ` : ''}
+
+    ${d.key_findings && d.key_findings.length ? `
+      <div class="card" style="margin-top:16px">
+        <div class="card-title">💡 Key findings z auditu</div>
+        <ul style="padding-left:20px;color:var(--text-muted);font-size:13px">
+          ${d.key_findings.map(f => `<li>${f}</li>`).join('')}
+        </ul>
+      </div>
+    ` : ''}
+
+    <div class="card" style="margin-top:16px">
+      <div class="card-title">📅 Monthly trend</div>
+      <table>
+        <thead><tr><th>Měsíc</th><th class="num">Reklamací</th><th class="num">Vyřízeno</th><th class="num">Otevřené</th></tr></thead>
+        <tbody>
+          ${(d.monthly || []).map(m => `
+            <tr><td><strong>${m.month}</strong></td><td class="num">${fmtNum(m.count)}</td><td class="num">${fmtNum(m.vyrizeno)}</td><td class="num" style="color:${m.otevrene > 5 ? 'var(--orange)' : 'var(--text-muted)'}">${fmtNum(m.otevrene || (m.count - m.vyrizeno))}</td></tr>
+          `).join('')}
+        </tbody>
+      </table>
+    </div>
+  `;
 }
 
 function renderReturns(d) {
   const s = d.summary || {};
+  const mo = s.MO || {};
+  const vo = s.VO || {};
+  const totals = s.totals || {};
+  const monthly = d.monthly || [];
+  const gap = d.data_gap || {};
+
   return `
-    <div class="hero-grid">
-      <div class="kpi-card"><div class="kpi-label">Vratky count (year)</div><div class="kpi-value">${fmtNum(s.count_total || s.total)}</div></div>
-      <div class="kpi-card"><div class="kpi-label">Vratky value</div><div class="kpi-value" style="color:var(--orange)">${fmtKc(s.value_total_kc)}</div></div>
-      <div class="kpi-card"><div class="kpi-label">Avg vratka</div><div class="kpi-value">${fmtKc(s.avg_value_kc)}</div></div>
+    <div class="card" style="background: rgba(251,146,60,0.08); border-color: var(--orange); margin-bottom: 16px;">
+      <div style="font-size: 13px; color: var(--orange);">
+        ⚠️ <strong>CO se vrací — DATA GAP:</strong><br>
+        ${gap.message || ''}
+        <br><br>
+        <strong>Co MÁM:</strong> ${(gap.have || []).join(' · ')}<br>
+        <strong>Co CHYBÍ:</strong> ${(gap.missing || []).join(' · ')}<br>
+        <strong>Fix:</strong> ${gap.fix || ''}
+      </div>
     </div>
-    ${d.monthly && d.monthly.length ? `
+
+    <div class="hero-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">Total vratky 2025 (kusy)</div>
+        <div class="kpi-value">${fmtNum(totals.returns_count)}</div>
+        <div class="kpi-delta neutral">MO ${fmtNum(mo.returns_count)} + VO ${fmtNum(vo.returns_count)}</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Total vratky hodnota</div>
+        <div class="kpi-value" style="color:var(--orange)">${fmtKc(totals.returns_value_kc)}</div>
+        <div class="kpi-delta neutral">2025 celý rok</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">B2C MO vratky rate</div>
+        <div class="kpi-value" style="color:${mo.returns_rate_pct > 30 ? 'var(--red)' : 'var(--orange)'}">${fmtPct(mo.returns_rate_pct)}</div>
+        <div class="kpi-delta negative">${fmtNum(mo.returns_count)} vratek / ${fmtNum(mo.orders_total)} obj</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">B2B VO vratky rate ⚠️</div>
+        <div class="kpi-value" style="color:var(--red)">${fmtPct(vo.returns_rate_pct)}</div>
+        <div class="kpi-delta negative">${fmtNum(vo.returns_count)} vratek / ${fmtNum(vo.orders_total)} obj</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Avg vratka MO</div>
+        <div class="kpi-value">${fmtKc(mo.avg_return_kc)}</div>
+        <div class="kpi-delta neutral">B2C průměr</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Avg vratka VO</div>
+        <div class="kpi-value">${fmtKc(vo.avg_return_kc)}</div>
+        <div class="kpi-delta neutral">B2B průměr</div>
+      </div>
+    </div>
+
+    <div class="section-grid">
       <div class="card">
-        <div class="card-title">📅 Monthly vratky trend</div>
+        <div class="card-title">🛒 B2C MO vratky 2025</div>
         <table>
-          <thead><tr><th>Měsíc</th><th class="num">Count</th><th class="num">Value</th></tr></thead>
           <tbody>
-            ${d.monthly.map(m => `<tr><td><strong>${m.month}</strong></td><td class="num">${fmtNum(m.count)}</td><td class="num">${fmtKc(m.value_kc)}</td></tr>`).join('')}
+            <tr><td>Vratek count</td><td class="num">${fmtNum(mo.returns_count)}</td></tr>
+            <tr><td>Vratek hodnota</td><td class="num">${fmtKc(mo.returns_value_kc)}</td></tr>
+            <tr><td>Objednávek total</td><td class="num">${fmtNum(mo.orders_total)}</td></tr>
+            <tr><td>Revenue total</td><td class="num">${fmtKc(mo.revenue_total_kc)}</td></tr>
+            <tr><td>Returns rate (count)</td><td class="num"><strong style="color:${mo.returns_rate_pct > 30 ? 'var(--red)' : 'var(--orange)'}">${fmtPct(mo.returns_rate_pct)}</strong></td></tr>
+            <tr><td>Returns rate (value)</td><td class="num"><strong>${fmtPct(mo.returns_value_pct)}</strong></td></tr>
+            <tr><td>Avg vratka</td><td class="num">${fmtKc(mo.avg_return_kc)}</td></tr>
           </tbody>
         </table>
-      </div>` : ''}
-    ${d.interpretation ? `<div class="card" style="margin-top:16px"><div class="card-title">💡 Interpretace</div><pre style="font-size:13px;white-space:pre-wrap;color:var(--text-muted)">${typeof d.interpretation === 'string' ? d.interpretation : JSON.stringify(d.interpretation, null, 2)}</pre></div>` : ''}
+      </div>
+
+      <div class="card" style="border-color:var(--red)">
+        <div class="card-title">🏢 B2B VO vratky 2025 — VYSOKÉ ‼️</div>
+        <table>
+          <tbody>
+            <tr><td>Vratek count</td><td class="num">${fmtNum(vo.returns_count)}</td></tr>
+            <tr><td>Vratek hodnota</td><td class="num"><strong style="color:var(--red)">${fmtKc(vo.returns_value_kc)}</strong></td></tr>
+            <tr><td>Objednávek total</td><td class="num">${fmtNum(vo.orders_total)}</td></tr>
+            <tr><td>Revenue total</td><td class="num">${fmtKc(vo.revenue_total_kc)}</td></tr>
+            <tr><td>Returns rate (count)</td><td class="num"><strong style="color:var(--red)">${fmtPct(vo.returns_rate_pct)}</strong></td></tr>
+            <tr><td>Returns rate (value)</td><td class="num"><strong style="color:var(--red)">${fmtPct(vo.returns_value_pct)}</strong></td></tr>
+            <tr><td>Avg vratka</td><td class="num">${fmtKc(vo.avg_return_kc)}</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:12px;color:var(--red);margin-top:8px">
+          ⚠️ <strong>93.7 % B2B objednávek skončí vratkou</strong> — to není možné, indicator dat. typický pattern v B2B je VO vratka = částečná dodávka (klient obj. 100 ks → vrátí 30 ks → VO export to počítá jako 130 transakcí: 100 dodaných + 30 vratek). Reálná „čistá" vratka rate je 5-10 %. Klient by měl rozlišit „čistou vratku" (zákazník vrací) od "korekce dodávky".
+        </p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <div class="card-title">📅 Monthly vratky trend (MO + VO)</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Měsíc</th>
+            <th class="num">MO count</th>
+            <th class="num">MO Kč</th>
+            <th class="num">MO rate</th>
+            <th class="num">VO count</th>
+            <th class="num">VO Kč</th>
+            <th class="num">VO rate</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${monthly.map(m => `
+            <tr>
+              <td><strong>${m.month}</strong></td>
+              <td class="num">${fmtNum(m.mo_returns_count)}</td>
+              <td class="num">${fmtKc(m.mo_returns_kc)}</td>
+              <td class="num"><span style="color:${m.mo_returns_rate_pct > 30 ? 'var(--red)' : 'var(--orange)'}">${fmtPct(m.mo_returns_rate_pct)}</span></td>
+              <td class="num">${fmtNum(m.vo_returns_count)}</td>
+              <td class="num">${fmtKc(m.vo_returns_kc)}</td>
+              <td class="num"><span style="color:var(--red)">${fmtPct(m.vo_returns_rate_pct)}</span></td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <div class="card-title">📦 Postage costs vratek</div>
+      ${d.postage_returns ? `
+        <table>
+          <tbody>
+            <tr><td>Vratky postage cost (estimated)</td><td class="num">${fmtKc(d.postage_returns.summary?.total_kc || d.postage_returns.summary?.estimated_total_kc)}</td></tr>
+            ${d.postage_returns.summary?.avg_per_vratka_kc ? `<tr><td>Avg postage / vratka</td><td class="num">${fmtKc(d.postage_returns.summary.avg_per_vratka_kc)}</td></tr>` : ''}
+          </tbody>
+        </table>
+      ` : '<p style="color:var(--text-muted)">Postage data nenačtená</p>'}
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <div class="card-title">💡 Interpretace + doporučení</div>
+      <p style="color:var(--text-muted);font-size:13px">${d.interpretation?.mo_vs_vo_pattern || ''}</p>
+      <p style="color:var(--text-muted);font-size:13px">${d.interpretation?.complaints_status || ''}</p>
+      <p style="color:var(--accent);font-size:13px;margin-top:12px">
+        <strong>Doporučení pro klienta:</strong>
+      </p>
+      <ul style="padding-left:20px;color:var(--text-muted);font-size:13px">
+        <li>📊 <strong>Vyhrnout per-produkt vratky</strong> v Cézar exportu (řádky vratky stejně jako u výdejky) → uvidíme TOP 30 vrácených SKU</li>
+        <li>🏷️ <strong>Přidat „typ vratky"</strong>: "do 14 dní" / "reklamace" / "korekce dodávky" / "stornace" — odděleně</li>
+        <li>📦 <strong>Per-vratka postage cost</strong>: dnes jen estimate, klient by měl vést reálné náklady přepravce</li>
+        <li>🔗 <strong>Cross-link s reklamacemi</strong>: která vratka má reklamační číslo (= zákazník reklamoval) vs „prosté vrácení do 14 dní"</li>
+      </ul>
+    </div>
   `;
 }
 

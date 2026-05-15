@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-15T15:52:36",
+  "generated_at": "2026-05-15T16:04:33",
   "period": {
     "start": "2025-10-01",
     "end": "2026-05-05"
@@ -77,6 +77,53 @@
       "label": "Uzavřená",
       "count": 1,
       "pct": 0.7
+    }
+  ],
+  "reasons": [
+    {
+      "category": "Jiné / nezařazeno",
+      "count": 72,
+      "pct": 52.2
+    },
+    {
+      "category": "Nefunkční / nefunkčnost",
+      "count": 37,
+      "pct": 26.8
+    },
+    {
+      "category": "Klíč / zámek nejde",
+      "count": 15,
+      "pct": 10.9
+    },
+    {
+      "category": "Kvalita / vada",
+      "count": 5,
+      "pct": 3.6
+    },
+    {
+      "category": "Nastavení / seřízení",
+      "count": 5,
+      "pct": 3.6
+    },
+    {
+      "category": "Rozbité / poškozené",
+      "count": 2,
+      "pct": 1.4
+    },
+    {
+      "category": "Doplněk / chybí",
+      "count": 2,
+      "pct": 1.4
+    },
+    {
+      "category": "Protéká / netěsní",
+      "count": 0,
+      "pct": 0.0
+    },
+    {
+      "category": "Velikost / rozměr",
+      "count": 0,
+      "pct": 0.0
     }
   ],
   "top_30_products": [
@@ -557,5 +604,12 @@
         "Vložka Star 50S 30/30 Ni/R1 stavební"
       ]
     }
+  ],
+  "key_findings": [
+    "Reklamační poměr 6.54 % je 2-6× nad e-commerce benchmark 1-3 %",
+    "86/138 (62 %) reklamací NEVYŘÍZENÝCH",
+    "14/52 (27 %) vyřízených překračuje 30denní zákonnou lhůtu",
+    "Top produkt 'OC El.otvírač 51B10' = 13× = 9.4 % všech reklamací",
+    "Kategorie OC el.otvírače = 24 reklamací (17 % všech) — defektní šarže nebo dodavatel"
   ]
 }
