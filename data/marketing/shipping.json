@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-05-15T15:52:36",
+  "period_full": "2024-10-07 → 2026-05-11",
+  "period_active": "2025-11-01 → 2026-05-11 (7M aktivní použití)",
+  "total_packages": 2357,
+  "unique_shipments": 2089,
+  "avg_packages_per_shipment": 1.13,
+  "monthly_breakdown": [],
+  "top_recipients": [],
+  "per_kraj": [],
+  "cross_analysis": {
+    "top_b2b_match": null,
+    "daily_diff_summary": null,
+    "attack_correlation": null
+  },
+  "postage_3y_summary": null
+}

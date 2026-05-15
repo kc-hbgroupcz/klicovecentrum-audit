@@ -1,0 +1,53 @@
+{
+  "generated_at": "2026-05-15T15:52:36",
+  "note": "Cross-channel agregace všech sekcí — MER, channel mix, attribution",
+  "period_erp": {
+    "start": "2025-10-01",
+    "end": "2026-05-07"
+  },
+  "mer": {
+    "total_erp_revenue_8m": 5613024,
+    "total_erp_profit_8m": 2664500,
+    "total_marketing_spend_estimated": 1127747.05,
+    "mer_blended": 4.98,
+    "note": "MER = Total ERP Revenue / Total Marketing Spend (cíl > 5×). Tady jen Sklik + GAds spend, chybí Meta/srovnávače."
+  },
+  "channel_mix_seo": {
+    "brand_clicks_12m": 7523,
+    "nonbrand_clicks_12m": 10941,
+    "brand_share_pct": 40.7
+  },
+  "b2b_b2c": {
+    "b2c_revenue_8m": 1261245,
+    "b2b_revenue_8m": 4351779,
+    "b2b_to_b2c_ratio": 3.45,
+    "b2c_unique_customers": 937,
+    "b2b_unique_customers": 96
+  },
+  "concentration_risk": {
+    "top_5_revenue": 1294672,
+    "top_5_pct": 29.8,
+    "top_10_revenue": 2128886,
+    "top_10_pct": 48.9,
+    "top_20_revenue": 3026200,
+    "top_20_pct": 69.5,
+    "note": "Vysoký top-5 podíl (>40%) = concentration risk. Klíčový zákazník odejde = velký dopad."
+  },
+  "retention_signals": {
+    "total_unique_customers": 96,
+    "top_20_repeat_customers": 20,
+    "top_20_one_time_customers": 0,
+    "repeat_rate_top20_pct": 100.0,
+    "note": "Repeat rate v top 20 = jak loyalty jsou key accounts"
+  },
+  "merchant_center_health": {
+    "total_products": 2228,
+    "approval_rate_pct": 99.24,
+    "account_issues": 2
+  },
+  "cloudflare_status": {
+    "domains_protected": 4,
+    "total_rules": 29,
+    "all_bfm_on": true
+  }
+}

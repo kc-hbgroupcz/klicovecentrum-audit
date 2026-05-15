@@ -1,0 +1,856 @@
+{
+  "generated_at": "2026-05-15T15:52:36",
+  "period": "2025-10-01 to 2026-04-21",
+  "categories": [
+    {
+      "name": "Okenní kování",
+      "erp_eshop": 76486.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 173517.0,
+      "total": 250003.0,
+      "product_count": 13
+    },
+    {
+      "name": "Nezařazeno",
+      "erp_eshop": 87424.0,
+      "alza": 99093.0,
+      "heureka": 1342.0,
+      "zbozi": 0,
+      "google_ads": 9297.0,
+      "total": 197155.0,
+      "product_count": 2414
+    },
+    {
+      "name": "Přístupové systémy",
+      "erp_eshop": 145052.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 20317.0,
+      "total": 165369.0,
+      "product_count": 19
+    },
+    {
+      "name": "Vlastní elektr.otvírač",
+      "erp_eshop": 48106.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 52711.0,
+      "total": 100817.0,
+      "product_count": 16
+    },
+    {
+      "name": "Střelkový jednobod.zadl.zámek",
+      "erp_eshop": 64252.0,
+      "alza": 5405.0,
+      "heureka": 396.0,
+      "zbozi": 0,
+      "google_ads": 14730.0,
+      "total": 84782.0,
+      "product_count": 57
+    },
+    {
+      "name": "Vlastní zavírač",
+      "erp_eshop": 47582.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 30252.0,
+      "total": 77834.0,
+      "product_count": 11
+    },
+    {
+      "name": "Stavěče, zástrče a dorazy",
+      "erp_eshop": 21808.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 54171.0,
+      "total": 75979.0,
+      "product_count": 11
+    },
+    {
+      "name": "Panty",
+      "erp_eshop": 60272.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 1386.0,
+      "total": 61658.0,
+      "product_count": 63
+    },
+    {
+      "name": "El.mech.a motorické zámky",
+      "erp_eshop": 12805.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 41531.0,
+      "total": 54336.0,
+      "product_count": 1
+    },
+    {
+      "name": "Práce - gravírování, servis, montáž...",
+      "erp_eshop": 54177.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 54177.0,
+      "product_count": 8
+    },
+    {
+      "name": "Chemie",
+      "erp_eshop": 28144.0,
+      "alza": 17081.0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 855.0,
+      "total": 46080.0,
+      "product_count": 9
+    },
+    {
+      "name": "Panikové dveřní kování",
+      "erp_eshop": 28019.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 17369.0,
+      "total": 45388.0,
+      "product_count": 2
+    },
+    {
+      "name": "Příslušenství klíčů",
+      "erp_eshop": 27279.0,
+      "alza": 0,
+      "heureka": 454.0,
+      "zbozi": 0,
+      "google_ads": 15811.0,
+      "total": 43544.0,
+      "product_count": 133
+    },
+    {
+      "name": "Trezory",
+      "erp_eshop": 13992.0,
+      "alza": 0,
+      "heureka": 5895.0,
+      "zbozi": 0,
+      "google_ads": 8296.0,
+      "total": 28183.0,
+      "product_count": 4
+    },
+    {
+      "name": "Vlastní panik.vrchní mech.zámek",
+      "erp_eshop": 5962.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 19337.0,
+      "total": 25299.0,
+      "product_count": 1
+    },
+    {
+      "name": "Hotely",
+      "erp_eshop": 24998.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 24998.0,
+      "product_count": 1
+    },
+    {
+      "name": "Bezp.cylin.vložky na zubatý klíč",
+      "erp_eshop": 23508.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 671.0,
+      "total": 24179.0,
+      "product_count": 19
+    },
+    {
+      "name": "Visací zámky",
+      "erp_eshop": 18885.0,
+      "alza": 320.0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 4480.0,
+      "total": 23686.0,
+      "product_count": 24
+    },
+    {
+      "name": "Nábytkové a schránkové zámky",
+      "erp_eshop": 16243.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 4480.0,
+      "total": 20723.0,
+      "product_count": 21
+    },
+    {
+      "name": "Vlastní vrchní zámek",
+      "erp_eshop": 20341.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 121.0,
+      "total": 20462.0,
+      "product_count": 7
+    },
+    {
+      "name": "Zadlabací panikové mech.zámky",
+      "erp_eshop": 19004.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 19004.0,
+      "product_count": 5
+    },
+    {
+      "name": "Střelkový lištový vícebod.zámek",
+      "erp_eshop": 18881.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 18881.0,
+      "product_count": 6
+    },
+    {
+      "name": "Mechanické zámky",
+      "erp_eshop": 16530.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 268.0,
+      "total": 16798.0,
+      "product_count": 5
+    },
+    {
+      "name": "Nářadí a nástroje",
+      "erp_eshop": 8742.0,
+      "alza": 0,
+      "heureka": 299.0,
+      "zbozi": 0,
+      "google_ads": 7169.0,
+      "total": 16210.0,
+      "product_count": 18
+    },
+    {
+      "name": "Bezp.cylindr.vložky na důlkový klíč",
+      "erp_eshop": 15215.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 15215.0,
+      "product_count": 8
+    },
+    {
+      "name": "Příslušenství panik.mech.vrchního zámku",
+      "erp_eshop": 14678.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 14678.0,
+      "product_count": 6
+    },
+    {
+      "name": "Bezp.cylindr.vložky na d?lkový klí?",
+      "erp_eshop": 12628.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 533.0,
+      "total": 13161.0,
+      "product_count": 5
+    },
+    {
+      "name": "Přívěšky na klíče",
+      "erp_eshop": 9663.0,
+      "alza": 0,
+      "heureka": 170.0,
+      "zbozi": 0,
+      "google_ads": 3216.0,
+      "total": 13049.0,
+      "product_count": 44
+    },
+    {
+      "name": "Nezařazené a náhr.díly zámků/protiplechů",
+      "erp_eshop": 12986.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 30.0,
+      "total": 13016.0,
+      "product_count": 6
+    },
+    {
+      "name": "Mechanické trezory",
+      "erp_eshop": 11718.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 1060.0,
+      "total": 12778.0,
+      "product_count": 3
+    },
+    {
+      "name": "Bezpečnostní dveřní kování",
+      "erp_eshop": 9675.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 2355.0,
+      "total": 12030.0,
+      "product_count": 3
+    },
+    {
+      "name": "Schránky a věšáky na klíče",
+      "erp_eshop": 7075.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 4648.0,
+      "total": 11723.0,
+      "product_count": 5
+    },
+    {
+      "name": "Příslušenství zavírače a koordinátory",
+      "erp_eshop": 11623.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 11623.0,
+      "product_count": 6
+    },
+    {
+      "name": "Cylindrické vložky",
+      "erp_eshop": 11336.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 11336.0,
+      "product_count": 5
+    },
+    {
+      "name": "Interiérové rozetové dveřní kování",
+      "erp_eshop": 10960.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 10960.0,
+      "product_count": 3
+    },
+    {
+      "name": "P?ístupové systémy",
+      "erp_eshop": 10468.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 10468.0,
+      "product_count": 1
+    },
+    {
+      "name": "Interiérové štítové dveřní kování",
+      "erp_eshop": 8809.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 294.0,
+      "total": 9103.0,
+      "product_count": 10
+    },
+    {
+      "name": "Ostatní kování",
+      "erp_eshop": 1255.0,
+      "alza": 7529.0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 169.0,
+      "total": 8952.0,
+      "product_count": 3
+    },
+    {
+      "name": "Neza?azené a náhradní díly",
+      "erp_eshop": 2727.0,
+      "alza": 0,
+      "heureka": 1574.0,
+      "zbozi": 0,
+      "google_ads": 4251.0,
+      "total": 8552.0,
+      "product_count": 3
+    },
+    {
+      "name": "Dálkové ovladače a čipy",
+      "erp_eshop": 8142.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 395.0,
+      "total": 8537.0,
+      "product_count": 11
+    },
+    {
+      "name": "Zubaté klíče cylindr.vložek",
+      "erp_eshop": 8370.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 71.0,
+      "total": 8441.0,
+      "product_count": 16
+    },
+    {
+      "name": "Stavební vložky",
+      "erp_eshop": 8111.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 49.0,
+      "total": 8160.0,
+      "product_count": 11
+    },
+    {
+      "name": "Nezařazené a náhr.díly kování",
+      "erp_eshop": 5920.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 1852.0,
+      "total": 7772.0,
+      "product_count": 13
+    },
+    {
+      "name": "Otvírací technika a nářadí",
+      "erp_eshop": 1818.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 5897.0,
+      "total": 7715.0,
+      "product_count": 1
+    },
+    {
+      "name": "Přídavný jednobod.zadl.zámek",
+      "erp_eshop": 4648.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 2890.0,
+      "total": 7538.0,
+      "product_count": 5
+    },
+    {
+      "name": "Poštovní schránky",
+      "erp_eshop": 7511.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 7511.0,
+      "product_count": 6
+    },
+    {
+      "name": "Alarmy",
+      "erp_eshop": 1579.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 5120.0,
+      "total": 6699.0,
+      "product_count": 1
+    },
+    {
+      "name": "Tvarové klíče",
+      "erp_eshop": 6184.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 206.0,
+      "total": 6390.0,
+      "product_count": 27
+    },
+    {
+      "name": "Vlastní magnety",
+      "erp_eshop": 6362.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 6362.0,
+      "product_count": 1
+    },
+    {
+      "name": "Jednobodový zadl.zámek",
+      "erp_eshop": 1875.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 3677.0,
+      "total": 5552.0,
+      "product_count": 4
+    },
+    {
+      "name": "Klíče",
+      "erp_eshop": 3806.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 1723.0,
+      "total": 5529.0,
+      "product_count": 11
+    },
+    {
+      "name": "Válečkový jednobod.zadl.zámek",
+      "erp_eshop": 5403.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 98.0,
+      "total": 5501.0,
+      "product_count": 6
+    },
+    {
+      "name": "Nezařazené a náhradní díly",
+      "erp_eshop": 5253.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 5253.0,
+      "product_count": 7
+    },
+    {
+      "name": "Protiplechy zámků",
+      "erp_eshop": 4711.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 528.0,
+      "total": 5239.0,
+      "product_count": 13
+    },
+    {
+      "name": "Příslušenství rozvor.zámků",
+      "erp_eshop": 4959.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 4959.0,
+      "product_count": 1
+    },
+    {
+      "name": "Bezpe?nostní dve?ní kování",
+      "erp_eshop": 4808.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 4808.0,
+      "product_count": 2
+    },
+    {
+      "name": "Hákový jednobod.zadl.zámek",
+      "erp_eshop": 4380.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 4380.0,
+      "product_count": 6
+    },
+    {
+      "name": "Elektromechanické trezory",
+      "erp_eshop": 3293.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 3293.0,
+      "product_count": 1
+    },
+    {
+      "name": "Zubaté klí?e cylindr.vložek",
+      "erp_eshop": 3230.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 3230.0,
+      "product_count": 3
+    },
+    {
+      "name": "Servis cyl.vložek",
+      "erp_eshop": 3096.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 112.0,
+      "total": 3208.0,
+      "product_count": 8
+    },
+    {
+      "name": "Bezp.cylin.vložky na zubatý klí?",
+      "erp_eshop": 2951.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 2951.0,
+      "product_count": 4
+    },
+    {
+      "name": "Interiérové štítové dve?ní kování",
+      "erp_eshop": 2655.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 2655.0,
+      "product_count": 1
+    },
+    {
+      "name": "Bezpečnostní schránky a pokladny",
+      "erp_eshop": 2574.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 2574.0,
+      "product_count": 5
+    },
+    {
+      "name": "Cyklo a moto zámky",
+      "erp_eshop": 1750.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 341.0,
+      "total": 2091.0,
+      "product_count": 4
+    },
+    {
+      "name": "St?elkový lištový vícebod.zámek",
+      "erp_eshop": 1963.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 1963.0,
+      "product_count": 1
+    },
+    {
+      "name": "Příslušentství elektr.otvírače",
+      "erp_eshop": 1913.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 1913.0,
+      "product_count": 4
+    },
+    {
+      "name": "Schránky a v?šáky na klí?e",
+      "erp_eshop": 1716.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 1716.0,
+      "product_count": 2
+    },
+    {
+      "name": "Ostatní mechanické zámky",
+      "erp_eshop": 1626.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 1626.0,
+      "product_count": 1
+    },
+    {
+      "name": "Dálkové ovlada?e a ?ipy",
+      "erp_eshop": 1463.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 1463.0,
+      "product_count": 4
+    },
+    {
+      "name": "St?elkový jednobod.zadl.zámek",
+      "erp_eshop": 1390.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 60.0,
+      "total": 1450.0,
+      "product_count": 4
+    },
+    {
+      "name": "Důlkované klíče cylindr.vložek",
+      "erp_eshop": 1326.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 1326.0,
+      "product_count": 2
+    },
+    {
+      "name": "Kukátka",
+      "erp_eshop": 1216.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 74.0,
+      "total": 1290.0,
+      "product_count": 4
+    },
+    {
+      "name": "Dveřní kování",
+      "erp_eshop": 990.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 990.0,
+      "product_count": 1
+    },
+    {
+      "name": "Klíče cylindrických vložek",
+      "erp_eshop": 827.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 40.0,
+      "total": 867.0,
+      "product_count": 4
+    },
+    {
+      "name": "Doplňkové zabezpečení",
+      "erp_eshop": 793.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 793.0,
+      "product_count": 1
+    },
+    {
+      "name": "D?lkované klí?e cylindr.vložek",
+      "erp_eshop": 627.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 627.0,
+      "product_count": 2
+    },
+    {
+      "name": "Materiál pro gravírování",
+      "erp_eshop": 625.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 625.0,
+      "product_count": 5
+    },
+    {
+      "name": "Ostatní cylindr.vložky",
+      "erp_eshop": 427.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 427.0,
+      "product_count": 1
+    },
+    {
+      "name": "Trezorové klíče",
+      "erp_eshop": 318.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 318.0,
+      "product_count": 3
+    },
+    {
+      "name": "Tvarové klí?e",
+      "erp_eshop": 262.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 15.0,
+      "total": 277.0,
+      "product_count": 3
+    },
+    {
+      "name": "Klíče lamelových zámků",
+      "erp_eshop": 236.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 20.0,
+      "total": 256.0,
+      "product_count": 3
+    },
+    {
+      "name": "Neza?azené a náhr.díly kování",
+      "erp_eshop": 165.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 165.0,
+      "product_count": 2
+    },
+    {
+      "name": "P?ív?šky na klí?e",
+      "erp_eshop": 70.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 70.0,
+      "product_count": 1
+    },
+    {
+      "name": "Protiplechy zámk?",
+      "erp_eshop": 50.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 50.0,
+      "product_count": 1
+    },
+    {
+      "name": "P?íslušenství klí??",
+      "erp_eshop": 39.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "google_ads": 0.0,
+      "total": 39.0,
+      "product_count": 1
+    }
+  ]
+}

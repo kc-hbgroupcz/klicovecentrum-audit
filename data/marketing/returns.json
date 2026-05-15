@@ -1,0 +1,195 @@
+{
+  "generated_at": "2026-05-15T15:52:36",
+  "year": 2025,
+  "summary": {
+    "MO": {
+      "returns_count": 1001,
+      "returns_value_kc": 673787,
+      "orders_total": 2289,
+      "revenue_total_kc": 2759440,
+      "returns_rate_pct": 43.73,
+      "returns_value_pct": 24.42,
+      "avg_return_kc": 673
+    },
+    "VO": {
+      "returns_count": 1674,
+      "returns_value_kc": 5252005,
+      "orders_total": 1786,
+      "revenue_total_kc": 8309979,
+      "returns_rate_pct": 93.73,
+      "returns_value_pct": 63.2,
+      "avg_return_kc": 3137
+    },
+    "totals": {
+      "returns_count": 2675,
+      "returns_value_kc": 5925793
+    }
+  },
+  "monthly": [
+    {
+      "month": "2025-01",
+      "mo_returns_count": 58,
+      "mo_returns_kc": 47349,
+      "mo_orders_total": 186,
+      "mo_returns_rate_pct": 31.18,
+      "mo_returns_value_pct": 29.78,
+      "vo_returns_count": 140,
+      "vo_returns_kc": 382001,
+      "vo_orders_total": 152,
+      "vo_returns_rate_pct": 92.11,
+      "vo_returns_value_pct": 43.75
+    },
+    {
+      "month": "2025-02",
+      "mo_returns_count": 61,
+      "mo_returns_kc": 38033,
+      "mo_orders_total": 215,
+      "mo_returns_rate_pct": 28.37,
+      "mo_returns_value_pct": 12.51,
+      "vo_returns_count": 142,
+      "vo_returns_kc": 632142,
+      "vo_orders_total": 141,
+      "vo_returns_rate_pct": 100.71,
+      "vo_returns_value_pct": 97.95
+    },
+    {
+      "month": "2025-03",
+      "mo_returns_count": 71,
+      "mo_returns_kc": 28406,
+      "mo_orders_total": 220,
+      "mo_returns_rate_pct": 32.27,
+      "mo_returns_value_pct": 11.06,
+      "vo_returns_count": 136,
+      "vo_returns_kc": 575960,
+      "vo_orders_total": 140,
+      "vo_returns_rate_pct": 97.14,
+      "vo_returns_value_pct": 84.94
+    },
+    {
+      "month": "2025-04",
+      "mo_returns_count": 84,
+      "mo_returns_kc": 55751,
+      "mo_orders_total": 211,
+      "mo_returns_rate_pct": 39.81,
+      "mo_returns_value_pct": 23.36,
+      "vo_returns_count": 125,
+      "vo_returns_kc": 374435,
+      "vo_orders_total": 130,
+      "vo_returns_rate_pct": 96.15,
+      "vo_returns_value_pct": 73.48
+    },
+    {
+      "month": "2025-05",
+      "mo_returns_count": 85,
+      "mo_returns_kc": 57626,
+      "mo_orders_total": 165,
+      "mo_returns_rate_pct": 51.52,
+      "mo_returns_value_pct": 26.18,
+      "vo_returns_count": 115,
+      "vo_returns_kc": 213101,
+      "vo_orders_total": 137,
+      "vo_returns_rate_pct": 83.94,
+      "vo_returns_value_pct": 33.86
+    },
+    {
+      "month": "2025-06",
+      "mo_returns_count": 91,
+      "mo_returns_kc": 49002,
+      "mo_orders_total": 192,
+      "mo_returns_rate_pct": 47.4,
+      "mo_returns_value_pct": 20.11,
+      "vo_returns_count": 134,
+      "vo_returns_kc": 330806,
+      "vo_orders_total": 158,
+      "vo_returns_rate_pct": 84.81,
+      "vo_returns_value_pct": 36.84
+    },
+    {
+      "month": "2025-07",
+      "mo_returns_count": 95,
+      "mo_returns_kc": 56810,
+      "mo_orders_total": 227,
+      "mo_returns_rate_pct": 41.85,
+      "mo_returns_value_pct": 23.0,
+      "vo_returns_count": 132,
+      "vo_returns_kc": 438348,
+      "vo_orders_total": 166,
+      "vo_returns_rate_pct": 79.52,
+      "vo_returns_value_pct": 62.12
+    },
+    {
+      "month": "2025-08",
+      "mo_returns_count": 84,
+      "mo_returns_kc": 49524,
+      "mo_orders_total": 172,
+      "mo_returns_rate_pct": 48.84,
+      "mo_returns_value_pct": 20.24,
+      "vo_returns_count": 112,
+      "vo_returns_kc": 289782,
+      "vo_orders_total": 160,
+      "vo_returns_rate_pct": 70.0,
+      "vo_returns_value_pct": 39.45
+    },
+    {
+      "month": "2025-09",
+      "mo_returns_count": 106,
+      "mo_returns_kc": 65254,
+      "mo_orders_total": 212,
+      "mo_returns_rate_pct": 50.0,
+      "mo_returns_value_pct": 25.16,
+      "vo_returns_count": 174,
+      "vo_returns_kc": 515419,
+      "vo_orders_total": 202,
+      "vo_returns_rate_pct": 86.14,
+      "vo_returns_value_pct": 55.16
+    },
+    {
+      "month": "2025-10",
+      "mo_returns_count": 104,
+      "mo_returns_kc": 43925,
+      "mo_orders_total": 150,
+      "mo_returns_rate_pct": 69.33,
+      "mo_returns_value_pct": 15.37,
+      "vo_returns_count": 155,
+      "vo_returns_kc": 320865,
+      "vo_orders_total": 165,
+      "vo_returns_rate_pct": 93.94,
+      "vo_returns_value_pct": 46.39
+    },
+    {
+      "month": "2025-11",
+      "mo_returns_count": 87,
+      "mo_returns_kc": 99629,
+      "mo_orders_total": 127,
+      "mo_returns_rate_pct": 68.5,
+      "mo_returns_value_pct": 69.45,
+      "vo_returns_count": 164,
+      "vo_returns_kc": 622136,
+      "vo_orders_total": 136,
+      "vo_returns_rate_pct": 120.59,
+      "vo_returns_value_pct": 109.25
+    },
+    {
+      "month": "2025-12",
+      "mo_returns_count": 75,
+      "mo_returns_kc": 82478,
+      "mo_orders_total": 212,
+      "mo_returns_rate_pct": 35.38,
+      "mo_returns_value_pct": 52.63,
+      "vo_returns_count": 145,
+      "vo_returns_kc": 557011,
+      "vo_orders_total": 99,
+      "vo_returns_rate_pct": 146.46,
+      "vo_returns_value_pct": 126.37
+    }
+  ],
+  "vratka_mapping": {
+    "mo_pairs": 2289,
+    "vo_pairs": 1786,
+    "note": "Eshop MO/VO vratky 2025 = mapování číslo vratky → číslo původní výdejky. Detail (obrat, datum) je ve Vratky 2025.csv."
+  },
+  "interpretation": {
+    "mo_vs_vo_pattern": "MO vratky: 1001 ks za 673,787 Kč (43.7 % objednávek). VO vratky: 1674 ks za 5,252,005 Kč (93.7 % objednávek).",
+    "complaints_status": "Reklamace nejsou v audit datech systémově trackované (žádný flag/typ ve výdejkách). Vratky obecně = jeden bucket bez rozlišení 'vrácení do 14 dnů' vs 'reklamace'."
+  }
+}

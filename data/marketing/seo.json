@@ -1,0 +1,586 @@
+{
+  "generated_at": "2026-05-15T15:48:55",
+  "domains_supported": [
+    "klicovecentrum.cz"
+  ],
+  "domains_pending": [
+    "klucovecentrum.sk",
+    "hbgroup.cz",
+    "hbgroup.sk"
+  ],
+  "note": "GSC + Bing data zatím jen pro klicovecentrum.cz. Další 3 domény čekají na klient: SC SA access + Bing site verify (viz MANUAL).",
+  "gsc_brand_nonbrand": {
+    "period": {
+      "from": "2025-10-01",
+      "to": "2026-04-22"
+    },
+    "totals": {
+      "brand_clicks": 7523,
+      "nonbrand_clicks": 10941,
+      "brand_pct_clicks": 40.7,
+      "brand_impressions": 384431,
+      "nonbrand_impressions": 1556696,
+      "brand_pct_impressions": 19.8,
+      "unique_brand_queries": 2522,
+      "unique_nonbrand_queries": 17101
+    },
+    "brand_share_pct": 40.7,
+    "total_clicks": 18464,
+    "total_impressions": 1941127,
+    "monthly_trend": [
+      {
+        "month": "2025-10",
+        "brand_clicks": 1038,
+        "nonbrand_clicks": 1686,
+        "brand_impressions": 54538,
+        "nonbrand_impressions": 232468,
+        "brand_pct_clicks": 38.1,
+        "nonbrand_pct_clicks": 61.9,
+        "brand_pct_impressions": 19.0,
+        "unique_brand_queries": 1438,
+        "unique_nonbrand_queries": 8065
+      },
+      {
+        "month": "2025-11",
+        "brand_clicks": 1154,
+        "nonbrand_clicks": 1722,
+        "brand_impressions": 59824,
+        "nonbrand_impressions": 245846,
+        "brand_pct_clicks": 40.1,
+        "nonbrand_pct_clicks": 59.9,
+        "brand_pct_impressions": 19.6,
+        "unique_brand_queries": 1558,
+        "unique_nonbrand_queries": 8215
+      },
+      {
+        "month": "2025-12",
+        "brand_clicks": 1013,
+        "nonbrand_clicks": 1496,
+        "brand_impressions": 56406,
+        "nonbrand_impressions": 231341,
+        "brand_pct_clicks": 40.4,
+        "nonbrand_pct_clicks": 59.6,
+        "brand_pct_impressions": 19.6,
+        "unique_brand_queries": 1569,
+        "unique_nonbrand_queries": 8179
+      },
+      {
+        "month": "2026-01",
+        "brand_clicks": 1141,
+        "nonbrand_clicks": 1885,
+        "brand_impressions": 56175,
+        "nonbrand_impressions": 224641,
+        "brand_pct_clicks": 37.7,
+        "nonbrand_pct_clicks": 62.3,
+        "brand_pct_impressions": 20.0,
+        "unique_brand_queries": 1462,
+        "unique_nonbrand_queries": 7843
+      },
+      {
+        "month": "2026-02",
+        "brand_clicks": 1140,
+        "nonbrand_clicks": 1561,
+        "brand_impressions": 54955,
+        "nonbrand_impressions": 211848,
+        "brand_pct_clicks": 42.2,
+        "nonbrand_pct_clicks": 57.8,
+        "brand_pct_impressions": 20.6,
+        "unique_brand_queries": 1349,
+        "unique_nonbrand_queries": 7644
+      },
+      {
+        "month": "2026-03",
+        "brand_clicks": 1313,
+        "nonbrand_clicks": 1619,
+        "brand_impressions": 60463,
+        "nonbrand_impressions": 240608,
+        "brand_pct_clicks": 44.8,
+        "nonbrand_pct_clicks": 55.2,
+        "brand_pct_impressions": 20.1,
+        "unique_brand_queries": 1465,
+        "unique_nonbrand_queries": 8384
+      },
+      {
+        "month": "2026-04",
+        "brand_clicks": 724,
+        "nonbrand_clicks": 972,
+        "brand_impressions": 42070,
+        "nonbrand_impressions": 169944,
+        "brand_pct_clicks": 42.7,
+        "nonbrand_pct_clicks": 57.3,
+        "brand_pct_impressions": 19.8,
+        "unique_brand_queries": 1397,
+        "unique_nonbrand_queries": 7252
+      }
+    ],
+    "top_brand_queries": [
+      {
+        "query": "klíčové centrum plzeň",
+        "clicks": 1018,
+        "impressions": 6460
+      },
+      {
+        "query": "klíčové centrum",
+        "clicks": 486,
+        "impressions": 5849
+      },
+      {
+        "query": "přívěsek na klíče",
+        "clicks": 182,
+        "impressions": 11928
+      },
+      {
+        "query": "klicove centrum",
+        "clicks": 159,
+        "impressions": 1413
+      },
+      {
+        "query": "klíčnictví sokolov",
+        "clicks": 122,
+        "impressions": 667
+      },
+      {
+        "query": "klicove centrum plzen",
+        "clicks": 116,
+        "impressions": 728
+      },
+      {
+        "query": "klíčové centrum ostrava",
+        "clicks": 114,
+        "impressions": 887
+      },
+      {
+        "query": "výroba klíčů",
+        "clicks": 108,
+        "impressions": 19317
+      },
+      {
+        "query": "klíčové centrum české budějovice",
+        "clicks": 102,
+        "impressions": 933
+      },
+      {
+        "query": "přívěsky na klíče",
+        "clicks": 99,
+        "impressions": 4178
+      }
+    ],
+    "top_nonbrand_queries": [
+      {
+        "query": "bezpečnostní zámek",
+        "clicks": 366,
+        "impressions": 11467
+      },
+      {
+        "query": "trezor",
+        "clicks": 221,
+        "impressions": 58035
+      },
+      {
+        "query": "trezor na zbraně",
+        "clicks": 203,
+        "impressions": 13077
+      },
+      {
+        "query": "cylindrická vložka",
+        "clicks": 170,
+        "impressions": 17187
+      },
+      {
+        "query": "hb group",
+        "clicks": 127,
+        "impressions": 1721
+      },
+      {
+        "query": "trezor na peníze",
+        "clicks": 117,
+        "impressions": 11015
+      },
+      {
+        "query": "bezpečnostní vložka do dveří",
+        "clicks": 116,
+        "impressions": 4096
+      },
+      {
+        "query": "vložka do dveří",
+        "clicks": 96,
+        "impressions": 16302
+      },
+      {
+        "query": "hb vodňany",
+        "clicks": 91,
+        "impressions": 232
+      },
+      {
+        "query": "bezpečnostní zámek na vchodové dveře",
+        "clicks": 85,
+        "impressions": 1945
+      },
+      {
+        "query": "gravírování plzeň",
+        "clicks": 75,
+        "impressions": 867
+      },
+      {
+        "query": "bezpečnostní zámek na dveře",
+        "clicks": 71,
+        "impressions": 2205
+      },
+      {
+        "query": "panikové kování",
+        "clicks": 70,
+        "impressions": 3888
+      },
+      {
+        "query": "panikový zámek",
+        "clicks": 70,
+        "impressions": 1720
+      },
+      {
+        "query": "trezory na zbraně",
+        "clicks": 70,
+        "impressions": 2868
+      }
+    ]
+  },
+  "bing": {
+    "site": "https://www.klicovecentrum.cz/",
+    "rank_traffic_summary": {
+      "days_total": 484,
+      "date_from": "2025-01-11",
+      "date_to": "2026-05-09",
+      "total_clicks": 8298,
+      "total_impressions": 309557,
+      "avg_ctr_pct": 2.68
+    },
+    "crawl_stats": {
+      "days_total": 174,
+      "date_from": "2025-11-11",
+      "date_to": "2026-05-10",
+      "avg_crawled_per_day": 27146,
+      "total_crawled_pages": 4723383,
+      "total_code_4xx": 21136,
+      "total_code_5xx": 14917,
+      "total_blocked_by_robots": 27202554,
+      "total_crawl_errors": 165047,
+      "total_dns_failures": 0,
+      "total_connection_timeout": 55,
+      "current_in_index": 2318780,
+      "in_index_change": 100812
+    },
+    "top_pages": [
+      {
+        "url": "https://www.klicovecentrum.cz/plzen/",
+        "clicks": 8,
+        "impressions": 25,
+        "avg_impression_position": 2,
+        "avg_click_position": -1,
+        "date": "2025-01-24"
+      },
+      {
+        "url": "https://www.klicovecentrum.cz/",
+        "clicks": 5,
+        "impressions": 95,
+        "avg_impression_position": 5,
+        "avg_click_position": -1,
+        "date": "2025-01-24"
+      },
+      {
+        "url": "https://www.klicovecentrum.cz/elektricke-otvirace/",
+        "clicks": 5,
+        "impressions": 22,
+        "avg_impression_position": 3,
+        "avg_click_position": -1,
+        "date": "2025-01-24"
+      },
+      {
+        "url": "https://www.klicovecentrum.cz/elektronicke-pristupove-systemy/",
+        "clicks": 4,
+        "impressions": 7,
+        "avg_impression_position": 10,
+        "avg_click_position": -1,
+        "date": "2025-01-24"
+      },
+      {
+        "url": "https://www.klicovecentrum.cz/praha-vinohrady/",
+        "clicks": 4,
+        "impressions": 5,
+        "avg_impression_position": 3,
+        "avg_click_position": -1,
+        "date": "2025-01-24"
+      },
+      {
+        "url": "https://www.klicovecentrum.cz/ostrava/",
+        "clicks": 3,
+        "impressions": 4,
+        "avg_impression_position": 12,
+        "avg_click_position": -1,
+        "date": "2025-01-24"
+      },
+      {
+        "url": "https://www.klicovecentrum.cz/panikova-kovani/",
+        "clicks": 2,
+        "impressions": 20,
+        "avg_impression_position": 5,
+        "avg_click_position": -1,
+        "date": "2025-01-24"
+      },
+      {
+        "url": "https://www.klicovecentrum.cz/bezpecnostni-vlozky/",
+        "clicks": 2,
+        "impressions": 15,
+        "avg_impression_position": 3,
+        "avg_click_position": -1,
+        "date": "2025-01-24"
+      },
+      {
+        "url": "https://www.klicovecentrum.cz/produkt/samozamykaci-zamek-fuhr-autotronic-834/",
+        "clicks": 2,
+        "impressions": 7,
+        "avg_impression_position": 5,
+        "avg_click_position": -1,
+        "date": "2025-01-24"
+      },
+      {
+        "url": "https://www.klicovecentrum.cz/bezpecnostni-tridy-vyznate-se-v-nich/",
+        "clicks": 2,
+        "impressions": 5,
+        "avg_impression_position": 4,
+        "avg_click_position": -1,
+        "date": "2025-01-24"
+      },
+      {
+        "url": "https://www.klicovecentrum.cz/panikove-zamky/",
+        "clicks": 2,
+        "impressions": 5,
+        "avg_impression_position": 3,
+        "avg_click_position": -1,
+        "date": "2025-01-24"
+      },
+      {
+        "url": "https://www.klicovecentrum.cz/klice-autoklice-a-prislusenstvi/",
+        "clicks": 2,
+        "impressions": 5,
+        "avg_impression_position": 4,
+        "avg_click_position": -1,
+        "date": "2025-01-24"
+      },
+      {
+        "url": "https://www.klicovecentrum.cz/ceske-budejovice/",
+        "clicks": 2,
+        "impressions": 4,
+        "avg_impression_position": 2,
+        "avg_click_position": -1,
+        "date": "2025-01-24"
+      },
+      {
+        "url": "https://www.klicovecentrum.cz/images/stranky/navody/D%c3%a1lkov%c3%a9%20ovlada%c4%8de%20bran/silca_air4_navod.pdf",
+        "clicks": 2,
+        "impressions": 2,
+        "avg_impression_position": 2,
+        "avg_click_position": -1,
+        "date": "2025-01-24"
+      },
+      {
+        "url": "https://www.klicovecentrum.cz/zavirace/",
+        "clicks": 1,
+        "impressions": 17,
+        "avg_impression_position": 3,
+        "avg_click_position": -1,
+        "date": "2025-01-24"
+      },
+      {
+        "url": "https://www.klicovecentrum.cz/pobocky/",
+        "clicks": 1,
+        "impressions": 10,
+        "avg_impression_position": 7,
+        "avg_click_position": -1,
+        "date": "2025-01-24"
+      },
+      {
+        "url": "https://www.klicovecentrum.cz/kde-si-lze-nechat-vyrobit-kopii-klice/",
+        "clicks": 1,
+        "impressions": 9,
+        "avg_impression_position": 6,
+        "avg_click_position": -1,
+        "date": "2025-01-24"
+      },
+      {
+        "url": "https://www.klicovecentrum.cz/dverni-kovani/",
+        "clicks": 1,
+        "impressions": 8,
+        "avg_impression_position": 8,
+        "avg_click_position": -1,
+        "date": "2025-01-24"
+      },
+      {
+        "url": "https://www.klicovecentrum.cz/autoklice-vyroba-i-opravy/",
+        "clicks": 1,
+        "impressions": 7,
+        "avg_impression_position": 7,
+        "avg_click_position": -1,
+        "date": "2025-01-24"
+      },
+      {
+        "url": "https://www.klicovecentrum.cz/produkt/jmenovka-na-schranky-dols/",
+        "clicks": 1,
+        "impressions": 2,
+        "avg_impression_position": 7,
+        "avg_click_position": -1,
+        "date": "2025-01-24"
+      }
+    ],
+    "history_last_30": [
+      {
+        "date": "2026-04-10",
+        "clicks": 8,
+        "impressions": 610
+      },
+      {
+        "date": "2026-04-11",
+        "clicks": 11,
+        "impressions": 240
+      },
+      {
+        "date": "2026-04-12",
+        "clicks": 10,
+        "impressions": 520
+      },
+      {
+        "date": "2026-04-13",
+        "clicks": 29,
+        "impressions": 781
+      },
+      {
+        "date": "2026-04-14",
+        "clicks": 25,
+        "impressions": 798
+      },
+      {
+        "date": "2026-04-15",
+        "clicks": 20,
+        "impressions": 912
+      },
+      {
+        "date": "2026-04-16",
+        "clicks": 17,
+        "impressions": 770
+      },
+      {
+        "date": "2026-04-17",
+        "clicks": 16,
+        "impressions": 706
+      },
+      {
+        "date": "2026-04-18",
+        "clicks": 1,
+        "impressions": 195
+      },
+      {
+        "date": "2026-04-19",
+        "clicks": 8,
+        "impressions": 366
+      },
+      {
+        "date": "2026-04-20",
+        "clicks": 27,
+        "impressions": 1091
+      },
+      {
+        "date": "2026-04-21",
+        "clicks": 27,
+        "impressions": 926
+      },
+      {
+        "date": "2026-04-22",
+        "clicks": 23,
+        "impressions": 896
+      },
+      {
+        "date": "2026-04-23",
+        "clicks": 12,
+        "impressions": 825
+      },
+      {
+        "date": "2026-04-24",
+        "clicks": 8,
+        "impressions": 539
+      },
+      {
+        "date": "2026-04-25",
+        "clicks": 3,
+        "impressions": 174
+      },
+      {
+        "date": "2026-04-26",
+        "clicks": 6,
+        "impressions": 284
+      },
+      {
+        "date": "2026-04-27",
+        "clicks": 28,
+        "impressions": 1139
+      },
+      {
+        "date": "2026-04-28",
+        "clicks": 14,
+        "impressions": 806
+      },
+      {
+        "date": "2026-04-29",
+        "clicks": 18,
+        "impressions": 722
+      },
+      {
+        "date": "2026-04-30",
+        "clicks": 13,
+        "impressions": 526
+      },
+      {
+        "date": "2026-05-01",
+        "clicks": 2,
+        "impressions": 202
+      },
+      {
+        "date": "2026-05-02",
+        "clicks": 7,
+        "impressions": 203
+      },
+      {
+        "date": "2026-05-03",
+        "clicks": 11,
+        "impressions": 423
+      },
+      {
+        "date": "2026-05-04",
+        "clicks": 23,
+        "impressions": 910
+      },
+      {
+        "date": "2026-05-05",
+        "clicks": 21,
+        "impressions": 877
+      },
+      {
+        "date": "2026-05-06",
+        "clicks": 15,
+        "impressions": 803
+      },
+      {
+        "date": "2026-05-07",
+        "clicks": 18,
+        "impressions": 722
+      },
+      {
+        "date": "2026-05-08",
+        "clicks": 8,
+        "impressions": 338
+      },
+      {
+        "date": "2026-05-09",
+        "clicks": 3,
+        "impressions": 232
+      }
+    ]
+  }
+}

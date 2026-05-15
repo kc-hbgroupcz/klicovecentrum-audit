@@ -1,0 +1,857 @@
+{
+  "generated_at": "2026-05-15T15:49:32",
+  "domains_b2c": [
+    "klicovecentrum.cz",
+    "klucovecentrum.sk"
+  ],
+  "note": "B2B (hbgroup.cz/sk) NEPOUŽÍVÁ ads. klucovecentrum.sk Ads ID čeká na klienta.",
+  "google_ads": {
+    "account": {
+      "id": "350-878-7813",
+      "name": "Klíčové centrum VG | TP",
+      "currency": "CZK",
+      "timezone": "Europe/Prague"
+    },
+    "period": null,
+    "yearly_totals": {
+      "2023": {
+        "impressions": 5652738,
+        "clicks": 81492,
+        "spend_kc": 254604,
+        "conversions": 5997.77,
+        "conversion_value_kc": 1217042,
+        "roas": 4.78,
+        "cpc_kc": 3.12,
+        "ctr_pct": 1.44
+      },
+      "2024": {
+        "impressions": 3458713,
+        "clicks": 69067,
+        "spend_kc": 280253,
+        "conversions": 1531.06,
+        "conversion_value_kc": 1161743,
+        "roas": 4.15,
+        "cpc_kc": 4.06,
+        "ctr_pct": 2.0
+      },
+      "2025": {
+        "impressions": 3946790,
+        "clicks": 79154,
+        "spend_kc": 399820,
+        "conversions": 2445.04,
+        "conversion_value_kc": 1594577,
+        "roas": 3.99,
+        "cpc_kc": 5.05,
+        "ctr_pct": 2.01
+      },
+      "2026_partial_4months": {
+        "impressions": 1195832,
+        "clicks": 23088,
+        "spend_kc": 143236,
+        "conversions": 2115.51,
+        "conversion_value_kc": 280552,
+        "roas": 1.96,
+        "cpc_kc": 6.2,
+        "ctr_pct": 1.93
+      }
+    },
+    "per_channel_type": {
+      "2023": {
+        "PERFORMANCE_MAX": {
+          "spend_kc": 218241,
+          "roas": 4.8,
+          "campaigns": 16
+        },
+        "SEARCH": {
+          "spend_kc": 36362,
+          "roas": 4.63,
+          "campaigns": 26
+        },
+        "DISPLAY": {
+          "spend_kc": 0,
+          "roas": 0,
+          "campaigns": 7
+        },
+        "SHOPPING": {
+          "spend_kc": 0,
+          "roas": 0,
+          "campaigns": 16
+        }
+      },
+      "2024": {
+        "PERFORMANCE_MAX": {
+          "spend_kc": 203542,
+          "roas": 4.63,
+          "campaigns": 16
+        },
+        "SEARCH": {
+          "spend_kc": 44008,
+          "roas": 4.51,
+          "campaigns": 26
+        },
+        "SHOPPING": {
+          "spend_kc": 32704,
+          "roas": 0.62,
+          "campaigns": 16
+        },
+        "DISPLAY": {
+          "spend_kc": 0,
+          "roas": 0,
+          "campaigns": 7
+        }
+      },
+      "2025": {
+        "PERFORMANCE_MAX": {
+          "spend_kc": 317718,
+          "roas": 3.49,
+          "campaigns": 16
+        },
+        "SEARCH": {
+          "spend_kc": 64084,
+          "roas": 7.0,
+          "campaigns": 26
+        },
+        "SHOPPING": {
+          "spend_kc": 18018,
+          "roas": 2.08,
+          "campaigns": 16
+        },
+        "DISPLAY": {
+          "spend_kc": 0,
+          "roas": 0,
+          "campaigns": 7
+        }
+      },
+      "2026_partial": {
+        "PERFORMANCE_MAX": {
+          "spend_kc": 125245,
+          "roas": 1.7,
+          "campaigns": 16
+        },
+        "SEARCH": {
+          "spend_kc": 14656,
+          "roas": 3.85,
+          "campaigns": 26
+        },
+        "SHOPPING": {
+          "spend_kc": 3339,
+          "roas": 3.51,
+          "campaigns": 16
+        },
+        "DISPLAY": {
+          "spend_kc": 0,
+          "roas": 0,
+          "campaigns": 7
+        }
+      }
+    },
+    "key_findings": [
+      "🚨 ROAS pád 4,78× (2023) → 1,96× (2026) — −59 % YoY za 3 roky · spend roste 254k → 400k → 143k Q1+Apr",
+      "🚨 Konverze 2024: 1 531 vs 2023: 5 998 — propad −74 % v jediném roce (možná tracking change)",
+      "🚨 RTG = 0 spend napříč VŠEMI 4 roky (2023, 2024, 2025, 2026) — Display kampaně existují ale neběží",
+      "🚨 LOCAL kampaně ROAS 0,01 (2025) → 0,18 (2026) — store-visit, online ROAS irrelevantní",
+      "✅ BRAND ROAS roste 4,63 → 7,90 (2025) → 3,85 (2026) — silný brand search",
+      "✅ PRODUCT (Pmax+Shopping) drží 4× ROAS s mírným poklesem",
+      "✅ Search ROAS skok 4,5 → 7 (2025) díky brand search optimalizaci",
+      "🔴 Shopping 2024 ROAS 0,62 (PLA Zombie kampaň 32k Kč) — mrtvý spend",
+      "🟡 Pmax 'PLA ONLY' asset group: 2023 ROAS 5,21 (5 630 conv) → 2024 5,55 (421 conv) → 2025 4,69 (711 conv) PAUSED → 2026 9,41 PAUSED",
+      "🟡 Pmax 'pla_dveřní okenní kování' 2026 ROAS 11,13 PAUSED — top performer vypnutý",
+      "📊 CPC roste 3,12 → 6,20 — dvojnásobek za 3 roky (konkurence + auction inflace)",
+      "📊 CTR roste 1,44 % → 2,01 % — kvalita reklam se zlepšuje"
+    ],
+    "rtg_status_4y": {
+      "2023": {
+        "spend": 0,
+        "campaigns": 7
+      },
+      "2024": {
+        "spend": 0,
+        "campaigns": 7
+      },
+      "2025": {
+        "spend": 0,
+        "campaigns": 7
+      },
+      "2026_partial": {
+        "spend": 0,
+        "campaigns": 7
+      },
+      "interpretation": "Display Remarketing kampaně (REM-All, 5 DRMKT, 5 DRMKT Cart, 5 VG DRMKT Trezory) existují kontinuálně 4 roky ale 0 aktivního spendu. Klient používal RTG někdy 2018-2020, od té doby paused. 50+ user listů (Cart 7/14/30, Trezory) má size 0 — pravidla nesplňují. Customer Match list 'seznam zákazníků 10/25' (700 search/300 display) existuje od října 2025, ale není napojen na žádnou aktivní kampaň."
+    },
+    "pmax_paused_high_roas": {
+      "summary": "Top performer asset groups jsou PAUSED — okamžitý quick win",
+      "2025": [
+        {
+          "asset_group": "PLA ONLY",
+          "campaign": "P4M_GA_CZ_ACQ_PMX_All",
+          "spend_kc": 178329,
+          "value_kc": 836639,
+          "roas": 4.69,
+          "status": "PAUSED"
+        },
+        {
+          "asset_group": "Klíče",
+          "campaign": "P4M_GA_CZ_ACQ_PMX_All",
+          "spend_kc": 12456,
+          "value_kc": 63914,
+          "roas": 5.13,
+          "status": "PAUSED"
+        },
+        {
+          "asset_group": "zboží STAR - vlastní značka HB Group",
+          "spend_kc": 12083,
+          "value_kc": 75000,
+          "roas": 6.21,
+          "status": "PAUSED"
+        }
+      ],
+      "2026_partial": [
+        {
+          "asset_group": "pla_dveřní okenní kování",
+          "spend_kc": 738,
+          "value_kc": 8217,
+          "roas": 11.13,
+          "status": "PAUSED"
+        },
+        {
+          "asset_group": "PLA ONLY",
+          "spend_kc": 424,
+          "value_kc": 3990,
+          "roas": 9.41,
+          "status": "PAUSED"
+        }
+      ]
+    }
+  },
+  "sklik": {
+    "channel_label": "Seznam.cz portfolio (Sklik vyhledávání + Zboží.cz)",
+    "period": {
+      "from": "2025-10-01",
+      "to": "2026-03-31"
+    },
+    "totals": {
+      "impressions": 1097523,
+      "clicks": 12845,
+      "spend_kc": 49834.05,
+      "conversions": 70,
+      "conversion_value_kc": 45607.0,
+      "ctr_pct": 1.17,
+      "avg_cpc_kc": 3.88,
+      "pno_pct": 109.3,
+      "roas": 0.92,
+      "exhausted_budget_share_pct": 92.5
+    },
+    "subchannels": [
+      {
+        "name": "Zboží.cz",
+        "spend_kc": 30542,
+        "clicks": 5427,
+        "impressions": 232075,
+        "conversions": 0,
+        "conversion_value_kc": 0,
+        "ctr_pct": 2.34,
+        "cpc_kc": 5.63,
+        "roas": 0.0,
+        "pno_pct": null,
+        "campaigns_count": 1,
+        "spend_share_pct": 61.3
+      },
+      {
+        "name": "Sklik (vyhledávání + display)",
+        "spend_kc": 19292,
+        "clicks": 7418,
+        "impressions": 865448,
+        "conversions": 70,
+        "conversion_value_kc": 45607,
+        "ctr_pct": 0.86,
+        "cpc_kc": 2.6,
+        "roas": 2.36,
+        "pno_pct": 42.3,
+        "campaigns_count": 14,
+        "spend_share_pct": 38.7
+      }
+    ],
+    "categories": [
+      {
+        "category": "PRODUCT",
+        "spend_kc": 30542,
+        "clicks": 5427,
+        "conversions": 0,
+        "conversion_value_kc": 0,
+        "roas": 0.0,
+        "pno_pct": null,
+        "campaigns_count": 1
+      },
+      {
+        "category": "LOCAL",
+        "spend_kc": 13572,
+        "clicks": 4194,
+        "conversions": 0,
+        "conversion_value_kc": 0,
+        "roas": 0.0,
+        "pno_pct": null,
+        "campaigns_count": 9
+      },
+      {
+        "category": "RTG",
+        "spend_kc": 4027,
+        "clicks": 1689,
+        "conversions": 27,
+        "conversion_value_kc": 5139,
+        "roas": 1.28,
+        "pno_pct": 78.4,
+        "campaigns_count": 4
+      },
+      {
+        "category": "BRAND",
+        "spend_kc": 1694,
+        "clicks": 1535,
+        "conversions": 43,
+        "conversion_value_kc": 40468,
+        "roas": 23.89,
+        "pno_pct": 4.2,
+        "campaigns_count": 1
+      }
+    ]
+  },
+  "meta_ads": {
+    "status": "pending_client",
+    "note": "Klient potvrdil aktivní brandové kampaně, čeká na System User token (viz MANUAL #2)"
+  },
+  "campaigns_categorized": {
+    "period": "2025-10-01 to 2026-04-21",
+    "total_campaigns": 29,
+    "by_category": {
+      "Google Ads": {
+        "BRAND": {
+          "cost": 29000.0,
+          "value": 170000.0,
+          "conversions": 61.2,
+          "roas": 5.86,
+          "count": 1
+        },
+        "PRODUCT": {
+          "cost": 114000.0,
+          "value": 344000.0,
+          "conversions": 448.0,
+          "roas": 3.02,
+          "count": 4
+        },
+        "LOCAL": {
+          "cost": 88000.0,
+          "value": 667000.0,
+          "conversions": 798.8,
+          "roas": 7.58,
+          "count": 5
+        }
+      },
+      "Sklik": {
+        "RTG": {
+          "cost": 4026.88,
+          "value": 5139.0,
+          "conversions": 27.0,
+          "roas": 1.28,
+          "count": 4
+        },
+        "BRAND": {
+          "cost": 1693.63,
+          "value": 40468.0,
+          "conversions": 43.0,
+          "roas": 23.89,
+          "count": 1
+        },
+        "LOCAL": {
+          "cost": 13445.83,
+          "value": 0.0,
+          "conversions": 0.0,
+          "roas": 0.0,
+          "count": 8
+        },
+        "SEARCH": {
+          "cost": 126.0,
+          "value": 0.0,
+          "conversions": 0.0,
+          "roas": 0.0,
+          "count": 1
+        }
+      },
+      "Zboží.cz": {
+        "PRODUCT": {
+          "cost": 30541.71,
+          "value": 0.0,
+          "conversions": 0.0,
+          "roas": 0.0,
+          "count": 1
+        }
+      },
+      "Heuréka": {
+        "PRODUCT": {
+          "cost": 6900.54,
+          "value": 10130.0,
+          "conversions": 12.0,
+          "roas": 1.47,
+          "count": 1
+        },
+        "SEARCH": {
+          "cost": 37.5,
+          "value": 0.0,
+          "conversions": 0.0,
+          "roas": 0.0,
+          "count": 1
+        },
+        "RTG": {
+          "cost": 98.49,
+          "value": 0.0,
+          "conversions": 0.0,
+          "roas": 0.0,
+          "count": 2
+        }
+      }
+    },
+    "campaigns_sample": [
+      {
+        "channel": "Google Ads",
+        "category": "BRAND",
+        "name": "P4M_GA_CZ_CZ_BR_SR_All",
+        "campaign_type": "Search",
+        "status": "enabled",
+        "impressions": 41539,
+        "clicks": 10030,
+        "cost": 29000.0,
+        "conversions": 61.2,
+        "conversion_value": 170000.0,
+        "roas": 5.86,
+        "impression_share": null,
+        "budget_lost_pct": null
+      },
+      {
+        "channel": "Google Ads",
+        "category": "PRODUCT",
+        "name": "P4M_GA_CZ_ACQ_PMX_All",
+        "campaign_type": "Performance Max",
+        "status": "enabled",
+        "impressions": 1185320,
+        "clicks": 21329,
+        "cost": 104000.0,
+        "conversions": 370.0,
+        "conversion_value": 326000.0,
+        "roas": 3.13,
+        "impression_share": null,
+        "budget_lost_pct": null
+      },
+      {
+        "channel": "Google Ads",
+        "category": "PRODUCT",
+        "name": "7 VG Pmax Mapy",
+        "campaign_type": "Performance Max",
+        "status": "enabled",
+        "impressions": 0,
+        "clicks": 0,
+        "cost": 0.0,
+        "conversions": 0.0,
+        "conversion_value": 0.0,
+        "roas": 0,
+        "impression_share": null,
+        "budget_lost_pct": null
+      },
+      {
+        "channel": "Google Ads",
+        "category": "LOCAL",
+        "name": "pmax_nová pobočka ČB Hrdějovice_cíl mapy",
+        "campaign_type": "Performance Max",
+        "status": "enabled",
+        "impressions": 0,
+        "clicks": 0,
+        "cost": 0.0,
+        "conversions": 0.0,
+        "conversion_value": 0.0,
+        "roas": 0,
+        "impression_share": null,
+        "budget_lost_pct": null
+      },
+      {
+        "channel": "Google Ads",
+        "category": "LOCAL",
+        "name": "pmax_nová pobočka ČB Hrdějovice cíl web + leták",
+        "campaign_type": "Performance Max",
+        "status": "enabled",
+        "impressions": 0,
+        "clicks": 0,
+        "cost": 0.0,
+        "conversions": 0.0,
+        "conversion_value": 0.0,
+        "roas": 0,
+        "impression_share": null,
+        "budget_lost_pct": null
+      },
+      {
+        "channel": "Google Ads",
+        "category": "LOCAL",
+        "name": "P4M_GA_CZ_CZ_ACQ_PMX_LocalChomutov",
+        "campaign_type": "Performance Max",
+        "status": "enabled",
+        "impressions": 216215,
+        "clicks": 1096,
+        "cost": 37000.0,
+        "conversions": 253.8,
+        "conversion_value": 209000.0,
+        "roas": 5.65,
+        "impression_share": null,
+        "budget_lost_pct": null
+      },
+      {
+        "channel": "Google Ads",
+        "category": "LOCAL",
+        "name": "PMAX_Pobočka Brno",
+        "campaign_type": "Performance Max",
+        "status": "enabled",
+        "impressions": 206053,
+        "clicks": 857,
+        "cost": 28000.0,
+        "conversions": 223.0,
+        "conversion_value": 154000.0,
+        "roas": 5.5,
+        "impression_share": null,
+        "budget_lost_pct": null
+      },
+      {
+        "channel": "Google Ads",
+        "category": "PRODUCT",
+        "name": "SEA_Gravírování",
+        "campaign_type": "Search",
+        "status": "enabled",
+        "impressions": 2474,
+        "clicks": 307,
+        "cost": 7000.0,
+        "conversions": 77.0,
+        "conversion_value": 7000.0,
+        "roas": 1.0,
+        "impression_share": null,
+        "budget_lost_pct": null
+      },
+      {
+        "channel": "Google Ads",
+        "category": "PRODUCT",
+        "name": "P4M_GA_CZ_CZ_ACQ_PLA",
+        "campaign_type": "Shopping",
+        "status": "enabled",
+        "impressions": 131114,
+        "clicks": 2292,
+        "cost": 3000.0,
+        "conversions": 1.0,
+        "conversion_value": 11000.0,
+        "roas": 3.67,
+        "impression_share": null,
+        "budget_lost_pct": null
+      },
+      {
+        "channel": "Google Ads",
+        "category": "LOCAL",
+        "name": "P4M_GA_CZ_CZ_ACQ_PMX_Local_Plzeň - Lochotín",
+        "campaign_type": "Performance Max",
+        "status": "enabled",
+        "impressions": 71017,
+        "clicks": 1172,
+        "cost": 23000.0,
+        "conversions": 322.0,
+        "conversion_value": 304000.0,
+        "roas": 13.22,
+        "impression_share": null,
+        "budget_lost_pct": null
+      },
+      {
+        "channel": "Sklik",
+        "category": "RTG",
+        "name": "5 VG DRMKT (D)",
+        "campaign_type": "",
+        "status": "aktivní",
+        "impressions": 257493,
+        "clicks": 1137,
+        "cost": 2785.63,
+        "conversions": 26.0,
+        "conversion_value": 4517.0,
+        "roas": 1.62,
+        "impression_share": 100.0,
+        "budget_lost_pct": null
+      },
+      {
+        "channel": "Sklik",
+        "category": "RTG",
+        "name": "5 VG DRMKT (M)",
+        "campaign_type": "",
+        "status": "aktivní",
+        "impressions": 62397,
+        "clicks": 343,
+        "cost": 343.0,
+        "conversions": 1.0,
+        "conversion_value": 622.0,
+        "roas": 1.81,
+        "impression_share": 100.0,
+        "budget_lost_pct": null
+      },
+      {
+        "channel": "Sklik",
+        "category": "BRAND",
+        "name": "0 VG Brand",
+        "campaign_type": "",
+        "status": "aktivní",
+        "impressions": 6569,
+        "clicks": 1535,
+        "cost": 1693.63,
+        "conversions": 43.0,
+        "conversion_value": 40468.0,
+        "roas": 23.89,
+        "impression_share": 91.3,
+        "budget_lost_pct": 36.4
+      },
+      {
+        "channel": "Zboží.cz",
+        "category": "PRODUCT",
+        "name": "Zboží.cz: Klicovecentrum.cz",
+        "campaign_type": "",
+        "status": "aktivní",
+        "impressions": 232075,
+        "clicks": 5427,
+        "cost": 30541.71,
+        "conversions": 0.0,
+        "conversion_value": 0.0,
+        "roas": 0.0,
+        "impression_share": 77.6,
+        "budget_lost_pct": 28.3
+      },
+      {
+        "channel": "Sklik",
+        "category": "LOCAL",
+        "name": "JOK_Chomutov_Akv",
+        "campaign_type": "",
+        "status": "pozastavená",
+        "impressions": 23799,
+        "clicks": 192,
+        "cost": 729.48,
+        "conversions": 0.0,
+        "conversion_value": 0.0,
+        "roas": 0.0,
+        "impression_share": 31.9,
+        "budget_lost_pct": 68.1
+      },
+      {
+        "channel": "Sklik",
+        "category": "RTG",
+        "name": "RTG_Chomutov",
+        "campaign_type": "",
+        "status": "pozastavená",
+        "impressions": 17403,
+        "clicks": 80,
+        "cost": 309.44,
+        "conversions": 0.0,
+        "conversion_value": 0.0,
+        "roas": 0.0,
+        "impression_share": 98.0,
+        "budget_lost_pct": 5.3
+      },
+      {
+        "channel": "Sklik",
+        "category": "LOCAL",
+        "name": "SEA_Chomutov",
+        "campaign_type": "",
+        "status": "pozastavená",
+        "impressions": 7,
+        "clicks": 1,
+        "cost": 9.9,
+        "conversions": 0.0,
+        "conversion_value": 0.0,
+        "roas": 0.0,
+        "impression_share": 100.0,
+        "budget_lost_pct": null
+      },
+      {
+        "channel": "Sklik",
+        "category": "LOCAL",
+        "name": "SEA_Brno",
+        "campaign_type": "",
+        "status": "pozastavená",
+        "impressions": 1069,
+        "clicks": 106,
+        "cost": 299.69,
+        "conversions": 0.0,
+        "conversion_value": 0.0,
+        "roas": 0.0,
+        "impression_share": 65.6,
+        "budget_lost_pct": null
+      },
+      {
+        "channel": "Sklik",
+        "category": "LOCAL",
+        "name": "JOK_Brno",
+        "campaign_type": "",
+        "status": "pozastavená",
+        "impressions": 298821,
+        "clicks": 1951,
+        "cost": 5250.65,
+        "conversions": 0.0,
+        "conversion_value": 0.0,
+        "roas": 0.0,
+        "impression_share": 22.5,
+        "budget_lost_pct": 85.1
+      },
+      {
+        "channel": "Sklik",
+        "category": "RTG",
+        "name": "Display_RTG_Gravírování",
+        "campaign_type": "",
+        "status": "pozastavená",
+        "impressions": 22992,
+        "clicks": 129,
+        "cost": 588.81,
+        "conversions": 0.0,
+        "conversion_value": 0.0,
+        "roas": 0.0,
+        "impression_share": 44.0,
+        "budget_lost_pct": 56.0
+      },
+      {
+        "channel": "Sklik",
+        "category": "LOCAL",
+        "name": "P4M_SZ_ACQ_DSP_All_pobočka Plzeň Lochotín",
+        "campaign_type": "",
+        "status": "aktivní",
+        "impressions": 84682,
+        "clicks": 1048,
+        "cost": 3720.56,
+        "conversions": 0.0,
+        "conversion_value": 0.0,
+        "roas": 0.0,
+        "impression_share": 89.3,
+        "budget_lost_pct": 23.7
+      },
+      {
+        "channel": "Sklik",
+        "category": "LOCAL",
+        "name": "P4M_SZ_ACQ_SR_All_pobočka Plzeň Lochotín",
+        "campaign_type": "",
+        "status": "pozastavená",
+        "impressions": 3,
+        "clicks": 0,
+        "cost": 0.0,
+        "conversions": 0.0,
+        "conversion_value": 0.0,
+        "roas": 0,
+        "impression_share": 100.0,
+        "budget_lost_pct": null
+      },
+      {
+        "channel": "Sklik",
+        "category": "LOCAL",
+        "name": "P4M_SZ_ACQ_DSP_All_pobočka Chomutov",
+        "campaign_type": "",
+        "status": "aktivní",
+        "impressions": 70477,
+        "clicks": 755,
+        "cost": 3384.42,
+        "conversions": 0.0,
+        "conversion_value": 0.0,
+        "roas": 0.0,
+        "impression_share": 92.5,
+        "budget_lost_pct": 30.9
+      },
+      {
+        "channel": "Sklik",
+        "category": "LOCAL",
+        "name": "P4M_SZ_ACQ_SR_All_pobočka Chomutov",
+        "campaign_type": "",
+        "status": "aktivní",
+        "impressions": 168,
+        "clicks": 15,
+        "cost": 51.13,
+        "conversions": 0.0,
+        "conversion_value": 0.0,
+        "roas": 0.0,
+        "impression_share": 98.5,
+        "budget_lost_pct": null
+      },
+      {
+        "channel": "Sklik",
+        "category": "SEARCH",
+        "name": "P4M_SZ_CZ_CZ_ACQ_DSP_DinBanner",
+        "campaign_type": "",
+        "status": "aktivní",
+        "impressions": 19568,
+        "clicks": 126,
+        "cost": 126.0,
+        "conversions": 0.0,
+        "conversion_value": 0.0,
+        "roas": 0.0,
+        "impression_share": 99.9,
+        "budget_lost_pct": 1.2
+      },
+      {
+        "channel": "Heuréka",
+        "category": "PRODUCT",
+        "name": "Heuréka product_detail",
+        "campaign_type": "comparison",
+        "status": "aktivní",
+        "impressions": null,
+        "clicks": 1106,
+        "cost": 6900.54,
+        "conversions": 12.0,
+        "conversion_value": 10130.0,
+        "roas": 1.47,
+        "impression_share": null,
+        "budget_lost_pct": null,
+        "_meta_bidded_clicks": 25
+      },
+      {
+        "channel": "Heuréka",
+        "category": "SEARCH",
+        "name": "Heuréka search",
+        "campaign_type": "comparison",
+        "status": "aktivní",
+        "impressions": null,
+        "clicks": 10,
+        "cost": 37.5,
+        "conversions": 0.0,
+        "conversion_value": 0.0,
+        "roas": 0.0,
+        "impression_share": null,
+        "budget_lost_pct": null,
+        "_meta_bidded_clicks": 0
+      },
+      {
+        "channel": "Heuréka",
+        "category": "RTG",
+        "name": "Heuréka partner",
+        "campaign_type": "comparison",
+        "status": "aktivní",
+        "impressions": null,
+        "clicks": 14,
+        "cost": 42.74,
+        "conversions": 0.0,
+        "conversion_value": 0.0,
+        "roas": 0.0,
+        "impression_share": null,
+        "budget_lost_pct": null,
+        "_meta_bidded_clicks": 0
+      },
+      {
+        "channel": "Heuréka",
+        "category": "RTG",
+        "name": "Heuréka satellite",
+        "campaign_type": "comparison",
+        "status": "aktivní",
+        "impressions": null,
+        "clicks": 26,
+        "cost": 55.75,
+        "conversions": 0.0,
+        "conversion_value": 0.0,
+        "roas": 0.0,
+        "impression_share": null,
+        "budget_lost_pct": null,
+        "_meta_bidded_clicks": 0
+      }
+    ]
+  },
+  "agency_audit_period": {
+    "period": "2020-01-01 to 2026-04-22",
+    "summary": {}
+  }
+}

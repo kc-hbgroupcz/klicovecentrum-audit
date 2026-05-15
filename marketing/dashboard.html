@@ -697,6 +697,10 @@ async function renderSection(idx) {
   if (meta.status === 'live') {
     if (idx === 0) {
       setTimeout(() => renderExecutive(meta), 50);
+    } else if (idx === 1) {
+      setTimeout(() => renderCampaigns(meta), 50);
+    } else if (idx === 2) {
+      setTimeout(() => renderSEO(meta), 50);
     } else if (idx === 3) {
       setTimeout(() => renderB2C(meta), 50);
     } else if (idx === 4) {
@@ -708,6 +712,165 @@ async function renderSection(idx) {
     } else {
       setTimeout(() => renderLivePlaceholder(idx, meta), 50);
     }
+  }
+}
+
+async function renderSEO(meta) {
+  const main = document.getElementById('main');
+  try {
+    const r = await fetch('../data/marketing/seo.json?v=' + Date.now());
+    const d = await r.json();
+    const g = d.gsc_brand_nonbrand;
+    const b = d.bing;
+
+    main.innerHTML = `
+      <div class="section-title">${meta.title}</div>
+      <div class="section-subtitle">${meta.subtitle}</div>
+      <div class="card" style="background: rgba(78,161,255,0.08); border-color: var(--accent); margin-bottom: 16px;">
+        <div style="font-size: 13px; color: var(--accent);">ℹ️ ${d.note}</div>
+      </div>
+
+      <div class="hero-grid">
+        <div class="kpi-card"><div class="kpi-label">GSC Total Clicks</div><div class="kpi-value">${fmtNum(g.total_clicks)}</div><div class="kpi-delta neutral">${g.period?.start} → ${g.period?.end}</div></div>
+        <div class="kpi-card"><div class="kpi-label">GSC Impressions</div><div class="kpi-value">${fmtNum(g.total_impressions)}</div><div class="kpi-delta neutral">12M data</div></div>
+        <div class="kpi-card"><div class="kpi-label">Brand share</div><div class="kpi-value">${fmtPct(g.brand_share_pct)}</div><div class="kpi-delta ${g.brand_share_pct > 30 ? 'positive' : 'neutral'}">brand kliky / total</div></div>
+        <div class="kpi-card"><div class="kpi-label">Bing Total Clicks</div><div class="kpi-value">${fmtNum(b.rank_traffic_summary?.clicks)}</div><div class="kpi-delta neutral">${b.site}</div></div>
+        <div class="kpi-card"><div class="kpi-label">Bing Impressions</div><div class="kpi-value">${fmtNum(b.rank_traffic_summary?.impressions)}</div><div class="kpi-delta neutral">last 30d</div></div>
+        <div class="kpi-card"><div class="kpi-label">Crawl pages/day</div><div class="kpi-value">${fmtNum(b.crawl_stats?.crawled_pages)}</div><div class="kpi-delta neutral">Bingbot</div></div>
+      </div>
+
+      <div class="section-grid">
+        <div class="card">
+          <div class="card-title">🔍 GSC top brand queries (klicovecentrum.cz)</div>
+          <table>
+            <thead><tr><th>#</th><th>Query</th><th class="num">Clicks</th><th class="num">Imp</th><th class="num">CTR</th><th class="num">Pozice</th></tr></thead>
+            <tbody>
+              ${g.top_brand_queries.map((q, i) => `
+                <tr><td class="num">${i+1}</td><td>${q.query}</td><td class="num">${fmtNum(q.clicks)}</td><td class="num">${fmtNum(q.impressions)}</td><td class="num">${(q.ctr*100).toFixed(1)}%</td><td class="num">${q.position?.toFixed(1)}</td></tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+        <div class="card">
+          <div class="card-title">🔎 GSC top non-brand queries</div>
+          <table>
+            <thead><tr><th>#</th><th>Query</th><th class="num">Clicks</th><th class="num">Imp</th><th class="num">CTR</th><th class="num">Pozice</th></tr></thead>
+            <tbody>
+              ${g.top_nonbrand_queries.map((q, i) => `
+                <tr><td class="num">${i+1}</td><td>${q.query}</td><td class="num">${fmtNum(q.clicks)}</td><td class="num">${fmtNum(q.impressions)}</td><td class="num">${(q.ctr*100).toFixed(1)}%</td><td class="num">${q.position?.toFixed(1)}</td></tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <div class="card-title">📅 GSC měsíční trend brand vs non-brand</div>
+        <table>
+          <thead><tr><th>Měsíc</th><th class="num">Brand clicks</th><th class="num">Non-brand clicks</th><th class="num">Brand %</th><th class="num">Brand impressions</th><th class="num">Non-brand impressions</th></tr></thead>
+          <tbody>
+            ${g.monthly_trend.map(m => `
+              <tr><td><strong>${m.month}</strong></td><td class="num">${fmtNum(m.brand_clicks)}</td><td class="num">${fmtNum(m.nonbrand_clicks)}</td><td class="num">${fmtPct(m.brand_pct_clicks)}</td><td class="num">${fmtNum(m.brand_impressions)}</td><td class="num">${fmtNum(m.nonbrand_impressions)}</td></tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <div class="card-title">📄 Bing top 20 pages</div>
+        <table>
+          <thead><tr><th>#</th><th>URL</th><th class="num">Clicks</th><th class="num">Imp</th><th class="num">CTR</th></tr></thead>
+          <tbody>
+            ${b.top_pages.slice(0,20).map((p, i) => `
+              <tr><td class="num">${i+1}</td><td style="max-width:400px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><small>${p.url || p.page || '?'}</small></td><td class="num">${fmtNum(p.clicks)}</td><td class="num">${fmtNum(p.impressions)}</td><td class="num">${p.ctr ? (p.ctr*100).toFixed(1)+'%' : '—'}</td></tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    `;
+  } catch (e) {
+    main.innerHTML = `<div class="empty-state"><div class="empty-state-icon">⚠️</div><h3>Chyba SEO</h3><p>${e.message}</p></div>`;
+  }
+}
+
+async function renderCampaigns(meta) {
+  const main = document.getElementById('main');
+  try {
+    const r = await fetch('../data/marketing/campaigns.json?v=' + Date.now());
+    const d = await r.json();
+    const sk = d.sklik?.totals || {};
+    const ga = d.google_ads || {};
+    const yearly = ga.yearly_totals || [];
+    const lastYear = yearly[yearly.length - 1] || {};
+
+    main.innerHTML = `
+      <div class="section-title">${meta.title}</div>
+      <div class="section-subtitle">${meta.subtitle}</div>
+      <div class="card" style="background: rgba(78,161,255,0.08); border-color: var(--accent); margin-bottom: 16px;">
+        <div style="font-size: 13px; color: var(--accent);">ℹ️ ${d.note}</div>
+      </div>
+
+      <div class="hero-grid">
+        <div class="kpi-card"><div class="kpi-label">Sklik spend</div><div class="kpi-value">${fmtKc(sk.spend_kc)}</div><div class="kpi-delta neutral">${sk.period || ''}</div></div>
+        <div class="kpi-card"><div class="kpi-label">Sklik clicks</div><div class="kpi-value">${fmtNum(sk.clicks)}</div><div class="kpi-delta neutral">CTR ${fmtPct(sk.ctr_pct)} · CPC ${fmtKc(sk.avg_cpc_kc)}</div></div>
+        <div class="kpi-card"><div class="kpi-label">Sklik conversions</div><div class="kpi-value">${fmtNum(sk.conversions)}</div><div class="kpi-delta neutral">${fmtKc(sk.conversion_value_kc)}</div></div>
+        <div class="kpi-card"><div class="kpi-label">Sklik ROAS</div><div class="kpi-value" style="color:${sk.roas >= 1 ? 'var(--green)' : 'var(--red)'}">${sk.roas?.toFixed(2) || '?'}×</div><div class="kpi-delta ${sk.roas >= 1 ? 'positive' : 'negative'}">PNO ${fmtPct(sk.pno_pct)}</div></div>
+        <div class="kpi-card"><div class="kpi-label">Sklik budget exhausted</div><div class="kpi-value" style="color:${(sk.exhausted_budget_share_pct || 0) > 50 ? 'var(--orange)' : 'var(--green)'}">${fmtPct(sk.exhausted_budget_share_pct)}</div><div class="kpi-delta neutral">% dní vyčerpán rozpočet</div></div>
+        <div class="kpi-card"><div class="kpi-label">GAds account</div><div class="kpi-value" style="font-size:18px">${ga.account?.id || '?'}</div><div class="kpi-delta neutral">${ga.account?.name || ''}</div></div>
+      </div>
+
+      <div class="section-grid">
+        <div class="card">
+          <div class="card-title">📊 Google Ads — yearly totals (4Y)</div>
+          <table>
+            <thead><tr><th>Year</th><th class="num">Spend</th><th class="num">Clicks</th><th class="num">Conv</th><th class="num">Conv value</th><th class="num">ROAS</th></tr></thead>
+            <tbody>
+              ${yearly.map(y => `
+                <tr><td><strong>${y.year}</strong></td><td class="num">${fmtKc(y.cost_kc || y.spend_kc)}</td><td class="num">${fmtNum(y.clicks)}</td><td class="num">${fmtNum(y.conversions)}</td><td class="num">${fmtKc(y.conversion_value_kc)}</td><td class="num">${y.roas ? y.roas.toFixed(2)+'×' : '—'}</td></tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <div class="card-title">📺 Sklik subchannels</div>
+          <table>
+            <thead><tr><th>Subchannel</th><th class="num">Spend</th><th class="num">Clicks</th><th class="num">Conv</th><th class="num">ROAS</th></tr></thead>
+            <tbody>
+              ${(d.sklik?.subchannels || []).slice(0, 15).map(s => `
+                <tr><td>${s.name || s.label || s.id || '?'}</td><td class="num">${fmtKc(s.spend_kc)}</td><td class="num">${fmtNum(s.clicks)}</td><td class="num">${fmtNum(s.conversions)}</td><td class="num">${s.roas?.toFixed(2) || '—'}</td></tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <div class="card-title">🔑 Google Ads key findings (z auditu)</div>
+        <ul style="padding-left:20px;color:var(--text-muted);font-size:13px">
+          ${(ga.key_findings || []).map(f => `<li>${f}</li>`).join('')}
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <div class="card-title">📋 Kampaně podle kategorií (z auditu)</div>
+        <table>
+          <thead><tr><th>Kategorie</th><th class="num">Count</th><th class="num">Spend</th><th class="num">Conv value</th><th class="num">ROAS</th></tr></thead>
+          <tbody>
+            ${Object.entries(d.campaigns_categorized?.by_category || {}).map(([cat, stats]) => `
+              <tr><td><strong>${cat}</strong></td><td class="num">${stats.count}</td><td class="num">${fmtKc(stats.cost_kc || stats.spend_kc)}</td><td class="num">${fmtKc(stats.conversion_value_kc)}</td><td class="num">${stats.roas?.toFixed(2) || '—'}×</td></tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <div class="card-title">📘 Meta Ads — pending</div>
+        <p style="color:var(--text-muted);font-size:13px">Status: ${d.meta_ads.status}<br>${d.meta_ads.note}</p>
+      </div>
+    `;
+  } catch (e) {
+    main.innerHTML = `<div class="empty-state"><div class="empty-state-icon">⚠️</div><h3>Chyba Campaigns</h3><p>${e.message}</p></div>`;
   }
 }
 
@@ -1373,26 +1536,241 @@ function renderWaitingState(idx, meta) {
   `;
 }
 
-function renderLivePlaceholder(idx, meta) {
-  // Placeholder for live sections — build skripty + JSON data files budou doplněny postupně
-  const main = document.getElementById('main');
-  const html = `
-    <div class="section-title">${meta.title}</div>
-    <div class="section-subtitle">${meta.subtitle} · ${STATE.dateFrom} → ${STATE.dateTo}</div>
+// Mapping section idx → JSON file name
+const SECTION_FILES = {
+  6: 'mc',  // Section 6 Feedy = sdíli MC API
+  7: 'products',
+  8: 'categories',
+  10: 'regions',
+  11: 'shipping',
+  12: 'complaints',
+  13: 'returns',
+  14: 'holistic',
+};
 
-    <div class="empty-state">
-      <div class="empty-state-icon">🚧</div>
-      <h3>Sekce v buildu</h3>
-      <p>
-        Data pro tuto sekci jsou připravena (build skripty existují, datasety v <code>/data/</code>).<br>
-        Marketing-specific build agregace + UI rendering bude doplněn v iteracích.
-      </p>
-      <p style="margin-top: 16px;">
-        Existující audit data: <a href="../dashboard.html">Audit dashboard</a> (sekce <strong>${meta.title}</strong> je tam pro retrospektivu)
-      </p>
+async function renderLivePlaceholder(idx, meta) {
+  const main = document.getElementById('main');
+  const fname = SECTION_FILES[idx];
+  if (!fname) {
+    main.innerHTML = `
+      <div class="section-title">${meta.title}</div>
+      <div class="section-subtitle">${meta.subtitle}</div>
+      <div class="empty-state"><div class="empty-state-icon">🚧</div><h3>Render TBD</h3><p>Data jsou připravená, render funkce bude doplněna.</p></div>`;
+    return;
+  }
+  try {
+    const r = await fetch(`../data/marketing/${fname}.json?v=` + Date.now());
+    const d = await r.json();
+    main.innerHTML = `
+      <div class="section-title">${meta.title}</div>
+      <div class="section-subtitle">${meta.subtitle}</div>
+      ${renderGenericData(d, idx)}
+    `;
+  } catch (e) {
+    main.innerHTML = `<div class="empty-state"><div class="empty-state-icon">⚠️</div><h3>Chyba načítání ${fname}.json</h3><p>${e.message}</p></div>`;
+  }
+}
+
+function renderGenericData(d, idx) {
+  // Section-specific lookups
+  if (idx === 7) return renderProducts(d);
+  if (idx === 8) return renderCategories(d);
+  if (idx === 10) return renderRegions(d);
+  if (idx === 11) return renderShipping(d);
+  if (idx === 12) return renderComplaints(d);
+  if (idx === 13) return renderReturns(d);
+  if (idx === 14) return renderHolistic(d);
+  return `<pre style="background:var(--bg-card);padding:12px;border-radius:8px;overflow:auto;max-height:600px;font-size:11px">${JSON.stringify(d, null, 2)}</pre>`;
+}
+
+function renderProducts(d) {
+  return `
+    <div class="hero-grid">
+      <div class="kpi-card"><div class="kpi-label">Total unique SKUs</div><div class="kpi-value">${fmtNum(d.total_unique_skus)}</div></div>
+      <div class="kpi-card"><div class="kpi-label">Total revenue</div><div class="kpi-value">${fmtKc(d.total_revenue)}</div></div>
+      <div class="kpi-card"><div class="kpi-label">Top 50 zobrazeno</div><div class="kpi-value">50</div><div class="kpi-delta neutral">z ${fmtNum(d.total_unique_skus)}</div></div>
     </div>
+    <div class="card">
+      <div class="card-title">🔧 Top 50 SKU (revenue)</div>
+      <table>
+        <thead><tr><th>#</th><th>SKU</th><th>Název</th><th class="num">Obj.</th><th class="num">Revenue</th><th class="num">Margin</th></tr></thead>
+        <tbody>
+          ${(d.top_50 || []).slice(0, 50).map((p, i) => `
+            <tr><td class="num">${i+1}</td><td><small style="font-family:monospace">${p.sku || p.product_id || '?'}</small></td><td>${(p.name || p.title || '').slice(0, 50)}</td><td class="num">${fmtNum(p.orders || p.count)}</td><td class="num">${fmtKc(p.revenue_kc || p.revenue)}</td><td class="num">${p.margin_pct ? fmtPct(p.margin_pct) : '—'}</td></tr>
+          `).join('')}
+        </tbody>
+      </table>
+    </div>`;
+}
+
+function renderCategories(d) {
+  return `
+    <div class="card">
+      <div class="card-title">📂 Kategorie produktů (sorted by revenue)</div>
+      <table>
+        <thead><tr><th>#</th><th>Kategorie</th><th class="num">SKUs</th><th class="num">Revenue</th><th class="num">Profit</th><th class="num">Margin</th></tr></thead>
+        <tbody>
+          ${(d.categories || []).map((c, i) => `
+            <tr><td class="num">${i+1}</td><td><strong>${c.name}</strong></td><td class="num">${fmtNum(c.skus || c.count)}</td><td class="num">${fmtKc(c.revenue_kc || c.revenue)}</td><td class="num">${fmtKc(c.profit_kc)}</td><td class="num">${c.margin_pct ? fmtPct(c.margin_pct) : '—'}</td></tr>
+          `).join('')}
+        </tbody>
+      </table>
+    </div>`;
+}
+
+function renderRegions(d) {
+  return `
+    <div class="hero-grid">
+      <div class="kpi-card"><div class="kpi-label">Total orders</div><div class="kpi-value">${fmtNum(d.total_orders)}</div></div>
+      <div class="kpi-card"><div class="kpi-label">With branch (PSČ)</div><div class="kpi-value">${d.with_branch_pct != null ? fmtPct(d.with_branch_pct) : '—'}</div></div>
+      <div class="kpi-card"><div class="kpi-label">Period</div><div class="kpi-value" style="font-size:14px">${d.period?.start} → ${d.period?.end}</div></div>
+    </div>
+    <div class="card">
+      <div class="card-title">🗺️ Kraje breakdown</div>
+      <table>
+        <thead><tr><th>Kraj</th><th class="num">Orders</th><th class="num">Revenue</th><th class="num">Avg AOV</th></tr></thead>
+        <tbody>
+          ${(d.regions || []).slice(0, 20).map(r => `
+            <tr><td><strong>${r.kraj || r.name || '?'}</strong></td><td class="num">${fmtNum(r.orders || r.count)}</td><td class="num">${fmtKc(r.revenue_kc || r.revenue)}</td><td class="num">${fmtKc(r.aov_kc || r.aov)}</td></tr>
+          `).join('')}
+        </tbody>
+      </table>
+    </div>`;
+}
+
+function renderShipping(d) {
+  const cross = d.cross_analysis || {};
+  return `
+    <div class="hero-grid">
+      <div class="kpi-card"><div class="kpi-label">Total packages</div><div class="kpi-value">${fmtNum(d.total_packages)}</div></div>
+      <div class="kpi-card"><div class="kpi-label">Unique shipments</div><div class="kpi-value">${fmtNum(d.unique_shipments)}</div></div>
+      <div class="kpi-card"><div class="kpi-label">Avg pkgs/shipment</div><div class="kpi-value">${d.avg_packages_per_shipment?.toFixed(2) || '—'}</div></div>
+      <div class="kpi-card"><div class="kpi-label">Period (active)</div><div class="kpi-value" style="font-size:13px">${d.period_active?.start || '?'} → ${d.period_active?.end || '?'}</div></div>
+    </div>
+    ${cross.attack_correlation ? `
+      <div class="card" style="border-color:var(--green);background:rgba(74,222,128,0.05);margin-bottom:16px">
+        <div class="card-title">🛡️ KEY FINDING: PPL vs Bot Attack korelace (důkaz že útok byl 100% bot)</div>
+        <pre style="font-size:12px;color:var(--text-muted);white-space:pre-wrap">${JSON.stringify(cross.attack_correlation, null, 2).slice(0, 800)}</pre>
+      </div>` : ''}
+    ${(d.monthly_breakdown && d.monthly_breakdown.length) ? `
+      <div class="card">
+        <div class="card-title">📅 Monthly PPL breakdown</div>
+        <table>
+          <thead><tr><th>Měsíc</th><th class="num">Packages</th><th class="num">Shipments</th></tr></thead>
+          <tbody>
+            ${d.monthly_breakdown.map(m => `<tr><td><strong>${m.month}</strong></td><td class="num">${fmtNum(m.packages)}</td><td class="num">${fmtNum(m.shipments)}</td></tr>`).join('')}
+          </tbody>
+        </table>
+      </div>` : ''}
   `;
-  main.innerHTML = html;
+}
+
+function renderComplaints(d) {
+  const s = d.summary || {};
+  return `
+    <div class="hero-grid">
+      <div class="kpi-card"><div class="kpi-label">Total reklamace</div><div class="kpi-value">${fmtNum(s.count_total || s.total)}</div></div>
+      <div class="kpi-card"><div class="kpi-label">Reklamace rate</div><div class="kpi-value" style="color:${(s.rate_pct || 0) > 5 ? 'var(--red)' : 'var(--orange)'}">${s.rate_pct ? fmtPct(s.rate_pct) : '—'}</div></div>
+      <div class="kpi-card"><div class="kpi-label">Total cost</div><div class="kpi-value">${fmtKc(s.cost_total_kc || s.value_total_kc)}</div></div>
+    </div>
+    ${d.stav_breakdown ? `
+      <div class="card">
+        <div class="card-title">📊 Stav breakdown</div>
+        <table><tbody>
+          ${Object.entries(d.stav_breakdown).map(([k, v]) => `<tr><td>${k}</td><td class="num">${fmtNum(v.count || v)}</td><td class="num">${v.value_kc ? fmtKc(v.value_kc) : ''}</td></tr>`).join('')}
+        </tbody></table>
+      </div>` : ''}
+    <div class="card" style="margin-top:16px">
+      <div class="card-title">🔧 Top 30 produktů reklamovaných</div>
+      <table>
+        <thead><tr><th>#</th><th>SKU/Produkt</th><th class="num">Reklamace</th><th class="num">Hodnota</th></tr></thead>
+        <tbody>
+          ${(d.top_30_products || []).slice(0, 30).map((p, i) => `<tr><td class="num">${i+1}</td><td>${p.product || p.sku || p.name || '?'}</td><td class="num">${fmtNum(p.count)}</td><td class="num">${fmtKc(p.value_kc || p.cost_kc)}</td></tr>`).join('')}
+        </tbody>
+      </table>
+    </div>`;
+}
+
+function renderReturns(d) {
+  const s = d.summary || {};
+  return `
+    <div class="hero-grid">
+      <div class="kpi-card"><div class="kpi-label">Vratky count (year)</div><div class="kpi-value">${fmtNum(s.count_total || s.total)}</div></div>
+      <div class="kpi-card"><div class="kpi-label">Vratky value</div><div class="kpi-value" style="color:var(--orange)">${fmtKc(s.value_total_kc)}</div></div>
+      <div class="kpi-card"><div class="kpi-label">Avg vratka</div><div class="kpi-value">${fmtKc(s.avg_value_kc)}</div></div>
+    </div>
+    ${d.monthly && d.monthly.length ? `
+      <div class="card">
+        <div class="card-title">📅 Monthly vratky trend</div>
+        <table>
+          <thead><tr><th>Měsíc</th><th class="num">Count</th><th class="num">Value</th></tr></thead>
+          <tbody>
+            ${d.monthly.map(m => `<tr><td><strong>${m.month}</strong></td><td class="num">${fmtNum(m.count)}</td><td class="num">${fmtKc(m.value_kc)}</td></tr>`).join('')}
+          </tbody>
+        </table>
+      </div>` : ''}
+    ${d.interpretation ? `<div class="card" style="margin-top:16px"><div class="card-title">💡 Interpretace</div><pre style="font-size:13px;white-space:pre-wrap;color:var(--text-muted)">${typeof d.interpretation === 'string' ? d.interpretation : JSON.stringify(d.interpretation, null, 2)}</pre></div>` : ''}
+  `;
+}
+
+function renderHolistic(d) {
+  const mer = d.mer || {};
+  const cm = d.channel_mix_seo || {};
+  const bb = d.b2b_b2c || {};
+  const cr = d.concentration_risk || {};
+  const ret = d.retention_signals || {};
+  const mc = d.merchant_center_health || {};
+  const cf = d.cloudflare_status || {};
+
+  return `
+    <div class="card" style="background: rgba(78,161,255,0.08); border-color: var(--accent); margin-bottom: 16px;">
+      <div style="font-size: 13px; color: var(--accent);">ℹ️ ${d.note}</div>
+    </div>
+
+    <div class="hero-grid">
+      <div class="kpi-card"><div class="kpi-label">MER (blended)</div><div class="kpi-value" style="color:${(mer.mer_blended || 0) >= 5 ? 'var(--green)' : 'var(--orange)'}">${mer.mer_blended ? mer.mer_blended + '×' : '—'}</div><div class="kpi-delta neutral">cíl > 5×</div></div>
+      <div class="kpi-card"><div class="kpi-label">Total ERP revenue 8M</div><div class="kpi-value">${fmtKc(mer.total_erp_revenue_8m)}</div></div>
+      <div class="kpi-card"><div class="kpi-label">Total ERP profit 8M</div><div class="kpi-value">${fmtKc(mer.total_erp_profit_8m)}</div></div>
+      <div class="kpi-card"><div class="kpi-label">Marketing spend (Sklik+GAds)</div><div class="kpi-value">${fmtKc(mer.total_marketing_spend_estimated)}</div><div class="kpi-delta neutral">chybí Meta/srovnávače</div></div>
+      <div class="kpi-card"><div class="kpi-label">Brand SEO share</div><div class="kpi-value">${fmtPct(cm.brand_share_pct)}</div><div class="kpi-delta neutral">${fmtNum(cm.brand_clicks_12m)} brand kliků</div></div>
+      <div class="kpi-card"><div class="kpi-label">B2B/B2C ratio</div><div class="kpi-value">${bb.b2b_to_b2c_ratio}×</div><div class="kpi-delta neutral">B2B vs B2C revenue</div></div>
+    </div>
+
+    <div class="section-grid">
+      <div class="card">
+        <div class="card-title">⚠️ Concentration risk (B2B)</div>
+        <table><tbody>
+          <tr><td>Top 5 podíl</td><td class="num"><strong style="color:${cr.top_5_pct > 40 ? 'var(--red)' : 'var(--green)'}">${fmtPct(cr.top_5_pct)}</strong></td></tr>
+          <tr><td>Top 10 podíl</td><td class="num">${fmtPct(cr.top_10_pct)}</td></tr>
+          <tr><td>Top 20 podíl</td><td class="num">${fmtPct(cr.top_20_pct)}</td></tr>
+        </tbody></table>
+      </div>
+      <div class="card">
+        <div class="card-title">🔁 Retention signals</div>
+        <table><tbody>
+          <tr><td>Total unique B2B customers</td><td class="num">${fmtNum(ret.total_unique_customers)}</td></tr>
+          <tr><td>Top 20 repeat rate</td><td class="num"><strong style="color:var(--green)">${fmtPct(ret.repeat_rate_top20_pct)}</strong></td></tr>
+        </tbody></table>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <div class="card-title">🏥 Operativní health</div>
+      <table>
+        <tbody>
+          <tr><td>MC produkty / approval rate</td><td class="num">${fmtNum(mc.total_products)} / ${fmtPct(mc.approval_rate_pct)}</td></tr>
+          <tr><td>MC account issues</td><td class="num">${(mc.account_issues || 0) > 0 ? `<span style="color:var(--red)">⚠️ ${mc.account_issues}</span>` : '✅ 0'}</td></tr>
+          <tr><td>CF chráněné domény</td><td class="num">${cf.domains_protected || 0}/4</td></tr>
+          <tr><td>CF total rules</td><td class="num">${cf.total_rules || 0}</td></tr>
+          <tr><td>CF Bot Fight Mode</td><td class="num">${cf.all_bfm_on ? '✅ all 4' : '⚠️ partial'}</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="color:var(--text-muted); font-size:12px; margin-top:16px;">
+      <strong>Period:</strong> ${d.period_erp?.start} → ${d.period_erp?.end}
+    </p>
+  `;
 }
 
 // ═══════════════════════════════════════════════════════════════

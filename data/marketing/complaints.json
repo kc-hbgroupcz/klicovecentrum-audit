@@ -1,0 +1,561 @@
+{
+  "generated_at": "2026-05-15T15:52:36",
+  "period": {
+    "start": "2025-10-01",
+    "end": "2026-05-05"
+  },
+  "summary": {
+    "total": 138,
+    "vyrizenych": 52,
+    "nevyrizenych": 86,
+    "vyrizenych_pct": 37.7,
+    "doba_avg_dnu": 24.1,
+    "doba_median_dnu": 23,
+    "doba_max_dnu": 84,
+    "prekroceno_30_dnu": 14,
+    "prekroceno_30_pct": 26.9,
+    "ratio_pct_vs_vydejky": 6.54,
+    "benchmark_ecommerce": "1-3 %",
+    "unique_customers": 97,
+    "unique_products": 91
+  },
+  "monthly": [
+    {
+      "month": "2025-10",
+      "count": 23
+    },
+    {
+      "month": "2025-11",
+      "count": 20
+    },
+    {
+      "month": "2025-12",
+      "count": 10
+    },
+    {
+      "month": "2026-01",
+      "count": 22
+    },
+    {
+      "month": "2026-02",
+      "count": 14
+    },
+    {
+      "month": "2026-03",
+      "count": 24
+    },
+    {
+      "month": "2026-04",
+      "count": 23
+    },
+    {
+      "month": "2026-05",
+      "count": 2
+    }
+  ],
+  "stav_breakdown": [
+    {
+      "code": 1,
+      "label": "Otevřená / přijatá",
+      "count": 69,
+      "pct": 50.0
+    },
+    {
+      "code": 4,
+      "label": "Vyřízená",
+      "count": 53,
+      "pct": 38.4
+    },
+    {
+      "code": 2,
+      "label": "V procesu / posouzení",
+      "count": 15,
+      "pct": 10.9
+    },
+    {
+      "code": 6,
+      "label": "Uzavřená",
+      "count": 1,
+      "pct": 0.7
+    }
+  ],
+  "top_30_products": [
+    {
+      "name": "OC El.otvírač 51B10 MB 6-14Vac/dc",
+      "count": 13,
+      "pct_of_all": 9.42,
+      "vyrizeno": 4,
+      "nevyrizeno": 9,
+      "avg_doba_dnu": 42
+    },
+    {
+      "name": "OC El.otvírač 50E10 12Vdc nízkoodběr.",
+      "count": 6,
+      "pct_of_all": 4.35,
+      "vyrizeno": 0,
+      "nevyrizeno": 6,
+      "avg_doba_dnu": null
+    },
+    {
+      "name": "Zámek HOBES 24026 P/L 90/50/22 PZ  BZn",
+      "count": 5,
+      "pct_of_all": 3.62,
+      "vyrizeno": 5,
+      "nevyrizeno": 0,
+      "avg_doba_dnu": 22
+    },
+    {
+      "name": "OC El.otvírač 50B10 6-14Vac/dc",
+      "count": 5,
+      "pct_of_all": 3.62,
+      "vyrizeno": 1,
+      "nevyrizeno": 4,
+      "avg_doba_dnu": 28
+    },
+    {
+      "name": "Zámek Star Europortal S45 90/30/22 P/L kov",
+      "count": 4,
+      "pct_of_all": 2.9,
+      "vyrizeno": 1,
+      "nevyrizeno": 3,
+      "avg_doba_dnu": 0
+    },
+    {
+      "name": "Zámek HOBES 01-15 P/L 90/40/20 BB BZn",
+      "count": 4,
+      "pct_of_all": 2.9,
+      "vyrizeno": 1,
+      "nevyrizeno": 3,
+      "avg_doba_dnu": 9
+    },
+    {
+      "name": "Zámek HOBES 02-04 P/L 90/40/20 PZ BZn",
+      "count": 3,
+      "pct_of_all": 2.17,
+      "vyrizeno": 2,
+      "nevyrizeno": 1,
+      "avg_doba_dnu": 12
+    },
+    {
+      "name": "El.otvírač 51B10 MB 6-14Vac/dc (BEFO 511MB)",
+      "count": 3,
+      "pct_of_all": 2.17,
+      "vyrizeno": 3,
+      "nevyrizeno": 0,
+      "avg_doba_dnu": 76
+    },
+    {
+      "name": "Zámek HOBES 536A P/L 90/50/22 BB BZn",
+      "count": 3,
+      "pct_of_all": 2.17,
+      "vyrizeno": 2,
+      "nevyrizeno": 1,
+      "avg_doba_dnu": 16
+    },
+    {
+      "name": "Zámek Star Europortal S40 90/25/22 P/L kov",
+      "count": 3,
+      "pct_of_all": 2.17,
+      "vyrizeno": 1,
+      "nevyrizeno": 2,
+      "avg_doba_dnu": 49
+    },
+    {
+      "name": "Zámek HOBES 548A P/L 90/50/22 DOZ BZn",
+      "count": 3,
+      "pct_of_all": 2.17,
+      "vyrizeno": 2,
+      "nevyrizeno": 1,
+      "avg_doba_dnu": 0
+    },
+    {
+      "name": "Zámek Star 92/35/22/270 el.mech.samozam.",
+      "count": 2,
+      "pct_of_all": 1.45,
+      "vyrizeno": 0,
+      "nevyrizeno": 2,
+      "avg_doba_dnu": null
+    },
+    {
+      "name": "Zámek HOBES 02-06 BZn P/L 90/60/FAB (5131)",
+      "count": 2,
+      "pct_of_all": 1.45,
+      "vyrizeno": 0,
+      "nevyrizeno": 2,
+      "avg_doba_dnu": null
+    },
+    {
+      "name": "OC El.otvírač 54E10 reverz.12Vdc  nízkoodběr.",
+      "count": 2,
+      "pct_of_all": 1.45,
+      "vyrizeno": 0,
+      "nevyrizeno": 2,
+      "avg_doba_dnu": null
+    },
+    {
+      "name": "Zámek HOBES  K 119 P/L 90/50/22x1970 čepy BZn lištový",
+      "count": 2,
+      "pct_of_all": 1.45,
+      "vyrizeno": 0,
+      "nevyrizeno": 2,
+      "avg_doba_dnu": null
+    },
+    {
+      "name": "OC El.otvírač 51E10 MB 12Vdc nízkoodběr.",
+      "count": 2,
+      "pct_of_all": 1.45,
+      "vyrizeno": 0,
+      "nevyrizeno": 2,
+      "avg_doba_dnu": null
+    },
+    {
+      "name": "BRANO Zavírač dveří R 12/12 zlatý",
+      "count": 1,
+      "pct_of_all": 0.72,
+      "vyrizeno": 1,
+      "nevyrizeno": 0,
+      "avg_doba_dnu": 30
+    },
+    {
+      "name": "Dveřní zavírač DC110 - bílý - Bílý",
+      "count": 1,
+      "pct_of_all": 0.72,
+      "vyrizeno": 1,
+      "nevyrizeno": 0,
+      "avg_doba_dnu": 0
+    },
+    {
+      "name": "Zámek 02-05 BZn válečkový  40/60/90",
+      "count": 1,
+      "pct_of_all": 0.72,
+      "vyrizeno": 0,
+      "nevyrizeno": 1,
+      "avg_doba_dnu": null
+    },
+    {
+      "name": "Zámek K 221 P 72/55/77/FAB BZn 30ks hr.balení",
+      "count": 1,
+      "pct_of_all": 0.72,
+      "vyrizeno": 1,
+      "nevyrizeno": 0,
+      "avg_doba_dnu": 0
+    },
+    {
+      "name": "GEZE Zavírač TS 4000 hnědý",
+      "count": 1,
+      "pct_of_all": 0.72,
+      "vyrizeno": 0,
+      "nevyrizeno": 1,
+      "avg_doba_dnu": null
+    },
+    {
+      "name": "Zámek HOBES K 102 P/L 90/50/22 PZ BZn",
+      "count": 1,
+      "pct_of_all": 0.72,
+      "vyrizeno": 1,
+      "nevyrizeno": 0,
+      "avg_doba_dnu": 23
+    },
+    {
+      "name": "Zámek K 431 Bzn    35/90/FAB/22",
+      "count": 1,
+      "pct_of_all": 0.72,
+      "vyrizeno": 1,
+      "nevyrizeno": 0,
+      "avg_doba_dnu": 23
+    },
+    {
+      "name": "Star smart vložka E57,5/47,5 PIN+FS",
+      "count": 1,
+      "pct_of_all": 0.72,
+      "vyrizeno": 1,
+      "nevyrizeno": 0,
+      "avg_doba_dnu": 76
+    },
+    {
+      "name": "Zámek K 136  Bzn P/L  72/85/FAB",
+      "count": 1,
+      "pct_of_all": 0.72,
+      "vyrizeno": 1,
+      "nevyrizeno": 0,
+      "avg_doba_dnu": 22
+    },
+    {
+      "name": "Smart stěnová jednotka K3F DESFire",
+      "count": 1,
+      "pct_of_all": 0.72,
+      "vyrizeno": 1,
+      "nevyrizeno": 0,
+      "avg_doba_dnu": 0
+    },
+    {
+      "name": "Vložka Star 50S 30/30 Ni/R1 stavební",
+      "count": 1,
+      "pct_of_all": 0.72,
+      "vyrizeno": 1,
+      "nevyrizeno": 0,
+      "avg_doba_dnu": 0
+    },
+    {
+      "name": "El.otvírač 50B10 6-14Vac/dc (BEFO 511)",
+      "count": 1,
+      "pct_of_all": 0.72,
+      "vyrizeno": 0,
+      "nevyrizeno": 1,
+      "avg_doba_dnu": null
+    },
+    {
+      "name": "Zámek K 410 P/L BZn  25/85/22",
+      "count": 1,
+      "pct_of_all": 0.72,
+      "vyrizeno": 0,
+      "nevyrizeno": 1,
+      "avg_doba_dnu": null
+    },
+    {
+      "name": "El.otvírač 51E10 MB 12Vdc (BEFO 11211MB) nízkoodběrový",
+      "count": 1,
+      "pct_of_all": 0.72,
+      "vyrizeno": 1,
+      "nevyrizeno": 0,
+      "avg_doba_dnu": 29
+    }
+  ],
+  "top_30_customers": [
+    {
+      "name": "Provozovna Plzeň",
+      "count": 7,
+      "top_products": [
+        "Zámek HOBES 02-06 BZn P/L 90/60/FAB (5131)",
+        "Zámek HOBES 548A P/L 90/50/22 DOZ BZn",
+        "Zámek Star S1570 stř. bez vložky"
+      ]
+    },
+    {
+      "name": "Klíčový servis s.r.o.",
+      "count": 6,
+      "top_products": [
+        "Zámek HOBES  K 119 P/L 90/50/22x1970 čepy BZn lištový",
+        "Smart motor Star (NUKI)",
+        "Zámek K 410 P/L BZn  25/85/22"
+      ]
+    },
+    {
+      "name": "[Maloobchodní prodej]",
+      "count": 6,
+      "top_products": [
+        "BW Trezor FAVOR S5 E",
+        "Zámek Star Europortal S40 90/25/22 P/L kov",
+        "OC El.otvírač 50B10 6-14Vac/dc"
+      ]
+    },
+    {
+      "name": "Točík Pelhřimov s.r.o.",
+      "count": 5,
+      "top_products": [
+        "OC El.otvírač 54E10 reverz.12Vdc  nízkoodběr.",
+        "GEZE Zavírač TS 4000 stř. EN1-6",
+        "GEZE Zavírač TS 4000 hnědý"
+      ]
+    },
+    {
+      "name": "Ostatní odběratel Vodňany",
+      "count": 4,
+      "top_products": [
+        "OC El.otvírač 51B10 MB 6-14Vac/dc",
+        "OC El.otvírač 50E10 12Vdc nízkoodběr.",
+        "OC El.otvírač 54E10 reverz.12Vdc  nízkoodběr."
+      ]
+    },
+    {
+      "name": "Centrum klíčů, s.r.o.",
+      "count": 4,
+      "top_products": [
+        "Zámek HOBES 24026 P/L 90/50/22 PZ  BZn",
+        "OC El.otvírač 51B10 MB 6-14Vac/dc",
+        "Zámek HOBES K 111 72/40/20 WC P/L 6x6 BZn"
+      ]
+    },
+    {
+      "name": "Moravia Keys s.r.o.",
+      "count": 3,
+      "top_products": [
+        "El.otvírač 50E10 12Vdc (BEFO 11211) nízkoodběrový",
+        "OC El.otvírač 50E10 12Vdc nízkoodběr.",
+        "OC El.otvírač 51E10 MB 12Vdc nízkoodběr."
+      ]
+    },
+    {
+      "name": "Věra Salabová",
+      "count": 3,
+      "top_products": [
+        "ID5 AC50 visačka malá mix bal.50ks (ID38)",
+        "OC El.otvírač 51B10 MB 6-14Vac/dc",
+        "OC El.otvírač 50B10 6-14Vac/dc"
+      ]
+    },
+    {
+      "name": "Pavel Svoboda, ELEKTROS",
+      "count": 3,
+      "top_products": [
+        "Zámek HOBES K 431 90/35/22 PZ P/L Bzn",
+        "BRANO Zavírač dveří R 12/13",
+        "Zámek HOBES K 051 P/L 72/45/20 BB BZn"
+      ]
+    },
+    {
+      "name": "Martin Ožana",
+      "count": 2,
+      "top_products": [
+        "OC El.otvírač 50B10 6-14Vac/dc",
+        "Zámek K 221 P 72/55/77/FAB BZn 30ks hr.balení"
+      ]
+    },
+    {
+      "name": "maloobchod",
+      "count": 2,
+      "top_products": [
+        "Zámek Star Europortal S45 90/30/22 P/L kov",
+        "Zámek Star Europortal S40 90/25/22 P/L kov"
+      ]
+    },
+    {
+      "name": "Provozovna Vodňany",
+      "count": 2,
+      "top_products": [
+        "OC El.otvírač 51B10 MB 6-14Vac/dc"
+      ]
+    },
+    {
+      "name": "Martin Klivar",
+      "count": 2,
+      "top_products": [
+        "BERA samoz. el.mech.P35/92 SZPE92 typ E",
+        "Zámek Star 92/35/22/270 el.mech.samozam."
+      ]
+    },
+    {
+      "name": "H&B Group Ostrava",
+      "count": 2,
+      "top_products": [
+        "Zámek HOBES  K 119 P/L 90/50/22x1970 čepy BZn lištový",
+        "Spínač hlavní BRAVO"
+      ]
+    },
+    {
+      "name": "H&B Group s.r.o. Ostrava",
+      "count": 2,
+      "top_products": [
+        "TOKOZ vis.zámek 112-50  3kl.       á 12ks",
+        "TOKOZ vis.zámek 112-45  3kl.        á12ks"
+      ]
+    },
+    {
+      "name": "Maloobchodní prodej",
+      "count": 2,
+      "top_products": [
+        "Zámek Star Europorta S40 90/25/22 P/L kov",
+        "NUKI Smart Lock 4.0 PRO-bílý"
+      ]
+    },
+    {
+      "name": "Eurosat CS, spol. s r.o.",
+      "count": 2,
+      "top_products": [
+        "OC El.otvírač 50E10 12Vdc nízkoodběr.",
+        "OC El.otvírač 51E10 MB 12Vdc nízkoodběr."
+      ]
+    },
+    {
+      "name": "LOCKSYSTEMS s.r.o. Korunní",
+      "count": 1,
+      "top_products": [
+        "BRANO Zavírač dveří R 12/12 zlatý"
+      ]
+    },
+    {
+      "name": "ROXIT s.r.o.",
+      "count": 1,
+      "top_products": [
+        "Dveřní zavírač DC110 - bílý - Bílý"
+      ]
+    },
+    {
+      "name": "Pavel Václavek",
+      "count": 1,
+      "top_products": [
+        "El.otvírač 51B10 MB 6-14Vac/dc (BEFO 511MB)"
+      ]
+    },
+    {
+      "name": "Stavba bez starostí s.r.o.",
+      "count": 1,
+      "top_products": [
+        "Zámek Star 92/35/22/270 el.mech.samozam."
+      ]
+    },
+    {
+      "name": "M.A.T. Group, s.r.o.   81/2025/365",
+      "count": 1,
+      "top_products": [
+        "Zámek HOBES 24026 P/L 90/50/22 PZ  BZn"
+      ]
+    },
+    {
+      "name": "M.A.T. Group, s.r.o.   81/2025/370",
+      "count": 1,
+      "top_products": [
+        "Zámek HOBES K 102 P/L 90/50/22 PZ BZn"
+      ]
+    },
+    {
+      "name": "M.A.T. Group, s.r.o.  81/2025/371",
+      "count": 1,
+      "top_products": [
+        "Zámek HOBES 536A P/L 90/50/22 BB BZn"
+      ]
+    },
+    {
+      "name": "M.A.T. Group, s.r.o.  81/2025/372",
+      "count": 1,
+      "top_products": [
+        "Zámek K 431 Bzn    35/90/FAB/22"
+      ]
+    },
+    {
+      "name": "M.A.T. Group, s.r.o. 81/2025/367",
+      "count": 1,
+      "top_products": [
+        "Zámek HOBES 02-04 P/L 90/40/20 PZ BZn"
+      ]
+    },
+    {
+      "name": "M.A.T. Group, s.r.o.  81/2025/375",
+      "count": 1,
+      "top_products": [
+        "Zámek K 136  Bzn P/L  72/85/FAB"
+      ]
+    },
+    {
+      "name": "Petr Molek",
+      "count": 1,
+      "top_products": [
+        "Smart stěnová jednotka K3F DESFire"
+      ]
+    },
+    {
+      "name": "Petr Pelíšek",
+      "count": 1,
+      "top_products": [
+        "El.otvírač 51B10 MB 6-14Vac/dc (BEFO 511MB)"
+      ]
+    },
+    {
+      "name": "[Maloobchodní prodej] Adam Testovací",
+      "count": 1,
+      "top_products": [
+        "Vložka Star 50S 30/30 Ni/R1 stavební"
+      ]
+    }
+  ]
+}
