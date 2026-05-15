@@ -24,20 +24,22 @@
 
 | # | Zdroj | Aktuální data | Co potřebuji od klienta |
 |---|-------|---------------|-------------------------|
-| 9 | **ERP Helios Výdejky MO** | 10/2025 - 5/2026 (8 měsíců) | Měsíční export do `data/raw/erp_vydejky_MM_YYYY.csv` |
-| 10 | **ERP Helios Výdejky VO** | 10/2025 - 5/2026 | Měsíční export do `data/raw/erp_vydejky_vo_MM_YYYY.csv` |
-| 11 | **ERP Helios Reklamace** | 10/2025 - 5/2026 | Měsíční export do `data/raw/erp_reklamace_MM_YYYY.csv` |
-| 12 | **PPL dopravce** | 12/2024 - 5/2026 (Helios IQ export) | Měsíční export do `data/raw/ppl_zasilky_MM_YYYY.csv` |
+| 9 | **ERP Cézar Výdejky MO** | 10/2025 - 5/2026 (8 měsíců) | Měsíční export do `data/raw/erp_vydejky_MM_YYYY.csv` |
+| 10 | **ERP Cézar Výdejky VO** | 10/2025 - 5/2026 | Měsíční export do `data/raw/erp_vydejky_vo_MM_YYYY.csv` |
+| 11 | **ERP Cézar Reklamace** | 10/2025 - 5/2026 | Měsíční export do `data/raw/erp_reklamace_MM_YYYY.csv` |
+| 12 | **PPL dopravce** | 12/2024 - 5/2026 (Cézar export) | Měsíční export do `data/raw/ppl_zasilky_MM_YYYY.csv` |
 | 13 | **Mergado feed URLs** | Live (URL feed) | URL feedu (existuje) — fetch automatically |
 
 ---
 
-## 🟠 MOHU NASTAVIT API (existující OAuth, jen enable APIs + scope)
+## 🟢 API access HOTOVÝ (12.5.2026) — připojuju TEĎ
 
-| # | Zdroj | Co je potřeba | Status |
-|---|-------|---------------|--------|
-| 14 | **Google Business Profile** | Enable My Business APIs v hbgroup-493608 + scope `business.manage` + manager access na 17 GBP profilech | **Klient zařídí managery v GBP** |
-| 15 | **Google Merchant Center** | Enable Content API + Reports API v hbgroup-493608 + scope `content` + Standard user v MC | **Klient zařídí user access v MC** |
+| # | Zdroj | Status | Příští kroky |
+|---|-------|--------|--------------|
+| 14 | **Google Business Profile** | ✅ Manager access HOTOVO | Enable APIs v Cloud Console + test API call + buildy |
+| 15 | **Google Merchant Center** | ✅ Standard user access HOTOVO | Enable Content + Reports API + test API call + buildy |
+| 16 | **Meta Marketing API** | ⏳ Čeká token od klienta | Po obdržení tokenu: napojit + test |
+| 17 | **Heuréka Reporting** | ⏳ Vyjasnit s klientem | API klíč existuje? Pokud ano → API. Pokud ne → manuální CSV |
 
 ---
 
@@ -47,15 +49,22 @@ Detaily v `EXPORTY_OD_KLIENTA.md`. Seznam:
 
 | # | Zdroj | Priorita | Pro kterou sekci |
 |---|-------|----------|------------------|
-| 16 | **Per-pobočka tržby (Helios Maloobchod pokladna)** | P0 | Section 9 (Pobočky) |
-| 17 | **Alza Partner orders** | P1 | Section 5 (Srovnávače) |
-| 18 | **Heuréka OCM export** | P2 | Section 5 (Srovnávače) |
-| 19 | **Zboží.cz OCM export** | P2 | Section 5 (Srovnávače) |
-| 20 | **Glami.cz export** | P3 | Section 5 (Srovnávače) |
-| 21 | **Meta Ads (Facebook Business)** | P1 | Section 1 (Kampaně) |
-| 22 | **Firmy.cz export/scrape** | P1 | Section 16 (Firmy.cz) |
-| 23 | **Mailchimp/Ecomail** | P3 (volitelné) | Section 1 sub-tab Email |
-| 24 | **Heureka Ověřeno NPS** | P3 (volitelné) | Section 12 sub-tab |
+| 18 | **Per-pobočka tržby (Cézar Maloobchod pokladna)** | P0 | Section 9 (Pobočky) |
+| 19 | **Alza Partner orders** | P1 | Section 5 (Srovnávače) |
+| 20 | **Zboží.cz OCM export** | P2 | Section 5 (Srovnávače) |
+| 21 | **Glami.cz export** | P3 | Section 5 (Srovnávače) |
+| 22 | **Firmy.cz import feed master tabulka** | P1 | Sync s Firmy.cz (jednorázové) |
+| 23 | **Firmy.cz stats CSV (manuální)** | P2 | Section 16 (Firmy.cz statistiky) |
+| 24 | **Mailchimp/Ecomail** | P3 (volitelné) | Section 1 sub-tab Email |
+| 25 | **Heureka Ověřeno NPS** | P3 (volitelné) | Section 12 sub-tab |
+
+### 📤 Firmy.cz — speciální workflow
+
+Firmy.cz nemá statistiky API. Má pouze:
+1. **Import feed** (JSON schema v1.7) — my generujeme + posíláme Seznamu, sync naších profilů
+2. **Manuální CSV export statistik** z admin.firmy.cz — klient ručně měsíčně
+
+Pro import feed potřebuju jednorázově master tabulku 17 prodejen → vytvořím auto-generator → daily refresh.
 
 ---
 
@@ -72,15 +81,16 @@ Detaily v `EXPORTY_OD_KLIENTA.md`. Seznam:
 | **6 — Feedy** | 🟡 ČÁSTEČNĚ | Mergado URL | + Google Merchant Center API (po setupu) |
 | **7 — Produkty** | 🟢 BUILD TEĎ | ERP per-položkový, SQL polozka | — |
 | **8 — Kategorie** | 🟢 BUILD TEĎ | SQL polozka + kategorie web | — |
-| **9 — Pobočky** | 🔴 ČEKÁ | GBP API (po setupu) | **Per-pobočka tržby export (P0)** |
+| **9 — Pobočky** | 🟡 GBP READY, ČEKÁ na ERP | GBP API ✅ ready | **Per-pobočka tržby export z Cézar (P0)** |
 | **10 — Kraje** | 🟢 BUILD TEĎ | SQL kosik PSČ → kraj | — |
 | **11 — Doprava** | 🟢 BUILD TEĎ | PPL CSV | Měsíční PPL update |
 | **12 — Reklamace** | 🟢 BUILD TEĎ | ERP Reklamace | Měsíční update |
 | **13 — Vratky** | 🟢 BUILD TEĎ | SQL kosik (status `vraceno`) | — |
 | **14 — Cross-channel** | 🟢 BUILD TEĎ | Agregát z 0-13 | — |
-| **15 — GBP** | 🟠 PO SETUPU | GBP API | **Klient zařídí GBP managers** |
-| **16 — Firmy.cz** | 🔴 ČEKÁ | (žádné connection) | **Klient zařídí Partner API nebo scraping povolení** |
-| **17 — Merchant Center** | 🟠 PO SETUPU | MC API | **Klient zařídí MC user access** |
+| **15 — GBP** | 🟢 BUILD TEĎ | GBP API ✅ | Enable APIs v Cloud Console + buildy |
+| **16a — Firmy.cz import feed** | 🟡 ČEKÁ master tabulku | Vlastní generator | **Master tabulka 17 prodejen** |
+| **16b — Firmy.cz stats** | 🔴 MANUAL | CSV manuální export | **Klient měsíčně z admin.firmy.cz** |
+| **17 — Merchant Center** | 🟢 BUILD TEĎ | MC API ✅ | Enable Content + Reports API + buildy |
 
 ---
 
@@ -121,7 +131,7 @@ Detaily v `EXPORTY_OD_KLIENTA.md`. Seznam:
 
 **Fáze 2 — Po dodání exportů od klienta**:
 5. Section 5 Srovnávače (po exportech)
-6. Section 9 Pobočky (po Helios Maloobchod pokladna)
+6. Section 9 Pobočky (po Cézar Maloobchod pokladna)
 
 **Fáze 3 — Po API setupech**:
 7. Section 15 GBP (po managers access)
@@ -141,10 +151,10 @@ Detaily v `EXPORTY_OD_KLIENTA.md`. Seznam:
 |------|-----------|-----|-----|
 | GA4 / GSC / Bing / GAds / Sklik | Daily 6:00 | **Automatický cron** | API push |
 | MySQL kosik | Daily 6:00 | **Automatický cron** | Local query |
-| ERP Helios Výdejky | Měsíčně (1. den) | **Klient** | CSV upload do `data/raw/` |
-| ERP Helios Reklamace | Měsíčně | **Klient** | CSV upload |
+| ERP Cézar Výdejky | Měsíčně (1. den) | **Klient** | CSV upload do `data/raw/` |
+| ERP Cézar Reklamace | Měsíčně | **Klient** | CSV upload |
 | PPL dopravce | Měsíčně | **Klient** | CSV upload |
-| Per-pobočka tržby | Měsíčně (po setupu Helios) | **Klient** | CSV upload |
+| Per-pobočka tržby | Měsíčně (po setupu Cézar) | **Klient** | CSV upload |
 | Alza Partner | Týdně | **Klient** | CSV upload |
 | Heuréka/Zboží OCM | Daily (po API setupu) | **Automatický cron** | API push |
 | GBP / MC | Daily (po API setupu) | **Automatický cron** | API push |

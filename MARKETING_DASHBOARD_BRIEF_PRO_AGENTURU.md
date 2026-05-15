@@ -40,7 +40,7 @@ Vytvořit **live operační marketing dashboard** pro klicovecentrum.cz + hbgrou
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │ CSV inputs (manuálně klient uploaduje do OneDrive)         │
-│  • Helios IQ — VýdejkyMO, VýdejkyVO, Reklamace, PPL        │
+│  • Cézar — VýdejkyMO, VýdejkyVO, Reklamace, PPL        │
 │  • Google Ads — Ads Scripts JSON export (denně)            │
 │  • Sklik — UI export (1× měsíčně)                          │
 │  • Heuréka, Zboží.cz — OCM CSV (1× měsíčně)                │
@@ -77,13 +77,13 @@ Vytvořit **live operační marketing dashboard** pro klicovecentrum.cz + hbgrou
 
 ### Source of Truth priority
 
-**KLÍČOVÁ POZNÁMKA**: Klient si výslovně přeje **ERP (Helios IQ) jako primární zdroj** pro revenue/orders metriky, NE SQL kosik tabulku.
+**KLÍČOVÁ POZNÁMKA**: Klient si výslovně přeje **ERP (Cézar) jako primární zdroj** pro revenue/orders metriky, NE SQL kosik tabulku.
 
 | Metrika | Zdroj | Důvod |
 |---------|-------|-------|
-| Daily revenue, orders | **ERP Helios IQ Výdejky** (MO+VO) | Účetní pravda po refundacích/storno |
+| Daily revenue, orders | **ERP Cézar Výdejky** (MO+VO) | Účetní pravda po refundacích/storno |
 | Konverze, ROAS | **ERP** (ne GA4) | GA4 inflated bot daty |
-| Marže, zisk | **ERP** | Helios kalkuluje s reálnými nákupními cenami |
+| Marže, zisk | **ERP** | Cézar kalkuluje s reálnými nákupními cenami |
 | Customer LTV | ERP + SQL kosik cross-ref | SQL pro per-customer historiku |
 | Channel attribution | GA4 + Sklik + Google Ads | Live API |
 | SEO traffic | Search Console + Bing | Live API |
@@ -102,7 +102,7 @@ Vytvořit **live operační marketing dashboard** pro klicovecentrum.cz + hbgrou
 | **Blended ROAS** (ERP-based) | ERP revenue / Total spend | daily | < 3,0× |
 | Real Conversion Rate | ERP orders / GA4 sessions | daily | < 0,5 % |
 | Active campaigns count | Google Ads + Sklik | daily | 0 LOCAL = warning |
-| Open reklamace count | Helios CSV | daily | > 100 |
+| Open reklamace count | Cézar CSV | daily | > 100 |
 
 **Status bar**: ⚠️ Data last updated 2h ago | Next refresh 6:00 | 3 alerts active
 
@@ -110,7 +110,7 @@ Vytvořit **live operační marketing dashboard** pro klicovecentrum.cz + hbgrou
 
 ### 📢 Section 1 — KAMPANĚ (PPC)
 
-**Zdroj revenue: ERP Helios IQ** (ne SQL kosik!)
+**Zdroj revenue: ERP Cézar** (ne SQL kosik!)
 
 **Hero KPIs (5):**
 1. **ERP-based ROAS** = ERP revenue attribuovaný kampani / spend (per kanál)
@@ -168,7 +168,7 @@ Vytvořit **live operační marketing dashboard** pro klicovecentrum.cz + hbgrou
 
 ### 🛒 Section 3 — B2C E-shop (klicovecentrum.cz)
 
-**Zdroj revenue: ERP Helios IQ Výdejky MO**
+**Zdroj revenue: ERP Cézar Výdejky MO**
 
 **Hero KPIs (5):**
 1. Daily revenue (ERP MO eshop)
@@ -195,7 +195,7 @@ Vytvořit **live operační marketing dashboard** pro klicovecentrum.cz + hbgrou
 
 ### 🏢 Section 4 — B2B (hbgroup.cz)
 
-**Zdroj revenue: ERP Helios IQ Výdejky VO** (ne SQL kosik!)
+**Zdroj revenue: ERP Cézar Výdejky VO** (ne SQL kosik!)
 
 **Hero KPIs (5):**
 1. Daily B2B revenue (ERP VO)
@@ -284,7 +284,7 @@ Vytvořit **live operační marketing dashboard** pro klicovecentrum.cz + hbgrou
 
 ### 🔧 Section 7 — PRODUKTY
 
-**Zdroj: ERP Helios IQ per-položkový obrat + Mergado feed cross-ref**
+**Zdroj: ERP Cézar per-položkový obrat + Mergado feed cross-ref**
 
 **Hero KPIs (5):**
 1. Top 20 SKU revenue (ERP rolling 30d)
@@ -328,7 +328,7 @@ Vytvořit **live operační marketing dashboard** pro klicovecentrum.cz + hbgrou
 ### 📍 Section 9 — POBOČKY (17 fyzických)
 
 **Hero KPIs (5):**
-1. **Per-pobočka tržby** (ERP — vyžaduje per-provozovna export z Helios, klient zařídí)
+1. **Per-pobočka tržby** (ERP — vyžaduje per-provozovna export z Cézar, klient zařídí)
 2. GBP zobrazení / volání / navigace per pobočka
 3. Firmy.cz CTR per pobočka
 4. Local Google Ads ROAS + store visit conversions
@@ -659,7 +659,7 @@ Vytvořit **live operační marketing dashboard** pro klicovecentrum.cz + hbgrou
 **2. Custom date range picker**:
 - Dva date inputs: **od** / **do**
 - Kalendář popup s českou lokalizací (PO-NE, leden-prosinec)
-- **Min datum**: 1.10.2025 (start ERP dat — Helios Výdejky)
+- **Min datum**: 1.10.2025 (start ERP dat — Cézar Výdejky)
 - **Max datum**: včerejšek (data nejsou k dispozici real-time)
 - Validace: do ≥ od, max 2 roky rozsah
 
@@ -749,7 +749,7 @@ V hlavičce vedle date pickeru:
 | Sklik Fénix kampaně | API | Live (refresh token) |
 | MySQL kosik (4 weby, web_id 1-4) | DB | Live |
 | ERP Výdejky MO + VO 10/2025-5/2026 | CSV | Manuální upload |
-| Helios Reklamace | CSV | Manuální upload |
+| Cézar Reklamace | CSV | Manuální upload |
 | PPL dopravce | CSV | Manuální upload |
 | Top customers SQL | derived JSON | Daily rebuild |
 | Mergado feed | URL feed | Live |
@@ -757,7 +757,7 @@ V hlavičce vedle date pickeru:
 ### ❌ Chybí — klient musí připravit pro plnou funkčnost
 | Zdroj | Co potřebujete od klienta | Priorita |
 |-------|---------------------------|----------|
-| **Per-pobočka tržby z Helios** | Helios IQ → modul „Maloobchod pokladna" → per-provozovna export | P1 (pro Section 9) |
+| **Per-pobočka tržby z Cézar** | Cézar → modul „Maloobchod pokladna" → per-provozovna export | P1 (pro Section 9) |
 | **Google Ads denní export** | Klient nastaví Google Ads Scripts (denně push do GitHub) | P0 (pro Section 0, 1) |
 | **Google Business Profile API access** | Cloud Console → Performance API + Business Information API + Reviews API enable + OAuth scope `https://www.googleapis.com/auth/business.manage` na existující projekt hbgroup-493608. Klient přidá agenturní email jako manager všech 17 GBP profilů. | **P0 (pro Section 15)** |
 | **Google Merchant Center API access** | Content API for Shopping + Merchant Reports API enable na hbgroup-493608. OAuth scope `https://www.googleapis.com/auth/content`. Klient přidá agenturu jako Standard user v MC. | **P0 (pro Section 17 + rozšíření Section 6)** |
@@ -903,7 +903,7 @@ V hlavičce vedle date pickeru:
 - ✅ Sklik Fénix refresh token
 - ✅ Bing Webmaster API key
 - ✅ MySQL kosik DB access (XAMPP credentials)
-- ⏳ Helios IQ per-provozovna export (klient nastaví — viz sekce 5)
+- ⏳ Cézar per-provozovna export (klient nastaví — viz sekce 5)
 - ⏳ Google Ads Scripts nastavený (klient zajistí denní export)
 - ⏳ Alza Partner API credentials (klient generuje)
 - ⏳ Logo SVG + brand kit

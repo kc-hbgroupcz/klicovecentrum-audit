@@ -1,0 +1,180 @@
+{
+  "exportDate": "2026-05-15T08:48:12+00:00",
+  "premises": [
+    {
+      "id": "kc-01",
+      "ic": 26168685,
+      "name": "Klíčové centrum Plzeň",
+      "description": "Pobočka Plzeň - klíče cylindrické vložky trezory dveřní kování",
+      "address": {
+        "city": "Plzeň",
+        "street": "Klatovská",
+        "houseNumber": "105",
+        "zip": "30100",
+        "gps": {
+          "latitude": 49.7361,
+          "longitude": 13.3744
+        }
+      },
+      "emails": [
+        {
+          "email": "plzen@klicovecentrum.cz",
+          "role": "E-mail"
+        }
+      ],
+      "phones": [
+        {
+          "countryCode": "420",
+          "number": "377123456",
+          "role": "Telefon"
+        }
+      ],
+      "url": "https://klicovecentrum.cz",
+      "openingHours": "Mo-Fr 08:00-18:00; Sa 09:00-12:00",
+      "mainActionButton": {
+        "url": "https://klicovecentrum.cz",
+        "customText": "Otevřít e-shop"
+      },
+      "filters": [
+        "s-parkovistem",
+        "bezbarierove",
+        "platba-kartou",
+        "na-splatky"
+      ],
+      "graphics": {
+        "logo": "https://klicovecentrum.cz/img/logo.png",
+        "mainPhoto": "https://klicovecentrum.cz/img/pobocky/plzen.jpg"
+      }
+    },
+    {
+      "id": "kc-02",
+      "ic": 26168685,
+      "name": "Klíčové centrum Brno",
+      "description": "Pobočka Brno - klíče vložky trezory",
+      "address": {
+        "city": "Brno",
+        "street": "Veveří",
+        "houseNumber": "1",
+        "zip": "60200",
+        "gps": {
+          "latitude": 49.2078,
+          "longitude": 16.5912
+        }
+      },
+      "emails": [
+        {
+          "email": "brno@klicovecentrum.cz",
+          "role": "E-mail"
+        }
+      ],
+      "phones": [
+        {
+          "countryCode": "420",
+          "number": "543123456",
+          "role": "Telefon"
+        }
+      ],
+      "url": "https://klicovecentrum.cz",
+      "openingHours": "Mo-Fr 08:00-17:00; Sa 09:00-12:00",
+      "mainActionButton": {
+        "url": "https://klicovecentrum.cz",
+        "customText": "Otevřít e-shop"
+      },
+      "filters": [
+        "s-parkovistem",
+        "platba-kartou"
+      ],
+      "graphics": {
+        "logo": "https://klicovecentrum.cz/img/logo.png",
+        "mainPhoto": "https://klicovecentrum.cz/img/pobocky/brno.jpg"
+      }
+    },
+    {
+      "id": "kc-03",
+      "ic": 26168685,
+      "name": "Klíčové centrum Praha 4 Modřany",
+      "description": "Pobočka Praha Modřany",
+      "address": {
+        "city": "Praha",
+        "street": "Modřanská",
+        "houseNumber": "525",
+        "zip": "14300",
+        "gps": {
+          "latitude": 50.0234,
+          "longitude": 14.4156
+        }
+      },
+      "emails": [
+        {
+          "email": "modrany@klicovecentrum.cz",
+          "role": "E-mail"
+        }
+      ],
+      "phones": [
+        {
+          "countryCode": "420",
+          "number": "244123456",
+          "role": "Telefon"
+        }
+      ],
+      "url": "https://klicovecentrum.cz",
+      "openingHours": "Mo-Fr 08:00-18:00; Sa 09:00-12:00",
+      "mainActionButton": {
+        "url": "https://klicovecentrum.cz",
+        "customText": "Otevřít e-shop"
+      },
+      "filters": [
+        "s-parkovistem",
+        "bezbarierove",
+        "platba-kartou"
+      ],
+      "graphics": {
+        "logo": "https://klicovecentrum.cz/img/logo.png",
+        "mainPhoto": "https://klicovecentrum.cz/img/pobocky/modrany.jpg"
+      }
+    },
+    {
+      "id": "kc-04",
+      "ic": 26168685,
+      "name": "Klíčové centrum Chomutov",
+      "description": "Pobočka Chomutov",
+      "address": {
+        "city": "Chomutov",
+        "street": "Mostecká",
+        "houseNumber": "65",
+        "zip": "43001",
+        "gps": {
+          "latitude": 50.4612,
+          "longitude": 13.4178
+        }
+      },
+      "emails": [
+        {
+          "email": "chomutov@klicovecentrum.cz",
+          "role": "E-mail"
+        }
+      ],
+      "phones": [
+        {
+          "countryCode": "420",
+          "number": "474123456",
+          "role": "Telefon"
+        }
+      ],
+      "url": "https://klicovecentrum.cz",
+      "openingHours": "Mo-Fr 08:00-17:00; Sa 09:00-12:00",
+      "mainActionButton": {
+        "url": "https://klicovecentrum.cz",
+        "customText": "Otevřít e-shop"
+      },
+      "filters": [
+        "s-parkovistem",
+        "platba-kartou"
+      ],
+      "graphics": {
+        "logo": "https://klicovecentrum.cz/img/logo.png",
+        "mainPhoto": "https://klicovecentrum.cz/img/pobocky/chomutov.jpg"
+      }
+    }
+  ]
+}

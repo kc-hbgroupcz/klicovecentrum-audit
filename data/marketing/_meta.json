@@ -1,10 +1,10 @@
 {
-  "last_refresh": "2026-05-12T16:30:00+02:00",
-  "version": "0.1-scaffold",
-  "build_status": "scaffold",
-  "sections_live": [0, 1, 2, 3, 4, 7, 8, 10, 11, 12, 13, 14],
-  "sections_waiting_client": [5, 9, 16],
-  "sections_waiting_api_setup": [6, 15, 17],
+  "last_refresh": "2026-05-12T17:00:00+02:00",
+  "version": "0.2-mc-live",
+  "build_status": "scaffold + section17_live",
+  "sections_live": [0, 1, 2, 3, 4, 7, 8, 10, 11, 12, 13, 14, 17],
+  "sections_partial": [6, 15, 16],
+  "sections_waiting_client": [5, 9],
   "data_sources": {
     "ga4": {"status": "connected", "auth": "service_account"},
     "search_console": {"status": "connected", "auth": "service_account"},
@@ -13,17 +13,29 @@
     "sklik_fenix": {"status": "connected", "auth": "jwt_refresh"},
     "sklik_drak": {"status": "connected", "auth": "xmlrpc_token"},
     "mysql_kosik": {"status": "connected", "auth": "localhost"},
-    "erp_helios_vydejky": {"status": "manual_csv", "last_upload": "2026-05-07"},
-    "erp_helios_reklamace": {"status": "manual_csv", "last_upload": "2026-05-07"},
+    "erp_cezar_vydejky": {"status": "manual_csv", "last_upload": "2026-05-07", "note": "Cezar (ne Helios)"},
+    "erp_cezar_reklamace": {"status": "manual_csv", "last_upload": "2026-05-07"},
     "ppl_dopravce": {"status": "manual_csv", "last_upload": "2026-05-11"},
-    "google_business_profile": {"status": "pending_setup", "blocker": "manager_access"},
-    "google_merchant_center": {"status": "pending_setup", "blocker": "user_access"},
+    "google_business_profile": {"status": "connected_quota_limited", "merchant_id": null, "note": "API enabled, quota 1 req/min default — request increase via support.google.com"},
+    "google_merchant_center": {"status": "connected_live", "merchant_id": "130672692", "products": 2228, "approval_rate_pct": 99.24},
     "alza_partner": {"status": "pending_client", "blocker": "csv_export"},
-    "heureka_ocm": {"status": "pending_client", "blocker": "csv_or_api"},
+    "heureka_reporting": {"status": "pending_client", "blocker": "api_key_or_csv_decision"},
     "zbozi_ocm": {"status": "pending_client", "blocker": "csv_or_api"},
-    "firmy_cz": {"status": "pending_client", "blocker": "partner_api_email"},
-    "meta_ads": {"status": "pending_client", "blocker": "marketing_api_token"},
-    "helios_pobocky": {"status": "pending_client", "blocker": "maloobchod_pokladna_export"}
+    "firmy_cz_import_feed": {"status": "scaffold_ready", "blocker": "master_tabulka_17_pobocek"},
+    "firmy_cz_stats": {"status": "manual_csv", "blocker": "klient_export_z_admin"},
+    "meta_ads": {"status": "pending_client", "blocker": "marketing_api_token", "note": "klient potvrdil aktivni brandove kampane"},
+    "cezar_pobocky": {"status": "pending_client", "blocker": "maloobchod_pokladna_export"}
   },
-  "alerts": []
+  "alerts": [
+    {
+      "level": "warning",
+      "section": 17,
+      "message": "MC: 2 account-level issues (logo 2:1 a 1:1 nesplnuje pozadavky) — fix ASAP"
+    },
+    {
+      "level": "info",
+      "section": 17,
+      "message": "MC: 17 disapproved produktu (0.76 % z 2228) — viz mc.json disapproved_examples"
+    }
+  ]
 }

@@ -397,7 +397,7 @@
     <button class="tab" data-section="3">🛒 B2C <span class="tab-status live">LIVE</span></button>
     <button class="tab" data-section="4">🏢 B2B <span class="tab-status live">LIVE</span></button>
     <button class="tab" data-section="5">⚖️ Srovnávače <span class="tab-status waiting">ČEKÁ</span></button>
-    <button class="tab" data-section="6">📦 Feedy <span class="tab-status api">SETUP</span></button>
+    <button class="tab" data-section="6">📦 Feedy <span class="tab-status live">LIVE</span></button>
     <button class="tab" data-section="7">🔧 Produkty <span class="tab-status live">LIVE</span></button>
     <button class="tab" data-section="8">📂 Kategorie <span class="tab-status live">LIVE</span></button>
     <button class="tab" data-section="9">📍 Pobočky <span class="tab-status waiting">ČEKÁ</span></button>
@@ -406,9 +406,9 @@
     <button class="tab" data-section="12">⚠️ Reklamace <span class="tab-status live">LIVE</span></button>
     <button class="tab" data-section="13">🔄 Vratky <span class="tab-status live">LIVE</span></button>
     <button class="tab" data-section="14">📊 Holistic <span class="tab-status live">LIVE</span></button>
-    <button class="tab" data-section="15">🏪 GBP <span class="tab-status api">SETUP</span></button>
+    <button class="tab" data-section="15">🏪 GBP <span class="tab-status api">QUOTA</span></button>
     <button class="tab" data-section="16">🏢 Firmy.cz <span class="tab-status waiting">ČEKÁ</span></button>
-    <button class="tab" data-section="17">🛍️ MC <span class="tab-status api">SETUP</span></button>
+    <button class="tab" data-section="17">🛍️ MC <span class="tab-status live">LIVE</span></button>
   </nav>
 
   <!-- MAIN CONTENT -->
@@ -437,19 +437,19 @@ const SECTIONS = {
   2: { title: 'SEO', subtitle: 'Google Search Console + Bing Webmaster', status: 'live' },
   3: { title: 'B2C E-shop', subtitle: 'klicovecentrum.cz výkon', status: 'live' },
   4: { title: 'B2B', subtitle: 'hbgroup.cz odběratelé', status: 'live' },
-  5: { title: 'Srovnávače', subtitle: 'Heuréka, Zboží, Alza, Glami', status: 'waiting', wait_for: 'Heuréka OCM, Zboží.cz OCM, Alza Partner exporty' },
-  6: { title: 'Feedy', subtitle: 'Mergado + Google Merchant Center', status: 'api', wait_for: 'Google Merchant Center API setup (user access)' },
+  5: { title: 'Srovnávače', subtitle: 'Heuréka, Zboží, Alza, Glami', status: 'waiting', wait_for: 'Heuréka API klíč nebo CSV, Zboží.cz CSV, Alza Partner CSV exporty' },
+  6: { title: 'Feedy', subtitle: 'Mergado + Google Merchant Center — LIVE (přes MC API)', status: 'live' },
   7: { title: 'Produkty', subtitle: 'Top SKU + per-produkt výkon', status: 'live' },
   8: { title: 'Kategorie', subtitle: 'Výkon kategorií produktů', status: 'live' },
-  9: { title: 'Pobočky', subtitle: '17 fyzických prodejen', status: 'waiting', wait_for: 'Helios IQ "Maloobchod pokladna" per-provozovna export' },
+  9: { title: 'Pobočky', subtitle: '17 fyzických prodejen', status: 'waiting', wait_for: 'Cézar "Maloobchod pokladna" per-provozovna export (klient zařídí s IT)' },
   10: { title: 'Kraje', subtitle: 'Geografická distribuce ČR', status: 'live' },
   11: { title: 'Doprava', subtitle: 'PPL + ostatní dopravci', status: 'live' },
   12: { title: 'Reklamace', subtitle: 'RMA + příčiny + náklady', status: 'live' },
   13: { title: 'Vratky', subtitle: 'Returns + refundy', status: 'live' },
   14: { title: 'Cross-channel Holistic', subtitle: 'MER, LTV:CAC, NRR, attribution', status: 'live' },
-  15: { title: 'Google Business Profile', subtitle: '17 prodejen lokální viditelnost', status: 'api', wait_for: 'GBP manager access pro hbg-101@hbgroup-493608.iam.gserviceaccount.com' },
-  16: { title: 'Firmy.cz', subtitle: 'Seznam local listings', status: 'waiting', wait_for: 'Firmy.cz Partner API (email na partner@seznam.cz)' },
-  17: { title: 'Google Merchant Center', subtitle: 'Shopping deep-dive', status: 'api', wait_for: 'MC Standard user access pro hbg-101@hbgroup-493608.iam.gserviceaccount.com' },
+  15: { title: 'Google Business Profile', subtitle: '17 prodejen — API funguje, čeká na quota increase', status: 'api', wait_for: 'GBP API enabled + Service Account přidán jako Manager. Default quota Google nasadil 1 req/min — vyžádat increase přes support.google.com/business/contact/api_default_quota_increase' },
+  16: { title: 'Firmy.cz', subtitle: 'Import feed (auto-sync) + manuální stats CSV', status: 'waiting', wait_for: 'Master tabulka 17 prodejen → data/raw/pobocky_master.csv (template existuje, klient doplní). Generator skript build_firmy_import_feed.py připraven.' },
+  17: { title: 'Google Merchant Center', subtitle: 'Shopping deep-dive — LIVE (Merchant 130672692, 2228 produktů, 99.24% approval)', status: 'live', data_url: '../data/marketing/mc.json' },
 };
 
 // ═══════════════════════════════════════════════════════════════
@@ -596,9 +596,116 @@ async function renderSection(idx) {
   }
   main.innerHTML = html;
 
-  // Build live sections (placeholder for now — buildy budou doplněny v dalších krocích)
+  // Build live sections
   if (meta.status === 'live') {
-    setTimeout(() => renderLivePlaceholder(idx, meta), 50);
+    if (idx === 17) {
+      setTimeout(() => renderMC(meta), 50);
+    } else {
+      setTimeout(() => renderLivePlaceholder(idx, meta), 50);
+    }
+  }
+}
+
+async function renderMC(meta) {
+  const main = document.getElementById('main');
+  try {
+    const r = await fetch('../data/marketing/mc.json?v=' + Date.now());
+    if (!r.ok) throw new Error('mc.json not found');
+    const mc = await r.json();
+    const s = mc.summary;
+
+    let issuesHtml = '';
+    if (mc.account_issues.length > 0) {
+      issuesHtml = `
+        <div class="card" style="border-color: var(--red); background: rgba(248,113,113,0.05);">
+          <div class="card-title">🚨 Account-level issues (${mc.account_issues.length})</div>
+          <table>
+            <tr><th>Severity</th><th>Title</th></tr>
+            ${mc.account_issues.map(i => `
+              <tr><td><span style="color:var(--red);font-weight:600">${i.severity}</span></td><td>${i.title}</td></tr>
+            `).join('')}
+          </table>
+        </div>
+      `;
+    }
+
+    main.innerHTML = `
+      <div class="section-title">${meta.title}</div>
+      <div class="section-subtitle">${meta.subtitle} · refresh: ${new Date(mc.generated_at).toLocaleString('cs-CZ')}</div>
+
+      <div class="hero-grid">
+        <div class="kpi-card">
+          <div class="kpi-label">Total products</div>
+          <div class="kpi-value">${s.total_products.toLocaleString('cs-CZ')}</div>
+          <div class="kpi-delta neutral">Merchant ID ${mc.merchant_id}</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Approved</div>
+          <div class="kpi-value" style="color: var(--green);">${s.approved.toLocaleString('cs-CZ')}</div>
+          <div class="kpi-delta positive">${s.approval_rate_pct}%</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Disapproved</div>
+          <div class="kpi-value" style="color: ${s.disapproved > 0 ? 'var(--red)' : 'var(--green)'};">${s.disapproved}</div>
+          <div class="kpi-delta ${s.disapproved > 0 ? 'negative' : 'positive'}">${s.disapproval_rate_pct}%</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Pending</div>
+          <div class="kpi-value">${s.pending}</div>
+          <div class="kpi-delta neutral">čeká na review</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Account issues</div>
+          <div class="kpi-value" style="color: ${s.account_issues_count > 0 ? 'var(--red)' : 'var(--green)'};">${s.account_issues_count}</div>
+          <div class="kpi-delta ${s.account_issues_count > 0 ? 'negative' : 'positive'}">${s.account_issues_count > 0 ? 'fix ASAP' : 'OK'}</div>
+        </div>
+      </div>
+
+      ${issuesHtml}
+
+      <div class="card">
+        <div class="card-title">📋 Top item-level issues (${mc.top_item_issues.length})</div>
+        <table>
+          <thead>
+            <tr><th>Code</th><th>Severity</th><th class="num">Affected products</th><th class="num">% celku</th></tr>
+          </thead>
+          <tbody>
+            ${mc.top_item_issues.map(i => `
+              <tr>
+                <td style="font-family:monospace;font-size:12px;">${i.code}</td>
+                <td><span style="color:${i.severity === 'demoted' ? 'var(--orange)' : i.severity === 'disapproved' ? 'var(--red)' : 'var(--text-muted)'}">${i.severity}</span></td>
+                <td class="num">${i.affected_products.toLocaleString('cs-CZ')}</td>
+                <td class="num">${i.pct_of_total}%</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+
+      ${mc.disapproved_examples.length > 0 ? `
+        <div class="card">
+          <div class="card-title">❌ Disapproved produkty (sample ${mc.disapproved_examples.length})</div>
+          <table>
+            <thead><tr><th>Product ID</th><th>Title</th></tr></thead>
+            <tbody>
+              ${mc.disapproved_examples.map(p => `
+                <tr><td style="font-family:monospace;font-size:12px">${p.product_id}</td><td>${p.title}</td></tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      ` : ''}
+    `;
+  } catch (e) {
+    main.innerHTML = `
+      <div class="section-title">${meta.title}</div>
+      <div class="empty-state">
+        <div class="empty-state-icon">⚠️</div>
+        <h3>Chyba načítání MC dat</h3>
+        <p>${e.message}</p>
+        <p>Zkus spustit: <code>python build_mc_full.py</code></p>
+      </div>
+    `;
   }
 }
 

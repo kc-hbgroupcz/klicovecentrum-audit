@@ -1,6 +1,6 @@
 # 📥 Exporty od klienta — Marketing Dashboard
 
-**Datum:** 12. 5. 2026
+**Datum:** 12. 5. 2026 (revize: GBP+MC HOTOVO, Firmy.cz import feed, Meta brandové, Heuréka)
 **Pro koho:** Ondřej (klient = data preparer)
 **Cíl:** Přesná specifikace všech CSV/dat které potřebuju, abys mi je mohl pravidelně dodávat.
 
@@ -8,14 +8,75 @@
 
 ---
 
+## 🎉 ČERSTVÉ NEWS (12.5.2026)
+
+### ✅ HOTOVO
+- **Google Business Profile** — managers přidaní → **mohu rozjet API**
+- **Google Merchant Center** — user access dán → **mohu rozjet API**
+
+### 🔄 NOVÉ INFO
+- **ERP je Cézar** (ne Helios) — přepsáno všude v dokumentech
+- **Firmy.cz** — má jen IMPORTNÍ feed (JSON schema v1.7), statistiky pouze manuálně CSV
+- **Meta** má aktivní brandové kampaně — **mohu napojit Marketing API**
+- **Heuréka** — uvedl jsi `github.com/heureka/hcapi/`, ale to je PHP knihovna pro Order/Payment callbacks (NE statistiky)
+
+---
+
+## 🔧 K rozjetí TEĎ (mám API access nebo HCAPI / brzy doděláme)
+
+### A. Google Business Profile (Section 15) — JEDU
+- Service Account `hbg-101@hbgroup-493608.iam.gserviceaccount.com` přidán jako Manager u 17 GBP profilů ✅
+- Příští krok: enable My Business APIs v Cloud Console + test API call
+- Build skript: `build_gbp_performance.py` (impressions, calls, directions, reviews per pobočka)
+
+### B. Google Merchant Center (Section 17 + Section 6 deep) — JEDU
+- Service Account jako Standard user v MC ✅
+- Příští krok: enable Content API + Reports API v Cloud Console + test API call
+- Build skript: `build_mc_issues.py` + `build_mc_performance.py`
+
+### C. Meta Marketing API (Section 1 sub-tab Meta) — POTŘEBUJU TOKEN
+- **Co**: brandové kampaně Plzeň/Brno/Chomutov/atd.
+- **Co potřebuju od tebe**:
+  1. https://business.facebook.com → **Settings** → **System Users**
+  2. **Add → System User** → name: `dashboard-readonly`, role: Employee
+  3. **Add Assets** → vyber Ad Account(s) → role: View performance
+  4. **Generate New Token** → app: vyber svojí (nebo si vyrob app na developers.facebook.com), permissions: `ads_read`, `business_management`
+  5. **Token Type**: **Never expires** (System User token nemá expiraci)
+  6. Pošli mi token (např. v ChatGPT/Claude chat — token NIKAM nedávat do GitHubu)
+- Po získání: vytvořím `build_meta_ads.py` + uložení tokenu mimo repo
+
+### D. Heuréka (Section 5) — VYJASNIT
+HCAPI z `github.com/heureka/hcapi/` je PHP knihovna pro **callback processing** (Order/Cancel, Payment/Status). To NENÍ to co potřebujeme — to je pro stranu **shopu** který přijímá objednávky z Heuréky.
+
+**Pro statistiky** (kolik kliků, conv rate, pozice produktu, výnos z Heuréky) jsou jiné cesty:
+
+**Možnost 1 — Heuréka Reporting API** (nejlepší):
+- https://sluzby.heureka.cz → admin login → API klíč
+- Endpoint: stats per den (klikové, conv, výnos)
+- Pošli mi: API klíč (z Heuréka admin)
+
+**Možnost 2 — Heuréka manuální CSV export**:
+- Heuréka admin → **Reporty → Konverze**
+- Export CSV → upload do `data/raw/heureka_stats_YYYY_MM.csv`
+- Sloupce viz níže (sekce 3)
+
+**Možnost 3 — Heuréka OCM iframe** (jen tracking nových konverzí):
+- Pokud máte iframe pixel na thank-you page → Heuréka loguje conversions, my data nečteme
+
+→ **Pošli mi**: jestli máš API klíč v Heuréka admin, nebo budeme dělat manuální CSV.
+
+---
+
+---
+
 ## 🚨 P0 — KRITICKÉ (bez nich neexistuje sekce)
 
-### 1. Per-pobočka tržby z Helios IQ (Section 9 — Pobočky)
+### 1. Per-pobočka tržby z Cézar (Section 9 — Pobočky)
 
 **Co**: Měsíční tržby + počet účtenek + průměrná hodnota účtenky **PER PROVOZOVNA** (17 prodejen)
 
 **Jak to získat**:
-1. Helios IQ → **Maloobchod / Pokladna**
+1. Cézar → **Maloobchod / Pokladna**
 2. Filter: období = poslední uzavřený měsíc
 3. **Group by**: provozovna (středisko)
 4. Export do CSV (Excel → Save As → CSV UTF-8)
@@ -23,7 +84,7 @@
 **Formát souboru**:
 - Cesta: `analytics-audit/data/raw/erp_pobocky_YYYY_MM.csv`
 - Encoding: **UTF-8** (jinak rozbiju diakritiku)
-- Delimiter: `;` (středník — Helios default)
+- Delimiter: `;` (středník — Cézar default)
 - Decimal: `,` (česká lokalizace OK)
 
 **Sloupce (přesný order)**:
@@ -107,96 +168,116 @@ Stejné jako Heuréka — Zboží.cz admin má podobné OCM rozhraní.
 
 ---
 
-### 5. Meta Ads (Facebook Business) — Section 1 sub-tab
+### 5. Meta Ads (Facebook Business) — Section 1 sub-tab — **AKTIVNÍ KAMPANĚ ✅**
 
-**Co**: Facebook + Instagram kampaně (brand kampaně Plzeň/Brno/Chomutov dle auditu)
+**Status**: Klient potvrdil že má **aktivní brandové kampaně** → priorita P0, jdu napojit přes API.
 
-**Jak to získat (2 varianty)**:
+**Detaily viz „K rozjetí TEĎ → C. Meta Marketing API"** nahoře v dokumentu.
 
-**Varianta A — Facebook Marketing API (preferovaná)**:
-1. https://business.facebook.com → Settings → System Users
-2. Vytvoř System User „Dashboard"
-3. Generate Access Token s permissions: `ads_read, business_management`
-4. Pošli mi token → nastavím automatický pull
+**TL;DR co potřebuju**:
+1. Z `business.facebook.com` → Settings → System Users → vytvoř `dashboard-readonly`
+2. Add Asset → tvoje Ad Account → role View performance
+3. Generate Token (ads_read + business_management, **Never expires**)
+4. Pošli mi Ad Account ID + token
 
-**Varianta B — Manuální export**:
-1. Facebook Ads Manager → Reporting
-2. Date range: posledních 30 dní
-3. Columns: Campaign Name, Spend, Impressions, Clicks, CTR, CPC, Conversions, ROAS
-4. Export CSV
+Po obdržení tokenu:
+- `build_meta_ads.py` — campaigns + ad sets + ads daily KPIs
+- `data/marketing/meta_ads.json`
+- Section 1 sub-tab „Meta" se rozsvítí (LIVE badge)
 
-**Cesta**: `analytics-audit/data/raw/meta_ads_YYYY_MM.csv`
-
-**Frekvence**: Měsíčně (manuální) nebo daily (API)
-
----
-
-### 6. Firmy.cz Partner API access (Section 16 — Firmy.cz)
-
-**Co**: Listing performance pro 17 prodejen na Firmy.cz
-
-**Jak to získat**:
-1. Pošli email na **partner@seznam.cz**:
-   ```
-   Předmět: Žádost o API access pro analytický dashboard
-
-   Dobrý den,
-   chtěl bych požádat o API access pro náš firemní účet (klicovecentrum.cz / 17 prodejen).
-   Účel: Interní analytický dashboard pro vyhodnocení viditelnosti našich prodejen.
-
-   Nepotřebujeme write/edit funkce, pouze read-only pro:
-   - Profile views statistics
-   - Search position v results
-   - Reviews count + rating
-   - Click-to-call / direction events
-
-   Pokud API není dostupné, prosím o souhlas s jemným scrapingem našich vlastních profile URL
-   (1× denně, respekt k robots.txt).
-
-   Děkuji,
-   Ondřej Skřebský
-   H&B Group s.r.o.
-   ```
-
-2. Po obdržení odpovědi mi pošli buď:
-   - **API credentials** (pokud Seznam povolí)
-   - **Souhlas s scrapingem vlastních profilů** (zbuduju Python scraper)
-
-**Frekvence**: Daily (po setupu)
+**Backup pokud token nefunguje** — manuální CSV:
+- Facebook Ads Manager → Reporting → posledních 30 dní → Columns: Campaign, Spend, Impressions, Clicks, CTR, CPC, Conversions, ROAS → CSV
+- Cesta: `analytics-audit/data/raw/meta_ads_YYYY_MM.csv`
 
 ---
 
-## 🔧 SETUP API (jen jednorázové akce, žádné CSV)
+### 6. Firmy.cz — 2 NEZÁVISLÉ věci (Section 16)
 
-### 7. Google Business Profile — Manager access (Section 15 — GBP)
+**🔴 Pozor**: Firmy.cz nemá statistiky API. Má pouze **importní feed** (zápis dat o naších prodejnách na Seznam) a **manuální CSV export** pro statistiky.
 
-**Co**: Přidat agenturní email (= můj Service Account) jako Manager u všech 17 GBP profilů
+#### 6a. Firmy.cz IMPORT FEED (my generujeme + posíláme Seznamu)
+
+**Co**: Strukturovaný JSON feed (schema v1.7, klient mi poslal `firmy-cz-v1.7.json`) s informacemi o všech 17 prodejnách — Seznam ho čte 1× denně a aktualizuje naše profily na Firmy.cz.
+
+**Co dělá**: Garantuje že **adresa, telefony, otvírací doba, fotky, hlavní akční tlačítko** jsou na Firmy.cz **vždy synchronizovány s naším ERP** (žádný drift, žádné staré údaje).
+
+**Schema v1.7** požaduje per pobočka:
+- `id` (unikátní neměnný — můžeme použít Cézar provozovna ID nebo náš vlastní `kc-prodejna-01` až `kc-prodejna-17`)
+- `ic` (IČO — `26168685`?)
+- `name` (např. „Klíčové centrum Plzeň")
+- `description` (max 300 znaků — popis pobočky pro Firmy.cz)
+- `address` (city, street, houseNumber, zip, gps lat/lng)
+- `emails` (max 5 — email pobočky)
+- `phones` (max 5 — telefon pobočky, fax, recepce)
+- `socialNetworks` (max 6 — FB, IG, LinkedIn URL)
+- `url` (homepage)
+- `openingHours` (OSM format — např. `Mo-Fr 08:00-18:00; Sa 09:00-12:00; PH off`)
+- `mainActionButton` (URL + custom text — např. „Otevřít e-shop")
+- `filters` (štítky — `s-parkovistem`, `bezbarierove`, `platba-kartou`, `na-splatky`, atd.)
+- `graphics.logo` (URL na logo)
+- `graphics.mainPhoto` (hlavní foto pobočky)
+- `graphics.photos` (až 20 fotek galerie)
+
+**Co potřebuju od tebe (jednorázově)**:
+
+1. **Master tabulka 17 prodejen** ve formátu (CSV nebo JSON):
+   ```csv
+   id;name;ic;city;street;houseNumber;zip;lat;lng;email;phone;url;hours;description
+   kc-01;Klíčové centrum Plzeň;26168685;Plzeň;Klatovská;105;30100;49.7361;13.3744;plzen@klicovecentrum.cz;+420377123456;https://klicovecentrum.cz;Mo-Fr 08:00-18:00; Sa 09:00-12:00;Pobočka v Plzni - klíče, vložky, trezory, kování;
+   kc-02;...
+   ```
+   Cesta: `analytics-audit/data/raw/pobočky_master.csv`
+
+2. **URL na logo + hlavní foto** každé pobočky (může být shared link na Google Drive, Dropbox, vlastní hosting)
+
+3. **Štítky per pobočka** (jaké filtry chceme zobrazit):
+   - Co máme: parkování, bezbariérový vstup, platba kartou, splátky, klimatizace, …
+
+**Co s tím udělám**:
+- Vytvořím `build_firmy_import_feed.py` který:
+  1. Načte master tabulku
+  2. Validuje proti schema v1.7
+  3. Vygeneruje `firmy_feed.json` na URL `https://kc-hbgroupcz.github.io/klicovecentrum-audit/feeds/firmy.json`
+  4. Refreshuje denně (pokud změníš data v ERP)
+- **Pošleš Seznamu** URL feedu → jednorázové nastavení v Firmy.cz admin
+
+**Výhody automatizace**:
+- ✅ Nikdy nemusíš ručně upravovat 17 profilů
+- ✅ Změna otvírací doby → 1 update v ERP/master tabulce → druhý den všechno aktualizované
+- ✅ Konsistence napříč všemi 17 prodejnami
+
+#### 6b. Firmy.cz MANUÁLNÍ STATS EXPORT (klient ručně, do CSV)
+
+**Co**: Statistiky views/calls/clicks z Firmy.cz admin
 
 **Jak**:
-1. https://business.google.com → vyber pobočku
-2. **Settings** → **Managers** → **Add manager**
-3. Email: `hbg-101@hbgroup-493608.iam.gserviceaccount.com`
-4. Role: **Manager** (ne Owner)
-5. Opakuj pro všech 17 prodejen
+1. https://admin.firmy.cz → login
+2. **Statistiky** → **Pobočky** → vyber rozsah (poslední měsíc)
+3. **Export → CSV**
+4. Upload do `analytics-audit/data/raw/firmy_stats_YYYY_MM.csv`
 
-**Tip pro úsporu času**: Pokud máš **Business Group** v GBP, přidej Manager na úrovni groupu = 1 klik místo 17.
+**Frekvence**: Měsíčně
 
-**Po dokončení mi řekni** → udělám test API call + zapnu Section 15 buildy.
+**Co očekávám ve sloupcích** (přesné jména si zjistím až mi pošleš sample):
+```
+Pobocka;Datum;Zobrazeni;Kliky_Telefon;Kliky_Web;Kliky_Mapa;Pozice_Search;Recenze_Pocet;Recenze_Rating
+```
+
+**Pošli mi sample CSV** ať vidím přesné sloupce z Firmy.cz exportu.
 
 ---
 
-### 8. Google Merchant Center — User access (Section 17 — MC)
+## ✅ SETUP API — HOTOVO
 
-**Co**: Přidat můj Service Account jako Standard user v Merchant Center
+### 7. Google Business Profile — Manager access ✅ HOTOVO
 
-**Jak**:
-1. https://merchants.google.com → **Settings** → **Users**
-2. **Add user**
-3. Email: `hbg-101@hbgroup-493608.iam.gserviceaccount.com`
-4. Access: **Standard** (ne Admin — Admin nepovoluje API access)
-5. Save
+Klient přidal `hbg-101@hbgroup-493608.iam.gserviceaccount.com` jako Manager u všech 17 GBP profilů.
+**Příští kroky (já)**: Enable My Business APIs v Cloud Console → otestovat API call → zapnout Section 15 buildy.
 
-**Po dokončení mi řekni** → udělám test API call + zapnu Section 17 buildy.
+### 8. Google Merchant Center — User access ✅ HOTOVO
+
+Klient přidal Service Account jako Standard user v MC.
+**Příští kroky (já)**: Enable Content API + Reports API v Cloud Console → otestovat API call → zapnout Section 17 + Section 6 deep buildy.
 
 ---
 
@@ -204,18 +285,18 @@ Stejné jako Heuréka — Zboží.cz admin má podobné OCM rozhraní.
 
 Tyto už dodáváš, ale potřebuju je **každý měsíc** pro live dashboard:
 
-### 9. ERP Helios Výdejky MO (B2C) — měsíčně
+### 9. ERP Cézar Výdejky MO (B2C) — měsíčně
 
 **Cesta**: `analytics-audit/data/raw/erp_vydejky_mo_YYYY_MM.csv`
 **Sloupce**: `Datum;CisloDokladu;ZakaznikID;ZakaznikNazev;ProduktSKU;ProduktNazev;Pocet;CenaJednotkova;CenaCelkem;DPH;CelkemSDPH;Provozovna`
 **Frekvence**: 1. den měsíce za předchozí měsíc
 
-### 10. ERP Helios Výdejky VO (B2B) — měsíčně
+### 10. ERP Cézar Výdejky VO (B2B) — měsíčně
 
 **Cesta**: `analytics-audit/data/raw/erp_vydejky_vo_YYYY_MM.csv`
 **Stejné sloupce + ICO + DIC + Firma**
 
-### 11. ERP Helios Reklamace — měsíčně
+### 11. ERP Cézar Reklamace — měsíčně
 
 **Cesta**: `analytics-audit/data/raw/erp_reklamace_YYYY_MM.csv`
 **Sloupce**: `Datum;CisloReklamace;OriginalDoklad;ProduktSKU;Duvod;Stav;CenaReklamace;DenuVyrizeni`
@@ -223,10 +304,10 @@ Tyto už dodáváš, ale potřebuju je **každý měsíc** pro live dashboard:
 ### 12. PPL dopravce export — měsíčně
 
 **Cesta**: `analytics-audit/data/raw/ppl_zasilky_YYYY_MM.csv`
-**Source**: Helios IQ → modul **Doprava → PPL**
-**Encoding**: **cp1250** (Helios default — neměň, parser umí oboje)
+**Source**: Cézar → modul **Doprava → PPL**
+**Encoding**: **cp1250** (Cézar default — neměň, parser umí oboje)
 **Delimiter**: `;`
-**Datum format**: MM/DD/YYYY (Helios default)
+**Datum format**: MM/DD/YYYY (Cézar default)
 
 ---
 
@@ -253,27 +334,42 @@ Pravděpodobně nepoužíváme (jsme zámky/kování), ale pokud ano:
 
 ---
 
-## 📋 CHECKLIST pro klienta — co udělat hned
+## 📋 CHECKLIST pro klienta — aktualizováno 12.5.2026
 
-**Hned (15-30 min):**
-- [ ] **GBP**: Přidat `hbg-101@hbgroup-493608.iam.gserviceaccount.com` jako Manager u všech 17 profilů (nebo group level)
-- [ ] **MC**: Přidat stejný email jako Standard user
-- [ ] **Firmy.cz**: Email na `partner@seznam.cz`
+### ✅ Hotovo
+- [x] **GBP managers** přidaní ✅
+- [x] **MC user access** přidaný ✅
 
-**Tento týden:**
-- [ ] **Helios**: Zjistit jak udělat per-provozovna export z modulu Maloobchod/Pokladna (kontaktovat IT/účetní)
-- [ ] **Alza**: Otestovat manuální export z Partner portálu — pošli mi sample CSV ať vidím sloupce
-- [ ] **Meta Ads**: Vyhodnotit jestli máme aktivní kampaně (jinak skip)
-- [ ] **Heuréka OCM**: Login do Heuréka admin → zjisti jestli máš API access (jinak manuální)
+### 🚨 Hned (do 24h, blokuje API setupy)
 
-**Po setupu API:**
-- [ ] **GBP**: Po přidání managerů mi napiš → otestuju API + spustím buildy
-- [ ] **MC**: Po user access → otestuju + spustím buildy
+- [ ] **Meta Marketing API token**:
+  1. business.facebook.com → Settings → System Users → vytvoř `dashboard-readonly` (Employee role)
+  2. Add Asset → Ad Account → role View performance
+  3. Generate Token → permissions `ads_read` + `business_management`, **Never expires**
+  4. Pošli mi: token + Ad Account ID
 
-**Měsíčně (existující workflow, jen pokračovat):**
-- [ ] ERP Výdejky MO + VO
-- [ ] ERP Reklamace
+- [ ] **Heuréka API klíč** (pokud existuje):
+  1. https://sluzby.heureka.cz → admin → Settings → API
+  2. Pokud existuje: pošli klíč
+  3. Pokud neexistuje: napiš mi → uděláme manuální CSV workflow
+
+### 🟡 Tento týden
+
+- [ ] **Cézar per-provozovna export**: Kontaktovat IT/účetní → zjistit jak vyrobit měsíční CSV s tržbami per provozovna z modulu Maloobchod/Pokladna
+- [ ] **Master tabulka 17 prodejen** pro Firmy.cz import feed:
+  - Cesta: `data/raw/pobočky_master.csv`
+  - Sloupce: `id;name;ic;city;street;houseNumber;zip;lat;lng;email;phone;url;hours;description;logo_url;photo_url;filters`
+  - Můžeš začít s 1-2 prodejnami → vyladíme formát → doplníš zbytek
+- [ ] **Firmy.cz stats CSV sample**: Login do `admin.firmy.cz` → Statistiky → Pobočky → Export CSV → pošli sample (ať vidím sloupce)
+- [ ] **Alza Partner CSV sample**: Pošli sample export z Partner portálu
+
+### 🟢 Měsíčně (existující workflow, jen pokračovat)
+
+- [ ] ERP Cézar Výdejky MO + VO
+- [ ] ERP Cézar Reklamace
 - [ ] PPL dopravce
+- [ ] Firmy.cz stats (manuální export)
+- [ ] Alza Partner orders
 
 ---
 
@@ -286,7 +382,7 @@ Pravděpodobně nepoužíváme (jsme zámky/kování), ale pokud ano:
 
 Sekce čekající na klienta:
 - Sekce 5 (Srovnávače) — Alza/Heuréka/Zboží
-- Sekce 9 (Pobočky) — Helios per-provozovna
+- Sekce 9 (Pobočky) — Cézar per-provozovna
 - Sekce 15 (GBP), 17 (MC) — API setup
 - Sekce 16 (Firmy.cz) — Partner API
 - Sekce 6 (Feedy) — Merchant Center deep-dive

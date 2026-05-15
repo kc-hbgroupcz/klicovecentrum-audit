@@ -1,0 +1,232 @@
+{
+  "generated_at": "2026-05-15T08:51:12+00:00",
+  "merchant_id": "130672692",
+  "summary": {
+    "total_products": 2228,
+    "approved": 2211,
+    "disapproved": 17,
+    "pending": 0,
+    "approval_rate_pct": 99.24,
+    "disapproval_rate_pct": 0.76,
+    "account_issues_count": 2
+  },
+  "account_issues": [
+    {
+      "severity": "error",
+      "title": "The 2:1 logo that you uploaded contains errors or does not conform to our logo requirements",
+      "detail": "",
+      "documentation": "https://support.google.com/merchants/answer/7059936",
+      "destination": null
+    },
+    {
+      "severity": "error",
+      "title": "The 1:1 logo that you uploaded contains errors or does not conform to our logo requirements",
+      "detail": "",
+      "documentation": "https://support.google.com/merchants/answer/7059936",
+      "destination": null
+    }
+  ],
+  "top_item_issues": [
+    {
+      "code": "local_stores_lack_inventory",
+      "severity": "disapproved",
+      "affected_products": 2175,
+      "pct_of_total": 97.62
+    },
+    {
+      "code": "availability_updated",
+      "severity": "unaffected",
+      "affected_products": 1341,
+      "pct_of_total": 60.19
+    },
+    {
+      "code": "missing_potentially_required_attribute",
+      "severity": "unaffected",
+      "affected_products": 159,
+      "pct_of_total": 7.14
+    },
+    {
+      "code": "price_updated",
+      "severity": "unaffected",
+      "affected_products": 45,
+      "pct_of_total": 2.02
+    },
+    {
+      "code": "item_missing_required_attribute",
+      "severity": "disapproved",
+      "affected_products": 34,
+      "pct_of_total": 1.53
+    },
+    {
+      "code": "image_too_small_for_high_resolution",
+      "severity": "unaffected",
+      "affected_products": 21,
+      "pct_of_total": 0.94
+    },
+    {
+      "code": "local_requires_review",
+      "severity": "disapproved",
+      "affected_products": 19,
+      "pct_of_total": 0.85
+    },
+    {
+      "code": "ui_local_inventory_not_supported",
+      "severity": "unaffected",
+      "affected_products": 19,
+      "pct_of_total": 0.85
+    },
+    {
+      "code": "local_stores_lack_supported_inventory",
+      "severity": "disapproved",
+      "affected_products": 19,
+      "pct_of_total": 0.85
+    },
+    {
+      "code": "ambiguous_gtin",
+      "severity": "unaffected",
+      "affected_products": 14,
+      "pct_of_total": 0.63
+    },
+    {
+      "code": "local_stores_non_positive_price",
+      "severity": "unaffected",
+      "affected_products": 11,
+      "pct_of_total": 0.49
+    },
+    {
+      "code": "price_out_of_range",
+      "severity": "disapproved",
+      "affected_products": 9,
+      "pct_of_total": 0.4
+    },
+    {
+      "code": "description_short",
+      "severity": "unaffected",
+      "affected_products": 8,
+      "pct_of_total": 0.36
+    },
+    {
+      "code": "pause_expired",
+      "severity": "unaffected",
+      "affected_products": 8,
+      "pct_of_total": 0.36
+    },
+    {
+      "code": "landing_page_error",
+      "severity": "disapproved",
+      "affected_products": 7,
+      "pct_of_total": 0.31
+    },
+    {
+      "code": "title_all_caps",
+      "severity": "unaffected",
+      "affected_products": 4,
+      "pct_of_total": 0.18
+    },
+    {
+      "code": "image_unwanted_overlays",
+      "severity": "disapproved",
+      "affected_products": 3,
+      "pct_of_total": 0.13
+    },
+    {
+      "code": "low_image_quality",
+      "severity": "unaffected",
+      "affected_products": 2,
+      "pct_of_total": 0.09
+    },
+    {
+      "code": "legal_restrictions_policy_violation",
+      "severity": "disapproved",
+      "affected_products": 1,
+      "pct_of_total": 0.04
+    }
+  ],
+  "disapproved_examples": [
+    {
+      "product_id": "online:cs:CZ:711340.10",
+      "title": "Čelisti 148 D7A7234ZB Triax/Futura",
+      "link": "https://www.klicovecentrum.cz/produkt/celisti-148-d7a7234zb/"
+    },
+    {
+      "product_id": "online:cs:CZ:328df2d1-e08e-4290-bde6-d9d55b6c619a",
+      "title": "Chytrý zámek NUKI Combo",
+      "link": "https://www.klicovecentrum.cz/produkt/chytry-zamek-nuki-combo/"
+    },
+    {
+      "product_id": "online:cs:CZ:20d694b5-77b1-4e41-9ca6-59faa431385a",
+      "title": "Schránka na klíče Key Safe",
+      "link": "https://www.klicovecentrum.cz/produkt/schranka-na-klice-key-safe/"
+    },
+    {
+      "product_id": "online:cs:CZ:7cc0b7cc-1615-478e-a072-b8585a39ad3a",
+      "title": "Bezpečnostní vložka CISA C3000",
+      "link": "https://www.klicovecentrum.cz/produkt/bezpecnostni-vlozka-cisa-c3000/"
+    },
+    {
+      "product_id": "online:cs:CZ:96a0e213-015b-480d-823f-0e22509ae8ce",
+      "title": "Bezpečnostní vložka CISA AP4 S",
+      "link": "https://www.klicovecentrum.cz/produkt/bezpecnostni-vlozka-cisa-ap4-s/"
+    },
+    {
+      "product_id": "online:cs:CZ:d9b9f891-c6ae-452b-bc40-14c9f5239555",
+      "title": "Trezor Magno",
+      "link": "https://www.klicovecentrum.cz/produkt/trezor-magno/"
+    },
+    {
+      "product_id": "online:cs:CZ:711341.10",
+      "title": "Čelisti 149 D7A7235ZB Triax/Futura",
+      "link": "https://www.klicovecentrum.cz/produkt/celisti-149-d7a7235zb/"
+    },
+    {
+      "product_id": "online:cs:CZ:5826566b-e94e-4112-b941-022ee3b3abec",
+      "title": "Trezor Diplomat",
+      "link": "https://www.klicovecentrum.cz/produkt/trezor-diplomat/"
+    },
+    {
+      "product_id": "online:cs:CZ:710669.10",
+      "title": "Fréza 01LW",
+      "link": "https://www.klicovecentrum.cz/produkt/freza-01LW-d711229zb/"
+    },
+    {
+      "product_id": "online:cs:CZ:dfecde81-ae4d-4e0d-9c68-7aca0d5837f0",
+      "title": "Visací zámek BW 770 Alutitan",
+      "link": "https://www.klicovecentrum.cz/produkt/visaci-zamek-bw-770-alutitan/"
+    },
+    {
+      "product_id": "online:cs:CZ:890140.10",
+      "title": "Vícebodový zámek MACO G-TS",
+      "link": "https://www.klicovecentrum.cz/produkt/vicebodovy-zamek-maco-g-ts/"
+    },
+    {
+      "product_id": "online:cs:CZ:9102b1cf-a78d-4e27-b566-e74dee8ad52b",
+      "title": "Bezpečnostní vložka STAR 70S",
+      "link": "https://www.klicovecentrum.cz/produkt/vlozka-star-70s/"
+    },
+    {
+      "product_id": "online:cs:CZ:3b68ae3f-79a1-476f-9601-b816cb32bc69",
+      "title": "Interiérové kování Ibiza",
+      "link": "https://www.klicovecentrum.cz/produkt/interierove-kovani-ibiza/"
+    },
+    {
+      "product_id": "online:cs:CZ:0a7cd7c0-c6d0-42fe-8076-1027314c7f60",
+      "title": "Trezor CombiLine",
+      "link": "https://www.klicovecentrum.cz/produkt/trezor-combiline/"
+    },
+    {
+      "product_id": "online:cs:CZ:12567442688916897230",
+      "title": "Půloliva K074",
+      "link": "https://www.klicovecentrum.cz/produkt/puloliva-k074/"
+    },
+    {
+      "product_id": "online:cs:CZ:6e9e35e1-45b3-4f94-82c1-d45dbed1262b",
+      "title": "Okenní alarm Burglar Avoider",
+      "link": "https://www.klicovecentrum.cz/produkt/okenn%C3%AD-alarm-burglar-avoider/"
+    },
+    {
+      "product_id": "online:cs:CZ:9fea21af-e9c7-468e-99a1-a7972689f7e8",
+      "title": "Bezpečnostní kování Marseille s překrytem",
+      "link": "https://www.klicovecentrum.cz/produkt/bezpecnostni-kovani-marseille-s-prekrytem/"
+    }
+  ]
+}
