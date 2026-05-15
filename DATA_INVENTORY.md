@@ -1,7 +1,26 @@
 # 📊 Data Inventory — Marketing Dashboard
 
-**Datum:** 12. 5. 2026
+**Datum:** 12. 5. 2026 (revize: 4 domény + Cloudflare na všech)
 **Role:** Klient (Ondřej) připravuje data + spolupracuje s Claude na buildu. **Žádná agentura**.
+
+---
+
+## 🌐 4 trhy = 4 domény (12.5.2026 všechny za Cloudflare)
+
+| Doména | Trh | Typ | Cloudflare | DB web_id | GA4 property | Sklik |
+|--------|-----|-----|------------|-----------|--------------|-------|
+| **klicovecentrum.cz** | 🇨🇿 CZ | B2C | ✅ Free + 5 rules | 1 *(?)* | **299992437** | ✅ aktivní |
+| **klicovecentrum.sk** | 🇸🇰 SK | B2C | ✅ NOVĚ | 2 *(?)* | ❓ ověřit | ❌ (Sklik je jen CZ) |
+| **hbgroup.cz** | 🇨🇿 CZ | B2B | ✅ NOVĚ | 3 *(?)* | ❓ ověřit | ❓ ověřit |
+| **hbgroup.sk** | 🇸🇰 SK | B2B | ✅ NOVĚ | 4 *(?)* | ❓ ověřit | ❌ (Sklik je jen CZ) |
+
+> **Otevřené otázky pro klienta** (zaeviduji do EXPORTY):
+> 1. SQL `kosik.web_id` 1-4 → mapping na domény (asi nahoře, ale ověřit query)
+> 2. Existují separátní GA4 properties pro `klicovecentrum.sk`, `hbgroup.cz`, `hbgroup.sk`? Nebo jeden GA4 sleduje vše?
+> 3. Jakou strukturu má Google Ads (350-878-7813) pro 4 domény — 4 separate accounts pod manager? 4 kampaně? 4 conversion goals?
+> 4. **„kucovecentrum.sk" v zadání = překlep?** Předpokládám `klicovecentrum.sk` (s „L" navíc) — POTVRDIT.
+
+---
 
 ---
 
@@ -65,6 +84,40 @@ Firmy.cz nemá statistiky API. Má pouze:
 2. **Manuální CSV export statistik** z admin.firmy.cz — klient ručně měsíčně
 
 Pro import feed potřebuju jednorázově master tabulku 17 prodejen → vytvořím auto-generator → daily refresh.
+
+---
+
+## 🌍 Multi-domain implications pro každou sekci
+
+Pro každou sekci dashboardu zvážit jak **rozdělit / agregovat** data napříč 4 doménami:
+
+| Sekce | Per-doména breakdown? | Default view |
+|-------|----------------------|--------------|
+| 0 — Executive | ✅ ANO + total | Total + 4-card breakdown |
+| 1 — Kampaně | ✅ ANO (per Google Ads sub-account) | Per-trh tab (CZ/SK) |
+| 2 — SEO | ✅ ANO (4 GSC properties) | Per-trh tab |
+| 3 — B2C | 2 domény (CZ + SK) | Total + per-trh |
+| 4 — B2B | 2 domény (CZ + SK) | Total + per-trh |
+| 5 — Srovnávače | Heuréka.cz/sk, Zboží jen CZ | Per-trh |
+| 6 — Feedy | Per-doména MC accounts (4 separate?) | Per-trh tab |
+| 7 — Produkty | Sdílené (jeden katalog) | Total |
+| 8 — Kategorie | Per-trh (jiná struktura?) | Per-trh |
+| 9 — Pobočky | 17 prodejen v CZ + SK? | Total (pobočky obsluhují oba trhy) |
+| 10 — Kraje | CZ + SK kraje | Per-trh |
+| 11 — Doprava | CZ (PPL) + SK (jiný dopravce?) | Per-trh |
+| 12 — Reklamace | Sdílené (jeden ERP) | Total + per-doména |
+| 13 — Vratky | Per-doména | Total + per-trh |
+| 14 — Holistic | Total + 4-card | Total |
+| 15 — GBP | 17 prodejen lokálně | Total |
+| 16 — Firmy.cz | Jen CZ (Seznam je CZ) | CZ |
+| 17 — MC | Per-account (4 separate?) | Per-trh tab |
+
+**Filter design**: Globální dropdown v hlavičce dashboardu vedle date pickeru:
+- **Trh**: Vše / CZ / SK
+- **Typ**: Vše / B2C / B2B
+- **Doména**: Vše / klicovecentrum.cz / klicovecentrum.sk / hbgroup.cz / hbgroup.sk
+
+Filtr se aplikuje na celý dashboard současně (jako date picker). URL state.
 
 ---
 

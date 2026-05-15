@@ -12,13 +12,62 @@
 
 ### ✅ HOTOVO
 - **Google Business Profile** — managers přidaní → **mohu rozjet API**
-- **Google Merchant Center** — user access dán → **mohu rozjet API**
+- **Google Merchant Center** — user access dán → **mohu rozjet API** (LIVE — 2228 produktů, 99.24% approval)
+- **Cloudflare na všech 4 doménách** — klicovecentrum.cz/sk + hbgroup.cz/sk za CF Free planem
 
 ### 🔄 NOVÉ INFO
+- **4 eshopy = 4 trhy**: CZ B2C (klicovecentrum.cz), SK B2C (klicovecentrum.sk?), CZ B2B (hbgroup.cz), SK B2B (hbgroup.sk)
 - **ERP je Cézar** (ne Helios) — přepsáno všude v dokumentech
 - **Firmy.cz** — má jen IMPORTNÍ feed (JSON schema v1.7), statistiky pouze manuálně CSV
 - **Meta** má aktivní brandové kampaně — **mohu napojit Marketing API**
 - **Heuréka** — uvedl jsi `github.com/heureka/hcapi/`, ale to je PHP knihovna pro Order/Payment callbacks (NE statistiky)
+
+---
+
+## ❓ OTÁZKY PRO KLIENTA — ASAP odpovědi
+
+Pro sprint dashboardu potřebuju vyjasnit pár věcí o multi-domain setupu:
+
+### Q1. „kucovecentrum.sk" v zadání = překlep? (rychle ANO/NE)
+Předpokládám `klicovecentrum.sk` (s „L" navíc — stejná značka, jiný trh). Pokud je to jiná doména, napiš mi přesné jméno.
+
+### Q2. SQL `kosik.web_id` mapping na 4 domény
+Můžeš mi spustit query:
+```sql
+SELECT web_id, COUNT(*) AS orders, MIN(datum) AS first_order, MAX(datum) AS last_order
+FROM kosik
+GROUP BY web_id
+ORDER BY web_id;
+```
++ pokud máš tabulku `weby` nebo podobnou s názvem domény, pošli SELECT všechno z ní.
+
+### Q3. GA4 properties pro 4 trhy
+Login do https://analytics.google.com → vlevo nahoře přepínač property → kolik máš properties?
+
+Pokud existují separate GA4 pro každou doménu, pošli mi:
+- klicovecentrum.cz: property ID 299992437 (mám)
+- klicovecentrum.sk: ❓
+- hbgroup.cz: ❓
+- hbgroup.sk: ❓
+
+Pokud máš všechno v jedné GA4 property → potřebuju zjistit jak je rozeznat (custom dimension `domain`? URL parametr? hostname filter?).
+
+### Q4. Google Ads struktura (account 350-878-7813)
+- 1 account pro všechny 4 trhy?
+- 4 sub-accounts pod manager account?
+- Pošli mi screenshot z Google Ads (vlevo nahoře vidíš strukturu)
+
+### Q5. Sklik účty
+- Sklik podporuje **jen CZ trh** (Seznam je český)
+- Pro CZ B2C (klicovecentrum.cz) máme Sklik účet ✅
+- Pro CZ B2B (hbgroup.cz) — máš Sklik účet? Token mi pošli pokud ano.
+
+### Q6. Merchant Center accounts
+- Aktuálně mám access k Merchant ID 130672692 (asi klicovecentrum.cz)
+- Pro 3 zbývající domény jsou separate MC accounty?
+- Login do https://merchants.google.com vlevo nahoře přepínač → kolik MC?
+
+---
 
 ---
 

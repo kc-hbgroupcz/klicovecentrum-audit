@@ -386,6 +386,36 @@
     </select>
   </div>
 
+  <!-- DOMAIN FILTER BAR -->
+  <div class="date-bar" style="border-top: 1px solid var(--border); padding-top: 8px; padding-bottom: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <span style="font-size: 12px; color: var(--text-muted); margin-right: 4px;">🌐 Trh:</span>
+      <select class="compare-select" id="marketFilter" style="margin-left: 0;">
+        <option value="all" selected>Vše (4 domény)</option>
+        <option value="cz">🇨🇿 Česko (klicovecentrum.cz + hbgroup.cz)</option>
+        <option value="sk">🇸🇰 Slovensko (klicovecentrum.sk + hbgroup.sk)</option>
+      </select>
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <span style="font-size: 12px; color: var(--text-muted); margin-right: 4px;">Typ:</span>
+      <select class="compare-select" id="typeFilter" style="margin-left: 0;">
+        <option value="all" selected>Vše (B2C + B2B)</option>
+        <option value="b2c">🛒 B2C (klicovecentrum)</option>
+        <option value="b2b">🏢 B2B (hbgroup)</option>
+      </select>
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <span style="font-size: 12px; color: var(--text-muted); margin-right: 4px;">Doména:</span>
+      <select class="compare-select" id="domainFilter" style="margin-left: 0;">
+        <option value="all" selected>Vše</option>
+        <option value="klicovecentrum.cz">🇨🇿 klicovecentrum.cz (B2C)</option>
+        <option value="klicovecentrum.sk">🇸🇰 klicovecentrum.sk (B2C)</option>
+        <option value="hbgroup.cz">🇨🇿 hbgroup.cz (B2B)</option>
+        <option value="hbgroup.sk">🇸🇰 hbgroup.sk (B2B)</option>
+      </select>
+    </div>
+  </div>
+
   <!-- ALERT BANNER -->
   <div class="alert-banner" id="alertBanner"></div>
 
@@ -427,6 +457,9 @@ const STATE = {
   dateTo: null,
   comparePreset: 'previous',
   preset: 'last7',
+  market: 'all',     // all | cz | sk
+  type: 'all',       // all | b2c | b2b
+  domain: 'all',     // all | klicovecentrum.cz | klicovecentrum.sk | hbgroup.cz | hbgroup.sk
   data: {},
 };
 
@@ -514,10 +547,14 @@ function saveStateToURL() {
   params.set('to', STATE.dateTo);
   params.set('compare', STATE.comparePreset);
   if (STATE.preset) params.set('preset', STATE.preset);
+  if (STATE.market !== 'all') params.set('market', STATE.market);
+  if (STATE.type !== 'all') params.set('type', STATE.type);
+  if (STATE.domain !== 'all') params.set('domain', STATE.domain);
   history.replaceState(null, '', '?' + params.toString());
   localStorage.setItem('mkt-state', JSON.stringify({
     section: STATE.section, from: STATE.dateFrom, to: STATE.dateTo,
     compare: STATE.comparePreset, preset: STATE.preset,
+    market: STATE.market, type: STATE.type, domain: STATE.domain,
   }));
 }
 
@@ -529,6 +566,9 @@ function loadStateFromURL() {
   STATE.dateTo = params.get('to') ?? stored.to ?? null;
   STATE.comparePreset = params.get('compare') ?? stored.compare ?? 'previous';
   STATE.preset = params.get('preset') ?? stored.preset ?? 'last7';
+  STATE.market = params.get('market') ?? stored.market ?? 'all';
+  STATE.type = params.get('type') ?? stored.type ?? 'all';
+  STATE.domain = params.get('domain') ?? stored.domain ?? 'all';
   if (!STATE.dateFrom || !STATE.dateTo) {
     applyPreset(STATE.preset);
   } else {
@@ -537,6 +577,9 @@ function loadStateFromURL() {
     document.querySelectorAll('.date-preset').forEach(b => b.classList.toggle('active', b.dataset.preset === STATE.preset));
   }
   document.getElementById('compareMode').value = STATE.comparePreset;
+  document.getElementById('marketFilter').value = STATE.market;
+  document.getElementById('typeFilter').value = STATE.type;
+  document.getElementById('domainFilter').value = STATE.domain;
 }
 
 // ═══════════════════════════════════════════════════════════════
@@ -582,9 +625,16 @@ async function renderSection(idx) {
   const meta = SECTIONS[idx];
   const main = document.getElementById('main');
 
-  // Title
+  // Title + filter chips
+  let filterChips = '';
+  if (STATE.domain !== 'all') {
+    filterChips += `<span style="background: var(--accent); color: white; padding: 2px 8px; border-radius: 6px; font-size: 11px; margin-left: 8px;">🌐 ${STATE.domain}</span>`;
+  } else {
+    if (STATE.market !== 'all') filterChips += `<span style="background: rgba(78,161,255,0.2); color: var(--accent); padding: 2px 8px; border-radius: 6px; font-size: 11px; margin-left: 8px;">${STATE.market === 'cz' ? '🇨🇿 CZ' : '🇸🇰 SK'}</span>`;
+    if (STATE.type !== 'all') filterChips += `<span style="background: rgba(78,161,255,0.2); color: var(--accent); padding: 2px 8px; border-radius: 6px; font-size: 11px; margin-left: 8px;">${STATE.type === 'b2c' ? '🛒 B2C' : '🏢 B2B'}</span>`;
+  }
   let html = `
-    <div class="section-title">${meta.title}</div>
+    <div class="section-title">${meta.title}${filterChips}</div>
     <div class="section-subtitle">${meta.subtitle} · ${STATE.dateFrom} → ${STATE.dateTo}</div>
   `;
 
@@ -780,6 +830,35 @@ document.getElementById('dateTo').addEventListener('change', e => {
 
 document.getElementById('compareMode').addEventListener('change', e => {
   STATE.comparePreset = e.target.value;
+  saveStateToURL();
+  renderSection(STATE.section);
+});
+
+// Market / type / domain filter handlers — interlocked logic
+document.getElementById('marketFilter').addEventListener('change', e => {
+  STATE.market = e.target.value;
+  // Reset domain filter když market změnit (jinak by zůstala selected nekonzistentní doména)
+  STATE.domain = 'all';
+  document.getElementById('domainFilter').value = 'all';
+  saveStateToURL();
+  renderSection(STATE.section);
+});
+document.getElementById('typeFilter').addEventListener('change', e => {
+  STATE.type = e.target.value;
+  STATE.domain = 'all';
+  document.getElementById('domainFilter').value = 'all';
+  saveStateToURL();
+  renderSection(STATE.section);
+});
+document.getElementById('domainFilter').addEventListener('change', e => {
+  STATE.domain = e.target.value;
+  // Auto-set market + type podle domény
+  if (STATE.domain === 'klicovecentrum.cz') { STATE.market = 'cz'; STATE.type = 'b2c'; }
+  else if (STATE.domain === 'klicovecentrum.sk') { STATE.market = 'sk'; STATE.type = 'b2c'; }
+  else if (STATE.domain === 'hbgroup.cz') { STATE.market = 'cz'; STATE.type = 'b2b'; }
+  else if (STATE.domain === 'hbgroup.sk') { STATE.market = 'sk'; STATE.type = 'b2b'; }
+  document.getElementById('marketFilter').value = STATE.market;
+  document.getElementById('typeFilter').value = STATE.type;
   saveStateToURL();
   renderSection(STATE.section);
 });

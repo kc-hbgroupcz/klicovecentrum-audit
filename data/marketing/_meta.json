@@ -1,7 +1,13 @@
 {
-  "last_refresh": "2026-05-12T17:00:00+02:00",
-  "version": "0.2-mc-live",
-  "build_status": "scaffold + section17_live",
+  "last_refresh": "2026-05-12T18:00:00+02:00",
+  "version": "0.3-multi-domain",
+  "build_status": "scaffold + section17_live + 4_domain_filter",
+  "domains": [
+    {"domain": "klicovecentrum.cz", "market": "cz", "type": "b2c", "cloudflare": true, "ga4_property": "299992437"},
+    {"domain": "klicovecentrum.sk", "market": "sk", "type": "b2c", "cloudflare": true, "ga4_property": null, "note": "Klient zaridil 12.5.2026, GA4 property id pending"},
+    {"domain": "hbgroup.cz", "market": "cz", "type": "b2b", "cloudflare": true, "ga4_property": null, "note": "Klient zaridil 12.5.2026"},
+    {"domain": "hbgroup.sk", "market": "sk", "type": "b2b", "cloudflare": true, "ga4_property": null, "note": "Klient zaridil 12.5.2026"}
+  ],
   "sections_live": [0, 1, 2, 3, 4, 7, 8, 10, 11, 12, 13, 14, 17],
   "sections_partial": [6, 15, 16],
   "sections_waiting_client": [5, 9],
