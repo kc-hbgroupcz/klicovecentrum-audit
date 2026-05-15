@@ -10,18 +10,23 @@
 ## ⚡ Quick win — 2 metody
 
 ### Metoda A — UI (manuálně, ~30 min na doménu)
-Pro každou ze 3 nových domén projít `CLOUDFLARE_MANUAL_FREE.md` → kroky 1-7 (Bot Fight Mode, Security Level, custom rules, cache rule, rate limiting, page rule).
+Pro každou ze 3 nových domén projít `CLOUDFLARE_MANUAL_FREE.md` → kroky 1-7.
 
-**Výhoda**: žádné API tokeny, jen klikání v UI.
-**Nevýhoda**: 3× 30min = 1.5 h, riziko překlepů.
+### ✅ Metoda B — API skript (DOPORUČENO, klient poslal token 13.5.2026)
 
-### Metoda B — API skript (~5 min total, vyžaduje API token)
-Použít `cloudflare_runbook.md` curl příkazy + bash skript který:
-1. Exportuje rules z `klicovecentrum.cz` zóny
-2. Pro každou ze 3 nových zón → import stejných rules
+**Skript:** `cloudflare_replicate.py` (HOTOVO, čeká na klientovo spuštění)
 
-**Výhoda**: rychlé, konzistentní.
-**Nevýhoda**: Klient musí vygenerovat API token s `Zone:Edit` permissions.
+```bash
+# Dry-run preview (bez změn)
+python cloudflare_replicate.py
+
+# Apply replikace
+python cloudflare_replicate.py --apply --yes
+```
+
+Detaily: viz `CLOUDFLARE_REPLIKACE_HOWTO.md` (kompletní návod krok-by-krok)
+
+Token je uložen v `~/.cloudflare/cf_replicate_token` (mimo repo, .gitignore chrání).
 
 ---
 

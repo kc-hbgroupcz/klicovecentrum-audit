@@ -1,13 +1,16 @@
 {
-  "last_refresh": "2026-05-12T18:00:00+02:00",
-  "version": "0.3-multi-domain",
-  "build_status": "scaffold + section17_live + 4_domain_filter",
+  "last_refresh": "2026-05-13T15:00:00+02:00",
+  "version": "0.4-cloudflare-replicated",
+  "build_status": "scaffold + section17_live + 4_domain_filter + cloudflare_replicated",
   "domains": [
     {
       "domain": "klicovecentrum.cz",
       "market": "cz",
       "type": "b2c",
       "cloudflare": true,
+      "cloudflare_zone_id": "97bbfd15901b349a2f3e24878f75ddde",
+      "cloudflare_rules": {"custom": 5, "cache": 2, "page": 1, "ratelimit": 1, "total": 8},
+      "cloudflare_settings": {"security_level": "medium", "ssl": "strict", "always_use_https": "on", "bfm": true, "ai_bots_protection": "block", "leaked_credential_check": true},
       "ga4_property": "299992437",
       "google_ads_customer_id": "350-878-7813",
       "sklik": true,
@@ -20,33 +23,42 @@
       "market": "sk",
       "type": "b2c",
       "cloudflare": true,
+      "cloudflare_zone_id": "13be8969797e500c4a1c4fc4fdc87204",
+      "cloudflare_rules": {"custom": 5, "cache": 2, "page": 1, "ratelimit": 0, "total": 7},
+      "cloudflare_settings": {"security_level": "medium", "ssl": "strict", "always_use_https": "on", "bfm": true, "ai_bots_protection": "block"},
       "ga4_property": null,
       "google_ads_customer_id": null,
       "sklik": false,
       "merchant_center_id": null,
-      "note": "Klient zaridil CF 12.5.2026; GA4 ID + Ads customer ID + MC pending"
+      "note": "CF replikace HOTOVO 13.5.2026 (7/8 rules, chybi leaked cred check). GA4 ID + Ads customer ID + MC pending."
     },
     {
       "domain": "hbgroup.cz",
       "market": "cz",
       "type": "b2b",
       "cloudflare": true,
+      "cloudflare_zone_id": "f4eda87077d1777a4b22bdce9499bf7d",
+      "cloudflare_rules": {"custom": 5, "cache": 2, "page": 1, "ratelimit": 0, "total": 7},
+      "cloudflare_settings": {"security_level": "medium", "ssl": "strict", "always_use_https": "on", "bfm": true, "ai_bots_protection": "block"},
       "ga4_property": null,
       "google_ads_customer_id": null,
       "sklik": false,
       "merchant_center_id": null,
-      "note": "B2B nepouziva ads/sklik/MC — jen organicke kanaly. GA4 ID pending."
+      "note": "CF replikace HOTOVO 13.5.2026. B2B nepouziva ads/sklik/MC. GA4 ID pending."
     },
     {
       "domain": "hbgroup.sk",
       "market": "sk",
       "type": "b2b",
       "cloudflare": true,
+      "cloudflare_zone_id": "9b535c3ad814f803079a013e81b041cd",
+      "cloudflare_rules": {"custom": 5, "cache": 2, "page": 1, "ratelimit": 0, "total": 7},
+      "cloudflare_settings": {"security_level": "medium", "ssl": "strict", "always_use_https": "on", "bfm": true, "ai_bots_protection": "block"},
       "ga4_property": null,
       "google_ads_customer_id": null,
       "sklik": false,
       "merchant_center_id": null,
-      "note": "B2B nepouziva ads/sklik/MC. GA4 ID pending."
+      "note": "CF replikace HOTOVO 13.5.2026. B2B nepouziva ads/sklik/MC. GA4 ID pending."
     }
   ],
   "primary_data_source": "ERP Cezar",

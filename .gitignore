@@ -1,4 +1,22 @@
-credentials.json
-*.log
+# Sensitive credentials — NIKDY do gitu
+.env
+*.token
+*_token
+*_secret
+*.pem
+secrets/
+.cloudflare/
+~/.cloudflare/
+
+# Cloudflare audit raw data (rules expressions = útočník by mohl obejít)
+data/cloudflare/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+
+# OS
 .DS_Store
 Thumbs.db
