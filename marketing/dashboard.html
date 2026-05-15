@@ -1573,6 +1573,7 @@ async function renderLivePlaceholder(idx, meta) {
 
 function renderGenericData(d, idx) {
   // Section-specific lookups
+  if (idx === 6) return renderFeedy(d);
   if (idx === 7) return renderProducts(d);
   if (idx === 8) return renderCategories(d);
   if (idx === 10) return renderRegions(d);
@@ -1710,6 +1711,186 @@ function renderReturns(d) {
         </table>
       </div>` : ''}
     ${d.interpretation ? `<div class="card" style="margin-top:16px"><div class="card-title">💡 Interpretace</div><pre style="font-size:13px;white-space:pre-wrap;color:var(--text-muted)">${typeof d.interpretation === 'string' ? d.interpretation : JSON.stringify(d.interpretation, null, 2)}</pre></div>` : ''}
+  `;
+}
+
+function renderFeedy(d) {
+  // Section 6 Feedy — používá mc.json data + Mergado feed status
+  const s = d.summary || {};
+  const issues = d.account_issues || [];
+  const topIssues = d.top_item_issues || [];
+  const disapproved = d.disapproved_examples || [];
+
+  const issuesHtml = issues.length > 0 ? `
+    <div class="card" style="border-color: var(--red); background: rgba(248,113,113,0.05); margin-bottom: 16px;">
+      <div class="card-title">🚨 Account-level issues (${issues.length})</div>
+      <table>
+        <thead><tr><th>Severity</th><th>Title</th><th>Detail</th></tr></thead>
+        <tbody>
+          ${issues.map(i => `
+            <tr>
+              <td><span style="color:var(--red);font-weight:600">${i.severity}</span></td>
+              <td>${i.title}</td>
+              <td><small style="color:var(--text-muted)">${(i.detail || '').slice(0, 150)}</small></td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    </div>
+  ` : '';
+
+  return `
+    <div class="card" style="background: rgba(78,161,255,0.08); border-color: var(--accent); margin-bottom: 16px;">
+      <div style="font-size: 13px; color: var(--accent);">
+        ℹ️ <strong>Sekce Feedy</strong> agreguje 3 data zdroje:<br>
+        • <strong>Mergado output feeds</strong> — XML feedy generované z e-shopu (Heuréka, Zboží, Glami, Google Shopping, …)<br>
+        • <strong>Google Merchant Center</strong> — ✅ <strong>LIVE</strong> přes API (Merchant ${d.merchant_id || '130672692'})<br>
+        • <strong>Per-feed channel performance</strong> — čeká na Heureka Conv Reports klíč + Alza Partner CSV (viz MANUAL)
+      </div>
+    </div>
+
+    <div class="hero-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">Produkty v MC feedu</div>
+        <div class="kpi-value">${fmtNum(s.total_products)}</div>
+        <div class="kpi-delta neutral">Merchant ${d.merchant_id}</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Approval rate</div>
+        <div class="kpi-value" style="color: ${(s.approval_rate_pct || 0) > 95 ? 'var(--green)' : 'var(--orange)'};">${fmtPct(s.approval_rate_pct)}</div>
+        <div class="kpi-delta positive">${fmtNum(s.approved)} approved</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Disapproved</div>
+        <div class="kpi-value" style="color: ${s.disapproved > 0 ? 'var(--red)' : 'var(--green)'};">${fmtNum(s.disapproved)}</div>
+        <div class="kpi-delta ${s.disapproved > 0 ? 'negative' : 'positive'}">${fmtPct(s.disapproval_rate_pct)} z ${fmtNum(s.total_products)}</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Pending review</div>
+        <div class="kpi-value">${fmtNum(s.pending)}</div>
+        <div class="kpi-delta neutral">čeká na Google review</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Account issues</div>
+        <div class="kpi-value" style="color: ${s.account_issues_count > 0 ? 'var(--red)' : 'var(--green)'};">${s.account_issues_count || 0}</div>
+        <div class="kpi-delta ${s.account_issues_count > 0 ? 'negative' : 'positive'}">${s.account_issues_count > 0 ? 'fix ASAP' : 'OK'}</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Per-feed channel data</div>
+        <div class="kpi-value" style="color: var(--orange); font-size: 22px;">⏳</div>
+        <div class="kpi-delta neutral">čeká API klíče</div>
+      </div>
+    </div>
+
+    ${issuesHtml}
+
+    <div class="section-grid">
+      <div class="card">
+        <div class="card-title">📋 Top 20 item-level issues (per affected products)</div>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Issue code</th>
+              <th>Severity</th>
+              <th class="num">Affected</th>
+              <th class="num">% celku</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${topIssues.slice(0, 20).map((i, idx) => `
+              <tr>
+                <td class="num">${idx + 1}</td>
+                <td><small style="font-family: monospace; font-size: 11px;">${i.code}</small></td>
+                <td>
+                  <span style="color: ${
+                    i.severity === 'disapproved' ? 'var(--red)' :
+                    i.severity === 'demoted' ? 'var(--orange)' : 'var(--text-muted)'
+                  };">${i.severity}</span>
+                </td>
+                <td class="num">${fmtNum(i.affected_products)}</td>
+                <td class="num">${fmtPct(i.pct_of_total)}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="card-title">📡 Per-feed channel status</div>
+        <table>
+          <thead><tr><th>Feed channel</th><th>Status</th><th>Pokrytí</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Google Merchant Center</strong></td>
+              <td><span style="color: var(--green);">✅ LIVE</span></td>
+              <td>${fmtNum(s.total_products)} produktů, ${fmtPct(s.approval_rate_pct)} approval</td>
+            </tr>
+            <tr>
+              <td><strong>Heuréka.cz</strong></td>
+              <td><span style="color: var(--orange);">⏳ Pending</span></td>
+              <td>Čeká Heuréka Conversion Reports API klíč (MANUAL #1)</td>
+            </tr>
+            <tr>
+              <td><strong>Zboží.cz</strong></td>
+              <td><span style="color: var(--orange);">⏳ Pending</span></td>
+              <td>OCM API klíč nebo manuální CSV</td>
+            </tr>
+            <tr>
+              <td><strong>Alza Partner</strong></td>
+              <td><span style="color: var(--orange);">⏳ Pending</span></td>
+              <td>Sample CSV od klienta (MANUAL #9)</td>
+            </tr>
+            <tr>
+              <td><strong>Glami.cz</strong></td>
+              <td><span style="color: var(--text-muted);">— N/A</span></td>
+              <td>Pravděpodobně nepoužíváme (zámky/kování ≠ móda)</td>
+            </tr>
+            <tr>
+              <td><strong>Mergado</strong></td>
+              <td><span style="color: var(--text-muted);">⏳ TBD</span></td>
+              <td>URL feed exists — auto fetch nasadit</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    ${disapproved.length > 0 ? `
+      <div class="card" style="margin-top: 16px;">
+        <div class="card-title">❌ Disapproved produkty (sample ${disapproved.length})</div>
+        <table>
+          <thead>
+            <tr><th>#</th><th>Product ID</th><th>Title</th><th>Link</th></tr>
+          </thead>
+          <tbody>
+            ${disapproved.slice(0, 20).map((p, i) => `
+              <tr>
+                <td class="num">${i + 1}</td>
+                <td><small style="font-family: monospace; font-size: 11px;">${p.product_id}</small></td>
+                <td>${(p.title || '').slice(0, 80)}</td>
+                <td>${p.link ? `<a href="${p.link}" target="_blank" style="color: var(--accent); font-size: 11px;">↗</a>` : '—'}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    ` : ''}
+
+    <div class="card" style="margin-top: 16px;">
+      <div class="card-title">🎯 Akční doporučení</div>
+      <ul style="padding-left: 20px; color: var(--text-muted); font-size: 13px;">
+        <li><strong>Account-level issues (${s.account_issues_count || 0}):</strong> Logo 2:1 a 1:1 — připravit nové verze podle Google requirements (https://support.google.com/merchants/answer/14555486)</li>
+        <li><strong>Disapproved produkty (${s.disapproved}):</strong> Projít každý a opravit (typicky chybí GTIN, image too small, missing brand)</li>
+        <li><strong>Per-feed conversion data:</strong> Get Heureka Conv Reports klíč → uvidíme ROAS per feed channel</li>
+        <li><strong>Variant coverage:</strong> Mergado feed by měl obsahovat všechny varianty (audit zjistil 0 % coverage = 1 338 disapproved)</li>
+        <li><strong>Pro detail MC viz Section 17</strong> (klikni 🛍️ MC tab)</li>
+      </ul>
+    </div>
+
+    <p style="color: var(--text-muted); font-size: 12px; margin-top: 16px;">
+      <strong>Source:</strong> MC API (${d.merchant_id}) · Refresh: ${new Date(d.generated_at).toLocaleString('cs-CZ')}
+    </p>
   `;
 }
 
