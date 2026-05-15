@@ -393,7 +393,7 @@
       <select class="compare-select" id="marketFilter" style="margin-left: 0;">
         <option value="all" selected>Vše (4 domény)</option>
         <option value="cz">🇨🇿 Česko (klicovecentrum.cz + hbgroup.cz)</option>
-        <option value="sk">🇸🇰 Slovensko (klicovecentrum.sk + hbgroup.sk)</option>
+        <option value="sk">🇸🇰 Slovensko (klucovecentrum.sk + hbgroup.sk)</option>
       </select>
     </div>
     <div style="display: flex; align-items: center; gap: 8px;">
@@ -409,7 +409,7 @@
       <select class="compare-select" id="domainFilter" style="margin-left: 0;">
         <option value="all" selected>Vše</option>
         <option value="klicovecentrum.cz">🇨🇿 klicovecentrum.cz (B2C)</option>
-        <option value="klicovecentrum.sk">🇸🇰 klicovecentrum.sk (B2C)</option>
+        <option value="klucovecentrum.sk">🇸🇰 klucovecentrum.sk (B2C)</option>
         <option value="hbgroup.cz">🇨🇿 hbgroup.cz (B2B)</option>
         <option value="hbgroup.sk">🇸🇰 hbgroup.sk (B2B)</option>
       </select>
@@ -459,19 +459,20 @@ const STATE = {
   preset: 'last7',
   market: 'all',     // all | cz | sk
   type: 'all',       // all | b2c | b2b
-  domain: 'all',     // all | klicovecentrum.cz | klicovecentrum.sk | hbgroup.cz | hbgroup.sk
+  domain: 'all',     // all | klicovecentrum.cz | klucovecentrum.sk | hbgroup.cz | hbgroup.sk
   data: {},
 };
 
-// SECTION METADATA
+// SECTION METADATA — domains_only specifies pro které domény je sekce relevantní
+// Pokud user vybere filter (market/type/domain) co nepokrývá danou sekci → empty state
 const SECTIONS = {
   0: { title: 'Executive Summary', subtitle: 'Top-level metriky napříč všemi kanály', status: 'live' },
-  1: { title: 'Kampaně (PPC)', subtitle: 'Google Ads + Sklik + Meta', status: 'live' },
+  1: { title: 'Kampaně (PPC)', subtitle: 'Google Ads + Sklik + Meta — jen B2C (B2B nepoužívá ads)', status: 'live', domains_only: ['klicovecentrum.cz', 'klucovecentrum.sk'] },
   2: { title: 'SEO', subtitle: 'Google Search Console + Bing Webmaster', status: 'live' },
   3: { title: 'B2C E-shop', subtitle: 'klicovecentrum.cz výkon', status: 'live' },
   4: { title: 'B2B', subtitle: 'hbgroup.cz odběratelé', status: 'live' },
-  5: { title: 'Srovnávače', subtitle: 'Heuréka, Zboží, Alza, Glami', status: 'waiting', wait_for: 'Heuréka API klíč nebo CSV, Zboží.cz CSV, Alza Partner CSV exporty' },
-  6: { title: 'Feedy', subtitle: 'Mergado + Google Merchant Center — LIVE (přes MC API)', status: 'live' },
+  5: { title: 'Srovnávače', subtitle: 'Heuréka, Zboží, Alza, Glami — jen B2C (B2B nepoužívá srovnávače)', status: 'waiting', wait_for: 'Heuréka API klíč nebo CSV, Zboží.cz CSV, Alza Partner CSV exporty', domains_only: ['klicovecentrum.cz', 'klucovecentrum.sk'] },
+  6: { title: 'Feedy', subtitle: 'Mergado + Google Merchant Center — jen klicovecentrum.cz dnes (klucovecentrum.sk čeká na MC setup)', status: 'live', domains_only: ['klicovecentrum.cz', 'klucovecentrum.sk'] },
   7: { title: 'Produkty', subtitle: 'Top SKU + per-produkt výkon', status: 'live' },
   8: { title: 'Kategorie', subtitle: 'Výkon kategorií produktů', status: 'live' },
   9: { title: 'Pobočky', subtitle: '17 fyzických prodejen', status: 'waiting', wait_for: 'Cézar "Maloobchod pokladna" per-provozovna export (klient zařídí s IT)' },
@@ -481,8 +482,8 @@ const SECTIONS = {
   13: { title: 'Vratky', subtitle: 'Returns + refundy', status: 'live' },
   14: { title: 'Cross-channel Holistic', subtitle: 'MER, LTV:CAC, NRR, attribution', status: 'live' },
   15: { title: 'Google Business Profile', subtitle: '17 prodejen — API funguje, čeká na quota increase', status: 'api', wait_for: 'GBP API enabled + Service Account přidán jako Manager. Default quota Google nasadil 1 req/min — vyžádat increase přes support.google.com/business/contact/api_default_quota_increase' },
-  16: { title: 'Firmy.cz', subtitle: 'Import feed (auto-sync) + manuální stats CSV', status: 'waiting', wait_for: 'Master tabulka 17 prodejen → data/raw/pobocky_master.csv (template existuje, klient doplní). Generator skript build_firmy_import_feed.py připraven.' },
-  17: { title: 'Google Merchant Center', subtitle: 'Shopping deep-dive — LIVE (Merchant 130672692, 2228 produktů, 99.24% approval)', status: 'live', data_url: '../data/marketing/mc.json' },
+  16: { title: 'Firmy.cz', subtitle: 'Import feed (auto-sync) + manuální stats CSV — jen CZ (Seznam je český)', status: 'waiting', wait_for: 'Master tabulka 17 prodejen → data/raw/pobocky_master.csv', domains_only: ['klicovecentrum.cz', 'hbgroup.cz'] },
+  17: { title: 'Google Merchant Center', subtitle: 'Shopping deep-dive — jen klicovecentrum.cz (Merchant 130672692, 2228 produktů, 99.24% approval). klucovecentrum.sk čeká na MC setup.', status: 'live', data_url: '../data/marketing/mc.json', domains_only: ['klicovecentrum.cz', 'klucovecentrum.sk'] },
 };
 
 // ═══════════════════════════════════════════════════════════════
@@ -617,6 +618,32 @@ function formatAge(hours) {
 // SECTION RENDERING
 // ═══════════════════════════════════════════════════════════════
 
+function isFilterCompatible(meta) {
+  // Pokud meta nemá domains_only → žádné omezení
+  if (!meta.domains_only) return { ok: true };
+
+  const allowedDomains = meta.domains_only;
+
+  // Domain filter zvolen → musí být v allowedDomains
+  if (STATE.domain !== 'all' && !allowedDomains.includes(STATE.domain)) {
+    return { ok: false, reason: `Tato sekce nepokrývá doménu ${STATE.domain}. Pokrývá: ${allowedDomains.join(', ')}` };
+  }
+
+  // Type filter — odvodit které domény projdou
+  let candidates = ['klicovecentrum.cz', 'klucovecentrum.sk', 'hbgroup.cz', 'hbgroup.sk'];
+  if (STATE.type === 'b2c') candidates = candidates.filter(d => d.includes('klicovecentrum') || d.includes('klucovecentrum'));
+  if (STATE.type === 'b2b') candidates = candidates.filter(d => d.includes('hbgroup'));
+  if (STATE.market === 'cz') candidates = candidates.filter(d => d.endsWith('.cz'));
+  if (STATE.market === 'sk') candidates = candidates.filter(d => d.endsWith('.sk'));
+
+  const overlap = candidates.filter(d => allowedDomains.includes(d));
+  if (overlap.length === 0) {
+    return { ok: false, reason: `Filter neodpovídá této sekci. Sekce pokrývá: ${allowedDomains.join(', ')}` };
+  }
+
+  return { ok: true };
+}
+
 async function renderSection(idx) {
   STATE.section = idx;
   document.querySelectorAll('.tab').forEach(b => b.classList.toggle('active', parseInt(b.dataset.section) === idx));
@@ -624,6 +651,24 @@ async function renderSection(idx) {
 
   const meta = SECTIONS[idx];
   const main = document.getElementById('main');
+
+  // Check filter compatibility
+  const compat = isFilterCompatible(meta);
+  if (!compat.ok) {
+    main.innerHTML = `
+      <div class="section-title">${meta.title}</div>
+      <div class="section-subtitle">${meta.subtitle}</div>
+      <div class="empty-state">
+        <div class="empty-state-icon">🚫</div>
+        <h3>Sekce nedostupná pro aktuální filter</h3>
+        <p>${compat.reason}</p>
+        <p style="margin-top: 16px;">
+          <button class="btn btn-secondary" onclick="document.getElementById('marketFilter').value='all';document.getElementById('typeFilter').value='all';document.getElementById('domainFilter').value='all';STATE.market='all';STATE.type='all';STATE.domain='all';saveStateToURL();renderSection(${idx});" style="background: var(--accent); color: white; border: none; padding: 8px 16px; border-radius: 8px; cursor: pointer;">Reset filtru</button>
+        </p>
+      </div>
+    `;
+    return;
+  }
 
   // Title + filter chips
   let filterChips = '';
@@ -854,7 +899,7 @@ document.getElementById('domainFilter').addEventListener('change', e => {
   STATE.domain = e.target.value;
   // Auto-set market + type podle domény
   if (STATE.domain === 'klicovecentrum.cz') { STATE.market = 'cz'; STATE.type = 'b2c'; }
-  else if (STATE.domain === 'klicovecentrum.sk') { STATE.market = 'sk'; STATE.type = 'b2c'; }
+  else if (STATE.domain === 'klucovecentrum.sk') { STATE.market = 'sk'; STATE.type = 'b2c'; }
   else if (STATE.domain === 'hbgroup.cz') { STATE.market = 'cz'; STATE.type = 'b2b'; }
   else if (STATE.domain === 'hbgroup.sk') { STATE.market = 'sk'; STATE.type = 'b2b'; }
   document.getElementById('marketFilter').value = STATE.market;

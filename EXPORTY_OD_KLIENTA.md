@@ -16,7 +16,7 @@
 - **Cloudflare na všech 4 doménách** — klicovecentrum.cz/sk + hbgroup.cz/sk za CF Free planem
 
 ### 🔄 NOVÉ INFO
-- **4 eshopy = 4 trhy**: CZ B2C (klicovecentrum.cz), SK B2C (klicovecentrum.sk?), CZ B2B (hbgroup.cz), SK B2B (hbgroup.sk)
+- **4 eshopy = 4 trhy**: CZ B2C (klicovecentrum.cz), SK B2C (klucovecentrum.sk?), CZ B2B (hbgroup.cz), SK B2B (hbgroup.sk)
 - **ERP je Cézar** (ne Helios) — přepsáno všude v dokumentech
 - **Firmy.cz** — má jen IMPORTNÍ feed (JSON schema v1.7), statistiky pouze manuálně CSV
 - **Meta** má aktivní brandové kampaně — **mohu napojit Marketing API**
@@ -24,48 +24,59 @@
 
 ---
 
-## ❓ OTÁZKY PRO KLIENTA — ASAP odpovědi
+## ✅ VYŘEŠENÉ OTÁZKY (12.5.2026 odpovědi klienta)
 
-Pro sprint dashboardu potřebuju vyjasnit pár věcí o multi-domain setupu:
+| # | Otázka | Odpověď klienta |
+|---|--------|-----------------|
+| Q1 | „kucovecentrum.sk" překlep? | ❗ **klucovecentrum.sk** (s „U", ne „I") — jiná značka pro SK trh |
+| Q2 | SQL kosik web_id mapping? | **Nepoužívat SQL** — primární zdroj je ERP Cézar |
+| Q3 | GA4 properties? | **4 separate properties** (per doména) |
+| Q4 | Google Ads struktura? | **Pouze B2C, dva účty** — klicovecentrum.cz (350-878-7813) + klucovecentrum.sk |
+| Q5 | Sklik účty? | **Pouze klicovecentrum.cz** |
+| Q6 | Merchant Center accounts? | klicovecentrum.cz ✅, hbgroup.cz/sk ❌ nikdy, klucovecentrum.sk → klient zařídí |
 
-### Q1. „kucovecentrum.sk" v zadání = překlep? (rychle ANO/NE)
-Předpokládám `klicovecentrum.sk` (s „L" navíc — stejná značka, jiný trh). Pokud je to jiná doména, napiš mi přesné jméno.
+### 🔑 Důsledky pro dashboard
 
-### Q2. SQL `kosik.web_id` mapping na 4 domény
-Můžeš mi spustit query:
-```sql
-SELECT web_id, COUNT(*) AS orders, MIN(datum) AS first_order, MAX(datum) AS last_order
-FROM kosik
-GROUP BY web_id
-ORDER BY web_id;
-```
-+ pokud máš tabulku `weby` nebo podobnou s názvem domény, pošli SELECT všechno z ní.
+1. **B2B = žádné akviziční kanály** — `hbgroup.cz` + `hbgroup.sk` nepoužívají Google Ads, Sklik, Merchant Center, srovnávače
+   - Section 1 (Kampaně), 5 (Srovnávače), 6 (Feedy), 17 (MC) → automaticky empty state pro B2B filter
+   - Section 4 (B2B) refocus na **retention metriky**: NRR, churn, repeat orders, AOV growth, tenure
 
-### Q3. GA4 properties pro 4 trhy
-Login do https://analytics.google.com → vlevo nahoře přepínač property → kolik máš properties?
+2. **ERP Cézar = hlavní zdroj** — všechny revenue / orders / margin metriky vždy z Cézar (NE SQL kosik)
 
-Pokud existují separate GA4 pro každou doménu, pošli mi:
-- klicovecentrum.cz: property ID 299992437 (mám)
-- klicovecentrum.sk: ❓
-- hbgroup.cz: ❓
-- hbgroup.sk: ❓
+3. **SK trh** = jiná značka „kluč" místo „klíč"
 
-Pokud máš všechno v jedné GA4 property → potřebuju zjistit jak je rozeznat (custom dimension `domain`? URL parametr? hostname filter?).
+---
 
-### Q4. Google Ads struktura (account 350-878-7813)
-- 1 account pro všechny 4 trhy?
-- 4 sub-accounts pod manager account?
-- Pošli mi screenshot z Google Ads (vlevo nahoře vidíš strukturu)
+## ❓ ZBÝVAJÍCÍ OTÁZKY (4 quick wins)
 
-### Q5. Sklik účty
-- Sklik podporuje **jen CZ trh** (Seznam je český)
-- Pro CZ B2C (klicovecentrum.cz) máme Sklik účet ✅
-- Pro CZ B2B (hbgroup.cz) — máš Sklik účet? Token mi pošli pokud ano.
+### Q7. GA4 property IDs pro 3 zbývající domény
+Login do https://analytics.google.com → vlevo nahoře přepínač property → pošli mi 3 čísla:
+- klucovecentrum.sk: **GA4 property ID:** ❓
+- hbgroup.cz: **GA4 property ID:** ❓
+- hbgroup.sk: **GA4 property ID:** ❓
 
-### Q6. Merchant Center accounts
-- Aktuálně mám access k Merchant ID 130672692 (asi klicovecentrum.cz)
-- Pro 3 zbývající domény jsou separate MC accounty?
-- Login do https://merchants.google.com vlevo nahoře přepínač → kolik MC?
+Pak přidám SA `hbg-101@hbgroup-493608.iam.gserviceaccount.com` jako Viewer u všech 3 (nebo zkontroluj že už je tam přidaný — pokud ne, dám návod).
+
+### Q8. Google Ads klucovecentrum.sk Customer ID
+Login do https://ads.google.com → vlevo nahoře přepínač:
+- klicovecentrum.cz: **Customer ID: 350-878-7813** ✅
+- klucovecentrum.sk: **Customer ID:** ❓ (formát: XXX-XXX-XXXX)
+
+Pošli mi to číslo a já napojím existující OAuth refresh token (jen jiný `customer_id` parametr v API call).
+
+### Q9. Search Console — 3 nové properties
+Login do https://search.google.com/search-console → vidíš 4 properties (nebo jen 1)?
+
+Potřebuju aby SA `hbg-101@hbgroup-493608.iam.gserviceaccount.com` byl přidaný jako User u všech 4 properties:
+- klicovecentrum.cz ✅ (mám)
+- klucovecentrum.sk ❓
+- hbgroup.cz ❓
+- hbgroup.sk ❓
+
+Návod: Search Console → vyber property → Settings → Users and permissions → Add user → role: **Restricted** → email SA.
+
+### Q10. Bing Webmaster — 3 nové sites
+Login do https://www.bing.com/webmasters → přidat 3 nové sites + použít existující API key `613abedd85e248d6a26067b14e77deee`.
 
 ---
 

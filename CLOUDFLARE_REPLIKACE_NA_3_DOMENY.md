@@ -1,7 +1,7 @@
 # 🔁 Cloudflare replikace pravidel na 3 nové domény
 
 **Datum:** 12. 5. 2026
-**Cíl:** Replikovat 5 custom rules + Bot Fight Mode + cache rule + page rule z `klicovecentrum.cz` na 3 nové domény (`klicovecentrum.sk`, `hbgroup.cz`, `hbgroup.sk`).
+**Cíl:** Replikovat 5 custom rules + Bot Fight Mode + cache rule + page rule z `klicovecentrum.cz` na 3 nové domény (`klucovecentrum.sk`, `hbgroup.cz`, `hbgroup.sk`).
 
 > Klient zařídil přidání domén do Cloudflare účtu (account ID `272b45252de5cb263a7f7151e53f5892`). Teď je potřeba zkopírovat ochrana ze stávající `klicovecentrum.cz` zóny na 3 nové.
 
@@ -36,7 +36,7 @@ Použít `cloudflare_runbook.md` curl příkazy + bash skript který:
    - Zone → Firewall Services → Edit
    - Zone → Zone WAF → Edit
    - Zone → Bot Management → Edit (může se jmenovat „Bot Management Read" + Edit)
-4. **Zone Resources**: Include → Specific zone → vyber **všechny 4 zóny** (klicovecentrum.cz, klicovecentrum.sk, hbgroup.cz, hbgroup.sk)
+4. **Zone Resources**: Include → Specific zone → vyber **všechny 4 zóny** (klicovecentrum.cz, klucovecentrum.sk, hbgroup.cz, hbgroup.sk)
 5. **TTL**: nastav na 7 dní (jen na replikaci, pak revoke)
 6. **Continue to summary** → **Create Token**
 7. Pošli token v safe channelu (ne git!)
@@ -94,7 +94,7 @@ Token uložím do `~/.cloudflare/cf_replicate_token` → spustím replikaci.
 
 ## 🌍 Důležité specifikum pro SK domény
 
-Pro `klicovecentrum.sk` + `hbgroup.sk`:
+Pro `klucovecentrum.sk` + `hbgroup.sk`:
 - ❌ **NEBLOKOVAT SK!** Tvoji vlastní zákazníci by dostali 403.
 - ✅ Block list zemí stejný jako CZ (CN/RU/VN/PK/BD/IQ + ID/TH/PH/NG/EG/TR)
 - ⚠️ **NEBLOKOVAT AT/HU/PL** — sousedi SK, mohou být legit zákazníci
@@ -107,19 +107,19 @@ Pro každou ze 3 nových domén:
 
 ```bash
 # Test 1: bot UA má dostat 403
-curl -A "MJ12bot/v1.4.8" -I https://www.klicovecentrum.sk/
+curl -A "MJ12bot/v1.4.8" -I https://www.klucovecentrum.sk/
 # Očekávám: HTTP/2 403, header `cf-mitigated: challenge`
 
 # Test 2: legitimní browser dostane 200
-curl -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" -I https://www.klicovecentrum.sk/
+curl -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" -I https://www.klucovecentrum.sk/
 # Očekávám: HTTP/2 200
 
 # Test 3: Googlebot whitelist (cf.client.bot)
-curl -A "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)" -I https://www.klicovecentrum.sk/
+curl -A "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)" -I https://www.klucovecentrum.sk/
 # Očekávám: HTTP/2 200
 
 # Test 4: blokovaná země (musíme přes proxy z CN, nebo simulovat curl --header)
-curl -H "CF-IPCountry: CN" -I https://www.klicovecentrum.sk/
+curl -H "CF-IPCountry: CN" -I https://www.klucovecentrum.sk/
 # Očekávám: HTTP/2 403 (rule 2)
 ```
 
