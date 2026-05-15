@@ -879,46 +879,65 @@ async function renderB2C(meta) {
   try {
     const r = await fetch('../data/marketing/b2c.json?v=' + Date.now());
     const d = await r.json();
-    const k = d.hero_kpis.last_30d;
-    const k7 = d.hero_kpis.last_7d;
     const s = d.summary_8m;
+    const dailyData = d.daily_data || [];
+
+    // DYNAMIC aggregation podle STATE date filtru
+    const agg = aggregateDailyData(dailyData, STATE.dateFrom, STATE.dateTo);
+    const prev = previousPeriod(STATE.dateFrom, STATE.dateTo);
+    const aggPrev = aggregateDailyData(dailyData, prev.from, prev.to);
+    const deltaRev = aggPrev?.revenue ? Math.round((agg.revenue - aggPrev.revenue) / aggPrev.revenue * 1000) / 10 : 0;
+    const deltaOrd = aggPrev?.orders ? Math.round((agg.orders - aggPrev.orders) / aggPrev.orders * 1000) / 10 : 0;
+    const deltaAov = aggPrev?.aov ? Math.round((agg.aov - aggPrev.aov) / aggPrev.aov * 1000) / 10 : 0;
+
+    // Filter monthly trend by date range
+    const monthlyFiltered = aggregateMonthlyByRange(d.monthly_trend, STATE.dateFrom, STATE.dateTo);
 
     main.innerHTML = `
-      <div class="section-title">${meta.title}</div>
-      <div class="section-subtitle">${meta.subtitle} · ERP Cézar Výdejky MO · ${d.erp_period?.start} → ${d.erp_period?.end}</div>
+      <div class="section-title">${meta.title}${dateRangeBadge()}</div>
+      <div class="section-subtitle">${meta.subtitle} · ERP Cézar Výdejky MO · datasource: ${d.erp_period?.start} → ${d.erp_period?.end}</div>
+
+      ${agg?.no_data ? `<div class="card" style="background:rgba(251,146,60,0.1);border-color:var(--orange);margin-bottom:16px"><div style="color:var(--orange)">⚠️ <strong>Žádná data ve vybraném období</strong> ${STATE.dateFrom} → ${STATE.dateTo}. ERP rozsah: ${d.erp_period?.start} → ${d.erp_period?.end}</div></div>` : ''}
 
       <div class="hero-grid">
         <div class="kpi-card">
-          <div class="kpi-label">Revenue (last 30d)</div>
-          <div class="kpi-value">${fmtKc(k.revenue)}</div>
-          <div class="kpi-delta ${deltaCls(k.delta_revenue_pct)}">${deltaSign(k.delta_revenue_pct)}${fmtPct(k.delta_revenue_pct)} MoM</div>
+          <div class="kpi-label">Revenue (vybrané období)</div>
+          <div class="kpi-value">${fmtKc(agg?.revenue || 0)}</div>
+          <div class="kpi-delta ${deltaCls(deltaRev)}">${deltaSign(deltaRev)}${fmtPct(deltaRev)} vs předchozích ${agg?.days || 0}d</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">Orders (last 30d)</div>
-          <div class="kpi-value">${fmtNum(k.orders)}</div>
-          <div class="kpi-delta ${deltaCls(k.delta_orders_pct)}">${deltaSign(k.delta_orders_pct)}${fmtPct(k.delta_orders_pct)} MoM</div>
+          <div class="kpi-label">Orders</div>
+          <div class="kpi-value">${fmtNum(agg?.orders || 0)}</div>
+          <div class="kpi-delta ${deltaCls(deltaOrd)}">${deltaSign(deltaOrd)}${fmtPct(deltaOrd)} vs předchozích</div>
         </div>
         <div class="kpi-card">
           <div class="kpi-label">AOV</div>
-          <div class="kpi-value">${fmtKc(k.aov)}</div>
-          <div class="kpi-delta ${deltaCls(k.delta_aov_pct)}">${deltaSign(k.delta_aov_pct)}${fmtPct(k.delta_aov_pct)} MoM</div>
+          <div class="kpi-value">${fmtKc(agg?.aov || 0)}</div>
+          <div class="kpi-delta ${deltaCls(deltaAov)}">${deltaSign(deltaAov)}${fmtPct(deltaAov)}</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">Marže (30d)</div>
-          <div class="kpi-value" style="color: var(--green);">${fmtPct(k.margin_pct)}</div>
-          <div class="kpi-delta neutral">profit ${fmtKc(k.profit)}</div>
+          <div class="kpi-label">Marže</div>
+          <div class="kpi-value" style="color: var(--green);">${fmtPct(agg?.margin_pct || 0)}</div>
+          <div class="kpi-delta neutral">profit ${fmtKc(agg?.profit || 0)}</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">Last 7d</div>
-          <div class="kpi-value">${fmtKc(k7.revenue)}</div>
-          <div class="kpi-delta neutral">${fmtNum(k7.orders)} obj</div>
+          <div class="kpi-label">Items prodáno</div>
+          <div class="kpi-value">${fmtNum(agg?.items || 0)}</div>
+          <div class="kpi-delta neutral">${agg?.days || 0} dní</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">Unique customers (8M)</div>
+          <div class="kpi-label">Unique customers (8M total)</div>
           <div class="kpi-value">${fmtNum(s.unique_customers)}</div>
           <div class="kpi-delta neutral">${s.avg_orders_per_customer} obj/cust</div>
         </div>
       </div>
+
+      ${monthlyFiltered.length === 0 ? '' : `
+        <div class="card" style="background:rgba(74,222,128,0.05);border-color:var(--green);margin-bottom:16px">
+          <div class="card-title">📅 Vybrané období: ${STATE.dateFrom} → ${STATE.dateTo} (${agg?.days || 0} dní z ERP MO daily)</div>
+          <p style="font-size:13px;color:var(--text-muted)">Měsíce v range: ${monthlyFiltered.map(m => m.month).join(', ')}</p>
+        </div>
+      `}
 
       <div class="section-grid">
         <div class="card">
@@ -973,48 +992,56 @@ async function renderB2B(meta) {
   try {
     const r = await fetch('../data/marketing/b2b.json?v=' + Date.now());
     const d = await r.json();
-    const k = d.hero_kpis.last_30d;
-    const k7 = d.hero_kpis.last_7d;
     const s = d.summary_8m;
     const cr = d.concentration_risk;
     const ret = d.retention_signals;
+    const dailyData = d.daily_data || [];
+
+    // DYNAMIC aggregation podle STATE date filtru
+    const agg = aggregateDailyData(dailyData, STATE.dateFrom, STATE.dateTo);
+    const prev = previousPeriod(STATE.dateFrom, STATE.dateTo);
+    const aggPrev = aggregateDailyData(dailyData, prev.from, prev.to);
+    const deltaRev = aggPrev?.revenue ? Math.round((agg.revenue - aggPrev.revenue) / aggPrev.revenue * 1000) / 10 : 0;
+    const deltaOrd = aggPrev?.orders ? Math.round((agg.orders - aggPrev.orders) / aggPrev.orders * 1000) / 10 : 0;
 
     main.innerHTML = `
-      <div class="section-title">${meta.title}</div>
-      <div class="section-subtitle">${meta.subtitle} · ERP Cézar Výdejky VO · ${d.erp_period?.start} → ${d.erp_period?.end}</div>
+      <div class="section-title">${meta.title}${dateRangeBadge()}</div>
+      <div class="section-subtitle">${meta.subtitle} · ERP Cézar Výdejky VO · datasource: ${d.erp_period?.start} → ${d.erp_period?.end}</div>
 
       <div class="card" style="background: rgba(78,161,255,0.08); border-color: var(--accent); margin-bottom: 16px;">
         <div style="font-size: 13px; color: var(--accent);">ℹ️ <strong>B2B nepoužívá Google Ads / Sklik / Merchant Center / srovnávače</strong> — focus na retention metriky (NRR, repeat orders, top customer concentration)</div>
       </div>
 
+      ${agg?.no_data ? `<div class="card" style="background:rgba(251,146,60,0.1);border-color:var(--orange);margin-bottom:16px"><div style="color:var(--orange)">⚠️ <strong>Žádná data ve vybraném období</strong> ${STATE.dateFrom} → ${STATE.dateTo}. ERP rozsah: ${d.erp_period?.start} → ${d.erp_period?.end}</div></div>` : ''}
+
       <div class="hero-grid">
         <div class="kpi-card">
-          <div class="kpi-label">Revenue (last 30d)</div>
-          <div class="kpi-value">${fmtKc(k.revenue)}</div>
-          <div class="kpi-delta ${deltaCls(k.delta_revenue_pct)}">${deltaSign(k.delta_revenue_pct)}${fmtPct(k.delta_revenue_pct)} MoM</div>
+          <div class="kpi-label">Revenue (vybrané období)</div>
+          <div class="kpi-value">${fmtKc(agg?.revenue || 0)}</div>
+          <div class="kpi-delta ${deltaCls(deltaRev)}">${deltaSign(deltaRev)}${fmtPct(deltaRev)} vs předchozích ${agg?.days || 0}d</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">Orders (last 30d)</div>
-          <div class="kpi-value">${fmtNum(k.orders)}</div>
-          <div class="kpi-delta ${deltaCls(k.delta_orders_pct)}">${deltaSign(k.delta_orders_pct)}${fmtPct(k.delta_orders_pct)} MoM</div>
+          <div class="kpi-label">Orders</div>
+          <div class="kpi-value">${fmtNum(agg?.orders || 0)}</div>
+          <div class="kpi-delta ${deltaCls(deltaOrd)}">${deltaSign(deltaOrd)}${fmtPct(deltaOrd)} vs předchozích</div>
         </div>
         <div class="kpi-card">
           <div class="kpi-label">AOV</div>
-          <div class="kpi-value">${fmtKc(k.aov)}</div>
-          <div class="kpi-delta neutral">B2B AOV vyšší než B2C</div>
+          <div class="kpi-value">${fmtKc(agg?.aov || 0)}</div>
+          <div class="kpi-delta neutral">B2B AOV obvykle vyšší</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">Marže (30d)</div>
-          <div class="kpi-value" style="color: var(--green);">${fmtPct(k.margin_pct)}</div>
-          <div class="kpi-delta neutral">profit ${fmtKc(k.profit)}</div>
+          <div class="kpi-label">Marže</div>
+          <div class="kpi-value" style="color: var(--green);">${fmtPct(agg?.margin_pct || 0)}</div>
+          <div class="kpi-delta neutral">profit ${fmtKc(agg?.profit || 0)}</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">Unique B2B partneri (8M)</div>
+          <div class="kpi-label">Unique B2B partneri (8M total)</div>
           <div class="kpi-value">${fmtNum(s.unique_customers)}</div>
           <div class="kpi-delta neutral">${s.avg_orders_per_customer} obj/cust</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">Avg revenue / cust</div>
+          <div class="kpi-label">Avg revenue / cust (8M)</div>
           <div class="kpi-value">${fmtKc(s.avg_revenue_per_customer)}</div>
           <div class="kpi-delta neutral">8M průměr</div>
         </div>
@@ -1097,14 +1124,86 @@ function fmtPct(n) { return n != null ? n.toFixed(1) + ' %' : '—'; }
 function deltaCls(n) { return n > 0 ? 'positive' : (n < 0 ? 'negative' : 'neutral'); }
 function deltaSign(n) { return n > 0 ? '+' : ''; }
 
+// ═══════════════════════════════════════════════════════════════
+// DATE FILTERED AGGREGATION — pracuje se STATE.dateFrom/dateTo
+// ═══════════════════════════════════════════════════════════════
+
+function aggregateDailyData(dailyRows, fromIso, toIso) {
+  if (!dailyRows || !dailyRows.length) return null;
+  const f = dailyRows.filter(r => r.date >= fromIso && r.date <= toIso);
+  if (!f.length) return { revenue: 0, orders: 0, aov: 0, profit: 0, margin_pct: 0, items: 0, days: 0, period_start: fromIso, period_end: toIso, no_data: true };
+  const rev = f.reduce((s, r) => s + (r.revenue_bd || 0), 0);
+  const orders = f.reduce((s, r) => s + (r.count || 0), 0);
+  const profit = f.reduce((s, r) => s + (r.profit || 0), 0);
+  const items = f.reduce((s, r) => s + (r.items || 0), 0);
+  return {
+    revenue: rev, orders, profit, items,
+    aov: orders ? Math.round(rev / orders) : 0,
+    margin_pct: rev ? Math.round(profit / rev * 1000) / 10 : 0,
+    days: f.length,
+    period_start: fromIso,
+    period_end: toIso,
+  };
+}
+
+function shiftDateIso(iso, days) {
+  const d = new Date(iso);
+  d.setDate(d.getDate() + days);
+  return d.toISOString().slice(0, 10);
+}
+
+function previousPeriod(fromIso, toIso) {
+  // Calculate previous period (same length, immediately before)
+  const days = (new Date(toIso) - new Date(fromIso)) / 86400000 + 1;
+  return {
+    from: shiftDateIso(fromIso, -days),
+    to: shiftDateIso(fromIso, -1),
+  };
+}
+
+function aggregateMonthlyByRange(monthlyRows, fromIso, toIso) {
+  // Filter monthly_trend rows by month string (YYYY-MM)
+  const fromM = fromIso.slice(0, 7);
+  const toM = toIso.slice(0, 7);
+  return (monthlyRows || []).filter(m => m.month >= fromM && m.month <= toM);
+}
+
+function dateRangeBadge() {
+  const days = (new Date(STATE.dateTo) - new Date(STATE.dateFrom)) / 86400000 + 1;
+  return `<span style="background: var(--accent); color: white; padding: 2px 8px; border-radius: 6px; font-size: 11px; margin-left: 8px;">📅 ${STATE.dateFrom} → ${STATE.dateTo} (${Math.round(days)}d)</span>`;
+}
+
 async function renderExecutive(meta) {
   const main = document.getElementById('main');
   try {
     const r = await fetch('../data/marketing/executive.json?v=' + Date.now());
     const d = await r.json();
 
-    const k30 = d.hero_kpis.last_30d;
-    const k7 = d.hero_kpis.last_7d;
+    // Načíst daily data z B2C/B2B JSONů (executive.json nemá daily)
+    const [b2cR, b2bR] = await Promise.all([
+      fetch('../data/marketing/b2c.json?v=' + Date.now()).then(r => r.json()),
+      fetch('../data/marketing/b2b.json?v=' + Date.now()).then(r => r.json()),
+    ]);
+    const moDaily = b2cR.daily_data || [];
+    const voDaily = b2bR.daily_data || [];
+
+    // DYNAMIC aggregation podle STATE date filtru
+    const moAgg = aggregateDailyData(moDaily, STATE.dateFrom, STATE.dateTo);
+    const voAgg = aggregateDailyData(voDaily, STATE.dateFrom, STATE.dateTo);
+    const prev = previousPeriod(STATE.dateFrom, STATE.dateTo);
+    const moPrev = aggregateDailyData(moDaily, prev.from, prev.to);
+    const voPrev = aggregateDailyData(voDaily, prev.from, prev.to);
+
+    const totalRev = (moAgg?.revenue || 0) + (voAgg?.revenue || 0);
+    const totalPrev = (moPrev?.revenue || 0) + (voPrev?.revenue || 0);
+    const totalOrders = (moAgg?.orders || 0) + (voAgg?.orders || 0);
+    const totalPrevOrd = (moPrev?.orders || 0) + (voPrev?.orders || 0);
+    const totalProfit = (moAgg?.profit || 0) + (voAgg?.profit || 0);
+    const aovTotal = totalOrders ? Math.round(totalRev / totalOrders) : 0;
+    const marginPct = totalRev ? Math.round(totalProfit / totalRev * 1000) / 10 : 0;
+    const deltaRev = totalPrev ? Math.round((totalRev - totalPrev) / totalPrev * 1000) / 10 : 0;
+    const deltaOrd = totalPrevOrd ? Math.round((totalOrders - totalPrevOrd) / totalPrevOrd * 1000) / 10 : 0;
+
     const erp = d.erp_8m_summary;
     const mc = d.merchant_center || {};
     const cf = d.cloudflare || {};
@@ -1129,42 +1228,56 @@ async function renderExecutive(meta) {
     ` : '';
 
     main.innerHTML = `
-      <div class="section-title">${meta.title}</div>
+      <div class="section-title">${meta.title}${dateRangeBadge()}</div>
       <div class="section-subtitle">${meta.subtitle} · refresh: ${new Date(d.generated_at).toLocaleString('cs-CZ')}</div>
 
       ${alertsHtml}
 
+      ${moAgg?.no_data ? `<div class="card" style="background:rgba(251,146,60,0.1);border-color:var(--orange);margin-bottom:16px"><div style="color:var(--orange)">⚠️ <strong>Žádná ERP data</strong> ve vybraném období ${STATE.dateFrom} → ${STATE.dateTo}. ERP rozsah: ${b2cR.erp_period?.start} → ${b2cR.erp_period?.end}. Vyber jiné datum nebo posunout filter.</div></div>` : ''}
+
       <div class="hero-grid">
         <div class="kpi-card">
-          <div class="kpi-label">Revenue (last 30d)</div>
-          <div class="kpi-value">${fmtKc(k30.revenue)}</div>
-          <div class="kpi-delta ${deltaCls(k30.delta_revenue_pct)}">${deltaSign(k30.delta_revenue_pct)}${fmtPct(k30.delta_revenue_pct)} vs předchozích 30d</div>
+          <div class="kpi-label">Total revenue (B2C+B2B)</div>
+          <div class="kpi-value">${fmtKc(totalRev)}</div>
+          <div class="kpi-delta ${deltaCls(deltaRev)}">${deltaSign(deltaRev)}${fmtPct(deltaRev)} vs předchozích ${moAgg?.days || 0}d</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">Orders (last 30d)</div>
-          <div class="kpi-value">${fmtNum(k30.orders)}</div>
-          <div class="kpi-delta ${deltaCls(k30.delta_orders_pct)}">${deltaSign(k30.delta_orders_pct)}${fmtPct(k30.delta_orders_pct)} vs předchozích 30d</div>
+          <div class="kpi-label">Total orders</div>
+          <div class="kpi-value">${fmtNum(totalOrders)}</div>
+          <div class="kpi-delta ${deltaCls(deltaOrd)}">${deltaSign(deltaOrd)}${fmtPct(deltaOrd)} vs předchozích</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">AOV (last 30d)</div>
-          <div class="kpi-value">${fmtKc(k30.aov)}</div>
+          <div class="kpi-label">Total AOV</div>
+          <div class="kpi-value">${fmtKc(aovTotal)}</div>
           <div class="kpi-delta neutral">průměrná hodnota košíku</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">Last 7d revenue</div>
-          <div class="kpi-value">${fmtKc(k7.revenue)}</div>
-          <div class="kpi-delta neutral">${fmtNum(k7.orders)} obj · AOV ${fmtKc(k7.aov)}</div>
+          <div class="kpi-label">Total profit</div>
+          <div class="kpi-value" style="color:var(--green)">${fmtKc(totalProfit)}</div>
+          <div class="kpi-delta ${deltaCls(marginPct - 50)}">marže ${fmtPct(marginPct)}</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">CF chráněné domény</div>
-          <div class="kpi-value" style="color: var(--green);">${cf.domains_protected || 0}/4</div>
-          <div class="kpi-delta positive">${cf.total_rules || 0} rules total</div>
+          <div class="kpi-label">B2C MO revenue</div>
+          <div class="kpi-value">${fmtKc(moAgg?.revenue || 0)}</div>
+          <div class="kpi-delta neutral">${fmtNum(moAgg?.orders || 0)} obj · AOV ${fmtKc(moAgg?.aov || 0)}</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">MC produkty</div>
-          <div class="kpi-value">${fmtNum(mc.total_products)}</div>
-          <div class="kpi-delta ${(mc.disapproved || 0) > 50 ? 'negative' : 'positive'}">${mc.approval_rate_pct}% approval (${mc.disapproved} disapproved)</div>
+          <div class="kpi-label">B2B VO revenue</div>
+          <div class="kpi-value">${fmtKc(voAgg?.revenue || 0)}</div>
+          <div class="kpi-delta neutral">${fmtNum(voAgg?.orders || 0)} obj · AOV ${fmtKc(voAgg?.aov || 0)}</div>
         </div>
+      </div>
+
+      <div class="card" style="background:rgba(74,222,128,0.05);border-color:var(--green);margin-bottom:16px">
+        <div class="card-title">📅 Vybrané období: ${STATE.dateFrom} → ${STATE.dateTo} (${moAgg?.days || 0} dní)</div>
+        <table>
+          <thead><tr><th>Segment</th><th class="num">Obj.</th><th class="num">Revenue</th><th class="num">Profit</th><th class="num">Marže</th><th class="num">AOV</th></tr></thead>
+          <tbody>
+            <tr><td>🛒 B2C MO (klicovecentrum.cz)</td><td class="num">${fmtNum(moAgg?.orders || 0)}</td><td class="num">${fmtKc(moAgg?.revenue || 0)}</td><td class="num">${fmtKc(moAgg?.profit || 0)}</td><td class="num">${fmtPct(moAgg?.margin_pct || 0)}</td><td class="num">${fmtKc(moAgg?.aov || 0)}</td></tr>
+            <tr><td>🏢 B2B VO (hbgroup.cz)</td><td class="num">${fmtNum(voAgg?.orders || 0)}</td><td class="num">${fmtKc(voAgg?.revenue || 0)}</td><td class="num">${fmtKc(voAgg?.profit || 0)}</td><td class="num">${fmtPct(voAgg?.margin_pct || 0)}</td><td class="num">${fmtKc(voAgg?.aov || 0)}</td></tr>
+            <tr style="background:var(--bg)"><td><strong>TOTAL</strong></td><td class="num"><strong>${fmtNum(totalOrders)}</strong></td><td class="num"><strong>${fmtKc(totalRev)}</strong></td><td class="num"><strong>${fmtKc(totalProfit)}</strong></td><td class="num"><strong>${fmtPct(marginPct)}</strong></td><td class="num"><strong>${fmtKc(aovTotal)}</strong></td></tr>
+          </tbody>
+        </table>
       </div>
 
       <div class="section-grid">
@@ -1754,29 +1867,56 @@ function renderComplaints(d) {
       </div>
     </div>
 
+    ${d.cost_aggregated ? `
+      <div class="hero-grid" style="margin-top:16px">
+        <div class="kpi-card">
+          <div class="kpi-label">💰 Odhadovaná hodnota top 30 reklamovaných</div>
+          <div class="kpi-value" style="color:var(--orange)">${fmtKc(d.cost_aggregated.total_estimated_value_kc)}</div>
+          <div class="kpi-delta neutral">cena × count</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">💔 Odhadovaná ztracená marže</div>
+          <div class="kpi-value" style="color:var(--red)">${fmtKc(d.cost_aggregated.total_estimated_lost_margin_kc)}</div>
+          <div class="kpi-delta negative">profit × count</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Match rate</div>
+          <div class="kpi-value">${d.cost_aggregated.matched_products}/${d.cost_aggregated.matched_products + d.cost_aggregated.unmatched_products}</div>
+          <div class="kpi-delta neutral">cross-ref s products.json</div>
+        </div>
+      </div>
+      <p style="font-size:11px;color:var(--text-muted);margin-bottom:16px">⚠️ ${d.cost_aggregated.note}</p>
+    ` : ''}
+
     <div class="card" style="margin-top:16px">
-      <div class="card-title">🔧 Top 30 nejvíc reklamovaných produktů</div>
+      <div class="card-title">🔧 Top 30 nejvíc reklamovaných produktů (s cenami + marží)</div>
       <table>
         <thead>
           <tr>
             <th>#</th>
             <th>Produkt</th>
+            <th>Kategorie</th>
             <th class="num">Reklamací</th>
-            <th class="num">% celku</th>
-            <th class="num">Vyřízeno</th>
-            <th class="num">Nevyřízeno</th>
-            <th class="num">Avg doba</th>
+            <th class="num">Cena/ks</th>
+            <th class="num">Marže</th>
+            <th class="num">Total hodnota</th>
+            <th class="num">Ztr. marže</th>
+            <th class="num">Vyříz.</th>
+            <th class="num">Doba</th>
           </tr>
         </thead>
         <tbody>
           ${top.map((p, i) => `
             <tr>
               <td class="num">${i+1}</td>
-              <td>${p.name || '?'}</td>
-              <td class="num"><strong>${fmtNum(p.count)}</strong></td>
-              <td class="num">${fmtPct(p.pct_of_all)}</td>
-              <td class="num" style="color:var(--green)">${fmtNum(p.vyrizeno)}</td>
-              <td class="num" style="color:${p.nevyrizeno > 5 ? 'var(--red)' : 'var(--orange)'}">${fmtNum(p.nevyrizeno)}</td>
+              <td><strong>${p.name || '?'}</strong>${p.sku ? `<br><small style="color:var(--text-muted);font-family:monospace">${p.sku}</small>` : ''}</td>
+              <td><small>${p.category || '—'}</small></td>
+              <td class="num"><strong>${fmtNum(p.count)}</strong><br><small style="color:var(--text-muted)">${fmtPct(p.pct_of_all)}</small></td>
+              <td class="num">${p.unit_price_kc ? fmtKc(p.unit_price_kc) : '—'}</td>
+              <td class="num">${p.margin_pct != null ? fmtPct(p.margin_pct) : '—'}</td>
+              <td class="num">${p.est_total_value_kc != null ? `<strong style="color:var(--orange)">${fmtKc(p.est_total_value_kc)}</strong>` : '—'}</td>
+              <td class="num">${p.est_total_lost_margin_kc != null ? `<strong style="color:var(--red)">${fmtKc(p.est_total_lost_margin_kc)}</strong>` : '—'}</td>
+              <td class="num">${fmtNum(p.vyrizeno)}/${fmtNum(p.nevyrizeno + p.vyrizeno)}</td>
               <td class="num">${p.avg_doba_dnu ? p.avg_doba_dnu + 'd' : '—'}</td>
             </tr>
           `).join('')}

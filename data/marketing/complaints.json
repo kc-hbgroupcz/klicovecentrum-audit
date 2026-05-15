@@ -133,7 +133,16 @@
       "pct_of_all": 9.42,
       "vyrizeno": 4,
       "nevyrizeno": 9,
-      "avg_doba_dnu": 42
+      "avg_doba_dnu": 42,
+      "sku": "159002",
+      "category": "Vlastní elektr.otvírač",
+      "vendor": "OC",
+      "unit_price_kc": 784,
+      "unit_profit_kc": 493,
+      "margin_pct": 62.9,
+      "est_total_value_kc": 10192,
+      "est_total_lost_margin_kc": 6409,
+      "matched": true
     },
     {
       "name": "OC El.otvírač 50E10 12Vdc nízkoodběr.",
@@ -141,7 +150,16 @@
       "pct_of_all": 4.35,
       "vyrizeno": 0,
       "nevyrizeno": 6,
-      "avg_doba_dnu": null
+      "avg_doba_dnu": null,
+      "sku": "159005",
+      "category": "Vlastní elektr.otvírač",
+      "vendor": "OC",
+      "unit_price_kc": 973,
+      "unit_profit_kc": 619,
+      "margin_pct": 63.6,
+      "est_total_value_kc": 5838,
+      "est_total_lost_margin_kc": 3714,
+      "matched": true
     },
     {
       "name": "Zámek HOBES 24026 P/L 90/50/22 PZ  BZn",
@@ -149,7 +167,16 @@
       "pct_of_all": 3.62,
       "vyrizeno": 5,
       "nevyrizeno": 0,
-      "avg_doba_dnu": 22
+      "avg_doba_dnu": 22,
+      "sku": "001035",
+      "category": "Střelkový jednobod.zadl.zámek",
+      "vendor": "Hobes",
+      "unit_price_kc": 258,
+      "unit_profit_kc": 113,
+      "margin_pct": 43.7,
+      "est_total_value_kc": 1290,
+      "est_total_lost_margin_kc": 565,
+      "matched": true
     },
     {
       "name": "OC El.otvírač 50B10 6-14Vac/dc",
@@ -157,7 +184,16 @@
       "pct_of_all": 3.62,
       "vyrizeno": 1,
       "nevyrizeno": 4,
-      "avg_doba_dnu": 28
+      "avg_doba_dnu": 28,
+      "sku": "159001",
+      "category": "Vlastní elektr.otvírač",
+      "vendor": "OC",
+      "unit_price_kc": 765,
+      "unit_profit_kc": 487,
+      "margin_pct": 63.6,
+      "est_total_value_kc": 3825,
+      "est_total_lost_margin_kc": 2435,
+      "matched": true
     },
     {
       "name": "Zámek Star Europortal S45 90/30/22 P/L kov",
@@ -165,7 +201,16 @@
       "pct_of_all": 2.9,
       "vyrizeno": 1,
       "nevyrizeno": 3,
-      "avg_doba_dnu": 0
+      "avg_doba_dnu": 0,
+      "sku": "144104",
+      "category": "Střelkový jednobod.zadl.zámek",
+      "vendor": "STAR",
+      "unit_price_kc": 329,
+      "unit_profit_kc": 230,
+      "margin_pct": 69.8,
+      "est_total_value_kc": 1316,
+      "est_total_lost_margin_kc": 920,
+      "matched": true
     },
     {
       "name": "Zámek HOBES 01-15 P/L 90/40/20 BB BZn",
@@ -173,7 +218,16 @@
       "pct_of_all": 2.9,
       "vyrizeno": 1,
       "nevyrizeno": 3,
-      "avg_doba_dnu": 9
+      "avg_doba_dnu": 9,
+      "sku": "001005",
+      "category": "Střelkový jednobod.zadl.zámek",
+      "vendor": "Hobes",
+      "unit_price_kc": 158,
+      "unit_profit_kc": 15,
+      "margin_pct": 9.3,
+      "est_total_value_kc": 632,
+      "est_total_lost_margin_kc": 60,
+      "matched": true
     },
     {
       "name": "Zámek HOBES 02-04 P/L 90/40/20 PZ BZn",
@@ -181,7 +235,16 @@
       "pct_of_all": 2.17,
       "vyrizeno": 2,
       "nevyrizeno": 1,
-      "avg_doba_dnu": 12
+      "avg_doba_dnu": 12,
+      "sku": "001005",
+      "category": "Střelkový jednobod.zadl.zámek",
+      "vendor": "Hobes",
+      "unit_price_kc": 158,
+      "unit_profit_kc": 15,
+      "margin_pct": 9.3,
+      "est_total_value_kc": 474,
+      "est_total_lost_margin_kc": 45,
+      "matched": true
     },
     {
       "name": "El.otvírač 51B10 MB 6-14Vac/dc (BEFO 511MB)",
@@ -189,7 +252,16 @@
       "pct_of_all": 2.17,
       "vyrizeno": 3,
       "nevyrizeno": 0,
-      "avg_doba_dnu": 76
+      "avg_doba_dnu": 76,
+      "sku": "159002",
+      "category": "Vlastní elektr.otvírač",
+      "vendor": "OC",
+      "unit_price_kc": 784,
+      "unit_profit_kc": 493,
+      "margin_pct": 62.9,
+      "est_total_value_kc": 2352,
+      "est_total_lost_margin_kc": 1479,
+      "matched": true
     },
     {
       "name": "Zámek HOBES 536A P/L 90/50/22 BB BZn",
@@ -197,7 +269,16 @@
       "pct_of_all": 2.17,
       "vyrizeno": 2,
       "nevyrizeno": 1,
-      "avg_doba_dnu": 16
+      "avg_doba_dnu": 16,
+      "sku": "001073",
+      "category": "Střelkový jednobod.zadl.zámek",
+      "vendor": "Hobes",
+      "unit_price_kc": 167,
+      "unit_profit_kc": 12,
+      "margin_pct": 7.2,
+      "est_total_value_kc": 501,
+      "est_total_lost_margin_kc": 36,
+      "matched": true
     },
     {
       "name": "Zámek Star Europortal S40 90/25/22 P/L kov",
@@ -205,7 +286,16 @@
       "pct_of_all": 2.17,
       "vyrizeno": 1,
       "nevyrizeno": 2,
-      "avg_doba_dnu": 49
+      "avg_doba_dnu": 49,
+      "sku": "144104",
+      "category": "Střelkový jednobod.zadl.zámek",
+      "vendor": "STAR",
+      "unit_price_kc": 329,
+      "unit_profit_kc": 230,
+      "margin_pct": 69.8,
+      "est_total_value_kc": 987,
+      "est_total_lost_margin_kc": 690,
+      "matched": true
     },
     {
       "name": "Zámek HOBES 548A P/L 90/50/22 DOZ BZn",
@@ -213,7 +303,16 @@
       "pct_of_all": 2.17,
       "vyrizeno": 2,
       "nevyrizeno": 1,
-      "avg_doba_dnu": 0
+      "avg_doba_dnu": 0,
+      "sku": "001074",
+      "category": "Střelkový jednobod.zadl.zámek",
+      "vendor": "Hobes",
+      "unit_price_kc": 378,
+      "unit_profit_kc": 27,
+      "margin_pct": 7.1,
+      "est_total_value_kc": 1134,
+      "est_total_lost_margin_kc": 81,
+      "matched": true
     },
     {
       "name": "Zámek Star 92/35/22/270 el.mech.samozam.",
@@ -221,7 +320,16 @@
       "pct_of_all": 1.45,
       "vyrizeno": 0,
       "nevyrizeno": 2,
-      "avg_doba_dnu": null
+      "avg_doba_dnu": null,
+      "sku": "330320",
+      "category": "Nezařazeno",
+      "vendor": "Neznámý",
+      "unit_price_kc": 0,
+      "unit_profit_kc": 0,
+      "margin_pct": 0,
+      "est_total_value_kc": 0,
+      "est_total_lost_margin_kc": 0,
+      "matched": true
     },
     {
       "name": "Zámek HOBES 02-06 BZn P/L 90/60/FAB (5131)",
@@ -229,7 +337,16 @@
       "pct_of_all": 1.45,
       "vyrizeno": 0,
       "nevyrizeno": 2,
-      "avg_doba_dnu": null
+      "avg_doba_dnu": null,
+      "sku": "001763",
+      "category": "Střelkový jednobod.zadl.zámek",
+      "vendor": "Hobes",
+      "unit_price_kc": 147,
+      "unit_profit_kc": 14,
+      "margin_pct": 9.3,
+      "est_total_value_kc": 294,
+      "est_total_lost_margin_kc": 28,
+      "matched": true
     },
     {
       "name": "OC El.otvírač 54E10 reverz.12Vdc  nízkoodběr.",
@@ -237,7 +354,16 @@
       "pct_of_all": 1.45,
       "vyrizeno": 0,
       "nevyrizeno": 2,
-      "avg_doba_dnu": null
+      "avg_doba_dnu": null,
+      "sku": "159003",
+      "category": "Vlastní elektr.otvírač",
+      "vendor": "OC",
+      "unit_price_kc": 1461,
+      "unit_profit_kc": 926,
+      "margin_pct": 63.3,
+      "est_total_value_kc": 2922,
+      "est_total_lost_margin_kc": 1852,
+      "matched": true
     },
     {
       "name": "Zámek HOBES  K 119 P/L 90/50/22x1970 čepy BZn lištový",
@@ -245,7 +371,16 @@
       "pct_of_all": 1.45,
       "vyrizeno": 0,
       "nevyrizeno": 2,
-      "avg_doba_dnu": null
+      "avg_doba_dnu": null,
+      "sku": "001057",
+      "category": "Střelkový lištový vícebod.zámek",
+      "vendor": "Hobes",
+      "unit_price_kc": 2679,
+      "unit_profit_kc": 1228,
+      "margin_pct": 45.8,
+      "est_total_value_kc": 5358,
+      "est_total_lost_margin_kc": 2456,
+      "matched": true
     },
     {
       "name": "OC El.otvírač 51E10 MB 12Vdc nízkoodběr.",
@@ -253,7 +388,16 @@
       "pct_of_all": 1.45,
       "vyrizeno": 0,
       "nevyrizeno": 2,
-      "avg_doba_dnu": null
+      "avg_doba_dnu": null,
+      "sku": "159004",
+      "category": "Vlastní elektr.otvírač",
+      "vendor": "OC",
+      "unit_price_kc": 1009,
+      "unit_profit_kc": 639,
+      "margin_pct": 63.3,
+      "est_total_value_kc": 2018,
+      "est_total_lost_margin_kc": 1278,
+      "matched": true
     },
     {
       "name": "BRANO Zavírač dveří R 12/12 zlatý",
@@ -261,7 +405,16 @@
       "pct_of_all": 0.72,
       "vyrizeno": 1,
       "nevyrizeno": 0,
-      "avg_doba_dnu": 30
+      "avg_doba_dnu": 30,
+      "sku": "041012",
+      "category": "Vlastní zavírač",
+      "vendor": "BRANO",
+      "unit_price_kc": 1631,
+      "unit_profit_kc": 645,
+      "margin_pct": 39.5,
+      "est_total_value_kc": 1631,
+      "est_total_lost_margin_kc": 645,
+      "matched": true
     },
     {
       "name": "Dveřní zavírač DC110 - bílý - Bílý",
@@ -269,7 +422,16 @@
       "pct_of_all": 0.72,
       "vyrizeno": 1,
       "nevyrizeno": 0,
-      "avg_doba_dnu": 0
+      "avg_doba_dnu": 0,
+      "sku": "Dveřní zavírač DC110 - bílý",
+      "category": "Nezařazeno",
+      "vendor": "Neznámý",
+      "unit_price_kc": 0,
+      "unit_profit_kc": 0,
+      "margin_pct": 0,
+      "est_total_value_kc": 0,
+      "est_total_lost_margin_kc": 0,
+      "matched": true
     },
     {
       "name": "Zámek 02-05 BZn válečkový  40/60/90",
@@ -277,7 +439,16 @@
       "pct_of_all": 0.72,
       "vyrizeno": 0,
       "nevyrizeno": 1,
-      "avg_doba_dnu": null
+      "avg_doba_dnu": null,
+      "sku": "890689",
+      "category": "Válečkový jednobod.zadl.zámek",
+      "vendor": "Kale",
+      "unit_price_kc": 456,
+      "unit_profit_kc": 394,
+      "margin_pct": 86.5,
+      "est_total_value_kc": 456,
+      "est_total_lost_margin_kc": 394,
+      "matched": true
     },
     {
       "name": "Zámek K 221 P 72/55/77/FAB BZn 30ks hr.balení",
@@ -285,7 +456,16 @@
       "pct_of_all": 0.72,
       "vyrizeno": 1,
       "nevyrizeno": 0,
-      "avg_doba_dnu": 0
+      "avg_doba_dnu": 0,
+      "sku": "001743",
+      "category": "Střelkový jednobod.zadl.zámek",
+      "vendor": "Hobes",
+      "unit_price_kc": 195,
+      "unit_profit_kc": 76,
+      "margin_pct": 39.0,
+      "est_total_value_kc": 195,
+      "est_total_lost_margin_kc": 76,
+      "matched": true
     },
     {
       "name": "GEZE Zavírač TS 4000 hnědý",
@@ -293,7 +473,16 @@
       "pct_of_all": 0.72,
       "vyrizeno": 0,
       "nevyrizeno": 1,
-      "avg_doba_dnu": null
+      "avg_doba_dnu": null,
+      "sku": "156056",
+      "category": "Vlastní zavírač",
+      "vendor": "Geze",
+      "unit_price_kc": 3118,
+      "unit_profit_kc": 1924,
+      "margin_pct": 61.7,
+      "est_total_value_kc": 3118,
+      "est_total_lost_margin_kc": 1924,
+      "matched": true
     },
     {
       "name": "Zámek HOBES K 102 P/L 90/50/22 PZ BZn",
@@ -301,7 +490,16 @@
       "pct_of_all": 0.72,
       "vyrizeno": 1,
       "nevyrizeno": 0,
-      "avg_doba_dnu": 23
+      "avg_doba_dnu": 23,
+      "sku": "001071",
+      "category": "Střelkový jednobod.zadl.zámek",
+      "vendor": "Hobes",
+      "unit_price_kc": 425,
+      "unit_profit_kc": 195,
+      "margin_pct": 45.9,
+      "est_total_value_kc": 425,
+      "est_total_lost_margin_kc": 195,
+      "matched": true
     },
     {
       "name": "Zámek K 431 Bzn    35/90/FAB/22",
@@ -309,7 +507,16 @@
       "pct_of_all": 0.72,
       "vyrizeno": 1,
       "nevyrizeno": 0,
-      "avg_doba_dnu": 23
+      "avg_doba_dnu": 23,
+      "sku": "125073",
+      "category": "Hákový jednobod.zadl.zámek",
+      "vendor": "AGB",
+      "unit_price_kc": 543,
+      "unit_profit_kc": 299,
+      "margin_pct": 55.1,
+      "est_total_value_kc": 543,
+      "est_total_lost_margin_kc": 299,
+      "matched": true
     },
     {
       "name": "Star smart vložka E57,5/47,5 PIN+FS",
@@ -317,7 +524,16 @@
       "pct_of_all": 0.72,
       "vyrizeno": 1,
       "nevyrizeno": 0,
-      "avg_doba_dnu": 76
+      "avg_doba_dnu": 76,
+      "sku": "370338",
+      "category": "Přístupové systémy",
+      "vendor": "STAR",
+      "unit_price_kc": 3716,
+      "unit_profit_kc": 2798,
+      "margin_pct": 75.3,
+      "est_total_value_kc": 3716,
+      "est_total_lost_margin_kc": 2798,
+      "matched": true
     },
     {
       "name": "Zámek K 136  Bzn P/L  72/85/FAB",
@@ -325,7 +541,16 @@
       "pct_of_all": 0.72,
       "vyrizeno": 1,
       "nevyrizeno": 0,
-      "avg_doba_dnu": 22
+      "avg_doba_dnu": 22,
+      "sku": "125073",
+      "category": "Hákový jednobod.zadl.zámek",
+      "vendor": "AGB",
+      "unit_price_kc": 543,
+      "unit_profit_kc": 299,
+      "margin_pct": 55.1,
+      "est_total_value_kc": 543,
+      "est_total_lost_margin_kc": 299,
+      "matched": true
     },
     {
       "name": "Smart stěnová jednotka K3F DESFire",
@@ -333,7 +558,16 @@
       "pct_of_all": 0.72,
       "vyrizeno": 1,
       "nevyrizeno": 0,
-      "avg_doba_dnu": 0
+      "avg_doba_dnu": 0,
+      "sku": "370314",
+      "category": "Přístupové systémy",
+      "vendor": "STAR",
+      "unit_price_kc": 2378,
+      "unit_profit_kc": 1640,
+      "margin_pct": 69.0,
+      "est_total_value_kc": 2378,
+      "est_total_lost_margin_kc": 1640,
+      "matched": true
     },
     {
       "name": "Vložka Star 50S 30/30 Ni/R1 stavební",
@@ -341,7 +575,16 @@
       "pct_of_all": 0.72,
       "vyrizeno": 1,
       "nevyrizeno": 0,
-      "avg_doba_dnu": 0
+      "avg_doba_dnu": 0,
+      "sku": "330060",
+      "category": "Stavební vložky",
+      "vendor": "STAR",
+      "unit_price_kc": 266,
+      "unit_profit_kc": 188,
+      "margin_pct": 70.5,
+      "est_total_value_kc": 266,
+      "est_total_lost_margin_kc": 188,
+      "matched": true
     },
     {
       "name": "El.otvírač 50B10 6-14Vac/dc (BEFO 511)",
@@ -349,7 +592,16 @@
       "pct_of_all": 0.72,
       "vyrizeno": 0,
       "nevyrizeno": 1,
-      "avg_doba_dnu": null
+      "avg_doba_dnu": null,
+      "sku": "159001",
+      "category": "Vlastní elektr.otvírač",
+      "vendor": "OC",
+      "unit_price_kc": 765,
+      "unit_profit_kc": 487,
+      "margin_pct": 63.6,
+      "est_total_value_kc": 765,
+      "est_total_lost_margin_kc": 487,
+      "matched": true
     },
     {
       "name": "Zámek K 410 P/L BZn  25/85/22",
@@ -357,7 +609,16 @@
       "pct_of_all": 0.72,
       "vyrizeno": 0,
       "nevyrizeno": 1,
-      "avg_doba_dnu": null
+      "avg_doba_dnu": null,
+      "sku": "125073",
+      "category": "Hákový jednobod.zadl.zámek",
+      "vendor": "AGB",
+      "unit_price_kc": 543,
+      "unit_profit_kc": 299,
+      "margin_pct": 55.1,
+      "est_total_value_kc": 543,
+      "est_total_lost_margin_kc": 299,
+      "matched": true
     },
     {
       "name": "El.otvírač 51E10 MB 12Vdc (BEFO 11211MB) nízkoodběrový",
@@ -365,7 +626,16 @@
       "pct_of_all": 0.72,
       "vyrizeno": 1,
       "nevyrizeno": 0,
-      "avg_doba_dnu": 29
+      "avg_doba_dnu": 29,
+      "sku": "159093",
+      "category": "Vlastní elektr.otvírač",
+      "vendor": "OC",
+      "unit_price_kc": 1611,
+      "unit_profit_kc": 964,
+      "margin_pct": 59.8,
+      "est_total_value_kc": 1611,
+      "est_total_lost_margin_kc": 964,
+      "matched": true
     }
   ],
   "top_30_customers": [
@@ -611,5 +881,12 @@
     "14/52 (27 %) vyřízených překračuje 30denní zákonnou lhůtu",
     "Top produkt 'OC El.otvírač 51B10' = 13× = 9.4 % všech reklamací",
     "Kategorie OC el.otvírače = 24 reklamací (17 % všech) — defektní šarže nebo dodavatel"
-  ]
+  ],
+  "cost_aggregated": {
+    "total_estimated_value_kc": 55323,
+    "total_estimated_lost_margin_kc": 32256,
+    "matched_products": 30,
+    "unmatched_products": 0,
+    "note": "Odhadované hodnoty z products.json (ERP eshop channel avg ceny). Reklamace CSV neobsahuje cenu reklamace."
+  }
 }
