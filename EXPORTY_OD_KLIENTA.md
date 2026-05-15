@@ -105,25 +105,24 @@ Login do https://www.bing.com/webmasters → přidat 3 nové sites + použít ex
   6. Pošli mi token (např. v ChatGPT/Claude chat — token NIKAM nedávat do GitHubu)
 - Po získání: vytvořím `build_meta_ads.py` + uložení tokenu mimo repo
 
-### D. Heuréka (Section 5) — VYJASNIT
-HCAPI z `github.com/heureka/hcapi/` je PHP knihovna pro **callback processing** (Order/Cancel, Payment/Status). To NENÍ to co potřebujeme — to je pro stranu **shopu** který přijímá objednávky z Heuréky.
+### D. Heuréka — DVĚ různá API (klient má klíč pro 1 z nich)
 
-**Pro statistiky** (kolik kliků, conv rate, pozice produktu, výnos z Heuréky) jsou jiné cesty:
+**Heuréka má 2 nezávislá API** — klient mi 13.5.2026 poslal klíč `17ddaa5...8be`. Otestoval jsem ho a zjistil že:
 
-**Možnost 1 — Heuréka Reporting API** (nejlepší):
-- https://sluzby.heureka.cz → admin login → API klíč
-- Endpoint: stats per den (klikové, conv, výnos)
-- Pošli mi: API klíč (z Heuréka admin)
+#### ✅ HOTOVO — Heuréka Overeno zákazníky API
+- Klíč klienta funguje pro **POST objednávek** → Heureka pošle zákazníkovi NPS dotazník po nákupu
+- Endpoint: `POST https://api.heureka.cz/shop-certification/v2/order/log`
+- Auth header: `x-heureka-api-key`
+- Build skript: ✅ `build_heureka_overeno.py`
+- **Hodnota**: Více recenzí na Heureka.cz = lepší pozice + důvěra zákazníků
 
-**Možnost 2 — Heuréka manuální CSV export**:
-- Heuréka admin → **Reporty → Konverze**
-- Export CSV → upload do `data/raw/heureka_stats_YYYY_MM.csv`
-- Sloupce viz níže (sekce 3)
+#### ❌ ČEKÁ — Heuréka Conversion Reports API
+- **Toto je JINÝ klíč**, který klient ještě nemá poslaný (možná ani nezná že existuje)
+- Endpoint: `GET https://api.heureka.group/v1/reports/conversions?date=YYYY-MM-DD`
+- Vrátí denní per-produkt konverze, klikové, výnosy, PPC bidy
+- **Pro klienta**: viz „CHECKLIST → Hned" níže
 
-**Možnost 3 — Heuréka OCM iframe** (jen tracking nových konverzí):
-- Pokud máte iframe pixel na thank-you page → Heuréka loguje conversions, my data nečteme
-
-→ **Pošli mi**: jestli máš API klíč v Heuréka admin, nebo budeme dělat manuální CSV.
+**Pozn**: HCAPI z `github.com/heureka/hcapi/` (PHP knihovna) NENÍ pro statistiky — je pro shop callback processing (Order/Cancel přijímaný od Heuréky). Nepoužíváme.
 
 ---
 
@@ -408,10 +407,22 @@ Pravděpodobně nepoužíváme (jsme zámky/kování), ale pokud ano:
   3. Generate Token → permissions `ads_read` + `business_management`, **Never expires**
   4. Pošli mi: token + Ad Account ID
 
-- [ ] **Heuréka API klíč** (pokud existuje):
-  1. https://sluzby.heureka.cz → admin → Settings → API
-  2. Pokud existuje: pošli klíč
-  3. Pokud neexistuje: napiš mi → uděláme manuální CSV workflow
+- [x] **Heuréka API klíč pro Overeno zákazníky** ✅ HOTOVO (`17ddaa5...8be`)
+  - Klíč FUNGUJE pro **Overeno zákazníky API** (POST objednávek → Heureka pošle NPS dotazník zákazníkovi)
+  - Build skript: `build_heureka_overeno.py` připraven
+  - **Použití**: každou novou Cézar B2C objednávku → POST → automatický NPS feedback (= více recenzí na Heureka.cz = lepší pozice)
+
+- [ ] **Heuréka Conversion Reports API klíč** (DRUHÝ klíč, jiný od Overeno):
+  1. https://sluzby.heureka.cz → vyber obchod **klicovecentrum.cz** → vlevo **Měření konverzí** (NE Overeno zákazníky)
+  2. Najdi sekci **„API klíč pro reporty"** nebo „Reporting API key"
+  3. Pošli mi tento (jiný) klíč
+  - **Endpoint**: `https://api.heureka.group/v1/reports/conversions?date=YYYY-MM-DD`
+  - **Vrátí**: per-produkt konverze, klikové, výnosy, cena PPC bidů — denní granularita
+  - Po obdržení: rozjetí Section 5 Heuréka tab v dashboardu
+
+- [ ] **Heuréka SK API klíče** (pro klucovecentrum.sk):
+  - Stejný workflow jako CZ, ale na **api.heureka.sk** + admin na **sluzby.heureka.sk**
+  - Klient zařídí 2 klíče (Overeno SK + Conversion Reports SK)
 
 ### 🟡 Tento týden
 
