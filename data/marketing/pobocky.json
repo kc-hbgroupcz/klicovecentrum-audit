@@ -1,0 +1,1493 @@
+{
+  "generated_at": "2026-05-20T11:20:56",
+  "source": "ERP Cézar Hodnocení zboží — kód podskladu (KodZboziKodPodskladu suffix) 2023-2026",
+  "note": ".80 = velkoobchodní sklad klíče/stroje (marže ~2%, B2B wholesale). Pražské 310/320/330 + SK 110/120 v separátních ERP (Shoptet/SK), nemají Cézar prodeje.",
+  "pobocky_count_active": 16,
+  "pobocky_count_mapped": 20,
+  "pobocky": [
+    {
+      "kod": "10",
+      "nazev": "Plzeň-Centrální sklad",
+      "mesto": "Plzeň",
+      "kraj": "Plzeňský",
+      "typ": "sklad+pobočka",
+      "lat": 49.7384,
+      "lng": 13.3736,
+      "erp_system": "cezar",
+      "in_mapping": true,
+      "total_obrat": 249102142,
+      "total_zisk": 110751385,
+      "margin_pct": 44.5,
+      "by_year": {
+        "2023": {
+          "obrat": 83333744,
+          "zisk": 36474771,
+          "margin_pct": 43.8,
+          "skus": 10934
+        },
+        "2024": {
+          "obrat": 78838755,
+          "zisk": 33466691,
+          "margin_pct": 42.4,
+          "skus": 10848
+        },
+        "2025": {
+          "obrat": 67232933,
+          "zisk": 31055111,
+          "margin_pct": 46.2,
+          "skus": 9743
+        },
+        "2026": {
+          "obrat": 19696710,
+          "zisk": 9754813,
+          "margin_pct": 49.5,
+          "skus": 6047
+        }
+      },
+      "top_products": [
+        {
+          "sku": "330101",
+          "nazev": "Vložka Star 70S 30/35 Ni/R1  3kl",
+          "obrat": 2622700
+        },
+        {
+          "sku": "001035",
+          "nazev": "Zámek HOBES 24026 P/L 90/50/22 PZ  BZn",
+          "obrat": 2564691
+        },
+        {
+          "sku": "159005",
+          "nazev": "OC El.otvírač 50E10 12Vdc nízkoodběr.",
+          "obrat": 2409468
+        },
+        {
+          "sku": "018117",
+          "nazev": "Klíč FAB 200RSG RRS2 nový typ",
+          "obrat": 1844429
+        },
+        {
+          "sku": "001022",
+          "nazev": "Zámek HOBES 02-04 90/40/20 PZ P/L BZn",
+          "obrat": 1814015
+        },
+        {
+          "sku": "001005",
+          "nazev": "Zámek HOBES 01-15 P/L 90/40/20 BB BZn",
+          "obrat": 1785253
+        },
+        {
+          "sku": "300015",
+          "nazev": "EUROLOCKS Zámek  0812-0080 (EU1R) rov.záv HDC220V",
+          "obrat": 1766709
+        },
+        {
+          "sku": "S103630",
+          "nazev": "Projekt systému SGHK",
+          "obrat": 1757983
+        },
+        {
+          "sku": "491017",
+          "nazev": "Klíč 20R1 FB13RX (20) mosaz",
+          "obrat": 1598370
+        },
+        {
+          "sku": "018116",
+          "nazev": "Klíč FAB 200RSG RRS1 nový typ",
+          "obrat": 1256241
+        }
+      ]
+    },
+    {
+      "kod": "40",
+      "nazev": "Praha-Libeň",
+      "mesto": "Praha",
+      "kraj": "Praha",
+      "typ": "pobočka",
+      "lat": 50.1063,
+      "lng": 14.4736,
+      "erp_system": "cezar",
+      "in_mapping": true,
+      "total_obrat": 216960467,
+      "total_zisk": 95605856,
+      "margin_pct": 44.1,
+      "by_year": {
+        "2023": {
+          "obrat": 66551054,
+          "zisk": 29256161,
+          "margin_pct": 44.0,
+          "skus": 8472
+        },
+        "2024": {
+          "obrat": 65205308,
+          "zisk": 29251279,
+          "margin_pct": 44.9,
+          "skus": 8421
+        },
+        "2025": {
+          "obrat": 60778635,
+          "zisk": 26276860,
+          "margin_pct": 43.2,
+          "skus": 8609
+        },
+        "2026": {
+          "obrat": 24425470,
+          "zisk": 10821555,
+          "margin_pct": 44.3,
+          "skus": 5929
+        }
+      },
+      "top_products": [
+        {
+          "sku": "711267",
+          "nazev": "D837214ZB stroj ProTech S169 plus",
+          "obrat": 2821000
+        },
+        {
+          "sku": "330101",
+          "nazev": "Vložka Star 70S 30/35 Ni/R1  3kl",
+          "obrat": 2622140
+        },
+        {
+          "sku": "900018",
+          "nazev": "Test. aplikace SPVG 10, 174,5 hod., 600 Kč/h",
+          "obrat": 1777889
+        },
+        {
+          "sku": "720043",
+          "nazev": "FUTURA Pro Unlimited D851721ZB",
+          "obrat": 1753288
+        },
+        {
+          "sku": "017110",
+          "nazev": "ABLOY EL460/92/35/24 12-24V zámek el.mech.",
+          "obrat": 1521676
+        },
+        {
+          "sku": "018117",
+          "nazev": "Klíč FAB 200RSG RRS2 nový typ",
+          "obrat": 1266704
+        },
+        {
+          "sku": "017127",
+          "nazev": "ABLOY EL560/72/55/20 12-24V Zámek el.mech.",
+          "obrat": 1234062
+        },
+        {
+          "sku": "088005",
+          "nazev": "Klíč G17 GUARD NVL/GD17/",
+          "obrat": 1229682
+        },
+        {
+          "sku": "005069",
+          "nazev": "GU/BKS motor sada el. pohonu k zámku 18153-01",
+          "obrat": 1191823
+        },
+        {
+          "sku": "4000109",
+          "nazev": "WAVE MODE SUITE CARD",
+          "obrat": 1188870
+        }
+      ]
+    },
+    {
+      "kod": "50",
+      "nazev": "Ostrava",
+      "mesto": "Ostrava",
+      "kraj": "Moravskoslezský",
+      "typ": "pobočka",
+      "lat": 49.8209,
+      "lng": 18.2625,
+      "erp_system": "cezar",
+      "in_mapping": true,
+      "total_obrat": 123474918,
+      "total_zisk": 57939196,
+      "margin_pct": 46.9,
+      "by_year": {
+        "2023": {
+          "obrat": 37827919,
+          "zisk": 17410059,
+          "margin_pct": 46.0,
+          "skus": 6121
+        },
+        "2024": {
+          "obrat": 37714853,
+          "zisk": 17858274,
+          "margin_pct": 47.4,
+          "skus": 5795
+        },
+        "2025": {
+          "obrat": 35357982,
+          "zisk": 16525253,
+          "margin_pct": 46.7,
+          "skus": 5430
+        },
+        "2026": {
+          "obrat": 12574163,
+          "zisk": 6145610,
+          "margin_pct": 48.9,
+          "skus": 3478
+        }
+      },
+      "top_products": [
+        {
+          "sku": "330101",
+          "nazev": "Vložka Star 70S 30/35 Ni/R1  3kl",
+          "obrat": 3011607
+        },
+        {
+          "sku": "330099",
+          "nazev": "Vložka Star 60S 30/35 Ms (10x)   (2020)",
+          "obrat": 2646083
+        },
+        {
+          "sku": "088005",
+          "nazev": "Klíč G17 GUARD NVL/GD17/",
+          "obrat": 2055346
+        },
+        {
+          "sku": "018117",
+          "nazev": "Klíč FAB 200RSG RRS2 nový typ",
+          "obrat": 1591329
+        },
+        {
+          "sku": "491017",
+          "nazev": "Klíč 20R1 FB13RX (20) mosaz",
+          "obrat": 1268817
+        },
+        {
+          "sku": "018116",
+          "nazev": "Klíč FAB 200RSG RRS1 nový typ",
+          "obrat": 1114663
+        },
+        {
+          "sku": "159001",
+          "nazev": "OC El.otvírač 50B10 6-14Vac/dc",
+          "obrat": 892384
+        },
+        {
+          "sku": "330160",
+          "nazev": "Vložka Star 70S 30/K35 Ni/R1",
+          "obrat": 861167
+        },
+        {
+          "sku": "156056",
+          "nazev": "GEZE Zavírač TS 4000 stř. EN1-6",
+          "obrat": 752131
+        },
+        {
+          "sku": "001035",
+          "nazev": "Zámek HOBES 24026 P/L 90/50/22 PZ  BZn",
+          "obrat": 749310
+        }
+      ]
+    },
+    {
+      "kod": "20",
+      "nazev": "Sokolov",
+      "mesto": "Sokolov",
+      "kraj": "Karlovarský",
+      "typ": "pobočka",
+      "lat": 50.1814,
+      "lng": 12.6402,
+      "erp_system": "cezar",
+      "in_mapping": true,
+      "total_obrat": 104583097,
+      "total_zisk": 47840361,
+      "margin_pct": 45.7,
+      "by_year": {
+        "2023": {
+          "obrat": 34760251,
+          "zisk": 16220593,
+          "margin_pct": 46.7,
+          "skus": 6922
+        },
+        "2024": {
+          "obrat": 30586441,
+          "zisk": 13854081,
+          "margin_pct": 45.3,
+          "skus": 6896
+        },
+        "2025": {
+          "obrat": 29193470,
+          "zisk": 13174570,
+          "margin_pct": 45.1,
+          "skus": 6662
+        },
+        "2026": {
+          "obrat": 10042934,
+          "zisk": 4591116,
+          "margin_pct": 45.7,
+          "skus": 4175
+        }
+      },
+      "top_products": [
+        {
+          "sku": "330099",
+          "nazev": "Vložka Star 60S 30/35 Ms (10x)   (2020)",
+          "obrat": 1593295
+        },
+        {
+          "sku": "330101",
+          "nazev": "Vložka Star 70S 30/35 Ni/R1  3kl",
+          "obrat": 1531112
+        },
+        {
+          "sku": "018117",
+          "nazev": "Klíč FAB 200RSG RRS2 nový typ",
+          "obrat": 1406274
+        },
+        {
+          "sku": "491017",
+          "nazev": "Klíč 20R1 FB13RX (20) mosaz",
+          "obrat": 1192947
+        },
+        {
+          "sku": "001035",
+          "nazev": "Zámek HOBES 24026 P/L 90/50/22 PZ  BZn",
+          "obrat": 1019707
+        },
+        {
+          "sku": "018116",
+          "nazev": "Klíč FAB 200RSG RRS1 nový typ",
+          "obrat": 962927
+        },
+        {
+          "sku": "1100004",
+          "nazev": "Dveře vchod.PP dub kašír 80 cm pravé",
+          "obrat": 761970
+        },
+        {
+          "sku": "710646",
+          "nazev": "Stroj Unocode F900 D8A3064ZB",
+          "obrat": 735000
+        },
+        {
+          "sku": "1100003",
+          "nazev": "Dveře vchod.PP dub kašír 80cm levé",
+          "obrat": 696821
+        },
+        {
+          "sku": "296122",
+          "nazev": "MUL-T vložka 65/586D/30x35/CAM/5mtl MTL300",
+          "obrat": 695411
+        }
+      ]
+    },
+    {
+      "kod": "30",
+      "nazev": "Vodňany",
+      "mesto": "Vodňany",
+      "kraj": "Jihočeský",
+      "typ": "pobočka",
+      "lat": 49.1487,
+      "lng": 14.1753,
+      "erp_system": "cezar",
+      "in_mapping": true,
+      "total_obrat": 90078487,
+      "total_zisk": 39710953,
+      "margin_pct": 44.1,
+      "by_year": {
+        "2023": {
+          "obrat": 28080799,
+          "zisk": 12542831,
+          "margin_pct": 44.7,
+          "skus": 6776
+        },
+        "2024": {
+          "obrat": 27071804,
+          "zisk": 11662261,
+          "margin_pct": 43.1,
+          "skus": 6710
+        },
+        "2025": {
+          "obrat": 25823289,
+          "zisk": 11408963,
+          "margin_pct": 44.2,
+          "skus": 6217
+        },
+        "2026": {
+          "obrat": 9102595,
+          "zisk": 4096899,
+          "margin_pct": 45.0,
+          "skus": 4249
+        }
+      },
+      "top_products": [
+        {
+          "sku": "330101",
+          "nazev": "Vložka Star 70S 30/35 Ni/R1  3kl",
+          "obrat": 1208580
+        },
+        {
+          "sku": "001035",
+          "nazev": "Zámek HOBES 24026 P/L 90/50/22 PZ  BZn",
+          "obrat": 1150383
+        },
+        {
+          "sku": "018117",
+          "nazev": "Klíč FAB 200RSG RRS2 nový typ",
+          "obrat": 1076886
+        },
+        {
+          "sku": "330099",
+          "nazev": "Vložka Star 60S 30/35 Ms (10x)   (2020)",
+          "obrat": 995168
+        },
+        {
+          "sku": "001022",
+          "nazev": "Zámek HOBES 02-04 90/40/20 PZ P/L BZn",
+          "obrat": 957257
+        },
+        {
+          "sku": "038019",
+          "nazev": "Klíč 113-50+/TOZ6-OR original  TOKOZ",
+          "obrat": 915548
+        },
+        {
+          "sku": "001005",
+          "nazev": "Zámek HOBES 01-15 P/L 90/40/20 BB BZn",
+          "obrat": 869759
+        },
+        {
+          "sku": "018116",
+          "nazev": "Klíč FAB 200RSG RRS1 nový typ",
+          "obrat": 786225
+        },
+        {
+          "sku": "491017",
+          "nazev": "Klíč 20R1 FB13RX (20) mosaz",
+          "obrat": 722710
+        },
+        {
+          "sku": "420010",
+          "nazev": "Klíč ULO50X (20) universal mosaz",
+          "obrat": 651396
+        }
+      ]
+    },
+    {
+      "kod": "70",
+      "nazev": "Brno",
+      "mesto": "Brno",
+      "kraj": "Jihomoravský",
+      "typ": "pobočka",
+      "lat": 49.1951,
+      "lng": 16.6068,
+      "erp_system": "cezar",
+      "in_mapping": true,
+      "total_obrat": 51937246,
+      "total_zisk": 18466637,
+      "margin_pct": 35.6,
+      "by_year": {
+        "2023": {
+          "obrat": 10807441,
+          "zisk": 3945624,
+          "margin_pct": 36.5,
+          "skus": 2685
+        },
+        "2024": {
+          "obrat": 12586186,
+          "zisk": 4687637,
+          "margin_pct": 37.2,
+          "skus": 3385
+        },
+        "2025": {
+          "obrat": 18789286,
+          "zisk": 6480119,
+          "margin_pct": 34.5,
+          "skus": 4364
+        },
+        "2026": {
+          "obrat": 9754333,
+          "zisk": 3353258,
+          "margin_pct": 34.4,
+          "skus": 2846
+        }
+      },
+      "top_products": [
+        {
+          "sku": "305004",
+          "nazev": "Kukátko 2014 Star Ni-Sat, 200 st.tl.dv.35-55",
+          "obrat": 1335327
+        },
+        {
+          "sku": "330099",
+          "nazev": "Vložka Star 60S 30/35 Ms (10x)   (2020)",
+          "obrat": 882181
+        },
+        {
+          "sku": "088005",
+          "nazev": "Klíč G17 GUARD NVL/GD17/",
+          "obrat": 804770
+        },
+        {
+          "sku": "220082",
+          "nazev": "FUHR zámek 835-55-72-8-F20 oblé čelo  háky+střelky",
+          "obrat": 754595
+        },
+        {
+          "sku": "160126",
+          "nazev": "CISA rozv.příd.z.z.hákový 25/22",
+          "obrat": 734161
+        },
+        {
+          "sku": "710026",
+          "nazev": "Stroj QUATTROCODE D600 D8A7050ZB",
+          "obrat": 598500
+        },
+        {
+          "sku": "305025",
+          "nazev": "Krytka kukátka Star NI-SAT 856-2B",
+          "obrat": 572355
+        },
+        {
+          "sku": "330101",
+          "nazev": "Vložka Star 70S 30/35 Ni/R1  3kl",
+          "obrat": 549160
+        },
+        {
+          "sku": "088010",
+          "nazev": "Klíč FPS/CPS EVVA EV121-OR chráněný G30T",
+          "obrat": 449777
+        },
+        {
+          "sku": "729051",
+          "nazev": "Stroj TRIAX PRO D845960ZB",
+          "obrat": 449000
+        }
+      ]
+    },
+    {
+      "kod": "45",
+      "nazev": "Praha-Vysočany",
+      "mesto": "Praha",
+      "kraj": "Praha",
+      "typ": "pobočka",
+      "lat": 50.1102,
+      "lng": 14.5012,
+      "erp_system": "cezar",
+      "in_mapping": true,
+      "total_obrat": 36613847,
+      "total_zisk": 23270058,
+      "margin_pct": 63.6,
+      "by_year": {
+        "2023": {
+          "obrat": 9948658,
+          "zisk": 6235191,
+          "margin_pct": 62.7,
+          "skus": 3284
+        },
+        "2024": {
+          "obrat": 10981985,
+          "zisk": 6827990,
+          "margin_pct": 62.2,
+          "skus": 3112
+        },
+        "2025": {
+          "obrat": 11575377,
+          "zisk": 7505721,
+          "margin_pct": 64.8,
+          "skus": 3156
+        },
+        "2026": {
+          "obrat": 4107827,
+          "zisk": 2701156,
+          "margin_pct": 65.8,
+          "skus": 1831
+        }
+      },
+      "top_products": [
+        {
+          "sku": "999121",
+          "nazev": "Řezání klíčů",
+          "obrat": 1031933
+        },
+        {
+          "sku": "350398",
+          "nazev": "Klíč Star 100STM FB115X-OR (20) řezaný",
+          "obrat": 777254
+        },
+        {
+          "sku": "S001093",
+          "nazev": "Přestavba SGHK Star 80S/100S",
+          "obrat": 538709
+        },
+        {
+          "sku": "330701",
+          "nazev": "Vložka Star 100S 30/35 servis",
+          "obrat": 434242
+        },
+        {
+          "sku": "406184",
+          "nazev": "Klíč FB122X-OR (20) JAKOV K",
+          "obrat": 429178
+        },
+        {
+          "sku": "161290",
+          "nazev": "CISA klíč C3000      00430.00.1 (T02)",
+          "obrat": 411023
+        },
+        {
+          "sku": "406176",
+          "nazev": "Klíč FB121RX-OR (20) JAKOV A",
+          "obrat": 390440
+        },
+        {
+          "sku": "406178",
+          "nazev": "Klíč FB123RX-OR (20) JAKOV O",
+          "obrat": 370138
+        },
+        {
+          "sku": "001138",
+          "nazev": "Zámek HOBES K 133 P/L 72/50/20 PZ tichá střelka BZn",
+          "obrat": 351713
+        },
+        {
+          "sku": "330101",
+          "nazev": "Vložka Star 70S 30/35 Ni/R1  3kl",
+          "obrat": 348485
+        }
+      ]
+    },
+    {
+      "kod": "25",
+      "nazev": "Cheb",
+      "mesto": "Cheb",
+      "kraj": "Karlovarský",
+      "typ": "pobočka",
+      "lat": 50.0796,
+      "lng": 12.3731,
+      "erp_system": "cezar",
+      "in_mapping": true,
+      "total_obrat": 18905844,
+      "total_zisk": 13716554,
+      "margin_pct": 72.6,
+      "by_year": {
+        "2023": {
+          "obrat": 5557337,
+          "zisk": 4018069,
+          "margin_pct": 72.3,
+          "skus": 3057
+        },
+        "2024": {
+          "obrat": 5483614,
+          "zisk": 3933553,
+          "margin_pct": 71.7,
+          "skus": 3167
+        },
+        "2025": {
+          "obrat": 5747142,
+          "zisk": 4189898,
+          "margin_pct": 72.9,
+          "skus": 3118
+        },
+        "2026": {
+          "obrat": 2117751,
+          "zisk": 1575035,
+          "margin_pct": 74.4,
+          "skus": 1799
+        }
+      },
+      "top_products": [
+        {
+          "sku": "491017",
+          "nazev": "Klíč 20R1 FB13RX (20) mosaz",
+          "obrat": 422556
+        },
+        {
+          "sku": "999733",
+          "nazev": "Servisní práce á1hod (1 pracovník)",
+          "obrat": 257127
+        },
+        {
+          "sku": "350400",
+          "nazev": "Klíč Star 100STM FB115X-OR (20) polotovar",
+          "obrat": 207131
+        },
+        {
+          "sku": "S010100",
+          "nazev": "Výměna baterie u DO",
+          "obrat": 191872
+        },
+        {
+          "sku": "403385",
+          "nazev": "Klíč ASIX CS146 (20) důlkový",
+          "obrat": 174973
+        },
+        {
+          "sku": "330101",
+          "nazev": "Vložka Star 70S 30/35 Ni/R1  3kl",
+          "obrat": 167690
+        },
+        {
+          "sku": "330099",
+          "nazev": "Vložka Star 60S 30/35 Ms (10x)   (2020)",
+          "obrat": 137473
+        },
+        {
+          "sku": "491005",
+          "nazev": "Klíč 10x  FB21R (20) mosaz",
+          "obrat": 134985
+        },
+        {
+          "sku": "350021",
+          "nazev": "Vložka Star PATENT RC3 30/35 5kl",
+          "obrat": 133636
+        },
+        {
+          "sku": "205312",
+          "nazev": "BW Trezor PointSafe P 2 E",
+          "obrat": 123098
+        }
+      ]
+    },
+    {
+      "kod": "60",
+      "nazev": "Č.Budějovice",
+      "mesto": "České Budějovice",
+      "kraj": "Jihočeský",
+      "typ": "pobočka",
+      "lat": 48.9747,
+      "lng": 14.4744,
+      "erp_system": "cezar",
+      "in_mapping": true,
+      "total_obrat": 17578004,
+      "total_zisk": 12114103,
+      "margin_pct": 68.9,
+      "by_year": {
+        "2023": {
+          "obrat": 5189327,
+          "zisk": 3603599,
+          "margin_pct": 69.4,
+          "skus": 2094
+        },
+        "2024": {
+          "obrat": 5330414,
+          "zisk": 3617875,
+          "margin_pct": 67.9,
+          "skus": 1999
+        },
+        "2025": {
+          "obrat": 5545224,
+          "zisk": 3816357,
+          "margin_pct": 68.8,
+          "skus": 1928
+        },
+        "2026": {
+          "obrat": 1513039,
+          "zisk": 1076272,
+          "margin_pct": 71.1,
+          "skus": 1153
+        }
+      },
+      "top_products": [
+        {
+          "sku": "000037",
+          "nazev": "Systém SGHK - zakázka",
+          "obrat": 748841
+        },
+        {
+          "sku": "161290",
+          "nazev": "CISA klíč C3000      00430.00.1 (T02)",
+          "obrat": 409934
+        },
+        {
+          "sku": "491017",
+          "nazev": "Klíč 20R1 FB13RX (20) mosaz",
+          "obrat": 408079
+        },
+        {
+          "sku": "161201",
+          "nazev": "CISA C3000 30/35 Ni  0N310.26.0.12 3kl.",
+          "obrat": 256022
+        },
+        {
+          "sku": "330101",
+          "nazev": "Vložka Star 70S 30/35 Ni/R1  3kl",
+          "obrat": 253417
+        },
+        {
+          "sku": "033909",
+          "nazev": "Závěs k přivaření 160x20mm , čep 12mm F1",
+          "obrat": 190657
+        },
+        {
+          "sku": "000021",
+          "nazev": "Dveře zakázkové",
+          "obrat": 163760
+        },
+        {
+          "sku": "000030",
+          "nazev": "Klientská zakázka",
+          "obrat": 154956
+        },
+        {
+          "sku": "161203",
+          "nazev": "CISA C3000 30/40 Ni  0N310.12.0.12 3kl.",
+          "obrat": 131359
+        },
+        {
+          "sku": "001108",
+          "nazev": "Zámek HOBES 02-04A PP 90/40/20 PZ P/L BZn hr.bal.",
+          "obrat": 119884
+        }
+      ]
+    },
+    {
+      "kod": "80",
+      "nazev": "VO sklad klíče/stroje",
+      "mesto": "Plzeň",
+      "kraj": "Plzeňský",
+      "typ": "velkoobchod",
+      "lat": 49.7384,
+      "lng": 13.3736,
+      "erp_system": "cezar",
+      "in_mapping": true,
+      "total_obrat": 13570730,
+      "total_zisk": 421215,
+      "margin_pct": 3.1,
+      "by_year": {
+        "2023": {
+          "obrat": 4371962,
+          "zisk": 188330,
+          "margin_pct": 4.3,
+          "skus": 601
+        },
+        "2024": {
+          "obrat": 3614539,
+          "zisk": 85661,
+          "margin_pct": 2.4,
+          "skus": 403
+        },
+        "2025": {
+          "obrat": 4283882,
+          "zisk": 97526,
+          "margin_pct": 2.3,
+          "skus": 366
+        },
+        "2026": {
+          "obrat": 1300347,
+          "zisk": 49698,
+          "margin_pct": 3.8,
+          "skus": 203
+        }
+      },
+      "top_products": [
+        {
+          "sku": "720043",
+          "nazev": "FUTURA Pro Unlimited D851721ZB",
+          "obrat": 824563
+        },
+        {
+          "sku": "710646",
+          "nazev": "Stroj Unocode F900 D8A3064ZB",
+          "obrat": 680680
+        },
+        {
+          "sku": "088015",
+          "nazev": "Klíč GD17R-OR (20) 27T",
+          "obrat": 670254
+        },
+        {
+          "sku": "088005",
+          "nazev": "Klíč G17 GUARD NVL/GD17/",
+          "obrat": 408518
+        },
+        {
+          "sku": "890877",
+          "nazev": "AD2000 SmartPro  D846799AD",
+          "obrat": 382004
+        },
+        {
+          "sku": "018117",
+          "nazev": "Klíč FAB 200RSG RRS2 nový typ",
+          "obrat": 342949
+        },
+        {
+          "sku": "720039",
+          "nazev": "Stroj FUTURA PRO D847000ZB",
+          "obrat": 300962
+        },
+        {
+          "sku": "018116",
+          "nazev": "Klíč FAB 200RSG RRS1 nový typ",
+          "obrat": 244620
+        },
+        {
+          "sku": "300015",
+          "nazev": "EUROLOCKS Zámek  0812-0080 (EU1R) rov.záv HDC220V",
+          "obrat": 233396
+        },
+        {
+          "sku": "420005",
+          "nazev": "Klíč ULO50 (20) universal mosaz",
+          "obrat": 174838
+        }
+      ]
+    },
+    {
+      "kod": "42",
+      "nazev": "Praha-Zličín",
+      "mesto": "Praha",
+      "kraj": "Praha",
+      "typ": "pobočka",
+      "lat": 50.0567,
+      "lng": 14.2862,
+      "erp_system": "cezar",
+      "in_mapping": true,
+      "total_obrat": 3288262,
+      "total_zisk": 2913221,
+      "margin_pct": 88.6,
+      "by_year": {
+        "2025": {
+          "obrat": 2267541,
+          "zisk": 2007497,
+          "margin_pct": 88.5,
+          "skus": 709
+        },
+        "2026": {
+          "obrat": 1020722,
+          "zisk": 905724,
+          "margin_pct": 88.7,
+          "skus": 499
+        }
+      },
+      "top_products": [
+        {
+          "sku": "4000370",
+          "nazev": "Práce technika",
+          "obrat": 271369
+        },
+        {
+          "sku": "425197",
+          "nazev": "Čip T6 rewritable  (T33-ID48)",
+          "obrat": 153268
+        },
+        {
+          "sku": "428141",
+          "nazev": "Dálkový ovladač CIRFH13 - VAG uni Silca",
+          "obrat": 137640
+        },
+        {
+          "sku": "428144",
+          "nazev": "Dálkový ovladač CIRFH14T s čipem - PSA uni Silca",
+          "obrat": 131456
+        },
+        {
+          "sku": "299604",
+          "nazev": "Baterie CR2032 Star 1ks",
+          "obrat": 89924
+        },
+        {
+          "sku": "428067",
+          "nazev": "Obal klíče HU66BRS8 (20) 3tl Škoda s čepem",
+          "obrat": 73496
+        },
+        {
+          "sku": "428616",
+          "nazev": "Obal klíče KIA8BRS8 (20) Kia/Hyundai 3tl.  E00701",
+          "obrat": 67324
+        },
+        {
+          "sku": "E02524",
+          "nazev": "Výprodej - obal klíče směs",
+          "obrat": 66852
+        },
+        {
+          "sku": "E02525",
+          "nazev": "Výprodej - autoklíč KD (B,NB,standart v.)",
+          "obrat": 63810
+        },
+        {
+          "sku": "426032",
+          "nazev": "Klíč HU66TE (20) bez čipu",
+          "obrat": 59753
+        }
+      ]
+    },
+    {
+      "kod": "41",
+      "nazev": "Praha-Václavské nám.",
+      "mesto": "Praha",
+      "kraj": "Praha",
+      "typ": "pobočka",
+      "lat": 50.0814,
+      "lng": 14.428,
+      "erp_system": "cezar",
+      "in_mapping": true,
+      "total_obrat": 1421511,
+      "total_zisk": 1282036,
+      "margin_pct": 90.2,
+      "by_year": {
+        "2025": {
+          "obrat": 986067,
+          "zisk": 894173,
+          "margin_pct": 90.7,
+          "skus": 653
+        },
+        "2026": {
+          "obrat": 435444,
+          "zisk": 387863,
+          "margin_pct": 89.1,
+          "skus": 465
+        }
+      },
+      "top_products": [
+        {
+          "sku": "829999",
+          "nazev": "Gravírování- rytí a barvení",
+          "obrat": 401404
+        },
+        {
+          "sku": "000033",
+          "nazev": "Gravírování zakázka",
+          "obrat": 142153
+        },
+        {
+          "sku": "420010",
+          "nazev": "Klíč ULO50X (20) universal mosaz",
+          "obrat": 30445
+        },
+        {
+          "sku": "405168",
+          "nazev": "Klíč EUR1 (10) EURO PLUS",
+          "obrat": 23961
+        },
+        {
+          "sku": "018129",
+          "nazev": "Klíč FAB NG 3.00 FAB3 B001",
+          "obrat": 18373
+        },
+        {
+          "sku": "417174",
+          "nazev": "Klíč RS2 (20) Silca FB146",
+          "obrat": 16542
+        },
+        {
+          "sku": "491017",
+          "nazev": "Klíč 20R1 FB13RX (20) mosaz",
+          "obrat": 15076
+        },
+        {
+          "sku": "311007",
+          "nazev": "Klíčenka s čipem EM 125kHz šedá přepisovatelná",
+          "obrat": 13975
+        },
+        {
+          "sku": "491013",
+          "nazev": "Klíč 14x FB28R (20) mosaz",
+          "obrat": 13897
+        },
+        {
+          "sku": "088005",
+          "nazev": "Klíč G17 GUARD NVL/GD17/",
+          "obrat": 13857
+        }
+      ]
+    },
+    {
+      "kod": "61",
+      "nazev": "Hrdějovice",
+      "mesto": "Hrdějovice",
+      "kraj": "Jihočeský",
+      "typ": "pobočka",
+      "lat": 49.015,
+      "lng": 14.475,
+      "erp_system": "cezar",
+      "in_mapping": true,
+      "total_obrat": 934096,
+      "total_zisk": 732582,
+      "margin_pct": 78.4,
+      "by_year": {
+        "2025": {
+          "obrat": 433320,
+          "zisk": 330660,
+          "margin_pct": 76.3,
+          "skus": 479
+        },
+        "2026": {
+          "obrat": 500776,
+          "zisk": 401922,
+          "margin_pct": 80.3,
+          "skus": 526
+        }
+      },
+      "top_products": [
+        {
+          "sku": "425320",
+          "nazev": "Čip GTi Ultra C110026 Wedge",
+          "obrat": 69620
+        },
+        {
+          "sku": "370331",
+          "nazev": "Star smart kování široké 92 - klavesnice + FP",
+          "obrat": 18179
+        },
+        {
+          "sku": "491017",
+          "nazev": "Klíč 20R1 FB13RX (20) mosaz",
+          "obrat": 17947
+        },
+        {
+          "sku": "220045",
+          "nazev": "FUHR zámek 834P panik-45-92-9-U24-1790 motor.",
+          "obrat": 16200
+        },
+        {
+          "sku": "350396",
+          "nazev": "Klíč Star 100STM FB115X-OR jen důlky ostatní",
+          "obrat": 15844
+        },
+        {
+          "sku": "220086",
+          "nazev": "FUHR zámek 833P panik-45-92-9-U24-1790 funkce \"E\" KL/KN",
+          "obrat": 15141
+        },
+        {
+          "sku": "426032",
+          "nazev": "Klíč HU66TE (20) bez čipu",
+          "obrat": 13017
+        },
+        {
+          "sku": "420005",
+          "nazev": "Klíč ULO50 (20) universal mosaz",
+          "obrat": 10027
+        },
+        {
+          "sku": "411064",
+          "nazev": "Klíč KYM1RP (20)",
+          "obrat": 9608
+        },
+        {
+          "sku": "000011",
+          "nazev": "Klíč zakázkový I",
+          "obrat": 9298
+        }
+      ]
+    },
+    {
+      "kod": "21",
+      "nazev": "Chomutov",
+      "mesto": "Chomutov",
+      "kraj": "Ústecký",
+      "typ": "pobočka",
+      "lat": 50.4605,
+      "lng": 13.4178,
+      "erp_system": "cezar",
+      "in_mapping": true,
+      "total_obrat": 491667,
+      "total_zisk": 371080,
+      "margin_pct": 75.5,
+      "by_year": {
+        "2025": {
+          "obrat": 195570,
+          "zisk": 151682,
+          "margin_pct": 77.6,
+          "skus": 355
+        },
+        "2026": {
+          "obrat": 296097,
+          "zisk": 219398,
+          "margin_pct": 74.1,
+          "skus": 343
+        }
+      },
+      "top_products": [
+        {
+          "sku": "000012",
+          "nazev": "Vložka zakázková",
+          "obrat": 33506
+        },
+        {
+          "sku": "220113",
+          "nazev": "FUHR radio fingerscan",
+          "obrat": 23323
+        },
+        {
+          "sku": "350398",
+          "nazev": "Klíč Star 100STM FB115X-OR (20) řezaný",
+          "obrat": 22049
+        },
+        {
+          "sku": "491017",
+          "nazev": "Klíč 20R1 FB13RX (20) mosaz",
+          "obrat": 19553
+        },
+        {
+          "sku": "D299334",
+          "nazev": "zak.dv.OC Chomutov",
+          "obrat": 13965
+        },
+        {
+          "sku": "420010",
+          "nazev": "Klíč ULO50X (20) universal mosaz",
+          "obrat": 8289
+        },
+        {
+          "sku": "330807",
+          "nazev": "Vložka Star 100S 30/65 Ni/R1",
+          "obrat": 7077
+        },
+        {
+          "sku": "000011",
+          "nazev": "Klíč zakázkový I",
+          "obrat": 6666
+        },
+        {
+          "sku": "405052",
+          "nazev": "Klíč ESC2R (10) Euro secure B - nový typ",
+          "obrat": 6377
+        },
+        {
+          "sku": "417174",
+          "nazev": "Klíč RS2 (20) Silca FB146",
+          "obrat": 6364
+        }
+      ]
+    },
+    {
+      "kod": "11",
+      "nazev": "Plzeň-Lochotín",
+      "mesto": "Plzeň",
+      "kraj": "Plzeňský",
+      "typ": "pobočka",
+      "lat": 49.7626,
+      "lng": 13.3608,
+      "erp_system": "cezar",
+      "in_mapping": true,
+      "total_obrat": 220888,
+      "total_zisk": 167321,
+      "margin_pct": 75.7,
+      "by_year": {
+        "2026": {
+          "obrat": 220888,
+          "zisk": 167321,
+          "margin_pct": 75.7,
+          "skus": 470
+        }
+      },
+      "top_products": [
+        {
+          "sku": "425320",
+          "nazev": "Čip GTi Ultra C110026 Wedge",
+          "obrat": 9025
+        },
+        {
+          "sku": "491017",
+          "nazev": "Klíč 20R1 FB13RX (20) mosaz",
+          "obrat": 7851
+        },
+        {
+          "sku": "330911",
+          "nazev": "Vložka Star 80S 30/35 Ni/R1",
+          "obrat": 6414
+        },
+        {
+          "sku": "330925",
+          "nazev": "Vložka Star 80S 35/35 Ni/R1",
+          "obrat": 3814
+        },
+        {
+          "sku": "330101",
+          "nazev": "Vložka Star 70S 30/35 Ni/R1  3kl",
+          "obrat": 3669
+        },
+        {
+          "sku": "330939",
+          "nazev": "Vložka Star 80S 40/50 Ni/R1",
+          "obrat": 3596
+        },
+        {
+          "sku": "491016",
+          "nazev": "Klíč 20K FB13R (20) mosaz",
+          "obrat": 2955
+        },
+        {
+          "sku": "428145",
+          "nazev": "Dálkový ovladač CIRFH15 uni Silca",
+          "obrat": 2709
+        },
+        {
+          "sku": "491013",
+          "nazev": "Klíč 14x FB28R (20) mosaz",
+          "obrat": 2686
+        },
+        {
+          "sku": "296028",
+          "nazev": "MUL-T-LOCK 85/7x7/0667/5kl",
+          "obrat": 2434
+        }
+      ]
+    },
+    {
+      "kod": "22",
+      "nazev": "⚠️ NEZNÁMÝ (22)",
+      "mesto": "?",
+      "kraj": "?",
+      "typ": "neznámý",
+      "lat": null,
+      "lng": null,
+      "erp_system": "?",
+      "in_mapping": false,
+      "total_obrat": 202916,
+      "total_zisk": 160290,
+      "margin_pct": 79.0,
+      "by_year": {
+        "2026": {
+          "obrat": 202916,
+          "zisk": 160290,
+          "margin_pct": 79.0,
+          "skus": 286
+        }
+      },
+      "top_products": [
+        {
+          "sku": "491017",
+          "nazev": "Klíč 20R1 FB13RX (20) mosaz",
+          "obrat": 13528
+        },
+        {
+          "sku": "330168",
+          "nazev": "Vložka Star 70S 30/35 Ni/R1 SERVIS bez klíčů",
+          "obrat": 10171
+        },
+        {
+          "sku": "420010",
+          "nazev": "Klíč ULO50X (20) universal mosaz",
+          "obrat": 8468
+        },
+        {
+          "sku": "330101",
+          "nazev": "Vložka Star 70S 30/35 Ni/R1  3kl",
+          "obrat": 5504
+        },
+        {
+          "sku": "S001091",
+          "nazev": "Přestavba SGHK Star 60S/70S",
+          "obrat": 5270
+        },
+        {
+          "sku": "061156",
+          "nazev": "ALT-WIEN PZ/90,92/OLV L,P překryt",
+          "obrat": 3760
+        },
+        {
+          "sku": "491113",
+          "nazev": "Klíč 14xR1  FB28RX (20) mosaz",
+          "obrat": 3646
+        },
+        {
+          "sku": "995666",
+          "nazev": "Logo KARSTAV 10x = FB21R (20)",
+          "obrat": 3231
+        },
+        {
+          "sku": "428193",
+          "nazev": "Dálkový ovladač FO21BLR10 modrá hlava",
+          "obrat": 2975
+        },
+        {
+          "sku": "999121",
+          "nazev": "Řezání klíčů",
+          "obrat": 2973
+        }
+      ]
+    }
+  ],
+  "missing_separate_erp": [
+    {
+      "kod": "310",
+      "nazev": "Praha-Korunní",
+      "mesto": "Praha",
+      "kraj": "Praha",
+      "lat": 50.0758,
+      "lng": 14.452,
+      "erp_system": "shoptet"
+    },
+    {
+      "kod": "320",
+      "nazev": "Praha-Dejvice",
+      "mesto": "Praha",
+      "kraj": "Praha",
+      "lat": 50.101,
+      "lng": 14.392,
+      "erp_system": "shoptet"
+    },
+    {
+      "kod": "330",
+      "nazev": "Praha-Vršovice",
+      "mesto": "Praha",
+      "kraj": "Praha",
+      "lat": 50.07,
+      "lng": 14.463,
+      "erp_system": "shoptet"
+    },
+    {
+      "kod": "110",
+      "nazev": "Bratislava",
+      "mesto": "Bratislava",
+      "kraj": "Bratislavský",
+      "lat": 48.1486,
+      "lng": 17.1077,
+      "erp_system": "sk_erp"
+    },
+    {
+      "kod": "120",
+      "nazev": "Košice",
+      "mesto": "Košice",
+      "kraj": "Košický",
+      "lat": 48.7164,
+      "lng": 21.2611,
+      "erp_system": "sk_erp"
+    }
+  ],
+  "kraje_aggregate": [
+    {
+      "kraj": "Plzeňský",
+      "obrat": 262893760,
+      "pobocky": 3
+    },
+    {
+      "kraj": "Praha",
+      "obrat": 258284087,
+      "pobocky": 4
+    },
+    {
+      "kraj": "Karlovarský",
+      "obrat": 123488941,
+      "pobocky": 2
+    },
+    {
+      "kraj": "Moravskoslezský",
+      "obrat": 123474918,
+      "pobocky": 1
+    },
+    {
+      "kraj": "Jihočeský",
+      "obrat": 108590587,
+      "pobocky": 3
+    },
+    {
+      "kraj": "Jihomoravský",
+      "obrat": 51937246,
+      "pobocky": 1
+    },
+    {
+      "kraj": "Ústecký",
+      "obrat": 491667,
+      "pobocky": 1
+    }
+  ],
+  "data_holes": {
+    "unknown_codes_in_data": [
+      "22"
+    ],
+    "mapped_no_sales": [
+      "310",
+      "320",
+      "330",
+      "110",
+      "120"
+    ]
+  }
+}

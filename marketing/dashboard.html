@@ -476,7 +476,7 @@ const SECTIONS = {
   6: { title: 'Feedy', subtitle: 'Mergado + Google Merchant Center — jen klicovecentrum.cz dnes (klucovecentrum.sk čeká na MC setup)', status: 'live', domains_only: ['klicovecentrum.cz', 'klucovecentrum.sk'] },
   7: { title: 'Produkty', subtitle: 'Top SKU + per-produkt výkon', status: 'live' },
   8: { title: 'Kategorie', subtitle: 'Výkon kategorií produktů', status: 'live' },
-  9: { title: 'Pobočky', subtitle: '17 fyzických prodejen', status: 'waiting', wait_for: 'Cézar "Maloobchod pokladna" per-provozovna export (klient zařídí s IT)' },
+  9: { title: 'Pobočky', subtitle: '16 prodejen + skladů (kód podskladu z ERP)', status: 'live' },
   10: { title: 'Kraje', subtitle: 'Geografická distribuce ČR', status: 'live' },
   11: { title: 'Doprava', subtitle: 'PPL + ostatní dopravci', status: 'live' },
   12: { title: 'Reklamace', subtitle: 'RMA + příčiny + náklady', status: 'live' },
@@ -1652,6 +1652,7 @@ function renderWaitingState(idx, meta) {
 // Mapping section idx → JSON file name
 const SECTION_FILES = {
   6: 'mc',  // Section 6 Feedy = sdíli MC API
+  9: 'pobocky',
   7: 'products',
   8: 'categories',
   10: 'regions_map',
@@ -1687,6 +1688,7 @@ async function renderLivePlaceholder(idx, meta) {
 function renderGenericData(d, idx) {
   // Section-specific lookups
   if (idx === 6) return renderFeedy(d);
+  if (idx === 9) return renderPobocky(d);
   if (idx === 7) return renderProducts(d);
   if (idx === 8) return renderCategories(d);
   if (idx === 10) return renderRegions(d);
@@ -1730,6 +1732,117 @@ function renderCategories(d) {
         </tbody>
       </table>
     </div>`;
+}
+
+function renderPobocky(d) {
+  const pobocky = (d.pobocky || []).filter(p => p.in_mapping && p.typ !== 'velkoobchod');
+  const vo = (d.pobocky || []).filter(p => p.typ === 'velkoobchod');
+  const unknown = (d.pobocky || []).filter(p => !p.in_mapping);
+  const missing = d.missing_separate_erp || [];
+  const maxObrat = Math.max(...pobocky.map(p => p.total_obrat), 1);
+
+  // SVG mapa ČR — lat/lng → x/y projekce
+  // ČR bounding box: lat 48.55-51.06, lng 12.09-18.86
+  const LAT_MIN = 48.5, LAT_MAX = 51.1, LNG_MIN = 12.0, LNG_MAX = 18.9;
+  const mapW = 760, mapH = 380;
+  function proj(lat, lng) {
+    const x = (lng - LNG_MIN) / (LNG_MAX - LNG_MIN) * mapW;
+    const y = mapH - (lat - LAT_MIN) / (LAT_MAX - LAT_MIN) * mapH;
+    return [x, y];
+  }
+
+  let markers = '';
+  for (const p of pobocky) {
+    if (p.lat == null || p.lng == null) continue;
+    const [x, y] = proj(p.lat, p.lng);
+    const r = 6 + Math.sqrt(p.total_obrat / maxObrat) * 26;  // velikost dle obratu
+    const ratio = p.total_obrat / maxObrat;
+    const color = ratio > 0.5 ? '#4ea1ff' : ratio > 0.2 ? '#3a7fd0' : '#2c5f9e';
+    markers += `
+      <circle cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="${r.toFixed(0)}"
+              fill="${color}" fill-opacity="0.65" stroke="#fff" stroke-width="1.5">
+        <title>${p.nazev} (${p.mesto}): ${p.total_obrat.toLocaleString('cs-CZ')} Kč, marže ${p.margin_pct}%</title>
+      </circle>
+      <text x="${x.toFixed(0)}" y="${(y - r - 3).toFixed(0)}" text-anchor="middle" fill="#e6e9f0" font-size="9">${p.mesto}</text>`;
+  }
+
+  return `
+    <div class="card" style="background: rgba(74,222,128,0.06); border-color: var(--green); margin-bottom:16px;">
+      <div style="font-size:13px; color:var(--green);">
+        ✅ <strong>Pobočky napojeny přes kód podskladu</strong> (KodZboziKodPodskladu suffix). ${d.note}
+      </div>
+    </div>
+
+    <div class="hero-grid">
+      <div class="kpi-card"><div class="kpi-label">Aktivní pobočky</div><div class="kpi-value">${d.pobocky_count_active}</div><div class="kpi-delta neutral">z ${d.pobocky_count_mapped} mapped</div></div>
+      <div class="kpi-card"><div class="kpi-label">Top pobočka (3y)</div><div class="kpi-value" style="font-size:16px">${pobocky[0]?.nazev || '—'}</div><div class="kpi-delta positive">${fmtKc(pobocky[0]?.total_obrat)}</div></div>
+      <div class="kpi-card"><div class="kpi-label">VO sklad (.80)</div><div class="kpi-value" style="font-size:15px">${vo[0] ? fmtKc(vo[0].total_obrat) : '—'}</div><div class="kpi-delta neutral">klíče/stroje, marže ~2%</div></div>
+      <div class="kpi-card"><div class="kpi-label">Separátní ERP</div><div class="kpi-value">${missing.length}</div><div class="kpi-delta neutral">Shoptet + SK</div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🗺️ Mapa poboček ČR (velikost = 3-letý obrat)</div>
+      <div style="overflow-x:auto; background:#0d1320; border-radius:8px;">
+        <svg viewBox="0 0 ${mapW} ${mapH}" style="width:100%; max-width:${mapW}px; height:auto;">
+          <rect width="${mapW}" height="${mapH}" fill="#0d1320"/>
+          <text x="12" y="24" fill="#3a4a6b" font-size="13" font-weight="600">ČR — pobočky H&B Group</text>
+          ${markers}
+        </svg>
+      </div>
+      <p style="font-size:11px;color:var(--text-muted);margin-top:8px;">GPS approximate dle měst. Hover marker = detail. Pražské pobočky (Libeň/Zličín/Vysočany/Václavské) blízko sebe.</p>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <div class="card-title">🏪 Pobočky — 3-letý obrat (2023-2026)</div>
+      <table>
+        <thead><tr><th>#</th><th>Pobočka</th><th>Město</th><th>Typ</th><th class="num">2023</th><th class="num">2024</th><th class="num">2025</th><th class="num">2026*</th><th class="num">Marže</th></tr></thead>
+        <tbody>
+          ${pobocky.map((p, i) => `
+            <tr>
+              <td class="num">${i+1}</td>
+              <td><strong>${p.nazev}</strong></td>
+              <td>${p.mesto}</td>
+              <td><small>${p.typ}</small></td>
+              <td class="num">${p.by_year['2023'] ? fmtKc(p.by_year['2023'].obrat) : '—'}</td>
+              <td class="num">${p.by_year['2024'] ? fmtKc(p.by_year['2024'].obrat) : '—'}</td>
+              <td class="num">${p.by_year['2025'] ? fmtKc(p.by_year['2025'].obrat) : '—'}</td>
+              <td class="num">${p.by_year['2026'] ? fmtKc(p.by_year['2026'].obrat) : '—'}</td>
+              <td class="num">${fmtPct(p.margin_pct)}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+      <p style="font-size:11px;color:var(--text-muted);margin-top:6px;">*2026 = partial (cca Q1)</p>
+    </div>
+
+    <div class="section-grid" style="margin-top:16px;">
+      <div class="card" style="border-color:var(--orange);">
+        <div class="card-title">⚠️ Velkoobchodní sklad (.80)</div>
+        ${vo.map(p => `
+          <table><tbody>
+            <tr><td>Obrat 3y</td><td class="num">${fmtKc(p.total_obrat)}</td></tr>
+            <tr><td>Marže</td><td class="num" style="color:var(--orange)">${fmtPct(p.margin_pct)}</td></tr>
+          </tbody></table>
+          <p style="font-size:12px;color:var(--text-muted);margin-top:8px;">Velkoobchod klíčových polotovarů + řezací stroje (FUTURA, OMNIA, AD2000/3000) pro klíčaře/zámečníky. Nízká marže = VO ceny. Top produkty:</p>
+          <ul style="font-size:11px;color:var(--text-muted);padding-left:18px;">
+            ${(p.top_products || []).slice(0,5).map(t => `<li>${t.nazev} — ${fmtKc(t.obrat)}</li>`).join('')}
+          </ul>
+        `).join('')}
+      </div>
+      <div class="card">
+        <div class="card-title">🔌 Separátní ERP systémy (bez Cézar prodejů)</div>
+        <table>
+          <thead><tr><th>Pobočka</th><th>Město</th><th>ERP</th></tr></thead>
+          <tbody>
+            ${missing.map(m => `<tr><td><strong>${m.nazev}</strong></td><td>${m.mesto}</td><td><small>${m.erp_system}</small></td></tr>`).join('')}
+          </tbody>
+        </table>
+        <p style="font-size:11px;color:var(--text-muted);margin-top:8px;">Pražské 310/320/330 = Shoptet, SK Bratislava/Košice = SK ERP. Pro jejich data nutný separátní export.</p>
+        ${unknown.length ? `<p style="font-size:12px;color:var(--red);margin-top:8px;">⚠️ Neznámé kódy v datech: ${unknown.map(u=>'.'+u.kod+' ('+fmtKc(u.total_obrat)+')').join(', ')} — vyjasnit mapping.</p>` : ''}
+      </div>
+    </div>
+
+    <p style="color:var(--text-muted);font-size:12px;margin-top:16px;"><strong>Source:</strong> ${d.source}</p>`;
 }
 
 // ČR kraje — grid cartogram pozice (col, row) v přibližném geo rozložení

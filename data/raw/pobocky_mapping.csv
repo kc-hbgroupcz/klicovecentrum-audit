@@ -1,0 +1,21 @@
+kod;nazev;mesto;kraj;typ;lat;lng;erp_system
+10;Plzeň-Centrální sklad;Plzeň;Plzeňský;sklad+pobočka;49.7384;13.3736;cezar
+11;Plzeň-Lochotín;Plzeň;Plzeňský;pobočka;49.7626;13.3608;cezar
+20;Sokolov;Sokolov;Karlovarský;pobočka;50.1814;12.6402;cezar
+21;Chomutov;Chomutov;Ústecký;pobočka;50.4605;13.4178;cezar
+25;Cheb;Cheb;Karlovarský;pobočka;50.0796;12.3731;cezar
+30;Vodňany;Vodňany;Jihočeský;pobočka;49.1487;14.1753;cezar
+40;Praha-Libeň;Praha;Praha;pobočka;50.1063;14.4736;cezar
+41;Praha-Václavské nám.;Praha;Praha;pobočka;50.0814;14.4280;cezar
+42;Praha-Zličín;Praha;Praha;pobočka;50.0567;14.2862;cezar
+45;Praha-Vysočany;Praha;Praha;pobočka;50.1102;14.5012;cezar
+50;Ostrava;Ostrava;Moravskoslezský;pobočka;49.8209;18.2625;cezar
+60;Č.Budějovice;České Budějovice;Jihočeský;pobočka;48.9747;14.4744;cezar
+61;Hrdějovice;Hrdějovice;Jihočeský;pobočka;49.0150;14.4750;cezar
+70;Brno;Brno;Jihomoravský;pobočka;49.1951;16.6068;cezar
+80;VO sklad klíče/stroje;Plzeň;Plzeňský;velkoobchod;49.7384;13.3736;cezar
+310;Praha-Korunní;Praha;Praha;pobočka;50.0758;14.4520;shoptet
+320;Praha-Dejvice;Praha;Praha;pobočka;50.1010;14.3920;shoptet
+330;Praha-Vršovice;Praha;Praha;pobočka;50.0700;14.4630;shoptet
+110;Bratislava;Bratislava;Bratislavský;pobočka;48.1486;17.1077;sk_erp
+120;Košice;Košice;Košický;pobočka;48.7164;21.2611;sk_erp
