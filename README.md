@@ -44,7 +44,7 @@ Analytický audit a nápravný plán pro klicovecentrum.cz (období: říjen 202
 
 ## Auditované kanály
 
-GA4 · Search Console · Google Ads · Sklik (Fenix API live) · Zboží.cz · Heuréka · Meta Ads (FB/IG) · Merchant Center · Google Business Profile · Firmy.cz · Mergado · ERP Helios IQ · MySQL kosik · Alza Marketplace
+GA4 · Search Console · Google Ads · Sklik (Fenix API live) · Zboží.cz · Heuréka · Meta Ads (FB/IG) · Merchant Center · Google Business Profile · Firmy.cz · Mergado · ERP Cézar · MySQL kosik · Alza Marketplace
 
 ## Klíčové metriky (audit period 7M)
 
@@ -77,7 +77,7 @@ GA4 · Search Console · Google Ads · Sklik (Fenix API live) · Zboží.cz · H
 | Meta Ads | env token | live |
 | MySQL kosik | localhost | live |
 | Google Ads | čeká na Sheet ID po Ads Script | manual export → live |
-| ERP Helios IQ | CSV export | manual 1× měsíčně |
+| ERP Cézar | CSV export | manual 1× měsíčně |
 | Alza Partner | CSV export | manual |
 | Heuréka OCM | CSV report | manual |
 

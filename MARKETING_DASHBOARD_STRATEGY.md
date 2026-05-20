@@ -64,9 +64,9 @@
 - **Sklik Fénix** — kampaně data (refresh token, auto)
 
 ### CSV-only data (vyžaduje klient)
-- **ERP MO+VO Výdejky** — Helios IQ export (manuální 1× měsíc)
-- **Reklamace** — Helios IQ export (manuální)
-- **PPL zásilky** — Helios plugin export
+- **ERP MO+VO Výdejky** — Cézar export (manuální 1× měsíc)
+- **Reklamace** — Cézar export (manuální)
+- **PPL zásilky** — PPL export
 - **Google Ads** — Ads Scripts (klient spustí v Google Ads UI)
 
 ### Update strategie
@@ -299,7 +299,7 @@
 ### 📍 SECTION 9 — POBOČKY (17 fyzických)
 
 **Hero KPIs (5):**
-1. **Per-pobočka tržby** (pokud Helios export bude obsahovat per-provozovna data)
+1. **Per-pobočka tržby** (pokud Cézar export bude obsahovat per-provozovna data)
 2. **GBP zobrazení / volání / navigace** per pobočka
 3. **Firmy.cz CTR** per pobočka
 4. **Local Google Ads ROAS** + store visit conversions
