@@ -1,7 +1,7 @@
 {
   "last_refresh": "2026-05-20T10:00:00+02:00",
-  "version": "0.7-pobocky-doprava-oficial-mapping",
-  "build_status": "16/19 sections fully live (0-4, 6-14, 17, 18 CF) — Section 9 Pobočky LIVE (oficiální Cézar mapping), Section 11 Doprava 2 datasety",
+  "version": "0.8-redesign-nav-leaflet-year",
+  "build_status": "Redesign: 6 skupin s pod-taby, Leaflet mapa ČR (sekce 19, OSM dlaždice + body poboček + choropleth krajů z cz_kraje.geojson), roční přepínač (Vše/2023-2026) pro ERP sekce (Produkty/Kategorie/Pobočky/Kraje/Mapa)",
   "sections_live_count": 16,
   "sections_total": 19,
   "sections_live": [0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 17, 18],

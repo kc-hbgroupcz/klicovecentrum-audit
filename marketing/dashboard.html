@@ -6,6 +6,8 @@
 <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
 <title>Marketing Dashboard — klicovecentrum.cz</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
   :root {
     --bg: #0b0f1a;
@@ -342,6 +344,78 @@
     .tabs-bar { padding: 0 16px; }
     .main { padding: 16px; }
   }
+  /* 2-ÚROVŇOVÁ NAVIGACE (skupiny → pod-taby) */
+  .group-bar {
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+  .group-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    padding: 13px 18px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .group-btn:hover { color: var(--text); background: var(--bg-card-hover); }
+  .group-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .group-btn .grp-count {
+    font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 8px;
+    background: rgba(78,161,255,0.15); color: var(--accent);
+  }
+  .subtabs-bar {
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 6px 24px;
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+  .subtab {
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--text-muted);
+    padding: 7px 13px;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 8px;
+    white-space: nowrap;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .subtab:hover { color: var(--text); background: var(--bg-card-hover); }
+  .subtab.active { color: var(--accent); background: rgba(78,161,255,0.12); border-color: var(--accent); }
+  .subtab .tab-status { font-size: 10px; padding: 1px 6px; border-radius: 8px; font-weight: 700; }
+  .subtab .tab-status.live { background: rgba(74,222,128,0.15); color: var(--green); }
+  .subtab .tab-status.waiting { background: rgba(251,146,60,0.15); color: var(--orange); }
+  .subtab .tab-status.api { background: rgba(78,161,255,0.15); color: var(--accent); }
+  .year-filter-wrap { display: flex; align-items: center; gap: 8px; }
+  .year-filter-wrap .year-badge { font-size: 12px; color: var(--text-muted); }
+  @media (max-width: 640px) {
+    .group-bar, .subtabs-bar { padding-left: 12px; padding-right: 12px; }
+    .group-btn { padding: 11px 12px; font-size: 13px; }
+  }
+  /* Leaflet popup tmavý motiv */
+  .leaflet-popup-content-wrapper, .leaflet-popup-tip { background: var(--bg-card); color: var(--text); }
+  .leaflet-popup-content { font-size: 12px; }
+  .leaflet-container { background: #0d1320; font-family: inherit; }
+  .leaflet-bar a { background: var(--bg-card); color: var(--text); border-color: var(--border); }
 </style>
 </head>
 <body>
@@ -384,6 +458,16 @@
       <option value="previous" selected>vs Předchozí období</option>
       <option value="yoy">vs Loňský rok</option>
     </select>
+    <div class="year-filter-wrap" id="yearFilterWrap" style="display:none; margin-left:8px;">
+      <span class="year-badge">📅 ERP rok:</span>
+      <select class="compare-select" id="yearFilter" style="margin-left:0;">
+        <option value="all" selected>Vše (3 roky)</option>
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+        <option value="2025">2025</option>
+        <option value="2026">2026*</option>
+      </select>
+    </div>
   </div>
 
   <!-- DOMAIN FILTER BAR -->
@@ -419,28 +503,9 @@
   <!-- ALERT BANNER -->
   <div class="alert-banner" id="alertBanner"></div>
 
-  <!-- TABS -->
-  <nav class="tabs-bar" id="tabsBar">
-    <button class="tab active" data-section="0">🎯 Executive <span class="tab-status live">LIVE</span></button>
-    <button class="tab" data-section="1">📢 Kampaně <span class="tab-status live">LIVE</span></button>
-    <button class="tab" data-section="2">🔍 SEO <span class="tab-status live">LIVE</span></button>
-    <button class="tab" data-section="3">🛒 B2C <span class="tab-status live">LIVE</span></button>
-    <button class="tab" data-section="4">🏢 B2B <span class="tab-status live">LIVE</span></button>
-    <button class="tab" data-section="5">⚖️ Srovnávače <span class="tab-status waiting">ČEKÁ</span></button>
-    <button class="tab" data-section="6">📦 Feedy <span class="tab-status live">LIVE</span></button>
-    <button class="tab" data-section="7">🔧 Produkty <span class="tab-status live">LIVE</span></button>
-    <button class="tab" data-section="8">📂 Kategorie <span class="tab-status live">LIVE</span></button>
-    <button class="tab" data-section="9">📍 Pobočky <span class="tab-status waiting">ČEKÁ</span></button>
-    <button class="tab" data-section="10">🗺️ Kraje <span class="tab-status live">LIVE</span></button>
-    <button class="tab" data-section="11">🚚 Doprava <span class="tab-status live">LIVE</span></button>
-    <button class="tab" data-section="12">⚠️ Reklamace <span class="tab-status live">LIVE</span></button>
-    <button class="tab" data-section="13">🔄 Vratky <span class="tab-status live">LIVE</span></button>
-    <button class="tab" data-section="14">📊 Holistic <span class="tab-status live">LIVE</span></button>
-    <button class="tab" data-section="15">🏪 GBP <span class="tab-status api">QUOTA</span></button>
-    <button class="tab" data-section="16">🏢 Firmy.cz <span class="tab-status waiting">ČEKÁ</span></button>
-    <button class="tab" data-section="17">🛍️ MC <span class="tab-status live">LIVE</span></button>
-    <button class="tab" data-section="18">🛡️ CF <span class="tab-status live">LIVE</span></button>
-  </nav>
+  <!-- NAVIGACE: skupiny → pod-taby (generováno v JS) -->
+  <nav class="group-bar" id="groupBar"></nav>
+  <nav class="subtabs-bar" id="subTabsBar"></nav>
 
   <!-- MAIN CONTENT -->
   <main class="main" id="main">
@@ -454,6 +519,8 @@
 
 const STATE = {
   section: 0,
+  group: 0,          // index aktivní skupiny (GROUPS)
+  year: 'all',       // all | 2023 | 2024 | 2025 | 2026 (roční filtr pro ERP sekce)
   dateFrom: null,
   dateTo: null,
   comparePreset: 'previous',
@@ -486,7 +553,80 @@ const SECTIONS = {
   16: { title: 'Firmy.cz', subtitle: 'Import feed (auto-sync) + manuální stats CSV — jen CZ (Seznam je český)', status: 'waiting', wait_for: 'Master tabulka 17 prodejen → data/raw/pobocky_master.csv', domains_only: ['klicovecentrum.cz', 'hbgroup.cz'] },
   17: { title: 'Google Merchant Center', subtitle: 'Shopping deep-dive — jen klicovecentrum.cz (Merchant 130672692, 2228 produktů, 99.24% approval). klucovecentrum.sk čeká na MC setup.', status: 'live', data_url: '../data/marketing/mc.json', domains_only: ['klicovecentrum.cz', 'klucovecentrum.sk'] },
   18: { title: 'Cloudflare ochrana', subtitle: '4 domény za Cloudflare Free + replikované rules + acceptance test 28/28 ✅', status: 'live' },
+  19: { title: 'Mapa ČR', subtitle: 'Interaktivní mapa — pobočky + kraje (Leaflet + OpenStreetMap)', status: 'live' },
 };
+
+// ═══════════════════════════════════════════════════════════════
+// NAVIGACE — 6 skupin → pod-taby
+// ═══════════════════════════════════════════════════════════════
+
+const GROUPS = [
+  { label: 'Přehled',    icon: '🎯', sections: [0, 14] },
+  { label: 'Akvizice',   icon: '📢', sections: [1, 2, 5, 6] },
+  { label: 'Prodej',     icon: '🛒', sections: [3, 4, 7, 8] },
+  { label: 'Geografie',  icon: '🗺️', sections: [19, 9, 10] },
+  { label: 'Logistika',  icon: '🚚', sections: [11, 12, 13] },
+  { label: 'Systémy',    icon: '🛡️', sections: [15, 16, 17, 18] },
+];
+
+// Krátké popisky pro pod-taby (kratší než SECTIONS.title kde je potřeba)
+const SUBTAB_LABELS = {
+  0: '🎯 Executive', 14: '📊 Holistic',
+  1: '📢 Kampaně', 2: '🔍 SEO', 5: '⚖️ Srovnávače', 6: '📦 Feedy',
+  3: '🛒 B2C', 4: '🏢 B2B', 7: '🔧 Produkty', 8: '📂 Kategorie',
+  19: '🗺️ Mapa ČR', 9: '📍 Pobočky', 10: '🌍 Kraje',
+  11: '🚚 Doprava', 12: '⚠️ Reklamace', 13: '🔄 Vratky',
+  15: '🏪 GBP', 16: '🏢 Firmy.cz', 17: '🛍️ MC', 18: '🛡️ CF',
+};
+
+// ERP/roční sekce — honorují roční přepínač (mají by_year data)
+const YEAR_AWARE_SECTIONS = new Set([7, 8, 9, 10, 19]);
+
+function statusBadge(status) {
+  if (status === 'waiting') return '<span class="tab-status waiting">ČEKÁ</span>';
+  if (status === 'api') return '<span class="tab-status api">QUOTA</span>';
+  return '<span class="tab-status live">LIVE</span>';
+}
+
+function groupForSection(idx) {
+  for (let g = 0; g < GROUPS.length; g++) {
+    if (GROUPS[g].sections.includes(idx)) return g;
+  }
+  return 0;
+}
+
+function renderGroupBar() {
+  const bar = document.getElementById('groupBar');
+  bar.innerHTML = GROUPS.map((g, gi) =>
+    `<button class="group-btn${gi === STATE.group ? ' active' : ''}" data-group="${gi}">${g.icon} ${g.label} <span class="grp-count">${g.sections.length}</span></button>`
+  ).join('');
+  bar.querySelectorAll('.group-btn').forEach(btn => {
+    btn.addEventListener('click', () => selectGroup(parseInt(btn.dataset.group)));
+  });
+}
+
+function renderSubTabs(gi) {
+  const bar = document.getElementById('subTabsBar');
+  const secs = GROUPS[gi].sections;
+  bar.innerHTML = secs.map(idx => {
+    const meta = SECTIONS[idx] || {};
+    const label = SUBTAB_LABELS[idx] || meta.title || ('#' + idx);
+    return `<button class="subtab${idx === STATE.section ? ' active' : ''}" data-section="${idx}">${label} ${statusBadge(meta.status)}</button>`;
+  }).join('');
+  bar.querySelectorAll('.subtab').forEach(btn => {
+    btn.addEventListener('click', () => renderSection(parseInt(btn.dataset.section)));
+  });
+}
+
+function selectGroup(gi) {
+  STATE.group = gi;
+  renderGroupBar();
+  renderSubTabs(gi);
+  // otevřít první sekci skupiny, pokud aktuální sekce do skupiny nepatří
+  if (!GROUPS[gi].sections.includes(STATE.section)) {
+    renderSection(GROUPS[gi].sections[0]);
+  }
+}
 
 // ═══════════════════════════════════════════════════════════════
 // DATE PICKER
@@ -553,11 +693,12 @@ function saveStateToURL() {
   if (STATE.market !== 'all') params.set('market', STATE.market);
   if (STATE.type !== 'all') params.set('type', STATE.type);
   if (STATE.domain !== 'all') params.set('domain', STATE.domain);
+  if (STATE.year !== 'all') params.set('year', STATE.year);
   history.replaceState(null, '', '?' + params.toString());
   localStorage.setItem('mkt-state', JSON.stringify({
     section: STATE.section, from: STATE.dateFrom, to: STATE.dateTo,
     compare: STATE.comparePreset, preset: STATE.preset,
-    market: STATE.market, type: STATE.type, domain: STATE.domain,
+    market: STATE.market, type: STATE.type, domain: STATE.domain, year: STATE.year,
   }));
 }
 
@@ -572,6 +713,9 @@ function loadStateFromURL() {
   STATE.market = params.get('market') ?? stored.market ?? 'all';
   STATE.type = params.get('type') ?? stored.type ?? 'all';
   STATE.domain = params.get('domain') ?? stored.domain ?? 'all';
+  STATE.year = params.get('year') ?? stored.year ?? 'all';
+  const yfEl = document.getElementById('yearFilter');
+  if (yfEl) yfEl.value = STATE.year;
   if (!STATE.dateFrom || !STATE.dateTo) {
     applyPreset(STATE.preset);
   } else {
@@ -648,7 +792,12 @@ function isFilterCompatible(meta) {
 
 async function renderSection(idx) {
   STATE.section = idx;
-  document.querySelectorAll('.tab').forEach(b => b.classList.toggle('active', parseInt(b.dataset.section) === idx));
+  STATE.group = groupForSection(idx);
+  renderGroupBar();
+  renderSubTabs(STATE.group);
+  // Roční přepínač zobrazit jen pro ERP/roční sekce
+  const yfw = document.getElementById('yearFilterWrap');
+  if (yfw) yfw.style.display = YEAR_AWARE_SECTIONS.has(idx) ? 'flex' : 'none';
   saveStateToURL();
 
   const meta = SECTIONS[idx];
@@ -711,6 +860,8 @@ async function renderSection(idx) {
       setTimeout(() => renderMC(meta), 50);
     } else if (idx === 18) {
       setTimeout(() => renderCloudflare(meta), 50);
+    } else if (idx === 19) {
+      setTimeout(() => renderMapaCR(meta), 50);
     } else {
       setTimeout(() => renderLivePlaceholder(idx, meta), 50);
     }
@@ -1173,6 +1324,34 @@ function aggregateMonthlyByRange(monthlyRows, fromIso, toIso) {
 function dateRangeBadge() {
   const days = (new Date(STATE.dateTo) - new Date(STATE.dateFrom)) / 86400000 + 1;
   return `<span style="background: var(--accent); color: white; padding: 2px 8px; border-radius: 6px; font-size: 11px; margin-left: 8px;">📅 ${STATE.dateFrom} → ${STATE.dateTo} (${Math.round(days)}d)</span>`;
+}
+
+// ── Roční filtr (ERP sekce) ──
+const ALL_YEARS = ['2023', '2024', '2025', '2026'];
+
+function yearsForFilter() {
+  return STATE.year === 'all' ? ALL_YEARS.slice() : [STATE.year];
+}
+
+// Sečte by_year objekt {rok:{k:v}} přes vybrané roky; vrátí {k: suma}
+function sumByYear(byYear, keys) {
+  const out = {};
+  for (const k of keys) out[k] = 0;
+  if (!byYear) return out;
+  for (const y of yearsForFilter()) {
+    const d = byYear[y];
+    if (!d) continue;
+    for (const k of keys) out[k] += (d[k] || 0);
+  }
+  return out;
+}
+
+function yearLabel() {
+  return STATE.year === 'all' ? '3 roky (2023–2026)' : STATE.year + (STATE.year === '2026' ? ' (částečně)' : '');
+}
+
+function yearChip() {
+  return `<span style="background: rgba(78,161,255,0.15); color: var(--accent); padding: 2px 8px; border-radius: 6px; font-size: 11px; margin-left: 8px;">📅 ${yearLabel()}</span>`;
 }
 
 async function renderExecutive(meta) {
@@ -1702,6 +1881,31 @@ function renderGenericData(d, idx) {
 }
 
 function renderProducts(d) {
+  // Roční pohled = čistě ERP (Hodnocení zboží), per-rok
+  if (STATE.year !== 'all' && d.top_by_year && d.top_by_year[STATE.year]) {
+    const rows = d.top_by_year[STATE.year];
+    const e = (d.erp_by_year || {})[STATE.year] || {};
+    const eMargin = e.revenue ? Math.round(e.profit / e.revenue * 1000) / 10 : 0;
+    return `
+      <div class="card" style="background:rgba(78,161,255,0.06);border-color:var(--accent);margin-bottom:12px;">
+        <div style="font-size:12px;color:var(--accent);">📅 Roční pohled <strong>${yearLabel()}</strong> = čistě ERP eshop (Hodnocení zboží). ${d.by_year_note || ''}</div>
+      </div>
+      <div class="hero-grid">
+        <div class="kpi-card"><div class="kpi-label">ERP obrat ${STATE.year}</div><div class="kpi-value">${fmtKc(e.revenue)}</div></div>
+        <div class="kpi-card"><div class="kpi-label">ERP zisk ${STATE.year}</div><div class="kpi-value">${fmtKc(e.profit)}</div><div class="kpi-delta neutral">marže ${fmtPct(eMargin)}</div></div>
+        <div class="kpi-card"><div class="kpi-label">Aktivní SKU ${STATE.year}</div><div class="kpi-value">${fmtNum(e.skus)}</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">🔧 Top 50 produktů ${STATE.year} (ERP obrat)</div>
+        <table>
+          <thead><tr><th>#</th><th>SKU</th><th>Název</th><th>Kategorie</th><th class="num">Množ.</th><th class="num">Obrat</th><th class="num">Marže</th></tr></thead>
+          <tbody>
+            ${rows.map((p, i) => `<tr><td class="num">${i+1}</td><td><small style="font-family:monospace">${p.sku}</small></td><td>${(p.name || '').slice(0, 46)}</td><td><small style="color:var(--text-muted)">${p.category || ''}</small></td><td class="num">${fmtNum(p.qty)}</td><td class="num">${fmtKc(p.revenue)}</td><td class="num">${fmtPct(p.margin_pct)}</td></tr>`).join('')}
+          </tbody>
+        </table>
+      </div>`;
+  }
+  // 'Vše' → multi-channel pohled (7M okno, beze změny)
   return `
     <div class="hero-grid">
       <div class="kpi-card"><div class="kpi-label">Total unique SKUs</div><div class="kpi-value">${fmtNum(d.total_unique_skus)}</div></div>
@@ -1709,7 +1913,7 @@ function renderProducts(d) {
       <div class="kpi-card"><div class="kpi-label">Top 50 zobrazeno</div><div class="kpi-value">50</div><div class="kpi-delta neutral">z ${fmtNum(d.total_unique_skus)}</div></div>
     </div>
     <div class="card">
-      <div class="card-title">🔧 Top 50 SKU (revenue)</div>
+      <div class="card-title">🔧 Top 50 SKU (revenue, všechny kanály 7M) <span style="font-weight:400;color:var(--text-muted);font-size:12px">— pro per-rok ERP vyber rok ▸</span></div>
       <table>
         <thead><tr><th>#</th><th>SKU</th><th>Název</th><th class="num">Obj.</th><th class="num">Revenue</th><th class="num">Margin</th></tr></thead>
         <tbody>
@@ -1722,9 +1926,25 @@ function renderProducts(d) {
 }
 
 function renderCategories(d) {
+  if (STATE.year !== 'all' && d.by_year && d.by_year[STATE.year]) {
+    const rows = d.by_year[STATE.year];
+    return `
+      <div class="card" style="background:rgba(78,161,255,0.06);border-color:var(--accent);margin-bottom:12px;">
+        <div style="font-size:12px;color:var(--accent);">📅 Roční pohled <strong>${yearLabel()}</strong> = ERP eshop (Hodnocení zboží, keyword kategorizace).</div>
+      </div>
+      <div class="card">
+        <div class="card-title">📂 Kategorie ${STATE.year} (ERP obrat)</div>
+        <table>
+          <thead><tr><th>#</th><th>Kategorie</th><th class="num">SKUs</th><th class="num">Množ.</th><th class="num">Obrat</th><th class="num">Zisk</th><th class="num">Marže</th></tr></thead>
+          <tbody>
+            ${rows.map((c, i) => `<tr><td class="num">${i+1}</td><td><strong>${c.name}</strong></td><td class="num">${fmtNum(c.skus)}</td><td class="num">${fmtNum(c.qty)}</td><td class="num">${fmtKc(c.revenue)}</td><td class="num">${fmtKc(c.profit)}</td><td class="num">${fmtPct(c.margin_pct)}</td></tr>`).join('')}
+          </tbody>
+        </table>
+      </div>`;
+  }
   return `
     <div class="card">
-      <div class="card-title">📂 Kategorie produktů (sorted by revenue)</div>
+      <div class="card-title">📂 Kategorie produktů (sorted by revenue, všechny kanály) <span style="font-weight:400;color:var(--text-muted);font-size:12px">— pro per-rok ERP vyber rok ▸</span></div>
       <table>
         <thead><tr><th>#</th><th>Kategorie</th><th class="num">SKUs</th><th class="num">Revenue</th><th class="num">Profit</th><th class="num">Margin</th></tr></thead>
         <tbody>
@@ -1737,15 +1957,38 @@ function renderCategories(d) {
 }
 
 function renderPobocky(d) {
-  const pobocky = d.pobocky || [];
+  const pobockyRaw = d.pobocky || [];
   const reklamacni = d.reklamacni_sklady || [];
   const unknown = d.unknown_codes || [];
-  const brands = d.brand_aggregate || [];
-  const regiony = d.regiony_aggregate || [];
-  const maxObrat = Math.max(...pobocky.map(p => p.total_obrat), 1);
+  const yall = STATE.year === 'all';
+
+  // Year-adjusted hodnoty per pobočka
+  const pv = p => {
+    if (yall) return { obrat: p.total_obrat || 0, zisk: p.total_zisk || 0, margin: p.margin_pct || 0 };
+    const y = (p.by_year && p.by_year[STATE.year]) || {};
+    return { obrat: y.obrat || 0, zisk: y.zisk || 0, margin: y.margin_pct || 0 };
+  };
+  const pobocky = pobockyRaw.map(p => Object.assign({}, p, { _v: pv(p) })).sort((a, b) => b._v.obrat - a._v.obrat);
+  const maxObrat = Math.max(1, ...pobocky.map(p => p._v.obrat));
+  const obratLabel = yall ? '3-letý obrat' : 'obrat ' + STATE.year;
 
   // Brand color
   const brandColor = b => b === 'B2B' ? '#a78bfa' : (b === 'B2C' ? '#4ade80' : '#8b93a7');
+
+  // Brand agregace (year-adjusted)
+  const bagg = {};
+  for (const p of pobocky) { const b = p.brand; (bagg[b] = bagg[b] || { obrat: 0, zisk: 0, pobocky: 0 }); bagg[b].obrat += p._v.obrat; bagg[b].zisk += p._v.zisk; bagg[b].pobocky++; }
+  const brands = Object.keys(bagg).map(b => ({ brand: b, obrat: bagg[b].obrat, zisk: bagg[b].zisk, pobocky: bagg[b].pobocky, margin_pct: bagg[b].obrat ? Math.round(bagg[b].zisk / bagg[b].obrat * 1000) / 10 : 0 })).sort((a, b) => b.obrat - a.obrat);
+  const b2b = brands.find(b => b.brand === 'B2B') || {};
+  const b2c = brands.find(b => b.brand === 'B2C') || {};
+
+  // Region agregace (year-adjusted)
+  const ragg = {};
+  for (const p of pobocky) { const r = p.region; if (!r) continue; (ragg[r] = ragg[r] || { obrat: 0, pobocky: 0, nazev: p.region_nazev }); ragg[r].obrat += p._v.obrat; ragg[r].pobocky++; }
+  const regiony = Object.keys(ragg).map(r => ({ region: r, nazev: ragg[r].nazev, obrat: ragg[r].obrat, pobocky: ragg[r].pobocky })).sort((a, b) => b.obrat - a.obrat);
+
+  // zvýraznění aktivního roku ve sloupci tabulky
+  const yh = y => (!yall && STATE.year === y) ? ' style="background:rgba(78,161,255,0.12);font-weight:700"' : '';
 
   // SVG mapa ČR — lat/lng → x/y projekce
   const LAT_MIN = 48.5, LAT_MAX = 51.1, LNG_MIN = 12.0, LNG_MAX = 18.9;
@@ -1760,34 +2003,32 @@ function renderPobocky(d) {
   for (const p of pobocky) {
     if (p.lat == null || p.lng == null) continue;
     const [x, y] = proj(p.lat, p.lng);
-    const r = 6 + Math.sqrt(p.total_obrat / maxObrat) * 26;
+    const r = 6 + Math.sqrt(Math.max(p._v.obrat, 0) / maxObrat) * 26;
     markers += `
       <circle cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="${r.toFixed(0)}"
               fill="${brandColor(p.brand)}" fill-opacity="0.6" stroke="#fff" stroke-width="1.5">
-        <title>${p.nazev} (${p.mesto}) [${p.brand}/${p.region}]: ${p.total_obrat.toLocaleString('cs-CZ')} Kč, marže ${p.margin_pct}%</title>
+        <title>${p.nazev} (${p.mesto}) [${p.brand}/${p.region}]: ${fmtKc(p._v.obrat)}, marže ${p._v.margin}%</title>
       </circle>
       <text x="${x.toFixed(0)}" y="${(y - r - 3).toFixed(0)}" text-anchor="middle" fill="#e6e9f0" font-size="9">${p.mesto}</text>`;
   }
 
-  const b2b = brands.find(b => b.brand === 'B2B') || {};
-  const b2c = brands.find(b => b.brand === 'B2C') || {};
-
   return `
     <div class="card" style="background: rgba(74,222,128,0.06); border-color: var(--green); margin-bottom:16px;">
       <div style="font-size:13px; color:var(--green);">
-        ✅ <strong>Pobočky napojeny přes oficiální Cézar mapping</strong> (Podsklady.csv + provozovny). ${d.note}
+        ✅ <strong>Pobočky napojeny přes oficiální Cézar mapping</strong> (Podsklady.csv + provozovny).${yall ? '' : ' ' + yearChip()} ${d.note}
       </div>
+      <div style="font-size:12px;color:var(--text-muted);margin-top:6px;">🗺️ Interaktivní mapa s vrstvami (zoom, OSM dlaždice) je v sekci <strong>Geografie → Mapa ČR</strong>.</div>
     </div>
 
     <div class="hero-grid">
       <div class="kpi-card"><div class="kpi-label">Aktivní pobočky</div><div class="kpi-value">${d.pobocky_count_active}</div><div class="kpi-delta neutral">${pobocky.filter(p=>p.brand==='B2B').length} B2B + ${pobocky.filter(p=>p.brand==='B2C').length} B2C</div></div>
-      <div class="kpi-card"><div class="kpi-label">Top pobočka (3y)</div><div class="kpi-value" style="font-size:16px">${pobocky[0]?.nazev || '—'}</div><div class="kpi-delta positive">${fmtKc(pobocky[0]?.total_obrat)}</div></div>
-      <div class="kpi-card"><div class="kpi-label">B2B obrat (3y)</div><div class="kpi-value" style="color:#a78bfa">${fmtKc(b2b.obrat)}</div><div class="kpi-delta neutral">${b2b.pobocky||0} poboček, marže ${fmtPct(b2b.margin_pct)}</div></div>
-      <div class="kpi-card"><div class="kpi-label">B2C obrat (3y)</div><div class="kpi-value" style="color:#4ade80">${fmtKc(b2c.obrat)}</div><div class="kpi-delta neutral">${b2c.pobocky||0} poboček, marže ${fmtPct(b2c.margin_pct)}</div></div>
+      <div class="kpi-card"><div class="kpi-label">Top pobočka (${yearLabel()})</div><div class="kpi-value" style="font-size:16px">${pobocky[0]?.nazev || '—'}</div><div class="kpi-delta positive">${fmtKc(pobocky[0]?._v.obrat)}</div></div>
+      <div class="kpi-card"><div class="kpi-label">B2B obrat (${yall?'3y':STATE.year})</div><div class="kpi-value" style="color:#a78bfa">${fmtKc(b2b.obrat)}</div><div class="kpi-delta neutral">${b2b.pobocky||0} poboček, marže ${fmtPct(b2b.margin_pct)}</div></div>
+      <div class="kpi-card"><div class="kpi-label">B2C obrat (${yall?'3y':STATE.year})</div><div class="kpi-value" style="color:#4ade80">${fmtKc(b2c.obrat)}</div><div class="kpi-delta neutral">${b2c.pobocky||0} poboček, marže ${fmtPct(b2c.margin_pct)}</div></div>
     </div>
 
     <div class="card">
-      <div class="card-title">🗺️ Mapa poboček ČR (velikost = 3-letý obrat, barva = brand)</div>
+      <div class="card-title">🗺️ Mapa poboček ČR (velikost = ${obratLabel}, barva = brand)</div>
       <div style="overflow-x:auto; background:#0d1320; border-radius:8px;">
         <svg viewBox="0 0 ${mapW} ${mapH}" style="width:100%; max-width:${mapW}px; height:auto;">
           <rect width="${mapW}" height="${mapH}" fill="#0d1320"/>
@@ -1801,9 +2042,9 @@ function renderPobocky(d) {
     </div>
 
     <div class="card" style="margin-top:16px;">
-      <div class="card-title">🏪 Pobočky — 3-letý obrat (2023-2026)</div>
+      <div class="card-title">🏪 Pobočky — obrat per rok (řazeno dle ${obratLabel})</div>
       <table>
-        <thead><tr><th>#</th><th>Pobočka</th><th>Brand</th><th>Region</th><th class="num">2023</th><th class="num">2024</th><th class="num">2025</th><th class="num">2026*</th><th class="num">Marže</th></tr></thead>
+        <thead><tr><th>#</th><th>Pobočka</th><th>Brand</th><th>Region</th><th class="num"${yh('2023')}>2023</th><th class="num"${yh('2024')}>2024</th><th class="num"${yh('2025')}>2025</th><th class="num"${yh('2026')}>2026*</th><th class="num">Marže</th></tr></thead>
         <tbody>
           ${pobocky.map((p, i) => `
             <tr>
@@ -1811,32 +2052,32 @@ function renderPobocky(d) {
               <td><strong>${p.nazev}</strong><br><small style="color:var(--text-muted)">${p.mesto} (.${p.kod})</small></td>
               <td><span style="color:${brandColor(p.brand)};font-weight:600">${p.brand}</span></td>
               <td><small>${p.region_nazev || '—'}</small></td>
-              <td class="num">${p.by_year['2023'] ? fmtKc(p.by_year['2023'].obrat) : '—'}</td>
-              <td class="num">${p.by_year['2024'] ? fmtKc(p.by_year['2024'].obrat) : '—'}</td>
-              <td class="num">${p.by_year['2025'] ? fmtKc(p.by_year['2025'].obrat) : '—'}</td>
-              <td class="num">${p.by_year['2026'] ? fmtKc(p.by_year['2026'].obrat) : '—'}</td>
-              <td class="num">${fmtPct(p.margin_pct)}</td>
+              <td class="num"${yh('2023')}>${p.by_year['2023'] ? fmtKc(p.by_year['2023'].obrat) : '—'}</td>
+              <td class="num"${yh('2024')}>${p.by_year['2024'] ? fmtKc(p.by_year['2024'].obrat) : '—'}</td>
+              <td class="num"${yh('2025')}>${p.by_year['2025'] ? fmtKc(p.by_year['2025'].obrat) : '—'}</td>
+              <td class="num"${yh('2026')}>${p.by_year['2026'] ? fmtKc(p.by_year['2026'].obrat) : '—'}</td>
+              <td class="num">${fmtPct(p._v.margin)}</td>
             </tr>
           `).join('')}
         </tbody>
       </table>
-      <p style="font-size:11px;color:var(--text-muted);margin-top:6px;">*2026 = partial (cca Q1)</p>
+      <p style="font-size:11px;color:var(--text-muted);margin-top:6px;">*2026 = partial (cca Q1). Marže = ${yearLabel()}.</p>
     </div>
 
     <div class="section-grid" style="margin-top:16px;">
       <div class="card">
-        <div class="card-title">🗺️ Regiony H&B (3-letý obrat)</div>
+        <div class="card-title">🗺️ Regiony H&B (${obratLabel})</div>
         <table>
-          <thead><tr><th>Region</th><th class="num">Pobočky</th><th class="num">Obrat 3y</th></tr></thead>
+          <thead><tr><th>Region</th><th class="num">Pobočky</th><th class="num">Obrat</th></tr></thead>
           <tbody>
             ${regiony.map(r => `<tr><td><strong>${r.nazev}</strong> <small style="color:var(--text-muted)">(${r.region})</small></td><td class="num">${r.pobocky}</td><td class="num">${fmtKc(r.obrat)}</td></tr>`).join('')}
           </tbody>
         </table>
       </div>
       <div class="card">
-        <div class="card-title">🏷️ Brand split</div>
+        <div class="card-title">🏷️ Brand split (${obratLabel})</div>
         <table>
-          <thead><tr><th>Brand</th><th class="num">Pobočky</th><th class="num">Obrat 3y</th><th class="num">Marže</th></tr></thead>
+          <thead><tr><th>Brand</th><th class="num">Pobočky</th><th class="num">Obrat</th><th class="num">Marže</th></tr></thead>
           <tbody>
             ${brands.map(b => `<tr><td><span style="color:${brandColor(b.brand)};font-weight:600">${b.brand}</span></td><td class="num">${b.pobocky}</td><td class="num">${fmtKc(b.obrat)}</td><td class="num">${fmtPct(b.margin_pct)}</td></tr>`).join('')}
           </tbody>
@@ -1904,14 +2145,20 @@ function heatColor(value, max) {
 }
 
 function renderRegions(d) {
-  const combined = d.cz_combined_for_map || [];
-  const b2c = d.cz_b2c_by_kraj || [];
-  const b2b = d.cz_b2b_by_kraj || [];
-  const sk = d.sk_by_kraj || [];
+  const yall = STATE.year === 'all';
+  const kval = k => yall ? (k.total || 0) : ((k.by_year && k.by_year[STATE.year]) || 0);
+  const adj = arr => (arr || []).map(k => ({ kraj: k.kraj, total: kval(k) })).sort((a, b) => b.total - a.total);
+  const b2c = adj(d.cz_b2c_by_kraj);
+  const b2b = adj(d.cz_b2b_by_kraj);
+  const sk = adj(d.sk_by_kraj).filter(k => k.total > 0);
+  // CZ combined (year-adjusted) = B2C + B2B per kraj
+  const cmap = {};
+  b2c.concat(b2b).forEach(k => { cmap[k.kraj] = (cmap[k.kraj] || 0) + k.total; });
+  const combined = Object.keys(cmap).map(kr => ({ kraj: kr, total: cmap[kr] })).filter(k => k.total > 0).sort((a, b) => b.total - a.total);
   const krajMap = {};
-  combined.forEach(k => { krajMap[k.kraj] = k.total; });
-  const maxVal = Math.max(...combined.map(k => k.total), 1);
-  const totalGeo = d.total_orders_geo || combined.reduce((s,k)=>s+k.total,0);
+  combined.forEach(k => { krajMap[normalizeKraj(k.kraj)] = k.total; });
+  const maxVal = Math.max(1, ...combined.map(k => k.total));
+  const totalGeo = combined.reduce((s, k) => s + k.total, 0);
 
   // SVG cartogram — 6 cols × 3 rows grid
   const cellW = 130, cellH = 80, gap = 8;
@@ -1919,7 +2166,7 @@ function renderRegions(d) {
   const svgH = 3 * (cellH + gap) + gap;
   let cells = '';
   for (const [kraj, pos] of Object.entries(CR_KRAJE_GRID)) {
-    const val = krajMap[kraj] || 0;
+    const val = krajMap[normalizeKraj(kraj)] || 0;
     const x = gap + pos.col * (cellW + gap);
     const y = gap + pos.row * (cellH + gap);
     const color = heatColor(val, maxVal);
@@ -1939,19 +2186,20 @@ function renderRegions(d) {
   return `
     <div class="card" style="background: rgba(251,146,60,0.08); border-color: var(--orange); margin-bottom: 16px;">
       <div style="font-size: 13px; color: var(--orange);">
-        ⚠️ <strong>Geo data jen z eshopu</strong> (SQL kosik PSČ → kraj). ${d.note}
+        ⚠️ <strong>Geo data jen z eshopu</strong> (SQL kosik PSČ → kraj).${yall ? '' : ' ' + yearChip()} ${d.note}
       </div>
+      <div style="font-size:12px;color:var(--text-muted);margin-top:6px;">🗺️ Interaktivní mapa (zoom, OSM, vrstvy) je v sekci <strong>Geografie → Mapa ČR</strong>.</div>
     </div>
 
     <div class="hero-grid">
-      <div class="kpi-card"><div class="kpi-label">Objednávky s geo</div><div class="kpi-value">${fmtNum(totalGeo)}</div><div class="kpi-delta neutral">eshop 2023+</div></div>
+      <div class="kpi-card"><div class="kpi-label">Objednávky s geo</div><div class="kpi-value">${fmtNum(totalGeo)}</div><div class="kpi-delta neutral">eshop ${yearLabel()}</div></div>
       <div class="kpi-card"><div class="kpi-label">Top kraj</div><div class="kpi-value" style="font-size:18px">${combined[0]?.kraj || '—'}</div><div class="kpi-delta positive">${fmtNum(combined[0]?.total)} obj</div></div>
       <div class="kpi-card"><div class="kpi-label">CZ krajů</div><div class="kpi-value">${combined.length}/14</div></div>
       <div class="kpi-card"><div class="kpi-label">SK regionů</div><div class="kpi-value">${sk.length}</div><div class="kpi-delta neutral">${fmtNum(sk.reduce((s,k)=>s+k.total,0))} obj</div></div>
     </div>
 
     <div class="card">
-      <div class="card-title">🗺️ Mapa ČR — objednávky podle krajů (eshop B2C+B2B, choropleth)</div>
+      <div class="card-title">🗺️ Mapa ČR — objednávky podle krajů (eshop B2C+B2B, choropleth · ${yearLabel()})</div>
       <div style="overflow-x:auto;">
         <svg viewBox="0 0 ${svgW} ${svgH}" style="width:100%; max-width:${svgW}px; height:auto;">
           ${cells}
@@ -2000,6 +2248,122 @@ function renderRegions(d) {
     <p style="color:var(--text-muted); font-size:12px; margin-top:16px;">
       <strong>Source:</strong> ${d.source}
     </p>`;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// MAPA ČR (sekce 19) — Leaflet + OpenStreetMap
+// ═══════════════════════════════════════════════════════════════
+
+let mapaInstance = null;   // Leaflet instance (lifecycle)
+let mapaData = null;       // cache {pobocky, regions, geo}
+
+function normalizeKraj(n) {
+  if (!n) return n;
+  n = String(n).replace(/\s*kraj$/i, '').trim();
+  if (/praha/i.test(n)) return 'Praha';
+  if (/vyso/i.test(n)) return 'Vysočina';
+  return n;
+}
+
+async function renderMapaCR(meta) {
+  const main = document.getElementById('main');
+  try {
+    if (!mapaData) {
+      const [pobR, regR, geoR] = await Promise.all([
+        fetch('../data/marketing/pobocky.json?v=' + Date.now()).then(r => r.json()),
+        fetch('../data/marketing/regions_map.json?v=' + Date.now()).then(r => r.json()),
+        fetch('../data/marketing/cz_kraje.geojson?v=' + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null),
+      ]);
+      mapaData = { pobocky: pobR, regions: regR, geo: geoR };
+    }
+    drawMapaCR(meta);
+  } catch (e) {
+    main.innerHTML = `<div class="section-title">${meta.title}</div><div class="empty-state"><div class="empty-state-icon">⚠️</div><h3>Chyba načítání mapy</h3><p>${e.message}</p></div>`;
+  }
+}
+
+function drawMapaCR(meta) {
+  const main = document.getElementById('main');
+  const geo = mapaData.geo;
+  main.innerHTML = `
+    <div class="section-title">${meta.title}${yearChip()}</div>
+    <div class="section-subtitle">${meta.subtitle} · ${yearLabel()}</div>
+    <div class="card" style="margin-bottom:12px;">
+      <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:center; font-size:13px;">
+        <span><span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:#a78bfa;vertical-align:middle;"></span> B2B pobočka</span>
+        <span><span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:#4ade80;vertical-align:middle;"></span> B2C pobočka</span>
+        <span style="color:var(--text-muted)">Velikost bodu = obrat (${yearLabel()}). Choropleth = objednávky eshopu/kraj.</span>
+        <span style="margin-left:auto;color:var(--text-muted)">Vrstvy ▸ vpravo nahoře na mapě</span>
+      </div>
+    </div>
+    <div class="card" style="padding:0; overflow:hidden;">
+      <div id="mapaCR" style="height:560px; width:100%;"></div>
+    </div>
+    ${geo ? '' : '<div class="card" style="margin-top:12px;border-color:var(--orange);"><div style="font-size:12px;color:var(--orange);">⚠️ cz_kraje.geojson nenalezen — choropleth krajů skryt (jen body poboček). Spusť <code>python build_geojson.py</code>.</div></div>'}
+  `;
+  setTimeout(() => initLeaflet(), 50);
+}
+
+function initLeaflet() {
+  const el = document.getElementById('mapaCR');
+  if (!el || typeof L === 'undefined') return;
+  if (mapaInstance) { mapaInstance.remove(); mapaInstance = null; }
+
+  const map = L.map(el, { scrollWheelZoom: true }).setView([49.80, 15.50], 7);
+  mapaInstance = map;
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap', maxZoom: 18,
+  }).addTo(map);
+
+  const pobD = mapaData.pobocky, regD = mapaData.regions, geo = mapaData.geo;
+  const brandColor = b => b === 'B2B' ? '#a78bfa' : (b === 'B2C' ? '#4ade80' : '#8b93a7');
+
+  // ── Choropleth krajů (pod pobočkami) ──
+  const overlays = {};
+  if (geo && geo.features) {
+    const orders = {};
+    const addArr = arr => (arr || []).forEach(k => {
+      const kk = normalizeKraj(k.kraj);
+      const v = STATE.year === 'all' ? (k.total || 0) : ((k.by_year && k.by_year[STATE.year]) || 0);
+      orders[kk] = (orders[kk] || 0) + v;
+    });
+    addArr(regD.cz_b2c_by_kraj);
+    addArr(regD.cz_b2b_by_kraj);
+    const maxOrders = Math.max(1, ...Object.values(orders));
+    const krajLayer = L.geoJSON(geo, {
+      style: f => {
+        const v = orders[normalizeKraj(f.properties.kraj)] || 0;
+        return { fillColor: heatColor(v, maxOrders), weight: 1, color: '#3a4a6b', fillOpacity: 0.55 };
+      },
+      onEachFeature: (f, layer) => {
+        const v = orders[normalizeKraj(f.properties.kraj)] || 0;
+        layer.bindTooltip(`<strong>${f.properties.kraj}</strong>: ${fmtNum(v)} obj`, { sticky: true });
+      },
+    });
+    krajLayer.addTo(map);
+    overlays['🌍 Kraje (objednávky)'] = krajLayer;
+  }
+
+  // ── Body poboček (nad chropletem) ──
+  const pobocky = (pobD.pobocky || []).filter(p => p.lat != null && p.lng != null);
+  const obratFor = p => STATE.year === 'all' ? p.total_obrat : ((p.by_year && p.by_year[STATE.year] && p.by_year[STATE.year].obrat) || 0);
+  const maxObrat = Math.max(1, ...pobocky.map(obratFor));
+  const pobLayer = L.layerGroup();
+  for (const p of pobocky) {
+    const ob = obratFor(p);
+    const r = 6 + Math.sqrt(Math.max(ob, 0) / maxObrat) * 24;
+    const margin = STATE.year === 'all' ? p.margin_pct : ((p.by_year && p.by_year[STATE.year] && p.by_year[STATE.year].margin_pct) ?? p.margin_pct);
+    const marker = L.circleMarker([p.lat, p.lng], {
+      radius: r, color: '#fff', weight: 1.2, fillColor: brandColor(p.brand), fillOpacity: 0.7,
+    });
+    marker.bindPopup(`<strong>${p.nazev}</strong><br>${p.mesto} · <span style="color:${brandColor(p.brand)}">${p.brand}</span> · ${p.region_nazev || ''}<br>Obrat ${yearLabel()}: <strong>${fmtKc(ob)}</strong><br>Marže: ${fmtPct(margin)}`);
+    pobLayer.addLayer(marker);
+  }
+  pobLayer.addTo(map);
+  overlays['📍 Pobočky'] = pobLayer;
+
+  L.control.layers(null, overlays, { collapsed: false }).addTo(map);
+  setTimeout(() => map.invalidateSize(), 120);
 }
 
 function renderShipping(d) {
@@ -2693,8 +3057,11 @@ document.querySelectorAll('.date-preset').forEach(btn => {
   btn.addEventListener('click', () => applyPreset(btn.dataset.preset));
 });
 
-document.querySelectorAll('.tab').forEach(btn => {
-  btn.addEventListener('click', () => renderSection(parseInt(btn.dataset.section)));
+// Roční přepínač (ERP sekce — Produkty/Kategorie/Pobočky/Kraje/Mapa)
+document.getElementById('yearFilter').addEventListener('change', e => {
+  STATE.year = e.target.value;
+  saveStateToURL();
+  renderSection(STATE.section);
 });
 
 document.getElementById('dateFrom').addEventListener('change', e => {
@@ -2764,6 +3131,7 @@ document.addEventListener('keydown', e => {
 
 (async function init() {
   loadStateFromURL();
+  renderGroupBar();
   await loadMeta();
   renderSection(STATE.section);
 })();

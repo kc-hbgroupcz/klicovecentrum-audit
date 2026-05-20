@@ -47,7 +47,29 @@
       },
       "total_revenue": 79827.0,
       "total_qty": 103.0,
-      "primary_channel": "google_ads"
+      "primary_channel": "google_ads",
+      "by_year": {
+        "2023": {
+          "revenue": 65636,
+          "profit": 33808,
+          "qty": 458.0
+        },
+        "2024": {
+          "revenue": 47395,
+          "profit": 22433,
+          "qty": 357.0
+        },
+        "2025": {
+          "revenue": 121297,
+          "profit": 66384,
+          "qty": 761.0
+        },
+        "2026": {
+          "revenue": 13788,
+          "profit": 6435,
+          "qty": 102.0
+        }
+      }
     },
     {
       "sku": "061179",
@@ -92,7 +114,29 @@
       },
       "total_revenue": 74949.0,
       "total_qty": 75.0,
-      "primary_channel": "google_ads"
+      "primary_channel": "google_ads",
+      "by_year": {
+        "2023": {
+          "revenue": 57016,
+          "profit": 26546,
+          "qty": 300.0
+        },
+        "2024": {
+          "revenue": 39731,
+          "profit": 20554,
+          "qty": 193.0
+        },
+        "2025": {
+          "revenue": 49689,
+          "profit": 24304,
+          "qty": 250.0
+        },
+        "2026": {
+          "revenue": 14699,
+          "profit": 7152,
+          "qty": 74.0
+        }
+      }
     },
     {
       "sku": "141490",
@@ -137,7 +181,29 @@
       },
       "total_revenue": 72098.0,
       "total_qty": 77.0,
-      "primary_channel": "google_ads"
+      "primary_channel": "google_ads",
+      "by_year": {
+        "2023": {
+          "revenue": 28461,
+          "profit": 8577,
+          "qty": 223.0
+        },
+        "2024": {
+          "revenue": 12797,
+          "profit": 4513,
+          "qty": 88.0
+        },
+        "2025": {
+          "revenue": 26429,
+          "profit": 12538,
+          "qty": 147.0
+        },
+        "2026": {
+          "revenue": 6930,
+          "profit": 2953,
+          "qty": 42.0
+        }
+      }
     },
     {
       "sku": "806019",
@@ -182,7 +248,29 @@
       },
       "total_revenue": 59084.0,
       "total_qty": 24.0,
-      "primary_channel": "google_ads"
+      "primary_channel": "google_ads",
+      "by_year": {
+        "2023": {
+          "revenue": 19051,
+          "profit": 9153,
+          "qty": 40.0
+        },
+        "2024": {
+          "revenue": 39075,
+          "profit": 14904,
+          "qty": 98.0
+        },
+        "2025": {
+          "revenue": 66509,
+          "profit": 35451,
+          "qty": 130.0
+        },
+        "2026": {
+          "revenue": 19832,
+          "profit": 8761,
+          "qty": 42.0
+        }
+      }
     },
     {
       "sku": "220011",
@@ -227,7 +315,29 @@
       },
       "total_revenue": 54336.0,
       "total_qty": 1.0,
-      "primary_channel": "google_ads"
+      "primary_channel": "google_ads",
+      "by_year": {
+        "2023": {
+          "revenue": 109587,
+          "profit": 65142,
+          "qty": 11.0
+        },
+        "2024": {
+          "revenue": 175860,
+          "profit": 90902,
+          "qty": 19.0
+        },
+        "2025": {
+          "revenue": 256740,
+          "profit": 124627,
+          "qty": 29.0
+        },
+        "2026": {
+          "revenue": 48659,
+          "profit": 21660,
+          "qty": 6.0
+        }
+      }
     },
     {
       "sku": "900033",
@@ -272,7 +382,29 @@
       },
       "total_revenue": 51351.0,
       "total_qty": 745.0,
-      "primary_channel": "erp_eshop"
+      "primary_channel": "erp_eshop",
+      "by_year": {
+        "2023": {
+          "revenue": 112610,
+          "profit": 112610,
+          "qty": 2131.0
+        },
+        "2024": {
+          "revenue": 112653,
+          "profit": 112653,
+          "qty": 2268.0
+        },
+        "2025": {
+          "revenue": 150031,
+          "profit": 150031,
+          "qty": 2650.0
+        },
+        "2026": {
+          "revenue": 47325,
+          "profit": 47325,
+          "qty": 840.0
+        }
+      }
     },
     {
       "sku": "016116",
@@ -317,7 +449,29 @@
       },
       "total_revenue": 36581.0,
       "total_qty": 13.0,
-      "primary_channel": "google_ads"
+      "primary_channel": "google_ads",
+      "by_year": {
+        "2023": {
+          "revenue": 186306,
+          "profit": 46411,
+          "qty": 540.0
+        },
+        "2024": {
+          "revenue": 194392,
+          "profit": 47249,
+          "qty": 568.0
+        },
+        "2025": {
+          "revenue": 123364,
+          "profit": 36224,
+          "qty": 336.0
+        },
+        "2026": {
+          "revenue": 30627,
+          "profit": 10674,
+          "qty": 77.0
+        }
+      }
     },
     {
       "sku": "159005",
@@ -362,7 +516,29 @@
       },
       "total_revenue": 33021.0,
       "total_qty": 8.0,
-      "primary_channel": "google_ads"
+      "primary_channel": "google_ads",
+      "by_year": {
+        "2023": {
+          "revenue": 823851,
+          "profit": 282446,
+          "qty": 1720.0
+        },
+        "2024": {
+          "revenue": 1087686,
+          "profit": 319586,
+          "qty": 2259.0
+        },
+        "2025": {
+          "revenue": 1046256,
+          "profit": 327632,
+          "qty": 2039.0
+        },
+        "2026": {
+          "revenue": 130105,
+          "profit": 54221,
+          "qty": 215.0
+        }
+      }
     },
     {
       "sku": "370310",
@@ -407,7 +583,29 @@
       },
       "total_revenue": 29707.0,
       "total_qty": 18.0,
-      "primary_channel": "erp_eshop"
+      "primary_channel": "erp_eshop",
+      "by_year": {
+        "2023": {
+          "revenue": 20010,
+          "profit": 11087,
+          "qty": 11.0
+        },
+        "2024": {
+          "revenue": 14441,
+          "profit": 5518,
+          "qty": 11.0
+        },
+        "2025": {
+          "revenue": 92266,
+          "profit": 39539,
+          "qty": 65.0
+        },
+        "2026": {
+          "revenue": 5776,
+          "profit": 2531,
+          "qty": 4.0
+        }
+      }
     },
     {
       "sku": "161753",
@@ -452,7 +650,29 @@
       },
       "total_revenue": 25299.0,
       "total_qty": 2.0,
-      "primary_channel": "google_ads"
+      "primary_channel": "google_ads",
+      "by_year": {
+        "2023": {
+          "revenue": 6886,
+          "profit": 3088,
+          "qty": 4.0
+        },
+        "2024": {
+          "revenue": 11865,
+          "profit": 6076,
+          "qty": 6.0
+        },
+        "2025": {
+          "revenue": 14905,
+          "profit": 8289,
+          "qty": 7.0
+        },
+        "2026": {
+          "revenue": 1789,
+          "profit": 698,
+          "qty": 1.0
+        }
+      }
     },
     {
       "sku": "370351",
@@ -497,7 +717,29 @@
       },
       "total_revenue": 24998.0,
       "total_qty": 1.0,
-      "primary_channel": "erp_eshop"
+      "primary_channel": "erp_eshop",
+      "by_year": {
+        "2023": {
+          "revenue": 29996,
+          "profit": 10456,
+          "qty": 2.0
+        },
+        "2024": {
+          "revenue": 64635,
+          "profit": 25937,
+          "qty": 4.0
+        },
+        "2025": {
+          "revenue": 34928,
+          "profit": 15400,
+          "qty": 2.0
+        },
+        "2026": {
+          "revenue": 67492,
+          "profit": 38115,
+          "qty": 3.0
+        }
+      }
     },
     {
       "sku": "205905",
@@ -542,7 +784,24 @@
       },
       "total_revenue": 24369.0,
       "total_qty": 2.0,
-      "primary_channel": "alza"
+      "primary_channel": "alza",
+      "by_year": {
+        "2023": {
+          "revenue": 116832,
+          "profit": 55989,
+          "qty": 9.0
+        },
+        "2024": {
+          "revenue": 82852,
+          "profit": 26495,
+          "qty": 8.0
+        },
+        "2025": {
+          "revenue": 90256,
+          "profit": 33667,
+          "qty": 8.0
+        }
+      }
     },
     {
       "sku": "060216",
@@ -587,7 +846,29 @@
       },
       "total_revenue": 23521.0,
       "total_qty": 189.0,
-      "primary_channel": "alza"
+      "primary_channel": "alza",
+      "by_year": {
+        "2023": {
+          "revenue": 258488,
+          "profit": 149216,
+          "qty": 3261.0
+        },
+        "2024": {
+          "revenue": 207684,
+          "profit": 130806,
+          "qty": 2275.0
+        },
+        "2025": {
+          "revenue": 182489,
+          "profit": 111886,
+          "qty": 2055.0
+        },
+        "2026": {
+          "revenue": 83845,
+          "profit": 50606,
+          "qty": 973.0
+        }
+      }
     },
     {
       "sku": "220113",
@@ -632,7 +913,14 @@
       },
       "total_revenue": 23323.0,
       "total_qty": 1.0,
-      "primary_channel": "erp_eshop"
+      "primary_channel": "erp_eshop",
+      "by_year": {
+        "2025": {
+          "revenue": 23323,
+          "profit": 12018,
+          "qty": 1.0
+        }
+      }
     },
     {
       "sku": "383031",
@@ -677,7 +965,24 @@
       },
       "total_revenue": 22724.0,
       "total_qty": 2.0,
-      "primary_channel": "google_ads"
+      "primary_channel": "google_ads",
+      "by_year": {
+        "2024": {
+          "revenue": 12090,
+          "profit": 6166,
+          "qty": 5.0
+        },
+        "2025": {
+          "revenue": 5355,
+          "profit": 2939,
+          "qty": 2.0
+        },
+        "2026": {
+          "revenue": 2678,
+          "profit": 1469,
+          "qty": 1.0
+        }
+      }
     },
     {
       "sku": "383124",
@@ -722,7 +1027,24 @@
       },
       "total_revenue": 22664.0,
       "total_qty": 8.0,
-      "primary_channel": "erp_eshop"
+      "primary_channel": "erp_eshop",
+      "by_year": {
+        "2024": {
+          "revenue": 1925,
+          "profit": 798,
+          "qty": 1.0
+        },
+        "2025": {
+          "revenue": 43912,
+          "profit": 11193,
+          "qty": 29.0
+        },
+        "2026": {
+          "revenue": 22664,
+          "profit": 12860,
+          "qty": 8.0
+        }
+      }
     },
     {
       "sku": "196157",
@@ -767,7 +1089,29 @@
       },
       "total_revenue": 22192.0,
       "total_qty": 4.0,
-      "primary_channel": "google_ads"
+      "primary_channel": "google_ads",
+      "by_year": {
+        "2023": {
+          "revenue": 9507,
+          "profit": 3682,
+          "qty": 9.0
+        },
+        "2024": {
+          "revenue": 32256,
+          "profit": 10079,
+          "qty": 33.0
+        },
+        "2025": {
+          "revenue": 18301,
+          "profit": 5841,
+          "qty": 18.0
+        },
+        "2026": {
+          "revenue": 8134,
+          "profit": 2542,
+          "qty": 8.0
+        }
+      }
     },
     {
       "sku": "060207",
@@ -812,7 +1156,29 @@
       },
       "total_revenue": 17398.0,
       "total_qty": 192.0,
-      "primary_channel": "alza"
+      "primary_channel": "alza",
+      "by_year": {
+        "2023": {
+          "revenue": 218116,
+          "profit": 121132,
+          "qty": 4140.0
+        },
+        "2024": {
+          "revenue": 247670,
+          "profit": 149882,
+          "qty": 4175.0
+        },
+        "2025": {
+          "revenue": 236560,
+          "profit": 144713,
+          "qty": 4099.0
+        },
+        "2026": {
+          "revenue": 97469,
+          "profit": 57703,
+          "qty": 1807.0
+        }
+      }
     },
     {
       "sku": "370391",
@@ -857,7 +1223,29 @@
       },
       "total_revenue": 16193.0,
       "total_qty": 7.0,
-      "primary_channel": "erp_eshop"
+      "primary_channel": "erp_eshop",
+      "by_year": {
+        "2023": {
+          "revenue": 87300,
+          "profit": 33732,
+          "qty": 47.0
+        },
+        "2024": {
+          "revenue": 218872,
+          "profit": 93469,
+          "qty": 116.0
+        },
+        "2025": {
+          "revenue": 250732,
+          "profit": 130369,
+          "qty": 115.0
+        },
+        "2026": {
+          "revenue": 93255,
+          "profit": 36345,
+          "qty": 54.0
+        }
+      }
     },
     {
       "sku": "370300",
@@ -902,7 +1290,29 @@
       },
       "total_revenue": 15195.0,
       "total_qty": 4.0,
-      "primary_channel": "google_ads"
+      "primary_channel": "google_ads",
+      "by_year": {
+        "2023": {
+          "revenue": 181531,
+          "profit": 108399,
+          "qty": 135.0
+        },
+        "2024": {
+          "revenue": 131899,
+          "profit": 85878,
+          "qty": 107.0
+        },
+        "2025": {
+          "revenue": 211475,
+          "profit": 114947,
+          "qty": 254.0
+        },
+        "2026": {
+          "revenue": 82914,
+          "profit": 43410,
+          "qty": 130.0
+        }
+      }
     },
     {
       "sku": "205310",
@@ -947,7 +1357,29 @@
       },
       "total_revenue": 13949.0,
       "total_qty": 2.0,
-      "primary_channel": "google_ads"
+      "primary_channel": "google_ads",
+      "by_year": {
+        "2023": {
+          "revenue": 142816,
+          "profit": 73379,
+          "qty": 48.0
+        },
+        "2024": {
+          "revenue": 78520,
+          "profit": 30047,
+          "qty": 31.0
+        },
+        "2025": {
+          "revenue": 73497,
+          "profit": 21420,
+          "qty": 34.0
+        },
+        "2026": {
+          "revenue": 18113,
+          "profit": 5538,
+          "qty": 8.0
+        }
+      }
     },
     {
       "sku": "159247",
@@ -992,7 +1424,29 @@
       },
       "total_revenue": 13264.0,
       "total_qty": 2.0,
-      "primary_channel": "google_ads"
+      "primary_channel": "google_ads",
+      "by_year": {
+        "2023": {
+          "revenue": 992,
+          "profit": 612,
+          "qty": 1.0
+        },
+        "2024": {
+          "revenue": 9709,
+          "profit": 5906,
+          "qty": 10.0
+        },
+        "2025": {
+          "revenue": 16667,
+          "profit": 9851,
+          "qty": 17.0
+        },
+        "2026": {
+          "revenue": 3360,
+          "profit": 2144,
+          "qty": 3.0
+        }
+      }
     },
     {
       "sku": "060203",
@@ -1037,7 +1491,29 @@
       },
       "total_revenue": 12850.0,
       "total_qty": 52.0,
-      "primary_channel": "erp_eshop"
+      "primary_channel": "erp_eshop",
+      "by_year": {
+        "2023": {
+          "revenue": 88440,
+          "profit": 30752,
+          "qty": 630.0
+        },
+        "2024": {
+          "revenue": 105025,
+          "profit": 45456,
+          "qty": 565.0
+        },
+        "2025": {
+          "revenue": 128282,
+          "profit": 60321,
+          "qty": 677.0
+        },
+        "2026": {
+          "revenue": 68322,
+          "profit": 32634,
+          "qty": 356.0
+        }
+      }
     },
     {
       "sku": "292285",
@@ -1082,7 +1558,29 @@
       },
       "total_revenue": 12835.0,
       "total_qty": 122.0,
-      "primary_channel": "google_ads"
+      "primary_channel": "google_ads",
+      "by_year": {
+        "2023": {
+          "revenue": 29410,
+          "profit": 8535,
+          "qty": 1517.0
+        },
+        "2024": {
+          "revenue": 34365,
+          "profit": 10756,
+          "qty": 1725.0
+        },
+        "2025": {
+          "revenue": 58891,
+          "profit": 15076,
+          "qty": 3235.0
+        },
+        "2026": {
+          "revenue": 4036,
+          "profit": 1257,
+          "qty": 204.0
+        }
+      }
     },
     {
       "sku": "370295",
@@ -1127,7 +1625,24 @@
       },
       "total_revenue": 10468.0,
       "total_qty": 3.0,
-      "primary_channel": "erp_eshop"
+      "primary_channel": "erp_eshop",
+      "by_year": {
+        "2024": {
+          "revenue": 23100,
+          "profit": 15893,
+          "qty": 7.0
+        },
+        "2025": {
+          "revenue": 7575,
+          "profit": 4946,
+          "qty": 3.0
+        },
+        "2026": {
+          "revenue": 21055,
+          "profit": 14659,
+          "qty": 8.0
+        }
+      }
     },
     {
       "sku": "001035",
@@ -1172,7 +1687,29 @@
       },
       "total_revenue": 10340.0,
       "total_qty": 40.0,
-      "primary_channel": "erp_eshop"
+      "primary_channel": "erp_eshop",
+      "by_year": {
+        "2023": {
+          "revenue": 2113594,
+          "profit": 531937,
+          "qty": 12098.0
+        },
+        "2024": {
+          "revenue": 2063229,
+          "profit": 371403,
+          "qty": 11827.0
+        },
+        "2025": {
+          "revenue": 2016748,
+          "profit": 325291,
+          "qty": 11525.0
+        },
+        "2026": {
+          "revenue": 692903,
+          "profit": 115793,
+          "qty": 3952.0
+        }
+      }
     },
     {
       "sku": "370297",
@@ -1217,7 +1754,24 @@
       },
       "total_revenue": 9809.0,
       "total_qty": 1.0,
-      "primary_channel": "google_ads"
+      "primary_channel": "google_ads",
+      "by_year": {
+        "2024": {
+          "revenue": 220343,
+          "profit": 164107,
+          "qty": 92.0
+        },
+        "2025": {
+          "revenue": 162874,
+          "profit": 118163,
+          "qty": 71.0
+        },
+        "2026": {
+          "revenue": 319158,
+          "profit": 237577,
+          "qty": 128.0
+        }
+      }
     },
     {
       "sku": "370314",
@@ -1262,7 +1816,29 @@
       },
       "total_revenue": 9511.0,
       "total_qty": 4.0,
-      "primary_channel": "erp_eshop"
+      "primary_channel": "erp_eshop",
+      "by_year": {
+        "2023": {
+          "revenue": 350855,
+          "profit": 253748,
+          "qty": 78.0
+        },
+        "2024": {
+          "revenue": 154790,
+          "profit": 115267,
+          "qty": 49.0
+        },
+        "2025": {
+          "revenue": 97781,
+          "profit": 68973,
+          "qty": 38.0
+        },
+        "2026": {
+          "revenue": 38711,
+          "profit": 26885,
+          "qty": 16.0
+        }
+      }
     },
     {
       "sku": "198004",
@@ -1307,7 +1883,29 @@
       },
       "total_revenue": 9468.0,
       "total_qty": 30.0,
-      "primary_channel": "google_ads"
+      "primary_channel": "google_ads",
+      "by_year": {
+        "2023": {
+          "revenue": 4694,
+          "profit": 3320,
+          "qty": 87.0
+        },
+        "2024": {
+          "revenue": 3772,
+          "profit": 2200,
+          "qty": 101.0
+        },
+        "2025": {
+          "revenue": 6762,
+          "profit": 4906,
+          "qty": 120.0
+        },
+        "2026": {
+          "revenue": 2019,
+          "profit": 1427,
+          "qty": 37.0
+        }
+      }
     },
     {
       "sku": "400262",
@@ -1352,7 +1950,29 @@
       },
       "total_revenue": 9425.0,
       "total_qty": 17.0,
-      "primary_channel": "erp_eshop"
+      "primary_channel": "erp_eshop",
+      "by_year": {
+        "2023": {
+          "revenue": 4431,
+          "profit": 540,
+          "qty": 24.0
+        },
+        "2024": {
+          "revenue": 4784,
+          "profit": 1256,
+          "qty": 22.0
+        },
+        "2025": {
+          "revenue": 28790,
+          "profit": 9465,
+          "qty": 109.0
+        },
+        "2026": {
+          "revenue": 5222,
+          "profit": 1584,
+          "qty": 20.0
+        }
+      }
     },
     {
       "sku": "370901",
@@ -1397,7 +2017,19 @@
       },
       "total_revenue": 9218.0,
       "total_qty": 2.0,
-      "primary_channel": "erp_eshop"
+      "primary_channel": "erp_eshop",
+      "by_year": {
+        "2025": {
+          "revenue": 45864,
+          "profit": 32055,
+          "qty": 13.0
+        },
+        "2026": {
+          "revenue": 10605,
+          "profit": 6357,
+          "qty": 4.0
+        }
+      }
     },
     {
       "sku": "198155",
@@ -1442,7 +2074,29 @@
       },
       "total_revenue": 9124.0,
       "total_qty": 12.0,
-      "primary_channel": "erp_eshop"
+      "primary_channel": "erp_eshop",
+      "by_year": {
+        "2023": {
+          "revenue": 6740,
+          "profit": 2579,
+          "qty": 11.0
+        },
+        "2024": {
+          "revenue": 3126,
+          "profit": 1144,
+          "qty": 5.0
+        },
+        "2025": {
+          "revenue": 13627,
+          "profit": 3529,
+          "qty": 24.0
+        },
+        "2026": {
+          "revenue": 15517,
+          "profit": 4499,
+          "qty": 23.0
+        }
+      }
     },
     {
       "sku": "220118",
@@ -1487,7 +2141,29 @@
       },
       "total_revenue": 8802.0,
       "total_qty": 15.0,
-      "primary_channel": "erp_eshop"
+      "primary_channel": "erp_eshop",
+      "by_year": {
+        "2023": {
+          "revenue": 5857,
+          "profit": 2810,
+          "qty": 13.0
+        },
+        "2024": {
+          "revenue": 2575,
+          "profit": 1400,
+          "qty": 5.0
+        },
+        "2025": {
+          "revenue": 15554,
+          "profit": 9014,
+          "qty": 28.0
+        },
+        "2026": {
+          "revenue": 8186,
+          "profit": 4609,
+          "qty": 15.0
+        }
+      }
     },
     {
       "sku": "102044",
@@ -1532,7 +2208,29 @@
       },
       "total_revenue": 8742.0,
       "total_qty": 159.0,
-      "primary_channel": "alza"
+      "primary_channel": "alza",
+      "by_year": {
+        "2023": {
+          "revenue": 5691,
+          "profit": 2751,
+          "qty": 431.0
+        },
+        "2024": {
+          "revenue": 35339,
+          "profit": 21988,
+          "qty": 1860.0
+        },
+        "2025": {
+          "revenue": 30563,
+          "profit": 16728,
+          "qty": 1845.0
+        },
+        "2026": {
+          "revenue": 17831,
+          "profit": 11200,
+          "qty": 882.0
+        }
+      }
     },
     {
       "sku": "142183",
@@ -1577,7 +2275,29 @@
       },
       "total_revenue": 8657.0,
       "total_qty": 25.0,
-      "primary_channel": "erp_eshop"
+      "primary_channel": "erp_eshop",
+      "by_year": {
+        "2023": {
+          "revenue": 58389,
+          "profit": 22751,
+          "qty": 438.0
+        },
+        "2024": {
+          "revenue": 34130,
+          "profit": 17744,
+          "qty": 194.0
+        },
+        "2025": {
+          "revenue": 31610,
+          "profit": 18698,
+          "qty": 153.0
+        },
+        "2026": {
+          "revenue": 11786,
+          "profit": 8197,
+          "qty": 44.0
+        }
+      }
     },
     {
       "sku": "370315",
@@ -1622,7 +2342,29 @@
       },
       "total_revenue": 8642.0,
       "total_qty": 3.0,
-      "primary_channel": "erp_eshop"
+      "primary_channel": "erp_eshop",
+      "by_year": {
+        "2023": {
+          "revenue": 128289,
+          "profit": 43873,
+          "qty": 66.0
+        },
+        "2024": {
+          "revenue": 95579,
+          "profit": 28338,
+          "qty": 53.0
+        },
+        "2025": {
+          "revenue": 164137,
+          "profit": 48917,
+          "qty": 91.0
+        },
+        "2026": {
+          "revenue": 19950,
+          "profit": 7288,
+          "qty": 10.0
+        }
+      }
     },
     {
       "sku": "205133",
@@ -1667,7 +2409,19 @@
       },
       "total_revenue": 8300.0,
       "total_qty": 1.0,
-      "primary_channel": "erp_eshop"
+      "primary_channel": "erp_eshop",
+      "by_year": {
+        "2023": {
+          "revenue": 12225,
+          "profit": 4105,
+          "qty": 1.0
+        },
+        "2026": {
+          "revenue": 8300,
+          "profit": 17,
+          "qty": 1.0
+        }
+      }
     },
     {
       "sku": "001005",
@@ -1712,7 +2466,29 @@
       },
       "total_revenue": 8288.0,
       "total_qty": 47.0,
-      "primary_channel": "erp_eshop"
+      "primary_channel": "erp_eshop",
+      "by_year": {
+        "2023": {
+          "revenue": 1310406,
+          "profit": 343421,
+          "qty": 7767.0
+        },
+        "2024": {
+          "revenue": 1228226,
+          "profit": 226461,
+          "qty": 7203.0
+        },
+        "2025": {
+          "revenue": 1097899,
+          "profit": 154081,
+          "qty": 6461.0
+        },
+        "2026": {
+          "revenue": 425007,
+          "profit": 60205,
+          "qty": 2495.0
+        }
+      }
     },
     {
       "sku": "156050",
@@ -1757,7 +2533,29 @@
       },
       "total_revenue": 8046.0,
       "total_qty": 6.0,
-      "primary_channel": "erp_eshop"
+      "primary_channel": "erp_eshop",
+      "by_year": {
+        "2023": {
+          "revenue": 631975,
+          "profit": 250605,
+          "qty": 831.0
+        },
+        "2024": {
+          "revenue": 819920,
+          "profit": 331084,
+          "qty": 1079.0
+        },
+        "2025": {
+          "revenue": 785251,
+          "profit": 289435,
+          "qty": 1087.0
+        },
+        "2026": {
+          "revenue": 278038,
+          "profit": 132377,
+          "qty": 391.0
+        }
+      }
     },
     {
       "sku": "156079",
@@ -1802,7 +2600,29 @@
       },
       "total_revenue": 7852.0,
       "total_qty": 35.0,
-      "primary_channel": "erp_eshop"
+      "primary_channel": "erp_eshop",
+      "by_year": {
+        "2023": {
+          "revenue": 35328,
+          "profit": 19065,
+          "qty": 308.0
+        },
+        "2024": {
+          "revenue": 49449,
+          "profit": 30855,
+          "qty": 320.0
+        },
+        "2025": {
+          "revenue": 49507,
+          "profit": 31847,
+          "qty": 302.0
+        },
+        "2026": {
+          "revenue": 12130,
+          "profit": 7888,
+          "qty": 73.0
+        }
+      }
     },
     {
       "sku": "159002",
@@ -1847,7 +2667,29 @@
       },
       "total_revenue": 7844.0,
       "total_qty": 10.0,
-      "primary_channel": "erp_eshop"
+      "primary_channel": "erp_eshop",
+      "by_year": {
+        "2023": {
+          "revenue": 470424,
+          "profit": 215099,
+          "qty": 1002.0
+        },
+        "2024": {
+          "revenue": 539617,
+          "profit": 239933,
+          "qty": 1093.0
+        },
+        "2025": {
+          "revenue": 561888,
+          "profit": 250956,
+          "qty": 1075.0
+        },
+        "2026": {
+          "revenue": 194413,
+          "profit": 81180,
+          "qty": 388.0
+        }
+      }
     },
     {
       "sku": "306062",
@@ -1892,7 +2734,24 @@
       },
       "total_revenue": 7810.0,
       "total_qty": 5.0,
-      "primary_channel": "erp_eshop"
+      "primary_channel": "erp_eshop",
+      "by_year": {
+        "2023": {
+          "revenue": 1716,
+          "profit": 1589,
+          "qty": 2.0
+        },
+        "2025": {
+          "revenue": 8600,
+          "profit": 4615,
+          "qty": 6.0
+        },
+        "2026": {
+          "revenue": 7810,
+          "profit": 5168,
+          "qty": 5.0
+        }
+      }
     },
     {
       "sku": "E00267",
@@ -1937,7 +2796,24 @@
       },
       "total_revenue": 7715.0,
       "total_qty": 2.0,
-      "primary_channel": "google_ads"
+      "primary_channel": "google_ads",
+      "by_year": {
+        "2024": {
+          "revenue": 1160,
+          "profit": 423,
+          "qty": 2.0
+        },
+        "2025": {
+          "revenue": 5914,
+          "profit": 3144,
+          "qty": 8.0
+        },
+        "2026": {
+          "revenue": 3535,
+          "profit": 2254,
+          "qty": 4.0
+        }
+      }
     },
     {
       "sku": "205317",
@@ -1982,7 +2858,29 @@
       },
       "total_revenue": 7597.0,
       "total_qty": 1.0,
-      "primary_channel": "erp_eshop"
+      "primary_channel": "erp_eshop",
+      "by_year": {
+        "2023": {
+          "revenue": 6822,
+          "profit": 2225,
+          "qty": 2.0
+        },
+        "2024": {
+          "revenue": 18137,
+          "profit": 9316,
+          "qty": 4.0
+        },
+        "2025": {
+          "revenue": 16496,
+          "profit": 8774,
+          "qty": 3.0
+        },
+        "2026": {
+          "revenue": 13074,
+          "profit": 7816,
+          "qty": 2.0
+        }
+      }
     },
     {
       "sku": "370338",
@@ -2027,7 +2925,24 @@
       },
       "total_revenue": 7433.0,
       "total_qty": 2.0,
-      "primary_channel": "erp_eshop"
+      "primary_channel": "erp_eshop",
+      "by_year": {
+        "2023": {
+          "revenue": 59279,
+          "profit": 46441,
+          "qty": 14.0
+        },
+        "2024": {
+          "revenue": 47715,
+          "profit": 32971,
+          "qty": 16.0
+        },
+        "2025": {
+          "revenue": 105722,
+          "profit": 16029,
+          "qty": 97.0
+        }
+      }
     },
     {
       "sku": "001038",
@@ -2072,7 +2987,29 @@
       },
       "total_revenue": 7149.0,
       "total_qty": 25.0,
-      "primary_channel": "erp_eshop"
+      "primary_channel": "erp_eshop",
+      "by_year": {
+        "2023": {
+          "revenue": 20977,
+          "profit": 7144,
+          "qty": 99.0
+        },
+        "2024": {
+          "revenue": 25348,
+          "profit": 6557,
+          "qty": 125.0
+        },
+        "2025": {
+          "revenue": 22939,
+          "profit": 4258,
+          "qty": 122.0
+        },
+        "2026": {
+          "revenue": 15207,
+          "profit": 5019,
+          "qty": 66.0
+        }
+      }
     },
     {
       "sku": "218001",
@@ -2117,7 +3054,29 @@
       },
       "total_revenue": 7094.0,
       "total_qty": 2.0,
-      "primary_channel": "google_ads"
+      "primary_channel": "google_ads",
+      "by_year": {
+        "2023": {
+          "revenue": 7811,
+          "profit": 537,
+          "qty": 14.0
+        },
+        "2024": {
+          "revenue": 3770,
+          "profit": 1504,
+          "qty": 4.0
+        },
+        "2025": {
+          "revenue": 9717,
+          "profit": 1814,
+          "qty": 14.0
+        },
+        "2026": {
+          "revenue": 12748,
+          "profit": 6716,
+          "qty": 10.0
+        }
+      }
     },
     {
       "sku": "204026",
@@ -2162,7 +3121,24 @@
       },
       "total_revenue": 7021.0,
       "total_qty": 1.0,
-      "primary_channel": "erp_eshop"
+      "primary_channel": "erp_eshop",
+      "by_year": {
+        "2024": {
+          "revenue": 7021,
+          "profit": 3012,
+          "qty": 1.0
+        },
+        "2025": {
+          "revenue": 25044,
+          "profit": 9324,
+          "qty": 4.0
+        },
+        "2026": {
+          "revenue": 3982,
+          "profit": -3826,
+          "qty": 2.0
+        }
+      }
     },
     {
       "sku": "132052",
@@ -2207,7 +3183,29 @@
       },
       "total_revenue": 6849.0,
       "total_qty": 1.0,
-      "primary_channel": "erp_eshop"
+      "primary_channel": "erp_eshop",
+      "by_year": {
+        "2023": {
+          "revenue": 23893,
+          "profit": 14123,
+          "qty": 4.0
+        },
+        "2024": {
+          "revenue": 28795,
+          "profit": 16582,
+          "qty": 5.0
+        },
+        "2025": {
+          "revenue": 15686,
+          "profit": 8359,
+          "qty": 3.0
+        },
+        "2026": {
+          "revenue": 13188,
+          "profit": 4001,
+          "qty": 3.0
+        }
+      }
     },
     {
       "sku": "205984",
@@ -2252,7 +3250,29 @@
       },
       "total_revenue": 6699.0,
       "total_qty": 10.0,
-      "primary_channel": "google_ads"
+      "primary_channel": "google_ads",
+      "by_year": {
+        "2023": {
+          "revenue": 695,
+          "profit": 387,
+          "qty": 5.0
+        },
+        "2024": {
+          "revenue": 862,
+          "profit": 502,
+          "qty": 6.0
+        },
+        "2025": {
+          "revenue": 2132,
+          "profit": 1222,
+          "qty": 15.0
+        },
+        "2026": {
+          "revenue": 789,
+          "profit": 485,
+          "qty": 5.0
+        }
+      }
     }
   ],
   "summary_by_category": {
@@ -3021,5 +4041,1838 @@
       "total": 39.0,
       "product_count": 1
     }
-  }
+  },
+  "top_by_year": {
+    "2023": [
+      {
+        "sku": "330101",
+        "name": "Vložka Star 70S 30/35 Ni/R1  3kl",
+        "category": "Cylindrické vložky",
+        "revenue": 3774668,
+        "profit": 1958015,
+        "qty": 18766.0,
+        "margin_pct": 51.9
+      },
+      {
+        "sku": "018117",
+        "name": "Klíč FAB 200RSG RRS2 nový typ",
+        "category": "Klíče",
+        "revenue": 2909985,
+        "profit": 689229,
+        "qty": 85792.0,
+        "margin_pct": 23.7
+      },
+      {
+        "sku": "711267",
+        "name": "D837214ZB stroj ProTech S169 plus",
+        "category": "Ostatní",
+        "revenue": 2821000,
+        "profit": 1055912,
+        "qty": 1.0,
+        "margin_pct": 37.4
+      },
+      {
+        "sku": "330099",
+        "name": "Vložka Star 60S 30/35 Ms (10x)   (2020)",
+        "category": "Cylindrické vložky",
+        "revenue": 2725131,
+        "profit": 1021208,
+        "qty": 20433.0,
+        "margin_pct": 37.5
+      },
+      {
+        "sku": "088005",
+        "name": "Klíč G17 GUARD NVL/GD17/",
+        "category": "Klíče",
+        "revenue": 2315815,
+        "profit": 1481652,
+        "qty": 146898.0,
+        "margin_pct": 64.0
+      },
+      {
+        "sku": "001035",
+        "name": "Zámek HOBES 24026 P/L 90/50/22 PZ  BZn",
+        "category": "Zámky",
+        "revenue": 2113594,
+        "profit": 531937,
+        "qty": 12098.0,
+        "margin_pct": 25.2
+      },
+      {
+        "sku": "710646",
+        "name": "Stroj Unocode F900 D8A3064ZB",
+        "category": "Ostatní",
+        "revenue": 2083280,
+        "profit": 401277,
+        "qty": 3.0,
+        "margin_pct": 19.3
+      },
+      {
+        "sku": "491017",
+        "name": "Klíč 20R1 FB13RX (20) mosaz",
+        "category": "Klíče",
+        "revenue": 2011492,
+        "profit": 1255741,
+        "qty": 171431.0,
+        "margin_pct": 62.4
+      },
+      {
+        "sku": "018116",
+        "name": "Klíč FAB 200RSG RRS1 nový typ",
+        "category": "Klíče",
+        "revenue": 1988485,
+        "profit": 501403,
+        "qty": 58103.0,
+        "margin_pct": 25.2
+      },
+      {
+        "sku": "720043",
+        "name": "FUTURA Pro Unlimited D851721ZB",
+        "category": "Ostatní",
+        "revenue": 1750919,
+        "profit": 348026,
+        "qty": 7.0,
+        "margin_pct": 19.9
+      },
+      {
+        "sku": "300015",
+        "name": "EUROLOCKS Zámek  0812-0080 (EU1R) rov.záv HDC220V",
+        "category": "Zámky",
+        "revenue": 1508754,
+        "profit": 881942,
+        "qty": 13134.0,
+        "margin_pct": 58.5
+      },
+      {
+        "sku": "001022",
+        "name": "Zámek HOBES 02-04 90/40/20 PZ P/L BZn",
+        "category": "Zámky",
+        "revenue": 1482722,
+        "profit": 335114,
+        "qty": 8226.0,
+        "margin_pct": 22.6
+      },
+      {
+        "sku": "425302",
+        "name": "Čip T48 C03620 pro M-BOX",
+        "category": "Klíče",
+        "revenue": 1474843,
+        "profit": 775961,
+        "qty": 3082.0,
+        "margin_pct": 52.6
+      },
+      {
+        "sku": "420010",
+        "name": "Klíč ULO50X (20) universal mosaz",
+        "category": "Klíče",
+        "revenue": 1315977,
+        "profit": 751640,
+        "qty": 126718.0,
+        "margin_pct": 57.1
+      },
+      {
+        "sku": "001005",
+        "name": "Zámek HOBES 01-15 P/L 90/40/20 BB BZn",
+        "category": "Zámky",
+        "revenue": 1310406,
+        "profit": 343421,
+        "qty": 7767.0,
+        "margin_pct": 26.2
+      },
+      {
+        "sku": "T000533",
+        "name": "Polotovar PWS  eSIGNO",
+        "category": "Ostatní",
+        "revenue": 1101788,
+        "profit": 349091,
+        "qty": 1002.0,
+        "margin_pct": 31.7
+      },
+      {
+        "sku": "710231",
+        "name": "Stroj RW5 D844048ZB",
+        "category": "Ostatní",
+        "revenue": 1058295,
+        "profit": 426149,
+        "qty": 46.0,
+        "margin_pct": 40.3
+      },
+      {
+        "sku": "330102",
+        "name": "Vložka Star 70S 30/40 Ni/R1",
+        "category": "Cylindrické vložky",
+        "revenue": 1026368,
+        "profit": 545348,
+        "qty": 4864.0,
+        "margin_pct": 53.1
+      },
+      {
+        "sku": "018114",
+        "name": "Klíč FAB 100RS RRS106",
+        "category": "Klíče",
+        "revenue": 985613,
+        "profit": 382687,
+        "qty": 54802.0,
+        "margin_pct": 38.8
+      },
+      {
+        "sku": "018119",
+        "name": "Klíč FAB 200RSG RRS3 nový typ",
+        "category": "Klíče",
+        "revenue": 963026,
+        "profit": 267728,
+        "qty": 27884.0,
+        "margin_pct": 27.8
+      },
+      {
+        "sku": "425318",
+        "name": "Čip GTi PRO-multifunkční C109012",
+        "category": "Klíče",
+        "revenue": 962060,
+        "profit": 539572,
+        "qty": 2193.0,
+        "margin_pct": 56.1
+      },
+      {
+        "sku": "000037",
+        "name": "Systém SGHK - zakázka",
+        "category": "Ostatní",
+        "revenue": 949715,
+        "profit": 701874,
+        "qty": 23.0,
+        "margin_pct": 73.9
+      },
+      {
+        "sku": "088010",
+        "name": "Klíč FPS/CPS EVVA EV121-OR chráněný G30T",
+        "category": "Klíče",
+        "revenue": 943760,
+        "profit": 370745,
+        "qty": 54937.0,
+        "margin_pct": 39.3
+      },
+      {
+        "sku": "159001",
+        "name": "OC El.otvírač 50B10 6-14Vac/dc",
+        "category": "El. otvírače",
+        "revenue": 915274,
+        "profit": 431737,
+        "qty": 1962.0,
+        "margin_pct": 47.2
+      },
+      {
+        "sku": "156056",
+        "name": "GEZE Zavírač TS 4000 stř. EN1-6",
+        "category": "Dveřní zavírače",
+        "revenue": 890907,
+        "profit": 250484,
+        "qty": 505.0,
+        "margin_pct": 28.1
+      },
+      {
+        "sku": "330160",
+        "name": "Vložka Star 70S 30/K35 Ni/R1",
+        "category": "Cylindrické vložky",
+        "revenue": 829501,
+        "profit": 439330,
+        "qty": 2823.0,
+        "margin_pct": 53.0
+      },
+      {
+        "sku": "159005",
+        "name": "OC El.otvírač 50E10 12Vdc nízkoodběr.",
+        "category": "El. otvírače",
+        "revenue": 823851,
+        "profit": 282446,
+        "qty": 1720.0,
+        "margin_pct": 34.3
+      },
+      {
+        "sku": "018129",
+        "name": "Klíč FAB NG 3.00 FAB3 B001",
+        "category": "Klíče",
+        "revenue": 805880,
+        "profit": 270523,
+        "qty": 26808.0,
+        "margin_pct": 33.6
+      },
+      {
+        "sku": "T000539",
+        "name": "PWS eSIGNO DC",
+        "category": "Ostatní",
+        "revenue": 792575,
+        "profit": 275709,
+        "qty": 688.0,
+        "margin_pct": 34.8
+      },
+      {
+        "sku": "900018",
+        "name": "Test. aplikace SPVG 10, 174,5 hod., 600 Kč/h",
+        "category": "Ostatní",
+        "revenue": 776534,
+        "profit": 776534,
+        "qty": 39.0,
+        "margin_pct": 100.0
+      },
+      {
+        "sku": "161290",
+        "name": "CISA klíč C3000      00430.00.1 (T02)",
+        "category": "Klíče",
+        "revenue": 771351,
+        "profit": 455879,
+        "qty": 11202.0,
+        "margin_pct": 59.1
+      },
+      {
+        "sku": "001763",
+        "name": "Zámek HOBES 02-06 90/45//20 PZ P/L Bzn (5131)",
+        "category": "Zámky",
+        "revenue": 761290,
+        "profit": 197757,
+        "qty": 4695.0,
+        "margin_pct": 26.0
+      },
+      {
+        "sku": "149085",
+        "name": "DORMA Zavírač TS 68N 2-4 stř. 25-65kg",
+        "category": "Dveřní zavírače",
+        "revenue": 758517,
+        "profit": 165239,
+        "qty": 1615.0,
+        "margin_pct": 21.8
+      },
+      {
+        "sku": "999121",
+        "name": "Řezání klíčů",
+        "category": "Klíče",
+        "revenue": 728794,
+        "profit": 728794,
+        "qty": 28038.0,
+        "margin_pct": 100.0
+      },
+      {
+        "sku": "890877",
+        "name": "AD2000 SmartPro  D846799AD",
+        "category": "Ostatní",
+        "revenue": 723207,
+        "profit": 225061,
+        "qty": 14.0,
+        "margin_pct": 31.1
+      },
+      {
+        "sku": "491013",
+        "name": "Klíč 14x FB28R (20) mosaz",
+        "category": "Klíče",
+        "revenue": 674439,
+        "profit": 330902,
+        "qty": 89947.0,
+        "margin_pct": 49.1
+      },
+      {
+        "sku": "038019",
+        "name": "Klíč 113-50+/TOZ6-OR original  TOKOZ",
+        "category": "Klíče",
+        "revenue": 673619,
+        "profit": 356699,
+        "qty": 144781.0,
+        "margin_pct": 53.0
+      },
+      {
+        "sku": "011591",
+        "name": "Vložka 3.00 BDNs 30/35 5kl. Ni B001",
+        "category": "Cylindrické vložky",
+        "revenue": 640684,
+        "profit": 102275,
+        "qty": 2566.0,
+        "margin_pct": 16.0
+      },
+      {
+        "sku": "350400",
+        "name": "Klíč Star 100STM FB115X-OR (20) polotovar",
+        "category": "Klíče",
+        "revenue": 636865,
+        "profit": 555066,
+        "qty": 18918.0,
+        "margin_pct": 87.2
+      },
+      {
+        "sku": "425294",
+        "name": "Čip GTi multifunkční C03927",
+        "category": "Klíče",
+        "revenue": 634354,
+        "profit": 348195,
+        "qty": 1167.0,
+        "margin_pct": 54.9
+      },
+      {
+        "sku": "156050",
+        "name": "GEZE Zavírač TS 2000 stř.",
+        "category": "Dveřní zavírače",
+        "revenue": 631975,
+        "profit": 250605,
+        "qty": 831.0,
+        "margin_pct": 39.7
+      },
+      {
+        "sku": "330131",
+        "name": "Vložka Star 70S 45/50 Ni/R1",
+        "category": "Cylindrické vložky",
+        "revenue": 629013,
+        "profit": 348735,
+        "qty": 2352.0,
+        "margin_pct": 55.4
+      },
+      {
+        "sku": "306042",
+        "name": "Zámek Star 90/50/22 mechanický samozam.",
+        "category": "Zámky",
+        "revenue": 627336,
+        "profit": 183312,
+        "qty": 251.0,
+        "margin_pct": 29.2
+      },
+      {
+        "sku": "330124",
+        "name": "Vložka Star 70S 40/55 Ni/R1",
+        "category": "Cylindrické vložky",
+        "revenue": 623060,
+        "profit": 349252,
+        "qty": 2324.0,
+        "margin_pct": 56.1
+      },
+      {
+        "sku": "330051",
+        "name": "Vložka Star 50S 30/35 Ni/R1 stavební",
+        "category": "Cylindrické vložky",
+        "revenue": 616155,
+        "profit": 234393,
+        "qty": 6130.0,
+        "margin_pct": 38.0
+      },
+      {
+        "sku": "017110",
+        "name": "ABLOY EL460/92/35/24 12-24V zámek el.mech.",
+        "category": "Zámky",
+        "revenue": 610465,
+        "profit": 219916,
+        "qty": 53.0,
+        "margin_pct": 36.0
+      },
+      {
+        "sku": "330701",
+        "name": "Vložka Star 100S 30/35 servis",
+        "category": "Cylindrické vložky",
+        "revenue": 588984,
+        "profit": 392639,
+        "qty": 1982.0,
+        "margin_pct": 66.7
+      },
+      {
+        "sku": "021025",
+        "name": "ROSTEX BK R1/90 Cr bez vložky",
+        "category": "Ostatní",
+        "revenue": 588262,
+        "profit": 61095,
+        "qty": 357.0,
+        "margin_pct": 10.4
+      },
+      {
+        "sku": "420005",
+        "name": "Klíč ULO50 (20) universal mosaz",
+        "category": "Klíče",
+        "revenue": 575145,
+        "profit": 354449,
+        "qty": 50281.0,
+        "margin_pct": 61.6
+      },
+      {
+        "sku": "017127",
+        "name": "ABLOY EL560/72/55/20 12-24V Zámek el.mech.",
+        "category": "Zámky",
+        "revenue": 570316,
+        "profit": 194559,
+        "qty": 52.0,
+        "margin_pct": 34.1
+      }
+    ],
+    "2024": [
+      {
+        "sku": "330101",
+        "name": "Vložka Star 70S 30/35 Ni/R1  3kl",
+        "category": "Cylindrické vložky",
+        "revenue": 3719494,
+        "profit": 1974299,
+        "qty": 18878.0,
+        "margin_pct": 53.1
+      },
+      {
+        "sku": "018117",
+        "name": "Klíč FAB 200RSG RRS2 nový typ",
+        "category": "Klíče",
+        "revenue": 2536404,
+        "profit": 379690,
+        "qty": 75399.0,
+        "margin_pct": 15.0
+      },
+      {
+        "sku": "330099",
+        "name": "Vložka Star 60S 30/35 Ms (10x)   (2020)",
+        "category": "Cylindrické vložky",
+        "revenue": 2471296,
+        "profit": 940931,
+        "qty": 18445.0,
+        "margin_pct": 38.1
+      },
+      {
+        "sku": "001035",
+        "name": "Zámek HOBES 24026 P/L 90/50/22 PZ  BZn",
+        "category": "Zámky",
+        "revenue": 2063229,
+        "profit": 371403,
+        "qty": 11827.0,
+        "margin_pct": 18.0
+      },
+      {
+        "sku": "491017",
+        "name": "Klíč 20R1 FB13RX (20) mosaz",
+        "category": "Klíče",
+        "revenue": 2017779,
+        "profit": 1216188,
+        "qty": 173347.0,
+        "margin_pct": 60.3
+      },
+      {
+        "sku": "088005",
+        "name": "Klíč G17 GUARD NVL/GD17/",
+        "category": "Klíče",
+        "revenue": 1844041,
+        "profit": 1303029,
+        "qty": 93249.0,
+        "margin_pct": 70.7
+      },
+      {
+        "sku": "018116",
+        "name": "Klíč FAB 200RSG RRS1 nový typ",
+        "category": "Klíče",
+        "revenue": 1798038,
+        "profit": 293385,
+        "qty": 53040.0,
+        "margin_pct": 16.3
+      },
+      {
+        "sku": "001022",
+        "name": "Zámek HOBES 02-04 90/40/20 PZ P/L BZn",
+        "category": "Zámky",
+        "revenue": 1477904,
+        "profit": 244459,
+        "qty": 8123.0,
+        "margin_pct": 16.5
+      },
+      {
+        "sku": "S103630",
+        "name": "Projekt systému SGHK",
+        "category": "Ostatní",
+        "revenue": 1414493,
+        "profit": 694089,
+        "qty": 82.0,
+        "margin_pct": 49.1
+      },
+      {
+        "sku": "300015",
+        "name": "EUROLOCKS Zámek  0812-0080 (EU1R) rov.záv HDC220V",
+        "category": "Zámky",
+        "revenue": 1343829,
+        "profit": 709684,
+        "qty": 12260.0,
+        "margin_pct": 52.8
+      },
+      {
+        "sku": "420010",
+        "name": "Klíč ULO50X (20) universal mosaz",
+        "category": "Klíče",
+        "revenue": 1340818,
+        "profit": 788225,
+        "qty": 120279.0,
+        "margin_pct": 58.8
+      },
+      {
+        "sku": "001005",
+        "name": "Zámek HOBES 01-15 P/L 90/40/20 BB BZn",
+        "category": "Zámky",
+        "revenue": 1228226,
+        "profit": 226461,
+        "qty": 7203.0,
+        "margin_pct": 18.4
+      },
+      {
+        "sku": "018129",
+        "name": "Klíč FAB NG 3.00 FAB3 B001",
+        "category": "Klíče",
+        "revenue": 1167083,
+        "profit": 295642,
+        "qty": 39651.0,
+        "margin_pct": 25.3
+      },
+      {
+        "sku": "370253",
+        "name": "Mosazné kování interiérové typ 2",
+        "category": "Kování",
+        "revenue": 1137232,
+        "profit": 916509,
+        "qty": 148.0,
+        "margin_pct": 80.6
+      },
+      {
+        "sku": "890257",
+        "name": "Key Control Strip for 14 key positions - Unlocked",
+        "category": "Ostatní",
+        "revenue": 1117800,
+        "profit": 559785,
+        "qty": 162.0,
+        "margin_pct": 50.1
+      },
+      {
+        "sku": "156056",
+        "name": "GEZE Zavírač TS 4000 stř. EN1-6",
+        "category": "Dveřní zavírače",
+        "revenue": 1116692,
+        "profit": 279580,
+        "qty": 639.0,
+        "margin_pct": 25.0
+      },
+      {
+        "sku": "159005",
+        "name": "OC El.otvírač 50E10 12Vdc nízkoodběr.",
+        "category": "El. otvírače",
+        "revenue": 1087686,
+        "profit": 319586,
+        "qty": 2259.0,
+        "margin_pct": 29.4
+      },
+      {
+        "sku": "425302",
+        "name": "Čip T48 C03620 pro M-BOX",
+        "category": "Klíče",
+        "revenue": 1077232,
+        "profit": 589833,
+        "qty": 2268.0,
+        "margin_pct": 54.8
+      },
+      {
+        "sku": "425318",
+        "name": "Čip GTi PRO-multifunkční C109012",
+        "category": "Klíče",
+        "revenue": 1003488,
+        "profit": 565586,
+        "qty": 2278.0,
+        "margin_pct": 56.4
+      },
+      {
+        "sku": "890259",
+        "name": "Key Control Peg - Unlocked",
+        "category": "Ostatní",
+        "revenue": 1000188,
+        "profit": 444308,
+        "qty": 2268.0,
+        "margin_pct": 44.4
+      },
+      {
+        "sku": "159001",
+        "name": "OC El.otvírač 50B10 6-14Vac/dc",
+        "category": "El. otvírače",
+        "revenue": 994331,
+        "profit": 452684,
+        "qty": 2080.0,
+        "margin_pct": 45.5
+      },
+      {
+        "sku": "330102",
+        "name": "Vložka Star 70S 30/40 Ni/R1",
+        "category": "Cylindrické vložky",
+        "revenue": 946662,
+        "profit": 519808,
+        "qty": 4589.0,
+        "margin_pct": 54.9
+      },
+      {
+        "sku": "161290",
+        "name": "CISA klíč C3000      00430.00.1 (T02)",
+        "category": "Klíče",
+        "revenue": 881800,
+        "profit": 516307,
+        "qty": 11357.0,
+        "margin_pct": 58.6
+      },
+      {
+        "sku": "018114",
+        "name": "Klíč FAB 100RS RRS106",
+        "category": "Klíče",
+        "revenue": 872652,
+        "profit": 198591,
+        "qty": 47814.0,
+        "margin_pct": 22.8
+      },
+      {
+        "sku": "900018",
+        "name": "Test. aplikace SPVG 10, 174,5 hod., 600 Kč/h",
+        "category": "Ostatní",
+        "revenue": 846574,
+        "profit": 846574,
+        "qty": 61.0,
+        "margin_pct": 100.0
+      },
+      {
+        "sku": "156050",
+        "name": "GEZE Zavírač TS 2000 stř.",
+        "category": "Dveřní zavírače",
+        "revenue": 819920,
+        "profit": 331084,
+        "qty": 1079.0,
+        "margin_pct": 40.4
+      },
+      {
+        "sku": "001763",
+        "name": "Zámek HOBES 02-06 90/45//20 PZ P/L Bzn (5131)",
+        "category": "Zámky",
+        "revenue": 788615,
+        "profit": 139040,
+        "qty": 4890.0,
+        "margin_pct": 17.6
+      },
+      {
+        "sku": "330160",
+        "name": "Vložka Star 70S 30/K35 Ni/R1",
+        "category": "Cylindrické vložky",
+        "revenue": 755303,
+        "profit": 435026,
+        "qty": 2502.0,
+        "margin_pct": 57.6
+      },
+      {
+        "sku": "149085",
+        "name": "DORMA Zavírač TS 68N 2-4 stř. 25-65kg",
+        "category": "Dveřní zavírače",
+        "revenue": 754955,
+        "profit": 148870,
+        "qty": 1555.0,
+        "margin_pct": 19.7
+      },
+      {
+        "sku": "018119",
+        "name": "Klíč FAB 200RSG RRS3 nový typ",
+        "category": "Klíče",
+        "revenue": 750619,
+        "profit": 146357,
+        "qty": 21941.0,
+        "margin_pct": 19.5
+      },
+      {
+        "sku": "425320",
+        "name": "Čip GTi Ultra C110026 Wedge",
+        "category": "Klíče",
+        "revenue": 712557,
+        "profit": 397582,
+        "qty": 1638.0,
+        "margin_pct": 55.8
+      },
+      {
+        "sku": "999121",
+        "name": "Řezání klíčů",
+        "category": "Klíče",
+        "revenue": 710046,
+        "profit": 710046,
+        "qty": 27609.0,
+        "margin_pct": 100.0
+      },
+      {
+        "sku": "017110",
+        "name": "ABLOY EL460/92/35/24 12-24V zámek el.mech.",
+        "category": "Zámky",
+        "revenue": 693693,
+        "profit": 287805,
+        "qty": 54.0,
+        "margin_pct": 41.5
+      },
+      {
+        "sku": "000037",
+        "name": "Systém SGHK - zakázka",
+        "category": "Ostatní",
+        "revenue": 677530,
+        "profit": 411637,
+        "qty": 9.0,
+        "margin_pct": 60.8
+      },
+      {
+        "sku": "330911",
+        "name": "Vložka Star 80S 30/35 Ni/R1",
+        "category": "Cylindrické vložky",
+        "revenue": 672102,
+        "profit": 409807,
+        "qty": 1920.0,
+        "margin_pct": 61.0
+      },
+      {
+        "sku": "491013",
+        "name": "Klíč 14x FB28R (20) mosaz",
+        "category": "Klíče",
+        "revenue": 669105,
+        "profit": 352311,
+        "qty": 79897.0,
+        "margin_pct": 52.7
+      },
+      {
+        "sku": "330701",
+        "name": "Vložka Star 100S 30/35 servis",
+        "category": "Cylindrické vložky",
+        "revenue": 633371,
+        "profit": 419787,
+        "qty": 2241.0,
+        "margin_pct": 66.3
+      },
+      {
+        "sku": "720039",
+        "name": "Stroj FUTURA PRO D847000ZB",
+        "category": "Ostatní",
+        "revenue": 633285,
+        "profit": 190694,
+        "qty": 3.0,
+        "margin_pct": 30.1
+      },
+      {
+        "sku": "330131",
+        "name": "Vložka Star 70S 45/50 Ni/R1",
+        "category": "Cylindrické vložky",
+        "revenue": 601984,
+        "profit": 341644,
+        "qty": 2286.0,
+        "margin_pct": 56.8
+      },
+      {
+        "sku": "402173",
+        "name": "Klíč BK15 (20) mosaz BKS hranatá hlava",
+        "category": "Klíče",
+        "revenue": 585248,
+        "profit": 329159,
+        "qty": 42497.0,
+        "margin_pct": 56.2
+      },
+      {
+        "sku": "001029",
+        "name": "Zámek HOBES K 105 P/L 72/40/20 PZ BZn",
+        "category": "Zámky",
+        "revenue": 575901,
+        "profit": 99586,
+        "qty": 3064.0,
+        "margin_pct": 17.3
+      },
+      {
+        "sku": "021025",
+        "name": "ROSTEX BK R1/90 Cr bez vložky",
+        "category": "Ostatní",
+        "revenue": 561798,
+        "profit": 61388,
+        "qty": 332.0,
+        "margin_pct": 10.9
+      },
+      {
+        "sku": "306042",
+        "name": "Zámek Star 90/50/22 mechanický samozam.",
+        "category": "Zámky",
+        "revenue": 557490,
+        "profit": 164180,
+        "qty": 209.0,
+        "margin_pct": 29.4
+      },
+      {
+        "sku": "491005",
+        "name": "Klíč 10x  FB21R (20) mosaz",
+        "category": "Klíče",
+        "revenue": 554747,
+        "profit": 315002,
+        "qty": 61428.0,
+        "margin_pct": 56.8
+      },
+      {
+        "sku": "156053",
+        "name": "GEZE Zavírač TS 3000 stř.",
+        "category": "Dveřní zavírače",
+        "revenue": 552036,
+        "profit": 97087,
+        "qty": 338.0,
+        "margin_pct": 17.6
+      },
+      {
+        "sku": "038019",
+        "name": "Klíč 113-50+/TOZ6-OR original  TOKOZ",
+        "category": "Klíče",
+        "revenue": 551916,
+        "profit": 306068,
+        "qty": 107398.0,
+        "margin_pct": 55.5
+      },
+      {
+        "sku": "420005",
+        "name": "Klíč ULO50 (20) universal mosaz",
+        "category": "Klíče",
+        "revenue": 543647,
+        "profit": 335346,
+        "qty": 47285.0,
+        "margin_pct": 61.7
+      },
+      {
+        "sku": "159002",
+        "name": "OC El.otvírač 51B10 MB 6-14Vac/dc",
+        "category": "El. otvírače",
+        "revenue": 539617,
+        "profit": 239933,
+        "qty": 1093.0,
+        "margin_pct": 44.5
+      },
+      {
+        "sku": "330124",
+        "name": "Vložka Star 70S 40/55 Ni/R1",
+        "category": "Cylindrické vložky",
+        "revenue": 538758,
+        "profit": 313721,
+        "qty": 1993.0,
+        "margin_pct": 58.2
+      },
+      {
+        "sku": "330170",
+        "name": "Vložka Star 70S 30/35 Ni/R1 5-klíčů",
+        "category": "Cylindrické vložky",
+        "revenue": 538242,
+        "profit": 310265,
+        "qty": 2166.0,
+        "margin_pct": 57.6
+      }
+    ],
+    "2025": [
+      {
+        "sku": "330101",
+        "name": "Vložka Star 70S 30/35 Ni/R1  3kl",
+        "category": "Cylindrické vložky",
+        "revenue": 3624013,
+        "profit": 1874737,
+        "qty": 17801.0,
+        "margin_pct": 51.7
+      },
+      {
+        "sku": "330099",
+        "name": "Vložka Star 60S 30/35 Ms (10x)   (2020)",
+        "category": "Cylindrické vložky",
+        "revenue": 2489590,
+        "profit": 919763,
+        "qty": 18370.0,
+        "margin_pct": 36.9
+      },
+      {
+        "sku": "491017",
+        "name": "Klíč 20R1 FB13RX (20) mosaz",
+        "category": "Klíče",
+        "revenue": 2032058,
+        "profit": 1156148,
+        "qty": 185181.0,
+        "margin_pct": 56.9
+      },
+      {
+        "sku": "001035",
+        "name": "Zámek HOBES 24026 P/L 90/50/22 PZ  BZn",
+        "category": "Zámky",
+        "revenue": 2016748,
+        "profit": 325291,
+        "qty": 11525.0,
+        "margin_pct": 16.1
+      },
+      {
+        "sku": "018117",
+        "name": "Klíč FAB 200RSG RRS2 nový typ",
+        "category": "Klíče",
+        "revenue": 1963116,
+        "profit": 309979,
+        "qty": 55891.0,
+        "margin_pct": 15.8
+      },
+      {
+        "sku": "088005",
+        "name": "Klíč G17 GUARD NVL/GD17/",
+        "category": "Klíče",
+        "revenue": 1847991,
+        "profit": 1239700,
+        "qty": 101691.0,
+        "margin_pct": 67.1
+      },
+      {
+        "sku": "018116",
+        "name": "Klíč FAB 200RSG RRS1 nový typ",
+        "category": "Klíče",
+        "revenue": 1414786,
+        "profit": 245509,
+        "qty": 39752.0,
+        "margin_pct": 17.4
+      },
+      {
+        "sku": "001022",
+        "name": "Zámek HOBES 02-04 90/40/20 PZ P/L BZn",
+        "category": "Zámky",
+        "revenue": 1403513,
+        "profit": 218826,
+        "qty": 7750.0,
+        "margin_pct": 15.6
+      },
+      {
+        "sku": "018129",
+        "name": "Klíč FAB NG 3.00 FAB3 B001",
+        "category": "Klíče",
+        "revenue": 1395381,
+        "profit": 359774,
+        "qty": 45267.0,
+        "margin_pct": 25.8
+      },
+      {
+        "sku": "420010",
+        "name": "Klíč ULO50X (20) universal mosaz",
+        "category": "Klíče",
+        "revenue": 1347945,
+        "profit": 752217,
+        "qty": 125493.0,
+        "margin_pct": 55.8
+      },
+      {
+        "sku": "425320",
+        "name": "Čip GTi Ultra C110026 Wedge",
+        "category": "Klíče",
+        "revenue": 1242685,
+        "profit": 756943,
+        "qty": 2525.0,
+        "margin_pct": 60.9
+      },
+      {
+        "sku": "300015",
+        "name": "EUROLOCKS Zámek  0812-0080 (EU1R) rov.záv HDC220V",
+        "category": "Zámky",
+        "revenue": 1236198,
+        "profit": 686070,
+        "qty": 10238.0,
+        "margin_pct": 55.5
+      },
+      {
+        "sku": "720043",
+        "name": "FUTURA Pro Unlimited D851721ZB",
+        "category": "Ostatní",
+        "revenue": 1201350,
+        "profit": 173880,
+        "qty": 5.0,
+        "margin_pct": 14.5
+      },
+      {
+        "sku": "808639",
+        "name": "Stroj D8A3850ZB Unocode F400",
+        "category": "Ostatní",
+        "revenue": 1127800,
+        "profit": 274514,
+        "qty": 3.0,
+        "margin_pct": 24.3
+      },
+      {
+        "sku": "330911",
+        "name": "Vložka Star 80S 30/35 Ni/R1",
+        "category": "Cylindrické vložky",
+        "revenue": 1124652,
+        "profit": 745566,
+        "qty": 2818.0,
+        "margin_pct": 66.3
+      },
+      {
+        "sku": "156056",
+        "name": "GEZE Zavírač TS 4000 stř. EN1-6",
+        "category": "Dveřní zavírače",
+        "revenue": 1119215,
+        "profit": 351711,
+        "qty": 643.0,
+        "margin_pct": 31.4
+      },
+      {
+        "sku": "001005",
+        "name": "Zámek HOBES 01-15 P/L 90/40/20 BB BZn",
+        "category": "Zámky",
+        "revenue": 1097899,
+        "profit": 154081,
+        "qty": 6461.0,
+        "margin_pct": 14.0
+      },
+      {
+        "sku": "900018",
+        "name": "Test. aplikace SPVG 10, 174,5 hod., 600 Kč/h",
+        "category": "Ostatní",
+        "revenue": 1073541,
+        "profit": 1073541,
+        "qty": 49.0,
+        "margin_pct": 100.0
+      },
+      {
+        "sku": "330102",
+        "name": "Vložka Star 70S 30/40 Ni/R1",
+        "category": "Cylindrické vložky",
+        "revenue": 1051182,
+        "profit": 555908,
+        "qty": 4966.0,
+        "margin_pct": 52.9
+      },
+      {
+        "sku": "159005",
+        "name": "OC El.otvírač 50E10 12Vdc nízkoodběr.",
+        "category": "El. otvírače",
+        "revenue": 1046256,
+        "profit": 327632,
+        "qty": 2039.0,
+        "margin_pct": 31.3
+      },
+      {
+        "sku": "017127",
+        "name": "ABLOY EL560/72/55/20 12-24V Zámek el.mech.",
+        "category": "Zámky",
+        "revenue": 968761,
+        "profit": 336396,
+        "qty": 82.0,
+        "margin_pct": 34.7
+      },
+      {
+        "sku": "159001",
+        "name": "OC El.otvírač 50B10 6-14Vac/dc",
+        "category": "El. otvírače",
+        "revenue": 944331,
+        "profit": 419136,
+        "qty": 1909.0,
+        "margin_pct": 44.4
+      },
+      {
+        "sku": "S103999",
+        "name": "Vývoj systému pro řez.klíčů ePRO Tokoz Unocode F600",
+        "category": "Klíče",
+        "revenue": 933199,
+        "profit": 190522,
+        "qty": 1.0,
+        "margin_pct": 20.4
+      },
+      {
+        "sku": "999121",
+        "name": "Řezání klíčů",
+        "category": "Klíče",
+        "revenue": 925909,
+        "profit": 925909,
+        "qty": 31202.0,
+        "margin_pct": 100.0
+      },
+      {
+        "sku": "088015",
+        "name": "Klíč GD17R-OR (20) 27T",
+        "category": "Klíče",
+        "revenue": 789244,
+        "profit": 330195,
+        "qty": 75851.0,
+        "margin_pct": 41.8
+      },
+      {
+        "sku": "156050",
+        "name": "GEZE Zavírač TS 2000 stř.",
+        "category": "Dveřní zavírače",
+        "revenue": 785251,
+        "profit": 289435,
+        "qty": 1087.0,
+        "margin_pct": 36.9
+      },
+      {
+        "sku": "370322",
+        "name": "Star smart kování úzké 72 - klávesnice",
+        "category": "Kování",
+        "revenue": 775956,
+        "profit": 511627,
+        "qty": 170.0,
+        "margin_pct": 65.9
+      },
+      {
+        "sku": "330160",
+        "name": "Vložka Star 70S 30/K35 Ni/R1",
+        "category": "Cylindrické vložky",
+        "revenue": 775424,
+        "profit": 433329,
+        "qty": 2487.0,
+        "margin_pct": 55.9
+      },
+      {
+        "sku": "017110",
+        "name": "ABLOY EL460/92/35/24 12-24V zámek el.mech.",
+        "category": "Zámky",
+        "revenue": 773302,
+        "profit": 194796,
+        "qty": 62.0,
+        "margin_pct": 25.2
+      },
+      {
+        "sku": "720039",
+        "name": "Stroj FUTURA PRO D847000ZB",
+        "category": "Ostatní",
+        "revenue": 758862,
+        "profit": 168791,
+        "qty": 4.0,
+        "margin_pct": 22.2
+      },
+      {
+        "sku": "425302",
+        "name": "Čip T48 C03620 pro M-BOX",
+        "category": "Klíče",
+        "revenue": 747571,
+        "profit": 366899,
+        "qty": 1580.0,
+        "margin_pct": 49.1
+      },
+      {
+        "sku": "420005",
+        "name": "Klíč ULO50 (20) universal mosaz",
+        "category": "Klíče",
+        "revenue": 745034,
+        "profit": 444452,
+        "qty": 66152.0,
+        "margin_pct": 59.7
+      },
+      {
+        "sku": "161290",
+        "name": "CISA klíč C3000      00430.00.1 (T02)",
+        "category": "Klíče",
+        "revenue": 737916,
+        "profit": 371995,
+        "qty": 8741.0,
+        "margin_pct": 50.4
+      },
+      {
+        "sku": "001763",
+        "name": "Zámek HOBES 02-06 90/45//20 PZ P/L Bzn (5131)",
+        "category": "Zámky",
+        "revenue": 700180,
+        "profit": 116625,
+        "qty": 4287.0,
+        "margin_pct": 16.7
+      },
+      {
+        "sku": "890877",
+        "name": "AD2000 SmartPro  D846799AD",
+        "category": "Ostatní",
+        "revenue": 674682,
+        "profit": 112743,
+        "qty": 15.0,
+        "margin_pct": 16.7
+      },
+      {
+        "sku": "018114",
+        "name": "Klíč FAB 100RS RRS106",
+        "category": "Klíče",
+        "revenue": 672664,
+        "profit": 147307,
+        "qty": 34808.0,
+        "margin_pct": 21.9
+      },
+      {
+        "sku": "000037",
+        "name": "Systém SGHK - zakázka",
+        "category": "Ostatní",
+        "revenue": 672615,
+        "profit": 510875,
+        "qty": 5.0,
+        "margin_pct": 76.0
+      },
+      {
+        "sku": "018119",
+        "name": "Klíč FAB 200RSG RRS3 nový typ",
+        "category": "Klíče",
+        "revenue": 656860,
+        "profit": 143558,
+        "qty": 18189.0,
+        "margin_pct": 21.9
+      },
+      {
+        "sku": "491013",
+        "name": "Klíč 14x FB28R (20) mosaz",
+        "category": "Klíče",
+        "revenue": 654953,
+        "profit": 305886,
+        "qty": 85821.0,
+        "margin_pct": 46.7
+      },
+      {
+        "sku": "330170",
+        "name": "Vložka Star 70S 30/35 Ni/R1 5-klíčů",
+        "category": "Cylindrické vložky",
+        "revenue": 601283,
+        "profit": 347939,
+        "qty": 2423.0,
+        "margin_pct": 57.9
+      },
+      {
+        "sku": "4000109",
+        "name": "WAVE MODE SUITE CARD",
+        "category": "Ostatní",
+        "revenue": 599843,
+        "profit": 323615,
+        "qty": 11119.0,
+        "margin_pct": 53.9
+      },
+      {
+        "sku": "491005",
+        "name": "Klíč 10x  FB21R (20) mosaz",
+        "category": "Klíče",
+        "revenue": 599083,
+        "profit": 349094,
+        "qty": 61659.0,
+        "margin_pct": 58.3
+      },
+      {
+        "sku": "306042",
+        "name": "Zámek Star 90/50/22 mechanický samozam.",
+        "category": "Zámky",
+        "revenue": 588207,
+        "profit": 160209,
+        "qty": 212.0,
+        "margin_pct": 27.2
+      },
+      {
+        "sku": "330131",
+        "name": "Vložka Star 70S 45/50 Ni/R1",
+        "category": "Cylindrické vložky",
+        "revenue": 581917,
+        "profit": 329291,
+        "qty": 2111.0,
+        "margin_pct": 56.6
+      },
+      {
+        "sku": "330124",
+        "name": "Vložka Star 70S 40/55 Ni/R1",
+        "category": "Cylindrické vložky",
+        "revenue": 574866,
+        "profit": 326432,
+        "qty": 2086.0,
+        "margin_pct": 56.8
+      },
+      {
+        "sku": "159002",
+        "name": "OC El.otvírač 51B10 MB 6-14Vac/dc",
+        "category": "El. otvírače",
+        "revenue": 561888,
+        "profit": 250956,
+        "qty": 1075.0,
+        "margin_pct": 44.7
+      },
+      {
+        "sku": "038019",
+        "name": "Klíč 113-50+/TOZ6-OR original  TOKOZ",
+        "category": "Klíče",
+        "revenue": 557378,
+        "profit": 317373,
+        "qty": 100052.0,
+        "margin_pct": 56.9
+      },
+      {
+        "sku": "021025",
+        "name": "ROSTEX BK R1/90 Cr bez vložky",
+        "category": "Ostatní",
+        "revenue": 552504,
+        "profit": 59944,
+        "qty": 323.0,
+        "margin_pct": 10.8
+      },
+      {
+        "sku": "402173",
+        "name": "Klíč BK15 (20) mosaz BKS hranatá hlava",
+        "category": "Klíče",
+        "revenue": 551597,
+        "profit": 341234,
+        "qty": 37098.0,
+        "margin_pct": 61.9
+      },
+      {
+        "sku": "149085",
+        "name": "DORMA Zavírač TS 68N 2-4 stř. 25-65kg",
+        "category": "Dveřní zavírače",
+        "revenue": 545227,
+        "profit": 100813,
+        "qty": 1092.0,
+        "margin_pct": 18.5
+      }
+    ],
+    "2026": [
+      {
+        "sku": "330101",
+        "name": "Vložka Star 70S 30/35 Ni/R1  3kl",
+        "category": "Cylindrické vložky",
+        "revenue": 1274890,
+        "profit": 722647,
+        "qty": 6008.0,
+        "margin_pct": 56.7
+      },
+      {
+        "sku": "330099",
+        "name": "Vložka Star 60S 30/35 Ms (10x)   (2020)",
+        "category": "Cylindrické vložky",
+        "revenue": 849723,
+        "profit": 366502,
+        "qty": 6153.0,
+        "margin_pct": 43.1
+      },
+      {
+        "sku": "491017",
+        "name": "Klíč 20R1 FB13RX (20) mosaz",
+        "category": "Klíče",
+        "revenue": 847439,
+        "profit": 505349,
+        "qty": 72391.0,
+        "margin_pct": 59.6
+      },
+      {
+        "sku": "001035",
+        "name": "Zámek HOBES 24026 P/L 90/50/22 PZ  BZn",
+        "category": "Zámky",
+        "revenue": 692903,
+        "profit": 115793,
+        "qty": 3952.0,
+        "margin_pct": 16.7
+      },
+      {
+        "sku": "088005",
+        "name": "Klíč G17 GUARD NVL/GD17/",
+        "category": "Klíče",
+        "revenue": 650821,
+        "profit": 464386,
+        "qty": 31127.0,
+        "margin_pct": 71.4
+      },
+      {
+        "sku": "370469",
+        "name": "Star smart kování černé hotelové hranaté",
+        "category": "Kování",
+        "revenue": 627005,
+        "profit": 479130,
+        "qty": 110.0,
+        "margin_pct": 76.4
+      },
+      {
+        "sku": "425320",
+        "name": "Čip GTi Ultra C110026 Wedge",
+        "category": "Klíče",
+        "revenue": 606612,
+        "profit": 379153,
+        "qty": 1180.0,
+        "margin_pct": 62.5
+      },
+      {
+        "sku": "710026",
+        "name": "Stroj QUATTROCODE D600 D8A7050ZB",
+        "category": "Ostatní",
+        "revenue": 598500,
+        "profit": 192300,
+        "qty": 1.0,
+        "margin_pct": 32.1
+      },
+      {
+        "sku": "720043",
+        "name": "FUTURA Pro Unlimited D851721ZB",
+        "category": "Ostatní",
+        "revenue": 522600,
+        "profit": 107085,
+        "qty": 2.0,
+        "margin_pct": 20.5
+      },
+      {
+        "sku": "018117",
+        "name": "Klíč FAB 200RSG RRS2 nový typ",
+        "category": "Klíče",
+        "revenue": 518385,
+        "profit": 101312,
+        "qty": 13789.0,
+        "margin_pct": 19.5
+      },
+      {
+        "sku": "300015",
+        "name": "EUROLOCKS Zámek  0812-0080 (EU1R) rov.záv HDC220V",
+        "category": "Zámky",
+        "revenue": 509829,
+        "profit": 277846,
+        "qty": 4164.0,
+        "margin_pct": 54.5
+      },
+      {
+        "sku": "420010",
+        "name": "Klíč ULO50X (20) universal mosaz",
+        "category": "Klíče",
+        "revenue": 509622,
+        "profit": 301283,
+        "qty": 43743.0,
+        "margin_pct": 59.1
+      },
+      {
+        "sku": "330911",
+        "name": "Vložka Star 80S 30/35 Ni/R1",
+        "category": "Cylindrické vložky",
+        "revenue": 478572,
+        "profit": 318293,
+        "qty": 1218.0,
+        "margin_pct": 66.5
+      },
+      {
+        "sku": "001022",
+        "name": "Zámek HOBES 02-04 90/40/20 PZ P/L BZn",
+        "category": "Zámky",
+        "revenue": 476903,
+        "profit": 76992,
+        "qty": 2624.0,
+        "margin_pct": 16.1
+      },
+      {
+        "sku": "370496",
+        "name": "Star smart kování široké hotelové - SGMK klíč",
+        "category": "Klíče",
+        "revenue": 463592,
+        "profit": 363282,
+        "qty": 95.0,
+        "margin_pct": 78.4
+      },
+      {
+        "sku": "088015",
+        "name": "Klíč GD17R-OR (20) 27T",
+        "category": "Klíče",
+        "revenue": 457064,
+        "profit": 124738,
+        "qty": 55448.0,
+        "margin_pct": 27.3
+      },
+      {
+        "sku": "018129",
+        "name": "Klíč FAB NG 3.00 FAB3 B001",
+        "category": "Klíče",
+        "revenue": 438691,
+        "profit": 145595,
+        "qty": 12204.0,
+        "margin_pct": 33.2
+      },
+      {
+        "sku": "001005",
+        "name": "Zámek HOBES 01-15 P/L 90/40/20 BB BZn",
+        "category": "Zámky",
+        "revenue": 425007,
+        "profit": 60205,
+        "qty": 2495.0,
+        "margin_pct": 14.2
+      },
+      {
+        "sku": "729008",
+        "name": "Stroj IDEA 230/50/60 D826680ZB",
+        "category": "Ostatní",
+        "revenue": 415000,
+        "profit": 65419,
+        "qty": 1.0,
+        "margin_pct": 15.8
+      },
+      {
+        "sku": "159529",
+        "name": "OC El.otvírač 50E10 12Vdc s protiplechem S13X nízkoodběr.",
+        "category": "El. otvírače",
+        "revenue": 408006,
+        "profit": 108836,
+        "qty": 751.0,
+        "margin_pct": 26.7
+      },
+      {
+        "sku": "D299338",
+        "name": "zak.dv.Hotel Pošta Svitavy",
+        "category": "Ostatní",
+        "revenue": 400867,
+        "profit": 56274,
+        "qty": 1.0,
+        "margin_pct": 14.0
+      },
+      {
+        "sku": "018116",
+        "name": "Klíč FAB 200RSG RRS1 nový typ",
+        "category": "Klíče",
+        "revenue": 387377,
+        "profit": 80107,
+        "qty": 10173.0,
+        "margin_pct": 20.7
+      },
+      {
+        "sku": "159001",
+        "name": "OC El.otvírač 50B10 6-14Vac/dc",
+        "category": "El. otvírače",
+        "revenue": 381629,
+        "profit": 168595,
+        "qty": 762.0,
+        "margin_pct": 44.2
+      },
+      {
+        "sku": "999121",
+        "name": "Řezání klíčů",
+        "category": "Klíče",
+        "revenue": 363127,
+        "profit": 363127,
+        "qty": 12050.0,
+        "margin_pct": 100.0
+      },
+      {
+        "sku": "017127",
+        "name": "ABLOY EL560/72/55/20 12-24V Zámek el.mech.",
+        "category": "Zámky",
+        "revenue": 350473,
+        "profit": 80977,
+        "qty": 33.0,
+        "margin_pct": 23.1
+      },
+      {
+        "sku": "156056",
+        "name": "GEZE Zavírač TS 4000 stř. EN1-6",
+        "category": "Dveřní zavírače",
+        "revenue": 335600,
+        "profit": 109209,
+        "qty": 191.0,
+        "margin_pct": 32.5
+      },
+      {
+        "sku": "220082",
+        "name": "FUHR zámek 835-55-72-8-F20 oblé čelo  háky+střelky",
+        "category": "Zámky",
+        "revenue": 324850,
+        "profit": 58919,
+        "qty": 115.0,
+        "margin_pct": 18.1
+      },
+      {
+        "sku": "D299339",
+        "name": "zak.dv. Plešivec včetně dřevěných obložek",
+        "category": "Ostatní",
+        "revenue": 320975,
+        "profit": 50642,
+        "qty": 1.0,
+        "margin_pct": 15.8
+      },
+      {
+        "sku": "370297",
+        "name": "Smart stěnová jednotka K3 DESFire",
+        "category": "Ostatní",
+        "revenue": 319158,
+        "profit": 237577,
+        "qty": 128.0,
+        "margin_pct": 74.4
+      },
+      {
+        "sku": "900018",
+        "name": "Test. aplikace SPVG 10, 174,5 hod., 600 Kč/h",
+        "category": "Ostatní",
+        "revenue": 315000,
+        "profit": 315000,
+        "qty": 10.0,
+        "margin_pct": 100.0
+      },
+      {
+        "sku": "330102",
+        "name": "Vložka Star 70S 30/40 Ni/R1",
+        "category": "Cylindrické vložky",
+        "revenue": 286284,
+        "profit": 165714,
+        "qty": 1334.0,
+        "margin_pct": 57.9
+      },
+      {
+        "sku": "156050",
+        "name": "GEZE Zavírač TS 2000 stř.",
+        "category": "Dveřní zavírače",
+        "revenue": 278038,
+        "profit": 132377,
+        "qty": 391.0,
+        "margin_pct": 47.6
+      },
+      {
+        "sku": "330160",
+        "name": "Vložka Star 70S 30/K35 Ni/R1",
+        "category": "Cylindrické vložky",
+        "revenue": 277298,
+        "profit": 167613,
+        "qty": 882.0,
+        "margin_pct": 60.4
+      },
+      {
+        "sku": "S001093",
+        "name": "Přestavba SGHK Star 80S/100S",
+        "category": "Ostatní",
+        "revenue": 265193,
+        "profit": 249940,
+        "qty": 1628.0,
+        "margin_pct": 94.2
+      },
+      {
+        "sku": "D299335",
+        "name": "zak.Vchodové bezpečnostní dveře RC3 levé 90/197 bílé",
+        "category": "Ostatní",
+        "revenue": 262268,
+        "profit": 43444,
+        "qty": 17.0,
+        "margin_pct": 16.6
+      },
+      {
+        "sku": "001763",
+        "name": "Zámek HOBES 02-06 90/45//20 PZ P/L Bzn (5131)",
+        "category": "Zámky",
+        "revenue": 251447,
+        "profit": 39833,
+        "qty": 1556.0,
+        "margin_pct": 15.8
+      },
+      {
+        "sku": "491005",
+        "name": "Klíč 10x  FB21R (20) mosaz",
+        "category": "Klíče",
+        "revenue": 243907,
+        "profit": 147064,
+        "qty": 23282.0,
+        "margin_pct": 60.3
+      },
+      {
+        "sku": "402173",
+        "name": "Klíč BK15 (20) mosaz BKS hranatá hlava",
+        "category": "Klíče",
+        "revenue": 235788,
+        "profit": 125911,
+        "qty": 19543.0,
+        "margin_pct": 53.4
+      },
+      {
+        "sku": "370360",
+        "name": "Gateway set G2 2,4GHz",
+        "category": "Ostatní",
+        "revenue": 233476,
+        "profit": 164866,
+        "qty": 103.0,
+        "margin_pct": 70.6
+      },
+      {
+        "sku": "720037",
+        "name": "Stroj BRAVO PROFESSIONAL D832450ZB",
+        "category": "Ostatní",
+        "revenue": 231030,
+        "profit": 38256,
+        "qty": 4.0,
+        "margin_pct": 16.6
+      },
+      {
+        "sku": "730089",
+        "name": "SmartPro D755115AD UTP12 měsíců TZP zdarma",
+        "category": "Ostatní",
+        "revenue": 228535,
+        "profit": 73041,
+        "qty": 13.0,
+        "margin_pct": 32.0
+      },
+      {
+        "sku": "001138",
+        "name": "Zámek HOBES K 133 P/L 72/50/20 PZ tichá střelka BZn",
+        "category": "Zámky",
+        "revenue": 228000,
+        "profit": 57270,
+        "qty": 400.0,
+        "margin_pct": 25.1
+      },
+      {
+        "sku": "005069",
+        "name": "GU/BKS motor sada el. pohonu k zámku 18153-01",
+        "category": "Zámky",
+        "revenue": 227324,
+        "profit": 64483,
+        "qty": 74.0,
+        "margin_pct": 28.4
+      },
+      {
+        "sku": "021025",
+        "name": "ROSTEX BK R1/90 Cr bez vložky",
+        "category": "Ostatní",
+        "revenue": 222262,
+        "profit": 19397,
+        "qty": 133.0,
+        "margin_pct": 8.7
+      },
+      {
+        "sku": "305004",
+        "name": "Kukátko 2014 Star Ni-Sat, 200 st.tl.dv.35-55",
+        "category": "Ostatní",
+        "revenue": 220857,
+        "profit": 38861,
+        "qty": 3500.0,
+        "margin_pct": 17.6
+      },
+      {
+        "sku": "420005",
+        "name": "Klíč ULO50 (20) universal mosaz",
+        "category": "Klíče",
+        "revenue": 220781,
+        "profit": 155652,
+        "qty": 14308.0,
+        "margin_pct": 70.5
+      },
+      {
+        "sku": "330701",
+        "name": "Vložka Star 100S 30/35 servis",
+        "category": "Cylindrické vložky",
+        "revenue": 220727,
+        "profit": 139970,
+        "qty": 832.0,
+        "margin_pct": 63.4
+      },
+      {
+        "sku": "425302",
+        "name": "Čip T48 C03620 pro M-BOX",
+        "category": "Klíče",
+        "revenue": 219917,
+        "profit": 84224,
+        "qty": 461.0,
+        "margin_pct": 38.3
+      },
+      {
+        "sku": "161290",
+        "name": "CISA klíč C3000      00430.00.1 (T02)",
+        "category": "Klíče",
+        "revenue": 213491,
+        "profit": 114341,
+        "qty": 2442.0,
+        "margin_pct": 53.6
+      },
+      {
+        "sku": "380003",
+        "name": "ISEO DINFIR3 zadl.z.72/55/8/235*20 PP pravý",
+        "category": "Ostatní",
+        "revenue": 205778,
+        "profit": 46750,
+        "qty": 1152.0,
+        "margin_pct": 22.7
+      }
+    ]
+  },
+  "erp_by_year": {
+    "2023": {
+      "revenue": 286428491,
+      "profit": 129895227,
+      "skus": 17459
+    },
+    "2024": {
+      "revenue": 277413900,
+      "profit": 125245302,
+      "skus": 17202
+    },
+    "2025": {
+      "revenue": 268209718,
+      "profit": 123914389,
+      "skus": 16521
+    },
+    "2026": {
+      "revenue": 97312012,
+      "profit": 46407930,
+      "skus": 11882
+    }
+  },
+  "by_year_note": "Per-rok pohled je čistě ERP eshop (Hodnocení zboží). Marketplace kanály (Alza/Heureka/Zboží/Ads) jsou jen v souhrnu „Vše\" (per-rok je nemáme)."
 }

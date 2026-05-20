@@ -852,5 +852,464 @@
       "total": 39.0,
       "product_count": 1
     }
-  ]
+  ],
+  "by_year": {
+    "2023": [
+      {
+        "name": "Ostatní",
+        "revenue": 96449833,
+        "profit": 40692855,
+        "qty": 2384346,
+        "skus": 7856,
+        "margin_pct": 42.2
+      },
+      {
+        "name": "Klíče",
+        "revenue": 68862441,
+        "profit": 39516922,
+        "qty": 3890229,
+        "skus": 5002,
+        "margin_pct": 57.4
+      },
+      {
+        "name": "Zámky",
+        "revenue": 50034842,
+        "profit": 18118811,
+        "qty": 288897,
+        "skus": 1885,
+        "margin_pct": 36.2
+      },
+      {
+        "name": "Cylindrické vložky",
+        "revenue": 39736125,
+        "profit": 18555682,
+        "qty": 172169,
+        "skus": 1309,
+        "margin_pct": 46.7
+      },
+      {
+        "name": "Kování",
+        "revenue": 8736379,
+        "profit": 4500546,
+        "qty": 38184,
+        "skus": 577,
+        "margin_pct": 51.5
+      },
+      {
+        "name": "Dveřní zavírače",
+        "revenue": 7912289,
+        "profit": 2531679,
+        "qty": 11386,
+        "skus": 127,
+        "margin_pct": 32.0
+      },
+      {
+        "name": "El. otvírače",
+        "revenue": 4862842,
+        "profit": 1996116,
+        "qty": 7688,
+        "skus": 116,
+        "margin_pct": 41.0
+      },
+      {
+        "name": "Panty a závěsy",
+        "revenue": 4286962,
+        "profit": 967284,
+        "qty": 156918,
+        "skus": 431,
+        "margin_pct": 22.6
+      },
+      {
+        "name": "Trezory",
+        "revenue": 2918894,
+        "profit": 1158337,
+        "qty": 652,
+        "skus": 115,
+        "margin_pct": 39.7
+      },
+      {
+        "name": "Doprava/služby",
+        "revenue": 2121173,
+        "profit": 1651514,
+        "qty": 15676,
+        "skus": 51,
+        "margin_pct": 77.9
+      },
+      {
+        "name": "Zámky vícebodové",
+        "revenue": 321749,
+        "profit": 110744,
+        "qty": 157,
+        "skus": 8,
+        "margin_pct": 34.4
+      },
+      {
+        "name": "Nábytkové zámky",
+        "revenue": 91276,
+        "profit": 33933,
+        "qty": 552,
+        "skus": 18,
+        "margin_pct": 37.2
+      },
+      {
+        "name": "Zámky zadlabací",
+        "revenue": 62126,
+        "profit": 47832,
+        "qty": 295,
+        "skus": 7,
+        "margin_pct": 77.0
+      },
+      {
+        "name": "Visací zámky",
+        "revenue": 31560,
+        "profit": 12971,
+        "qty": 37,
+        "skus": 1,
+        "margin_pct": 41.1
+      }
+    ],
+    "2024": [
+      {
+        "name": "Ostatní",
+        "revenue": 89782491,
+        "profit": 37782285,
+        "qty": 2159406,
+        "skus": 7626,
+        "margin_pct": 42.1
+      },
+      {
+        "name": "Klíče",
+        "revenue": 67318745,
+        "profit": 38306790,
+        "qty": 3728095,
+        "skus": 4908,
+        "margin_pct": 56.9
+      },
+      {
+        "name": "Zámky",
+        "revenue": 48724590,
+        "profit": 16618530,
+        "qty": 256121,
+        "skus": 1879,
+        "margin_pct": 34.1
+      },
+      {
+        "name": "Cylindrické vložky",
+        "revenue": 39269673,
+        "profit": 19183529,
+        "qty": 165898,
+        "skus": 1402,
+        "margin_pct": 48.9
+      },
+      {
+        "name": "Kování",
+        "revenue": 9449775,
+        "profit": 5027881,
+        "qty": 38645,
+        "skus": 555,
+        "margin_pct": 53.2
+      },
+      {
+        "name": "Dveřní zavírače",
+        "revenue": 8134771,
+        "profit": 2450536,
+        "qty": 8532,
+        "skus": 124,
+        "margin_pct": 30.1
+      },
+      {
+        "name": "El. otvírače",
+        "revenue": 5608241,
+        "profit": 2256930,
+        "qty": 8712,
+        "skus": 137,
+        "margin_pct": 40.2
+      },
+      {
+        "name": "Panty a závěsy",
+        "revenue": 3706098,
+        "profit": 839957,
+        "qty": 151238,
+        "skus": 429,
+        "margin_pct": 22.7
+      },
+      {
+        "name": "Trezory",
+        "revenue": 2926527,
+        "profit": 1010564,
+        "qty": 674,
+        "skus": 98,
+        "margin_pct": 34.5
+      },
+      {
+        "name": "Doprava/služby",
+        "revenue": 1807922,
+        "profit": 1535721,
+        "qty": 17566,
+        "skus": 51,
+        "margin_pct": 84.9
+      },
+      {
+        "name": "Zámky vícebodové",
+        "revenue": 348232,
+        "profit": 118030,
+        "qty": 144,
+        "skus": 10,
+        "margin_pct": 33.9
+      },
+      {
+        "name": "Nábytkové zámky",
+        "revenue": 144138,
+        "profit": 43609,
+        "qty": 1596,
+        "skus": 16,
+        "margin_pct": 30.3
+      },
+      {
+        "name": "Visací zámky",
+        "revenue": 121107,
+        "profit": 21403,
+        "qty": 166,
+        "skus": 1,
+        "margin_pct": 17.7
+      },
+      {
+        "name": "Zámky zadlabací",
+        "revenue": 71590,
+        "profit": 49538,
+        "qty": 267,
+        "skus": 12,
+        "margin_pct": 69.2
+      }
+    ],
+    "2025": [
+      {
+        "name": "Ostatní",
+        "revenue": 80327861,
+        "profit": 35881110,
+        "qty": 1992353,
+        "skus": 6999,
+        "margin_pct": 44.7
+      },
+      {
+        "name": "Klíče",
+        "revenue": 69208741,
+        "profit": 39591521,
+        "qty": 3699728,
+        "skus": 4927,
+        "margin_pct": 57.2
+      },
+      {
+        "name": "Zámky",
+        "revenue": 47427111,
+        "profit": 15670845,
+        "qty": 248025,
+        "skus": 1855,
+        "margin_pct": 33.0
+      },
+      {
+        "name": "Cylindrické vložky",
+        "revenue": 42074477,
+        "profit": 20792061,
+        "qty": 176111,
+        "skus": 1396,
+        "margin_pct": 49.4
+      },
+      {
+        "name": "Kování",
+        "revenue": 8252604,
+        "profit": 4164259,
+        "qty": 36196,
+        "skus": 566,
+        "margin_pct": 50.5
+      },
+      {
+        "name": "Dveřní zavírače",
+        "revenue": 7210200,
+        "profit": 2418429,
+        "qty": 8049,
+        "skus": 130,
+        "margin_pct": 33.5
+      },
+      {
+        "name": "El. otvírače",
+        "revenue": 5283648,
+        "profit": 2052508,
+        "qty": 7974,
+        "skus": 121,
+        "margin_pct": 38.8
+      },
+      {
+        "name": "Panty a závěsy",
+        "revenue": 3516377,
+        "profit": 749631,
+        "qty": 142901,
+        "skus": 389,
+        "margin_pct": 21.3
+      },
+      {
+        "name": "Trezory",
+        "revenue": 2479526,
+        "profit": 744640,
+        "qty": 676,
+        "skus": 113,
+        "margin_pct": 30.0
+      },
+      {
+        "name": "Doprava/služby",
+        "revenue": 1702488,
+        "profit": 1592801,
+        "qty": 18337,
+        "skus": 55,
+        "margin_pct": 93.6
+      },
+      {
+        "name": "Zámky vícebodové",
+        "revenue": 244573,
+        "profit": 88513,
+        "qty": 140,
+        "skus": 5,
+        "margin_pct": 36.2
+      },
+      {
+        "name": "Nábytkové zámky",
+        "revenue": 208419,
+        "profit": 54976,
+        "qty": 622,
+        "skus": 16,
+        "margin_pct": 26.4
+      },
+      {
+        "name": "Visací zámky",
+        "revenue": 187609,
+        "profit": 38467,
+        "qty": 540,
+        "skus": 1,
+        "margin_pct": 20.5
+      },
+      {
+        "name": "Zámky zadlabací",
+        "revenue": 86085,
+        "profit": 74626,
+        "qty": 329,
+        "skus": 12,
+        "margin_pct": 86.7
+      }
+    ],
+    "2026": [
+      {
+        "name": "Ostatní",
+        "revenue": 29825877,
+        "profit": 13133360,
+        "qty": 657579,
+        "skus": 4930,
+        "margin_pct": 44.0
+      },
+      {
+        "name": "Klíče",
+        "revenue": 24918077,
+        "profit": 15032501,
+        "qty": 1302288,
+        "skus": 3594,
+        "margin_pct": 60.3
+      },
+      {
+        "name": "Zámky",
+        "revenue": 18011691,
+        "profit": 6036370,
+        "qty": 89624,
+        "skus": 1477,
+        "margin_pct": 33.5
+      },
+      {
+        "name": "Cylindrické vložky",
+        "revenue": 13991852,
+        "profit": 7637339,
+        "qty": 55615,
+        "skus": 961,
+        "margin_pct": 54.6
+      },
+      {
+        "name": "Kování",
+        "revenue": 3003864,
+        "profit": 1573109,
+        "qty": 12568,
+        "skus": 379,
+        "margin_pct": 52.4
+      },
+      {
+        "name": "Dveřní zavírače",
+        "revenue": 2429564,
+        "profit": 836848,
+        "qty": 2323,
+        "skus": 91,
+        "margin_pct": 34.4
+      },
+      {
+        "name": "El. otvírače",
+        "revenue": 2261696,
+        "profit": 915057,
+        "qty": 3267,
+        "skus": 101,
+        "margin_pct": 40.5
+      },
+      {
+        "name": "Panty a závěsy",
+        "revenue": 1262256,
+        "profit": 275451,
+        "qty": 50900,
+        "skus": 273,
+        "margin_pct": 21.8
+      },
+      {
+        "name": "Trezory",
+        "revenue": 700078,
+        "profit": 248205,
+        "qty": 216,
+        "skus": 69,
+        "margin_pct": 35.5
+      },
+      {
+        "name": "Doprava/služby",
+        "revenue": 681830,
+        "profit": 650608,
+        "qty": 6416,
+        "skus": 39,
+        "margin_pct": 95.4
+      },
+      {
+        "name": "Zámky vícebodové",
+        "revenue": 140162,
+        "profit": 43434,
+        "qty": 92,
+        "skus": 6,
+        "margin_pct": 31.0
+      },
+      {
+        "name": "Nábytkové zámky",
+        "revenue": 34414,
+        "profit": 9124,
+        "qty": 320,
+        "skus": 13,
+        "margin_pct": 26.5
+      },
+      {
+        "name": "Visací zámky",
+        "revenue": 30534,
+        "profit": 4525,
+        "qty": 254,
+        "skus": 1,
+        "margin_pct": 14.8
+      },
+      {
+        "name": "Zámky zadlabací",
+        "revenue": 20115,
+        "profit": 11999,
+        "qty": 66,
+        "skus": 8,
+        "margin_pct": 59.7
+      }
+    ]
+  },
+  "by_year_note": "Per-rok pohled je čistě ERP eshop (Hodnocení zboží). Marketplace kanály (Alza/Heureka/Zboží/Ads) jsou jen v souhrnu „Vše\" (per-rok je nemáme)."
 }
