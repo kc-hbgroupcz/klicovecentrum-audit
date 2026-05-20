@@ -1,12 +1,12 @@
 {
-  "last_refresh": "2026-05-15T16:00:00+02:00",
-  "version": "0.5-all-live-sections",
-  "build_status": "15/19 sections fully live (0-4, 6-8, 10-14, 17, 18 CF)",
-  "sections_live_count": 15,
+  "last_refresh": "2026-05-20T10:00:00+02:00",
+  "version": "0.7-pobocky-doprava-oficial-mapping",
+  "build_status": "16/19 sections fully live (0-4, 6-14, 17, 18 CF) — Section 9 Pobočky LIVE (oficiální Cézar mapping), Section 11 Doprava 2 datasety",
+  "sections_live_count": 16,
   "sections_total": 19,
-  "sections_live": [0, 1, 2, 3, 4, 6, 7, 8, 10, 11, 12, 13, 14, 17, 18],
+  "sections_live": [0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 17, 18],
   "sections_partial": [15, 16],
-  "sections_waiting_client": [5, 9],
+  "sections_waiting_client": [5],
   "domains": [
     {
       "domain": "klicovecentrum.cz",

@@ -705,6 +705,8 @@ async function renderSection(idx) {
       setTimeout(() => renderB2C(meta), 50);
     } else if (idx === 4) {
       setTimeout(() => renderB2B(meta), 50);
+    } else if (idx === 11) {
+      setTimeout(() => renderDoprava(meta), 50);
     } else if (idx === 17) {
       setTimeout(() => renderMC(meta), 50);
     } else if (idx === 18) {
@@ -1735,14 +1737,17 @@ function renderCategories(d) {
 }
 
 function renderPobocky(d) {
-  const pobocky = (d.pobocky || []).filter(p => p.in_mapping && p.typ !== 'velkoobchod');
-  const vo = (d.pobocky || []).filter(p => p.typ === 'velkoobchod');
-  const unknown = (d.pobocky || []).filter(p => !p.in_mapping);
-  const missing = d.missing_separate_erp || [];
+  const pobocky = d.pobocky || [];
+  const reklamacni = d.reklamacni_sklady || [];
+  const unknown = d.unknown_codes || [];
+  const brands = d.brand_aggregate || [];
+  const regiony = d.regiony_aggregate || [];
   const maxObrat = Math.max(...pobocky.map(p => p.total_obrat), 1);
 
+  // Brand color
+  const brandColor = b => b === 'B2B' ? '#a78bfa' : (b === 'B2C' ? '#4ade80' : '#8b93a7');
+
   // SVG mapa ČR — lat/lng → x/y projekce
-  // ČR bounding box: lat 48.55-51.06, lng 12.09-18.86
   const LAT_MIN = 48.5, LAT_MAX = 51.1, LNG_MIN = 12.0, LNG_MAX = 18.9;
   const mapW = 760, mapH = 380;
   function proj(lat, lng) {
@@ -1755,54 +1760,57 @@ function renderPobocky(d) {
   for (const p of pobocky) {
     if (p.lat == null || p.lng == null) continue;
     const [x, y] = proj(p.lat, p.lng);
-    const r = 6 + Math.sqrt(p.total_obrat / maxObrat) * 26;  // velikost dle obratu
-    const ratio = p.total_obrat / maxObrat;
-    const color = ratio > 0.5 ? '#4ea1ff' : ratio > 0.2 ? '#3a7fd0' : '#2c5f9e';
+    const r = 6 + Math.sqrt(p.total_obrat / maxObrat) * 26;
     markers += `
       <circle cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="${r.toFixed(0)}"
-              fill="${color}" fill-opacity="0.65" stroke="#fff" stroke-width="1.5">
-        <title>${p.nazev} (${p.mesto}): ${p.total_obrat.toLocaleString('cs-CZ')} Kč, marže ${p.margin_pct}%</title>
+              fill="${brandColor(p.brand)}" fill-opacity="0.6" stroke="#fff" stroke-width="1.5">
+        <title>${p.nazev} (${p.mesto}) [${p.brand}/${p.region}]: ${p.total_obrat.toLocaleString('cs-CZ')} Kč, marže ${p.margin_pct}%</title>
       </circle>
       <text x="${x.toFixed(0)}" y="${(y - r - 3).toFixed(0)}" text-anchor="middle" fill="#e6e9f0" font-size="9">${p.mesto}</text>`;
   }
 
+  const b2b = brands.find(b => b.brand === 'B2B') || {};
+  const b2c = brands.find(b => b.brand === 'B2C') || {};
+
   return `
     <div class="card" style="background: rgba(74,222,128,0.06); border-color: var(--green); margin-bottom:16px;">
       <div style="font-size:13px; color:var(--green);">
-        ✅ <strong>Pobočky napojeny přes kód podskladu</strong> (KodZboziKodPodskladu suffix). ${d.note}
+        ✅ <strong>Pobočky napojeny přes oficiální Cézar mapping</strong> (Podsklady.csv + provozovny). ${d.note}
       </div>
     </div>
 
     <div class="hero-grid">
-      <div class="kpi-card"><div class="kpi-label">Aktivní pobočky</div><div class="kpi-value">${d.pobocky_count_active}</div><div class="kpi-delta neutral">z ${d.pobocky_count_mapped} mapped</div></div>
+      <div class="kpi-card"><div class="kpi-label">Aktivní pobočky</div><div class="kpi-value">${d.pobocky_count_active}</div><div class="kpi-delta neutral">${pobocky.filter(p=>p.brand==='B2B').length} B2B + ${pobocky.filter(p=>p.brand==='B2C').length} B2C</div></div>
       <div class="kpi-card"><div class="kpi-label">Top pobočka (3y)</div><div class="kpi-value" style="font-size:16px">${pobocky[0]?.nazev || '—'}</div><div class="kpi-delta positive">${fmtKc(pobocky[0]?.total_obrat)}</div></div>
-      <div class="kpi-card"><div class="kpi-label">VO sklad (.80)</div><div class="kpi-value" style="font-size:15px">${vo[0] ? fmtKc(vo[0].total_obrat) : '—'}</div><div class="kpi-delta neutral">klíče/stroje, marže ~2%</div></div>
-      <div class="kpi-card"><div class="kpi-label">Separátní ERP</div><div class="kpi-value">${missing.length}</div><div class="kpi-delta neutral">Shoptet + SK</div></div>
+      <div class="kpi-card"><div class="kpi-label">B2B obrat (3y)</div><div class="kpi-value" style="color:#a78bfa">${fmtKc(b2b.obrat)}</div><div class="kpi-delta neutral">${b2b.pobocky||0} poboček, marže ${fmtPct(b2b.margin_pct)}</div></div>
+      <div class="kpi-card"><div class="kpi-label">B2C obrat (3y)</div><div class="kpi-value" style="color:#4ade80">${fmtKc(b2c.obrat)}</div><div class="kpi-delta neutral">${b2c.pobocky||0} poboček, marže ${fmtPct(b2c.margin_pct)}</div></div>
     </div>
 
     <div class="card">
-      <div class="card-title">🗺️ Mapa poboček ČR (velikost = 3-letý obrat)</div>
+      <div class="card-title">🗺️ Mapa poboček ČR (velikost = 3-letý obrat, barva = brand)</div>
       <div style="overflow-x:auto; background:#0d1320; border-radius:8px;">
         <svg viewBox="0 0 ${mapW} ${mapH}" style="width:100%; max-width:${mapW}px; height:auto;">
           <rect width="${mapW}" height="${mapH}" fill="#0d1320"/>
           <text x="12" y="24" fill="#3a4a6b" font-size="13" font-weight="600">ČR — pobočky H&B Group</text>
+          <circle cx="${mapW-160}" cy="20" r="6" fill="#a78bfa" fill-opacity="0.6"/><text x="${mapW-148}" y="24" fill="#e6e9f0" font-size="11">B2B (hbgroup)</text>
+          <circle cx="${mapW-160}" cy="40" r="6" fill="#4ade80" fill-opacity="0.6"/><text x="${mapW-148}" y="44" fill="#e6e9f0" font-size="11">B2C (klicovecentrum)</text>
           ${markers}
         </svg>
       </div>
-      <p style="font-size:11px;color:var(--text-muted);margin-top:8px;">GPS approximate dle měst. Hover marker = detail. Pražské pobočky (Libeň/Zličín/Vysočany/Václavské) blízko sebe.</p>
+      <p style="font-size:11px;color:var(--text-muted);margin-top:8px;">GPS dle měst. Hover marker = detail. Pražské pobočky blízko sebe (Praha-klíčové centrum/Jakov/Zličín/Václavské).</p>
     </div>
 
     <div class="card" style="margin-top:16px;">
       <div class="card-title">🏪 Pobočky — 3-letý obrat (2023-2026)</div>
       <table>
-        <thead><tr><th>#</th><th>Pobočka</th><th>Město</th><th>Typ</th><th class="num">2023</th><th class="num">2024</th><th class="num">2025</th><th class="num">2026*</th><th class="num">Marže</th></tr></thead>
+        <thead><tr><th>#</th><th>Pobočka</th><th>Brand</th><th>Region</th><th class="num">2023</th><th class="num">2024</th><th class="num">2025</th><th class="num">2026*</th><th class="num">Marže</th></tr></thead>
         <tbody>
           ${pobocky.map((p, i) => `
             <tr>
               <td class="num">${i+1}</td>
-              <td><strong>${p.nazev}</strong></td>
-              <td>${p.mesto}</td>
-              <td><small>${p.typ}</small></td>
+              <td><strong>${p.nazev}</strong><br><small style="color:var(--text-muted)">${p.mesto} (.${p.kod})</small></td>
+              <td><span style="color:${brandColor(p.brand)};font-weight:600">${p.brand}</span></td>
+              <td><small>${p.region_nazev || '—'}</small></td>
               <td class="num">${p.by_year['2023'] ? fmtKc(p.by_year['2023'].obrat) : '—'}</td>
               <td class="num">${p.by_year['2024'] ? fmtKc(p.by_year['2024'].obrat) : '—'}</td>
               <td class="num">${p.by_year['2025'] ? fmtKc(p.by_year['2025'].obrat) : '—'}</td>
@@ -1816,30 +1824,50 @@ function renderPobocky(d) {
     </div>
 
     <div class="section-grid" style="margin-top:16px;">
-      <div class="card" style="border-color:var(--orange);">
-        <div class="card-title">⚠️ Velkoobchodní sklad (.80)</div>
-        ${vo.map(p => `
-          <table><tbody>
-            <tr><td>Obrat 3y</td><td class="num">${fmtKc(p.total_obrat)}</td></tr>
-            <tr><td>Marže</td><td class="num" style="color:var(--orange)">${fmtPct(p.margin_pct)}</td></tr>
-          </tbody></table>
-          <p style="font-size:12px;color:var(--text-muted);margin-top:8px;">Velkoobchod klíčových polotovarů + řezací stroje (FUTURA, OMNIA, AD2000/3000) pro klíčaře/zámečníky. Nízká marže = VO ceny. Top produkty:</p>
-          <ul style="font-size:11px;color:var(--text-muted);padding-left:18px;">
-            ${(p.top_products || []).slice(0,5).map(t => `<li>${t.nazev} — ${fmtKc(t.obrat)}</li>`).join('')}
-          </ul>
-        `).join('')}
-      </div>
       <div class="card">
-        <div class="card-title">🔌 Separátní ERP systémy (bez Cézar prodejů)</div>
+        <div class="card-title">🗺️ Regiony H&B (3-letý obrat)</div>
         <table>
-          <thead><tr><th>Pobočka</th><th>Město</th><th>ERP</th></tr></thead>
+          <thead><tr><th>Region</th><th class="num">Pobočky</th><th class="num">Obrat 3y</th></tr></thead>
           <tbody>
-            ${missing.map(m => `<tr><td><strong>${m.nazev}</strong></td><td>${m.mesto}</td><td><small>${m.erp_system}</small></td></tr>`).join('')}
+            ${regiony.map(r => `<tr><td><strong>${r.nazev}</strong> <small style="color:var(--text-muted)">(${r.region})</small></td><td class="num">${r.pobocky}</td><td class="num">${fmtKc(r.obrat)}</td></tr>`).join('')}
           </tbody>
         </table>
-        <p style="font-size:11px;color:var(--text-muted);margin-top:8px;">Pražské 310/320/330 = Shoptet, SK Bratislava/Košice = SK ERP. Pro jejich data nutný separátní export.</p>
-        ${unknown.length ? `<p style="font-size:12px;color:var(--red);margin-top:8px;">⚠️ Neznámé kódy v datech: ${unknown.map(u=>'.'+u.kod+' ('+fmtKc(u.total_obrat)+')').join(', ')} — vyjasnit mapping.</p>` : ''}
       </div>
+      <div class="card">
+        <div class="card-title">🏷️ Brand split</div>
+        <table>
+          <thead><tr><th>Brand</th><th class="num">Pobočky</th><th class="num">Obrat 3y</th><th class="num">Marže</th></tr></thead>
+          <tbody>
+            ${brands.map(b => `<tr><td><span style="color:${brandColor(b.brand)};font-weight:600">${b.brand}</span></td><td class="num">${b.pobocky}</td><td class="num">${fmtKc(b.obrat)}</td><td class="num">${fmtPct(b.margin_pct)}</td></tr>`).join('')}
+          </tbody>
+        </table>
+        <p style="font-size:12px;color:var(--text-muted);margin-top:8px;">B2B = hbgroup.cz pobočky (velkoobchod), B2C = klicovecentrum.cz (retail). Brand dle emailu provozovny.</p>
+      </div>
+    </div>
+
+    ${reklamacni.length ? `
+      <div class="card" style="margin-top:16px; border-color:var(--orange);">
+        <div class="card-title">♻️ Reklamační sklady (.95-.99 — vrácení dodavateli)</div>
+        <table>
+          <thead><tr><th>Sklad</th><th class="num">Obrat 3y</th></tr></thead>
+          <tbody>
+            ${reklamacni.map(r => `<tr><td>${r.nazev}</td><td class="num">${fmtKc(r.total_obrat)}</td></tr>`).join('')}
+          </tbody>
+        </table>
+        <p style="font-size:11px;color:var(--text-muted);margin-top:8px;">R-Ghidini/Silca/Burg Wachter/Openers = reklamační sklady per dodavatel (vrácení vadného zboží). Nejsou prodejní pobočky.</p>
+      </div>
+    ` : `
+      <div class="card" style="margin-top:16px;">
+        <div class="card-title">♻️ Reklamační sklady (.95-.99)</div>
+        <p style="font-size:12px;color:var(--text-muted);">Definované v Cézaru (R-Ostatní/Ghidini/Openers&Closers/Silca/Burg Wachter) = logické reklamační sklady per dodavatel. <strong>Bez prodejního obratu</strong> (jen vrácení dodavateli, ne retail).</p>
+      </div>
+    `}
+
+    ${unknown.length ? `<div class="card" style="margin-top:16px;border-color:var(--red);"><div class="card-title">⚠️ Neznámé kódy</div><p style="color:var(--red)">${unknown.map(u=>'.'+u.kod+' ('+fmtKc(u.total_obrat)+')').join(', ')} — nejsou v Podsklady.csv, vyjasnit.</p></div>` : ''}
+
+    <div class="card" style="margin-top:16px;">
+      <div class="card-title">🔌 Separátní ERP (bez Cézar prodejů)</div>
+      <p style="font-size:12px;color:var(--text-muted);">Pražské pobočky <strong>310 Korunní / 320 Dejvice / 330 Vršovice</strong> (Shoptet) + SK <strong>110 Bratislava / 120 Košice</strong> (SK ERP) mají data v jiných systémech. Pro jejich tržby nutný separátní export. Klatovy (.12) dle klienta vyřazeny.</p>
     </div>
 
     <p style="color:var(--text-muted);font-size:12px;margin-top:16px;"><strong>Source:</strong> ${d.source}</p>`;
@@ -1999,6 +2027,93 @@ function renderShipping(d) {
         </table>
       </div>` : ''}
   `;
+}
+
+async function renderDoprava(meta) {
+  const main = document.getElementById('main');
+  try {
+    // Načíst oba datasety: Evidence zásilek (doprava.json) + PPL e-shop (shipping.json)
+    const [dop, ship] = await Promise.all([
+      fetch('../data/marketing/doprava.json?v=' + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null),
+      fetch('../data/marketing/shipping.json?v=' + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null),
+    ]);
+
+    let html = `<div class="section-title">${meta.title}${dateRangeBadge ? '' : ''}</div>
+      <div class="section-subtitle">${meta.subtitle}</div>`;
+
+    // === A) Evidence zásilek (přepravci 2023-2026) ===
+    if (dop) {
+      const years = dop.by_year || {};
+      const carriers = dop.carriers || [];
+      const pobocky = dop.by_pobocka || [];
+      const ppl = carriers.find(c => c.carrier === 'PPL') || {};
+      const dpd = carriers.find(c => c.carrier === 'DPD') || {};
+
+      html += `
+        <div class="card" style="background: rgba(78,161,255,0.08); border-color: var(--accent); margin-bottom:16px;">
+          <div style="font-size:13px; color:var(--accent);">ℹ️ <strong>Evidence zásilek (přepravci 2023-2026)</strong> z Cézaru — per přepravce + výchozí pobočka. ${dop.note}</div>
+        </div>
+
+        <div class="hero-grid">
+          <div class="kpi-card"><div class="kpi-label">PPL zásilky (celkem)</div><div class="kpi-value">${fmtNum(ppl.total_zasilky)}</div><div class="kpi-delta positive">dominantní přepravce</div></div>
+          <div class="kpi-card"><div class="kpi-label">DPD zásilky (celkem)</div><div class="kpi-value">${fmtNum(dpd.total_zasilky)}</div><div class="kpi-delta neutral">odstaveno 2025</div></div>
+          <div class="kpi-card"><div class="kpi-label">Total dobírka (4y)</div><div class="kpi-value">${fmtKc(Object.values(years).reduce((s,y)=>s+(y.dobirka||0),0))}</div><div class="kpi-delta neutral">cash on delivery</div></div>
+          <div class="kpi-card"><div class="kpi-label">Přepravci</div><div class="kpi-value">${carriers.length}</div><div class="kpi-delta neutral">PPL/DPD/DHL/Toptrans</div></div>
+        </div>
+
+        <div class="section-grid">
+          <div class="card">
+            <div class="card-title">🔄 Carrier switch timeline (zásilky/rok)</div>
+            <table>
+              <thead><tr><th>Přepravce</th><th class="num">2023</th><th class="num">2024</th><th class="num">2025</th><th class="num">2026*</th><th class="num">Celkem</th></tr></thead>
+              <tbody>
+                ${carriers.map(c => `
+                  <tr>
+                    <td><strong>${c.carrier}</strong></td>
+                    <td class="num">${fmtNum(c.by_year['2023']?.zasilky || 0)}</td>
+                    <td class="num">${fmtNum(c.by_year['2024']?.zasilky || 0)}</td>
+                    <td class="num">${fmtNum(c.by_year['2025']?.zasilky || 0)}</td>
+                    <td class="num">${fmtNum(c.by_year['2026']?.zasilky || 0)}</td>
+                    <td class="num"><strong>${fmtNum(c.total_zasilky)}</strong></td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+            <p style="font-size:11px;color:var(--text-muted);margin-top:6px;">📌 Switch DPD → PPL: 2023 DPD only → 2024 přechod → 2025+ PPL dominance. *2026 partial.</p>
+          </div>
+          <div class="card">
+            <div class="card-title">📍 Top pobočky odbavení zásilek</div>
+            <table>
+              <thead><tr><th>Pobočka</th><th class="num">Zásilky</th><th class="num">Balíky</th><th class="num">Dobírka</th></tr></thead>
+              <tbody>
+                ${pobocky.slice(0, 10).map(p => `<tr><td><strong>${p.pobocka}</strong></td><td class="num">${fmtNum(p.zasilky)}</td><td class="num">${fmtNum(p.baliky)}</td><td class="num">${fmtKc(p.dobirka)}</td></tr>`).join('')}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <div class="card-title">📅 Per rok (zásilky + balíky + dobírka)</div>
+          <table>
+            <thead><tr><th>Rok</th><th class="num">Zásilky</th><th class="num">Balíky</th><th class="num">Dobírka</th><th class="num">Evidencí</th></tr></thead>
+            <tbody>
+              ${Object.entries(years).map(([y, d]) => `<tr><td><strong>${y}${y==='2026'?'*':''}</strong></td><td class="num">${fmtNum(d.zasilky)}</td><td class="num">${fmtNum(d.baliky)}</td><td class="num">${fmtKc(d.dobirka)}</td><td class="num">${fmtNum(d.evidenci)}</td></tr>`).join('')}
+            </tbody>
+          </table>
+        </div>`;
+    } else {
+      html += `<div class="empty-state"><div class="empty-state-icon">📦</div><h3>Evidence zásilek nenačtena</h3><p>Spusť: python build_doprava.py</p></div>`;
+    }
+
+    // === B) PPL e-shop (Helios) — stávající dataset ===
+    if (ship) {
+      html += `<div style="margin-top:24px;border-top:1px solid var(--border);padding-top:16px;"></div>` + renderShipping(ship);
+    }
+
+    main.innerHTML = html;
+  } catch (e) {
+    main.innerHTML = `<div class="empty-state"><div class="empty-state-icon">⚠️</div><h3>Chyba Doprava</h3><p>${e.message}</p></div>`;
+  }
 }
 
 function renderComplaints(d) {

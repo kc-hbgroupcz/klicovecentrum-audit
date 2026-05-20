@@ -1,15 +1,19 @@
 {
-  "generated_at": "2026-05-20T11:20:56",
-  "source": "ERP Cézar Hodnocení zboží — kód podskladu (KodZboziKodPodskladu suffix) 2023-2026",
-  "note": ".80 = velkoobchodní sklad klíče/stroje (marže ~2%, B2B wholesale). Pražské 310/320/330 + SK 110/120 v separátních ERP (Shoptet/SK), nemají Cézar prodeje.",
+  "generated_at": "2026-05-20T15:24:32",
+  "source": "ERP Cézar Hodnocení zboží — kód podskladu (oficiální Podsklady.csv mapping) 2023-2026",
+  "note": "Brand per pobočka z emailu provozovny (B2C klicovecentrum.cz / B2B hbgroup.cz). Reklamační sklady 95-99 (R-dodavatel) separátně. Klatovy (12) vyřazeny dle klienta.",
   "pobocky_count_active": 16,
-  "pobocky_count_mapped": 20,
+  "pobocky_count_mapped": 16,
   "pobocky": [
     {
       "kod": "10",
-      "nazev": "Plzeň-Centrální sklad",
+      "nazev": "Plzeň",
+      "provozovna": "PL",
       "mesto": "Plzeň",
       "kraj": "Plzeňský",
+      "region": "PLZ",
+      "region_nazev": "Plzeň",
+      "brand": "B2B",
       "typ": "sklad+pobočka",
       "lat": 49.7384,
       "lng": 13.3736,
@@ -99,12 +103,16 @@
     },
     {
       "kod": "40",
-      "nazev": "Praha-Libeň",
+      "nazev": "Praha-klíčové centrum",
+      "provozovna": "PRKC",
       "mesto": "Praha",
       "kraj": "Praha",
+      "region": "PRA",
+      "region_nazev": "Praha",
+      "brand": "B2B",
       "typ": "pobočka",
-      "lat": 50.1063,
-      "lng": 14.4736,
+      "lat": 50.09,
+      "lng": 14.44,
       "erp_system": "cezar",
       "in_mapping": true,
       "total_obrat": 216960467,
@@ -192,8 +200,12 @@
     {
       "kod": "50",
       "nazev": "Ostrava",
+      "provozovna": "OS",
       "mesto": "Ostrava",
       "kraj": "Moravskoslezský",
+      "region": "SMO",
+      "region_nazev": "Severní Morava",
+      "brand": "B2B",
       "typ": "pobočka",
       "lat": 49.8209,
       "lng": 18.2625,
@@ -284,8 +296,12 @@
     {
       "kod": "20",
       "nazev": "Sokolov",
+      "provozovna": "SO",
       "mesto": "Sokolov",
       "kraj": "Karlovarský",
+      "region": "ZAP",
+      "region_nazev": "Západ",
+      "brand": "B2B",
       "typ": "pobočka",
       "lat": 50.1814,
       "lng": 12.6402,
@@ -376,8 +392,12 @@
     {
       "kod": "30",
       "nazev": "Vodňany",
+      "provozovna": "VO",
       "mesto": "Vodňany",
       "kraj": "Jihočeský",
+      "region": "JIH",
+      "region_nazev": "Jih",
+      "brand": "B2B",
       "typ": "pobočka",
       "lat": 49.1487,
       "lng": 14.1753,
@@ -468,8 +488,12 @@
     {
       "kod": "70",
       "nazev": "Brno",
+      "provozovna": "BR",
       "mesto": "Brno",
       "kraj": "Jihomoravský",
+      "region": "JMO",
+      "region_nazev": "Jižní Morava",
+      "brand": "B2C",
       "typ": "pobočka",
       "lat": 49.1951,
       "lng": 16.6068,
@@ -559,9 +583,13 @@
     },
     {
       "kod": "45",
-      "nazev": "Praha-Vysočany",
+      "nazev": "Praha-Jakov (Vysočany)",
+      "provozovna": "PRJA",
       "mesto": "Praha",
       "kraj": "Praha",
+      "region": "PRA",
+      "region_nazev": "Praha",
+      "brand": "B2B",
       "typ": "pobočka",
       "lat": 50.1102,
       "lng": 14.5012,
@@ -652,8 +680,12 @@
     {
       "kod": "25",
       "nazev": "Cheb",
+      "provozovna": "CH",
       "mesto": "Cheb",
       "kraj": "Karlovarský",
+      "region": "ZAP",
+      "region_nazev": "Západ",
+      "brand": "B2C",
       "typ": "pobočka",
       "lat": 50.0796,
       "lng": 12.3731,
@@ -744,8 +776,12 @@
     {
       "kod": "60",
       "nazev": "Č.Budějovice",
+      "provozovna": "CB",
       "mesto": "České Budějovice",
       "kraj": "Jihočeský",
+      "region": "JIH",
+      "region_nazev": "Jih",
+      "brand": "B2C",
       "typ": "pobočka",
       "lat": 48.9747,
       "lng": 14.4744,
@@ -835,12 +871,16 @@
     },
     {
       "kod": "80",
-      "nazev": "VO sklad klíče/stroje",
+      "nazev": "Plzeň-Nová Hospoda",
+      "provozovna": "PLNH",
       "mesto": "Plzeň",
       "kraj": "Plzeňský",
-      "typ": "velkoobchod",
-      "lat": 49.7384,
-      "lng": 13.3736,
+      "region": "PLZ",
+      "region_nazev": "Plzeň",
+      "brand": "B2B",
+      "typ": "sklad",
+      "lat": 49.728,
+      "lng": 13.32,
       "erp_system": "cezar",
       "in_mapping": true,
       "total_obrat": 13570730,
@@ -928,8 +968,12 @@
     {
       "kod": "42",
       "nazev": "Praha-Zličín",
+      "provozovna": "PRZL",
       "mesto": "Praha",
       "kraj": "Praha",
+      "region": "PRA",
+      "region_nazev": "Praha",
+      "brand": "B2C",
       "typ": "pobočka",
       "lat": 50.0567,
       "lng": 14.2862,
@@ -1008,8 +1052,12 @@
     {
       "kod": "41",
       "nazev": "Praha-Václavské nám.",
+      "provozovna": "PRVN",
       "mesto": "Praha",
       "kraj": "Praha",
+      "region": "PRA",
+      "region_nazev": "Praha",
+      "brand": "B2C",
       "typ": "pobočka",
       "lat": 50.0814,
       "lng": 14.428,
@@ -1088,8 +1136,12 @@
     {
       "kod": "61",
       "nazev": "Hrdějovice",
+      "provozovna": "CB2",
       "mesto": "Hrdějovice",
       "kraj": "Jihočeský",
+      "region": "JIH",
+      "region_nazev": "Jih",
+      "brand": "B2C",
       "typ": "pobočka",
       "lat": 49.015,
       "lng": 14.475,
@@ -1168,8 +1220,12 @@
     {
       "kod": "21",
       "nazev": "Chomutov",
+      "provozovna": "CHOM",
       "mesto": "Chomutov",
       "kraj": "Ústecký",
+      "region": "ZAP",
+      "region_nazev": "Západ",
+      "brand": "B2C",
       "typ": "pobočka",
       "lat": 50.4605,
       "lng": 13.4178,
@@ -1248,8 +1304,12 @@
     {
       "kod": "11",
       "nazev": "Plzeň-Lochotín",
+      "provozovna": "PLLO",
       "mesto": "Plzeň",
       "kraj": "Plzeňský",
+      "region": "PLZ",
+      "region_nazev": "Plzeň",
+      "brand": "B2C",
       "typ": "pobočka",
       "lat": 49.7626,
       "lng": 13.3608,
@@ -1321,14 +1381,18 @@
     },
     {
       "kod": "22",
-      "nazev": "⚠️ NEZNÁMÝ (22)",
-      "mesto": "?",
-      "kraj": "?",
-      "typ": "neznámý",
-      "lat": null,
-      "lng": null,
-      "erp_system": "?",
-      "in_mapping": false,
+      "nazev": "Karlovy Vary",
+      "provozovna": "KVAR",
+      "mesto": "Karlovy Vary",
+      "kraj": "Karlovarský",
+      "region": "ZAP",
+      "region_nazev": "Západ",
+      "brand": "B2C",
+      "typ": "pobočka",
+      "lat": 50.231,
+      "lng": 12.8717,
+      "erp_system": "cezar",
+      "in_mapping": true,
       "total_obrat": 202916,
       "total_zisk": 160290,
       "margin_pct": 79.0,
@@ -1394,100 +1458,60 @@
       ]
     }
   ],
-  "missing_separate_erp": [
+  "reklamacni_sklady": [],
+  "unknown_codes": [],
+  "brand_aggregate": [
     {
-      "kod": "310",
-      "nazev": "Praha-Korunní",
-      "mesto": "Praha",
-      "kraj": "Praha",
-      "lat": 50.0758,
-      "lng": 14.452,
-      "erp_system": "shoptet"
+      "brand": "B2B",
+      "obrat": 834383688,
+      "zisk": 375539024,
+      "margin_pct": 45.0,
+      "pobocky": 7
     },
     {
-      "kod": "320",
-      "nazev": "Praha-Dejvice",
-      "mesto": "Praha",
-      "kraj": "Praha",
-      "lat": 50.101,
-      "lng": 14.392,
-      "erp_system": "shoptet"
-    },
-    {
-      "kod": "330",
-      "nazev": "Praha-Vršovice",
-      "mesto": "Praha",
-      "kraj": "Praha",
-      "lat": 50.07,
-      "lng": 14.463,
-      "erp_system": "shoptet"
-    },
-    {
-      "kod": "110",
-      "nazev": "Bratislava",
-      "mesto": "Bratislava",
-      "kraj": "Bratislavský",
-      "lat": 48.1486,
-      "lng": 17.1077,
-      "erp_system": "sk_erp"
-    },
-    {
-      "kod": "120",
-      "nazev": "Košice",
-      "mesto": "Košice",
-      "kraj": "Košický",
-      "lat": 48.7164,
-      "lng": 21.2611,
-      "erp_system": "sk_erp"
+      "brand": "B2C",
+      "obrat": 94980434,
+      "zisk": 49923824,
+      "margin_pct": 52.6,
+      "pobocky": 9
     }
   ],
-  "kraje_aggregate": [
+  "regiony_aggregate": [
     {
-      "kraj": "Plzeňský",
+      "region": "PLZ",
+      "nazev": "Plzeň",
       "obrat": 262893760,
       "pobocky": 3
     },
     {
-      "kraj": "Praha",
+      "region": "PRA",
+      "nazev": "Praha",
       "obrat": 258284087,
       "pobocky": 4
     },
     {
-      "kraj": "Karlovarský",
-      "obrat": 123488941,
-      "pobocky": 2
+      "region": "ZAP",
+      "nazev": "Západ",
+      "obrat": 124183524,
+      "pobocky": 4
     },
     {
-      "kraj": "Moravskoslezský",
+      "region": "SMO",
+      "nazev": "Severní Morava",
       "obrat": 123474918,
       "pobocky": 1
     },
     {
-      "kraj": "Jihočeský",
+      "region": "JIH",
+      "nazev": "Jih",
       "obrat": 108590587,
       "pobocky": 3
     },
     {
-      "kraj": "Jihomoravský",
+      "region": "JMO",
+      "nazev": "Jižní Morava",
       "obrat": 51937246,
       "pobocky": 1
-    },
-    {
-      "kraj": "Ústecký",
-      "obrat": 491667,
-      "pobocky": 1
     }
-  ],
-  "data_holes": {
-    "unknown_codes_in_data": [
-      "22"
-    ],
-    "mapped_no_sales": [
-      "310",
-      "320",
-      "330",
-      "110",
-      "120"
-    ]
-  }
+  ]
 }

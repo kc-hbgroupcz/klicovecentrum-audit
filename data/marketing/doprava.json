@@ -1,0 +1,226 @@
+{
+  "generated_at": "2026-05-20T15:25:20",
+  "source": "ERP Cézar Evidence zásilek - přepravci 2023-2026",
+  "note": "Per přepravce + výchozí pobočka. NazevPrepravce = přepravce + pobočka odbavení. Separátní od PPL e-shop (Helios) datasetu.",
+  "by_year": {
+    "2023": {
+      "zasilky": 629,
+      "baliky": 630,
+      "dobirka": 252111,
+      "sd": 5372653,
+      "hmotnost": 4343,
+      "evidenci": 251
+    },
+    "2024": {
+      "zasilky": 1593,
+      "baliky": 1602,
+      "dobirka": 1155577,
+      "sd": 10817478,
+      "hmotnost": 9800,
+      "evidenci": 681
+    },
+    "2025": {
+      "zasilky": 666,
+      "baliky": 666,
+      "dobirka": 297864,
+      "sd": 4275425,
+      "hmotnost": 3416,
+      "evidenci": 323
+    },
+    "2026": {
+      "zasilky": 1553,
+      "baliky": 1553,
+      "dobirka": 733707,
+      "sd": 8206858,
+      "hmotnost": 7543,
+      "evidenci": 371
+    }
+  },
+  "carriers": [
+    {
+      "carrier": "PPL",
+      "total_zasilky": 2436,
+      "total_baliky": 2436,
+      "total_dobirka": 1238202,
+      "by_year": {
+        "2024": {
+          "zasilky": 259,
+          "baliky": 259,
+          "dobirka": 206631
+        },
+        "2025": {
+          "zasilky": 653,
+          "baliky": 653,
+          "dobirka": 297864
+        },
+        "2026": {
+          "zasilky": 1524,
+          "baliky": 1524,
+          "dobirka": 733707
+        }
+      }
+    },
+    {
+      "carrier": "DPD",
+      "total_zasilky": 1981,
+      "total_baliky": 1991,
+      "total_dobirka": 1201057,
+      "by_year": {
+        "2023": {
+          "zasilky": 628,
+          "baliky": 629,
+          "dobirka": 252111
+        },
+        "2024": {
+          "zasilky": 1328,
+          "baliky": 1337,
+          "dobirka": 948946
+        },
+        "2025": {
+          "zasilky": 9,
+          "baliky": 9,
+          "dobirka": 0
+        },
+        "2026": {
+          "zasilky": 16,
+          "baliky": 16,
+          "dobirka": 0
+        }
+      }
+    },
+    {
+      "carrier": "DHL",
+      "total_zasilky": 16,
+      "total_baliky": 16,
+      "total_dobirka": 0,
+      "by_year": {
+        "2023": {
+          "zasilky": 1,
+          "baliky": 1,
+          "dobirka": 0
+        },
+        "2024": {
+          "zasilky": 6,
+          "baliky": 6,
+          "dobirka": 0
+        },
+        "2025": {
+          "zasilky": 1,
+          "baliky": 1,
+          "dobirka": 0
+        },
+        "2026": {
+          "zasilky": 8,
+          "baliky": 8,
+          "dobirka": 0
+        }
+      }
+    },
+    {
+      "carrier": "Toptrans",
+      "total_zasilky": 8,
+      "total_baliky": 8,
+      "total_dobirka": 0,
+      "by_year": {
+        "2025": {
+          "zasilky": 3,
+          "baliky": 3,
+          "dobirka": 0
+        },
+        "2026": {
+          "zasilky": 5,
+          "baliky": 5,
+          "dobirka": 0
+        }
+      }
+    }
+  ],
+  "by_pobocka": [
+    {
+      "pobocka": "Praha Libeň",
+      "zasilky": 1825,
+      "baliky": 1825,
+      "dobirka": 1134941
+    },
+    {
+      "pobocka": "Plzeň",
+      "zasilky": 1509,
+      "baliky": 1513,
+      "dobirka": 415150
+    },
+    {
+      "pobocka": "Sokolov",
+      "zasilky": 328,
+      "baliky": 329,
+      "dobirka": 26560
+    },
+    {
+      "pobocka": "Ostrava",
+      "zasilky": 301,
+      "baliky": 306,
+      "dobirka": 474067
+    },
+    {
+      "pobocka": "Brno",
+      "zasilky": 243,
+      "baliky": 243,
+      "dobirka": 372158
+    },
+    {
+      "pobocka": "Praha Vysočany",
+      "zasilky": 110,
+      "baliky": 110,
+      "dobirka": 3377
+    },
+    {
+      "pobocka": "Vodňany",
+      "zasilky": 95,
+      "baliky": 95,
+      "dobirka": 13006
+    },
+    {
+      "pobocka": "(nespecifikováno)",
+      "zasilky": 24,
+      "baliky": 24,
+      "dobirka": 0
+    },
+    {
+      "pobocka": "České Budějovice",
+      "zasilky": 5,
+      "baliky": 5,
+      "dobirka": 0
+    },
+    {
+      "pobocka": "Cheb",
+      "zasilky": 1,
+      "baliky": 1,
+      "dobirka": 0
+    }
+  ],
+  "carrier_switch_timeline": {
+    "DPD": {
+      "2023": 628,
+      "2024": 1328,
+      "2025": 9,
+      "2026": 16
+    },
+    "DHL": {
+      "2023": 1,
+      "2024": 6,
+      "2025": 1,
+      "2026": 8
+    },
+    "PPL": {
+      "2023": 0,
+      "2024": 259,
+      "2025": 653,
+      "2026": 1524
+    },
+    "Toptrans": {
+      "2023": 0,
+      "2024": 0,
+      "2025": 3,
+      "2026": 5
+    }
+  }
+}
