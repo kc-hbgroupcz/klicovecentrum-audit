@@ -792,6 +792,11 @@ function isFilterCompatible(meta) {
 
 async function renderSection(idx) {
   STATE.section = idx;
+  // Úklid: zruš osamocenou Leaflet mapu při odchodu z Mapy ČR (jinak na pozadí stahuje dlaždice)
+  if (idx !== 19 && typeof mapaInstance !== 'undefined' && mapaInstance) {
+    try { mapaInstance.remove(); } catch (e) {}
+    mapaInstance = null;
+  }
   STATE.group = groupForSection(idx);
   renderGroupBar();
   renderSubTabs(STATE.group);
