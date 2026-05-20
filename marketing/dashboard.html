@@ -1654,7 +1654,7 @@ const SECTION_FILES = {
   6: 'mc',  // Section 6 Feedy = sdíli MC API
   7: 'products',
   8: 'categories',
-  10: 'regions',
+  10: 'regions_map',
   11: 'shipping',
   12: 'complaints',
   13: 'returns',
@@ -1732,24 +1732,133 @@ function renderCategories(d) {
     </div>`;
 }
 
+// ČR kraje — grid cartogram pozice (col, row) v přibližném geo rozložení
+const CR_KRAJE_GRID = {
+  'Karlovarský':      {col: 0, row: 1},
+  'Ústecký':          {col: 1, row: 0},
+  'Liberecký':        {col: 2, row: 0},
+  'Královéhradecký':  {col: 3, row: 0},
+  'Plzeňský':         {col: 0, row: 2},
+  'Praha':            {col: 2, row: 1},
+  'Středočeský':      {col: 1, row: 1},
+  'Pardubický':       {col: 3, row: 1},
+  'Olomoucký':        {col: 4, row: 1},
+  'Moravskoslezský':  {col: 5, row: 0},
+  'Jihočeský':        {col: 1, row: 2},
+  'Vysočina':         {col: 2, row: 2},
+  'Jihomoravský':     {col: 3, row: 2},
+  'Zlínský':          {col: 4, row: 2},
+};
+
+function heatColor(value, max) {
+  // 0 → světle modrá, max → tmavě modrá/červená
+  if (!max) return '#1a2033';
+  const ratio = value / max;
+  if (ratio > 0.75) return '#4ea1ff';  // top
+  if (ratio > 0.5) return '#3a7fd0';
+  if (ratio > 0.3) return '#2c5f9e';
+  if (ratio > 0.15) return '#22456f';
+  if (ratio > 0.05) return '#1c3450';
+  return '#16263a';
+}
+
 function renderRegions(d) {
+  const combined = d.cz_combined_for_map || [];
+  const b2c = d.cz_b2c_by_kraj || [];
+  const b2b = d.cz_b2b_by_kraj || [];
+  const sk = d.sk_by_kraj || [];
+  const krajMap = {};
+  combined.forEach(k => { krajMap[k.kraj] = k.total; });
+  const maxVal = Math.max(...combined.map(k => k.total), 1);
+  const totalGeo = d.total_orders_geo || combined.reduce((s,k)=>s+k.total,0);
+
+  // SVG cartogram — 6 cols × 3 rows grid
+  const cellW = 130, cellH = 80, gap = 8;
+  const svgW = 6 * (cellW + gap) + gap;
+  const svgH = 3 * (cellH + gap) + gap;
+  let cells = '';
+  for (const [kraj, pos] of Object.entries(CR_KRAJE_GRID)) {
+    const val = krajMap[kraj] || 0;
+    const x = gap + pos.col * (cellW + gap);
+    const y = gap + pos.row * (cellH + gap);
+    const color = heatColor(val, maxVal);
+    const pct = totalGeo ? (val / totalGeo * 100).toFixed(1) : 0;
+    cells += `
+      <g>
+        <rect x="${x}" y="${y}" width="${cellW}" height="${cellH}" rx="6"
+              fill="${color}" stroke="var(--border)" stroke-width="1">
+          <title>${kraj}: ${val.toLocaleString('cs-CZ')} obj (${pct}%)</title>
+        </rect>
+        <text x="${x + cellW/2}" y="${y + 24}" text-anchor="middle" fill="#e6e9f0" font-size="11" font-weight="600">${kraj.length > 14 ? kraj.slice(0,12)+'…' : kraj}</text>
+        <text x="${x + cellW/2}" y="${y + 46}" text-anchor="middle" fill="#fff" font-size="18" font-weight="700">${val.toLocaleString('cs-CZ')}</text>
+        <text x="${x + cellW/2}" y="${y + 64}" text-anchor="middle" fill="#8b93a7" font-size="10">${pct}%</text>
+      </g>`;
+  }
+
   return `
-    <div class="hero-grid">
-      <div class="kpi-card"><div class="kpi-label">Total orders</div><div class="kpi-value">${fmtNum(d.total_orders)}</div></div>
-      <div class="kpi-card"><div class="kpi-label">With branch (PSČ)</div><div class="kpi-value">${d.with_branch_pct != null ? fmtPct(d.with_branch_pct) : '—'}</div></div>
-      <div class="kpi-card"><div class="kpi-label">Period</div><div class="kpi-value" style="font-size:14px">${d.period?.start} → ${d.period?.end}</div></div>
+    <div class="card" style="background: rgba(251,146,60,0.08); border-color: var(--orange); margin-bottom: 16px;">
+      <div style="font-size: 13px; color: var(--orange);">
+        ⚠️ <strong>Geo data jen z eshopu</strong> (SQL kosik PSČ → kraj). ${d.note}
+      </div>
     </div>
+
+    <div class="hero-grid">
+      <div class="kpi-card"><div class="kpi-label">Objednávky s geo</div><div class="kpi-value">${fmtNum(totalGeo)}</div><div class="kpi-delta neutral">eshop 2023+</div></div>
+      <div class="kpi-card"><div class="kpi-label">Top kraj</div><div class="kpi-value" style="font-size:18px">${combined[0]?.kraj || '—'}</div><div class="kpi-delta positive">${fmtNum(combined[0]?.total)} obj</div></div>
+      <div class="kpi-card"><div class="kpi-label">CZ krajů</div><div class="kpi-value">${combined.length}/14</div></div>
+      <div class="kpi-card"><div class="kpi-label">SK regionů</div><div class="kpi-value">${sk.length}</div><div class="kpi-delta neutral">${fmtNum(sk.reduce((s,k)=>s+k.total,0))} obj</div></div>
+    </div>
+
     <div class="card">
-      <div class="card-title">🗺️ Kraje breakdown</div>
+      <div class="card-title">🗺️ Mapa ČR — objednávky podle krajů (eshop B2C+B2B, choropleth)</div>
+      <div style="overflow-x:auto;">
+        <svg viewBox="0 0 ${svgW} ${svgH}" style="width:100%; max-width:${svgW}px; height:auto;">
+          ${cells}
+        </svg>
+      </div>
+      <p style="font-size:11px;color:var(--text-muted);margin-top:8px;">Barva = intenzita objednávek. Hover zobrazí detail. Rozložení approximate geografické (ne přesné hranice).</p>
+    </div>
+
+    <div class="section-grid">
+      <div class="card">
+        <div class="card-title">🛒 B2C eshop (klicovecentrum.cz) per kraj</div>
+        <table>
+          <thead><tr><th>#</th><th>Kraj</th><th class="num">Objednávky</th><th class="num">% z B2C</th></tr></thead>
+          <tbody>
+            ${(() => { const tot=b2c.reduce((s,k)=>s+k.total,0); return b2c.slice(0,14).map((k,i)=>`
+              <tr><td class="num">${i+1}</td><td><strong>${k.kraj}</strong></td><td class="num">${fmtNum(k.total)}</td><td class="num">${tot?(k.total/tot*100).toFixed(1):0}%</td></tr>
+            `).join(''); })()}
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-title">🏢 B2B eshop (hbgroup.cz) per kraj</div>
+        <table>
+          <thead><tr><th>#</th><th>Kraj</th><th class="num">Objednávky</th><th class="num">% z B2B</th></tr></thead>
+          <tbody>
+            ${(() => { const tot=b2b.reduce((s,k)=>s+k.total,0); return b2b.slice(0,14).map((k,i)=>`
+              <tr><td class="num">${i+1}</td><td><strong>${k.kraj}</strong></td><td class="num">${fmtNum(k.total)}</td><td class="num">${tot?(k.total/tot*100).toFixed(1):0}%</td></tr>
+            `).join(''); })()}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <div class="card-title">🇸🇰 Slovensko — regiony (klucovecentrum.sk + hbgroup.sk)</div>
       <table>
-        <thead><tr><th>Kraj</th><th class="num">Orders</th><th class="num">Revenue</th><th class="num">Avg AOV</th></tr></thead>
+        <thead><tr><th>#</th><th>Región</th><th class="num">Objednávky</th></tr></thead>
         <tbody>
-          ${(d.regions || []).slice(0, 20).map(r => `
-            <tr><td><strong>${r.kraj || r.name || '?'}</strong></td><td class="num">${fmtNum(r.orders || r.count)}</td><td class="num">${fmtKc(r.revenue_kc || r.revenue)}</td><td class="num">${fmtKc(r.aov_kc || r.aov)}</td></tr>
+          ${sk.slice(0,10).map((k,i)=>`
+            <tr><td class="num">${i+1}</td><td><strong>${k.kraj}</strong></td><td class="num">${fmtNum(k.total)}</td></tr>
           `).join('')}
         </tbody>
       </table>
-    </div>`;
+    </div>
+
+    <p style="color:var(--text-muted); font-size:12px; margin-top:16px;">
+      <strong>Source:</strong> ${d.source}
+    </p>`;
 }
 
 function renderShipping(d) {

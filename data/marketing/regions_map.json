@@ -1,0 +1,459 @@
+{
+  "generated_at": "2026-05-20T10:58:38",
+  "source": "SQL kosik eshop objednávky 2023+ (PSČ → kraj). Pozn: ERP Cézar Výdejky nemají PSČ, mapa pokrývá jen eshop.",
+  "note": "Pobočkový prodej (ERP TypPlb H/FK) nemá geo data — chybí v mapě. Pro per-pobočka geografii nutný Cézar Maloobchod pokladna export.",
+  "total_orders_geo": 19495,
+  "cz_combined_for_map": [
+    {
+      "kraj": "Praha",
+      "total": 2497
+    },
+    {
+      "kraj": "Středočeský",
+      "total": 2313
+    },
+    {
+      "kraj": "Jihomoravský",
+      "total": 1533
+    },
+    {
+      "kraj": "Ústecký",
+      "total": 1506
+    },
+    {
+      "kraj": "Jihočeský",
+      "total": 1292
+    },
+    {
+      "kraj": "Královéhradecký",
+      "total": 1158
+    },
+    {
+      "kraj": "Plzeňský",
+      "total": 1109
+    },
+    {
+      "kraj": "Liberecký",
+      "total": 1103
+    },
+    {
+      "kraj": "Moravskoslezský",
+      "total": 1042
+    },
+    {
+      "kraj": "Olomoucký",
+      "total": 509
+    },
+    {
+      "kraj": "Zlínský",
+      "total": 472
+    },
+    {
+      "kraj": "Vysočina",
+      "total": 418
+    },
+    {
+      "kraj": "Pardubický",
+      "total": 269
+    },
+    {
+      "kraj": "Karlovarský",
+      "total": 211
+    },
+    {
+      "kraj": "Neznámý",
+      "total": 135
+    }
+  ],
+  "cz_b2c_by_kraj": [
+    {
+      "kraj": "Praha",
+      "total": 2313,
+      "by_year": {
+        "2023": 775,
+        "2024": 653,
+        "2025": 709,
+        "2026": 176
+      }
+    },
+    {
+      "kraj": "Středočeský",
+      "total": 1494,
+      "by_year": {
+        "2023": 473,
+        "2024": 412,
+        "2025": 492,
+        "2026": 117
+      }
+    },
+    {
+      "kraj": "Jihomoravský",
+      "total": 1110,
+      "by_year": {
+        "2023": 371,
+        "2024": 318,
+        "2025": 346,
+        "2026": 75
+      }
+    },
+    {
+      "kraj": "Moravskoslezský",
+      "total": 712,
+      "by_year": {
+        "2023": 231,
+        "2024": 225,
+        "2025": 213,
+        "2026": 43
+      }
+    },
+    {
+      "kraj": "Plzeňský",
+      "total": 672,
+      "by_year": {
+        "2023": 232,
+        "2024": 193,
+        "2025": 202,
+        "2026": 45
+      }
+    },
+    {
+      "kraj": "Královéhradecký",
+      "total": 623,
+      "by_year": {
+        "2023": 185,
+        "2024": 169,
+        "2025": 219,
+        "2026": 50
+      }
+    },
+    {
+      "kraj": "Jihočeský",
+      "total": 605,
+      "by_year": {
+        "2023": 202,
+        "2024": 186,
+        "2025": 175,
+        "2026": 42
+      }
+    },
+    {
+      "kraj": "Ústecký",
+      "total": 602,
+      "by_year": {
+        "2023": 193,
+        "2024": 166,
+        "2025": 195,
+        "2026": 48
+      }
+    },
+    {
+      "kraj": "Olomoucký",
+      "total": 375,
+      "by_year": {
+        "2023": 129,
+        "2024": 78,
+        "2025": 142,
+        "2026": 26
+      }
+    },
+    {
+      "kraj": "Zlínský",
+      "total": 341,
+      "by_year": {
+        "2023": 114,
+        "2024": 76,
+        "2025": 134,
+        "2026": 17
+      }
+    },
+    {
+      "kraj": "Liberecký",
+      "total": 253,
+      "by_year": {
+        "2023": 81,
+        "2024": 73,
+        "2025": 83,
+        "2026": 16
+      }
+    },
+    {
+      "kraj": "Vysočina",
+      "total": 230,
+      "by_year": {
+        "2023": 84,
+        "2024": 52,
+        "2025": 83,
+        "2026": 11
+      }
+    },
+    {
+      "kraj": "Karlovarský",
+      "total": 209,
+      "by_year": {
+        "2023": 72,
+        "2024": 57,
+        "2025": 66,
+        "2026": 14
+      }
+    },
+    {
+      "kraj": "Pardubický",
+      "total": 138,
+      "by_year": {
+        "2023": 43,
+        "2024": 31,
+        "2025": 53,
+        "2026": 11
+      }
+    },
+    {
+      "kraj": "Neznámý",
+      "total": 130,
+      "by_year": {
+        "2023": 40,
+        "2024": 39,
+        "2025": 43,
+        "2026": 8
+      }
+    }
+  ],
+  "cz_b2b_by_kraj": [
+    {
+      "kraj": "Ústecký",
+      "total": 904,
+      "by_year": {
+        "2023": 271,
+        "2024": 300,
+        "2025": 267,
+        "2026": 66
+      }
+    },
+    {
+      "kraj": "Liberecký",
+      "total": 850,
+      "by_year": {
+        "2023": 262,
+        "2024": 251,
+        "2025": 268,
+        "2026": 69
+      }
+    },
+    {
+      "kraj": "Středočeský",
+      "total": 819,
+      "by_year": {
+        "2023": 191,
+        "2024": 266,
+        "2025": 263,
+        "2026": 99
+      }
+    },
+    {
+      "kraj": "Jihočeský",
+      "total": 687,
+      "by_year": {
+        "2023": 116,
+        "2024": 228,
+        "2025": 267,
+        "2026": 76
+      }
+    },
+    {
+      "kraj": "Královéhradecký",
+      "total": 535,
+      "by_year": {
+        "2023": 129,
+        "2024": 168,
+        "2025": 199,
+        "2026": 39
+      }
+    },
+    {
+      "kraj": "Plzeňský",
+      "total": 437,
+      "by_year": {
+        "2023": 110,
+        "2024": 145,
+        "2025": 139,
+        "2026": 43
+      }
+    },
+    {
+      "kraj": "Jihomoravský",
+      "total": 423,
+      "by_year": {
+        "2023": 33,
+        "2024": 108,
+        "2025": 236,
+        "2026": 46
+      }
+    },
+    {
+      "kraj": "Moravskoslezský",
+      "total": 330,
+      "by_year": {
+        "2023": 99,
+        "2024": 98,
+        "2025": 103,
+        "2026": 30
+      }
+    },
+    {
+      "kraj": "Vysočina",
+      "total": 188,
+      "by_year": {
+        "2023": 34,
+        "2024": 49,
+        "2025": 78,
+        "2026": 27
+      }
+    },
+    {
+      "kraj": "Praha",
+      "total": 184,
+      "by_year": {
+        "2023": 62,
+        "2024": 44,
+        "2025": 66,
+        "2026": 12
+      }
+    },
+    {
+      "kraj": "Olomoucký",
+      "total": 134,
+      "by_year": {
+        "2023": 35,
+        "2024": 37,
+        "2025": 49,
+        "2026": 13
+      }
+    },
+    {
+      "kraj": "Zlínský",
+      "total": 131,
+      "by_year": {
+        "2023": 33,
+        "2024": 50,
+        "2025": 40,
+        "2026": 8
+      }
+    },
+    {
+      "kraj": "Pardubický",
+      "total": 131,
+      "by_year": {
+        "2023": 37,
+        "2024": 40,
+        "2025": 49,
+        "2026": 5
+      }
+    },
+    {
+      "kraj": "Neznámý",
+      "total": 5,
+      "by_year": {
+        "2023": 1,
+        "2024": 4
+      }
+    },
+    {
+      "kraj": "Karlovarský",
+      "total": 2,
+      "by_year": {
+        "2023": 1,
+        "2025": 1
+      }
+    }
+  ],
+  "sk_by_kraj": [
+    {
+      "kraj": "Bratislavský/Trnavský",
+      "total": 887,
+      "by_year": {
+        "2023": 74,
+        "2024": 288,
+        "2025": 400,
+        "2026": 125
+      }
+    },
+    {
+      "kraj": "Nitriansky/B.Bystrica",
+      "total": 704,
+      "by_year": {
+        "2023": 57,
+        "2024": 254,
+        "2025": 303,
+        "2026": 90
+      }
+    },
+    {
+      "kraj": "Žilinský",
+      "total": 501,
+      "by_year": {
+        "2023": 35,
+        "2024": 132,
+        "2025": 257,
+        "2026": 77
+      }
+    },
+    {
+      "kraj": "Trnavský",
+      "total": 490,
+      "by_year": {
+        "2023": 38,
+        "2024": 123,
+        "2025": 245,
+        "2026": 84
+      }
+    },
+    {
+      "kraj": "SK ostatní",
+      "total": 443,
+      "by_year": {
+        "2023": 46,
+        "2024": 158,
+        "2025": 195,
+        "2026": 44
+      }
+    },
+    {
+      "kraj": "Košický",
+      "total": 427,
+      "by_year": {
+        "2023": 14,
+        "2024": 136,
+        "2025": 220,
+        "2026": 57
+      }
+    },
+    {
+      "kraj": "Prešovský",
+      "total": 228,
+      "by_year": {
+        "2023": 6,
+        "2024": 81,
+        "2025": 107,
+        "2026": 34
+      }
+    },
+    {
+      "kraj": "Bratislavský",
+      "total": 153,
+      "by_year": {
+        "2023": 17,
+        "2024": 53,
+        "2025": 65,
+        "2026": 18
+      }
+    },
+    {
+      "kraj": "Nitriansky",
+      "total": 76,
+      "by_year": {
+        "2024": 22,
+        "2025": 43,
+        "2026": 11
+      }
+    }
+  ]
+}

@@ -1,0 +1,2019 @@
+{
+  "generated_at": "2026-05-20T10:56:03",
+  "source": "ERP Cézar Hodnocení zboží 2023-2025",
+  "yearly_totals": {
+    "2023": {
+      "revenue": 286428491,
+      "profit": 129895227,
+      "qty": 6967186,
+      "unique_skus": 50946,
+      "vrat_revenue": 6274239,
+      "margin_pct": 45.3
+    },
+    "2024": {
+      "revenue": 277413900,
+      "profit": 125245302,
+      "qty": 6537060,
+      "unique_skus": 50736,
+      "vrat_revenue": 7039562,
+      "margin_pct": 45.1
+    },
+    "2025": {
+      "revenue": 268209718,
+      "profit": 123914389,
+      "qty": 6331980,
+      "unique_skus": 51789,
+      "vrat_revenue": 6136879,
+      "margin_pct": 46.2
+    }
+  },
+  "top_50_products": [
+    {
+      "sku": "711267.40",
+      "name": "D837214ZB stroj ProTech S169 plus",
+      "category": "Ostatní",
+      "revenue": 2821000,
+      "profit": 1055912,
+      "qty": 1.0,
+      "orders": 2,
+      "margin_pct": 37.4,
+      "vrat_revenue": 0,
+      "vrat_pct": 0.0,
+      "years": {
+        "2023": {
+          "revenue": 2821000,
+          "profit": 1055912,
+          "qty": 1.0
+        }
+      }
+    },
+    {
+      "sku": "330101.50",
+      "name": "Vložka Star 70S 30/35 Ni/R1  3kl",
+      "category": "Cylindrické vložky",
+      "revenue": 2676407,
+      "profit": 1347789,
+      "qty": 13846.0,
+      "orders": 1728,
+      "margin_pct": 50.4,
+      "vrat_revenue": 9613,
+      "vrat_pct": 0.4,
+      "years": {
+        "2023": {
+          "revenue": 862233,
+          "profit": 429931,
+          "qty": 4456.0
+        },
+        "2024": {
+          "revenue": 831060,
+          "profit": 424960,
+          "qty": 4394.0
+        },
+        "2025": {
+          "revenue": 983114,
+          "profit": 492899,
+          "qty": 4996.0
+        }
+      }
+    },
+    {
+      "sku": "159005.10",
+      "name": "OC El.otvírač 50E10 12Vdc nízkoodběr.",
+      "category": "El. otvírače",
+      "revenue": 2432656,
+      "profit": 715801,
+      "qty": 5096.0,
+      "orders": 193,
+      "margin_pct": 29.4,
+      "vrat_revenue": 1170,
+      "vrat_pct": 0.0,
+      "years": {
+        "2023": {
+          "revenue": 708220,
+          "profit": 221927,
+          "qty": 1540.0
+        },
+        "2024": {
+          "revenue": 967706,
+          "profit": 270644,
+          "qty": 2046.0
+        },
+        "2025": {
+          "revenue": 756730,
+          "profit": 223230,
+          "qty": 1510.0
+        }
+      }
+    },
+    {
+      "sku": "330099.50",
+      "name": "Vložka Star 60S 30/35 Ms (10x)   (2020)",
+      "category": "Cylindrické vložky",
+      "revenue": 2404131,
+      "profit": 847116,
+      "qty": 18595.0,
+      "orders": 1198,
+      "margin_pct": 35.2,
+      "vrat_revenue": 669,
+      "vrat_pct": 0.0,
+      "years": {
+        "2023": {
+          "revenue": 854387,
+          "profit": 303057,
+          "qty": 6654.0
+        },
+        "2024": {
+          "revenue": 733850,
+          "profit": 255193,
+          "qty": 5763.0
+        },
+        "2025": {
+          "revenue": 815893,
+          "profit": 288866,
+          "qty": 6178.0
+        }
+      }
+    },
+    {
+      "sku": "330101.10",
+      "name": "Vložka Star 70S 30/35 Ni/R1  3kl",
+      "category": "Cylindrické vložky",
+      "revenue": 2400683,
+      "profit": 1231867,
+      "qty": 12243.0,
+      "orders": 1980,
+      "margin_pct": 51.3,
+      "vrat_revenue": 51744,
+      "vrat_pct": 2.2,
+      "years": {
+        "2023": {
+          "revenue": 784951,
+          "profit": 399823,
+          "qty": 4020.0
+        },
+        "2024": {
+          "revenue": 805797,
+          "profit": 408936,
+          "qty": 4278.0
+        },
+        "2025": {
+          "revenue": 809935,
+          "profit": 423109,
+          "qty": 3945.0
+        }
+      }
+    },
+    {
+      "sku": "330101.40",
+      "name": "Vložka Star 70S 30/35 Ni/R1  3kl",
+      "category": "Cylindrické vložky",
+      "revenue": 2368213,
+      "profit": 1250512,
+      "qty": 11633.0,
+      "orders": 1571,
+      "margin_pct": 52.8,
+      "vrat_revenue": 26657,
+      "vrat_pct": 1.1,
+      "years": {
+        "2023": {
+          "revenue": 849639,
+          "profit": 446332,
+          "qty": 4132.0
+        },
+        "2024": {
+          "revenue": 827304,
+          "profit": 447264,
+          "qty": 4121.0
+        },
+        "2025": {
+          "revenue": 691270,
+          "profit": 356916,
+          "qty": 3380.0
+        }
+      }
+    },
+    {
+      "sku": "001035.10",
+      "name": "Zámek HOBES 24026 P/L 90/50/22 PZ  BZn",
+      "category": "Zámky",
+      "revenue": 2311960,
+      "profit": 298758,
+      "qty": 14352.0,
+      "orders": 1521,
+      "margin_pct": 12.9,
+      "vrat_revenue": 15926,
+      "vrat_pct": 0.7,
+      "years": {
+        "2023": {
+          "revenue": 770281,
+          "profit": 139123,
+          "qty": 4818.0
+        },
+        "2024": {
+          "revenue": 804708,
+          "profit": 91940,
+          "qty": 4983.0
+        },
+        "2025": {
+          "revenue": 736970,
+          "profit": 67695,
+          "qty": 4551.0
+        }
+      }
+    },
+    {
+      "sku": "088005.50",
+      "name": "Klíč G17 GUARD NVL/GD17/",
+      "category": "Klíče",
+      "revenue": 1902741,
+      "profit": 1320078,
+      "qty": 101121.0,
+      "orders": 1192,
+      "margin_pct": 69.4,
+      "vrat_revenue": 14232,
+      "vrat_pct": 0.7,
+      "years": {
+        "2023": {
+          "revenue": 758098,
+          "profit": 503312,
+          "qty": 45392.0
+        },
+        "2024": {
+          "revenue": 620705,
+          "profit": 435180,
+          "qty": 31955.0
+        },
+        "2025": {
+          "revenue": 523938,
+          "profit": 381587,
+          "qty": 23774.0
+        }
+      }
+    },
+    {
+      "sku": "018117.10",
+      "name": "Klíč FAB 200RSG RRS2 nový typ",
+      "category": "Klíče",
+      "revenue": 1826473,
+      "profit": 127774,
+      "qty": 59594.0,
+      "orders": 1211,
+      "margin_pct": 7.0,
+      "vrat_revenue": 8664,
+      "vrat_pct": 0.5,
+      "years": {
+        "2023": {
+          "revenue": 741877,
+          "profit": 91964,
+          "qty": 23382.0
+        },
+        "2024": {
+          "revenue": 672501,
+          "profit": 26876,
+          "qty": 22399.0
+        },
+        "2025": {
+          "revenue": 412095,
+          "profit": 8934,
+          "qty": 13813.0
+        }
+      }
+    },
+    {
+      "sku": "S103630.10",
+      "name": "Projekt systému SGHK",
+      "category": "Ostatní",
+      "revenue": 1757983,
+      "profit": 903218,
+      "qty": 46.0,
+      "orders": 46,
+      "margin_pct": 51.4,
+      "vrat_revenue": 0,
+      "vrat_pct": 0.0,
+      "years": {
+        "2023": {
+          "revenue": 54752,
+          "profit": 13452,
+          "qty": 17.0
+        },
+        "2024": {
+          "revenue": 1364410,
+          "profit": 644756,
+          "qty": 24.0
+        },
+        "2025": {
+          "revenue": 338821,
+          "profit": 245009,
+          "qty": 5.0
+        }
+      }
+    },
+    {
+      "sku": "001022.10",
+      "name": "Zámek HOBES 02-04 90/40/20 PZ P/L BZn",
+      "category": "Zámky",
+      "revenue": 1637238,
+      "profit": 233304,
+      "qty": 9491.0,
+      "orders": 1081,
+      "margin_pct": 14.2,
+      "vrat_revenue": 18615,
+      "vrat_pct": 1.1,
+      "years": {
+        "2023": {
+          "revenue": 582847,
+          "profit": 106299,
+          "qty": 3409.0
+        },
+        "2024": {
+          "revenue": 551230,
+          "profit": 69032,
+          "qty": 3178.0
+        },
+        "2025": {
+          "revenue": 503161,
+          "profit": 57973,
+          "qty": 2904.0
+        }
+      }
+    },
+    {
+      "sku": "900018.40",
+      "name": "Test. aplikace SPVG 10, 174,5 hod., 600 Kč/h",
+      "category": "Ostatní",
+      "revenue": 1587889,
+      "profit": 1587889,
+      "qty": 86.0,
+      "orders": 49,
+      "margin_pct": 100.0,
+      "vrat_revenue": 7800,
+      "vrat_pct": 0.5,
+      "years": {
+        "2023": {
+          "revenue": 194284,
+          "profit": 194284,
+          "qty": 13.0
+        },
+        "2024": {
+          "revenue": 605620,
+          "profit": 605620,
+          "qty": 42.0
+        },
+        "2025": {
+          "revenue": 787985,
+          "profit": 787985,
+          "qty": 31.0
+        }
+      }
+    },
+    {
+      "sku": "001005.10",
+      "name": "Zámek HOBES 01-15 P/L 90/40/20 BB BZn",
+      "category": "Zámky",
+      "revenue": 1573561,
+      "profit": 218030,
+      "qty": 9928.0,
+      "orders": 906,
+      "margin_pct": 13.9,
+      "vrat_revenue": 5140,
+      "vrat_pct": 0.3,
+      "years": {
+        "2023": {
+          "revenue": 543710,
+          "profit": 113053,
+          "qty": 3439.0
+        },
+        "2024": {
+          "revenue": 521330,
+          "profit": 63190,
+          "qty": 3286.0
+        },
+        "2025": {
+          "revenue": 508522,
+          "profit": 41788,
+          "qty": 3203.0
+        }
+      }
+    },
+    {
+      "sku": "300015.10",
+      "name": "EUROLOCKS Zámek  0812-0080 (EU1R) rov.záv HDC220V",
+      "category": "Zámky",
+      "revenue": 1551194,
+      "profit": 867803,
+      "qty": 13102.0,
+      "orders": 516,
+      "margin_pct": 55.9,
+      "vrat_revenue": 4139,
+      "vrat_pct": 0.3,
+      "years": {
+        "2023": {
+          "revenue": 583970,
+          "profit": 349325,
+          "qty": 4756.0
+        },
+        "2024": {
+          "revenue": 508935,
+          "profit": 274959,
+          "qty": 4393.0
+        },
+        "2025": {
+          "revenue": 458290,
+          "profit": 243520,
+          "qty": 3953.0
+        }
+      }
+    },
+    {
+      "sku": "018117.50",
+      "name": "Klíč FAB 200RSG RRS2 nový typ",
+      "category": "Klíče",
+      "revenue": 1501736,
+      "profit": 304721,
+      "qty": 43140.0,
+      "orders": 1407,
+      "margin_pct": 20.3,
+      "vrat_revenue": 2578,
+      "vrat_pct": 0.2,
+      "years": {
+        "2023": {
+          "revenue": 629194,
+          "profit": 146239,
+          "qty": 18681.0
+        },
+        "2024": {
+          "revenue": 522153,
+          "profit": 89983,
+          "qty": 14992.0
+        },
+        "2025": {
+          "revenue": 350389,
+          "profit": 68500,
+          "qty": 9467.0
+        }
+      }
+    },
+    {
+      "sku": "720043.40",
+      "name": "FUTURA Pro Unlimited D851721ZB",
+      "category": "Ostatní",
+      "revenue": 1498688,
+      "profit": 280917,
+      "qty": 6.0,
+      "orders": 6,
+      "margin_pct": 18.7,
+      "vrat_revenue": 0,
+      "vrat_pct": 0.0,
+      "years": {
+        "2023": {
+          "revenue": 1024250,
+          "profit": 210677,
+          "qty": 4.0
+        },
+        "2025": {
+          "revenue": 474438,
+          "profit": 70240,
+          "qty": 2.0
+        }
+      }
+    },
+    {
+      "sku": "017110.40",
+      "name": "ABLOY EL460/92/35/24 12-24V zámek el.mech.",
+      "category": "Zámky",
+      "revenue": 1459333,
+      "profit": 490534,
+      "qty": 119.0,
+      "orders": 83,
+      "margin_pct": 33.6,
+      "vrat_revenue": 11970,
+      "vrat_pct": 0.8,
+      "years": {
+        "2023": {
+          "revenue": 503587,
+          "profit": 182063,
+          "qty": 44.0
+        },
+        "2024": {
+          "revenue": 487412,
+          "profit": 202516,
+          "qty": 38.0
+        },
+        "2025": {
+          "revenue": 468334,
+          "profit": 105955,
+          "qty": 37.0
+        }
+      }
+    },
+    {
+      "sku": "491017.10",
+      "name": "Klíč 20R1 FB13RX (20) mosaz",
+      "category": "Klíče",
+      "revenue": 1448012,
+      "profit": 981446,
+      "qty": 101082.0,
+      "orders": 5601,
+      "margin_pct": 67.8,
+      "vrat_revenue": 9535,
+      "vrat_pct": 0.7,
+      "years": {
+        "2023": {
+          "revenue": 565463,
+          "profit": 411233,
+          "qty": 34542.0
+        },
+        "2024": {
+          "revenue": 566063,
+          "profit": 381876,
+          "qty": 39485.0
+        },
+        "2025": {
+          "revenue": 316486,
+          "profit": 188337,
+          "qty": 27055.0
+        }
+      }
+    },
+    {
+      "sku": "330099.20",
+      "name": "Vložka Star 60S 30/35 Ms (10x)   (2020)",
+      "category": "Cylindrické vložky",
+      "revenue": 1428205,
+      "profit": 628106,
+      "qty": 9514.0,
+      "orders": 1209,
+      "margin_pct": 44.0,
+      "vrat_revenue": 8611,
+      "vrat_pct": 0.6,
+      "years": {
+        "2023": {
+          "revenue": 514561,
+          "profit": 222374,
+          "qty": 3477.0
+        },
+        "2024": {
+          "revenue": 490155,
+          "profit": 218795,
+          "qty": 3274.0
+        },
+        "2025": {
+          "revenue": 423489,
+          "profit": 186937,
+          "qty": 2763.0
+        }
+      }
+    },
+    {
+      "sku": "330101.20",
+      "name": "Vložka Star 70S 30/35 Ni/R1  3kl",
+      "category": "Cylindrické vložky",
+      "revenue": 1383499,
+      "profit": 758162,
+      "qty": 6518.0,
+      "orders": 1095,
+      "margin_pct": 54.8,
+      "vrat_revenue": 8629,
+      "vrat_pct": 0.6,
+      "years": {
+        "2023": {
+          "revenue": 484113,
+          "profit": 260236,
+          "qty": 2296.0
+        },
+        "2024": {
+          "revenue": 513268,
+          "profit": 286387,
+          "qty": 2461.0
+        },
+        "2025": {
+          "revenue": 386118,
+          "profit": 211539,
+          "qty": 1761.0
+        }
+      }
+    },
+    {
+      "sku": "018117.20",
+      "name": "Klíč FAB 200RSG RRS2 nový typ",
+      "category": "Klíče",
+      "revenue": 1289428,
+      "profit": 243852,
+      "qty": 37850.0,
+      "orders": 1024,
+      "margin_pct": 18.9,
+      "vrat_revenue": 3046,
+      "vrat_pct": 0.2,
+      "years": {
+        "2023": {
+          "revenue": 475171,
+          "profit": 119869,
+          "qty": 14237.0
+        },
+        "2024": {
+          "revenue": 422212,
+          "profit": 61590,
+          "qty": 12591.0
+        },
+        "2025": {
+          "revenue": 392045,
+          "profit": 62392,
+          "qty": 11022.0
+        }
+      }
+    },
+    {
+      "sku": "018116.10",
+      "name": "Klíč FAB 200RSG RRS1 nový typ",
+      "category": "Klíče",
+      "revenue": 1231188,
+      "profit": 89325,
+      "qty": 39939.0,
+      "orders": 805,
+      "margin_pct": 7.3,
+      "vrat_revenue": 15508,
+      "vrat_pct": 1.3,
+      "years": {
+        "2023": {
+          "revenue": 496215,
+          "profit": 64592,
+          "qty": 15396.0
+        },
+        "2024": {
+          "revenue": 433780,
+          "profit": 19695,
+          "qty": 14362.0
+        },
+        "2025": {
+          "revenue": 301193,
+          "profit": 5038,
+          "qty": 10181.0
+        }
+      }
+    },
+    {
+      "sku": "890257.40",
+      "name": "Key Control Strip for 14 key positions - Unlocked",
+      "category": "Ostatní",
+      "revenue": 1175340,
+      "profit": 586427,
+      "qty": 172.0,
+      "orders": 7,
+      "margin_pct": 49.9,
+      "vrat_revenue": 0,
+      "vrat_pct": 0.0,
+      "years": {
+        "2023": {
+          "revenue": 57540,
+          "profit": 26642,
+          "qty": 10.0
+        },
+        "2024": {
+          "revenue": 1117800,
+          "profit": 559785,
+          "qty": 162.0
+        }
+      }
+    },
+    {
+      "sku": "305004.70",
+      "name": "Kukátko 2014 Star Ni-Sat, 200 st.tl.dv.35-55",
+      "category": "Ostatní",
+      "revenue": 1147464,
+      "profit": 165211,
+      "qty": 19071.0,
+      "orders": 48,
+      "margin_pct": 14.4,
+      "vrat_revenue": 0,
+      "vrat_pct": 0.0,
+      "years": {
+        "2023": {
+          "revenue": 447069,
+          "profit": 65782,
+          "qty": 7522.0
+        },
+        "2024": {
+          "revenue": 304735,
+          "profit": 43526,
+          "qty": 5028.0
+        },
+        "2025": {
+          "revenue": 395660,
+          "profit": 55903,
+          "qty": 6521.0
+        }
+      }
+    },
+    {
+      "sku": "370253.40",
+      "name": "Mosazné kování interiérové typ 2",
+      "category": "Kování",
+      "revenue": 1137232,
+      "profit": 916509,
+      "qty": 148.0,
+      "orders": 2,
+      "margin_pct": 80.6,
+      "vrat_revenue": 0,
+      "vrat_pct": 0.0,
+      "years": {
+        "2024": {
+          "revenue": 1137232,
+          "profit": 916509,
+          "qty": 148.0
+        }
+      }
+    },
+    {
+      "sku": "018117.40",
+      "name": "Klíč FAB 200RSG RRS2 nový typ",
+      "category": "Klíče",
+      "revenue": 1130771,
+      "profit": 283300,
+      "qty": 30856.0,
+      "orders": 1081,
+      "margin_pct": 25.1,
+      "vrat_revenue": 11114,
+      "vrat_pct": 1.0,
+      "years": {
+        "2023": {
+          "revenue": 439249,
+          "profit": 135783,
+          "qty": 12187.0
+        },
+        "2024": {
+          "revenue": 350492,
+          "profit": 75033,
+          "qty": 9607.0
+        },
+        "2025": {
+          "revenue": 341029,
+          "profit": 72485,
+          "qty": 9062.0
+        }
+      }
+    },
+    {
+      "sku": "017127.40",
+      "name": "ABLOY EL560/72/55/20 12-24V Zámek el.mech.",
+      "category": "Zámky",
+      "revenue": 1128580,
+      "profit": 405928,
+      "qty": 101.0,
+      "orders": 74,
+      "margin_pct": 36.0,
+      "vrat_revenue": 106508,
+      "vrat_pct": 9.4,
+      "years": {
+        "2023": {
+          "revenue": 479717,
+          "profit": 168436,
+          "qty": 44.0
+        },
+        "2024": {
+          "revenue": 305343,
+          "profit": 106326,
+          "qty": 28.0
+        },
+        "2025": {
+          "revenue": 343520,
+          "profit": 131166,
+          "qty": 29.0
+        }
+      }
+    },
+    {
+      "sku": "491017.50",
+      "name": "Klíč 20R1 FB13RX (20) mosaz",
+      "category": "Klíče",
+      "revenue": 1119204,
+      "profit": 527047,
+      "qty": 128781.0,
+      "orders": 3194,
+      "margin_pct": 47.1,
+      "vrat_revenue": 63,
+      "vrat_pct": 0.0,
+      "years": {
+        "2023": {
+          "revenue": 326148,
+          "profit": 156464,
+          "qty": 38455.0
+        },
+        "2024": {
+          "revenue": 390320,
+          "profit": 191523,
+          "qty": 43053.0
+        },
+        "2025": {
+          "revenue": 402736,
+          "profit": 179060,
+          "qty": 47273.0
+        }
+      }
+    },
+    {
+      "sku": "900018.10",
+      "name": "Test. aplikace SPVG 10, 174,5 hod., 600 Kč/h",
+      "category": "Ostatní",
+      "revenue": 1102650,
+      "profit": 1102650,
+      "qty": 59.0,
+      "orders": 55,
+      "margin_pct": 100.0,
+      "vrat_revenue": 0,
+      "vrat_pct": 0.0,
+      "years": {
+        "2023": {
+          "revenue": 582250,
+          "profit": 582250,
+          "qty": 26.0
+        },
+        "2024": {
+          "revenue": 240954,
+          "profit": 240954,
+          "qty": 19.0
+        },
+        "2025": {
+          "revenue": 279446,
+          "profit": 279446,
+          "qty": 14.0
+        }
+      }
+    },
+    {
+      "sku": "T000533.40",
+      "name": "Polotovar PWS  eSIGNO",
+      "category": "Ostatní",
+      "revenue": 1101788,
+      "profit": 349091,
+      "qty": 1002.0,
+      "orders": 6,
+      "margin_pct": 31.7,
+      "vrat_revenue": 0,
+      "vrat_pct": 0.0,
+      "years": {
+        "2023": {
+          "revenue": 1101788,
+          "profit": 349091,
+          "qty": 1002.0
+        }
+      }
+    },
+    {
+      "sku": "330101.30",
+      "name": "Vložka Star 70S 30/35 Ni/R1  3kl",
+      "category": "Cylindrické vložky",
+      "revenue": 1077360,
+      "profit": 602023,
+      "qty": 4961.0,
+      "orders": 1232,
+      "margin_pct": 55.9,
+      "vrat_revenue": 9410,
+      "vrat_pct": 0.9,
+      "years": {
+        "2023": {
+          "revenue": 402699,
+          "profit": 222215,
+          "qty": 1859.0
+        },
+        "2024": {
+          "revenue": 354870,
+          "profit": 202264,
+          "qty": 1658.0
+        },
+        "2025": {
+          "revenue": 319791,
+          "profit": 177544,
+          "qty": 1444.0
+        }
+      }
+    },
+    {
+      "sku": "088005.40",
+      "name": "Klíč G17 GUARD NVL/GD17/",
+      "category": "Klíče",
+      "revenue": 1065456,
+      "profit": 813274,
+      "qty": 43911.0,
+      "orders": 1033,
+      "margin_pct": 76.3,
+      "vrat_revenue": 6240,
+      "vrat_pct": 0.6,
+      "years": {
+        "2023": {
+          "revenue": 350372,
+          "profit": 260831,
+          "qty": 16059.0
+        },
+        "2024": {
+          "revenue": 360520,
+          "profit": 275395,
+          "qty": 14905.0
+        },
+        "2025": {
+          "revenue": 354564,
+          "profit": 277049,
+          "qty": 12947.0
+        }
+      }
+    },
+    {
+      "sku": "300015.40",
+      "name": "EUROLOCKS Zámek  0812-0080 (EU1R) rov.záv HDC220V",
+      "category": "Zámky",
+      "revenue": 1054233,
+      "profit": 611137,
+      "qty": 8855.0,
+      "orders": 435,
+      "margin_pct": 58.0,
+      "vrat_revenue": 34053,
+      "vrat_pct": 3.2,
+      "years": {
+        "2023": {
+          "revenue": 441142,
+          "profit": 259014,
+          "qty": 3876.0
+        },
+        "2024": {
+          "revenue": 312893,
+          "profit": 176702,
+          "qty": 2672.0
+        },
+        "2025": {
+          "revenue": 300198,
+          "profit": 175421,
+          "qty": 2307.0
+        }
+      }
+    },
+    {
+      "sku": "018116.50",
+      "name": "Klíč FAB 200RSG RRS1 nový typ",
+      "category": "Klíče",
+      "revenue": 1054115,
+      "profit": 226229,
+      "qty": 30044.0,
+      "orders": 1130,
+      "margin_pct": 21.5,
+      "vrat_revenue": 0,
+      "vrat_pct": 0.0,
+      "years": {
+        "2023": {
+          "revenue": 420263,
+          "profit": 107573,
+          "qty": 12388.0
+        },
+        "2024": {
+          "revenue": 359455,
+          "profit": 62428,
+          "qty": 10331.0
+        },
+        "2025": {
+          "revenue": 274397,
+          "profit": 56227,
+          "qty": 7325.0
+        }
+      }
+    },
+    {
+      "sku": "491017.20",
+      "name": "Klíč 20R1 FB13RX (20) mosaz",
+      "category": "Klíče",
+      "revenue": 1048035,
+      "profit": 559653,
+      "qty": 106406.0,
+      "orders": 3646,
+      "margin_pct": 53.4,
+      "vrat_revenue": 7912,
+      "vrat_pct": 0.8,
+      "years": {
+        "2023": {
+          "revenue": 331555,
+          "profit": 189221,
+          "qty": 32383.0
+        },
+        "2024": {
+          "revenue": 336327,
+          "profit": 178893,
+          "qty": 34147.0
+        },
+        "2025": {
+          "revenue": 380152,
+          "profit": 191540,
+          "qty": 39876.0
+        }
+      }
+    },
+    {
+      "sku": "890259.40",
+      "name": "Key Control Peg - Unlocked",
+      "category": "Ostatní",
+      "revenue": 1046959,
+      "profit": 454128,
+      "qty": 2396.0,
+      "orders": 7,
+      "margin_pct": 43.4,
+      "vrat_revenue": 0,
+      "vrat_pct": 0.0,
+      "years": {
+        "2023": {
+          "revenue": 46771,
+          "profit": 9820,
+          "qty": 128.0
+        },
+        "2024": {
+          "revenue": 1000188,
+          "profit": 444308,
+          "qty": 2268.0
+        }
+      }
+    },
+    {
+      "sku": "001035.30",
+      "name": "Zámek HOBES 24026 P/L 90/50/22 PZ  BZn",
+      "category": "Zámky",
+      "revenue": 1044710,
+      "profit": 254298,
+      "qty": 5655.0,
+      "orders": 1288,
+      "margin_pct": 24.3,
+      "vrat_revenue": 1733,
+      "vrat_pct": 0.2,
+      "years": {
+        "2023": {
+          "revenue": 393955,
+          "profit": 112266,
+          "qty": 2141.0
+        },
+        "2024": {
+          "revenue": 350419,
+          "profit": 80034,
+          "qty": 1895.0
+        },
+        "2025": {
+          "revenue": 300336,
+          "profit": 61997,
+          "qty": 1619.0
+        }
+      }
+    },
+    {
+      "sku": "4000109.40",
+      "name": "WAVE MODE SUITE CARD",
+      "category": "Ostatní",
+      "revenue": 1038584,
+      "profit": 538885,
+      "qty": 20118.0,
+      "orders": 67,
+      "margin_pct": 51.9,
+      "vrat_revenue": 24451,
+      "vrat_pct": 2.4,
+      "years": {
+        "2024": {
+          "revenue": 443361,
+          "profit": 217409,
+          "qty": 9099.0
+        },
+        "2025": {
+          "revenue": 595223,
+          "profit": 321475,
+          "qty": 11019.0
+        }
+      }
+    },
+    {
+      "sku": "000037.10",
+      "name": "Systém SGHK - zakázka",
+      "category": "Ostatní",
+      "revenue": 1018343,
+      "profit": 775921,
+      "qty": 26.0,
+      "orders": 26,
+      "margin_pct": 76.2,
+      "vrat_revenue": 0,
+      "vrat_pct": 0.0,
+      "years": {
+        "2023": {
+          "revenue": 840879,
+          "profit": 654350,
+          "qty": 21.0
+        },
+        "2024": {
+          "revenue": 66240,
+          "profit": 54722,
+          "qty": 2.0
+        },
+        "2025": {
+          "revenue": 111223,
+          "profit": 66850,
+          "qty": 3.0
+        }
+      }
+    },
+    {
+      "sku": "018129.10",
+      "name": "Klíč FAB NG 3.00 FAB3 B001",
+      "category": "Klíče",
+      "revenue": 1013508,
+      "profit": 277808,
+      "qty": 33607.0,
+      "orders": 1350,
+      "margin_pct": 27.4,
+      "vrat_revenue": 7724,
+      "vrat_pct": 0.8,
+      "years": {
+        "2023": {
+          "revenue": 248554,
+          "profit": 88211,
+          "qty": 7748.0
+        },
+        "2024": {
+          "revenue": 379347,
+          "profit": 102676,
+          "qty": 12702.0
+        },
+        "2025": {
+          "revenue": 385607,
+          "profit": 86921,
+          "qty": 13157.0
+        }
+      }
+    },
+    {
+      "sku": "005069.40",
+      "name": "GU/BKS motor sada el. pohonu k zámku 18153-01",
+      "category": "Zámky",
+      "revenue": 987519,
+      "profit": 274733,
+      "qty": 324.0,
+      "orders": 234,
+      "margin_pct": 27.8,
+      "vrat_revenue": 13517,
+      "vrat_pct": 1.4,
+      "years": {
+        "2023": {
+          "revenue": 279720,
+          "profit": 72954,
+          "qty": 93.0
+        },
+        "2024": {
+          "revenue": 427659,
+          "profit": 121614,
+          "qty": 140.0
+        },
+        "2025": {
+          "revenue": 280140,
+          "profit": 80165,
+          "qty": 91.0
+        }
+      }
+    },
+    {
+      "sku": "018117.30",
+      "name": "Klíč FAB 200RSG RRS2 nový typ",
+      "category": "Klíče",
+      "revenue": 971857,
+      "profit": 244143,
+      "qty": 26661.0,
+      "orders": 1345,
+      "margin_pct": 25.1,
+      "vrat_revenue": 1225,
+      "vrat_pct": 0.1,
+      "years": {
+        "2023": {
+          "revenue": 356315,
+          "profit": 110910,
+          "qty": 10000.0
+        },
+        "2024": {
+          "revenue": 350546,
+          "profit": 68062,
+          "qty": 9917.0
+        },
+        "2025": {
+          "revenue": 264996,
+          "profit": 65170,
+          "qty": 6744.0
+        }
+      }
+    },
+    {
+      "sku": "420010.40",
+      "name": "Klíč ULO50X (20) universal mosaz",
+      "category": "Klíče",
+      "revenue": 960604,
+      "profit": 543238,
+      "qty": 90881.0,
+      "orders": 1770,
+      "margin_pct": 56.6,
+      "vrat_revenue": 320,
+      "vrat_pct": 0.0,
+      "years": {
+        "2023": {
+          "revenue": 315045,
+          "profit": 180386,
+          "qty": 30203.0
+        },
+        "2024": {
+          "revenue": 336772,
+          "profit": 195296,
+          "qty": 30847.0
+        },
+        "2025": {
+          "revenue": 308786,
+          "profit": 167556,
+          "qty": 29831.0
+        }
+      }
+    },
+    {
+      "sku": "001022.40",
+      "name": "Zámek HOBES 02-04 90/40/20 PZ P/L BZn",
+      "category": "Zámky",
+      "revenue": 959980,
+      "profit": 161022,
+      "qty": 5393.0,
+      "orders": 587,
+      "margin_pct": 16.8,
+      "vrat_revenue": 4556,
+      "vrat_pct": 0.5,
+      "years": {
+        "2023": {
+          "revenue": 300367,
+          "profit": 62925,
+          "qty": 1694.0
+        },
+        "2024": {
+          "revenue": 307846,
+          "profit": 47194,
+          "qty": 1712.0
+        },
+        "2025": {
+          "revenue": 351766,
+          "profit": 50903,
+          "qty": 1987.0
+        }
+      }
+    },
+    {
+      "sku": "330099.10",
+      "name": "Vložka Star 60S 30/35 Ms (10x)   (2020)",
+      "category": "Cylindrické vložky",
+      "revenue": 947882,
+      "profit": 365660,
+      "qty": 6961.0,
+      "orders": 1001,
+      "margin_pct": 38.6,
+      "vrat_revenue": 12031,
+      "vrat_pct": 1.3,
+      "years": {
+        "2023": {
+          "revenue": 374693,
+          "profit": 144753,
+          "qty": 2763.0
+        },
+        "2024": {
+          "revenue": 321921,
+          "profit": 123897,
+          "qty": 2398.0
+        },
+        "2025": {
+          "revenue": 251268,
+          "profit": 97011,
+          "qty": 1800.0
+        }
+      }
+    },
+    {
+      "sku": "001035.20",
+      "name": "Zámek HOBES 24026 P/L 90/50/22 PZ  BZn",
+      "category": "Zámky",
+      "revenue": 939110,
+      "profit": 242380,
+      "qty": 4991.0,
+      "orders": 958,
+      "margin_pct": 25.8,
+      "vrat_revenue": 5127,
+      "vrat_pct": 0.5,
+      "years": {
+        "2023": {
+          "revenue": 322544,
+          "profit": 105584,
+          "qty": 1682.0
+        },
+        "2024": {
+          "revenue": 297599,
+          "profit": 68730,
+          "qty": 1594.0
+        },
+        "2025": {
+          "revenue": 318967,
+          "profit": 68066,
+          "qty": 1715.0
+        }
+      }
+    },
+    {
+      "sku": "088005.10",
+      "name": "Klíč G17 GUARD NVL/GD17/",
+      "category": "Klíče",
+      "revenue": 934887,
+      "profit": 712608,
+      "qty": 38300.0,
+      "orders": 1428,
+      "margin_pct": 76.2,
+      "vrat_revenue": 3974,
+      "vrat_pct": 0.4,
+      "years": {
+        "2023": {
+          "revenue": 365461,
+          "profit": 276361,
+          "qty": 15871.0
+        },
+        "2024": {
+          "revenue": 330392,
+          "profit": 257084,
+          "qty": 12486.0
+        },
+        "2025": {
+          "revenue": 239034,
+          "profit": 179163,
+          "qty": 9943.0
+        }
+      }
+    },
+    {
+      "sku": "156056.40",
+      "name": "GEZE Zavírač TS 4000 stř. EN1-6",
+      "category": "Dveřní zavírače",
+      "revenue": 934544,
+      "profit": 262227,
+      "qty": 536.0,
+      "orders": 294,
+      "margin_pct": 28.1,
+      "vrat_revenue": 32326,
+      "vrat_pct": 3.5,
+      "years": {
+        "2023": {
+          "revenue": 221985,
+          "profit": 68176,
+          "qty": 121.0
+        },
+        "2024": {
+          "revenue": 325463,
+          "profit": 70998,
+          "qty": 193.0
+        },
+        "2025": {
+          "revenue": 387096,
+          "profit": 123054,
+          "qty": 222.0
+        }
+      }
+    },
+    {
+      "sku": "S103999.40",
+      "name": "Vývoj systému pro řez.klíčů ePRO Tokoz Unocode F600",
+      "category": "Klíče",
+      "revenue": 933199,
+      "profit": 190522,
+      "qty": 1.0,
+      "orders": 1,
+      "margin_pct": 20.4,
+      "vrat_revenue": 0,
+      "vrat_pct": 0.0,
+      "years": {
+        "2025": {
+          "revenue": 933199,
+          "profit": 190522,
+          "qty": 1.0
+        }
+      }
+    },
+    {
+      "sku": "890258.40",
+      "name": "Key Control Strip for 14 key positions - Locked",
+      "category": "Ostatní",
+      "revenue": 906562,
+      "profit": 407156,
+      "qty": 72.0,
+      "orders": 14,
+      "margin_pct": 44.9,
+      "vrat_revenue": 0,
+      "vrat_pct": 0.0,
+      "years": {
+        "2023": {
+          "revenue": 272619,
+          "profit": 110058,
+          "qty": 25.0
+        },
+        "2024": {
+          "revenue": 108360,
+          "profit": 45486,
+          "qty": 9.0
+        },
+        "2025": {
+          "revenue": 525582,
+          "profit": 251612,
+          "qty": 38.0
+        }
+      }
+    }
+  ],
+  "top_30_returns": [
+    {
+      "sku": "370311.40",
+      "name": "Smart kování LW S35B",
+      "category": "Kování",
+      "revenue": 773401,
+      "vrat_revenue": 400150,
+      "vrat_qty": 50.0,
+      "vrat_pct": 51.7
+    },
+    {
+      "sku": "S103760.10",
+      "name": "Systém gener.klíče PL15.113",
+      "category": "Klíče",
+      "revenue": 307681,
+      "vrat_revenue": 303352,
+      "vrat_qty": 1.0,
+      "vrat_pct": 98.6
+    },
+    {
+      "sku": "011201.10",
+      "name": "Vložka 2035 ZP SU",
+      "category": "Cylindrické vložky",
+      "revenue": 350000,
+      "vrat_revenue": 190000,
+      "vrat_qty": 190.0,
+      "vrat_pct": 54.3
+    },
+    {
+      "sku": "4000214.40",
+      "name": "E-SIGNO MAN.DB Polished brass-slim handle",
+      "category": "Ostatní",
+      "revenue": 199360,
+      "vrat_revenue": 186900,
+      "vrat_qty": 30.0,
+      "vrat_pct": 93.8
+    },
+    {
+      "sku": "4000582.40",
+      "name": "Montážní práce",
+      "category": "Doprava/služby",
+      "revenue": 646721,
+      "vrat_revenue": 181380,
+      "vrat_qty": 5.0,
+      "vrat_pct": 28.0
+    },
+    {
+      "sku": "383057.80",
+      "name": "ISEO protiplech 24x6 inox DIN L",
+      "category": "Ostatní",
+      "revenue": 407,
+      "vrat_revenue": 170162,
+      "vrat_qty": 200.0,
+      "vrat_pct": 41841.7
+    },
+    {
+      "sku": "4000679.40",
+      "name": "E-SIGNO MAN.DB SAT.SILVER-SLIM.HAND",
+      "category": "Ostatní",
+      "revenue": 835866,
+      "vrat_revenue": 145368,
+      "vrat_qty": 24.0,
+      "vrat_pct": 17.4
+    },
+    {
+      "sku": "370343.40",
+      "name": "Star smart kování úzké 85 - klávesnice",
+      "category": "Kování",
+      "revenue": 383600,
+      "vrat_revenue": 143290,
+      "vrat_qty": 23.0,
+      "vrat_pct": 37.4
+    },
+    {
+      "sku": "710633.20",
+      "name": "Stroj FUTURA AUTO D845059ZB (D845507ZB)",
+      "category": "Ostatní",
+      "revenue": 126225,
+      "vrat_revenue": 126225,
+      "vrat_qty": 1.0,
+      "vrat_pct": 100.0
+    },
+    {
+      "sku": "383330.10",
+      "name": "E-vložka F9000 30/35E V3 (elektro 35mm)",
+      "category": "Cylindrické vložky",
+      "revenue": 251244,
+      "vrat_revenue": 111804,
+      "vrat_qty": 22.0,
+      "vrat_pct": 44.5
+    },
+    {
+      "sku": "017127.40",
+      "name": "ABLOY EL560/72/55/20 12-24V Zámek el.mech.",
+      "category": "Zámky",
+      "revenue": 1128580,
+      "vrat_revenue": 106508,
+      "vrat_qty": 9.0,
+      "vrat_pct": 9.4
+    },
+    {
+      "sku": "710565.80",
+      "name": "Stroj OMNIA MAX D842100ZB",
+      "category": "Ostatní",
+      "revenue": 105758,
+      "vrat_revenue": 105758,
+      "vrat_qty": 1.0,
+      "vrat_pct": 100.0
+    },
+    {
+      "sku": "900895.40",
+      "name": "Bonus za včasnou platbu",
+      "category": "Ostatní",
+      "revenue": -91660,
+      "vrat_revenue": 91660,
+      "vrat_qty": 6.0,
+      "vrat_pct": -100.0
+    },
+    {
+      "sku": "000037.60",
+      "name": "Systém SGHK - zakázka",
+      "category": "Ostatní",
+      "revenue": 748841,
+      "vrat_revenue": 90468,
+      "vrat_qty": 1.0,
+      "vrat_pct": 12.1
+    },
+    {
+      "sku": "370327.40",
+      "name": "Star smart kování široké 72 - klavesnice + FP",
+      "category": "Kování",
+      "revenue": 185370,
+      "vrat_revenue": 89855,
+      "vrat_qty": 13.0,
+      "vrat_pct": 48.5
+    },
+    {
+      "sku": "208252.10",
+      "name": "CES NPR5 31.5/35.5 Ni SGHK 9R",
+      "category": "Ostatní",
+      "revenue": 4800,
+      "vrat_revenue": 86376,
+      "vrat_qty": 118.0,
+      "vrat_pct": 1799.4
+    },
+    {
+      "sku": "306097.10",
+      "name": "Zámek Star 92/35/24/300 el. mech  bez zv.sign.",
+      "category": "Zámky",
+      "revenue": -70493,
+      "vrat_revenue": 80565,
+      "vrat_qty": 29.0,
+      "vrat_pct": -114.3
+    },
+    {
+      "sku": "T000082.40",
+      "name": "CISA APH3 ZÁMEK ANTIPANIC 60",
+      "category": "Zámky",
+      "revenue": 222095,
+      "vrat_revenue": 76822,
+      "vrat_qty": 69.0,
+      "vrat_pct": 34.6
+    },
+    {
+      "sku": "220082.70",
+      "name": "FUHR zámek 835-55-72-8-F20 oblé čelo  háky+střelky",
+      "category": "Zámky",
+      "revenue": 429745,
+      "vrat_revenue": 75575,
+      "vrat_qty": 14.0,
+      "vrat_pct": 17.6
+    },
+    {
+      "sku": "306096.10",
+      "name": "Zámek Star 92/35/24/300 el. mech monitor.",
+      "category": "Zámky",
+      "revenue": -74005,
+      "vrat_revenue": 74005,
+      "vrat_qty": 26.0,
+      "vrat_pct": -100.0
+    },
+    {
+      "sku": "220031.70",
+      "name": "FUHR zámek 833P panik-65-92-9-16-2100 funkce E kl/kn",
+      "category": "Zámky",
+      "revenue": 56700,
+      "vrat_revenue": 72900,
+      "vrat_qty": 6.0,
+      "vrat_pct": 128.6
+    },
+    {
+      "sku": "306095.10",
+      "name": "Zámek Star 72/55/20/235 elmech.samoz. b/signalizace",
+      "category": "Zámky",
+      "revenue": 46098,
+      "vrat_revenue": 70869,
+      "vrat_qty": 26.0,
+      "vrat_pct": 153.7
+    },
+    {
+      "sku": "210956.10",
+      "name": "WILKA zámek 4685 blokovací pro pasivní křídlo",
+      "category": "Zámky",
+      "revenue": 538200,
+      "vrat_revenue": 70422,
+      "vrat_qty": 97.0,
+      "vrat_pct": 13.1
+    },
+    {
+      "sku": "383322.10",
+      "name": "E - klíč F9000 ON-F9",
+      "category": "Klíče",
+      "revenue": 80395,
+      "vrat_revenue": 68910,
+      "vrat_qty": 30.0,
+      "vrat_pct": 85.7
+    },
+    {
+      "sku": "306094.10",
+      "name": "Zámek Star 72/55/20/235 elmech.samoz.b/sign. monitoring",
+      "category": "Zámky",
+      "revenue": -67236,
+      "vrat_revenue": 67236,
+      "vrat_qty": 24.0,
+      "vrat_pct": -100.0
+    },
+    {
+      "sku": "370322.70",
+      "name": "Star smart kování úzké 72 - klávesnice",
+      "category": "Kování",
+      "revenue": 74532,
+      "vrat_revenue": 66429,
+      "vrat_qty": 14.0,
+      "vrat_pct": 89.1
+    },
+    {
+      "sku": "017111.40",
+      "name": "ABLOY EL460/92/40/24 12-24V zámek el.mech.",
+      "category": "Zámky",
+      "revenue": 57470,
+      "vrat_revenue": 64346,
+      "vrat_qty": 5.0,
+      "vrat_pct": 112.0
+    },
+    {
+      "sku": "196123.10",
+      "name": "Dveřní otvírač ED100 automat / otev.dovnitř",
+      "category": "El. otvírače",
+      "revenue": 152502,
+      "vrat_revenue": 62538,
+      "vrat_qty": 3.0,
+      "vrat_pct": 41.0
+    },
+    {
+      "sku": "370389.40",
+      "name": "Smart kování LW S35B-C72",
+      "category": "Kování",
+      "revenue": 64715,
+      "vrat_revenue": 62315,
+      "vrat_qty": 13.0,
+      "vrat_pct": 96.3
+    },
+    {
+      "sku": "370322.40",
+      "name": "Star smart kování úzké 72 - klávesnice",
+      "category": "Kování",
+      "revenue": -22790,
+      "vrat_revenue": 61164,
+      "vrat_qty": 12.0,
+      "vrat_pct": -268.4
+    }
+  ],
+  "categories": [
+    {
+      "name": "Ostatní",
+      "revenue": 266383489,
+      "profit": 114303415,
+      "qty": 6535911,
+      "skus": 31967,
+      "margin_pct": 42.9,
+      "years": {
+        "2023": {
+          "revenue": 96369713,
+          "profit": 40666125
+        },
+        "2024": {
+          "revenue": 89726017,
+          "profit": 37765791
+        },
+        "2025": {
+          "revenue": 80287759,
+          "profit": 35871499
+        }
+      }
+    },
+    {
+      "name": "Klíče",
+      "revenue": 205389927,
+      "profit": 117415233,
+      "qty": 11318052,
+      "skus": 26159,
+      "margin_pct": 57.2,
+      "years": {
+        "2023": {
+          "revenue": 68862441,
+          "profit": 39516922
+        },
+        "2024": {
+          "revenue": 67318745,
+          "profit": 38306790
+        },
+        "2025": {
+          "revenue": 69208741,
+          "profit": 39591521
+        }
+      }
+    },
+    {
+      "name": "Zámky",
+      "revenue": 146954478,
+      "profit": 50608171,
+      "qty": 796228,
+      "skus": 9342,
+      "margin_pct": 34.4,
+      "years": {
+        "2023": {
+          "revenue": 50155683,
+          "profit": 18164415
+        },
+        "2024": {
+          "revenue": 48982922,
+          "profit": 16681358
+        },
+        "2025": {
+          "revenue": 47815873,
+          "profit": 15762398
+        }
+      }
+    },
+    {
+      "name": "Cylindrické vložky",
+      "revenue": 121080274,
+      "profit": 58531272,
+      "qty": 514178,
+      "skus": 6842,
+      "margin_pct": 48.3,
+      "years": {
+        "2023": {
+          "revenue": 39736125,
+          "profit": 18555682
+        },
+        "2024": {
+          "revenue": 39269673,
+          "profit": 19183529
+        },
+        "2025": {
+          "revenue": 42074477,
+          "profit": 20792061
+        }
+      }
+    },
+    {
+      "name": "Kování",
+      "revenue": 26438758,
+      "profit": 13692686,
+      "qty": 113025,
+      "skus": 2503,
+      "margin_pct": 51.8,
+      "years": {
+        "2023": {
+          "revenue": 8736379,
+          "profit": 4500546
+        },
+        "2024": {
+          "revenue": 9449775,
+          "profit": 5027881
+        },
+        "2025": {
+          "revenue": 8252604,
+          "profit": 4164259
+        }
+      }
+    },
+    {
+      "name": "Dveřní zavírače",
+      "revenue": 23257260,
+      "profit": 7400643,
+      "qty": 27967,
+      "skus": 647,
+      "margin_pct": 31.8,
+      "years": {
+        "2023": {
+          "revenue": 7912289,
+          "profit": 2531679
+        },
+        "2024": {
+          "revenue": 8134771,
+          "profit": 2450536
+        },
+        "2025": {
+          "revenue": 7210200,
+          "profit": 2418429
+        }
+      }
+    },
+    {
+      "name": "El. otvírače",
+      "revenue": 15754732,
+      "profit": 6305554,
+      "qty": 24374,
+      "skus": 499,
+      "margin_pct": 40.0,
+      "years": {
+        "2023": {
+          "revenue": 4862842,
+          "profit": 1996116
+        },
+        "2024": {
+          "revenue": 5608241,
+          "profit": 2256930
+        },
+        "2025": {
+          "revenue": 5283648,
+          "profit": 2052508
+        }
+      }
+    },
+    {
+      "name": "Panty a závěsy",
+      "revenue": 11509437,
+      "profit": 2556872,
+      "qty": 451057,
+      "skus": 1523,
+      "margin_pct": 22.2,
+      "years": {
+        "2023": {
+          "revenue": 4286962,
+          "profit": 967284
+        },
+        "2024": {
+          "revenue": 3706098,
+          "profit": 839957
+        },
+        "2025": {
+          "revenue": 3516377,
+          "profit": 749631
+        }
+      }
+    },
+    {
+      "name": "Trezory",
+      "revenue": 8324947,
+      "profit": 2913542,
+      "qty": 2002,
+      "skus": 500,
+      "margin_pct": 35.0,
+      "years": {
+        "2023": {
+          "revenue": 2918894,
+          "profit": 1158337
+        },
+        "2024": {
+          "revenue": 2926527,
+          "profit": 1010564
+        },
+        "2025": {
+          "revenue": 2479526,
+          "profit": 744640
+        }
+      }
+    },
+    {
+      "name": "Doprava/služby",
+      "revenue": 5631584,
+      "profit": 4780036,
+      "qty": 51579,
+      "skus": 250,
+      "margin_pct": 84.9,
+      "years": {
+        "2023": {
+          "revenue": 2121173,
+          "profit": 1651514
+        },
+        "2024": {
+          "revenue": 1807922,
+          "profit": 1535721
+        },
+        "2025": {
+          "revenue": 1702488,
+          "profit": 1592801
+        }
+      }
+    },
+    {
+      "name": "Zámky vícebodové",
+      "revenue": 914554,
+      "profit": 317288,
+      "qty": 441,
+      "skus": 34,
+      "margin_pct": 34.7,
+      "years": {
+        "2023": {
+          "revenue": 321749,
+          "profit": 110744
+        },
+        "2024": {
+          "revenue": 348232,
+          "profit": 118030
+        },
+        "2025": {
+          "revenue": 244573,
+          "profit": 88513
+        }
+      }
+    },
+    {
+      "name": "Zámky zadlabací",
+      "revenue": 219802,
+      "profit": 171996,
+      "qty": 891,
+      "skus": 38,
+      "margin_pct": 78.3,
+      "years": {
+        "2023": {
+          "revenue": 62126,
+          "profit": 47832
+        },
+        "2024": {
+          "revenue": 71590,
+          "profit": 49538
+        },
+        "2025": {
+          "revenue": 86085,
+          "profit": 74626
+        }
+      }
+    },
+    {
+      "name": "Příslušenství",
+      "revenue": 174452,
+      "profit": 52577,
+      "qty": 191,
+      "skus": 3,
+      "margin_pct": 30.1,
+      "years": {
+        "2023": {
+          "revenue": 77876,
+          "profit": 26472
+        },
+        "2024": {
+          "revenue": 56474,
+          "profit": 16494
+        },
+        "2025": {
+          "revenue": 40102,
+          "profit": 9611
+        }
+      }
+    },
+    {
+      "name": "Nábytkové zámky",
+      "revenue": 16174,
+      "profit": 5373,
+      "qty": 328,
+      "skus": 19,
+      "margin_pct": 33.2,
+      "years": {
+        "2023": {
+          "revenue": 1994,
+          "profit": 1300
+        },
+        "2024": {
+          "revenue": 6914,
+          "profit": 2184
+        },
+        "2025": {
+          "revenue": 7265,
+          "profit": 1890
+        }
+      }
+    },
+    {
+      "name": "Bezpečnostní kování",
+      "revenue": 2244,
+      "profit": 258,
+      "qty": 3,
+      "skus": 3,
+      "margin_pct": 11.5,
+      "years": {
+        "2023": {
+          "revenue": 2244,
+          "profit": 258
+        }
+      }
+    }
+  ],
+  "total_unique_skus": 80329
+}

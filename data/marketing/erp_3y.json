@@ -1,0 +1,931 @@
+{
+  "generated_at": "2026-05-20T10:55:09",
+  "source": "ERP Cézar Výdejky 2023-2025",
+  "period": "2023-01 → 2025-12",
+  "grand_total": {
+    "revenue": 838596501,
+    "profit": 379395412,
+    "orders": 392111,
+    "items": 1583034,
+    "margin_pct": 45.2
+  },
+  "typ_plb_distribution": {
+    "F": 90768,
+    "FK": 120619,
+    "FH": 18236,
+    "H": 152902,
+    "FD": 6154,
+    "E": 2387,
+    "BP": 965,
+    "OP": 75,
+    "D": 4,
+    "L": 1
+  },
+  "segment_legend": {
+    "b2b": "B2B Faktura (F)",
+    "b2c_pobocka": "B2C pobočka (Hotovost H, Karta FK, Faktura hotově FH)",
+    "b2c_eshop": "B2C eshop (Eshop E, Dobírka FD)",
+    "ostatni": "Ostatní (OP, BP, D)"
+  },
+  "yearly": {
+    "2023": {
+      "total_revenue": 288047384,
+      "total_profit": 129635780,
+      "total_orders": 128742,
+      "margin_pct": 45.0,
+      "segments": {
+        "b2b": {
+          "revenue": 210254434,
+          "profit": 81934173,
+          "orders": 28373,
+          "items": 281521,
+          "aov": 7410,
+          "margin_pct": 39.0
+        },
+        "b2c_pobocka": {
+          "revenue": 67847026,
+          "profit": 43568999,
+          "orders": 96956,
+          "items": 227529,
+          "aov": 700,
+          "margin_pct": 64.2
+        },
+        "b2c_eshop": {
+          "revenue": 8035791,
+          "profit": 4105154,
+          "orders": 3084,
+          "items": 20756,
+          "aov": 2606,
+          "margin_pct": 51.1
+        },
+        "ostatni": {
+          "revenue": 1910133,
+          "profit": 27454,
+          "orders": 329,
+          "items": 4762,
+          "aov": 5806,
+          "margin_pct": 1.4
+        }
+      }
+    },
+    "2024": {
+      "total_revenue": 278303047,
+      "total_profit": 125114014,
+      "total_orders": 128701,
+      "margin_pct": 45.0,
+      "segments": {
+        "b2b": {
+          "revenue": 204296122,
+          "profit": 79848885,
+          "orders": 30532,
+          "items": 284648,
+          "aov": 6691,
+          "margin_pct": 39.1
+        },
+        "b2c_pobocka": {
+          "revenue": 65225668,
+          "profit": 41326727,
+          "orders": 95163,
+          "items": 219261,
+          "aov": 685,
+          "margin_pct": 63.4
+        },
+        "b2c_eshop": {
+          "revenue": 7638091,
+          "profit": 3814460,
+          "orders": 2688,
+          "items": 17862,
+          "aov": 2842,
+          "margin_pct": 49.9
+        },
+        "ostatni": {
+          "revenue": 1143166,
+          "profit": 123942,
+          "orders": 318,
+          "items": 4170,
+          "aov": 3595,
+          "margin_pct": 10.8
+        }
+      }
+    },
+    "2025": {
+      "total_revenue": 272246070,
+      "total_profit": 124645618,
+      "total_orders": 134668,
+      "margin_pct": 45.8,
+      "segments": {
+        "b2b": {
+          "revenue": 197331982,
+          "profit": 78790884,
+          "orders": 31863,
+          "items": 276825,
+          "aov": 6193,
+          "margin_pct": 39.9
+        },
+        "b2c_pobocka": {
+          "revenue": 63739706,
+          "profit": 42316067,
+          "orders": 99638,
+          "items": 224553,
+          "aov": 640,
+          "margin_pct": 66.4
+        },
+        "b2c_eshop": {
+          "revenue": 6866258,
+          "profit": 3461676,
+          "orders": 2769,
+          "items": 15364,
+          "aov": 2480,
+          "margin_pct": 50.4
+        },
+        "ostatni": {
+          "revenue": 4308124,
+          "profit": 76990,
+          "orders": 398,
+          "items": 5783,
+          "aov": 10824,
+          "margin_pct": 1.8
+        }
+      }
+    }
+  },
+  "monthly_trend": [
+    {
+      "month": "2023-01",
+      "revenue": 23119814,
+      "profit": 10153457,
+      "orders": 11061,
+      "b2b_revenue": 15897164,
+      "b2c_pobocka_revenue": 5997279,
+      "b2c_eshop_revenue": 697280
+    },
+    {
+      "month": "2023-02",
+      "revenue": 23270684,
+      "profit": 10351802,
+      "orders": 9784,
+      "b2b_revenue": 17315876,
+      "b2c_pobocka_revenue": 5102451,
+      "b2c_eshop_revenue": 641948
+    },
+    {
+      "month": "2023-03",
+      "revenue": 25690325,
+      "profit": 11389995,
+      "orders": 11512,
+      "b2b_revenue": 18500302,
+      "b2c_pobocka_revenue": 6316100,
+      "b2c_eshop_revenue": 723787
+    },
+    {
+      "month": "2023-04",
+      "revenue": 21594356,
+      "profit": 10127473,
+      "orders": 9425,
+      "b2b_revenue": 15823285,
+      "b2c_pobocka_revenue": 5127790,
+      "b2c_eshop_revenue": 585538
+    },
+    {
+      "month": "2023-05",
+      "revenue": 23494083,
+      "profit": 10660386,
+      "orders": 10919,
+      "b2b_revenue": 17155698,
+      "b2c_pobocka_revenue": 5539999,
+      "b2c_eshop_revenue": 719718
+    },
+    {
+      "month": "2023-06",
+      "revenue": 24329194,
+      "profit": 10802359,
+      "orders": 11515,
+      "b2b_revenue": 17431953,
+      "b2c_pobocka_revenue": 6149802,
+      "b2c_eshop_revenue": 710169
+    },
+    {
+      "month": "2023-07",
+      "revenue": 23674855,
+      "profit": 10860755,
+      "orders": 9741,
+      "b2b_revenue": 18423345,
+      "b2c_pobocka_revenue": 4677014,
+      "b2c_eshop_revenue": 544306
+    },
+    {
+      "month": "2023-08",
+      "revenue": 24470115,
+      "profit": 11322848,
+      "orders": 11342,
+      "b2b_revenue": 17722478,
+      "b2c_pobocka_revenue": 5913319,
+      "b2c_eshop_revenue": 737051
+    },
+    {
+      "month": "2023-09",
+      "revenue": 23685545,
+      "profit": 11256138,
+      "orders": 11570,
+      "b2b_revenue": 16818616,
+      "b2c_pobocka_revenue": 5996526,
+      "b2c_eshop_revenue": 740802
+    },
+    {
+      "month": "2023-10",
+      "revenue": 25875858,
+      "profit": 11472000,
+      "orders": 11722,
+      "b2b_revenue": 18994393,
+      "b2c_pobocka_revenue": 6031391,
+      "b2c_eshop_revenue": 709054
+    },
+    {
+      "month": "2023-11",
+      "revenue": 25364361,
+      "profit": 11194628,
+      "orders": 11004,
+      "b2b_revenue": 18553671,
+      "b2c_pobocka_revenue": 6034545,
+      "b2c_eshop_revenue": 714514
+    },
+    {
+      "month": "2023-12",
+      "revenue": 23478194,
+      "profit": 10043939,
+      "orders": 9147,
+      "b2b_revenue": 17617654,
+      "b2c_pobocka_revenue": 4960811,
+      "b2c_eshop_revenue": 511624
+    },
+    {
+      "month": "2024-01",
+      "revenue": 26775160,
+      "profit": 11674619,
+      "orders": 11413,
+      "b2b_revenue": 20044206,
+      "b2c_pobocka_revenue": 5981197,
+      "b2c_eshop_revenue": 724967
+    },
+    {
+      "month": "2024-02",
+      "revenue": 23106678,
+      "profit": 9932353,
+      "orders": 10351,
+      "b2b_revenue": 16731743,
+      "b2c_pobocka_revenue": 5408430,
+      "b2c_eshop_revenue": 753622
+    },
+    {
+      "month": "2024-03",
+      "revenue": 22550479,
+      "profit": 10382474,
+      "orders": 9967,
+      "b2b_revenue": 16803189,
+      "b2c_pobocka_revenue": 4910426,
+      "b2c_eshop_revenue": 696314
+    },
+    {
+      "month": "2024-04",
+      "revenue": 22994562,
+      "profit": 10272824,
+      "orders": 10904,
+      "b2b_revenue": 16758859,
+      "b2c_pobocka_revenue": 5408699,
+      "b2c_eshop_revenue": 694855
+    },
+    {
+      "month": "2024-05",
+      "revenue": 24381823,
+      "profit": 11385726,
+      "orders": 10990,
+      "b2b_revenue": 18243564,
+      "b2c_pobocka_revenue": 5559645,
+      "b2c_eshop_revenue": 683878
+    },
+    {
+      "month": "2024-06",
+      "revenue": 23910657,
+      "profit": 10470039,
+      "orders": 10451,
+      "b2b_revenue": 17799447,
+      "b2c_pobocka_revenue": 5479721,
+      "b2c_eshop_revenue": 550850
+    },
+    {
+      "month": "2024-07",
+      "revenue": 21660819,
+      "profit": 9663154,
+      "orders": 10542,
+      "b2b_revenue": 15701443,
+      "b2c_pobocka_revenue": 5323917,
+      "b2c_eshop_revenue": 565382
+    },
+    {
+      "month": "2024-08",
+      "revenue": 22175586,
+      "profit": 10368227,
+      "orders": 10590,
+      "b2b_revenue": 15993983,
+      "b2c_pobocka_revenue": 5385186,
+      "b2c_eshop_revenue": 714239
+    },
+    {
+      "month": "2024-09",
+      "revenue": 22496568,
+      "profit": 10387919,
+      "orders": 11903,
+      "b2b_revenue": 15818719,
+      "b2c_pobocka_revenue": 5970562,
+      "b2c_eshop_revenue": 626599
+    },
+    {
+      "month": "2024-10",
+      "revenue": 24804196,
+      "profit": 10968536,
+      "orders": 11665,
+      "b2b_revenue": 18312978,
+      "b2c_pobocka_revenue": 5694625,
+      "b2c_eshop_revenue": 589968
+    },
+    {
+      "month": "2024-11",
+      "revenue": 23325881,
+      "profit": 10484245,
+      "orders": 11210,
+      "b2b_revenue": 16875433,
+      "b2c_pobocka_revenue": 5706873,
+      "b2c_eshop_revenue": 652356
+    },
+    {
+      "month": "2024-12",
+      "revenue": 20120637,
+      "profit": 9123900,
+      "orders": 8715,
+      "b2b_revenue": 15212558,
+      "b2c_pobocka_revenue": 4396387,
+      "b2c_eshop_revenue": 385062
+    },
+    {
+      "month": "2025-01",
+      "revenue": 24572494,
+      "profit": 10557811,
+      "orders": 11335,
+      "b2b_revenue": 18218737,
+      "b2c_pobocka_revenue": 5721636,
+      "b2c_eshop_revenue": 572570
+    },
+    {
+      "month": "2025-02",
+      "revenue": 20967852,
+      "profit": 9472786,
+      "orders": 9903,
+      "b2b_revenue": 15226428,
+      "b2c_pobocka_revenue": 4998787,
+      "b2c_eshop_revenue": 621408
+    },
+    {
+      "month": "2025-03",
+      "revenue": 23189592,
+      "profit": 10245295,
+      "orders": 10610,
+      "b2b_revenue": 17077199,
+      "b2c_pobocka_revenue": 5143716,
+      "b2c_eshop_revenue": 580806
+    },
+    {
+      "month": "2025-04",
+      "revenue": 21999010,
+      "profit": 9928106,
+      "orders": 10762,
+      "b2b_revenue": 15874785,
+      "b2c_pobocka_revenue": 5188556,
+      "b2c_eshop_revenue": 572524
+    },
+    {
+      "month": "2025-05",
+      "revenue": 21723863,
+      "profit": 9792920,
+      "orders": 11193,
+      "b2b_revenue": 15511397,
+      "b2c_pobocka_revenue": 5331016,
+      "b2c_eshop_revenue": 526035
+    },
+    {
+      "month": "2025-06",
+      "revenue": 21180544,
+      "profit": 10011830,
+      "orders": 11429,
+      "b2b_revenue": 15087910,
+      "b2c_pobocka_revenue": 5210552,
+      "b2c_eshop_revenue": 657796
+    },
+    {
+      "month": "2025-07",
+      "revenue": 22712050,
+      "profit": 10767961,
+      "orders": 11519,
+      "b2b_revenue": 16208994,
+      "b2c_pobocka_revenue": 5134637,
+      "b2c_eshop_revenue": 571780
+    },
+    {
+      "month": "2025-08",
+      "revenue": 22676854,
+      "profit": 10657950,
+      "orders": 11393,
+      "b2b_revenue": 16665658,
+      "b2c_pobocka_revenue": 5324091,
+      "b2c_eshop_revenue": 655028
+    },
+    {
+      "month": "2025-09",
+      "revenue": 24141210,
+      "profit": 11332202,
+      "orders": 13638,
+      "b2b_revenue": 17426749,
+      "b2c_pobocka_revenue": 5945211,
+      "b2c_eshop_revenue": 622882
+    },
+    {
+      "month": "2025-10",
+      "revenue": 23892066,
+      "profit": 10957284,
+      "orders": 11991,
+      "b2b_revenue": 17170827,
+      "b2c_pobocka_revenue": 5753607,
+      "b2c_eshop_revenue": 636012
+    },
+    {
+      "month": "2025-11",
+      "revenue": 24711223,
+      "profit": 11031547,
+      "orders": 10972,
+      "b2b_revenue": 17852288,
+      "b2c_pobocka_revenue": 5273287,
+      "b2c_eshop_revenue": 448997
+    },
+    {
+      "month": "2025-12",
+      "revenue": 20479312,
+      "profit": 9889926,
+      "orders": 9923,
+      "b2b_revenue": 15011011,
+      "b2c_pobocka_revenue": 4714610,
+      "b2c_eshop_revenue": 400420
+    }
+  ],
+  "top_b2b_customers": [
+    {
+      "name": "H&B SLOVAKIA s.r.o.",
+      "revenue": 26535804,
+      "profit": 522563,
+      "orders": 854,
+      "aov": 31072,
+      "years_active": 3,
+      "margin_pct": 2.0
+    },
+    {
+      "name": "M.A.T. Group, s.r.o.",
+      "revenue": 13908224,
+      "profit": 1565706,
+      "orders": 594,
+      "aov": 23415,
+      "years_active": 3,
+      "margin_pct": 11.3
+    },
+    {
+      "name": "Minit, s.r.o.",
+      "revenue": 10350242,
+      "profit": 4600557,
+      "orders": 1797,
+      "aov": 5760,
+      "years_active": 3,
+      "margin_pct": 44.4
+    },
+    {
+      "name": "LOCKSYSTEMS s.r.o. Korunní",
+      "revenue": 9261854,
+      "profit": 1090237,
+      "orders": 1101,
+      "aov": 8412,
+      "years_active": 3,
+      "margin_pct": 11.8
+    },
+    {
+      "name": "TOKOZ a.s.",
+      "revenue": 6717772,
+      "profit": 2317969,
+      "orders": 184,
+      "aov": 36510,
+      "years_active": 3,
+      "margin_pct": 34.5
+    },
+    {
+      "name": "LOCKSYSTEMS s.r.o. Dejvice",
+      "revenue": 6502991,
+      "profit": 750323,
+      "orders": 1900,
+      "aov": 3423,
+      "years_active": 3,
+      "margin_pct": 11.5
+    },
+    {
+      "name": "SEZAM Chrudim s.r.o.",
+      "revenue": 6441969,
+      "profit": 1543452,
+      "orders": 331,
+      "aov": 19462,
+      "years_active": 3,
+      "margin_pct": 24.0
+    },
+    {
+      "name": "LOCKSYSTEMS s.r.o. Moskevská",
+      "revenue": 6330177,
+      "profit": 750070,
+      "orders": 503,
+      "aov": 12585,
+      "years_active": 3,
+      "margin_pct": 11.8
+    },
+    {
+      "name": "Zámečnictví u Rotta s.r.o.",
+      "revenue": 5576492,
+      "profit": 2377314,
+      "orders": 1100,
+      "aov": 5070,
+      "years_active": 3,
+      "margin_pct": 42.6
+    },
+    {
+      "name": "TREZORCENTRUM s.r.o.",
+      "revenue": 5296139,
+      "profit": 2008521,
+      "orders": 1124,
+      "aov": 4712,
+      "years_active": 3,
+      "margin_pct": 37.9
+    },
+    {
+      "name": "SEZAM.CZ s.r.o.",
+      "revenue": 5087925,
+      "profit": 1670639,
+      "orders": 218,
+      "aov": 23339,
+      "years_active": 3,
+      "margin_pct": 32.8
+    },
+    {
+      "name": "Centrum klíčů, s.r.o.",
+      "revenue": 5079365,
+      "profit": 1748993,
+      "orders": 849,
+      "aov": 5983,
+      "years_active": 3,
+      "margin_pct": 34.4
+    },
+    {
+      "name": "Svět zámků s.r.o.",
+      "revenue": 5024959,
+      "profit": 2229193,
+      "orders": 548,
+      "aov": 9170,
+      "years_active": 3,
+      "margin_pct": 44.4
+    },
+    {
+      "name": "Heimstaden Czech s.r.o.",
+      "revenue": 4807874,
+      "profit": 2221196,
+      "orders": 161,
+      "aov": 29863,
+      "years_active": 3,
+      "margin_pct": 46.2
+    },
+    {
+      "name": "Klíčový servis s.r.o.",
+      "revenue": 4542125,
+      "profit": 1554611,
+      "orders": 1024,
+      "aov": 4436,
+      "years_active": 3,
+      "margin_pct": 34.2
+    },
+    {
+      "name": "VARNET a.s.",
+      "revenue": 4365370,
+      "profit": 1251016,
+      "orders": 39,
+      "aov": 111933,
+      "years_active": 3,
+      "margin_pct": 28.7
+    },
+    {
+      "name": "ALTARA DC s.r.o.",
+      "revenue": 4205953,
+      "profit": 1735852,
+      "orders": 930,
+      "aov": 4523,
+      "years_active": 3,
+      "margin_pct": 41.3
+    },
+    {
+      "name": "ZÁMKAŘSTVÍ JIRO, s.r.o.",
+      "revenue": 4178126,
+      "profit": 1694832,
+      "orders": 708,
+      "aov": 5901,
+      "years_active": 3,
+      "margin_pct": 40.6
+    },
+    {
+      "name": "VELA Velkoobchod železářským zbožím, spol. s r.o.",
+      "revenue": 4164324,
+      "profit": 1582784,
+      "orders": 213,
+      "aov": 19551,
+      "years_active": 3,
+      "margin_pct": 38.0
+    },
+    {
+      "name": "Klíčnictví Marlock s.r.o.",
+      "revenue": 4114885,
+      "profit": 1633891,
+      "orders": 396,
+      "aov": 10391,
+      "years_active": 3,
+      "margin_pct": 39.7
+    },
+    {
+      "name": "PS Lockworld FM s.r.o.",
+      "revenue": 3677193,
+      "profit": 1082788,
+      "orders": 281,
+      "aov": 13086,
+      "years_active": 3,
+      "margin_pct": 29.4
+    },
+    {
+      "name": "KARSTAV GROUP s.r.o.",
+      "revenue": 3632384,
+      "profit": 1596388,
+      "orders": 465,
+      "aov": 7812,
+      "years_active": 3,
+      "margin_pct": 43.9
+    },
+    {
+      "name": "Věra Salabová",
+      "revenue": 3605266,
+      "profit": 1308159,
+      "orders": 876,
+      "aov": 4116,
+      "years_active": 3,
+      "margin_pct": 36.3
+    },
+    {
+      "name": "TWIN s.r.o.",
+      "revenue": 3566306,
+      "profit": 1183767,
+      "orders": 280,
+      "aov": 12737,
+      "years_active": 3,
+      "margin_pct": 33.2
+    },
+    {
+      "name": "Zámkařství Zemek s.r.o.",
+      "revenue": 3539403,
+      "profit": 1795350,
+      "orders": 255,
+      "aov": 13880,
+      "years_active": 3,
+      "margin_pct": 50.7
+    },
+    {
+      "name": "Ladislav Štěpán - RENOBEST",
+      "revenue": 3537894,
+      "profit": 901523,
+      "orders": 526,
+      "aov": 6726,
+      "years_active": 3,
+      "margin_pct": 25.5
+    },
+    {
+      "name": "Jiří Hamouz",
+      "revenue": 3486833,
+      "profit": 1312512,
+      "orders": 582,
+      "aov": 5991,
+      "years_active": 3,
+      "margin_pct": 37.6
+    },
+    {
+      "name": "Jiří Jiří",
+      "revenue": 3481792,
+      "profit": 809097,
+      "orders": 421,
+      "aov": 8270,
+      "years_active": 3,
+      "margin_pct": 23.2
+    },
+    {
+      "name": "Kasper Metal spol. s r.o.",
+      "revenue": 3383171,
+      "profit": 1006829,
+      "orders": 373,
+      "aov": 9070,
+      "years_active": 3,
+      "margin_pct": 29.8
+    },
+    {
+      "name": "Richard Zeiss",
+      "revenue": 3278335,
+      "profit": 1363221,
+      "orders": 430,
+      "aov": 7624,
+      "years_active": 3,
+      "margin_pct": 41.6
+    },
+    {
+      "name": "Louda Auto a.s.",
+      "revenue": 3232928,
+      "profit": 1443431,
+      "orders": 2,
+      "aov": 1616464,
+      "years_active": 1,
+      "margin_pct": 44.6
+    },
+    {
+      "name": "Moravia Keys s.r.o.",
+      "revenue": 3053345,
+      "profit": 1109219,
+      "orders": 332,
+      "aov": 9197,
+      "years_active": 3,
+      "margin_pct": 36.3
+    },
+    {
+      "name": "H&B SLOVAKIA s.r.o. Košice",
+      "revenue": 3003668,
+      "profit": 51893,
+      "orders": 266,
+      "aov": 11292,
+      "years_active": 3,
+      "margin_pct": 1.7
+    },
+    {
+      "name": "KEY NON STOP,spol. s r.o.",
+      "revenue": 2989840,
+      "profit": 1231428,
+      "orders": 406,
+      "aov": 7364,
+      "years_active": 3,
+      "margin_pct": 41.2
+    },
+    {
+      "name": "Patrik Dolina",
+      "revenue": 2896217,
+      "profit": 1214914,
+      "orders": 143,
+      "aov": 20253,
+      "years_active": 3,
+      "margin_pct": 41.9
+    },
+    {
+      "name": "VAMA, s.r.o.",
+      "revenue": 2798565,
+      "profit": 601482,
+      "orders": 531,
+      "aov": 5270,
+      "years_active": 3,
+      "margin_pct": 21.5
+    },
+    {
+      "name": "Selník Kovoslužba s.r.o.",
+      "revenue": 2763060,
+      "profit": 1218742,
+      "orders": 285,
+      "aov": 9695,
+      "years_active": 3,
+      "margin_pct": 44.1
+    },
+    {
+      "name": "Mgr. L. Miklošín - Kování pro Váš domov",
+      "revenue": 2641586,
+      "profit": 599115,
+      "orders": 366,
+      "aov": 7217,
+      "years_active": 3,
+      "margin_pct": 22.7
+    },
+    {
+      "name": "Klíčové a trezorové centrum Hausner-Plný s.r.o.",
+      "revenue": 2630370,
+      "profit": 939916,
+      "orders": 477,
+      "aov": 5514,
+      "years_active": 3,
+      "margin_pct": 35.7
+    },
+    {
+      "name": "TOR Cheb, spol. s r.o.",
+      "revenue": 2625920,
+      "profit": 709154,
+      "orders": 432,
+      "aov": 6079,
+      "years_active": 3,
+      "margin_pct": 27.0
+    },
+    {
+      "name": "VESTO spol. s r. o.",
+      "revenue": 2619861,
+      "profit": 712000,
+      "orders": 165,
+      "aov": 15878,
+      "years_active": 3,
+      "margin_pct": 27.2
+    },
+    {
+      "name": "Václav Princ, s.r.o.",
+      "revenue": 2520134,
+      "profit": 509563,
+      "orders": 168,
+      "aov": 15001,
+      "years_active": 3,
+      "margin_pct": 20.2
+    },
+    {
+      "name": "ADOR CZ s.r.o.",
+      "revenue": 2469997,
+      "profit": 587497,
+      "orders": 70,
+      "aov": 35286,
+      "years_active": 3,
+      "margin_pct": 23.8
+    },
+    {
+      "name": "Tomáš Kraupner",
+      "revenue": 2449998,
+      "profit": 1019385,
+      "orders": 460,
+      "aov": 5326,
+      "years_active": 3,
+      "margin_pct": 41.6
+    },
+    {
+      "name": "Jaroslav Straka s.r.o.",
+      "revenue": 2420462,
+      "profit": 924958,
+      "orders": 156,
+      "aov": 15516,
+      "years_active": 3,
+      "margin_pct": 38.2
+    },
+    {
+      "name": "Pavel Svoboda, ELEKTROS",
+      "revenue": 2408876,
+      "profit": 1025518,
+      "orders": 358,
+      "aov": 6729,
+      "years_active": 3,
+      "margin_pct": 42.6
+    },
+    {
+      "name": "Bezpečnostní informační služba",
+      "revenue": 2403006,
+      "profit": 1986224,
+      "orders": 56,
+      "aov": 42911,
+      "years_active": 3,
+      "margin_pct": 82.7
+    },
+    {
+      "name": "Josef Bubák",
+      "revenue": 2386885,
+      "profit": 778709,
+      "orders": 210,
+      "aov": 11366,
+      "years_active": 3,
+      "margin_pct": 32.6
+    },
+    {
+      "name": "Gasta & Čoupek s.r.o.",
+      "revenue": 2385094,
+      "profit": 943269,
+      "orders": 276,
+      "aov": 8642,
+      "years_active": 3,
+      "margin_pct": 39.5
+    },
+    {
+      "name": "Jaroslav Šlégr",
+      "revenue": 2354078,
+      "profit": 956209,
+      "orders": 337,
+      "aov": 6985,
+      "years_active": 3,
+      "margin_pct": 40.6
+    }
+  ],
+  "b2b_unique_customers": 3092
+}
