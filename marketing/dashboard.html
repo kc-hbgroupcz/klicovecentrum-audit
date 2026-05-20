@@ -2255,7 +2255,24 @@ function renderRegions(d) {
 // ═══════════════════════════════════════════════════════════════
 
 let mapaInstance = null;   // Leaflet instance (lifecycle)
-let mapaData = null;       // cache {pobocky, regions, geo}
+let mapaData = null;       // cache {pobocky, regions, geo, erp}
+let mapaMeta = null;       // poslední meta (pro re-render při změně metriky)
+let mapMetric = 'obrat';   // obrat | marze | b2b
+
+// Barva dle marže (🔴 nízká → 🩵 vysoká)
+function marginColor(pct) {
+  if (pct == null) return '#8b93a7';
+  if (pct < 10) return '#ef4444';
+  if (pct < 25) return '#fb923c';
+  if (pct < 40) return '#facc15';
+  if (pct < 50) return '#4ade80';
+  return '#22d3ee';
+}
+
+function setMapMetric(m) {
+  mapMetric = m;
+  if (mapaMeta) drawMapaCR(mapaMeta);
+}
 
 function normalizeKraj(n) {
   if (!n) return n;
@@ -2269,12 +2286,13 @@ async function renderMapaCR(meta) {
   const main = document.getElementById('main');
   try {
     if (!mapaData) {
-      const [pobR, regR, geoR] = await Promise.all([
+      const [pobR, regR, geoR, erpR] = await Promise.all([
         fetch('../data/marketing/pobocky.json?v=' + Date.now()).then(r => r.json()),
         fetch('../data/marketing/regions_map.json?v=' + Date.now()).then(r => r.json()),
         fetch('../data/marketing/cz_kraje.geojson?v=' + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null),
+        fetch('../data/marketing/erp_3y.json?v=' + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null),
       ]);
-      mapaData = { pobocky: pobR, regions: regR, geo: geoR };
+      mapaData = { pobocky: pobR, regions: regR, geo: geoR, erp: erpR };
     }
     drawMapaCR(meta);
   } catch (e) {
@@ -2283,18 +2301,25 @@ async function renderMapaCR(meta) {
 }
 
 function drawMapaCR(meta) {
+  mapaMeta = meta;
   const main = document.getElementById('main');
   const geo = mapaData.geo;
+  const btn = (m, label) => `<button onclick="setMapMetric('${m}')" style="padding:6px 12px;border-radius:8px;border:1px solid ${mapMetric===m?'var(--accent)':'var(--border)'};background:${mapMetric===m?'rgba(78,161,255,0.15)':'transparent'};color:${mapMetric===m?'var(--accent)':'var(--text-muted)'};font-weight:600;font-size:12.5px;cursor:pointer;">${label}</button>`;
+  const legend = mapMetric === 'marze'
+    ? `<span style="color:var(--text-muted)">Barva bodu = marže (🔴 &lt;10 % → 🟠 → 🟡 → 🟢 → 🩵 &gt;50 %), velikost = obrat (${yearLabel()}). Choropleth = objednávky eshopu/kraj.</span>`
+    : mapMetric === 'b2b'
+    ? `<span style="color:var(--text-muted)">Top 5 B2B zákazníků (ERP 3y) v panelu vpravo dole. Body poboček ztlumené (= obrat). Choropleth = objednávky/kraj.</span>`
+    : `<span><span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:#a78bfa;vertical-align:middle;"></span> B2B pobočka &nbsp; <span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:#4ade80;vertical-align:middle;"></span> B2C pobočka &nbsp; <span style="color:var(--text-muted)">velikost = obrat (${yearLabel()}). Choropleth = objednávky/kraj.</span></span>`;
   main.innerHTML = `
     <div class="section-title">${meta.title}${yearChip()}</div>
     <div class="section-subtitle">${meta.subtitle} · ${yearLabel()}</div>
     <div class="card" style="margin-bottom:12px;">
-      <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:center; font-size:13px;">
-        <span><span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:#a78bfa;vertical-align:middle;"></span> B2B pobočka</span>
-        <span><span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:#4ade80;vertical-align:middle;"></span> B2C pobočka</span>
-        <span style="color:var(--text-muted)">Velikost bodu = obrat (${yearLabel()}). Choropleth = objednávky eshopu/kraj.</span>
-        <span style="margin-left:auto;color:var(--text-muted)">Vrstvy ▸ vpravo nahoře na mapě</span>
+      <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:10px;">
+        <span style="font-size:12px;color:var(--text-muted);margin-right:4px;">Metrika:</span>
+        ${btn('obrat', '💰 Obrat')} ${btn('marze', '📈 Marže')} ${btn('b2b', '👤 Top 5 B2B zákazníci')}
+        <span style="margin-left:auto;color:var(--text-muted);font-size:12px;">Vrstvy ▸ vpravo nahoře na mapě</span>
       </div>
+      <div style="font-size:13px;">${legend}</div>
     </div>
     <div class="card" style="padding:0; overflow:hidden;">
       <div id="mapaCR" style="height:560px; width:100%;"></div>
@@ -2344,25 +2369,50 @@ function initLeaflet() {
     overlays['🌍 Kraje (objednávky)'] = krajLayer;
   }
 
-  // ── Body poboček (nad chropletem) ──
+  // ── Body poboček (nad chropletem), kódování dle metriky ──
   const pobocky = (pobD.pobocky || []).filter(p => p.lat != null && p.lng != null);
   const obratFor = p => STATE.year === 'all' ? p.total_obrat : ((p.by_year && p.by_year[STATE.year] && p.by_year[STATE.year].obrat) || 0);
+  const marginFor = p => STATE.year === 'all' ? p.margin_pct : ((p.by_year && p.by_year[STATE.year] && p.by_year[STATE.year].margin_pct) ?? p.margin_pct);
   const maxObrat = Math.max(1, ...pobocky.map(obratFor));
   const pobLayer = L.layerGroup();
   for (const p of pobocky) {
     const ob = obratFor(p);
+    const mg = marginFor(p);
     const r = 6 + Math.sqrt(Math.max(ob, 0) / maxObrat) * 24;
-    const margin = STATE.year === 'all' ? p.margin_pct : ((p.by_year && p.by_year[STATE.year] && p.by_year[STATE.year].margin_pct) ?? p.margin_pct);
+    const fill = mapMetric === 'marze' ? marginColor(mg) : brandColor(p.brand);
+    const opacity = mapMetric === 'b2b' ? 0.4 : 0.72;
     const marker = L.circleMarker([p.lat, p.lng], {
-      radius: r, color: '#fff', weight: 1.2, fillColor: brandColor(p.brand), fillOpacity: 0.7,
+      radius: r, color: '#fff', weight: 1.2, fillColor: fill, fillOpacity: opacity,
     });
-    marker.bindPopup(`<strong>${p.nazev}</strong><br>${p.mesto} · <span style="color:${brandColor(p.brand)}">${p.brand}</span> · ${p.region_nazev || ''}<br>Obrat ${yearLabel()}: <strong>${fmtKc(ob)}</strong><br>Marže: ${fmtPct(margin)}`);
+    marker.bindPopup(`<strong>${p.nazev}</strong><br>${p.mesto} · <span style="color:${brandColor(p.brand)}">${p.brand}</span> · ${p.region_nazev || ''}<br>Obrat ${yearLabel()}: <strong>${fmtKc(ob)}</strong><br>Marže: <strong style="color:${marginColor(mg)}">${fmtPct(mg)}</strong>`);
     pobLayer.addLayer(marker);
   }
   pobLayer.addTo(map);
   overlays['📍 Pobočky'] = pobLayer;
 
   L.control.layers(null, overlays, { collapsed: false }).addTo(map);
+
+  // ── Top 5 B2B zákazníci (panel na mapě — bez geo, proto seznam) ──
+  if (mapMetric === 'b2b') {
+    const erp = mapaData.erp || {};
+    const cust = (erp.top_b2b_customers || [])
+      .filter(c => !/H&B\s*SLOVAKIA|HB\s*SLOVAKIA/i.test(c.name || ''))
+      .slice(0, 5);
+    const ctrl = L.control({ position: 'bottomleft' });
+    ctrl.onAdd = function () {
+      const div = L.DomUtil.create('div');
+      div.style.cssText = 'background:var(--bg-card);border:1px solid var(--accent);border-radius:10px;padding:10px 12px;max-width:320px;box-shadow:0 4px 16px rgba(0,0,0,0.4);';
+      div.innerHTML = '<div style="font-weight:700;color:var(--accent);font-size:13px;margin-bottom:6px;">👤 Top 5 B2B zákazníků (ERP 3y)</div>' +
+        (cust.length ? cust.map((c, i) =>
+          `<div style="font-size:12px;margin:4px 0;display:flex;justify-content:space-between;gap:12px;"><span>${i + 1}. ${(c.name || '').slice(0, 26)}</span><span style="white-space:nowrap;">${fmtKc(c.revenue)} · <span style="color:${marginColor(c.margin_pct)}">${fmtPct(c.margin_pct)}</span></span></div>`
+        ).join('') : '<div style="font-size:12px;color:var(--text-muted)">Data nedostupná (erp_3y.json)</div>') +
+        '<div style="font-size:10px;color:var(--text-muted);margin-top:6px;">Interní převody (H&B SLOVAKIA) vyfiltrovány. Zákazníci nemají geo → panel místo bodů. (3-letý součet, neovlivní roční filtr.)</div>';
+      L.DomEvent.disableClickPropagation(div);
+      return div;
+    };
+    ctrl.addTo(map);
+  }
+
   setTimeout(() => map.invalidateSize(), 120);
 }
 
